@@ -1,0 +1,17 @@
+{
+  "status": "REPRODUCED_NOT_ACCEPTED",
+  "source_commit": "37aae09bad3c27f7bade90595276242ef0a48985",
+  "verified_source_tree": "d2a30ea390d436e7b156708b76c817dd3eea6053",
+  "package_sha256": "d48a72dfe9710128a56d31ff4dede0afb10da73e3a534b38513f3de47c9d90a3",
+  "protocol_sha256": "ccbf53cb04381457677263cf6056f99f7ab927eecccecde82076a357626997a2",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "runner_sha256": "80c73d1ce430198ae097c8da7dad507f19dde43e2ec3e8c64f8019faab2cee3b",
+  "runtime": {"python": "3.13.5", "numpy": "2.3.5", "pandas": "2.2.3"},
+  "period": ["2023-01-03", "2025-12-31"],
+  "candidate_count": 12,
+  "selection_scopes": 3,
+  "replays": 39,
+  "selected_candidate": 0,
+  "objective": -1.2481279784108539,
+  "decision": "Reproduced the preserved parent objective exactly. Implement only the preregistered retention hypothesis; compare the same 2023-2025 objectives before evaluating 2026. No economic acceptance is implied."
+}
