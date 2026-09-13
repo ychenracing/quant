@@ -1,0 +1,22 @@
+name: Acquire public research data
+on:
+  push:
+    branches: [research/technology-strategy]
+    paths: [research/acquire_public_data.py, .github/workflows/acquire-public-data.yml]
+permissions:
+  contents: read
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - run: python research/acquire_public_data.py
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: public-data-evidence
+          path: public-data-evidence/
+          retention-days: 7
+          if-no-files-found: error
