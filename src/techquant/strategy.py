@@ -17,14 +17,15 @@ from .features import Features
 class RiskState:
     cap: float = 0.
     healthy: int = 0
+    episode_peak: float = 0.
 
     def update(self, i: int, f: Features, equity: list[float],
                config: Config) -> tuple[float, str]:
         if not f.ready[i].any():
             self.cap, self.healthy = 0., 0
             return 0., 'WARMUP_OR_NO_FRESH_QUOTES'
-        peak = max(equity[-config.slow:])
-        dd = 1 - equity[-1] / peak
+        self.episode_peak = max(self.episode_peak, equity[-1])
+        dd = 1 - equity[-1] / self.episode_peak
         loss = equity[-1] / equity[-2] - 1 if len(equity) > 1 else 0.
         shock = ((f.market_return[i] < -max(.025, config.shock_z * f.market_vol[i])
                   and f.breadth[i] < .5) or f.shock_fraction[i] >= .6)
@@ -32,23 +33,32 @@ class RiskState:
             desired, reason = 0., 'CROSS_SECTION_SHOCK'
         elif dd >= config.risk_drawdown and loss < -.01:
             desired, reason = 0., 'PORTFOLIO_DRAWDOWN_SHOCK'
-        elif f.market_dd[i] >= config.risk_drawdown and f.weak[i]:
-            desired, reason = .25, 'MARKET_DRAWDOWN'
-        elif f.breadth[i] < .2 and f.weak[i]:
-            desired, reason = .25, 'BREADTH_BREAKDOWN'
-        elif f.weak[i] and f.breadth[i] < .5:
-            desired, reason = .5, 'WEAK_TREND'
-        elif dd >= config.risk_drawdown * 2 / 3 and loss < -.005:
+        elif (f.market_dd[i] >= config.risk_drawdown and f.weak[i]
+              and f.breadth[i] < .2):
+            desired = .5 if bool(np.any(f.entry[i] & ~f.exit[i])) else .25
+            reason = 'BROAD_TREND_BREAKDOWN'
+        elif (dd >= config.risk_drawdown * 2 / 3
+              and loss < -max(.02, 1.5 * f.market_vol[i])):
             desired, reason = .5, 'PORTFOLIO_WARNING'
         else:
-            desired, reason = 1., 'TREND_OPEN'
+            # An index warning is not an automatic veto on intact technology
+            # leadership. Distinguish observation from an actual risk-budget cut.
+            desired = 1.
+            reason = 'MARKET_WEAK_WARNING' if f.weak[i] else 'TREND_OPEN'
         if desired < self.cap:
             self.cap, self.healthy = desired, 0
         elif desired > self.cap:
             # A sequence of observed healthy closes, not a known crash-end date.
-            self.healthy = self.healthy + 1 if f.breadth[i] >= .5 and not f.weak[i] else 0
+            broad_recovery = f.breadth[i] >= .5 and not f.weak[i]
+            selective_recovery = (f.market_return[i] > -f.market_vol[i]
+                                  and bool(np.any(f.entry[i] & ~f.exit[i])))
+            self.healthy = self.healthy + 1 if broad_recovery or selective_recovery else 0
             if self.healthy >= config.recovery:
-                self.cap = min(desired, self.cap + 1 / config.recovery)
+                # Re-arm intervention for new risk capital, rather than repeatedly
+                # liquidating on the same old loss. Reported NAV/drawdown never reset.
+                if self.cap == 0:
+                    self.episode_peak = equity[-1]
+                self.cap = desired
                 reason = 'CONFIRMED_RECOVERY'
             else:
                 reason = 'RECOVERY_WAIT'
@@ -87,7 +97,7 @@ def _allocate(indices: list[int], score: np.ndarray, sectors: tuple[str, ...],
 
 
 def target_weights(i: int, f: Features, current: np.ndarray, config: Config,
-                   *, cap: float, rebalance: bool) -> tuple[np.ndarray, list[str]]:
+                   *, cap: float, rebalance: bool, risk_reduction: bool = False) -> tuple[np.ndarray, list[str]]:
     current = np.asarray(current, dtype=float)
     if not np.isfinite(current).all() or (current < -1e-10).any():
         raise ValueError('invalid current portfolio weights')
@@ -97,14 +107,15 @@ def target_weights(i: int, f: Features, current: np.ndarray, config: Config,
     if np.any(forced & (want > 0)):
         want[forced] = 0.
         reasons.append('TREND_EXIT_OR_STALE')
-    if current.sum() > cap + 1e-10:
+    ceiling = cap if risk_reduction or cap <= 0 else min(1., cap + config.trade_band)
+    if current.sum() > ceiling + 1e-10:
         reasons.append('RISK_REDUCTION')
     if cap <= 0:
         return np.zeros_like(current), reasons
     if rebalance:
         eligible = f.ready[i] & ~f.exit[i] & (f.entry[i] | (current > 0)) & (f.score[i] > 0)
         # Incumbent preference is a turnover control, never a permanent exemption.
-        priority = f.score[i] + np.where(current > 0, .10 * np.maximum(f.score[i], 0), 0)
+        priority = f.score[i] + np.where(current > 0, .25 * np.maximum(f.score[i], 0), 0)
         indices = sorted(np.flatnonzero(eligible), key=lambda j: (-priority[j], f.symbols[j]))
         indices = indices[:config.max_positions]
         candidate = _allocate(indices, f.score[i], f.sectors, config, len(current))
@@ -121,6 +132,6 @@ def target_weights(i: int, f: Features, current: np.ndarray, config: Config,
     symbol_cap = max(config.single_cap, 1 / len(current))
     over = want > symbol_cap + config.trade_band
     want[over] = symbol_cap
-    if want.sum() > cap:
+    if want.sum() > ceiling:
         want *= cap / want.sum()
     return np.maximum(want, 0.), reasons

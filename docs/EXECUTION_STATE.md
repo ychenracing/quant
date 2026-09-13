@@ -1,30 +1,23 @@
 # Execution state
 
-Status: active implementation; economics NOT accepted.
+Active implementation; economic superiority NOT accepted; main is still the initial LICENSE-only revision.
 
-## Authorized scope
+## Scope
 
-Independently implement a cash-only, long-only, daily A-share technology decision-support system. Reference the four projects in `ychenracing/trades` read-only; do not fork a strategy, copy reference functions, or inherit a reference engine. Work from 2023-01-03 only, including indicator warm-up. Preserve code and research incrementally on `research/independent-tech`; publish a truthful usable delivery to main without a further approval request. No automatic orders and no claim of universal superiority without evidence.
+Independently written A-share technology, cash-long-only daily research and human decision support. No reference strategy is the implementation base. Reference projects are read-only external comparators. Period starts 2023-01-03; signals after the close, execution no earlier than the next session; no broker integration, leverage or shorting.
 
-## Recovery point verified on 2026-09-13
+## Preserved progress
 
-- main: `234cc5729455ce5440b0a5307aadbcb9c1c0bbc4` (LICENSE only).
-- resumed branch: `research/independent-tech`, previous HEAD `3fd96a75f34ce47ce7bbfd751784130162eaa145`.
-- Existing research contract and acquisition scripts retained. Other branch `research/technology-strategy` is preserved, not rewritten.
-- No AGENTS.md exists in either main or the resumed branch at these revisions.
-- Local direct Git access cannot resolve github.com; the authorized GitHub connector supports repository reads and is used for writes.
+The earlier independent-engine checkpoint is `07dd462690c2729984e46b26e3ceac27d0339a4e`; rejected bootstrap evidence remains under evidence/. This update preserves explicit execution intent, buy-and-hold semantics, protective small-order handling, bounded budget drift, progressive causal warm-up and risk-episode re-arming. Reported NAV and drawdown never reset. Nineteen compact offline tests passed locally in 0.601 seconds before this update. This is engineering evidence, not an economic pass.
 
-## Available evidence
+The original 2023-2025 34-stock bootstrap returned wealth 2.6031143 with 19.6938% drawdown and 285 fills. It was rejected. Intermediate diagnostics after correctness fixes remained below buy-and-hold; they are not canonical acceptance evidence. No claim of improvement over all four projects is justified yet.
 
-Uploaded archives: `trades-engineering-source-evidence.zip`, `quant-market-evidence.zip`, `quant-market-supplement.zip`, `quant-public-data-evidence.zip`, `gquant-economic-evidence.zip`, `uquant-frozen-data-evidence.zip`.
-The first supplies read-only comparator source. The primary market archive supplies raw and adjusted OHLCV for the technology union, plus observation indices. Complete regular histories run 2023-01-03 to 2026-09-11 (896 sessions); IPOs and suspensions have shorter histories. The original Tencent `bj920045` response has only one bar; the explicitly supplied Eastmoney supplement has 170 bars starting 2025-12-31. Do not silently treat shortened histories as full coverage. Corporate-action accounting and point-in-time universe provenance must be audited before any execution-grade economic claim.
+## Reference work
 
-## Implementation plan
+The four current strategy directories are chatgpt/turtle_dual, trae/glmcsm, dumate/momentum_rotation, workbuddy/track_trend. Their configured union has 34 names. The original trae pool identifier 24 actually contains 26 names. A read-only native harness is being prepared locally; it preserves original alpha, execution and fees, changing only data input, scope and capital. Native semantics differ and cannot be called equal-execution acceptance. Initial common-five native replays measured wealth 10.6748619 (trae), 20.2210730 (workbuddy) and 1.4650096 (dumate), through 2026-09-11. Chatgpt replay has not yet completed; interrupted attempts are retained. Full manifests and curves will be published with the finished harness.
 
-1. Audit data hashes, coverage, adjustments and the four reference entry points; record baseline identities and limitations.
-2. Write an independent small package separating validated data, causal trend selection, asymmetric risk budgeting/recovery, next-session execution, and evidence/CLI. One global parameter set, no symbol/date alpha switches.
-3. Check critical invariants with a compact offline suite: causal prefixes, cash/position conservation, next-session timing, blocked fills, risk-exit priority and deterministic evidence.
-4. Run original-pool/leader-removal/subset/cost/regime diagnostics and native comparators where reproducible. Preserve all candidates and failures; never substitute proxy returns for native acceptance.
-5. Publish architecture/parameters/operations/results/limitations and exact source/data/runtime identity; run short validation, push and read back the resulting branch and main SHAs.
+## Frozen next research step
 
-No strategy implementation or economic test has yet been completed at this checkpoint. This document will be updated with actual results rather than used as evidence of completion.
+`research/protocol.json` fixes 12 candidates and the 2023-2025 numerical selection rule before executing the grid. Scope includes the union, common five and joint removal of the three optical leaders. 2026 is a retrospective stress evaluation, not a prospective untouched sample: its crash was already identified by the user. Do not expand the grid after observing 2026 results or silently relabel failures.
+
+Remaining: finish strict data/hash audit, run and preserve the fixed grid, full pool/removal/subset/cost/delay/regime evaluation, native baselines, CLI/architecture/parameter/operations/results documentation, short CI, exact-source verification, then publish truthful working delivery to main. No economic conclusion is implied by publication.

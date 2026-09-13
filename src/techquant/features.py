@@ -35,13 +35,17 @@ def build_features(market: Market, config: Config) -> Features:
     close = quoted.ffill()  # marks over gaps, but readiness below still requires a fresh quote.
     returns = close.pct_change(fill_method=None)
     fast = close.rolling(config.fast, min_periods=config.fast).mean()
-    slow = close.rolling(config.slow, min_periods=config.slow).mean()
+    # Grow the slow window from the first fast observations. This is not
+    # backfilling pre-IPO history: each anchor only exists after its first quote.
+    slow = close.rolling(config.slow, min_periods=config.fast).mean()
     count = active.cumsum()
-    ready = active & (count >= config.slow) & (
+    ready = active & (count >= config.fast) & (
         active.rolling(config.fast, min_periods=config.fast).mean() >= .8)
     r_fast = close / close.shift(config.fast) - 1
-    r_slow = close / close.shift(config.slow) - 1
-    r_long = (close / close.shift(2 * config.slow) - 1).fillna(r_slow)
+    anchor = quoted.where(active & (count == 1)).ffill()
+    since_observed = close / anchor - 1
+    r_slow = (close / close.shift(config.slow) - 1).fillna(since_observed)
+    r_long = (close / close.shift(4 * config.slow) - 1).fillna(since_observed)
     vol = returns.rolling(config.fast, min_periods=config.fast).std(ddof=0).clip(lower=.008)
     tr = pd.DataFrame(np.maximum.reduce([
         (market.panel('high') - market.panel('low')).to_numpy(),
@@ -58,8 +62,8 @@ def build_features(market: Market, config: Config) -> Features:
     exit_signal = ((close < slow) & (r_fast < 0)) | (
         (peak - close > config.stop_atr * atr) & (close < fast)) | (
         (returns < -np.maximum(.08, config.shock_z * vol.shift())) & (close < fast))
-    score = (.2 * np.log1p(r_fast) + .4 * np.log1p(r_slow) +
-             .4 * np.log1p(r_long)) / np.sqrt(vol)
+    score = (.2 * np.log1p(r_fast) + .3 * np.log1p(r_slow) +
+             .5 * np.log1p(r_long)) / np.sqrt(vol)
     score = score.where(ready, -np.inf).fillna(-np.inf)
     # No fixed leader basket: removal tests remove a name from signals as well.
     breadth = ((close > fast) & ready).sum(axis=1).div(ready.sum(axis=1).replace(0, np.nan)).fillna(0)

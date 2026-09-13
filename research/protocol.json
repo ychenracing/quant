@@ -1,0 +1,169 @@
+{
+  "status": "FROZEN_BEFORE_GRID",
+  "seed": 34,
+  "selection_end": "2025-12-31",
+  "evaluation_end": "2026-09-11",
+  "selection_scope": [
+    "union",
+    "chatgpt_5",
+    "joint_optical_leader_removal"
+  ],
+  "candidate_count": 12,
+  "candidates": [
+    {
+      "fast": 10,
+      "slow": 40,
+      "rebalance": 10,
+      "max_positions": 2,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 10,
+      "slow": 40,
+      "rebalance": 10,
+      "max_positions": 3,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 20,
+      "slow": 60,
+      "rebalance": 10,
+      "max_positions": 2,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 20,
+      "slow": 60,
+      "rebalance": 10,
+      "max_positions": 3,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 20,
+      "slow": 120,
+      "rebalance": 20,
+      "max_positions": 2,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 20,
+      "slow": 120,
+      "rebalance": 20,
+      "max_positions": 3,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 30,
+      "slow": 120,
+      "rebalance": 20,
+      "max_positions": 2,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 30,
+      "slow": 120,
+      "rebalance": 20,
+      "max_positions": 3,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 20,
+      "slow": 180,
+      "rebalance": 40,
+      "max_positions": 2,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 20,
+      "slow": 180,
+      "rebalance": 40,
+      "max_positions": 3,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 40,
+      "slow": 180,
+      "rebalance": 40,
+      "max_positions": 2,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    },
+    {
+      "fast": 40,
+      "slow": 180,
+      "rebalance": 40,
+      "max_positions": 3,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "risk_drawdown": 0.18,
+      "trade_band": 0.08
+    }
+  ],
+  "selection_objective": "mean(log(candidate_wealth / same_pool_buy_hold_wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20)) across selection scopes; ties prefer fewer orders then smaller candidate index",
+  "frozen_parameters_outside_grid": {
+    "single_cap": 0.55,
+    "sector_cap": 0.75,
+    "shock_z": 2.5,
+    "recovery": 3,
+    "initial_cash": 2000000.0,
+    "commission_bps": 2.5,
+    "slippage_bps": 10.0,
+    "max_adv": 0.005
+  },
+  "time_windows": {
+    "full": [
+      "2023-01-03",
+      "2026-09-11"
+    ],
+    "bull": [
+      "2023-01-03",
+      "2026-06-30"
+    ],
+    "late_june_august": [
+      "2026-06-22",
+      "2026-08-31"
+    ],
+    "july_august": [
+      "2026-07-01",
+      "2026-08-31"
+    ],
+    "recovery": [
+      "2026-09-01",
+      "2026-09-11"
+    ]
+  },
+  "interpretation": "Retrospective development, not a prospective holdout. The user already identified the 2026 crash. Only 2023-2025 numerical results determine the selected parameter set. Full evaluation may fail; no post-2026 grid expansion.",
+  "delivery": "Publish working research code and all failures. Economic superiority requires equivalent-accounting/execution comparisons and cannot be inferred from this grid."
+}

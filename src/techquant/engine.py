@@ -70,10 +70,12 @@ def run(market: Market, config: Config | None = None, *,
     units = np.zeros(len(names))
     cash = cfg.initial_cash
     decisions = np.zeros((n, len(names)))
+    actions = np.zeros_like(decisions, dtype=bool)
+    urgent = np.zeros_like(decisions, dtype=bool)
+    buy_hold_budget = np.full(len(names), cfg.initial_cash / len(names))
     rows, orders, history = [], [], []
     risk = RiskState()
     last_cap = 0.
-    acquired = np.zeros(len(names), dtype=bool)
     for i in range(begin, n):
         date = str(market.calendar[i].date())
         if i >= begin + delay:
@@ -83,11 +85,15 @@ def run(market: Market, config: Config | None = None, *,
             value = np.nan_to_num(units * open_marks, nan=0.)
             opening_nav = cash + value.sum()
             difference = pending * opening_nav - value
+            if benchmark == 'buy_hold':
+                # Spend each original cash slice once; never sell to restore weights.
+                difference = buy_hold_budget.copy()
+            difference[~actions[signal_i]] = 0.
             # Sells first. Stable symbol order ensures replay/subset order invariance.
             for side in ('SELL', 'BUY'):
                 for j, symbol in enumerate(names):
                     delta = float(difference[j])
-                    protective = side == 'SELL' and pending[j] == 0 and units[j] > 1e-10
+                    protective = side == 'SELL' and (pending[j] == 0 or urgent[signal_i, j]) and units[j] > 1e-10
                     if (side == 'SELL' and delta >= -1e-7) or (side == 'BUY' and delta <= 1e-7):
                         continue
                     # The signal generator handles bands; executable materiality is
@@ -118,7 +124,7 @@ def run(market: Market, config: Config | None = None, *,
                     if side == 'SELL':
                         quantity = min(quantity, units[j])
                         # Full odd-lot disposal, only when the capacity permits it.
-                        if protective and units[j] * op[i, j] <= capacity + 1e-8:
+                        if pending[j] == 0 and units[j] * op[i, j] <= capacity + 1e-8:
                             quantity = units[j]
                             raw_quantity = quantity * op[i, j] / rop[i, j]
                     if side == 'BUY':
@@ -144,7 +150,8 @@ def run(market: Market, config: Config | None = None, *,
                     cash -= direction * notional + charge
                     if abs(units[j]) < 1e-8:
                         units[j] = 0.
-                    acquired[j] |= side == 'BUY'
+                    if benchmark == 'buy_hold' and side == 'BUY':
+                        buy_hold_budget[j] = max(0., buy_hold_budget[j] - notional - charge)
                     order.update(status='FILLED', reason='NEXT_OPEN', units=float(quantity),
                                  raw_quantity_equivalent=float(raw_quantity), notional=float(notional),
                                  fee=float(charge), slippage=float(abs(slipped - op[i, j]) * quantity))
@@ -168,9 +175,8 @@ def run(market: Market, config: Config | None = None, *,
                     decisions[i] = weights
             else:
                 decisions[i] = weights
-                new = available & ~acquired
-                # Reserve one initial-capital slice per symbol, including later IPOs.
-                desired = np.where(new, cfg.initial_cash / len(names) / nav, 0.)
+                # Preserve unspent initial-capital slices across IPOs and blocked fills.
+                desired = np.where(available, buy_hold_budget / nav, 0.)
                 budget = max(0., 1 - weights.sum())
                 if desired.sum() > budget:
                     desired *= budget / desired.sum()
@@ -178,8 +184,13 @@ def run(market: Market, config: Config | None = None, *,
         else:
             cap, reason = risk.update(i, f, history, cfg)
             rebalance = (i - begin) % cfg.rebalance == 0 or cap > last_cap + 1e-10
-            decisions[i], why = target_weights(i, f, weights, cfg, cap=cap, rebalance=rebalance)
+            decisions[i], why = target_weights(i, f, weights, cfg, cap=cap, rebalance=rebalance,
+                                                     risk_reduction=cap < last_cap - 1e-10)
             reason = '|'.join([reason, *why])
+        actions[i] = np.abs(decisions[i] - weights) > 1e-10
+        # A target reduction is deliberate, not noise: the policy already applies
+        # its hysteresis. Keep risk reductions executable below ordinary materiality.
+        urgent[i] = decisions[i] < weights - 1e-10
         last_cap = cap
         rows.append({'date': market.calendar[i], 'nav': nav, 'cash': float(cash),
                      'holdings': float(holdings.sum()), 'exposure': float(weights.sum()),
