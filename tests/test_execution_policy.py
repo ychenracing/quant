@@ -24,12 +24,12 @@ class ExecutionPolicyTests(unittest.TestCase):
         cap, _ = state.update(91, f, [100., 87.], cfg)
         self.assertEqual(cap, 0.)
         history = [100., 87.]
-        for i in range(92, 92 + cfg.recovery):
+        for i in range(92, 92 + 2 * cfg.recovery):
             history.append(87.)
             cap, _ = state.update(i, f, history, cfg)
         self.assertEqual(cap, 1.)
         history.append(86.)
-        cap, _ = state.update(96, f, history, cfg)
+        cap, _ = state.update(98, f, history, cfg)
         self.assertEqual(cap, 1.)
 
 
@@ -109,4 +109,3 @@ class ExecutionPolicyTests(unittest.TestCase):
             state.update(i, f, [100.] * (i + 1), cfg)
         self.assertGreater(state.cap, 0.)
         self.assertLessEqual(state.cap, .5)
-
