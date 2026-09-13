@@ -1,0 +1,18 @@
+{
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_AND_MEASUREMENT",
+  "parent_source": "30cc7d3bdea38d2d613ce43b2fdf988e0f544daa",
+  "parent_selection_objective": -1.2481279784108539,
+  "parent_evaluation": {"cases": 210, "replays": 437, "matched_buy_hold_cases": 197, "wealth_at_least_buy_hold": 13, "both_return_and_drawdown_dominate": 12},
+  "hypothesis": "Reduce score-driven churn of intact leaders, stage risk restoration, and detect accumulated cross-sectional losses without a single-day crash.",
+  "changes": [
+    "Raise the incumbent ranking preference from 1.25 to 2.0; a sufficiently dominant challenger can still replace an incumbent.",
+    "Do not rebalance intact, unchanged membership merely because scores changed; still enforce risk, volatility and concentration limits, and permit explicit risk-budget restoration.",
+    "Require another recovery confirmation interval before moving from half to full risk budget; selective recovery requires nonnegative market return and enough eligible names for the intended position count.",
+    "Add a three-session compounded market-loss alarm using the existing shock_z and the volatility known before that three-session interval, scaled by sqrt(3). No security/date exceptions."
+  ],
+  "unchanged": ["research/protocol.json", "all 12 parameter combinations", "selection formula", "2023-2025 selection scopes", "2026 retrospective evaluation windows", "data", "benchmark", "initial capital", "costs", "seed", "execution/accounting"],
+  "architecture_selection": "Compare the highest 2023-2025 frozen objective with the preserved parent objective. Retain the parent if the new objective is not higher. This is model selection, never economic acceptance.",
+  "budget": "One architectural hypothesis and the same 12 numeric candidates; no further parameter or architecture expansion after its 2026 evaluation.",
+  "multiplicity": "Both architectural trials and all candidate results must be disclosed. The 2026 path was already known and is not an untouched holdout.",
+  "acceptance": "The user's return, drawdown, risk and generalization goals remain unchanged. A better training objective is insufficient for any acceptance claim."
+}
