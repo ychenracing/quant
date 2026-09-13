@@ -2,7 +2,7 @@ name: Acquire public research data
 on:
   push:
     branches: [research/technology-strategy]
-    paths: [research/acquire_public_data.py, .github/workflows/acquire-public-data.yml]
+    paths: [research/fetch_market.py, .github/workflows/acquire-public-data.yml]
 permissions:
   contents: read
 jobs:
@@ -13,10 +13,11 @@ jobs:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           persist-credentials: false
-      - run: python research/acquire_public_data.py
+      - run: python research/fetch_market.py
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        if: always()
         with:
-          name: public-data-evidence
-          path: public-data-evidence/
+          name: market-evidence
+          path: market-evidence/
           retention-days: 7
           if-no-files-found: error
