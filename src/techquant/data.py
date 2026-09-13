@@ -105,8 +105,16 @@ class Market:
         for s in self.symbols:
             h.update(s.encode())
             h.update(self.sectors.get(s, 'unknown').encode())
-            h.update(self.frames[s].to_csv(float_format='%.12g').encode())
+            h.update(self.frames[s].index.asi8.astype('<i8').tobytes())
+            h.update(self.frames[s].loc[:, _COLUMNS].to_numpy(dtype='<f8').tobytes())
         return h.hexdigest()
+
+
+def _member(root: Path, relative: str) -> Path:
+    path = (root / relative).resolve()
+    if not path.is_relative_to(root.resolve()):
+        raise ValueError('manifest member escapes snapshot root')
+    return path
 
 
 def load_market(root: str | Path, *, supplement: str | Path | None = None,
@@ -128,7 +136,7 @@ def load_market(root: str | Path, *, supplement: str | Path | None = None,
         parts = {}
         for mode in ('qfq', 'raw'):
             info = record[mode]
-            path = root / info['path']
+            path = _member(root, info['path'])
             if file_hash(path) != info['sha256']:
                 raise ValueError(f'{s}/{mode}: SHA256 mismatch')
             f = pd.read_csv(path, parse_dates=['date']).set_index('date')
@@ -149,6 +157,8 @@ def load_market(root: str | Path, *, supplement: str | Path | None = None,
         s = m['symbol']
         if s not in frames or m['status'] != 'ok':
             raise ValueError('invalid supplement identity')
+        identities['original_' + s + '/raw'] = identities[s + '/raw']
+        identities['original_' + s + '/qfq'] = identities[s + '/qfq']
         parts = {}
         for row in m['records']:
             mode = row['adjustment']
@@ -164,9 +174,17 @@ def load_market(root: str | Path, *, supplement: str | Path | None = None,
         # The replacement is explicit and its original identity is retained above.
         frames[s] = f
         identities['supplement_manifest'] = file_hash(folder / 'supplement_manifest.json')
-    calendar_path = root / 'qfq/sh000300.csv'
+    calendar_record = next((r for r in manifest['records'] if r['symbol'] == 'sh000300'), None)
+    if calendar_record is None or calendar_record.get('status') != 'ok':
+        raise ValueError('calendar observation missing from manifest')
+    info = calendar_record['raw']
+    calendar_path = _member(root, info['path'])
+    if file_hash(calendar_path) != info['sha256']:
+        raise ValueError('calendar SHA256 mismatch')
     calendar_frame = pd.read_csv(calendar_path, parse_dates=['date'])
     calendar = pd.DatetimeIndex(calendar_frame.date)
+    if len(calendar) != info['rows'] or str(calendar[0].date()) != info['first'] or str(calendar[-1].date()) != info['last']:
+        raise ValueError('calendar manifest coverage mismatch')
     identities['calendar'] = file_hash(calendar_path)
     for s, f in frames.items():
         coverage[s] = {'rows': len(f), 'first': str(f.index.min().date()),

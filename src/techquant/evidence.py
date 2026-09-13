@@ -74,9 +74,9 @@ def save_result(result: Result, destination: str | Path) -> Path:
     destination.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.pending-', dir=destination.parent) as temp:
         root = Path(temp)
-        result.equity.to_csv(root / 'equity.csv', float_format='%.12g')
-        result.targets.to_csv(root / 'targets.csv', float_format='%.12g', index_label='date')
-        pd.DataFrame(result.orders).to_csv(root / 'orders.csv', index=False, float_format='%.12g')
+        result.equity.to_csv(root / 'equity.csv', float_format='%.17g')
+        result.targets.to_csv(root / 'targets.csv', float_format='%.17g', index_label='date')
+        pd.DataFrame(result.orders).to_csv(root / 'orders.csv', index=False, float_format='%.17g')
         for name, value in (('identity.json', result.metadata), ('metrics.json', metrics(result))):
             (root / name).write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + '\n', encoding='utf-8')
         hashes = {p.name: file_hash(p) for p in sorted(root.iterdir())}
