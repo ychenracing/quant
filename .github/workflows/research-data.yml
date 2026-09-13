@@ -1,0 +1,47 @@
+name: Research data acquisition
+on:
+  push:
+    branches: [research/independent-tech]
+    paths: [.github/workflows/research-data.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Acquire public market data only
+        shell: python
+        run: |
+          import hashlib, io, json, pathlib, urllib.request, zipfile
+          source = 'https://codeload.github.com/ychenracing/uquant/zip/refs/heads/main'
+          req = urllib.request.Request(source, headers={'User-Agent': 'quant-data-research'})
+          payload = urllib.request.urlopen(req, timeout=90).read()
+          out = pathlib.Path('market-data'); out.mkdir()
+          manifest = {'source': source, 'archive_sha256': hashlib.sha256(payload).hexdigest(), 'files': []}
+          with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+              for item in archive.infolist():
+                  path = pathlib.PurePosixPath(item.filename)
+                  if item.is_dir() or path.is_absolute() or '..' in path.parts:
+                      continue
+                  if path.suffix.lower() not in ('.csv', '.json', '.md', '.txt'):
+                      continue
+                  if not any(part in ('data', 'market_data', 'market-data', 'datasets', 'snapshots') or part.startswith('market_data_') for part in path.parts):
+                      continue
+                  if any(part in ('tests', 'fixtures', 'test_fixtures') for part in path.parts):
+                      continue
+                  content = archive.read(item)
+                  target = out.joinpath(*path.parts[1:]); target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(content)
+                  manifest['files'].append({'path': str(target.relative_to(out)), 'sha256': hashlib.sha256(content).hexdigest(), 'bytes': len(content)})
+          (out / 'acquisition.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
+          print(json.dumps({'files': len(manifest['files']), 'archive_sha256': manifest['archive_sha256']}))
+          if not manifest['files']:
+              raise SystemExit('No market-data files were found; no economic evidence produced.')
+      - uses: actions/upload-artifact@v4
+        with:
+          name: independent-quant-market-data
+          path: market-data/
+          retention-days: 30
+          if-no-files-found: error
