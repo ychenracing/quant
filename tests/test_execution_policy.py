@@ -27,9 +27,13 @@ class ExecutionPolicyTests(unittest.TestCase):
         for i in range(92, 92 + cfg.recovery):
             history.append(87.)
             cap, _ = state.update(i, f, history, cfg)
-        self.assertEqual(cap, 1.)
+        self.assertEqual(cap, .5)
         history.append(86.)
-        cap, _ = state.update(96, f, history, cfg)
+        cap, _ = state.update(95, f, history, cfg)
+        self.assertEqual(cap, .5)  # An old completed loss is not a new liquidation.
+        for i in (96, 97):
+            history.append(86.)
+            cap, _ = state.update(i, f, history, cfg)
         self.assertEqual(cap, 1.)
 
 
@@ -109,4 +113,3 @@ class ExecutionPolicyTests(unittest.TestCase):
             state.update(i, f, [100.] * (i + 1), cfg)
         self.assertGreater(state.cap, 0.)
         self.assertLessEqual(state.cap, .5)
-

@@ -29,8 +29,17 @@ class RiskState:
         loss = equity[-1] / equity[-2] - 1 if len(equity) > 1 else 0.
         shock = ((f.market_return[i] < -max(.025, config.shock_z * f.market_vol[i])
                   and f.breadth[i] < .5) or f.shock_fraction[i] >= .6)
+        # Scale a three-session loss by volatility observed before the interval.
+        # A slowly accumulating sell-off need not contain a single shock day.
+        cumulative_shock = False
+        if i >= 2:
+            cumulative = float(np.prod(1 + f.market_return[i - 2:i + 1]) - 1)
+            threshold = max(.025, config.shock_z * f.market_vol[i - 2]) * np.sqrt(3)
+            cumulative_shock = cumulative < -threshold and f.breadth[i] < .5
         if shock:
             desired, reason = 0., 'CROSS_SECTION_SHOCK'
+        elif cumulative_shock:
+            desired, reason = 0., 'ACCUMULATED_MARKET_SHOCK'
         elif dd >= config.risk_drawdown and loss < -.01:
             desired, reason = 0., 'PORTFOLIO_DRAWDOWN_SHOCK'
         elif (f.market_dd[i] >= config.risk_drawdown and f.weak[i]
@@ -50,15 +59,17 @@ class RiskState:
         elif desired > self.cap:
             # A sequence of observed healthy closes, not a known crash-end date.
             broad_recovery = f.breadth[i] >= .5 and not f.weak[i]
-            selective_recovery = (f.market_return[i] > -f.market_vol[i]
-                                  and bool(np.any(f.entry[i] & ~f.exit[i])))
+            needed = min(config.max_positions, int(f.ready[i].sum()))
+            selective_recovery = (f.market_return[i] >= 0 and
+                np.count_nonzero(f.entry[i] & ~f.exit[i]) >= needed)
             self.healthy = self.healthy + 1 if broad_recovery or selective_recovery else 0
             if self.healthy >= config.recovery:
                 # Re-arm intervention for new risk capital, rather than repeatedly
                 # liquidating on the same old loss. Reported NAV/drawdown never reset.
                 if self.cap == 0:
                     self.episode_peak = equity[-1]
-                self.cap = desired
+                self.cap = min(desired, self.cap + .5)
+                self.healthy = 0
                 reason = 'CONFIRMED_RECOVERY'
             else:
                 reason = 'RECOVERY_WAIT'
@@ -97,7 +108,8 @@ def _allocate(indices: list[int], score: np.ndarray, sectors: tuple[str, ...],
 
 
 def target_weights(i: int, f: Features, current: np.ndarray, config: Config,
-                   *, cap: float, rebalance: bool, risk_reduction: bool = False) -> tuple[np.ndarray, list[str]]:
+                   *, cap: float, rebalance: bool, risk_reduction: bool = False,
+                   risk_increase: bool = False) -> tuple[np.ndarray, list[str]]:
     current = np.asarray(current, dtype=float)
     if not np.isfinite(current).all() or (current < -1e-10).any():
         raise ValueError('invalid current portfolio weights')
@@ -114,24 +126,36 @@ def target_weights(i: int, f: Features, current: np.ndarray, config: Config,
         return np.zeros_like(current), reasons
     if rebalance:
         eligible = f.ready[i] & ~f.exit[i] & (f.entry[i] | (current > 0)) & (f.score[i] > 0)
-        # Incumbent preference is a turnover control, never a permanent exemption.
-        priority = f.score[i] + np.where(current > 0, .25 * np.maximum(f.score[i], 0), 0)
+        # A dominant challenger may displace an incumbent; ordinary rank noise
+        # alone must not turn a long trend into repeated liquidation/re-entry.
+        priority = f.score[i] + np.where(current > 0, np.maximum(f.score[i], 0), 0)
         indices = sorted(np.flatnonzero(eligible), key=lambda j: (-priority[j], f.symbols[j]))
         indices = indices[:config.max_positions]
-        candidate = _allocate(indices, f.score[i], f.sectors, config, len(current))
+        unchanged = set(indices) == set(np.flatnonzero(current > 1e-10))
+        candidate = (current.copy() if unchanged and not risk_increase else
+                     _allocate(indices, f.score[i], f.sectors, config, len(current)))
         if candidate.sum() > 0:
             # Perfect-correlation volatility bound: do not assume sector peers diversify.
             sigma = float(np.dot(candidate, np.nan_to_num(f.vol[i], nan=.05))) * np.sqrt(252)
-            candidate *= min(cap, config.target_vol / max(sigma, .01))
+            budget_scale = 1. if unchanged and not risk_increase else cap
+            candidate *= min(budget_scale, config.target_vol / max(sigma, .01))
         reductions = (candidate < current - config.trade_band) | (candidate == 0)
         increases = candidate > current + config.trade_band
         want[reductions | increases] = candidate[reductions | increases]
         want[forced] = 0.
         reasons.append('SCHEDULED_SELECTION')
-    # Ordinary drift has a declared band. Actual risk reductions do not.
+    # Daily hard caps and protective cuts do not wait for the rebalance clock.
     symbol_cap = max(config.single_cap, 1 / len(current))
     over = want > symbol_cap + config.trade_band
     want[over] = symbol_cap
+    # A sector cap must also survive price drift between selection dates.
+    if len(set(f.sectors)) > 1:
+        for sector in sorted(set(f.sectors)):
+            members = np.array([group == sector for group in f.sectors])
+            total = float(want[members].sum())
+            if total > config.sector_cap + config.trade_band:
+                want[members] *= config.sector_cap / total
+                reasons.append('SECTOR_CONCENTRATION')
     if want.sum() > ceiling:
         want *= cap / want.sum()
     return np.maximum(want, 0.), reasons

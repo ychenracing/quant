@@ -1,23 +1,9 @@
-# Execution state
+# 当前执行状态
 
-Active implementation; economic superiority NOT accepted; main is still the initial LICENSE-only revision.
+本仓库代码独立编写；四个 trades 项目仅作只读原生对照。不得把任何一个参考项目复制成生产包。
 
-## Scope
+已保存并测量的父源码为 `30cc7d3bdea38d2d613ce43b2fdf988e0f544daa`。其 12 候选选择与 210 场景、437 次回放已经完成；197 个主要买入持有对照中，13 个收益不低于对照，12 个同时满足收益和回撤占优，经济目标失败。旧 bootstrap、选择记录和完整父版本历史不删除。
 
-Independently written A-share technology, cash-long-only daily research and human decision support. No reference strategy is the implementation base. Reference projects are read-only external comparators. Period starts 2023-01-03; signals after the close, execution no earlier than the next session; no broker integration, leverage or shorting.
+`research/retention_hypothesis.json` 在本次行为实现之前登记。当前实现增加累计下跌预警、持仓保留和分步风险恢复；不更改冻结的 `research/protocol.json`、候选参数、数据、费用、种子、窗口或指标。新增行为回归与原正确性测试共 33 项，本地均通过。独立训练诊断中的最高原目标从 -1.2481279784108539 改善为 -1.0119412908306127；该诊断绑定具体文件哈希但未绑定本提交，不是新 HEAD 的验收证据。
 
-## Preserved progress
-
-The earlier independent-engine checkpoint is `07dd462690c2729984e46b26e3ceac27d0339a4e`; rejected bootstrap evidence remains under evidence/. This update preserves explicit execution intent, buy-and-hold semantics, protective small-order handling, bounded budget drift, progressive causal warm-up and risk-episode re-arming. Reported NAV and drawdown never reset. Nineteen compact offline tests passed locally in 0.601 seconds before this update. This is engineering evidence, not an economic pass.
-
-The original 2023-2025 34-stock bootstrap returned wealth 2.6031143 with 19.6938% drawdown and 285 fills. It was rejected. Intermediate diagnostics after correctness fixes remained below buy-and-hold; they are not canonical acceptance evidence. No claim of improvement over all four projects is justified yet.
-
-## Reference work
-
-The four current strategy directories are chatgpt/turtle_dual, trae/glmcsm, dumate/momentum_rotation, workbuddy/track_trend. Their configured union has 34 names. The original trae pool identifier 24 actually contains 26 names. A read-only native harness is being prepared locally; it preserves original alpha, execution and fees, changing only data input, scope and capital. Native semantics differ and cannot be called equal-execution acceptance. Initial common-five native replays measured wealth 10.6748619 (trae), 20.2210730 (workbuddy) and 1.4650096 (dumate), through 2026-09-11. Chatgpt replay has not yet completed; interrupted attempts are retained. Full manifests and curves will be published with the finished harness.
-
-## Frozen next research step
-
-`research/protocol.json` fixes 12 candidates and the 2023-2025 numerical selection rule before executing the grid. Scope includes the union, common five and joint removal of the three optical leaders. 2026 is a retrospective stress evaluation, not a prospective untouched sample: its crash was already identified by the user. Do not expand the grid after observing 2026 results or silently relabel failures.
-
-Remaining: finish strict data/hash audit, run and preserve the fixed grid, full pool/removal/subset/cost/delay/regime evaluation, native baselines, CLI/architecture/parameter/operations/results documentation, short CI, exact-source verification, then publish truthful working delivery to main. No economic conclusion is implied by publication.
+接续执行入口：先对本提交核验源码，再用 `research/study.py select` 重新选择和绑定身份，随后执行完整 `evaluate`。选择只用 2023—2025；2026 已知行情不是未触碰样本。仍需完成四套原生对照汇总、风险时点与组合失败披露、中文文档、证据远端归档以及 main 发布核验。仅发布研究代码，不把主分支存在、工程通过或训练目标改善写成经济验收通过。

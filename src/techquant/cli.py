@@ -18,6 +18,8 @@ from .features import build_features
 _REASON_TEXT = {
     'WARMUP_OR_NO_FRESH_QUOTES': '有效历史不足或无新行情，不新增风险',
     'CROSS_SECTION_SHOCK': '组合内标的出现同步冲击，模型要求撤出风险',
+    'ACCUMULATED_MARKET_SHOCK': '连续三个交易日累计下跌触发冲击预算，要求撤出风险',
+    'SECTOR_CONCENTRATION': '同一子行业的仓位漂移超过允许范围，要求降低集中度',
     'PORTFOLIO_DRAWDOWN_SHOCK': '模型净值回撤伴随单日损失，要求降低风险',
     'BROAD_TREND_BREAKDOWN': '整体趋势和上涨广度恶化，降低模型仓位上限',
     'PORTFOLIO_WARNING': '模型净值进入回撤警戒，降低风险预算',

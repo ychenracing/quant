@@ -185,7 +185,8 @@ def run(market: Market, config: Config | None = None, *,
             cap, reason = risk.update(i, f, history, cfg)
             rebalance = (i - begin) % cfg.rebalance == 0 or cap > last_cap + 1e-10
             decisions[i], why = target_weights(i, f, weights, cfg, cap=cap, rebalance=rebalance,
-                                                     risk_reduction=cap < last_cap - 1e-10)
+                                                     risk_reduction=cap < last_cap - 1e-10,
+                                                     risk_increase=cap > last_cap + 1e-10)
             reason = '|'.join([reason, *why])
         actions[i] = np.abs(decisions[i] - weights) > 1e-10
         # A target reduction is deliberate, not noise: the policy already applies
