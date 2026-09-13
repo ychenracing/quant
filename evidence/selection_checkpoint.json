@@ -1,0 +1,17 @@
+{
+  "status": "RESEARCH_CHECKPOINT_NOT_ACCEPTED",
+  "source_status": "local package snapshot; not yet bound to a Git commit",
+  "package_sha256": "4fe72f883fae5c1ac5927609ae80e826b1c7fbb4b39bdbacfa5b9acc3a186893",
+  "protocol_sha256": "ccbf53cb04381457677263cf6056f99f7ab927eecccecde82076a357626997a2",
+  "selection_end": "2025-12-31",
+  "candidate_objectives": [-1.2481279784108539,-1.3319728897886278,-1.3910149651168477,-1.4366910937727786,-1.5794196060008954,-1.4156354153679793,-1.4123024473094048,-1.7191312769604898,-1.5313224145396938,-1.665612730768547,-1.639808928596338,-1.7426764689213101],
+  "selected_candidate": 0,
+  "training_results": [
+    {"scope":"union","wealth":3.0445943709081482,"buy_hold_wealth":5.3597431143899605,"max_drawdown":0.48133827804122042,"orders":196},
+    {"scope":"chatgpt_5","wealth":6.3605462629689855,"buy_hold_wealth":19.027561764836872,"max_drawdown":0.34606965041655202,"orders":107},
+    {"scope":"joint_optical_leader_removal","wealth":1.4191353853598525,"buy_hold_wealth":3.0475364255241244,"max_drawdown":0.64807018007599793,"orders":194}
+  ],
+  "engineering": "21 offline tests passed; snapshot hash and calendar-manifest regression tests added",
+  "interpretation": "All 12 predefined candidates evaluated on all three selection scopes. The selected candidate is the highest frozen objective, not an economic pass. Particularly poor drawdown after leader removal must not be hidden or turned into acceptance. Evaluation is proceeding without post-2026 candidate expansion.",
+  "recovery": "Resume research/independent-tech. Complete the preserved study runner, native comparators, full finite evaluation, CLI, package and documentation. Publish working research code to main with explicit failed/unverified economics, never a live-trading recommendation."
+}
