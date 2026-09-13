@@ -14,12 +14,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Acquire and validate raw and adjusted prices
-        run: python research/download_market.py --out market-data
+      - name: Acquire required external comparator indices
+        run: python research/download_reference_indices.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: independent-quant-market-data
+          name: native-comparator-index-data
           path: market-data/
           retention-days: 30
           if-no-files-found: error
