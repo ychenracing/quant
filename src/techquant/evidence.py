@@ -1,7 +1,6 @@
 """Metrics, immutable run output and source/data/configuration binding."""
 from __future__ import annotations
 
-from dataclasses import asdict
 import hashlib
 import importlib.metadata
 import json
@@ -89,10 +88,38 @@ def save_result(result: Result, destination: str | Path) -> Path:
 def verify_evidence(root: str | Path) -> bool:
     root = Path(root)
     manifest = json.loads((root / 'manifest.json').read_text())
-    expected = set(manifest['files']) | {'manifest.json'}
+    required = {'equity.csv', 'targets.csv', 'orders.csv', 'identity.json', 'metrics.json'}
+    if not isinstance(manifest.get('files'), dict) or set(manifest['files']) != required:
+        raise ValueError('required evidence members are missing or unexpected')
+    expected = required | {'manifest.json'}
     if {p.name for p in root.iterdir()} != expected:
         raise ValueError('unexpected or missing evidence files')
     for name, digest in manifest['files'].items():
-        if Path(name).name != name or file_hash(root / name) != digest:
+        if (Path(name).name != name or (root / name).is_symlink()
+                or not (root / name).is_file() or file_hash(root / name) != digest):
             raise ValueError(f'evidence integrity failure: {name}')
     return True
+
+
+def load_result(root: str | Path, *, expected: dict) -> Result:
+    """Restore only an exact-identity result, never a merely matching filename.
+
+    Callers supply the complete run identity, including source/runtime, dataset,
+    universe, policy, configuration, costs and delay. Integrity alone is not
+    equivalence: a perfectly checksummed result can still belong to another run.
+    """
+    from .engine import Result
+    root = Path(root)
+    verify_evidence(root)
+    identity = json.loads((root / 'identity.json').read_text(encoding='utf-8'))
+    if identity != expected:
+        raise ValueError('cached result identity mismatch')
+    equity = pd.read_csv(root / 'equity.csv', index_col=0, parse_dates=True,
+                         float_precision='round_trip')
+    targets = pd.read_csv(root / 'targets.csv', index_col=0, parse_dates=True,
+                          float_precision='round_trip').astype(float)
+    try:
+        orders = pd.read_csv(root / 'orders.csv', float_precision='round_trip').to_dict('records')
+    except pd.errors.EmptyDataError:
+        orders = []
+    return Result(equity, targets, orders, identity)

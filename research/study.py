@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 from dataclasses import asdict
 import json
+import itertools
 import math
 from pathlib import Path
 import time
@@ -17,8 +18,8 @@ import pandas as pd
 
 from techquant.config import Config
 from techquant.data import file_hash, load_market
-from techquant.engine import Result, run
-from techquant.evidence import metrics, save_result, source_identity, verify_evidence
+from techquant.engine import run
+from techquant.evidence import load_result, metrics, save_result, source_identity
 
 
 def write_json(path, value):
@@ -58,16 +59,29 @@ def run_selection(market, catalog, protocol, output):
     config = asdict(Config(**(protocol['frozen_parameters_outside_grid'] | protocol['candidates'][best['candidate']])))
     selected = {'status': 'SELECTED_NOT_ECONOMICALLY_ACCEPTED', 'candidate': best['candidate'],
                 'objective': best['objective'], 'config': config, 'protocol_sha256': file_hash(Path(__file__).with_name('protocol.json')),
-                'selection_data_sha256': training.fingerprint(), 'source': source_identity()}
+                'selection_data_sha256': training.fingerprint(), 'source': source_identity(),
+                'runner_sha256': file_hash(Path(__file__))}
     write_json(output / 'selection.json', selected)
     write_json(output / 'selected_config.json', config)
     return selected
 
 
 def evaluate(market, catalog, protocol, selection, output, batch_size=20):
-    if selection['protocol_sha256'] != file_hash(Path(__file__).with_name('protocol.json')):
+    if selection.get('protocol_sha256') != file_hash(Path(__file__).with_name('protocol.json')):
         raise ValueError('selection protocol changed')
-    cfg = Config(**selection['config'])
+    if selection.get('source') != source_identity():
+        raise ValueError('selection source/runtime identity changed')
+    if selection.get('runner_sha256') != file_hash(Path(__file__)):
+        raise ValueError('selection runner identity changed')
+    if selection.get('selection_data_sha256') != market.prefix(protocol['selection_end']).fingerprint():
+        raise ValueError('selection data identity changed')
+    index = selection.get('candidate')
+    if isinstance(index, bool) or not isinstance(index, int) or not 0 <= index < len(protocol['candidates']):
+        raise ValueError('selection candidate is outside the frozen grid')
+    frozen = asdict(Config(**(protocol['frozen_parameters_outside_grid'] | protocol['candidates'][index])))
+    if selection.get('config') != frozen:
+        raise ValueError('selection configuration differs from the frozen candidate')
+    cfg = Config(**frozen)
     pools = dict(catalog['pools'])
     pools['union'] = list(market.symbols)
     cases = [(name, 'original_pool', symbols, 1., 1, cfg) for name, symbols in pools.items()]
@@ -84,6 +98,16 @@ def evaluate(market, catalog, protocol, selection, output, batch_size=20):
         for repeat in range(6):
             symbols = sorted(rng.choice(market.symbols, size=size, replace=False).tolist())
             cases.append((f'sample_{size}_{repeat}', 'sampled_subset', symbols, 1., 1, cfg))
+    common = catalog['pools'].get('chatgpt_5', [])
+    for size in range(1, len(common) + 1):
+        for index, symbols in enumerate(itertools.combinations(common, size)):
+            cases.append((f'common_exhaustive_{size}_{index}', 'common_five_exhaustive', list(symbols), 1., 1, cfg))
+    # Cover every remaining cardinality; keep the original seeded samples unchanged.
+    extra_rng = np.random.default_rng(protocol['seed'] + 1)
+    for size in range(2, len(market.symbols)):
+        if size not in (2, 3, 5, 8, 13, 22, 26, 33):
+            symbols = sorted(extra_rng.choice(market.symbols, size=size, replace=False).tolist())
+            cases.append((f'cardinality_{size}', 'cardinality_coverage', symbols, 1., 1, cfg))
     for label, costs, delay in (('double_cost', 2., 1), ('triple_cost', 3., 1), ('delayed_open', 1., 2)):
         cases.append((label, 'stress', list(market.symbols), costs, delay, cfg))
     for parameter in ('fast', 'slow', 'rebalance', 'stop_atr', 'risk_drawdown'):
@@ -97,29 +121,28 @@ def evaluate(market, catalog, protocol, selection, output, batch_size=20):
     write_json(output / 'case_plan.json', [{'name': n, 'group': g, 'symbols': s, 'cost': c,
                                           'delay': d, 'config': asdict(f)} for n,g,s,c,d,f in cases])
     rows = []
+    replay_count = 0
     new_cases = 0
     completed = True
     for case_index, (name, group, symbols, costs, delay, config) in enumerate(cases):
         subset = market.subset(symbols)
         created = False
-        for policy in ('strategy', 'buy_hold'):
+        policies = ('strategy', 'buy_hold', 'equal_weight') if group == 'original_pool' else ('strategy', 'buy_hold')
+        for policy in policies:
+            replay_count += 1
             destination = output / 'runs' / f'{name}_{policy}'
+            benchmark = None if policy == 'strategy' else policy
+            expected = {'config': asdict(config), 'universe': list(subset.symbols), 'quality': subset.quality,
+                        'data_sha256': subset.fingerprint(), 'source': source_identity(),
+                        'provenance': subset.provenance, 'delay': delay, 'cost_multiplier': costs,
+                        'benchmark': benchmark, 'start': str(subset.calendar[0].date()),
+                        'end': str(subset.calendar[-1].date()), 'economic_acceptance': 'UNVERIFIED',
+                        'accounting': 'adjusted economic units, not actual shares'}
             if destination.exists():
-                verify_evidence(destination)
-                identity = json.loads((destination/'identity.json').read_text())
-                if identity['source']['package_sha256'] != source_identity()['package_sha256']:
-                    raise ValueError('cached result package identity changed')
-                equity = pd.read_csv(destination/'equity.csv', index_col=0, parse_dates=True, float_precision='round_trip')
-                target = pd.read_csv(destination/'targets.csv', index_col=0, parse_dates=True, float_precision='round_trip').astype(float)
-                try:
-                    orders = pd.read_csv(destination/'orders.csv', float_precision='round_trip').to_dict('records')
-                except pd.errors.EmptyDataError:
-                    orders = []
-                result = Result(equity, target, orders, identity)
+                result = load_result(destination, expected=expected)
             else:
                 created = True
-                result = run(subset, config, cost_multiplier=costs, delay=delay,
-                             benchmark='buy_hold' if policy == 'buy_hold' else None)
+                result = run(subset, config, cost_multiplier=costs, delay=delay, benchmark=benchmark)
                 save_result(result, destination)
             for window, (start, end) in protocol['time_windows'].items():
                 rows.append({'case': name, 'group': group, 'policy': policy, 'window': window,
@@ -155,7 +178,7 @@ def evaluate(market, catalog, protocol, selection, output, batch_size=20):
         if new_cases >= batch_size and case_index + 1 < len(cases):
             completed = False
             break
-    write_json(output / 'case_plan_executed.json', [{'name': n, 'group': g, 'symbols': s, 'cost': c,
+    write_json(output / 'case_plan_resolved.json', [{'name': n, 'group': g, 'symbols': s, 'cost': c,
         'delay': d, 'config': asdict(f)} for n,g,s,c,d,f in cases])
     if not completed:
         progress = {'status':'PARTIAL', 'completed_cases':case_index+1, 'planned_cases':len(cases)}
@@ -166,7 +189,7 @@ def evaluate(market, catalog, protocol, selection, output, batch_size=20):
     comparison = full.pivot(index=['case', 'group'], columns='policy', values=['wealth','max_drawdown','orders'])
     ratio = comparison['wealth']['strategy'] / comparison['wealth']['buy_hold']
     summary = {'status': 'FINITE_RETROSPECTIVE_DIAGNOSTICS_NOT_UNIVERSAL_ACCEPTANCE',
-               'case_count': len(cases), 'replay_count': len(cases)*2, 'matched_buy_hold_cases': len(comparison),
+               'case_count': len(cases), 'replay_count': replay_count, 'matched_buy_hold_cases': len(comparison),
                'wealth_at_least_buy_hold': int((ratio >= 1).sum()), 'minimum_wealth_ratio': float(ratio.min()),
                'median_wealth_ratio': float(ratio.median()), 'worst_case': str(ratio.idxmin()),
                'both_return_and_drawdown_dominate': int(((ratio >= 1) &
@@ -201,8 +224,7 @@ def main():
          'data_sha256':market.fingerprint(), 'provenance':market.provenance, 'mode':a.mode}
     if a.resume:
         previous = json.loads((a.output/'identity.json').read_text())
-        stable_keys = ('source', 'protocol_sha256', 'catalog_sha256', 'data_sha256', 'provenance', 'mode')
-        if any(previous[k] != run_identity[k] for k in stable_keys):
+        if previous != run_identity:
             raise ValueError('resume identity mismatch')
         write_json(a.output/('runner_' + run_identity['runner_sha256'] + '.json'), run_identity)
     else:
