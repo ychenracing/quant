@@ -1,0 +1,13 @@
+{
+  "status": "REJECTED_INITIAL_DIAGNOSTIC",
+  "period": ["2023-01-03", "2025-12-31"],
+  "universe_size": 34,
+  "sector_metadata": "not applied in this initial diagnostic",
+  "accounting": "adjusted_unit_proxy",
+  "wealth": 2.603114317249841,
+  "max_drawdown": 0.19693821146459256,
+  "orders": 285,
+  "average_exposure": 0.2755425958791353,
+  "engineering": "12 critical offline tests passed in 0.468 seconds",
+  "interpretation": "Initial policy is too defensive and trades too often. Not an acceptance result. Preserve this failure; inspect exposure and order generation before bounded further research."
+}
