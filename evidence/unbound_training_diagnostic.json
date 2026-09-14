@@ -1,0 +1,24 @@
+{
+  "status":"UNBOUND_TRAINING_DIAGNOSTIC_NOT_ACCEPTANCE",
+  "measured_source_commit":"UNBOUND_LOCAL_SNAPSHOT",
+  "measured_package_sha256":"258a3d6ddf62694ae8197954485965c721179860a24749d8822e970a6080a0ce439ab6",
+  "package_hash_requires_verification":"The complete original source identity remains in the local diagnostic selection.json; this record must not be used to prove any Git HEAD.",
+  "preserved_implementation_commit":"b958770bd3a4b7be14cee92f8a947c6bdd6fe485",
+  "scope":"2023-01-03 through 2025-12-31; same frozen three scopes and 12 numeric candidates; no 2026 evaluation for this diagnostic",
+  "selection_data_sha256":"894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "objectives":[
+    {"candidate":0,"objective":-1.0119412908306127,"orders":454},
+    {"candidate":1,"objective":-1.131624204682648,"orders":583},
+    {"candidate":2,"objective":-1.672110049213871,"orders":310},
+    {"candidate":3,"objective":-1.4724792404335265,"orders":414},
+    {"candidate":4,"objective":-1.65467730424173,"orders":307},
+    {"candidate":5,"objective":-1.5451831083239476,"orders":402},
+    {"candidate":6,"objective":-1.5139591925742095,"orders":310},
+    {"candidate":7,"objective":-1.3408375332520042,"orders":396},
+    {"candidate":8,"objective":-1.6692172399440999,"orders":306},
+    {"candidate":9,"objective":-1.9209564190235333,"orders":371},
+    {"candidate":10,"objective":-1.406762416319814,"orders":260},
+    {"candidate":11,"objective":-1.5004782478646177,"orders":338}
+  ],
+  "interpretation":"An additional implementation diagnostic was measured. It must be included in multiplicity disclosure, not hidden behind the final training selection. The main implementation follows the independently advanced bfcc222 snapshot, not this branch."
+}
