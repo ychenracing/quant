@@ -1,0 +1,13 @@
+{
+  "attribution/leadership_union_weights/daily.csv": "21559758adcf3944edd939f09e81c5e35cd5916df322843f3c660990c8629874",
+  "attribution/leadership_union_weights/episodes.csv": "65036a3dbe088251033e611ffda91728dc12ece802bb51934d4778078b978f81",
+  "execution.json": "5d8f1f8b411f73d49d46dac6a2aead9a50d103a9ae47731809d9ee8d7cf100c4",
+  "failure.json": "3317b15176e21433827bff0a8e674bb67863c304af938e0dfb9cbef77347a422",
+  "plan.json": "9300ac22cc85950f2a8718bd37211618a95895aefc328eff2a8e20b1e45389c1",
+  "runs/leadership_union_weights/equity.csv": "3861d37c0425e063a79613b90896710c936965c50110bf59025ef4e66c662eef",
+  "runs/leadership_union_weights/identity.json": "65dd49f9066e0f159ae5ecd8bde422e48d73310242af11d1248b4bd31a72839c",
+  "runs/leadership_union_weights/manifest.json": "acfae1312810cee365282e99273111c97a2e9907b968d87d4e28ae572a61f338",
+  "runs/leadership_union_weights/metrics.json": "6196141c0d7c67cda11242f3bc805cb25483894fe624cf0a217c39c5b43bcb4f",
+  "runs/leadership_union_weights/orders.csv": "414a45869f504af03b386b5b56c1b0be0c1430e7842b8be8e5c04724e9a46c86",
+  "runs/leadership_union_weights/targets.csv": "0a84707add0284059586a4c233c09e76005474afe4c961c9b4b97aeda07a66ba"
+}

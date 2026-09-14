@@ -1,0 +1,110 @@
+{
+  "identity": {
+    "source": {
+      "commit": "bfac4bca0409d067baf8cc5a0473954bc3f17f92",
+      "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.5",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "research": {
+      "inventory_study.py": "9da41a456bdb66f8dd687039fc344f067cb62e2715d096b0b2ef09ad83a49493",
+      "inventory_intent.py": "8c6b265700559a73d89ac4b550df27c7e48f0b7422a8e8dca4606f106d2a7763",
+      "ledger_attribution.py": "b9c0cad7857b31776b3420b60046950f9cf9fadb98bc582e9643d7d1f1c9d78b",
+      "inventory_intent_contract.json": "e8cd7ca703956475279cf4923f9d1c123501987e461b7b5ca0744ca36eb14f50",
+      "expectation_study.py": "f71b20322bf9661f65478eb6ea158b0a9c5c715490c8e0e7f2715b5b4923783a",
+      "leadership.py": "fe1dfdaf2250e29cbda71e2891c934b54deaed536075da3fae8b37529972a3a1",
+      "admission.py": "5f9f1ed4583b59ca8bf297f320de63fa26601d0abc3c39b9e008c9652cfc5ae8",
+      "catalog.json": "ff6845fbf1b744f411251da310dc6e085ffec6f44062d2761161914d8feb8d98"
+    }
+  },
+  "contract": {
+    "purpose": "paired_execution_semantics_and_reconciled_loss_attribution",
+    "status": "DECLARED_BEFORE_PAIRED_MEASUREMENT",
+    "baseline_source": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+    "baseline_run": "34803914486",
+    "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "hypothesis": "A policy that describes retention and risk reduction in actual inventory should send explicit close-time units, rather than allow gaps or earlier queued fills to reverse its order direction. This may alter economics but is not assumed to improve them.",
+    "parameters": {
+      "leadership": {
+        "leadership_window": 60,
+        "exit_span": 20,
+        "positions": 4,
+        "pressure_guard": false
+      },
+      "admission": {
+        "leader_rule": "responsive",
+        "market_span": 20,
+        "minimum_breadth": 0.6
+      }
+    },
+    "selection": "No new parameter selection. Use only the already frozen pre-2026 winners and preserve their old evidence unmodified.",
+    "scopes": [
+      "union",
+      "chatgpt_5",
+      "joint_optical_leader_removal"
+    ],
+    "execution": "Compare legacy weight targets and explicit unit intentions on one source/runtime and frozen inputs, costs, capacity, lots, limit blocks, next-session clock and materiality. Default production and old research families retain weight-target semantics.",
+    "runs": 12,
+    "windows": [
+      "full",
+      "through_2025",
+      "bull",
+      "late_june_through_august",
+      "july_august",
+      "retrospective_2026"
+    ],
+    "required_artifacts": [
+      "all paired equity/targets/orders/identities/manifests",
+      "daily PnL reconciliation",
+      "position episodes",
+      "summary including failures"
+    ],
+    "follow_on": "Use reconciled pre-2026 loss chains to diagnose selection, holding, exit and re-entry. Do not retune frozen families, silently switch their execution, repeat the existing grids or call this necessary diagnostic economic acceptance.",
+    "economic_acceptance": "UNVERIFIED"
+  },
+  "windows": {
+    "full": [
+      null,
+      null
+    ],
+    "through_2025": [
+      null,
+      "2025-12-31"
+    ],
+    "bull": [
+      null,
+      "2026-06-30"
+    ],
+    "late_june_through_august": [
+      "2026-06-22",
+      "2026-08-31"
+    ],
+    "july_august": [
+      "2026-07-01",
+      "2026-08-31"
+    ],
+    "retrospective_2026": [
+      "2026-01-01",
+      null
+    ]
+  },
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "economic_acceptance": "UNVERIFIED"
+}
