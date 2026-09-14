@@ -1,0 +1,19 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "source_commit": "726c2538ea53f9c522132eed5f4e529a7841041f",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "implementation_sha256": "9f48a03e85913dab8ee97eddbff3669b10b1253f85e0b2cfa7823b42c4ac9a7f",
+  "runner_sha256": "f71b20322bf9661f65478eb6ea158b0a9c5c715490c8e0e7f2715b5b4923783a",
+  "selection": {"horizon": 20, "shrinkage": 10.0, "positions": 2},
+  "raw_replay_count": 51,
+  "training_candidate_rows": 36,
+  "training_csv_sha256": "9eb17a1ec0d41a9d400c2dd2269ff6fdf41e0a809c3caabc15c679ada5fa32f6",
+  "evaluation_csv_sha256": "a6595d3301689d22e0b4d6de0617ccf7e640c67e90247e2aad5178bfa868ffaf",
+  "measured_full": [
+    {"scope":"union","wealth":2.1004408881694645,"max_drawdown":0.3424202027014073,"orders":79,"average_exposure":0.2202326388336926},
+    {"scope":"chatgpt_5","wealth":3.7580465729509775,"max_drawdown":0.3222623656426253,"orders":70,"average_exposure":0.294919705943943},
+    {"scope":"joint_optical_leader_removal","wealth":2.435858017277829,"max_drawdown":0.287949336597128,"orders":55,"average_exposure":0.1679630651960623}
+  ],
+  "all_trial_digest":"772cb378724c6d7783e3a01828a035bb887812a0fb9f0dff8502aadca74a9e11",
+  "continuation":"Do not promote or retune this failed family on 2026. The separate preregistered persistent-leadership study retains every candidate and tests higher trend participation with independent actual-fill risk state. Raw local records remain immutable; full hosted reproduction must be separately identified rather than relabelled as the original local run."
+}
