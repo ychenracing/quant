@@ -22,7 +22,7 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str,*,issued_evidence:Path|None=None):
-        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
         self.issued=None

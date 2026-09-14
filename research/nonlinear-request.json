@@ -1,9 +1,9 @@
 {
-  "family": "recovery_memory",
-  "purpose": "Measure only the two preregistered same-close exit-veto control and unresolved risk-event-price memory candidates. Preserve their complete source-bound raw outcomes, including failures. No old model grid is rerun.",
-  "candidate_count": 2,
+  "family": "support_budget",
+  "purpose": "Measure only the four preregistered support-risk sizing and capacity candidates. Preserve all source-bound raw outcomes and failed candidates. Do not refit old forecasts or rerun older grids.",
+  "candidate_count": 4,
   "selection_end": "2025-12-31",
-  "contract_commit": "05ae05bd13961ac4acab3969f8c6a53f95d4d94b",
+  "contract_commit": "4797a5883e6fc47b177ffd4b544eac52525f9263",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }

@@ -1,0 +1,19 @@
+{
+  "status": "IMPLEMENTED_ENGINEERING_VERIFIED_ECONOMICS_UNMEASURED",
+  "contract_commit": "4797a5883e6fc47b177ffd4b544eac52525f9263",
+  "tested_production_base": "3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2",
+  "git_blobs": {
+    "research/support_budget.py": "0eb4513fd0d6098de8bbdf92cfd625ac2fcc991f",
+    "research/test_support_budget.py": "2571c7c256dac00635dd116ca130a60306010c14",
+    "research/finite_study.py": "1a392fffb756730204c2d803fc03c5ef39f52081",
+    "research/support_budget_contract.json": "a3039ed42a0fe64f5d6e3371738f715fc412c700"
+  },
+  "new_targeted_tests": 9,
+  "red": "Eight missing-implementation assertions failed first; the additional runner-registration check failed with undeclared-family ValueError before its one-line registration.",
+  "green": {"offline": 77, "research": 75, "failures": 0},
+  "coverage": "Signal-time loss and cash budgets; real versus requested inventory; ratcheting stops; blocked and partial protective orders; funded winner additions; actual-liquidation reentry; stale quotes; strict prefix and removal isolation; delayed T+1 cash/PnL reconciliation.",
+  "runtime": {"python": "3.13.5", "numpy": "2.3.5", "pandas": "2.2.3"},
+  "production_changed": false,
+  "older_families_modified": false,
+  "economic_acceptance": "UNVERIFIED"
+}
