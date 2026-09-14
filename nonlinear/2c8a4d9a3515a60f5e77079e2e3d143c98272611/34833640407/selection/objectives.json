@@ -1,0 +1,20 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "audit_tail": false
+    },
+    "worst_deficit": 1.1397708075636725,
+    "objective": -1.5247951567283309,
+    "fills": 530
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "audit_tail": true
+    },
+    "worst_deficit": 0.4369747899159664,
+    "objective": -1.058393721911728,
+    "fills": 507
+  }
+]
