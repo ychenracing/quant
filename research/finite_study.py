@@ -21,19 +21,28 @@ from research.expectation_study import write_json,scopes
 
 
 class Study:
-    def __init__(self,family:str):
-        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise'}:raise ValueError('undeclared research family')
+    def __init__(self,family:str,*,issued_evidence:Path|None=None):
+        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
+        self.issued=None
+        if family=='coherent':
+            if issued_evidence is None:raise ValueError('coherent comparison requires pinned issued evidence')
+            from research.issued_forecasts import IssuedForecasts
+            self.issued=IssuedForecasts(issued_evidence)
+        elif issued_evidence is not None:
+            raise ValueError('issued forecast injection is not declared for this family')
 
     def identity(self):
         root=Path(__file__).parent
         names=['finite_study.py','expectation_study.py',self.family+'.py',
                self.family+'_contract.json','leadership.py','expectation.py']
-        if self.family in {'observed_trend','pathwise'}:names+=['nonlinear.py','nonlinear_contract.json']
-        if self.family=='pathwise':names+=['observed_trend.py','observed_trend_contract.json']
+        if self.family in {'observed_trend','pathwise','coherent'}:names+=['nonlinear.py','nonlinear_contract.json']
+        if self.family in {'pathwise','coherent'}:names+=['observed_trend.py','observed_trend_contract.json']
+        if self.family=='coherent':names+=['issued_forecasts.py','pathwise.py','pathwise_contract.json']
         return {'source':source_identity(),'family':self.family,
-                'dependencies':{name:file_hash(root/name) for name in names}}
+                'dependencies':{name:file_hash(root/name) for name in names},
+                **({'issued_forecasts':self.issued.identity()} if self.issued else {})}
 
     def saved(self,market,path,parameters=None,benchmark=None,costs=1.,delay=1):
         cfg=Config()
@@ -43,7 +52,13 @@ class Study:
             'start':str(market.calendar[0].date()),'end':str(market.calendar[-1].date()),
             'economic_acceptance':'UNVERIFIED','accounting':'adjusted economic units, not actual shares',
             'study':self.identity()}
-        owner=self.module.Owner(market,parameters) if parameters is not None else None
+        owner=None
+        if parameters is not None:
+            if self.issued:
+                forecast,origin=self.issued.load(market)
+                owner=self.module.Owner(market,parameters,prediction=forecast)
+            else:
+                owner=self.module.Owner(market,parameters)
         if owner is not None:expected['policy']=owner.identity()
         if path.exists():return load_result(path,expected=expected)
         factory=(lambda m,c:owner) if owner is not None else None
@@ -71,7 +86,8 @@ class Study:
                 write_json(target.with_suffix('.json'),{'data_sha256':market.fingerprint(),
                     'forecast_sha256':prediction.fingerprint(),'symbols':list(market.symbols),
                     'dates':[str(d.date()) for d in market.calendar],'fits':prediction.fits,
-                    'source':source_identity(),'archive_sha256':file_hash(target)})
+                    'source':source_identity(),'archive_sha256':file_hash(target),
+                    **({'issuing_source':origin} if self.issued else {})})
         return result
 
     def select(self,market,catalog,out):
@@ -137,10 +153,11 @@ def main():
     parser.add_argument('--family',required=True);parser.add_argument('--data',type=Path,required=True)
     parser.add_argument('--supplement',type=Path);parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--selection',type=Path)
+    parser.add_argument('--issued-evidence',type=Path)
     args=parser.parse_args();before=time.monotonic()
     catalog=json.loads(Path(__file__).with_name('catalog.json').read_text())
     market=load_market(args.data,supplement=args.supplement,sectors=catalog['sectors'])
-    study=Study(args.family);args.output.mkdir(parents=True,exist_ok=True)
+    study=Study(args.family,issued_evidence=args.issued_evidence);args.output.mkdir(parents=True,exist_ok=True)
     if args.selection:study.evaluate(market,catalog,args.selection,args.output)
     else:study.select(market,catalog,args.output)
     write_json(args.output/'execution.json',{'elapsed_seconds':time.monotonic()-before,'identity':study.identity()})

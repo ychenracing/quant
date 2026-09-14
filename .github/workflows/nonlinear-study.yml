@@ -35,7 +35,7 @@ jobs:
       - name: Verify offline and forecast ownership contracts
         run: |
           python -m unittest discover -s tests -q > "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
-          python -m unittest research.test_nonlinear research.test_nonlinear_ownership research.test_observed_trend research.test_pathwise -v >> "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
+          python -m unittest research.test_nonlinear research.test_nonlinear_ownership research.test_observed_trend research.test_pathwise research.test_coherent research.test_coherent_execution research.test_issued_forecasts -v >> "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
       - name: Measure only the requested registered family
         timeout-minutes: 6
         run: |
@@ -49,7 +49,11 @@ jobs:
           output = root / 'nonlinear'
           try:
               request = json.loads(pathlib.Path('research/nonlinear-request.json').read_text())
-              study = Study(request['family'])
+              issued = None
+              if request['family'] == 'coherent':
+                  from research.issued_forecasts import retrieve
+                  issued = retrieve(root / 'issued-evidence')
+              study = Study(request['family'], issued_evidence=issued)
               if len(study.module.grid()) != request['candidate_count']:
                   raise ValueError('declared candidate count mismatch')
               data, supplement = inputs(root / 'frozen-input')
@@ -58,8 +62,12 @@ jobs:
               if market.fingerprint() != request['data_sha256']:
                   raise ValueError('frozen market identity mismatch')
               try:
-                  parent = retrieve_parent(root / 'parent-evidence')
-                  diagnose(parent, market, output / 'parent_diagnosis')
+                  if issued is not None:
+                      from research.admission_attribution import admission_attribution
+                      admission_attribution(issued, market, output / 'parent_diagnosis')
+                  else:
+                      parent = retrieve_parent(root / 'parent-evidence')
+                      diagnose(parent, market, output / 'parent_diagnosis')
               except Exception:
                   (output / 'parent_diagnosis_failure.json').write_text(json.dumps({'status':'DIAGNOSTIC_RESTORE_FAILED','traceback':traceback.format_exc()},indent=2))
               study.select(market, catalog, output / 'selection')
@@ -127,7 +135,7 @@ jobs:
           git config user.name 'quant research publisher'
           git config user.email 'quant-research@users.noreply.github.com'
           git add -- "$destination"
-          git commit -m 'research: retain first-passage source, issued forecasts and complete outcomes'
+          git commit -m 'research: retain requested ownership source, issued forecasts and complete outcomes'
           for attempt in 1 2 3; do
             if git push origin HEAD:research/evidence; then
               git fetch origin research/evidence
