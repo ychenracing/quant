@@ -1,0 +1,9 @@
+{
+  "source_commit": "2ac1ecde157a1e38d42e87b7505453175fd964e7",
+  "run_id": "34878465515",
+  "family": "revocable_reentry",
+  "operation": "measure",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}
