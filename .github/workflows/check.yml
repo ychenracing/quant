@@ -1,7 +1,10 @@
 name: Offline correctness
 on:
   push:
-    branches: [main]
+    branches: [main, research/expectation-learning]
+    paths-ignore:
+      - research/results/**
+      - research/EXPECTATION_WORK.md
   pull_request:
   workflow_dispatch:
 permissions:
@@ -20,6 +23,7 @@ jobs:
           mkdir -p verification
           git archive --format=zip HEAD > verification/source.zip
           git rev-parse HEAD > verification/source-sha.txt
+          git rev-parse 'HEAD^{tree}' > verification/source-tree.txt
           python --version > verification/environment.txt
       - run: python -m pip install -e .
       - name: Offline tests
