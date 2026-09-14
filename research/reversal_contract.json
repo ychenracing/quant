@@ -1,0 +1,13 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"causal_directional_change",
+  "hypothesis":"The moving-average/short-channel exits whipsaw positions and reenter late. Track each stock's observed peak while risk is open and observed trough while closed; exit on a declared drawdown and restore on a declared reversal. No retrospective extrema or date keys.",
+  "candidate_grid":{"exit_drawdown":[0.08,0.12,0.16,0.20],"reentry_rebound":[0.04,0.08],"positions":[2,3],"lookback":[120,240]},
+  "candidate_count":32,
+  "fixed_rules":{"minimum_observations":10,"initial_entry":"positive ten-session momentum","open_risk":"ratchet peak, exit when close/peak-1 <= -exit_drawdown","closed_risk":"ratchet trough, reenter when close/trough-1 >= reentry_rebound and five-session return is positive","eligibility":"positive multi-horizon log momentum and an open directional state","allocation":"same independent persistent unit allocation and cash reuse as declared participation experiment","selection_review_sessions":20},
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "execution":"Unchanged parent cash-only next-session adjusted-unit replay; no same-close fills, invented stop fills, leverage or new accounting assumptions.",
+  "evidence":"Keep every trial and failed predecessor. Training ranks candidates, not acceptance. Already-observed 2026 is retrospective. Preserve hashes of adapter, allocation dependency, runner, data and all traces. No arbitrary-subset dominance is inferred."
+}
