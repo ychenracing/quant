@@ -1,6 +1,6 @@
 {
-  "family": "leadership_handover",
-  "purpose": "Measure the existing one-candidate confirmed leadership handover contract above the corrected support parent. Preserve actual fills, voluntary-exit traces and all failures; do not rerun completed readiness, readmission or old grids.",
+  "family": "opportunity_reassignment",
+  "purpose": "Measure the previously registered one-candidate scheduled mature-holding reassignment above the corrected support parent. The completed confirmed-handover failure is preserved, not retuned or combined. Preserve all actual fills, source-bound voluntary-exit traces and failed outcomes.",
   "candidate_count": 1,
   "selection_end": "2025-12-31",
   "contract_commit": "bf839c9f6d8824a57fd6ee567080a326d321a766",
