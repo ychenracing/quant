@@ -1,0 +1,9 @@
+{
+  "source_commit": "23ef01e9b0271c4de3c93cbaf3bd3fe9bd1bea68",
+  "run_id": "34881024993",
+  "family": "observed_admission_completion",
+  "operation": "original_parameter_neighborhoods",
+  "measurement_complete": false,
+  "economic_acceptance": "UNVERIFIED",
+  "status": "INCOMPLETE_OR_FAILED"
+}

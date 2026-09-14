@@ -1,0 +1,4 @@
+{
+  "status": "FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 11, in <module>\n  File \"/home/runner/work/quant/quant/research/neighborhood_validation.py\", line 187, in hosted\n    default_equivalence(cache/'origin/fixed-validation',market,output/'default_equivalence.json')\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/quant/quant/research/neighborhood_validation.py\", line 91, in default_equivalence\n    raise ValueError('default differs from the old actual-inventory path: '+name+' '+day)\nValueError: default differs from the old actual-inventory path: joint_optical_leader_removal 2023-09-01\n"
+}
