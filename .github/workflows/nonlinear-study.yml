@@ -61,17 +61,26 @@ jobs:
               market = load_market(data, supplement=supplement, sectors=catalog['sectors'])
               if market.fingerprint() != request['data_sha256']:
                   raise ValueError('frozen market identity mismatch')
-              try:
-                  if issued is not None:
-                      from research.admission_attribution import admission_attribution
-                      admission_attribution(issued, market, output / 'parent_diagnosis')
-                  else:
-                      parent = retrieve_parent(root / 'parent-evidence')
-                      diagnose(parent, market, output / 'parent_diagnosis')
-              except Exception:
-                  (output / 'parent_diagnosis_failure.json').write_text(json.dumps({'status':'DIAGNOSTIC_RESTORE_FAILED','traceback':traceback.format_exc()},indent=2))
-              study.select(market, catalog, output / 'selection')
-              study.evaluate(market, catalog, output / 'selection/selection.json', output / 'evaluation')
+              operation = request.get('operation', 'measure')
+              if operation == 'funded_projection_audit':
+                  if request['family'] != 'funded_risk':
+                      raise ValueError('projection audit requires the funded-risk family')
+                  from research.funded_projection_audit import hosted
+                  hosted(output, data, supplement)
+              elif operation == 'measure':
+                  try:
+                      if issued is not None:
+                          from research.admission_attribution import admission_attribution
+                          admission_attribution(issued, market, output / 'parent_diagnosis')
+                      else:
+                          parent = retrieve_parent(root / 'parent-evidence')
+                          diagnose(parent, market, output / 'parent_diagnosis')
+                  except Exception:
+                      (output / 'parent_diagnosis_failure.json').write_text(json.dumps({'status':'DIAGNOSTIC_RESTORE_FAILED','traceback':traceback.format_exc()},indent=2))
+                  study.select(market, catalog, output / 'selection')
+                  study.evaluate(market, catalog, output / 'selection/selection.json', output / 'evaluation')
+              else:
+                  raise ValueError('unknown registered research operation')
           except Exception:
               (output / 'failure.json').write_text(json.dumps({'status': 'FAILED', 'traceback': traceback.format_exc()}, indent=2))
               raise
@@ -87,8 +96,10 @@ jobs:
           request = json.loads(pathlib.Path('research/nonlinear-request.json').read_text())
           selection = output / 'selection/selection.json'
           selected = json.loads(selection.read_text()) if selection.exists() else {}
+          audit_only = request.get('operation') == 'funded_projection_audit'
           receipt = {'source_commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
-                     'family': request['family'], 'selection_status': selected.get('status', 'INCOMPLETE'),
+                     'family': request['family'], 'operation': request.get('operation', 'measure'),
+                     'selection_status': 'NOT_APPLICABLE_DIAGNOSTIC' if audit_only else selected.get('status', 'INCOMPLETE'),
                      'economic_acceptance': 'NOT_PASSED' if selected.get('worst_deficit', 0) > 1e-12 else 'UNVERIFIED',
                      'evaluation_present': (output / 'evaluation/status.json').exists()}
           (output / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
@@ -126,7 +137,7 @@ jobs:
           for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json; do
             if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
           done
-          for dir in selection evaluation parent_diagnosis; do
+          for dir in selection evaluation parent_diagnosis projection_audit; do
             if [ -d "$RUNNER_TEMP/nonlinear/$dir" ]; then
               mkdir -p "$destination/$dir"
               find "$RUNNER_TEMP/nonlinear/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;

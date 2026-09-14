@@ -1,9 +1,10 @@
 {
-  "family": "quantity_obligation",
-  "purpose": "Measure exactly the three preregistered fixed-parent corrections of recursive declaration rounding. Preserve original risk rules, actual economic obligations, strict evidence integrity, every intent trace and all failed outcomes. Do not rerun old parameter grids or refit forecasts; consolidate the overlapping funded-intent diagnosis rather than duplicate equivalent experiments.",
-  "candidate_count": 3,
+  "family": "funded_risk",
+  "purpose": "Preserve and independently reconstruct the nine already-measured funded-risk paths after the concentration projection correction. No old candidate grid is rerun, no model is fitted, and this operation cannot establish economic acceptance.",
+  "candidate_count": 2,
   "selection_end": "2025-12-31",
-  "contract_commit": "fcb35cb3830eab9c8f429b8cf6ec83d0b0851bc8",
+  "contract_commit": "4f3571ba860e49a87af1ecbe2b0f0a5c7a74b42c",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "economic_acceptance": "UNVERIFIED"
+  "economic_acceptance": "UNVERIFIED",
+  "operation": "funded_projection_audit"
 }
