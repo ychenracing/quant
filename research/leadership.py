@@ -92,6 +92,7 @@ class Owner:
         self.restore_units[new | sold] = 0.
         self.restore_pending[new | sold] = False
         self.readmit[sold & self.exit_pending] = True
+        self.above[sold] = 0  # Readmission counts only closes after liquidation.
         self.exit_pending[~held] = False
         self.above = np.where(s.ready[i] & (s.price[i] > s.ema10[i]), self.above + 1, 0)
         self.readmit[self.above >= 3] = False
@@ -107,6 +108,13 @@ class Owner:
         self.restore_pending[self.exit_pending] = False
         if self.exit_pending.any():
             reasons.append('PROTECTIVE_EXIT_RETRY')
+        # Fees and board lots can make exact restoration unreachable. Finish
+        # inside the unchanged whole-account ordinary execution materiality.
+        restored = (held & self.restore_pending &
+                    ((self.restore_units-o.units)*s.price[i] <= .01*o.nav))
+        self.pressure_ceiling[restored] = np.nan
+        self.restore_units[restored] = 0.
+        self.restore_pending[restored] = False
         pressure_new = held & s.pressure[i] & ~self.exit_pending & np.isnan(self.pressure_ceiling)
         if p.pressure_guard:
             self.pressure_ceiling[pressure_new] = o.units[pressure_new] * .5
@@ -126,13 +134,6 @@ class Owner:
             else:
                 want[j] = min(o.weights[j], desired_units * s.price[i, j] / o.nav)
                 reasons.append('PRESSURE_REDUCTION')
-        # After a restored fill, lift the saved ceiling instead of reducing again.
-        restored = guarded & self.restore_pending & (o.units >= self.restore_units - 1e-8) & ~pressure_new
-        self.pressure_ceiling[restored] = np.nan
-        self.restore_units[restored] = 0.
-        self.restore_pending[restored] = False
-        if restored.any():
-            want[restored] = o.weights[restored]
         drift = 1. if len(held) == 1 else .8
         want = np.minimum(want, drift)
         capacity = min(p.positions, len(held))
