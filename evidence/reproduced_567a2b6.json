@@ -1,0 +1,26 @@
+{
+  "status": "FAILED_REQUESTED_ECONOMIC_DOMINANCE",
+  "source_commit": "567a2b68a342b4f159d824ce076bacd072c3e0d3",
+  "source_tree": "5e1de40e13d4fca0273395d3b09afe300e3e9727",
+  "source_verification": "All restored files reproduced the exact remote Git tree; the original commit object was reconstructed and SHA-verified, including its +0800 author/committer offsets.",
+  "package_sha256": "e8a4c86e67d4d0da27a0b8705dedc2eff2f7909a2a78484c7fad4e0a8a85c49e",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "runtime": {"python":"3.13.5", "numpy":"2.3.5", "pandas":"2.2.3", "platform":"Linux-6.18.44-x86_64-with-glibc2.41"},
+  "period": ["2023-01-03", "2026-09-11"],
+  "sessions": 896,
+  "selection": {"candidate":0, "candidate_count":12, "objective":-0.982980542327249, "selection_end":"2025-12-31"},
+  "evaluation": {"case_count":210, "replay_count":437, "matched_buy_hold_cases":197, "wealth_at_least_buy_hold":3, "both_return_and_drawdown_dominate":3, "median_wealth_ratio":0.4305431125609858, "minimum_wealth_ratio":0.046166918177178905},
+  "full_period": [
+    {"case":"chatgpt_5", "wealth":10.824786016250098, "max_drawdown":0.3307412348419231, "orders":139, "same_execution_buy_hold_wealth":29.062957279081},
+    {"case":"union", "wealth":5.624793276481121, "max_drawdown":0.320719532270034, "orders":202},
+    {"case":"remove_optical_leaders", "wealth":2.2469342641014705, "max_drawdown":0.4586885620328037, "orders":209}
+  ],
+  "files": {
+    "current/select/candidates.csv":"2252c1f1aae5850c4697df18430ef4e119c6042ff4abda33eeae10ebfbed4a5b",
+    "current/select/selection.json":"539d09978908b882b3efeab5b7c2c6e1cd52d748652f80a4d03d2317046948f0",
+    "current/evaluate/matrix.csv":"d0c38dd20cf3af31530cb2db992c6f630e9ef6af1765e14c27c20439564d7eff",
+    "current/evaluate/summary.json":"6c2502a331333d5cb2de2aad432b70a033b41d6214ec720c7b8a7194c755c223"
+  },
+  "native_checkpoint": {"chatgpt_common_five":{"status":"NATIVE_REPLAY_MEASURED", "wealth":1.778233112870138, "max_drawdown":0.298051526553913, "orders_native_rows":178, "sessions":896}, "chatgpt_union":"EXECUTION_BUDGET_EXCEEDED_60_SECONDS", "chatgpt_joint_optical_removal":"EXECUTION_BUDGET_EXCEEDED_60_SECONDS", "remaining":"IN_PROGRESS_AT_CHECKPOINT"},
+  "limits": ["Not evidence for a later HEAD", "Not an actual-share corporate-action ledger", "Native executions differ and are not normalized superiority evidence", "Finite correlated subsets do not prove all 17179869183 nonempty combinations", "Known 2026 history is retrospective, not untouched out-of-sample validation"]
+}
