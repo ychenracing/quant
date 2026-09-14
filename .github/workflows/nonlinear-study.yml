@@ -69,7 +69,10 @@ jobs:
                   hosted(output, data, supplement)
               elif operation == 'measure':
                   try:
-                      if issued is not None:
+                      if request['family'] == 'observed_readiness':
+                          from research.quantity_gap import hosted as attribute_quantity
+                          attribute_quantity(output, data, supplement)
+                      elif issued is not None:
                           from research.admission_attribution import admission_attribution
                           admission_attribution(issued, market, output / 'parent_diagnosis')
                       else:
@@ -137,7 +140,7 @@ jobs:
           for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json; do
             if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
           done
-          for dir in selection evaluation parent_diagnosis projection_audit; do
+          for dir in selection evaluation parent_diagnosis projection_audit quantity_gap; do
             if [ -d "$RUNNER_TEMP/nonlinear/$dir" ]; then
               mkdir -p "$destination/$dir"
               find "$RUNNER_TEMP/nonlinear/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;

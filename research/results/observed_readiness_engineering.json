@@ -1,0 +1,16 @@
+{
+  "status": "IMPLEMENTED_NOT_ECONOMIC_ACCEPTANCE",
+  "preregistration_commit": "878617af9c41973c63be25da97f7f97141c3d3f2",
+  "measured_parent_source": "180640bff6d3a125cdf1b8928a6e0fc32a1d5f1a",
+  "parent_archive_sha256": "ffc82ff43d6d5ac01d2acbc9f0c265885e916d09d1c717a492df989687f45ec7",
+  "candidate_count": 1,
+  "parameters": {},
+  "source_blobs": {"research/observed_readiness.py": "081b26151d00cce4f350dea13d072664b9ee0a9c", "research/test_observed_readiness.py": "46be16d8bcedcad71ea62b251faecafba2d8c9c0", "research/finite_study.py": "bebc3196245c1b5e61fc8ae7611533a141e4421b", "research/quantity_gap.py": "02ee7120267d13bc0b528ddb9b2b956d1234be2e"},
+  "local_tests": {"targeted": 8, "research": 106, "offline": 77},
+  "failure_history": "Eight missing-feature failures were recorded before implementation. The initial implementation then passed seven tests but a new-listing fixture failed because it inserted NaN prelisting rows rejected by the existing data validator. The fixture was corrected to omit nonexistent prelisting rows; data validation was not relaxed. All eight targeted checks then passed. A manually transferred base64 text object failed exact-byte construction and was not committed or used; the subsequently uploaded gzip blob matches the original local SHA and is the only referenced raw-check artifact.",
+  "raw_checks": {"path": "research/verification/readiness_raw_checks.json.gz", "gzip_sha256": "cedca4625f0ab8f6d1c39317563ce1b9d4a1a9c7372882cdc43f9baab3617602", "git_blob": "3495d5f3bd40947c011498c6741ffd36f5f24584", "format": "gzip-compressed UTF-8 JSON containing exact raw check logs"},
+  "parent_attribution": {"status": "MATCHED_PRE_2026_DIAGNOSTIC", "selected_close_targets_reproduced": 2181, "maximum_target_error": 0.0, "maximum_nav_reconciliation_error_cny_below": 3.1e-9, "common_five_relative_log_wealth": -0.21789843118168112, "february_2023_common_five_relative_log_wealth": -0.08935797100686099, "qualification": "Exact actual-fill decomposition, not a causal treatment effect or executed counterfactual. The hosted operation is instructed to publish every raw attribution row and the pinned origin identity."},
+  "design_boundary": "This is the preregistered expanding-history design choice, not a bug fix or a change to old frozen acceptance. Original support and quantity-obligation implementations remain intact. No opportunity reassignment, leadership handover, protective-completion or forecast change is included.",
+  "economic_acceptance": "UNVERIFIED",
+  "production_changed": false
+}
