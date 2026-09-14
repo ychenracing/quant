@@ -1,0 +1,129 @@
+name: Nonlinear expectation evidence
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/nonlinear-study.yml
+      - research/nonlinear-request.json
+permissions:
+  contents: write
+concurrency:
+  group: nonlinear-expectation-study
+  cancel-in-progress: false
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src:tests:.
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve exact source before validation
+        run: |
+          mkdir -p "$RUNNER_TEMP/nonlinear"
+          git archive --format=tar.gz HEAD > "$RUNNER_TEMP/nonlinear/source.tar.gz"
+          git rev-parse HEAD > "$RUNNER_TEMP/nonlinear/source-commit.txt"
+          git rev-parse 'HEAD^{tree}' > "$RUNNER_TEMP/nonlinear/source-tree.txt"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install frozen research runtime
+        run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Verify offline and nonlinear ownership contracts
+        run: |
+          python -m unittest discover -s tests -q > "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
+          python -m unittest research.test_nonlinear research.test_nonlinear_ownership -v >> "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
+      - name: Measure all eight registered candidates and matched retrospective windows
+        run: |
+          python - <<'PY' > "$RUNNER_TEMP/nonlinear/execution.txt" 2>&1
+          import json, os, pathlib, traceback
+          from research.hosted_study import inputs
+          from research.finite_study import Study
+          from techquant.data import load_market
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          output = root / 'nonlinear'
+          try:
+              data, supplement = inputs(root / 'frozen-input')
+              catalog = json.loads(pathlib.Path('research/catalog.json').read_text())
+              market = load_market(data, supplement=supplement, sectors=catalog['sectors'])
+              if market.fingerprint() != 'd9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b':
+                  raise ValueError('frozen market identity mismatch')
+              study = Study('nonlinear')
+              study.select(market, catalog, output / 'selection')
+              study.evaluate(market, catalog, output / 'selection/selection.json', output / 'evaluation')
+          except Exception:
+              (output / 'failure.json').write_text(json.dumps({'status': 'FAILED', 'traceback': traceback.format_exc()}, indent=2))
+              raise
+          PY
+      - name: Package every outcome without claiming acceptance
+        if: always()
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, tarfile
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          output = root / 'nonlinear'
+          output.mkdir(exist_ok=True)
+          receipt = {'source_commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
+                     'economic_acceptance': 'UNVERIFIED',
+                     'evaluation_present': (output / 'evaluation/status.json').exists()}
+          (output / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+          manifest = {str(p.relative_to(output)): hashlib.sha256(p.read_bytes()).hexdigest()
+                      for p in sorted(output.rglob('*')) if p.is_file() and p.name != 'MANIFEST.json'}
+          (output / 'MANIFEST.json').write_text(json.dumps(manifest, indent=2) + '\n')
+          archive = root / 'nonlinear-evidence.tar.gz'
+          with tarfile.open(archive, 'w:gz') as bundle:
+              bundle.add(output, arcname='nonlinear')
+          (root / 'nonlinear-evidence.sha256').write_text(hashlib.sha256(archive.read_bytes()).hexdigest() + '  nonlinear-evidence.tar.gz\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nonlinear-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/nonlinear-evidence.tar.gz
+            ${{ runner.temp }}/nonlinear-evidence.sha256
+          retention-days: 90
+          if-no-files-found: error
+      - name: Append and read back immutable evidence
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -s "$RUNNER_TEMP/nonlinear-evidence.tar.gz"
+          gh auth setup-git
+          git clone --depth=1 --branch research/evidence "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/evidence-store"
+          cd "$RUNNER_TEMP/evidence-store"
+          destination="nonlinear/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"
+          mkdir -p "$destination"
+          cp "$RUNNER_TEMP/nonlinear-evidence.tar.gz" "$RUNNER_TEMP/nonlinear-evidence.sha256" "$destination/"
+          for file in receipt.json failure.json MANIFEST.json correctness.txt; do
+            if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
+          done
+          for dir in selection evaluation; do
+            if [ -d "$RUNNER_TEMP/nonlinear/$dir" ]; then
+              mkdir -p "$destination/$dir"
+              find "$RUNNER_TEMP/nonlinear/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;
+            fi
+          done
+          git config user.name 'quant research publisher'
+          git config user.email 'quant-research@users.noreply.github.com'
+          git add -- "$destination"
+          git commit -m 'research: retain nonlinear source, correctness and complete outcomes'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/evidence; then
+              git fetch origin research/evidence
+              expected=$(cut -d' ' -f1 "$RUNNER_TEMP/nonlinear-evidence.sha256")
+              actual=$(git show "FETCH_HEAD:$destination/nonlinear-evidence.tar.gz" | sha256sum | cut -d' ' -f1)
+              test "$actual" = "$expected"
+              printf '%s\n' "Read-back verified $destination $actual" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1
