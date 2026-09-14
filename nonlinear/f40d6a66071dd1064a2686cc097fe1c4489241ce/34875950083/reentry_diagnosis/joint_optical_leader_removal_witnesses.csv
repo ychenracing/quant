@@ -1,0 +1,9 @@
+date,symbol,actual_units,declared_units,health,healthy_closes,readmit,entry,score,cash_fraction,risk_cap,protected,structural_witness
+2023-08-31,sh688072,0,0,True,3,True,True,1.706756579652017,1,0.5,False,True
+2023-09-01,sh688072,0,0,True,4,True,True,1.8323925406035693,1,0.5,False,True
+2024-02-20,sh688041,0,0,True,5,True,True,0.24184968853422967,1,0.5,False,True
+2024-05-30,sz002409,0,0,True,4,True,True,0.014187286338892088,0.58360067522092618,1,False,True
+2024-07-19,sh688012,0,0,True,6,True,True,0.33770360919492931,0.45196122561343555,1,False,True
+2024-12-10,sh688041,0,0,True,5,True,True,2.3696513217944797,0.56242340153385073,1,False,True
+2025-05-12,sh688205,0,0,True,7,True,True,1.6978743810969401,0.84561753151273655,1,False,True
+2025-06-03,sh688409,0,0,True,6,True,True,0.93253647910395565,0.53443743409816646,1,False,True

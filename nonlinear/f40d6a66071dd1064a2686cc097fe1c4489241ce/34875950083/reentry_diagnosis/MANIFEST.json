@@ -1,0 +1,15 @@
+{
+  "chatgpt_5_decisions.csv": "a60c2ba6bf8cceca9e912b9b62863be331ba4b2b244dbd7295bc91ac61c758cc",
+  "chatgpt_5_episodes.csv": "3c802ebbeea75810b181a91a68ceafa4678856bf7a2506b3845677d955447327",
+  "chatgpt_5_symbol_days.csv": "ceecd877256339d922f76557a567e71454196afe41d5096bb7583e4dfb05df68",
+  "chatgpt_5_witnesses.csv": "003f5e3c16f925797813f2232ebe1bfa1c3e95a0e5a74aecc39264f8c8b80f63",
+  "joint_optical_leader_removal_decisions.csv": "75ca2dc5f0b9d476637639e9510c8328709aa37feb37a7494de91264c2c83ce1",
+  "joint_optical_leader_removal_episodes.csv": "848ea483e4bf64c97623ed10f1395b8cca848f51929aa130206ed585efb4c3ac",
+  "joint_optical_leader_removal_symbol_days.csv": "cd2ec27396850564d15a507b69339a165e6c9a0ee09601fa30792d4221d133e2",
+  "joint_optical_leader_removal_witnesses.csv": "df33a81471984a0edc4e8c02065d438443afedfdfc05512c80f6089583560738",
+  "summary.json": "7bb37f83b8e649d955b5c5da8be4641f82164e924a9465e90a943712fa8c1664",
+  "union_decisions.csv": "37daa79d4e6d05d569311566ea7972ac0bb76bc9131855f27e7e6fd53eb6cef9",
+  "union_episodes.csv": "4332824084a6405f3a2f2e05bb2c5be1002d8c4f8b4e6b3af0ea188d0feff38f",
+  "union_symbol_days.csv": "a7745485bd377407b7190fb40755ed50b3e60014ea1cbb83a7a20e29be128fab",
+  "union_witnesses.csv": "7003c92fa1b09110b65d9b4a84c861addf6eb14352b34156b1880edab2c8d3e4"
+}

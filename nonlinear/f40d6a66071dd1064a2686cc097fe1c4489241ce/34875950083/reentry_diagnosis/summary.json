@@ -1,0 +1,59 @@
+{
+  "status": "HISTORICAL_ATTRIBUTION_NOT_ECONOMIC_ACCEPTANCE",
+  "source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "run": "34868483244",
+  "archive_sha256": "c836b4b4ea4c8d22f4a8a168a97732e70b0fb48b3c136d4077767a65b6121285",
+  "research_end": "2025-12-31",
+  "new_portfolio_runs": 0,
+  "method": "Reconcile actual filled inventory/PnL and reproduce recorded parent decisions; structural witnesses are not guaranteed rank/risk/cash/sector/execution-funded orders or causal treatment returns.",
+  "scopes": [
+    {
+      "scope": "union",
+      "source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+      "ledger": {
+        "max_reconciliation_error": 2.270098775625229e-09,
+        "episodes": 56,
+        "wins": 21,
+        "drawdown_peak": "2024-12-30",
+        "drawdown_trough": "2025-06-03",
+        "max_drawdown": 0.2964510683651256,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "max_target_error": 0.0,
+      "structural_witnesses": 14,
+      "wealth": 4.231186496672099
+    },
+    {
+      "scope": "chatgpt_5",
+      "source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+      "ledger": {
+        "max_reconciliation_error": 1.979060471057892e-09,
+        "episodes": 45,
+        "wins": 17,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-23",
+        "max_drawdown": 0.3155163499985997,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "max_target_error": 0.0,
+      "structural_witnesses": 36,
+      "wealth": 5.718046146255741
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+      "ledger": {
+        "max_reconciliation_error": 1.2514647096395493e-09,
+        "episodes": 58,
+        "wins": 18,
+        "drawdown_peak": "2023-04-20",
+        "drawdown_trough": "2024-07-23",
+        "max_drawdown": 0.3302999756539289,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "max_target_error": 0.0,
+      "structural_witnesses": 8,
+      "wealth": 2.35820512290061
+    }
+  ]
+}

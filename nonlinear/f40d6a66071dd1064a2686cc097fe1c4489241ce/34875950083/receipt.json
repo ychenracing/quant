@@ -1,0 +1,9 @@
+{
+  "source_commit": "f40d6a66071dd1064a2686cc097fe1c4489241ce",
+  "run_id": "34875950083",
+  "family": "funded_reentry",
+  "operation": "measure",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}

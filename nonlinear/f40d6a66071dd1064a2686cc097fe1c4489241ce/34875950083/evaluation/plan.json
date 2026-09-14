@@ -1,0 +1,75 @@
+{
+  "identity": {
+    "source": {
+      "commit": "f40d6a66071dd1064a2686cc097fe1c4489241ce",
+      "package_sha256": "077e833265807e1fcc3d12d0a047fae343bd18d4508b572d0956a6683dfa4960",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "b8580ccda8bf04cb6c4e8c4d985538946b51638d1c78086c1049bd64239cfa1b",
+        "engine.py": "822bf6d0afd8ea377e74d0811b00e8389daa40b1bbac774ff19b1e915bcc18bc",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.5",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "family": "funded_reentry",
+    "dependencies": {
+      "finite_study.py": "c2be34f19d4d7912b6f614ddc01b38a4ac4126cd6df3203dfa2c4559cc898b09",
+      "expectation_study.py": "f71b20322bf9661f65478eb6ea158b0a9c5c715490c8e0e7f2715b5b4923783a",
+      "funded_reentry.py": "1483a77867e32ef6983f86222fcf4f3ae95b5e362f1c2d6f41c1111b7724bc1b",
+      "funded_reentry_contract.json": "03b1dd30a89a3776b1a8dbf30342bbcb1e7b15963315998d1dd6c5c7be9a4be2",
+      "leadership.py": "fe1dfdaf2250e29cbda71e2891c934b54deaed536075da3fae8b37529972a3a1",
+      "expectation.py": "9f48a03e85913dab8ee97eddbff3669b10b1253f85e0b2cfa7823b42c4ac9a7f",
+      "quantity_obligation.py": "a662daef98c564de539c7072d1265c04f9dfe86901ffde308f0431af985e1272",
+      "quantity_obligation_contract.json": "6b38a211c2e4c41df2392d5c17d4efb8bd399a74acd43a3354fea0d90690c472",
+      "support_budget.py": "a22e78df1e9c21ec2ff7bc770975f827bd10c607f758036524e68f376623b3cf",
+      "support_budget_contract.json": "f68dc02717b35c5f5bd7e1feb6dba2436dc63d596aa0e1affe8bd672dce9bc52",
+      "funded_risk.py": "f91211b5fd377a54bf50778602d066c6e6247e44acbaab8faf48f9972a5751e0",
+      "funded_risk_contract.json": "065e0c70d37677e785f32ca54d6183294c9150e1aa59c415d0c103d25eae35a6",
+      "observed_readiness.py": "3926f4c687e21e23ceb91cc59a940729deab153757a7ea16b8295af7afa16e14",
+      "observed_readiness_contract.json": "a64db872be98b11a1c3010051499af29ef0113fc1909290cee668e4e10ba4617",
+      "admission_budget_completion.py": "8e451946c8ca30e389e0840c877b4cf58941b6218651756188c6a3d602cce948",
+      "admission_budget_completion_contract.json": "a2f739923d409f3b589d5f8744f300fc8336fef410daf920f4ffc6826a4ec126",
+      "observed_admission_completion.py": "6d493e15c56b274c116a0f852683b6dfcff6caa564aafe1d1bf1260dcfdd1ca9",
+      "observed_admission_completion_contract.json": "7a4f8e4a080a918de51d68babde747e5cf9bad0bc586252b1cea9c2280136aed",
+      "reentry_diagnosis.py": "743b9d0500aa9470d3c265b725c6189c6bafbc8f72e294b6f32ecebd39a704e5",
+      "ledger_attribution.py": "c338767d01400b119e089363df5eaee71de4b53b5c5bdef80ad2f46bfec48d47"
+    }
+  },
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_sha256": "ecd1f9f492a9caa14fbd51fbf1739a977ec662f719e6a7e673f2bd1d99a3d3a7",
+  "parameters": {},
+  "windows": {
+    "full": [
+      null,
+      null
+    ],
+    "bull": [
+      "2023-01-03",
+      "2026-06-30"
+    ],
+    "late_june_through_august": [
+      "2026-06-22",
+      "2026-08-31"
+    ],
+    "july_august": [
+      "2026-07-01",
+      "2026-08-31"
+    ],
+    "retrospective_2026": [
+      "2026-01-01",
+      null
+    ]
+  }
+}
