@@ -47,6 +47,7 @@ class Prediction:
     utility: np.ndarray
     ready: np.ndarray
     price: np.ndarray
+    open: np.ndarray
     ema10: np.ndarray
     momentum5: np.ndarray
     fits: list[dict[str, Any]]
@@ -165,7 +166,7 @@ def forecast(market: Market, parameters: Parameters) -> Prediction:
     utility = np.where(ready, expected - adverse, -np.inf)
     return Prediction(market.symbols, market.fingerprint(), parameters.horizon,
                       parameters.shrinkage, expected, adverse, utility, ready,
-                      price, ema10, momentum5, fit_rows)
+                      price, open_, ema10, momentum5, fit_rows)
 
 
 class Owner:
@@ -190,7 +191,9 @@ class Owner:
         held = close.units > 1e-10
         price, score, ready = self.p.price[i], self.p.utility[i], self.p.ready[i]
         new = held & ~self.was_owned
-        self.peaks[new] = price[new]
+        # Entry-day loss starts at the observed execution-session opening quote,
+        # not at the first (possibly already damaged) owned close.
+        self.peaks[new] = np.maximum(price[new], self.p.open[i, new])
         self.peaks[held] = np.maximum(self.peaks[held], price[held])
         self.peaks[~held] = 0.
         self.pending_exit[~held] = False  # Only actual liquidation clears intent.
