@@ -1,0 +1,20 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "ranking": "forecast"
+    },
+    "worst_deficit": 1.253689193739328,
+    "objective": -1.340879898020166,
+    "fills": 401
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "ranking": "price"
+    },
+    "worst_deficit": 0.9814078411841971,
+    "objective": -1.4864496590455716,
+    "fills": 432
+  }
+]

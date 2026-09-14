@@ -1,0 +1,152 @@
+{
+  "status": "DIAGNOSTIC_NOT_ACCEPTANCE",
+  "scopes": [
+    {
+      "scope": "union",
+      "origin": {
+        "issuing_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+        "issuing_run": 34809876451,
+        "parent_manifest_sha256": "161210529e6e8aef1044bc6b7a0b8811bf4f1b680afd8f2a9ad2107e4a54bff2",
+        "parent_archive_sha256": "cf2eb81f4fb9b8cdba1de8929798883ac01c8cb7025925891b1ccaa529fc61a0",
+        "model_refitted": false,
+        "forecast_sha256": "4540b5d9a58ab7116243d4589333eb60841bd3676fd6a3e4405f23f509f05952",
+        "payload_sha256": "7dddc37d04d5dc7a606dfd03baa44ced32735593f755470d384ca8ee068cc64e",
+        "source": {
+          "commit": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+          "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+          "files": {
+            "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+            "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+            "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+            "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+            "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+            "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+            "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+            "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+            "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+            "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+            "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+          },
+          "python": "3.13.5",
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "dependencies": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3"
+          }
+        }
+      },
+      "ledger": {
+        "max_reconciliation_error": 3.259629011154175e-09,
+        "episodes": 115,
+        "wins": 42,
+        "drawdown_peak": "2023-04-20",
+        "drawdown_trough": "2024-05-31",
+        "max_drawdown": 0.4954981979687808,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "all_decisions_match_original": true,
+      "maximum_weight_difference": 0.0,
+      "shadowed_admissible_days_before_2026": 8,
+      "shadowed_admissible_days_full": 15,
+      "price_ready_below_score_days_before_2026": 131
+    },
+    {
+      "scope": "chatgpt_5",
+      "origin": {
+        "issuing_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+        "issuing_run": 34809876451,
+        "parent_manifest_sha256": "161210529e6e8aef1044bc6b7a0b8811bf4f1b680afd8f2a9ad2107e4a54bff2",
+        "parent_archive_sha256": "cf2eb81f4fb9b8cdba1de8929798883ac01c8cb7025925891b1ccaa529fc61a0",
+        "model_refitted": false,
+        "forecast_sha256": "4b769af59c5d2c230253b2570bcbbf83fc6477dbf9401260e39b65d44be5bde4",
+        "payload_sha256": "f43d526acd99eb1f8b32a53ee2257410f7b772e3bfc29e352419833b29c0dca3",
+        "source": {
+          "commit": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+          "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+          "files": {
+            "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+            "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+            "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+            "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+            "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+            "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+            "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+            "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+            "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+            "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+            "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+          },
+          "python": "3.13.5",
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "dependencies": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3"
+          }
+        }
+      },
+      "ledger": {
+        "max_reconciliation_error": 3.841705620288849e-09,
+        "episodes": 51,
+        "wins": 26,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-01-05",
+        "max_drawdown": 0.3578281092038431,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "all_decisions_match_original": true,
+      "maximum_weight_difference": 0.0,
+      "shadowed_admissible_days_before_2026": 0,
+      "shadowed_admissible_days_full": 0,
+      "price_ready_below_score_days_before_2026": 35
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "origin": {
+        "issuing_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+        "issuing_run": 34809876451,
+        "parent_manifest_sha256": "161210529e6e8aef1044bc6b7a0b8811bf4f1b680afd8f2a9ad2107e4a54bff2",
+        "parent_archive_sha256": "cf2eb81f4fb9b8cdba1de8929798883ac01c8cb7025925891b1ccaa529fc61a0",
+        "model_refitted": false,
+        "forecast_sha256": "e07917c1fa0fcbfa27ea46757e8a9f97fa12ddc775cbb966cd4372993ed1f03b",
+        "payload_sha256": "437394053996f9c645dc2f4d49dfd69e02b18459fec2beeb9fdffc0f7474dde8",
+        "source": {
+          "commit": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+          "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+          "files": {
+            "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+            "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+            "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+            "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+            "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+            "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+            "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+            "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+            "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+            "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+            "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+          },
+          "python": "3.13.5",
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "dependencies": {
+            "numpy": "2.3.5",
+            "pandas": "2.2.3"
+          }
+        }
+      },
+      "ledger": {
+        "max_reconciliation_error": 1.7462298274040222e-09,
+        "episodes": 106,
+        "wins": 39,
+        "drawdown_peak": "2023-04-20",
+        "drawdown_trough": "2025-05-20",
+        "max_drawdown": 0.5884966076728502,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "all_decisions_match_original": true,
+      "maximum_weight_difference": 0.0,
+      "shadowed_admissible_days_before_2026": 10,
+      "shadowed_admissible_days_full": 11,
+      "price_ready_below_score_days_before_2026": 117
+    }
+  ]
+}
