@@ -1,0 +1,380 @@
+{
+  "status": "DIAGNOSTIC_NOT_ECONOMIC_ACCEPTANCE",
+  "parent_archive_sha256": "15679c4e9a0e9fa597be057cfe472794fd194456d51bf94cb64c7acd5621dbf6",
+  "parent_manifest_files": 188,
+  "method": "Issued predictions only; overlapping mature labels are descriptive, not independent observations.",
+  "scopes": [
+    {
+      "scope": "union",
+      "source": {
+        "commit": "acd87232cc97518c6258338351a7489fb7ddc1f9",
+        "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+        "files": {
+          "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+          "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+          "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+          "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+          "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+          "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+          "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+          "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+          "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+          "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+          "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+        },
+        "python": "3.13.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "dependencies": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3"
+        }
+      },
+      "forecast_sha256": "88a6b817befa13bab6baf31b01b26913d24d22ae7911593b66555a2fc4cd65b8",
+      "model_fit_start": 110,
+      "rank_metrics": [
+        {
+          "method": "learner",
+          "fitted_only": false,
+          "dates": 648,
+          "mean_daily_rank_correlation": 0.03254867523753556,
+          "mean_top4_excess_log_return": 0.05729531470350738
+        },
+        {
+          "method": "price_prior",
+          "fitted_only": false,
+          "dates": 648,
+          "mean_daily_rank_correlation": -0.08765862396825813,
+          "mean_top4_excess_log_return": 0.057080191237181
+        },
+        {
+          "method": "learner",
+          "fitted_only": true,
+          "dates": 557,
+          "mean_daily_rank_correlation": 0.0030300343210477886,
+          "mean_top4_excess_log_return": 0.02924203775283587
+        },
+        {
+          "method": "price_prior",
+          "fitted_only": true,
+          "dates": 557,
+          "mean_daily_rank_correlation": -0.13681615936899585,
+          "mean_top4_excess_log_return": 0.02899176844192114
+        }
+      ],
+      "risk_reliability": [
+        {
+          "fitted_only": false,
+          "low": 0.0,
+          "high": 0.1,
+          "samples": 10322,
+          "predicted": 0.06463768844530562,
+          "observed": 0.10356520054253052
+        },
+        {
+          "fitted_only": false,
+          "low": 0.1,
+          "high": 0.25,
+          "samples": 10147,
+          "predicted": 0.14727452791310883,
+          "observed": 0.13984428895239973
+        },
+        {
+          "fitted_only": false,
+          "low": 0.25,
+          "high": 0.5,
+          "samples": 1479,
+          "predicted": 0.32452031915150403,
+          "observed": 0.21568627450980393
+        },
+        {
+          "fitted_only": false,
+          "low": 0.5,
+          "high": 1.000001,
+          "samples": 115,
+          "predicted": 0.5777621461423633,
+          "observed": 0.2782608695652174
+        },
+        {
+          "fitted_only": true,
+          "low": 0.0,
+          "high": 0.1,
+          "samples": 10322,
+          "predicted": 0.06463768844530562,
+          "observed": 0.10356520054253052
+        },
+        {
+          "fitted_only": true,
+          "low": 0.1,
+          "high": 0.25,
+          "samples": 8999,
+          "predicted": 0.1533053266734432,
+          "observed": 0.15057228580953438
+        },
+        {
+          "fitted_only": true,
+          "low": 0.25,
+          "high": 0.5,
+          "samples": 1479,
+          "predicted": 0.32452031915150403,
+          "observed": 0.21568627450980393
+        },
+        {
+          "fitted_only": true,
+          "low": 0.5,
+          "high": 1.000001,
+          "samples": 115,
+          "predicted": 0.5777621461423633,
+          "observed": 0.2782608695652174
+        }
+      ]
+    },
+    {
+      "scope": "chatgpt_5",
+      "source": {
+        "commit": "acd87232cc97518c6258338351a7489fb7ddc1f9",
+        "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+        "files": {
+          "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+          "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+          "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+          "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+          "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+          "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+          "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+          "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+          "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+          "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+          "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+        },
+        "python": "3.13.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "dependencies": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3"
+        }
+      },
+      "forecast_sha256": "8c02a83ef47138b9978f021e5d27ae22997efacf6aa28d867fa2de9371a44e8d",
+      "model_fit_start": 110,
+      "rank_metrics": [
+        {
+          "method": "learner",
+          "fitted_only": false,
+          "dates": 648,
+          "mean_daily_rank_correlation": -0.01568379987110996,
+          "mean_top4_excess_log_return": 0.005589453058403713
+        },
+        {
+          "method": "price_prior",
+          "fitted_only": false,
+          "dates": 648,
+          "mean_daily_rank_correlation": 0.03209876543209876,
+          "mean_top4_excess_log_return": 0.008159472168185952
+        },
+        {
+          "method": "learner",
+          "fitted_only": true,
+          "dates": 557,
+          "mean_daily_rank_correlation": -0.10298582103497171,
+          "mean_top4_excess_log_return": -0.008065017836837555
+        },
+        {
+          "method": "price_prior",
+          "fitted_only": true,
+          "dates": 557,
+          "mean_daily_rank_correlation": -0.047396768402154406,
+          "mean_top4_excess_log_return": -0.005075121278239905
+        }
+      ],
+      "risk_reliability": [
+        {
+          "fitted_only": false,
+          "low": 0.0,
+          "high": 0.1,
+          "samples": 1187,
+          "predicted": 0.0639658098052097,
+          "observed": 0.18534119629317608
+        },
+        {
+          "fitted_only": false,
+          "low": 0.1,
+          "high": 0.25,
+          "samples": 1690,
+          "predicted": 0.15334076981696224,
+          "observed": 0.14615384615384616
+        },
+        {
+          "fitted_only": false,
+          "low": 0.25,
+          "high": 0.5,
+          "samples": 553,
+          "predicted": 0.33759291729122887,
+          "observed": 0.1735985533453888
+        },
+        {
+          "fitted_only": false,
+          "low": 0.5,
+          "high": 1.000001,
+          "samples": 85,
+          "predicted": 0.581053256816292,
+          "observed": 0.15294117647058825
+        },
+        {
+          "fitted_only": true,
+          "low": 0.0,
+          "high": 0.1,
+          "samples": 1187,
+          "predicted": 0.0639658098052097,
+          "observed": 0.18534119629317608
+        },
+        {
+          "fitted_only": true,
+          "low": 0.1,
+          "high": 0.25,
+          "samples": 1485,
+          "predicted": 0.16070431043142502,
+          "observed": 0.1595959595959596
+        },
+        {
+          "fitted_only": true,
+          "low": 0.25,
+          "high": 0.5,
+          "samples": 553,
+          "predicted": 0.33759291729122887,
+          "observed": 0.1735985533453888
+        },
+        {
+          "fitted_only": true,
+          "low": 0.5,
+          "high": 1.000001,
+          "samples": 85,
+          "predicted": 0.581053256816292,
+          "observed": 0.15294117647058825
+        }
+      ]
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "source": {
+        "commit": "acd87232cc97518c6258338351a7489fb7ddc1f9",
+        "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+        "files": {
+          "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+          "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+          "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+          "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+          "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+          "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+          "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+          "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+          "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+          "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+          "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+        },
+        "python": "3.13.5",
+        "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "dependencies": {
+          "numpy": "2.3.5",
+          "pandas": "2.2.3"
+        }
+      },
+      "forecast_sha256": "99f02382059af91a5679c89be0b1ed6e9f76389984b12e9e1b56ec66fccd1f7f",
+      "model_fit_start": 110,
+      "rank_metrics": [
+        {
+          "method": "learner",
+          "fitted_only": false,
+          "dates": 648,
+          "mean_daily_rank_correlation": 0.01678100572172589,
+          "mean_top4_excess_log_return": 0.01920792571994348
+        },
+        {
+          "method": "price_prior",
+          "fitted_only": false,
+          "dates": 648,
+          "mean_daily_rank_correlation": -0.16182179463788657,
+          "mean_top4_excess_log_return": 0.005886033030143298
+        },
+        {
+          "method": "learner",
+          "fitted_only": true,
+          "dates": 557,
+          "mean_daily_rank_correlation": 0.014976176163201073,
+          "mean_top4_excess_log_return": 0.015915358950775487
+        },
+        {
+          "method": "price_prior",
+          "fitted_only": true,
+          "dates": 557,
+          "mean_daily_rank_correlation": -0.19280589678658144,
+          "mean_top4_excess_log_return": 0.0004169990531264395
+        }
+      ],
+      "risk_reliability": [
+        {
+          "fitted_only": false,
+          "low": 0.0,
+          "high": 0.1,
+          "samples": 10534,
+          "predicted": 0.06315558659328536,
+          "observed": 0.09417125498386178
+        },
+        {
+          "fitted_only": false,
+          "low": 0.1,
+          "high": 0.25,
+          "samples": 7902,
+          "predicted": 0.14472780991826809,
+          "observed": 0.13768666160465706
+        },
+        {
+          "fitted_only": false,
+          "low": 0.25,
+          "high": 0.5,
+          "samples": 1355,
+          "predicted": 0.3250811884757015,
+          "observed": 0.2088560885608856
+        },
+        {
+          "fitted_only": false,
+          "low": 0.5,
+          "high": 1.000001,
+          "samples": 163,
+          "predicted": 0.5859587727869499,
+          "observed": 0.3619631901840491
+        },
+        {
+          "fitted_only": true,
+          "low": 0.0,
+          "high": 0.1,
+          "samples": 10534,
+          "predicted": 0.06315558659328536,
+          "observed": 0.09417125498386178
+        },
+        {
+          "fitted_only": true,
+          "low": 0.1,
+          "high": 0.25,
+          "samples": 6877,
+          "predicted": 0.1513943803946713,
+          "observed": 0.14977461102224807
+        },
+        {
+          "fitted_only": true,
+          "low": 0.25,
+          "high": 0.5,
+          "samples": 1355,
+          "predicted": 0.3250811884757015,
+          "observed": 0.2088560885608856
+        },
+        {
+          "fitted_only": true,
+          "low": 0.5,
+          "high": 1.000001,
+          "samples": 163,
+          "predicted": 0.5859587727869499,
+          "observed": 0.3619631901840491
+        }
+      ]
+    }
+  ]
+}
