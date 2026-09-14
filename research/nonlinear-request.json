@@ -1,10 +1,10 @@
 {
-  "family": "funded_reentry",
-  "purpose": "Measure the separately preregistered funded trend-health reentry interaction; first reconstruct the immutable parent decisions without rerunning its portfolio study. Preserve every raw outcome and the concurrent correctness fixes.",
+  "family": "revocable_reentry",
+  "purpose": "Measure only the preregistered revocable pre-fill health permission; preserve its failed parent and avoid redispatching completed studies or the concurrent fixed validation.",
   "candidate_count": 1,
   "selection_end": "2025-12-31",
-  "contract_commit": "4fd7c52d32ff603266f4eb626137c5fb7ff4ebce",
-  "parent_source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "contract_commit": "1b8b6a589b622cf3fa23e2a116a38a8da538c1cb",
+  "parent_source": "f40d6a66071dd1064a2686cc097fe1c4489241ce",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }

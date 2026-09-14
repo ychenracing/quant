@@ -75,6 +75,9 @@ jobs:
                       elif request['family'] == 'funded_reentry':
                           from research.reentry_diagnosis import hosted as diagnose_reentry
                           diagnose_reentry(output, data, supplement)
+                      elif request['family'] == 'revocable_reentry':
+                          # Its exact parent archive and state witnesses are already preserved.
+                          pass
                       elif issued is not None:
                           from research.admission_attribution import admission_attribution
                           admission_attribution(issued, market, output / 'parent_diagnosis')

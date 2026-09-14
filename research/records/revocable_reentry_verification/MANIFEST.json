@@ -1,0 +1,32 @@
+{
+  "format": "concatenate binary parts in listed order, then gzip decompress JSON",
+  "sha256": "321ac3e569a6e35cd66433f1d707d746e865096b021b28eb0130a6863e9af3b5",
+  "bytes": 10419,
+  "parts": [
+    {
+      "path": "part-00",
+      "bytes": 3072,
+      "sha256": "718e4edce22a1f57a806081971a4f28c541015042e49deece64e8042d7e4d1bb",
+      "git_blob": "b603be4519ab1dcb2e35f52f4eed20528d621613"
+    },
+    {
+      "path": "part-01",
+      "bytes": 3072,
+      "sha256": "22a4dca7c32f92bbcdc0ca04e22fdb9c30506b099a3cf361bc3f69e8da3218b7",
+      "git_blob": "eb470d31993e73bb757abd62652fc2d7acad50e1"
+    },
+    {
+      "path": "part-02",
+      "bytes": 3072,
+      "sha256": "4c6444e644fbaae4c1887f8c7b20b8d597b983e77ca52cc96a6359c93780c695",
+      "git_blob": "7987dedd595ac59da15318d262d248d6baed2d17"
+    },
+    {
+      "path": "part-03",
+      "bytes": 1203,
+      "sha256": "0da3bc73dfe29d4c220748f803b9273fc72e8dfcd455efd9f41fa52a9e9f11f7",
+      "git_blob": "935796d04615eb300662eb8e6e9028bee9bdad7e"
+    }
+  ],
+  "rejected_unreferenced_upload": "00cd84e819e14d3201c618e3b282d7ae8b6e7c02 did not match the local original and is not attached or accepted as evidence"
+}
