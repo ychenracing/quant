@@ -1,0 +1,16 @@
+{
+ "status":"DECLARED_BEFORE_MEASUREMENT",
+ "family":"causal_downside_hazard",
+ "execution":"Return to the unchanged original next-open engine. Keep the separate standing-protection experiment and its adverse results; do not mix execution models to claim acceptance.",
+ "hypothesis":"Reactive exits often recognize damage only after it has occurred. Estimate the risk of a future closing-price loss using previously matured examples from the supplied technology subset, without calendar, security-name or future-period features.",
+ "label":"At origin t, event equals one if any of the next ten closing prices falls at least ten percent below close[t]. The entire ten-session outcome must have elapsed before that row is eligible for fitting. No intraday low or future peak is a feature.",
+ "model":"L2-regularized logistic regression with an unpenalized intercept, NumPy Newton solves, at most twelve fit iterations. Refit every twenty sessions after sixty observed sessions, using at most 252 feature-origin dates and only matured labels. Pool eligible stocks from exactly the current subset; removed names supply no features or labels. Before a valid fit, preserve the independent broad-confirmation breakout policy.",
+ "features":"Use the previously independently implemented thirteen bounded causal return, trend, volatility, breadth and relative-volume predictors. Add bounded bar range normalized by prior volatility, close location inside the observed bar and open-to-close return normalized by prior volatility. No symbol-specific coefficients or sector dummies.",
+ "candidate_grid":{"ridge":[10.0,100.0],"threshold":[0.35,0.5,0.65],"retained_fraction":[0.0,0.5]},
+ "candidate_count":12,
+ "decisions":"Block a fresh entry when its estimated downside probability exceeds threshold. For an actual holding, the same event triggers either a full persistent exit or one fixed-unit reduction per holding lifecycle. Partial exits cannot repeatedly halve a position and cannot be averaged back up. Deeper existing ownership stops retain priority. No future label can change the same-origin decision.",
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+ "evidence":"Preserve every fit clock, coefficient vector, forecast, candidate, cost and failed predecessor. Verify prefix equivalence and label maturity. Assess matured prequential probabilities separately from investment gains; logistic outputs are estimates, not guaranteed calibrated risks. No new dependency or long routine CI. All 2026 evaluation remains retrospective. Frozen original fees, data, accounting, delays and economic acceptance targets remain unchanged."
+}
