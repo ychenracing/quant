@@ -2,13 +2,13 @@ name: Explicit research reproduction
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [research/causal-protection]
     paths: [research/run-request.json]
 permissions:
   contents: read
   actions: read
 concurrency:
-  group: independent-research-publication
+  group: causal-research-publication
   cancel-in-progress: false
 jobs:
   reproduce:
@@ -24,11 +24,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: source
-          persist-credentials: false
-      - uses: actions/checkout@v4
-        with:
-          ref: 30cc7d3bdea38d2d613ce43b2fdf988e0f544daa
-          path: parent
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
@@ -47,13 +42,13 @@ jobs:
               with open('archives/' + name + '.zip', 'wb') as stream:
                   subprocess.run(['gh', 'api', 'repos/ychenracing/quant/actions/artifacts/' + str(record['artifact_id']) + '/zip'], stdout=stream, check=True)
           PY
-      - name: Reproduce exact source and failed parent; disclose unavailable private references
+      - name: Reproduce source-bound independent research
         env:
           QUANT_SOURCE_COMMIT: ${{ github.sha }}
-          PYTHONPATH: source/src:source
+          PYTHONPATH: source/src:source/tests:source
         run: |
           python -m unittest discover -s source/tests -v > engineering.txt 2>&1
-          python source/research/reproduce.py --archives archives --without-native --parent parent --output result
+          python source/research/replay_families.py --archives archives --output result
       - name: Prepare immutable publication
         run: |
           test -s result.tar.gz
@@ -66,7 +61,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: independent-research-${{ github.sha }}
+          name: causal-research-${{ github.sha }}
           path: |
             publication/
             result/execution.json
@@ -77,13 +72,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: incomplete-research-${{ github.sha }}
+          name: incomplete-causal-research-${{ github.sha }}
           path: |
             result/
             engineering.txt
           retention-days: 90
           if-no-files-found: warn
-      - name: Append evidence to a durable branch
+      - name: Append evidence without replacing another study's pointer
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -98,13 +93,17 @@ jobs:
           else
             git checkout --orphan research/evidence
           fi
-          destination="published/${GITHUB_SHA}/${GITHUB_RUN_ID}"
+          destination="causal/${GITHUB_SHA}/${GITHUB_RUN_ID}"
           test ! -e "$destination"
           mkdir -p "$destination"
           cp -a ../publication/. "$destination/"
-          printf '{"source_commit":"%s","run_id":"%s","path":"%s","economic_acceptance":"NOT_PASSED"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$destination" > LATEST.json
           git config user.name 'quant research publisher'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- "$destination" LATEST.json
-          git commit -m "research: preserve measured source ${GITHUB_SHA}"
-          git push origin HEAD:refs/heads/research/evidence
+          git add -- "$destination"
+          git commit -m "research: preserve causal measurements ${GITHUB_SHA}"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:refs/heads/research/evidence; then exit 0; fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1
