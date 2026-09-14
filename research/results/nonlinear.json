@@ -1,0 +1,25 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "economic_acceptance": "NOT_PASSED",
+  "source_commit": "d9c639278cf30d4bbcbfa33258ab304da3e394f9",
+  "run_id": 34807272116,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "evidence_branch": "research/evidence",
+  "evidence_path": "nonlinear/d9c639278cf30d4bbcbfa33258ab304da3e394f9/34807272116",
+  "archive_sha256": "ff1b47b5bc047a928068a72d8cc1280ea1ef9b32958ed5334bde4fdfb02fc3e8",
+  "manifest_files_verified": 248,
+  "candidate_count": 8,
+  "candidate_scope_rows": 24,
+  "evaluation_rows": 45,
+  "selected": {"horizon": 60, "tail_threshold": 0.5, "positions": 4},
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "full_period": [
+    {"scope":"union", "wealth":7.377238533657942, "max_drawdown":0.4797235552218332, "orders":177, "average_exposure":0.9275314376413564},
+    {"scope":"chatgpt_5", "wealth":11.212237834640478, "max_drawdown":0.46078050953474803, "orders":96, "average_exposure":0.7325323740455697},
+    {"scope":"joint_optical_leader_removal", "wealth":2.7446296457335952, "max_drawdown":0.6006505643401123, "orders":194, "average_exposure":0.8956181898163162}
+  ],
+  "verified_accounting": "Actual fills satisfy opening sellable-inventory T+1 and reconcile daily symbol PnL to NAV. Maximum residual across three candidate accounts is 6.51925802230835e-09 yuan.",
+  "diagnosis": "All three full-period wealth and fill counts improve on the incumbent, but all drawdowns worsen. The removed-leader pool peak is 2023-04-20 and trough 2024-02-05. A sh688300 episode bought 2023-12-04 and exited 2024-02-06 loses 49.226050374187%. The frozen policy only treats sustained below-EMA60 prices as an exit when a negative model forecast also persists; observed trend deterioration has no independent exit authority. The next experiment tests that specific mechanism, not another expansion of the old eight-candidate grid.",
+  "forecast_reconstruction_limit": "A local reconstruction with matching market, source and dependency versions does not match hosted forecast/training byte hashes. Its values are local diagnostics, not recovered issued forecasts. Raw hosted results remain intact; do not substitute local reconstructed predictions for their identities.",
+  "validation": "Hosted run passed 73 ordinary and 7 nonlinear correctness checks. A subsequent tests-only commit 35f6baa40ddb2750bea328644a5a318d8975318a adds stronger isolation and accounting checks; 82 local checks pass, but that commit is not relabelled as the source of this economic run."
+}
