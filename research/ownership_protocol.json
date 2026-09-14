@@ -1,0 +1,20 @@
+{
+  "status": "FROZEN_BEFORE_NEW_RUNS",
+  "experiment": "independent_ownership",
+  "authorization": "2026-09-14 user explicitly authorized continued independent optimization or rewriting; this is a new experiment, not an edit of protocol.json or prior evidence",
+  "selection_end": "2025-12-31",
+  "evaluation_end": "2026-09-11",
+  "seed": 34,
+  "styles": ["hysteretic_mean", "price_channel", "volatility_trail"],
+  "slow": [60, 120, 180],
+  "max_positions": [2, 3],
+  "risk_modes": ["drawdown", "cusum", "trend"],
+  "candidate_count": 54,
+  "fixed": {"fast": 20, "rebalance": 20, "single_cap": 0.6, "sector_cap": 0.85, "trade_band": 0.08, "target_vol": 0.8, "risk_drawdown": 0.12, "stop_atr": 6.0, "shock_z": 2.5, "recovery": 3, "initial_cash": 2000000.0, "commission_bps": 2.5, "slippage_bps": 10.0, "max_adv": 0.005},
+  "selection_scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+  "selection_objective": "mean(log(wealth / same_engine_buy_hold_wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20)); ties fewer fills then smaller candidate index. All three scopes weighted equally.",
+  "hypotheses": {"ownership": "Keep intact economic units, refill material idle cash without rebalancing winners, replace broken trends without waiting a full scheduling period.", "selection": "One common multi-horizon momentum score; no name, sector-specific profile, reference strategy inheritance or calendar alpha.", "risk": "Separate daily downside response from slow trend ownership. Compare drawdown, downside CUSUM and persistent trend breakdown; recovery uses observed index/breadth confirmation, not a known bottom date."},
+  "interpretation": "All data periods were previously inspected. This is retrospective model development, never an untouched holdout. New search increases multiple-testing risk. No claim of universal return/drawdown dominance follows from selecting a candidate.",
+  "preservation": "Retain all 54 candidates, errors, diagnostic ablations and original failed protocols. Engine, market snapshot, costs, seed and acceptance targets are not relaxed. New algorithmic parameters do not change financial metric definitions.",
+  "promotion": "Only verified source/dataset/runner-bound results may be published as measurements. Economic superiority still requires same-universe and equivalent-execution comparisons; sampled subsets are not arbitrary-subset proof. No automatic live trading."
+}
