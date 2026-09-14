@@ -1,10 +1,10 @@
 {
-  "family": "suspended_campaign",
-  "purpose": "Measure the separately registered actual-cash restoration of risk-suspended campaigns, preserving both failed generic reentry alternatives and the exact historical diagnosis. No old grid or concurrent validation is redispatched.",
-  "candidate_count": 1,
+  "family": "allocation_auction",
+  "purpose": "Measure the prospectively registered unchanged-control versus joint cash/stop-risk allocation comparison. Preserve all raw accounts and intent resources; no stop, eligibility, risk-limit or acceptance relaxation.",
+  "candidate_count": 2,
   "selection_end": "2025-12-31",
-  "contract_commit": "f0fb7c655c5015578c33dc537d9f5ac7347e3496",
-  "parent_source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "contract_commit": "2b62900b1e90436cf5d387d8eb1173f5c6a6f859",
+  "parent_source": "924e0e35fb641bcabcaf5b42a4e98667ab34073b",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }

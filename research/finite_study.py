@@ -22,7 +22,7 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str,*,issued_evidence:Path|None=None):
-        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget','risk_reliability','funded_risk','quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget','risk_reliability','funded_risk','quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign','allocation_auction'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
         self.issued=None
@@ -47,14 +47,15 @@ class Study:
                     'coherent.py','coherent_contract.json','observed_trend.py',
                     'nonlinear.py','pathwise.py','observed_trend_contract.json',
                     'nonlinear_contract.json','pathwise_contract.json']
-        if self.family in {'observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign'}:names+=['quantity_obligation.py','quantity_obligation_contract.json']
-        if self.family in {'quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign'}:names+=['support_budget.py','support_budget_contract.json','funded_risk.py','funded_risk_contract.json']
-        if self.family in {'observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign'}:
+        if self.family in {'observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign','allocation_auction'}:names+=['quantity_obligation.py','quantity_obligation_contract.json']
+        if self.family in {'quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign','allocation_auction'}:names+=['support_budget.py','support_budget_contract.json','funded_risk.py','funded_risk_contract.json']
+        if self.family in {'observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign','allocation_auction'}:
             names+=['observed_readiness.py','observed_readiness_contract.json',
                     'admission_budget_completion.py','admission_budget_completion_contract.json']
         if self.family in {'funded_reentry','revocable_reentry'}:names+=['observed_admission_completion.py','observed_admission_completion_contract.json','reentry_diagnosis.py','ledger_attribution.py']
         if self.family=='suspended_campaign':names+=['observed_admission_completion.py','observed_admission_completion_contract.json','suspension_diagnosis.py','holding_diagnosis.py','ledger_attribution.py']
         if self.family=='revocable_reentry':names+=['funded_reentry.py','funded_reentry_contract.json']
+        if self.family=='allocation_auction':names+=['observed_admission_completion.py','observed_admission_completion_contract.json']
         if self.family=='funded_risk':names+=['support_budget.py','support_budget_contract.json']
         return {'source':source_identity(),'family':self.family,
                 'dependencies':{name:file_hash(root/name) for name in names},
@@ -62,7 +63,7 @@ class Study:
 
     def saved(self,market,path,parameters=None,benchmark=None,costs=1.,delay=1,*,configuration=None):
         if configuration is not None and (type(configuration) is not Config
-                or self.family != "observed_admission_completion"):
+                or self.family not in {"observed_admission_completion", "allocation_auction"}):
             raise ValueError("configuration override is supported only for the fixed observed-admission owner")
         cfg=Config() if configuration is None else configuration
         expected={'config':asdict(cfg),'universe':list(market.symbols),'quality':market.quality,
@@ -84,7 +85,7 @@ class Study:
             owner.preserve_audit(path.parent.parent/'audits', require_existing=path.exists())
         intent_path=path.parent.parent/'intents'/(path.name+'.json')
         if path.exists():
-            if self.family in {'quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign'} and owner is not None:
+            if self.family in {'quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign','allocation_auction'} and owner is not None:
                 self.module.verify_trace(intent_path,expected)
             return load_result(path,expected=expected)
         factory=(lambda m,c:owner) if owner is not None else None
@@ -92,7 +93,7 @@ class Study:
         result.metadata['study']=self.identity()
         if result.metadata!=expected:raise AssertionError('unexpected study identity')
         save_result(result,path)
-        if self.family in {'quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign'} and owner is not None:
+        if self.family in {'quantity_obligation','observed_readiness','leadership_handover','opportunity_reassignment','admission_budget_completion','observed_admission_completion','funded_reentry','revocable_reentry','suspended_campaign','allocation_auction'} and owner is not None:
             self.module.preserve_trace(intent_path,expected,owner.trace)
         prediction=getattr(owner,'f',None) or getattr(getattr(owner,'inner',None),'f',None)
         if prediction is not None:

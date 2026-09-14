@@ -78,7 +78,7 @@ jobs:
                       elif request['family'] == 'suspended_campaign':
                           from research.suspension_diagnosis import hosted as diagnose_suspension
                           diagnose_suspension(output, data, supplement)
-                      elif request['family'] == 'revocable_reentry':
+                      elif request['family'] in {'revocable_reentry', 'allocation_auction'}:
                           # Its exact parent archive and state witnesses are already preserved.
                           pass
                       elif issued is not None:

@@ -1,0 +1,32 @@
+{
+  "format": "ordered-base64-parts-gzip-tar",
+  "archive_sha256": "04192d819d798ef8da8609a3f77f81c4bd52138cfcbb8d504c304b828fd1b8d3",
+  "raw_members": 18,
+  "status": "PRE_MEASUREMENT_ENGINEERING_AND_OBSERVATIONAL_DIAGNOSIS_ONLY",
+  "economic_acceptance": "UNVERIFIED",
+  "parts": [
+    {
+      "path": "allocation_auction_verification.part00.b64",
+      "sha256": "8898fa4b9dc8d994efcf4de2399f31b56b2c6fbd7229f539015ff491cd8dd77b",
+      "bytes": 6001
+    },
+    {
+      "path": "allocation_auction_verification.part01.b64",
+      "sha256": "28c9ed6108a01fb6462d5186e69cb2071a4f97d1ac1889e47420d66c67ff8366",
+      "bytes": 6001
+    },
+    {
+      "path": "allocation_auction_verification.part02.b64",
+      "sha256": "28b46d7c340c3662ecfea449b8e6b8542619737075bd2a4bc447ecdb4d9d000a",
+      "bytes": 6001
+    },
+    {
+      "path": "allocation_auction_verification.part03.b64",
+      "sha256": "2efea3c2df05e827078488e9405dfe2533e61d887d7151419649f6a69dc7ab2e",
+      "bytes": 3285
+    }
+  ],
+  "original_inline_record_sha256": "dfa31932704560aef89dddd41a76a984d47d9c2fb814966218aa5710650fe9df",
+  "restore": "Concatenate listed parts in order after stripping whitespace; base64 decode, verify archive_sha256, and open gzip tar. The archive is byte-identical to the original inline record.",
+  "rejected_unreferenced_blob": "9d042b8563893f995059bd846f03624a0e483a09; truncated audit transport attempt, never referenced by a branch or accepted as evidence. Correct audit blob5123c02b05825736cfd94a7acb6c0fd6e0f5cb87 is used."
+}
