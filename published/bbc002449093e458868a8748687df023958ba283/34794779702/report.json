@@ -1,0 +1,465 @@
+{
+  "economic_acceptance": "FAILED_TO_ESTABLISH_REQUESTED_DOMINANCE",
+  "engineering_and_publication_do_not_override_economics": true,
+  "selection": {
+    "status": "SELECTED_NOT_ECONOMICALLY_ACCEPTED",
+    "candidate": 0,
+    "objective": -0.982980542327249,
+    "config": {
+      "fast": 10,
+      "slow": 40,
+      "max_positions": 2,
+      "rebalance": 10,
+      "single_cap": 0.55,
+      "sector_cap": 0.75,
+      "trade_band": 0.08,
+      "stop_atr": 6.0,
+      "target_vol": 0.8,
+      "shock_z": 2.5,
+      "risk_drawdown": 0.18,
+      "recovery": 3,
+      "initial_cash": 2000000.0,
+      "commission_bps": 2.5,
+      "slippage_bps": 10.0,
+      "max_adv": 0.005
+    },
+    "protocol_sha256": "ccbf53cb04381457677263cf6056f99f7ab927eecccecde82076a357626997a2",
+    "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+    "source": {
+      "commit": "bbc002449093e458868a8748687df023958ba283",
+      "package_sha256": "bdff426581e521713f28939e79f5aaa967273d9521bb881f0d5b64a2e121ca9f",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "025d7b1014649a8ca450bec812f3fdba06bed8c311f230555e1060118c3b562e",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.5",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "runner_sha256": "80c73d1ce430198ae097c8da7dad507f19dde43e2ec3e8c64f8019faab2cee3b"
+  },
+  "finite_evaluation": {
+    "status": "FINITE_RETROSPECTIVE_DIAGNOSTICS_NOT_UNIVERSAL_ACCEPTANCE",
+    "case_count": 210,
+    "replay_count": 437,
+    "matched_buy_hold_cases": 197,
+    "wealth_at_least_buy_hold": 3,
+    "minimum_wealth_ratio": 0.046166918177178905,
+    "median_wealth_ratio": 0.4305431125609858,
+    "worst_case": "('common_exhaustive_1_2', 'common_five_exhaustive')",
+    "both_return_and_drawdown_dominate": 3,
+    "economic_acceptance": "NOT_ESTABLISHED"
+  },
+  "primary_results": [
+    {
+      "case": "chatgpt_5",
+      "group": "original_pool",
+      "policy": "strategy",
+      "window": "full",
+      "universe_size": 5,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 10.824786016250098,
+      "total_return": 9.824786016250096,
+      "cagr": 0.9076171033942296,
+      "max_drawdown": 0.3307412348419231,
+      "inherited_drawdown": 0.3307412348419231,
+      "sharpe_zero_rf": 1.8291212622392257,
+      "orders": 139,
+      "orders_per_year": 37.69097995545657,
+      "gross_turnover": 37.63808598344847,
+      "fees": 131124.02927106948,
+      "slippage": 238642.22168344088,
+      "average_exposure": 0.4199879368397526,
+      "blocked_attempts": 0
+    },
+    {
+      "case": "chatgpt_5",
+      "group": "original_pool",
+      "policy": "buy_hold",
+      "window": "full",
+      "universe_size": 5,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 29.062957034788585,
+      "total_return": 28.062957034788585,
+      "cagr": 1.4934259927879687,
+      "max_drawdown": 0.5238947006691501,
+      "inherited_drawdown": 0.5238947006691501,
+      "sharpe_zero_rf": 1.7393530233000127,
+      "orders": 5,
+      "orders_per_year": 1.3557906458797329,
+      "gross_turnover": 0.9881417833811176,
+      "fees": 516.5222762699999,
+      "slippage": 1984.639499999808,
+      "average_exposure": 0.9972408260048384,
+      "blocked_attempts": 0
+    },
+    {
+      "case": "chatgpt_5",
+      "group": "original_pool",
+      "policy": "equal_weight",
+      "window": "full",
+      "universe_size": 5,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 23.38642459457432,
+      "total_return": 22.38642459457432,
+      "cagr": 1.350745812397688,
+      "max_drawdown": 0.4152643654835371,
+      "inherited_drawdown": 0.4152643654835371,
+      "sharpe_zero_rf": 1.8286314412117073,
+      "orders": 181,
+      "orders_per_year": 49.079621380846326,
+      "gross_turnover": 5.310356187712755,
+      "fees": 38911.7511617112,
+      "slippage": 75449.80302999602,
+      "average_exposure": 0.9943315555061488,
+      "blocked_attempts": 4
+    },
+    {
+      "case": "union",
+      "group": "original_pool",
+      "policy": "strategy",
+      "window": "full",
+      "universe_size": 34,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 5.624793276481121,
+      "total_return": 4.624793276481121,
+      "cagr": 0.597340462788489,
+      "max_drawdown": 0.320719532270034,
+      "inherited_drawdown": 0.320719532270034,
+      "sharpe_zero_rf": 1.4351728970883484,
+      "orders": 202,
+      "orders_per_year": 54.77394209354121,
+      "gross_turnover": 50.81685661872077,
+      "fees": 137485.89245067883,
+      "slippage": 250145.5218672656,
+      "average_exposure": 0.4500943139387556,
+      "blocked_attempts": 2
+    },
+    {
+      "case": "union",
+      "group": "original_pool",
+      "policy": "buy_hold",
+      "window": "full",
+      "universe_size": 34,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 9.1023091233018,
+      "total_return": 8.102309123301799,
+      "cagr": 0.820043416955662,
+      "max_drawdown": 0.3987907973892884,
+      "inherited_drawdown": 0.3987907973892884,
+      "sharpe_zero_rf": 1.5625991522648812,
+      "orders": 32,
+      "orders_per_year": 8.677060133630292,
+      "gross_turnover": 0.8868340834463952,
+      "fees": 474.0709397424,
+      "slippage": 1821.5282399998107,
+      "average_exposure": 0.945336482003986,
+      "blocked_attempts": 0
+    },
+    {
+      "case": "union",
+      "group": "original_pool",
+      "policy": "equal_weight",
+      "window": "full",
+      "universe_size": 34,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 7.53115329018321,
+      "total_return": 6.531153290183209,
+      "cagr": 0.7288930181011701,
+      "max_drawdown": 0.411646344074926,
+      "inherited_drawdown": 0.411646344074926,
+      "sharpe_zero_rf": 1.577623417001172,
+      "orders": 235,
+      "orders_per_year": 63.722160356347445,
+      "gross_turnover": 2.8771357340571586,
+      "fees": 7527.823241044299,
+      "slippage": 14167.166099999162,
+      "average_exposure": 0.939304570501153,
+      "blocked_attempts": 304
+    },
+    {
+      "case": "remove_optical_leaders",
+      "group": "joint_removal",
+      "policy": "strategy",
+      "window": "full",
+      "universe_size": 31,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 2.2469342641014705,
+      "total_return": 1.2469342641014705,
+      "cagr": 0.2454795071457103,
+      "max_drawdown": 0.4586885620328037,
+      "inherited_drawdown": 0.4586885620328037,
+      "sharpe_zero_rf": 0.7841911936891762,
+      "orders": 209,
+      "orders_per_year": 56.67204899777283,
+      "gross_turnover": 58.398828962733695,
+      "fees": 96134.90257288386,
+      "slippage": 175046.21712789356,
+      "average_exposure": 0.4424977322232227,
+      "blocked_attempts": 3
+    },
+    {
+      "case": "remove_optical_leaders",
+      "group": "joint_removal",
+      "policy": "buy_hold",
+      "window": "full",
+      "universe_size": 31,
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2026-09-11",
+      "sessions": 896,
+      "wealth": 5.716080460478996,
+      "total_return": 4.716080460478996,
+      "cagr": 0.6043287552942215,
+      "max_drawdown": 0.4569130212668787,
+      "inherited_drawdown": 0.4569130212668787,
+      "sharpe_zero_rf": 1.3650959739068824,
+      "orders": 31,
+      "orders_per_year": 8.405902004454342,
+      "gross_turnover": 0.9036717543603559,
+      "fees": 489.5991522422,
+      "slippage": 1881.192469999799,
+      "average_exposure": 0.9315637165255072,
+      "blocked_attempts": 6
+    }
+  ],
+  "native_comparisons": [
+    {
+      "reference": "chatgpt",
+      "pool": "chatgpt_5",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "chatgpt",
+      "pool": "union",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "chatgpt",
+      "pool": "remove_optical_leaders",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "chatgpt",
+      "pool": "chatgpt_1",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "chatgpt",
+      "pool": "chatgpt_3",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "chatgpt",
+      "pool": "chatgpt_13",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "chatgpt",
+      "pool": "chatgpt_22",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "chatgpt_5",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "union",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "remove_optical_leaders",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "trae_6",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "trae_8",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "trae_10",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "trae_15",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "trae",
+      "pool": "trae_24",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "dumate",
+      "pool": "chatgpt_5",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "dumate",
+      "pool": "union",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "dumate",
+      "pool": "remove_optical_leaders",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "dumate",
+      "pool": "dumate_18",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "chatgpt_5",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "union",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "remove_optical_leaders",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "workbuddy_a",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "workbuddy_b",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "workbuddy_c",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "workbuddy_d",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    },
+    {
+      "reference": "workbuddy",
+      "pool": "workbuddy_e",
+      "status": "REFERENCE_CHECKOUT_UNAVAILABLE"
+    }
+  ],
+  "risk_timing": {
+    "union": {
+      "budget_reductions": [
+        {
+          "signal_date": "2026-07-02",
+          "reason": "CROSS_SECTION_SHOCK|TREND_EXIT_OR_STALE|RISK_REDUCTION",
+          "target_cap": 0.0
+        },
+        {
+          "signal_date": "2026-07-17",
+          "reason": "BROAD_TREND_BREAKDOWN|RISK_REDUCTION",
+          "target_cap": 0.25
+        },
+        {
+          "signal_date": "2026-08-19",
+          "reason": "CROSS_SECTION_SHOCK",
+          "target_cap": 0.0
+        }
+      ],
+      "first_budget_reduction": "2026-07-02",
+      "first_linked_sell": "2026-07-03",
+      "interpretation": "budget alarms, not all risk signals; next-open fills are not prior knowledge"
+    },
+    "chatgpt_5": {
+      "budget_reductions": [
+        {
+          "signal_date": "2026-07-02",
+          "reason": "CROSS_SECTION_SHOCK|TREND_EXIT_OR_STALE|RISK_REDUCTION",
+          "target_cap": 0.0
+        },
+        {
+          "signal_date": "2026-08-19",
+          "reason": "CROSS_SECTION_SHOCK",
+          "target_cap": 0.0
+        }
+      ],
+      "first_budget_reduction": "2026-07-02",
+      "first_linked_sell": "2026-07-03",
+      "interpretation": "budget alarms, not all risk signals; next-open fills are not prior knowledge"
+    },
+    "remove_optical_leaders": {
+      "budget_reductions": [
+        {
+          "signal_date": "2026-07-02",
+          "reason": "CROSS_SECTION_SHOCK|RISK_REDUCTION",
+          "target_cap": 0.0
+        },
+        {
+          "signal_date": "2026-07-17",
+          "reason": "BROAD_TREND_BREAKDOWN|RISK_REDUCTION",
+          "target_cap": 0.25
+        },
+        {
+          "signal_date": "2026-08-19",
+          "reason": "CROSS_SECTION_SHOCK",
+          "target_cap": 0.0
+        }
+      ],
+      "first_budget_reduction": "2026-07-02",
+      "first_linked_sell": "2026-07-03",
+      "interpretation": "budget alarms, not all risk signals; next-open fills are not prior knowledge"
+    }
+  },
+  "limitations": [
+    "adjusted-unit proxy, not a corporate-action cash/share/tax ledger",
+    "2026 was already known; not an untouched prospective holdout",
+    "finite nonuniform cases do not establish all 2^34-1 subsets",
+    "native execution/fees/holdings calendars differ; not normalized superiority",
+    "no audited common risk-event labels, so earliest-risk dominance is unverified"
+  ]
+}

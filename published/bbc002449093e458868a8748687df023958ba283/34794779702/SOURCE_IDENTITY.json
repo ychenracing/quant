@@ -1,0 +1,58 @@
+{
+  "source": {
+    "commit": "bbc002449093e458868a8748687df023958ba283",
+    "package_sha256": "bdff426581e521713f28939e79f5aaa967273d9521bb881f0d5b64a2e121ca9f",
+    "files": {
+      "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+      "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+      "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+      "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+      "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+      "engine.py": "025d7b1014649a8ca450bec812f3fdba06bed8c311f230555e1060118c3b562e",
+      "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+      "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+      "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+      "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+    },
+    "python": "3.13.5",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3"
+    }
+  },
+  "request": {
+    "request_id": "independent-technology-source-reproduction-20260914",
+    "scope": "Explicit research delivery, not a routine CI economic gate",
+    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+    "parent_commit": "30cc7d3bdea38d2d613ce43b2fdf988e0f544daa",
+    "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "archives": {
+      "market": {
+        "artifact_id": 10318889257,
+        "run_id": 34763351910,
+        "sha256": "5703ef1236a965c2e60a0c7c282103a6103653d25e3d7e4b2434eae4f8855d7c"
+      },
+      "supplement": {
+        "artifact_id": 10319594260,
+        "run_id": 34764317406,
+        "sha256": "9b9b68599db36f18cf2605f39f7edf73e9c69e37c78b97cdca538ba56ac19e37"
+      },
+      "indices": {
+        "artifact_id": 10319728602,
+        "run_id": 34764078332,
+        "sha256": "063094b85294a4f74d7094c2d22099932af550265e34d104f9fc589ce565d2be"
+      }
+    },
+    "economic_acceptance": "Must remain separate from completed execution or successful publication",
+    "publication": "Append immutable bundles to research/evidence; never rewrite source main with its own run receipt",
+    "hosted_reference_mode": "No private cross-repository credential. Explicit --without-native records every planned native case as unavailable; authenticated local --reference still supports full native replay."
+  },
+  "reference_commit": null,
+  "native_mode": "NOT_AVAILABLE",
+  "reproducer_sha256": "1605dc68292c90b6f5bd534728ffe1966dbf3516782d2051655570ccf05160c2",
+  "native_harness_sha256": "32f310eac06c0c7c684c409d29028ea18312c4bd1400c132f2a50dd9b6ecb64e",
+  "study_runner_sha256": "80c73d1ce430198ae097c8da7dad507f19dde43e2ec3e8c64f8019faab2cee3b",
+  "github_run_id": "34794779702",
+  "github_run_attempt": "1"
+}
