@@ -1,0 +1,20 @@
+{
+ "family":"shock_latched_ownership",
+ "status":"DECLARED_BEFORE_MEASUREMENT",
+ "diagnosis":"Admission's2023 common-five drawdown was compounded by repeatedly buying weak rebounds after the June peak. Permanent account-cushion control reduces drawdown but delays recovery through depressed actual NAV and adds many small rebalances. Test a distinct architecture: retain intact slow trends during ordinary noise, liquidate on observable account/cross-section shocks, and recover using a continuously evolving market price index rather than requiring account equity to recover first.",
+ "candidate_grid":{"leadership_window":[60,120],"positions":[2,4],"shock_loss":[0.04,0.06],"recovery_window":[10,20]},
+ "candidate_count":16,
+ "rules":{
+  "rank":"Positive annualized log momentum over leadership_window, with first-observed-quote fallback and at least20 valid sessions. No symbols, industries, future dates or absent stocks in features.",
+  "entry":"Positive rank, close>EMA10, close>EMA60 and positive five-session return. Fill vacancies using actual available cash; entry cap60%, drift cap80%, singleton100%. Never equal-weight rebalance intact funded units.",
+  "membership":"Review every20sessions, replacement only if incumbent rank exceeds twice capacity and challenger score exceeds incumbent by25%. Planned sale proceeds cannot fund same-close entries.",
+  "individual_exit":"Two consecutive closes below0.97*EMA60 together with negative20-session return, or stale quote. Full exits latch until actual liquidation. Unlike the failed leadership family there is no14% individual high-water stop.",
+  "portfolio_shock":"Actual account close-to-close loss>=shock_loss OR three-session account loss>=1.5*shock_loss OR supplied-universe median fresh-quote return<=-0.75*shock_loss with at least60% of fresh quotes negative. At that close latch complete liquidation; fills are only next-session under unchanged engine rules. No loss is attributed to a hypothetical stop price.",
+  "independent_market":"Compound equal-weight fresh-quote returns across exactly the supplied names. Continue computing while account is cash. Recovery requires this index>=its prior recovery_window close high, its EMA10>EMA20, at least60% of ready stocks aboveEMA20, and three consecutive such healthy closes. All outstanding protective exits must actually finish before new entries. Account reported peak is never reset; no account loss is erased to satisfy recovery.",
+  "execution":"Unchanged independent next-open engine, adjusted units, commissions, slippage, lot-equivalents, prior-only capacity, limit-open blocks, T+1 and whole-account1% ordinary materiality. Protective reductions bypass only the already-existing ordinary materiality filter. No broker orders or intraday execution change."
+ },
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_rule":"Original necessary core incumbent wealth/drawdown/fill nonregression screen, otherwise minimax normalized deficit then original mean log-relative buy-hold wealth minus drawdown/turnover penalty. Keep all16 candidates. Original four-reference, downside, return and arbitrary-subset targets unchanged. Previously observed2026 is retrospective.",
+ "economic_acceptance":"UNVERIFIED"
+}
