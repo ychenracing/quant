@@ -1,10 +1,10 @@
 {
-  "family": "observed_admission_completion",
-  "purpose": "Measure only the separately preregistered observed-history and reserved-cash admission interaction. Reuse both unchanged components in one actual account; preserve all raw outcomes and do not redispatch completed component studies.",
+  "family": "funded_reentry",
+  "purpose": "Measure the separately preregistered funded trend-health reentry interaction; first reconstruct the immutable parent decisions without rerunning its portfolio study. Preserve every raw outcome and the concurrent correctness fixes.",
   "candidate_count": 1,
   "selection_end": "2025-12-31",
-  "contract_commit": "ae3d2a63bdfc56f09df4c0d30424bb347c80344e",
-  "parent_source": "a3217a9f39d21fe2f14033a051a4d15b4c4d83af",
+  "contract_commit": "4fd7c52d32ff603266f4eb626137c5fb7ff4ebce",
+  "parent_source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }
