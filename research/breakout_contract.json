@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"event_driven_breakout_ownership",
+  "hypothesis":"Repeatedly filling vacancies with merely positive momentum causes false-recovery losses. Require a fresh observable breakout to commit cash, never trim winners merely because their market weight rises, and size stop distance using the measured true-range scale rather than assuming low volatility.",
+  "candidate_grid":{"entry_window":[20,40,60],"stop_atr":[1.5,2.5,3.5],"entry_cap":[0.5,0.7],"exit_style":["trailing","confirmed"]},
+  "candidate_count":36,
+  "entry":"Close exceeds prior entry_window close maximum using at least ten observed sessions, above expanding-to-sixty-session mean, positive twenty-session momentum (expanding observed history before twenty). Rank simultaneous entries by equally weighted twenty/sixty-session log momentum. Only actual available cash funds new positions; no fixed slot count or calendar-dependent replacement.",
+  "ownership":"No routine rotation, equal-weight reset, sector clipping or market-weight clipping. Track confirmed adjusted units from observed close holdings. New positions cost at most entry_cap of current equity, singleton cap one. Existing positions are not topped up just because their price or portfolio weight changed.",
+  "risk":"Track peak close since confirmed ownership; stop distance is stop_atr times trailing twenty-session true range, bounded between 6 and 22 percent of peak. Hard capital-loss exit at 12 percent below confirmed entry cost. Trailing style exits on a close crossing the peak stop; confirmed style additionally requires close below ten-session mean, except hard capital loss. Liquidation intent persists until actually flat, including blocked fills. Next-session opening execution only, never an invented intraday stop fill.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "evidence":"All previous families and this complete grid stay preserved, including rejected models and implementation deviations. No date or symbol-specific policy. Frozen data, engine accounting, cost, capacity and metric definitions remain unchanged. Selection is not acceptance; already-observed historical evaluation is not prospective proof."
+}
