@@ -22,15 +22,17 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str):
-        if family not in {'shock_ownership','nonlinear'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear','observed_trend'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
 
     def identity(self):
         root=Path(__file__).parent
-        return {'source':source_identity(),'family':self.family,'dependencies':{
-            name:file_hash(root/name) for name in
-            ('finite_study.py','expectation_study.py',self.family+'.py','leadership.py','expectation.py')}}
+        names=['finite_study.py','expectation_study.py',self.family+'.py',
+               self.family+'_contract.json','leadership.py','expectation.py']
+        if self.family=='observed_trend':names+=['nonlinear.py','nonlinear_contract.json']
+        return {'source':source_identity(),'family':self.family,
+                'dependencies':{name:file_hash(root/name) for name in names}}
 
     def saved(self,market,path,parameters=None,benchmark=None,costs=1.,delay=1):
         cfg=Config()
@@ -40,13 +42,33 @@ class Study:
             'start':str(market.calendar[0].date()),'end':str(market.calendar[-1].date()),
             'economic_acceptance':'UNVERIFIED','accounting':'adjusted economic units, not actual shares',
             'study':self.identity()}
-        if parameters is not None:expected['policy']=self.module.Owner(market,parameters).identity()
+        owner=self.module.Owner(market,parameters) if parameters is not None else None
+        if owner is not None:expected['policy']=owner.identity()
         if path.exists():return load_result(path,expected=expected)
-        factory=(lambda m,c:self.module.Owner(m,parameters)) if parameters is not None else None
+        factory=(lambda m,c:owner) if owner is not None else None
         result=run(market,cfg,benchmark=benchmark,policy_factory=factory,cost_multiplier=costs,delay=delay)
         result.metadata['study']=self.identity()
         if result.metadata!=expected:raise AssertionError('unexpected study identity')
         save_result(result,path)
+        prediction=getattr(owner,'f',None) or getattr(getattr(owner,'inner',None),'f',None)
+        if prediction is not None:
+            # Preserve issued arrays, not only hashes that require a potentially
+            # different numerical runtime to reconstruct later diagnostics.
+            folder=path.parent.parent/'forecasts'/market.fingerprint()
+            target=folder/(prediction.fingerprint()+'.npz')
+            arrays={key:getattr(prediction,key) for key in
+                    ('expected','tail','ready','price','ema10','ema20','ema60','momentum5','ret1')}
+            if target.exists():
+                with np.load(target,allow_pickle=False) as previous:
+                    if any(not np.array_equal(previous[k],v,equal_nan=True) for k,v in arrays.items()):
+                        raise ValueError('same forecast fingerprint has different preserved arrays')
+            else:
+                folder.mkdir(parents=True,exist_ok=True)
+                np.savez_compressed(target,**arrays)
+                write_json(target.with_suffix('.json'),{'data_sha256':market.fingerprint(),
+                    'forecast_sha256':prediction.fingerprint(),'symbols':list(market.symbols),
+                    'dates':[str(d.date()) for d in market.calendar],'fits':prediction.fits,
+                    'source':source_identity(),'archive_sha256':file_hash(target)})
         return result
 
     def select(self,market,catalog,out):
