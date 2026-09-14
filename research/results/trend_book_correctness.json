@@ -1,0 +1,16 @@
+{
+  "status": "ENGINEERING_VERIFIED_ECONOMICS_UNVERIFIED",
+  "restored_commit": "5a16e9e04c5d3dd2323b43aef3a4c587c4ecdb7d",
+  "offline_tests": 77,
+  "research_tests": 60,
+  "new_tests_red": 5,
+  "new_tests_green": 5,
+  "logs": {
+    "baseline-tests.txt": "ce303eb96290437da4e8c596e495a607198999bc302e98cf20443df0ae80b0e5",
+    "baseline-inventory-tests.txt": "b7d4f9240214d6888273f60a9523de577c2a2d3343dc79c3e23708ff2610ba29",
+    "trend-book-red.txt": "c98e4b95706bc544bea647f03b4baeb6533fcf5e1dbda599de889928c6bccd9f",
+    "trend-book-green.txt": "680f28c55379aeb37c6477d12c8ad866dd05368e7252854d4801d34eccb72ea5",
+    "all-research-tests.txt": "b41b0ce8b6e24cc1fbdb1521eed93c6df085c30959104ed7172191cb773ca198"
+  },
+  "economic_acceptance": "UNVERIFIED"
+}

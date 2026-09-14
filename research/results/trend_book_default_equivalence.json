@@ -1,0 +1,43 @@
+{
+  "status": "EXACT_DEFAULT_PATH_EQUIVALENCE",
+  "checks": [
+    {
+      "scope": "union",
+      "sessions": 896,
+      "max_weight_difference": 0.0,
+      "equity_exact": true,
+      "recorded_source": "b9c8af18b69aaef672333cc36505477fa05e2c6a",
+      "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+      "forecast_sha256": "4540b5d9a58ab7116243d4589333eb60841bd3676fd6a3e4405f23f509f05952",
+      "parameters": {
+        "ranking": "forecast"
+      }
+    },
+    {
+      "scope": "chatgpt_5",
+      "sessions": 896,
+      "max_weight_difference": 0.0,
+      "equity_exact": true,
+      "recorded_source": "b9c8af18b69aaef672333cc36505477fa05e2c6a",
+      "data_sha256": "998545845d1d28b64330c69a7c2d6579bf4849613994140ab86f1fa7198ceaa9",
+      "forecast_sha256": "4b769af59c5d2c230253b2570bcbbf83fc6477dbf9401260e39b65d44be5bde4",
+      "parameters": {
+        "ranking": "forecast"
+      }
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "sessions": 896,
+      "max_weight_difference": 0.0,
+      "equity_exact": true,
+      "recorded_source": "b9c8af18b69aaef672333cc36505477fa05e2c6a",
+      "data_sha256": "4cf43c13702a21333d5c293b8d67c9a4315e6d9034c16c5157534e3a6d1c8082",
+      "forecast_sha256": "e07917c1fa0fcbfa27ea46757e8a9f97fa12ddc775cbb966cd4372993ed1f03b",
+      "parameters": {
+        "ranking": "forecast"
+      }
+    }
+  ],
+  "new_model_fits": 0,
+  "note": "Correctness replay of saved issued predictions; not new economic acceptance."
+}

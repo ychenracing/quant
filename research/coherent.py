@@ -71,12 +71,29 @@ def executable_sale(symbol: str, raw_units: float) -> int:
     return round_quantity(symbol, low)
 
 
+@dataclass(frozen=True)
+class SignalInputs:
+    """Close-only security decisions; account and fill state remain with Owner."""
+    price: np.ndarray
+    ready: np.ndarray
+    healthy: np.ndarray
+    broken: np.ndarray
+    score: np.ndarray
+    allowed: np.ndarray
+    capacity: int
+
+
 class Owner:
-    def __init__(self, market: Market, p: Parameters, *, prediction: Prediction):
-        # Reuse the parent's exact-market validation, not its post-allocation
-        # decision path. Passing a prediction prevents any model fit here.
+    def _validate_signal_source(self, market: Market, prediction: Prediction | None):
+        # Explicit extension point for independently declared non-forecast
+        # signals. The original owner still requires exact-market forecasts.
+        if prediction is None:
+            raise ValueError('forecast ownership requires an issued prediction')
         ForecastValidator(market, ForecastParameters(horizon=20, tail_threshold=.5, positions=4),
                           prediction=prediction)
+
+    def __init__(self, market: Market, p: Parameters, *, prediction: Prediction | None = None):
+        self._validate_signal_source(market, prediction)
         self.market, self.params, self.f = market, p, prediction
         self.config = Config()
         self.features = build_features(market, self.config)
@@ -97,8 +114,24 @@ class Owner:
         self.raw_per_unit = (market.panel('close') / market.panel('raw_close')).to_numpy()
         self.last_session = -1
 
+    def _signal_inputs(self, i: int) -> SignalInputs:
+        """Original forecast authority, unchanged by the price-only extension."""
+        f = self.f
+        self.negative = np.where(f.expected[i] < -.02, self.negative + 1, 0)
+        broken = (self.s.exit[i] | ((f.tail[i] >= .5) & (f.ret1[i] < 0))
+                  | ((self.negative >= 3) & (f.price[i] < f.ema60[i]))
+                  | (f.ret1[i] <= -.08) | ~f.ready[i])
+        score = f.expected[i] if self.params.ranking == 'forecast' else self.features.score[i]
+        allowed = (f.ready[i] & self.s.entry[i] & (f.price[i] > f.ema20[i])
+                   & (f.momentum5[i] > 0) & (f.tail[i] < .5) & np.isfinite(score))
+        if not self.s.market[i]:
+            allowed[:] = False
+        return SignalInputs(f.price[i], f.ready[i],
+            f.ready[i] & (f.price[i] > f.ema10[i]) & (f.tail[i] < .25),
+            broken, score, allowed, 4)
+
     def decide(self, o: CloseObservation) -> CloseDecision:
-        i, f = o.session, self.f
+        i = o.session
         if i <= self.last_session:
             raise ValueError('policy sessions must increase')
         self.last_session = i
@@ -109,14 +142,10 @@ class Owner:
         self.exit_pending[~held] = False
         reached = o.units <= self.reduction_ceiling + 1e-10
         self.reduction_ceiling[reached] = np.inf
-        good = f.ready[i] & (f.price[i] > f.ema10[i]) & (f.tail[i] < .25)
-        self.healthy = np.where(good, self.healthy + 1, 0)
+        observed = self._signal_inputs(i)
+        self.healthy = np.where(observed.healthy, self.healthy + 1, 0)
         self.readmit[self.healthy >= 3] = False
-        self.negative = np.where(f.expected[i] < -.02, self.negative + 1, 0)
-        broken = (self.s.exit[i] | ((f.tail[i] >= .5) & (f.ret1[i] < 0))
-                  | ((self.negative >= 3) & (f.price[i] < f.ema60[i]))
-                  | (f.ret1[i] <= -.08) | ~f.ready[i])
-        self.exit_pending |= held & broken
+        self.exit_pending |= held & observed.broken
 
         old_cap = self.risk.cap
         self.history.append(o.nav)
@@ -131,7 +160,7 @@ class Owner:
             # Already funded requests remain fixed; newly available cash can be
             # considered after those requests are observed, not spent twice.
         reasons = [risk_reason]
-        marks = f.price[i]
+        marks = observed.price
         units = np.minimum(o.units, self.reduction_ceiling)
         units[self.exit_pending] = 0.
         values = np.zeros_like(units)
@@ -168,20 +197,16 @@ class Owner:
         if outstanding:
             reasons.append('PROTECTIVE_INVENTORY_RETRY')
 
-        score = f.expected[i] if self.params.ranking == 'forecast' else self.features.score[i]
-        allowed = (f.ready[i] & self.s.entry[i] & (f.price[i] > f.ema20[i])
-                   & (f.momentum5[i] > 0) & (f.tail[i] < .5) & ~self.readmit
-                   & np.isfinite(score))
-        if not self.s.market[i]:
-            allowed[:] = False
-        # Rank only after all purchase predicates, before slots or cash. The
-        # bounded forecast utility is deliberately not an absolute return gate.
+        score = observed.score
+        allowed = observed.allowed & ~self.readmit
+        # Each signal source owns its purchase predicates. Rank only after
+        # those predicates and readmission, before consuming slots or cash.
         entrants = sorted(np.flatnonzero(allowed & ~held),
                           key=lambda j: (-score[j], self.market.symbols[j]))
-        capacity = min(4, len(held))
+        capacity = min(observed.capacity, len(held))
         existing = list(np.flatnonzero(held))
         if not outstanding and i % 20 == 0 and len(existing) >= capacity and entrants:
-            ranked = sorted(np.flatnonzero(f.ready[i] & np.isfinite(score)),
+            ranked = sorted(np.flatnonzero(observed.ready & np.isfinite(score)),
                             key=lambda j: (-score[j], self.market.symbols[j]))
             ranks = {j: k + 1 for k, j in enumerate(ranked)}
             weakest = min(existing, key=lambda j: (score[j], self.market.symbols[j]))
