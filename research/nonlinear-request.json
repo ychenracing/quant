@@ -1,9 +1,9 @@
 {
-  "family": "opportunity_reassignment",
-  "purpose": "Measure the previously registered one-candidate scheduled mature-holding reassignment above the corrected support parent. The completed confirmed-handover failure is preserved, not retuned or combined. Preserve all actual fills, source-bound voluntary-exit traces and failed outcomes.",
+  "family": "admission_budget_completion",
+  "purpose": "Measure exactly the already-registered singleton completing only original fresh admissions after reserving every parent purchase, within unchanged cash, stop-risk, name and sector authority. Preserve all failed predecessors; no swaps or old-grid redispatch.",
   "candidate_count": 1,
   "selection_end": "2025-12-31",
-  "contract_commit": "bf839c9f6d8824a57fd6ee567080a326d321a766",
+  "contract_commit": "0628f8db8e997dc0b332088bd0bad2b19cb9f779",
   "parent_source": "180640bff6d3a125cdf1b8928a6e0fc32a1d5f1a",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
