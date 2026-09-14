@@ -1,0 +1,17 @@
+{
+  "family": "causal_independent_decision_paths",
+  "status": "DECLARED_BEFORE_MEASUREMENT",
+  "diagnosis": "Reconciled admission episodes show repeated losing replacement entries; paired fixed-unit replay changes are small and cannot explain the main economic deficits. Other independently written paths perform differently across regimes. Test choosing between complete observable decision paths, not another variation of a stop, cash unlock or one forecast.",
+  "experts": ["quant incumbent default", "quant leadership frozen window60 exit20 positions4 without pressure", "quant admission frozen responsive span20 breadth0.6", "same-engine buy_hold", "cash"],
+  "independence": "All expert implementations are original quant code. No strategy source, outputs or parameters from any of the four trades projects enters this selector. Those remain external acceptance comparators only.",
+  "candidate_grid": {"window": [20,60,120], "drawdown_penalty": [1.0,2.0]},
+  "candidate_count": 6,
+  "shadow_evaluation": "Run each expert separately on the exact supplied universe, with the same frozen data, Config, fees, limits and cash engine. At decision close t use only its already observed equity through t and its close-t target. Recompute shadows after any universe removal. Cache only exact source/data/config/runtime identities, never a superset.",
+  "selection": "For each expert compute log NAV[t]/NAV[max(0,t-window)] minus drawdown_penalty times its drawdown from the trailing-window peak. Initial cash is the predecessor before first measured close. Cash score is zero. Require positive score; retain the incumbent path unless the challenger exceeds its score by0.02 and at least five sessions passed since a switch. Negative incumbent score may exit without waiting. Score computation has no symbol/date branches and cannot inspect future arrays.",
+  "execution": "The selected expert supplies a next-session allocation recommendation, not a fill. Convert close weights into explicit close-time unit intentions for the real account; unchanged engine alone enforces funding, costs, materiality, prior-only liquidity, limits, lots and T+1. Record selected path and all causal scores daily. Do not claim hypothetical shadow fills occurred in the real account.",
+  "selection_end": "2025-12-31",
+  "selection_scopes": ["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_rule": "Same necessary incumbent wealth/drawdown/fill nonregression screen, otherwise minimize worst normalized deficit and use the existing relative-passive wealth/risk/turnover objective for ties. Preserve all six; these screens do not replace original four-reference or generalization goals. 2026 remains previously observed retrospective evaluation.",
+  "validation": ["prefix causality", "no excluded shadow securities", "cash and inventory invariants", "strict evidence identity", "all candidate raw results"],
+  "economic_acceptance": "UNVERIFIED"
+}
