@@ -187,6 +187,18 @@ class Owner:
             np.multiply(requested, marks / o.nav, out=cost, where=requested > 0)
             if cost.sum() > budget and cost.sum() > 0:
                 requested *= budget / cost.sum()
+            if self.restoration_targets is not None and newcomers:
+                # Unfilled but currently ineligible restoration is not a cash
+                # reservation. Honor eligible pending buys first, then fund an
+                # independently admitted vacancy only from the actual remainder.
+                funded = np.zeros_like(requested)
+                np.multiply(requested, marks / o.nav, out=funded, where=requested > 0)
+                addition = equal_increment(newcomers, weights + funded,
+                    max(0., budget - float(funded.sum())), ceilings)
+                if addition.any():
+                    requested += np.divide(addition * o.nav, marks,
+                        out=np.zeros_like(units), where=np.isfinite(marks) & (marks > 0))
+                    reasons.append('VACANCY_FROM_UNRESERVED_CASH')
             if requested.any():
                 units += requested
                 reasons.append('FUNDED_RESTORATION' if self.restoration_pending else 'ADMITTED_CASH_ENTRY')

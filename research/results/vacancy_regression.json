@@ -1,0 +1,24 @@
+{
+  "status": "ENGINEERING_VERIFIED_ECONOMICS_NOT_MEASURED",
+  "base_commit": "566698efa8b4d0e5d5b50b2bb1f956a37afd8eb3",
+  "issue": "An unfinished ineligible restoration occupied the buying path and stranded a separately eligible vacancy despite actual cash and risk capacity.",
+  "contract_basis": "Ordinary vacant-slot entries remain possible from actual cash after exits settle; admission remains mandatory and protective reductions still block all new risk.",
+  "change": "Fund eligible preserved requests first; allocate only unreserved actual cash to admitted vacant slots. Do not cancel the old restoration intention or spend its hypothetical fills.",
+  "source_sha256": {
+    "research/coherent.py": "42d5255f8a3daa8f6988ab8786a4cb64d12b7fad124ee793ac13a6e8eb47263e",
+    "research/test_coherent_vacancy.py": "2fa3618be3e65810b2ef56ee153a4407d39affdb110d3de52b3676b9c66226a6",
+    "src/techquant/engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+    "src/techquant/execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6"
+  },
+  "red": {
+    "failing": 2,
+    "passing": 1,
+    "reason": "Vacant-slot target stayed zero in both actual-cash cases; no-virtual-cash case already passed."
+  },
+  "green": {
+    "ordinary": 77,
+    "research": 21,
+    "research_command": "PYTHONPATH=src:tests:. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m unittest research.test_coherent research.test_coherent_vacancy research.test_coherent_execution research.test_issued_forecasts -v"
+  },
+  "remaining": "The separately registered executable-inventory residual repair must still be integrated before the next matched economic replay. Existing b659217 economic failures are retained unchanged."
+}
