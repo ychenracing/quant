@@ -1,16 +1,11 @@
 {
-  "family": "pathwise",
-  "purpose": "Resume the same four first-passage candidates after a transport reset before any economic replay; do not change the registered experiment",
-  "candidate_count": 4,
+  "family": "coherent",
+  "purpose": "Measure only two preregistered admission-first filled-account ownership candidates; restore exact already issued parent forecasts, not the rejected model grid",
+  "candidate_count": 2,
   "selection_end": "2025-12-31",
-  "contract_blob": "90b3a49a983f8e4a1cd570e4b3c520102998c7ff",
-  "implementation_commit": "6119ff811b69c97db4a0dc1f63023cfe568c9492",
-  "interrupted_source": "75e233e154eb272a0c168603fdc0c6d8cbee34a6",
-  "interrupted_run": 34809639052,
-  "interruption": "Frozen input HTTPS connection reset; original failure, source and tests retained on research/evidence. No first-passage economic replays completed in that run.",
-  "parent_evidence_source": "acd87232cc97518c6258338351a7489fb7ddc1f9",
-  "parent_evidence_run": 34808183806,
+  "contract_commit": "3d98567a77f53fe9205e97a2a82d5cc31fb7fa49",
+  "parent_evidence_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+  "parent_evidence_run": 34809876451,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "local_correctness": "77 ordinary plus 23 forecast/ownership tests pass, including four reproduced transport/cache integrity failures",
   "economic_acceptance": "UNVERIFIED"
 }
