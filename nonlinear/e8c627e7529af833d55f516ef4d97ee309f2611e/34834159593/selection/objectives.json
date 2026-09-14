@@ -1,0 +1,20 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "use_cushion": false
+    },
+    "worst_deficit": 1.504201680672269,
+    "objective": -1.2004123559617967,
+    "fills": 989
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "use_cushion": true
+    },
+    "worst_deficit": 1.0107000353718762,
+    "objective": -1.630021972200917,
+    "fills": 593
+  }
+]
