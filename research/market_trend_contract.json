@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"market_envelope_leadership",
+  "hypothesis":"Local replacement repeatedly reinvests into correlated declining technology equities. Separate slow leader ownership from an independently evolving equal-weight observable market index; an exit does not freeze the recovery signal.",
+  "candidate_grid":{"risk_window":[10,20,40],"lookback":[60,120,240],"positions":[2,3]},
+  "candidate_count":18,
+  "risk":"Market index compounds mean fresh-quote close returns over exactly the supplied subset. Below risk_window mean * 0.98 close risk, above mean * 1.01 open risk; no multi-stage recovery, hidden leaders, stock keys or calendar rules. A one-session market loss below max(3 percent, 2.5 preceding 20-session volatility), with breadth below half, closes risk immediately.",
+  "ownership":"One global positive multi-horizon momentum rank; keep intact economic units, reuse cash, review replacement every twenty sessions. Single-stock cap adapts to singleton pools; no permanent sector cash tax. No individual short-channel exits. Market closure overrides entry immediately; missing quotes cannot become fresh signals.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "execution":"Unchanged parent execution engine, cost assumptions, cash, delay, liquidity and adjusted-unit accounting.",
+  "evidence":"Preserve all eighteen candidates and predecessor failures; bind both policy and independent allocation dependency hashes. No economic superiority claim from training selection. Evaluation remains retrospective."
+}
