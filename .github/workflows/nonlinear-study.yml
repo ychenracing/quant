@@ -35,13 +35,15 @@ jobs:
       - name: Verify offline and forecast ownership contracts
         run: |
           python -m unittest discover -s tests -q > "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
-          python -m unittest research.test_nonlinear research.test_nonlinear_ownership research.test_observed_trend -v >> "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
+          python -m unittest research.test_nonlinear research.test_nonlinear_ownership research.test_observed_trend research.test_pathwise -v >> "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
       - name: Measure only the requested registered family
+        timeout-minutes: 6
         run: |
           python - <<'PY' > "$RUNNER_TEMP/nonlinear/execution.txt" 2>&1
           import json, os, pathlib, traceback
           from research.hosted_study import inputs
           from research.finite_study import Study
+          from research.forecast_diagnostics import retrieve_parent, diagnose
           from techquant.data import load_market
           root = pathlib.Path(os.environ['RUNNER_TEMP'])
           output = root / 'nonlinear'
@@ -55,6 +57,11 @@ jobs:
               market = load_market(data, supplement=supplement, sectors=catalog['sectors'])
               if market.fingerprint() != request['data_sha256']:
                   raise ValueError('frozen market identity mismatch')
+              try:
+                  parent = retrieve_parent(root / 'parent-evidence')
+                  diagnose(parent, market, output / 'parent_diagnosis')
+              except Exception:
+                  (output / 'parent_diagnosis_failure.json').write_text(json.dumps({'status':'DIAGNOSTIC_RESTORE_FAILED','traceback':traceback.format_exc()},indent=2))
               study.select(market, catalog, output / 'selection')
               study.evaluate(market, catalog, output / 'selection/selection.json', output / 'evaluation')
           except Exception:
@@ -70,8 +77,11 @@ jobs:
           output = root / 'nonlinear'
           output.mkdir(exist_ok=True)
           request = json.loads(pathlib.Path('research/nonlinear-request.json').read_text())
+          selection = output / 'selection/selection.json'
+          selected = json.loads(selection.read_text()) if selection.exists() else {}
           receipt = {'source_commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
-                     'family': request['family'], 'economic_acceptance': 'UNVERIFIED',
+                     'family': request['family'], 'selection_status': selected.get('status', 'INCOMPLETE'),
+                     'economic_acceptance': 'NOT_PASSED' if selected.get('worst_deficit', 0) > 1e-12 else 'UNVERIFIED',
                      'evaluation_present': (output / 'evaluation/status.json').exists()}
           (output / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
           manifest = {str(p.relative_to(output)): hashlib.sha256(p.read_bytes()).hexdigest()
@@ -105,10 +115,10 @@ jobs:
           test ! -e "$destination"
           mkdir -p "$destination"
           cp "$RUNNER_TEMP/nonlinear-evidence.tar.gz" "$RUNNER_TEMP/nonlinear-evidence.sha256" "$destination/"
-          for file in receipt.json failure.json MANIFEST.json correctness.txt; do
+          for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json; do
             if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
           done
-          for dir in selection evaluation; do
+          for dir in selection evaluation parent_diagnosis; do
             if [ -d "$RUNNER_TEMP/nonlinear/$dir" ]; then
               mkdir -p "$destination/$dir"
               find "$RUNNER_TEMP/nonlinear/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;
@@ -117,7 +127,7 @@ jobs:
           git config user.name 'quant research publisher'
           git config user.email 'quant-research@users.noreply.github.com'
           git add -- "$destination"
-          git commit -m 'research: retain forecast source, issued arrays and complete outcomes'
+          git commit -m 'research: retain first-passage source, issued forecasts and complete outcomes'
           for attempt in 1 2 3; do
             if git push origin HEAD:research/evidence; then
               git fetch origin research/evidence

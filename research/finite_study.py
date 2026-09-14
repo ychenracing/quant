@@ -22,7 +22,7 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str):
-        if family not in {'shock_ownership','nonlinear','observed_trend'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
 
@@ -30,7 +30,8 @@ class Study:
         root=Path(__file__).parent
         names=['finite_study.py','expectation_study.py',self.family+'.py',
                self.family+'_contract.json','leadership.py','expectation.py']
-        if self.family=='observed_trend':names+=['nonlinear.py','nonlinear_contract.json']
+        if self.family in {'observed_trend','pathwise'}:names+=['nonlinear.py','nonlinear_contract.json']
+        if self.family=='pathwise':names+=['observed_trend.py','observed_trend_contract.json']
         return {'source':source_identity(),'family':self.family,
                 'dependencies':{name:file_hash(root/name) for name in names}}
 
@@ -58,6 +59,8 @@ class Study:
             target=folder/(prediction.fingerprint()+'.npz')
             arrays={key:getattr(prediction,key) for key in
                     ('expected','tail','ready','price','ema10','ema20','ema60','momentum5','ret1')}
+            if hasattr(prediction,'outcome_probability'):
+                arrays['outcome_probability']=prediction.outcome_probability
             if target.exists():
                 with np.load(target,allow_pickle=False) as previous:
                     if any(not np.array_equal(previous[k],v,equal_nan=True) for k,v in arrays.items()):
