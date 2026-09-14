@@ -1,0 +1,42 @@
+{
+  "status": "PRE2026_PREQUENTIAL_DIAGNOSTIC_NOT_ECONOMIC_ACCEPTANCE",
+  "definition": "Each model prediction and date-balanced reference probability is issued using only fully matured labels; rolling skill at close t scores only issuance dates <=t-20.40 scored dates required. No refitting.",
+  "summary": [
+    {
+      "scope": "union",
+      "observed_dates": 598,
+      "multiclass_positive_skill_dates": 220,
+      "tail_positive_skill_dates": 136,
+      "median_skill": -0.02330834339428789,
+      "median_tail_skill": -0.10630607204439191,
+      "total_brier": 0.6021670910781214,
+      "total_prior_brier": 0.594571067588938
+    },
+    {
+      "scope": "chatgpt_5",
+      "observed_dates": 598,
+      "multiclass_positive_skill_dates": 37,
+      "tail_positive_skill_dates": 88,
+      "median_skill": -0.19407771720931577,
+      "median_tail_skill": -0.1899993987119719,
+      "total_brier": 0.8025334578902982,
+      "total_prior_brier": 0.6898865397275084
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "observed_dates": 598,
+      "multiclass_positive_skill_dates": 188,
+      "tail_positive_skill_dates": 128,
+      "median_skill": -0.03762920591450858,
+      "median_tail_skill": -0.10870782818860569,
+      "total_brier": 0.5810679944911306,
+      "total_prior_brier": 0.5708926663016044
+    }
+  ],
+  "source_commit": "3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2",
+  "forecast_issuing_commit": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+  "forecast_container_commit": "b9c8af18b69aaef672333cc36505477fa05e2c6a",
+  "selection_end": "2025-12-31",
+  "new_model_fits": 0,
+  "interpretation": "Probability scoring is not portfolio profitability. Common-five historical wealth does not establish forecast skill; its two coherent ranking controls have identical targets and fills. Neither positive utility nor leading-sector entry diagnostics supports a general profitability claim. Retain those negative findings. No numerical parameter was tuned against 2026."
+}

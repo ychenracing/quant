@@ -1,0 +1,42 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "source_commit": "3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2",
+  "source_tree": "b6a8a6b87988441515c10cf8524e90de4e979835",
+  "run_id": 34828202943,
+  "artifact_id": 10340992124,
+  "zip_sha256": "64fbc57e2d5764e5cc7a31928418e26824c7b34a4d2435aea711d3a2e115ceb3",
+  "archive_sha256": "cebc08fd2c642b19c72e4a78fea52ea0a1792ded664b50c3270f755af69708c5",
+  "evidence_path": "nonlinear/3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2/34828202943",
+  "manifest_files_verified": 144,
+  "remote_archive_digest_read_back": true,
+  "selected": {
+    "remember_risk": false
+  },
+  "selection_worst_deficit": 0.607841736982803,
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "full_period": [
+    {
+      "scope": "union",
+      "wealth": 6.743780366655738,
+      "max_drawdown": 0.3101830659277117,
+      "orders": 201,
+      "average_exposure": 0.5317431177857388
+    },
+    {
+      "scope": "chatgpt_5",
+      "wealth": 8.95846776342877,
+      "max_drawdown": 0.3926880893573519,
+      "orders": 201,
+      "average_exposure": 0.5110256288020084
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "wealth": 1.3409293901198498,
+      "max_drawdown": 0.35331033491094144,
+      "orders": 217,
+      "average_exposure": 0.4615696384028493
+    }
+  ],
+  "economic_acceptance": "NOT_PASSED",
+  "findings": "Risk-event-price memory worsened pre-2026 wealth in all three scopes and was not selected. The exit-veto control improves full union wealth/drawdown relative to the prior price book but still fails joint requirements. No full-period memory-candidate run was performed, and no result for it is implied. Both pre-2026 candidates and all selected full-period raw results are preserved; do not expand this rejected family."
+}

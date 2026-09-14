@@ -1,11 +1,13 @@
-# 当前研究现场
+# Independent technology research: current state
 
-继续用户已授权的独立 A 股科技策略重写与经济优化，不修改四套参考生产代码，不引入版本号或阶段号产品命名。
+Continue the existing task on research/expectation-learning. No new project or authorization is required. Main remains bbc002449093e458868a8748687df023958ba283 and is not economically accepted by these research results. All other branches and earlier contracts/results remain intact.
 
-已核验 main 的提交为 bbc002449093e458868a8748687df023958ba283，完整源码树为 41393b859363f73216149efc673584cc2424907c。本地恢复树完全相同。冻结行情为 d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b，34 只股票、896 个交易日，2023-01-03 至 2026-09-11。研究环境实际使用 NumPy 2.3.5、pandas 2.2.3。
+The original handoff pointed to older work. The expectation-learning implementation has been recovered, source-tree verified and advanced through the price-led book and a bounded recovery-memory experiment. Both remain rejected for joint economic acceptance. Do not restart reversal, model grids, or already completed evaluations.
 
-共同五股已重新复现：财富 10.824786016250098、最大回撤 0.3307412348419232、139 笔成交、平均仓位 0.41998793683975266。保留旧结果，不以旧证据证明新源码。
+Latest measured source: 3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2; tree b6a8a6b87988441515c10cf8524e90de4e979835. The recovery study selects the no-memory exit-veto control. Memory reduces pre-2026 wealth in every core pool. The selected control still fails common-five and leader-removal requirements. Raw evidence is on research/evidence at nonlinear/3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2/34828202943; all144manifest files and the remote archive digest cebc08fd2c642b19c72e4a78fea52ea0a1792ded664b50c3270f755af69708c5 have been verified. All77offline and66research tests passed for this implementation, not economic acceptance.
 
-既有 participation_checkpoint.json 拒绝的高参与度候选不重复选优；从本分支已经冻结的 reversal_contract.json 继续，先实现和验证因果高水位退出/低水位恢复，再在不变成交口径下执行其32个候选。参数、完整试验账本、逐日净值、信号和订单分别绑定数据与源码身份。已观察的2026年不冒充未触碰样本外。
+Subsequent diagnostics use only the existing pre-2026 actual fills and previously issued probabilities. Negative-utility entries contributed profits; a positive-utility gate is not supported. Sector-relative entry diagnostics do not consistently distinguish profitable opportunities across pools. Both original coherent ranking choices give identical common-five outcomes, so those gains cannot be attributed to forecast ranking. The model has worse mean probability error than its as-of historical reference in all three pools. Probability error, path utility and portfolio return are distinct quantities.
 
-接续工作：隔离研究算法、执行冻结候选族、定位风险与收益差距、保全全部证据。只有实测支持的改进才能进入默认策略；有限案例不能证明任意子集或未来全局最优。必要正确性校验保留，常规 CI 不增加经济矩阵。
+Next executable contract: research/risk_reliability_contract.json, exactly two candidates, price selection with narrow unconditional versus prequentially audited tail-risk authority. Implement and test it before measurement, preserving the prior default paths and exact issued forecast origin. No new model refitting or 2026-driven parameter search is permitted for this declared comparison. This is ongoing work, not a main-delivery or economic-pass claim.
+
+Frozen data: d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b;34securities,896sessions,2023-01-03 through2026-09-11. Native references, broader removals/subsets/cost/delay/prefix checks and original acceptance remain obligations before production promotion. Adjusted-unit proxy accounting is still not a verified corporate-action/share/tax ledger; never silently remove that limitation.

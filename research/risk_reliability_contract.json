@@ -1,0 +1,44 @@
+{
+  "family": "price_selection_with_audited_tail_authority",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "parent_source": "3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2",
+  "evidence": "The prior price-only control retains trend participation but fails common-five and removed-leader economics. The path model has higher mean pre-2026 multiclass Brier error than a date-balanced historical-probability reference in all three pools; tail-specific rolling skill is positive on only136/88/128 of598 eligible dates. Common-five ranking alternatives are identical. Tail-warning price trajectories contain both missed reductions and profitable continuation; unconditional protective forecasts may hurt. This is not evidence that reliability gating will improve returns.",
+  "candidates": [
+    {
+      "audit_tail": false
+    },
+    {
+      "audit_tail": true
+    }
+  ],
+  "fixed_parent": {
+    "positions": 2,
+    "ranking": "Unchanged positive independent production price score. Forecast utility never ranks or grants an entry.",
+    "holding": "Use the independently written trend_book owner and its same-close broken-signal purchase veto. Config, RiskState, actual-unit/cash coordinator, order engine and all execution/cost assumptions stay unchanged."
+  },
+  "forecast": {
+    "horizon": 20,
+    "loss_barrier": 0.12,
+    "issuing_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+    "reuse": "Verified exact-universe issued arrays only, with their original generation identity. No model fitting, forecast slicing, training-source edits, or reference-strategy source code."
+  },
+  "protective_authority": "Where forecast authority is active, tail>=0.5 on a negative fresh return adds a full-exit warning. All current broken signals veto new units on that same close. The existing three-close recovery health predicate also requires tail<0.25 when that authority is active. Otherwise the existing independent price risk/admission rules apply. A model warning is a prediction, not a guaranteed loss. No absolute path-utility entry threshold is restored.",
+  "control": "audit_tail=false grants the existing tail model this narrow risk role throughout. The model has no selection/ranking role. The current price-only study remains the separately source-bound baseline, not a newly hidden or retuned candidate.",
+  "audit": "audit_tail=true grants that role only when strictly positive rolling tail Brier skill is observable. At close t, score only issued forecasts whose full20-session path has matured by t. Compare to the reference probability actually available at each issuance, not a reference fitted on later outcomes. Score each date equally across its valid quoted/ready names, then apply the existing120-session half-life over the latest120 issuance sessions. Require40 scored dates; no evidence or a zero reference-error denominator means no model authority. No p-value or statistical-certainty claim is made for this finite diagnostic.",
+  "reference": "At each issuance construct Laplace-smoothed [-1,0,+1] outcome frequencies from complete labels only, using the same supplied pool, dates at least40, at most504 mature feature sessions and the inherited120-session half-life. Normalize contributions per date by the number of valid ready securities. The down-class probability is the tail reference; no future labels, current final-sample class frequencies or outside-pool data enter it.",
+  "state": "The existing single actual-filled account remains the sole owner. Reliability changes never switch entire portfolios, cancel a latched exit or protective reduction, invent cash, reset account drawdown, forgive blocked orders, or rewrite legitimate historical decisions. It changes only prospective signal authority; price-based recovery and all mandatory risk latches remain. Each model-active warning and authority state must be traceable.",
+  "parameters": "Exactly the two boolean candidates. Capacities, threshold0.5/0.25, horizon20, spans20/60, minimum40 scored dates, window120, half-life120 and training window504 are inherited reference/engine constants or the explicit fixed reliability design, not an optimization grid.",
+  "selection": "Unchanged finite_study three-pool minimax incumbent wealth/drawdown/fill deficit, then objective/fills/tie-break, using only through2025-12-31. Record both candidates and exact predictions/reliability arrays. Evaluate the same selected candidate across unchanged full-period and retrospective2026 windows. Finite core improvement cannot replace original native-reference and robustness acceptance.",
+  "verification": [
+    "new rule tests first fail before implementation",
+    "matured-label scoring and as-issued reference probabilities",
+    "future quote and forecast perturbation cannot alter a past decision",
+    "excluded names and industries cannot affect an exact-pool forecast or reliability score",
+    "no model training",
+    "price-only control equivalence when tail authority is absent",
+    "blocked exits remain latched across reliability changes",
+    "all existing inventory/cash/T+1 contracts"
+  ],
+  "non_goals": "Do not expand rejected model/recovery grids, change old contracts/selector/metrics/costs/frozen data, promote failed evidence, use any four reference strategies as a source base, or claim calibrated probability scores imply economic acceptance.",
+  "economic_acceptance": "UNVERIFIED"
+}
