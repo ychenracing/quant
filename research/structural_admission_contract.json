@@ -1,0 +1,14 @@
+{
+ "status":"DECLARED_BEFORE_MEASUREMENT",
+ "family":"structural_admission_fast_invalidation",
+ "parent":"Independent broad-confirmation breakout ownership: market_window=120, recovery_breadth=0.75, stop_atr=3.5, entry_window=40, entry_cap=0.7.",
+ "hypothesis":"A short breakout during a prolonged decline can still lie below its longer structural trend. Such entries caused repeated losses after the initial technology rally. Require the prospective holding itself to be above a slower causal mean, while allowing faster closing trend damage to invalidate an already-owned position before the wide true-range trail.",
+ "candidate_grid":{"entry_mean":[80,120,180],"exit_mean":[10,20],"exit_band":[0.02,0.05]},
+ "candidate_count":12,
+ "entry":"Retain the parent's fresh breakout, broad-entry gate and cash constraints, and require close above the entry_mean simple moving average, using expanding observed history after at least ten observations. No retrospective peak dates or security identifiers.",
+ "exit":"Close below the causal exit_mean exponential mean times (1-exit_band) is additional evidence to liquidate, only for actual confirmed units with a fresh quote. Existing non-widening ownership stop and entry-cost stop retain priority; liquidation intent persists through blocked fills. The next-session engine remains unchanged. Existing economic units are never trimmed just because their market weights grow.",
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+ "evidence":"Preserve all twelve configurations and all failed predecessors. Hash the ownership, broad-entry and additional rule implementations. Prefix equality and fresh-quote exit behavior are necessary checks. Full-period evaluation remains retrospective. No change to frozen accounting, fees, data, liquidity or economic targets."
+}
