@@ -24,9 +24,22 @@ import numpy as np
 import pandas as pd
 
 from techquant.data import file_hash, load_market
+from techquant.evidence import source_identity
 
 DIRECTORIES = {'chatgpt': 'chatgpt/turtle_dual', 'trae': 'trae/glmcsm',
                'dumate': 'dumate/momentum_rotation', 'workbuddy': 'workbuddy/track_trend'}
+
+
+def reference_files(root: Path) -> dict[str, str]:
+    """Bind executable source and parameter files; never mutate the reference."""
+    return {str(p.relative_to(root)): file_hash(p) for p in sorted(root.rglob('*'))
+            if p.is_file() and p.suffix in {'.py', '.json', '.yaml', '.yml'}}
+
+
+def index_files(root: Path) -> dict[str, str]:
+    """Index turnover is part of the input, even when an engine ignores it."""
+    return {name + '.csv': file_hash(root / (name + '.csv'))
+            for name in ('sh000300', 'sh000682', 'sz399808')}
 
 
 def module(name: str, file: Path):
@@ -65,6 +78,7 @@ def main() -> int:
     p.add_argument('--reference-root', type=Path, required=True)
     p.add_argument('--data', type=Path, required=True)
     p.add_argument('--supplement', type=Path)
+    p.add_argument('--indices', type=Path, help='frozen native-reference index CSV directory')
     p.add_argument('--catalog', type=Path, default=Path(__file__).with_name('catalog.json'))
     p.add_argument('--pool', required=True)
     p.add_argument('--end', default='2026-09-11')
@@ -76,10 +90,13 @@ def main() -> int:
     names = {s[2:]: catalog['names'][s] for s in symbols}
     market = load_market(a.data, supplement=a.supplement, sectors=catalog['sectors']).prefix(a.end)
     reference = a.reference_root / DIRECTORIES[a.reference]
-    files = {str(f.relative_to(reference)): file_hash(f) for f in sorted(reference.rglob('*.py'))}
+    files = reference_files(reference)
+    indices = a.indices or (a.data / 'qfq')
     identity = {'reference': a.reference, 'reference_commit': catalog['reference_commit'],
                 'archive_commit': catalog['archive_commit'], 'source_files': files,
                 'harness_sha256': file_hash(Path(__file__)), 'pool': a.pool,
+                'producer': source_identity(), 'catalog_sha256': file_hash(a.catalog),
+                'index_files': index_files(indices),
                 'universe': symbols, 'data_sha256': market.subset(symbols).fingerprint(),
                 'start': '2023-01-03', 'requested_end': a.end, 'initial_cash': 2_000_000.,
                 'python': platform.python_version(), 'numpy': np.__version__, 'pandas': pd.__version__,
@@ -100,7 +117,7 @@ def main() -> int:
                 for code in (symbol, symbol[2:], symbol[2:] + '_' + catalog['names'][symbol]):
                     f.to_csv(folder / f'{code}.csv', index_label='date')
             for symbol in ('sh000300', 'sh000682', 'sz399808'):
-                f = pd.read_csv(a.data / f'qfq/{symbol}.csv')
+                f = pd.read_csv(indices / f'{symbol}.csv')
                 f = f.loc[f.date <= a.end]
                 for code in (symbol, symbol[2:]):
                     f.to_csv(folder / f'{code}.csv', index=False)
@@ -186,13 +203,13 @@ def main() -> int:
         (a.output / 'failure.txt').write_text(traceback.format_exc())
         summary = {'status': 'NATIVE_REPLAY_FAILED', 'error': type(exc).__name__ + ': ' + str(exc)}
         write_json(a.output / 'summary.json', summary)
-    if files != {str(f.relative_to(reference)): file_hash(f) for f in sorted(reference.rglob('*.py'))}:
+    if files != reference_files(reference) or identity['index_files'] != index_files(indices):
         raise RuntimeError('reference source changed during native replay')
     summary['elapsed_seconds'] = time.monotonic() - started
     write_json(a.output / 'summary.json', summary)
     write_json(a.output / 'manifest.json', {f.name: file_hash(f) for f in sorted(a.output.iterdir())})
     print(json.dumps({'reference': a.reference, 'pool': a.pool, **summary}, ensure_ascii=False))
-    return 0 if summary['status'] != 'NATIVE_REPLAY_FAILED' else 1
+    return 0 if summary['status'] == 'NATIVE_REPLAY_MEASURED' else 1
 
 
 if __name__ == '__main__':

@@ -1,25 +1,116 @@
-name: Research data acquisition
+name: Explicit research reproduction
 on:
-  push:
-    branches: [research/independent-tech]
-    paths: [.github/workflows/research-data.yml]
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [research/run-request.json]
 permissions:
   contents: read
+  actions: read
+concurrency:
+  group: independent-research-publication
+  cancel-in-progress: false
 jobs:
-  collect:
+  reproduce:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 9
+    permissions:
+      contents: write
+      actions: read
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@v4
         with:
+          path: source
           persist-credentials: false
-      - name: Acquire required external comparator indices
-        run: python research/download_reference_indices.py
+      - uses: actions/checkout@v4
+        with:
+          repository: ychenracing/trades
+          ref: 5575d1b1b79fab405b92cfb7d164c7054a8bd826
+          path: reference
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: 30cc7d3bdea38d2d613ce43b2fdf988e0f544daa
+          path: parent
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install bounded research runtime
+        run: python -m pip install ./source PyYAML==6.0.3
+      - name: Restore the three frozen archives
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir archives
+          python - <<'PY'
+          import json, pathlib, subprocess
+          request = json.loads(pathlib.Path('source/research/run-request.json').read_text())
+          for name, record in request['archives'].items():
+              with open('archives/' + name + '.zip', 'wb') as stream:
+                  subprocess.run(['gh', 'api', 'repos/ychenracing/quant/actions/artifacts/' + str(record['artifact_id']) + '/zip'], stdout=stream, check=True)
+          PY
+      - name: Reproduce exact source, failed parent and native comparisons
+        env:
+          QUANT_SOURCE_COMMIT: ${{ github.sha }}
+          PYTHONPATH: source/src:source
+        run: |
+          python -m unittest discover -s source/tests -v > engineering.txt 2>&1
+          python source/research/reproduce.py --archives archives --reference reference --parent parent --output result
+      - name: Prepare immutable publication
+        run: |
+          test -s result.tar.gz
+          mkdir publication
+          split -b 48M -d -a 3 result.tar.gz publication/evidence.tar.gz.part-
+          cp result.receipt.json publication/receipt.json
+          cp result/RUN_REPORT.md result/report.json result/SOURCE_IDENTITY.json result/MANIFEST.json publication/
+          cp engineering.txt publication/
+          (cd publication && sha256sum evidence.tar.gz.part-* > SHA256SUMS)
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: native-comparator-index-data
-          path: market-data/
-          retention-days: 30
-          if-no-files-found: error
+          name: independent-research-${{ github.sha }}
+          path: |
+            publication/
+            result/execution.json
+            result/*.log
+            engineering.txt
+          retention-days: 90
+          if-no-files-found: warn
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: incomplete-research-${{ github.sha }}
+          path: |
+            result/
+            engineering.txt
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Append evidence to a durable branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          test -s publication/receipt.json
+          gh auth setup-git
+          git init -q evidence-store
+          cd evidence-store
+          git remote add origin "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads origin refs/heads/research/evidence; then
+            git fetch --depth=1 origin research/evidence
+            git checkout -b research/evidence FETCH_HEAD
+          else
+            git checkout --orphan research/evidence
+          fi
+          destination="published/${GITHUB_SHA}/${GITHUB_RUN_ID}"
+          test ! -e "$destination"
+          mkdir -p "$destination"
+          cp -a ../publication/. "$destination/"
+          printf '{"source_commit":"%s","run_id":"%s","path":"%s","economic_acceptance":"NOT_PASSED"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$destination" > LATEST.json
+          git config user.name 'quant research publisher'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$destination" LATEST.json
+          git commit -m "research: preserve measured source ${GITHUB_SHA}"
+          git push origin HEAD:refs/heads/research/evidence
