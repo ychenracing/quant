@@ -1,0 +1,15 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"shadow_book_drawdown_and_recovery",
+  "hypothesis":"Single-name stops still permit repeated correlated losses. Keep an independently simulated unrestricted trend book as an observable risk reference; use its peak loss, daily loss and fresh recovery to control the actual cash book. The reference continues while actual capital is in cash, preventing realized-equity recovery deadlock.",
+  "base_policy":{"family":"fresh_breakout_cash_preservation","slow":20,"stop":0.12,"positions":2,"entry_window":10,"selection":"Chosen exclusively by the already frozen training objective ending 2025-12-31; not by the 2026 result"},
+  "candidate_grid":{"span":[10,20,40],"loss":[0.06,0.10,0.14],"rebound":[0.03,0.06]},
+  "candidate_count":18,
+  "fixed_rules":{"risk_cut":"after close, shadow peak drawdown reaches loss OR one-session shadow loss >=4%; next-open cash reduction","recovery":"shadow NAV above causal exponential mean(span), at least rebound above cash-state trough, and positive one-session shadow return","identity":"Shadow NAV and its targets use only observations through the signal date; prefix invariance required; no reset of reported actual NAV or reported drawdown"},
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "execution":"Same cash-only next-open engine, costs, dates, capital and data. Risk exits cannot be re-labelled earlier than their actual signal/fill dates.",
+  "retrospective_only":true,
+  "economic_acceptance":"UNVERIFIED"
+}
