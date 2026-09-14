@@ -1,0 +1,9 @@
+{
+  "source_commit": "c5bfda2f031bfc52ea164d55d3b0c60d61b829e6",
+  "run_id": "34858766715",
+  "family": "leadership_handover",
+  "operation": "measure",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}
