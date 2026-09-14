@@ -1,0 +1,13 @@
+{
+  "purpose": "Complete the existing eight-candidate nonlinear contract after reproducing and repairing its fixed-unit and exit-retry defects",
+  "verified_implementation_commit": "f7a31eaadd1765988657bb20bb92726bbf812f13",
+  "implementation_blob": "3315b63bd2cc50fd6ace78a720e9c96b51a88f08",
+  "contract_blob": "15970692b7adaa29b21ce2b5d99730d2bf13fa16",
+  "selection_end": "2025-12-31",
+  "candidate_count": 8,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "prior_red_run": 34807101056,
+  "local_validation": "73 existing offline tests plus 7 nonlinear tests passed after the two corrections; hosted current-source validation remains required",
+  "economic_acceptance": "UNVERIFIED",
+  "publication": "Preserve all candidates, raw replays, exact source, failures and hashes on research/evidence; no main promotion from this necessary screen alone"
+}
