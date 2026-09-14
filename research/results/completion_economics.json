@@ -1,0 +1,24 @@
+{
+  "status": "MEASURED_REJECTED_FOR_JOINT_ACCEPTANCE",
+  "canonical": false,
+  "source_commit": "965f30c64f3230644beb31109a757cdd716486a9",
+  "source_tree": "179ef83dab995ceced26112b01bea9d2b9b3829a",
+  "run_id": 34836507473,
+  "artifact_id": 10344930902,
+  "archive_sha256": "c64e6ee882dbca9583573a5fc2da8f1e36bd7bca830b19a205c43ae76189e02f",
+  "evidence_path": "research/evidence:nonlinear/965f30c64f3230644beb31109a757cdd716486a9/34836507473",
+  "verified_manifest_files": 180,
+  "offline_tests": 77,
+  "research_tests": 94,
+  "selected_parameters": {"control": "support"},
+  "selection_worst_deficit": 0.21789843118168037,
+  "rounded_full_period_summary": [
+    {"scope":"union","wealth":8.657464,"max_drawdown":0.313809,"orders":171},
+    {"scope":"chatgpt_5","wealth":8.045047,"max_drawdown":0.305321,"orders":142},
+    {"scope":"joint_optical_leader_removal","wealth":2.875969,"max_drawdown":0.359367,"orders":186}
+  ],
+  "interpretation": "The protective-completion repair has an executed economic effect, not only a passing regression test. Against the prior support control, union wealth rises from6.225997 to8.657464 and fills fall from224 to171. Common-five remains below main10.824786 and has142 versus139 fills. Main promotion is not permitted. All four controls, exact raw metrics, worsened outcomes and previous failed archives remain preserved.",
+  "qualification": "These metrics prove only this exact source on the frozen data. Original native references and wider robustness/operational obligations remain. This is not universal acceptance or an actual-share ledger validation.",
+  "production_changed": false,
+  "economic_acceptance": "NOT_PASSED"
+}
