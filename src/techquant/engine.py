@@ -155,6 +155,14 @@ def run(market: Market, config: Config | None = None, *,
                         order['reason'] = 'MINIMUM_LOT_OR_CASH'
                         orders.append(order)
                         continue
+                    # Capacity, board lots and remaining cash can shrink a large
+                    # request below the ordinary floor. Check the executable
+                    # opening notional, on the same pre-cost NAV basis as above.
+                    # Deliberate protective reductions keep their existing exemption.
+                    if not protective and quantity * op[i, j] < opening_nav * .01:
+                        order['reason'] = 'BELOW_MINIMUM_NOTIONAL'
+                        orders.append(order)
+                        continue
                     direction = 1 if side == 'BUY' else -1
                     slipped = op[i, j] * (1 + direction * cfg.slippage_bps / 10_000 * cost_multiplier)
                     if slipped <= 0:
