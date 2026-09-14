@@ -1,0 +1,9 @@
+{
+  "source_commit": "4d0c9ec1ada94c4e23f85a329b880adbe0bd5aa1",
+  "run_id": "34910777906",
+  "family": "allocation_auction",
+  "operation": "measure",
+  "selection_status": "CORE_NONREGRESSION_ONLY",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": true
+}
