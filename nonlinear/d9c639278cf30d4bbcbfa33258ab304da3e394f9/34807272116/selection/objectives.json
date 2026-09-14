@@ -1,0 +1,90 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "horizon": 20,
+      "tail_threshold": 0.25,
+      "positions": 2
+    },
+    "worst_deficit": 0.7746648396097572,
+    "objective": -1.6082674029905497,
+    "fills": 327
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "horizon": 20,
+      "tail_threshold": 0.25,
+      "positions": 4
+    },
+    "worst_deficit": 1.1018415668521504,
+    "objective": -1.514421267920503,
+    "fills": 396
+  },
+  {
+    "candidate": 2,
+    "parameters": {
+      "horizon": 20,
+      "tail_threshold": 0.5,
+      "positions": 2
+    },
+    "worst_deficit": 1.1530467784731455,
+    "objective": -1.9068196951502927,
+    "fills": 287
+  },
+  {
+    "candidate": 3,
+    "parameters": {
+      "horizon": 20,
+      "tail_threshold": 0.5,
+      "positions": 4
+    },
+    "worst_deficit": 1.0347329118672832,
+    "objective": -1.5149026700591752,
+    "fills": 371
+  },
+  {
+    "candidate": 4,
+    "parameters": {
+      "horizon": 60,
+      "tail_threshold": 0.25,
+      "positions": 2
+    },
+    "worst_deficit": 0.8661063874486261,
+    "objective": -1.47703487127664,
+    "fills": 332
+  },
+  {
+    "candidate": 5,
+    "parameters": {
+      "horizon": 60,
+      "tail_threshold": 0.25,
+      "positions": 4
+    },
+    "worst_deficit": 0.8343116525465244,
+    "objective": -1.6467008547291042,
+    "fills": 417
+  },
+  {
+    "candidate": 6,
+    "parameters": {
+      "horizon": 60,
+      "tail_threshold": 0.5,
+      "positions": 2
+    },
+    "worst_deficit": 0.9617946741525534,
+    "objective": -1.3164218167402677,
+    "fills": 252
+  },
+  {
+    "candidate": 7,
+    "parameters": {
+      "horizon": 60,
+      "tail_threshold": 0.5,
+      "positions": 4
+    },
+    "worst_deficit": 0.7144606400241157,
+    "objective": -1.2351581250465216,
+    "fills": 358
+  }
+]

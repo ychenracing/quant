@@ -1,0 +1,16 @@
+----------------------------------------------------------------------
+Ran 73 tests in 4.236s
+
+OK
+test_excluded_name_changes_cannot_affect_forecast (research.test_nonlinear.NonlinearTests.test_excluded_name_changes_cannot_affect_forecast) ... ok
+test_forecasts_and_fit_endpoints_are_prefix_causal (research.test_nonlinear.NonlinearTests.test_forecasts_and_fit_endpoints_are_prefix_causal) ... ok
+test_leader_replacement_retries_until_actual_liquidation (research.test_nonlinear_ownership.OwnershipTests.test_leader_replacement_retries_until_actual_liquidation) ... ok
+test_protective_exit_retries_after_signal_recovers (research.test_nonlinear_ownership.OwnershipTests.test_protective_exit_retries_after_signal_recovers) ... ok
+test_readmission_counts_only_post_liquidation_healthy_closes (research.test_nonlinear_ownership.OwnershipTests.test_readmission_counts_only_post_liquidation_healthy_closes) ... ok
+test_retention_emits_fixed_actual_units_not_opening_nav_weights (research.test_nonlinear_ownership.OwnershipTests.test_retention_emits_fixed_actual_units_not_opening_nav_weights) ... ok
+test_stale_held_quote_cannot_open_another_position (research.test_nonlinear_ownership.OwnershipTests.test_stale_held_quote_cannot_open_another_position) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.669s
+
+OK
