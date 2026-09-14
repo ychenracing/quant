@@ -1,0 +1,46 @@
+{
+  "status": "RECOVERED_NOT_ECONOMIC_ACCEPTANCE",
+  "handoff_anchor": "d9f8d7bd538e383de155a5d252b8822158f934b6",
+  "date": "2026-09-14",
+  "main_observed": "bbc002449093e458868a8748687df023958ba283",
+  "original_pr": {"number": 1, "state": "open", "draft": true, "merged": false, "head": "4fa306fdcde2f9a77d941200ef7ff2f988c045e5"},
+  "active_hosted_runs_at_takeover": {"in_progress": 0, "queued": 0},
+  "local_recovery": "New isolated directories restored from the exact source.tar.gz inside each original completed artifact. git write-tree independently reproduced both expected trees. No legacy checkout or project process was found in this container; other unmounted Work/Codex containers remain unverified. Direct container Git transport failed DNS; authorized GitHub artifact downloads succeeded.",
+  "measurements": [
+    {
+      "source": "bf839c9f6d8824a57fd6ee567080a326d321a766",
+      "source_tree_verified": "1033c4c973e4c231634d0ad6f0310e19259ee6d3",
+      "run": 34839270406,
+      "artifact": 10344719379,
+      "zip_sha256_verified": "e3ed54bdef3c02adb11b5b97c623a64edd1054683b9a9df1ced079c12d16c88e",
+      "archive_sha256_verified": "4c411afc023584eff340c566c0216ccfdcc77f6e9943e80fa82b90f68db6b786",
+      "top_manifest_files_verified": 150,
+      "manifest_mismatches": [],
+      "family": "observed_readiness",
+      "selection": {"candidate": 0, "parameters": {}, "worst_deficit": 0.06243165636706478, "objective": -0.8653000000660076, "fills": 428, "status": "DIAGNOSTIC_NOT_ACCEPTED"},
+      "evaluation": {"runs": 9, "rows": 45, "status": "MEASURED_NOT_UNIVERSAL_ACCEPTANCE"},
+      "full_wealth": {"union": 7.845323448354881, "chatgpt_5": 9.402063343443142, "joint_optical_leader_removal": 2.473806450924359},
+      "attribution_scope_warning": "quantity_gap is exact matched pre-2026 attribution for parent 180640bff6d3a125cdf1b8928a6e0fc32a1d5f1a, not a newly calculated attribution of the observed_readiness candidate. Do not relabel it."
+    },
+    {
+      "source": "64fa0687c8aee2afb74c31de4ed50b84a54827d0",
+      "source_tree_verified": "78eb9f349fa63e26f13ce1fd1a57032220a9cfe0",
+      "run": 34838336120,
+      "artifact": 10344914294,
+      "zip_sha256_verified": "14764ed4b094108eb12886bfc3ff8400a3073deac91284c0df579d6119364c35",
+      "archive_sha256_verified": "2f9b84f6f3fe9b91c75ffbd328e45f34668aee7508b4857e2cb1c5f28ffffa98",
+      "top_manifest_files_verified": 141,
+      "manifest_mismatches": [],
+      "family": "readmission",
+      "selection": {"candidate": 0, "parameters": {}, "worst_deficit": 0.13532336185702162, "objective": -0.9428059952157898, "fills": 421, "status": "DIAGNOSTIC_NOT_ACCEPTED"},
+      "evaluation": {"runs": 9, "rows": 45, "status": "MEASURED_NOT_UNIVERSAL_ACCEPTANCE"},
+      "full_wealth": {"union": 7.101041, "chatgpt_5": 9.344138547677543, "joint_optical_leader_removal": 2.5625929599256123},
+      "precision_note": "Union wealth is rounded to six decimals here; original matrix remains authoritative."
+    }
+  ],
+  "common_five_comparison": {"incumbent_full_wealth": 10.824786016250098, "same_engine_buy_hold_full_wealth": 29.062957034788582},
+  "next_scope": "Inspect exact raw outcomes, source dependencies and pre-2026 attribution; preserve the independent protective branch. Evaluate already-preregistered, unimplemented leadership/opportunity decisions only after checking live concurrent work and actual contracts. Do not redispatch completed studies or change old candidate sets.",
+  "original_economic_acceptance": "NOT_MET",
+  "new_strategy_tests_or_measurements_by_this_save": false,
+  "limitations": "Archive integrity and source-tree recovery are verified, not comprehensive execution correctness or original economic acceptance. Native reference execution validity, adjusted-economic-unit accounting limits, retrospective 2026 use and historical forecast-score non-equivalence remain explicit. No main promotion, force push, branch deletion, workflow cancellation or account schedule changes."
+}
