@@ -1,0 +1,9 @@
+{
+  "source_commit": "a3217a9f39d21fe2f14033a051a4d15b4c4d83af",
+  "run_id": "34866550377",
+  "family": "admission_budget_completion",
+  "operation": "measure",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}
