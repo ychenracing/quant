@@ -1,0 +1,6 @@
+{
+  "contract": "research/inventory_intent_contract.json",
+  "source_repair": "091e757f08d66ac273f774108f9ceb6972780f07",
+  "reason": "The first source completed one replay, then failed serializing an open-episode NumPy integer. Preserve that raw replay and failure at research/evidence inventory-intent/bfac4bca0409d067baf8cc5a0473954bc3f17f92/34805216167. Complete the unchanged twelve-run paired contract on the repaired writer; do not run earlier selection grids.",
+  "economic_acceptance": "UNVERIFIED"
+}
