@@ -165,7 +165,7 @@ class Owner:
         held=o.units>1e-10;sold=self.previous&~held
         self.readmit[sold&self.exit_pending]=True;self.healthy[sold]=0
         self.exit_pending[~held]=False
-        good=(~held)&(~sold)&f.ready[i]&(f.price[i]>f.ema10[i])&(f.tail[i]<p.tail_threshold*.5)
+        good=f.ready[i]&(f.price[i]>f.ema10[i])&(f.tail[i]<p.tail_threshold*.5)
         self.healthy=np.where(good,self.healthy+1,0);self.readmit[self.healthy>=3]=False
         self.negative=np.where(f.expected[i]<-.02,self.negative+1,0)
         tail_alert=(f.tail[i]>=p.tail_threshold)&(f.ret1[i]<0)
