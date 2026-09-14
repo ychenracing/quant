@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"causal_ridge_ownership_guard",
+  "hypothesis":"Reactive price thresholds either surrender gains before exiting or repeatedly buy false recoveries. Fit a small regularized return forecast using only matured labels from the supplied technology subset; keep the underlying basket ownership independent of the forecast.",
+  "candidate_grid":{"horizon":[3,5,10],"ridge":[10.0,100.0],"threshold":[0.0,0.15]},
+  "candidate_count":12,
+  "training":"Refit every twenty observed sessions, starting after sixty sessions. Use at most 252 preceding feature dates and only labels whose horizon has fully ended by the decision close. Training rows include only the current subset; removed names supply no training data or signals. Never use a symbol identifier or calendar date as a feature.",
+  "features":"Intercept; volatility-normalized returns over 1,5,20,60,120 sessions; price distances from 20/60-session means; short/long volatility ratio; recent downside fraction; normalized universe return; breadth; log relative volume. Bound standardized predictors to [-5,5]. Target is forward horizon log return normalized by volatility known at the label's origin. Labels are unavailable until maturity.",
+  "guard":"Aggregate stock predictions with the continuously observed buy_hold paper target weights. Close risk when predicted return is below negative threshold; restore when it exceeds positive threshold. Before sufficient model data, preserve the declared parent ownership guard using a twenty-session exponential mean. Cash-funded next-open execution unchanged.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "validation":"Check label maturity and prefix equivalence; retain every forecast, coefficient fit clock, trial and failed predecessor. This is retrospective online simulation, not untouched out-of-sample evidence or a return guarantee. NumPy linear algebra only; no added production dependency or complex CI gate."
+}
