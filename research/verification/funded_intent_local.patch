@@ -1,0 +1,225 @@
+diff --git a/research/finite_study.py b/research/finite_study.py
+index 6cd2868..72cb94e 100644
+--- a/research/finite_study.py
++++ b/research/finite_study.py
+@@ -22,7 +22,7 @@ from research.expectation_study import write_json,scopes
+ 
+ class Study:
+     def __init__(self,family:str,*,issued_evidence:Path|None=None):
+-        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget','risk_reliability','funded_risk'}:raise ValueError('undeclared research family')
++        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget','risk_reliability','funded_risk','funded_intent'}:raise ValueError('undeclared research family')
+         self.family=family
+         self.module=importlib.import_module('research.'+family)
+         self.issued=None
+@@ -47,7 +47,8 @@ class Study:
+                     'coherent.py','coherent_contract.json','observed_trend.py',
+                     'nonlinear.py','pathwise.py','observed_trend_contract.json',
+                     'nonlinear_contract.json','pathwise_contract.json']
+-        if self.family=='funded_risk':names+=['support_budget.py','support_budget_contract.json']
++        if self.family in {'funded_risk','funded_intent'}:names+=['support_budget.py','support_budget_contract.json']
++        if self.family=='funded_intent':names+=['funded_risk.py','funded_risk_contract.json']
+         return {'source':source_identity(),'family':self.family,
+                 'dependencies':{name:file_hash(root/name) for name in names},
+                 **({'issued_forecasts':self.issued.identity()} if self.issued else {})}
+ diff --git a/research/support_budget.py b/research/support_budget.py
+index 57b6069..3bf7ea6 100644
+--- a/research/support_budget.py
++++ b/research/support_budget.py
+@@ -142,9 +142,10 @@ class Owner:
+         ceiling = self._exposure_ceiling(cap, cap_cut)
+         if exposure > ceiling+1e-12:
+             desired *= cap/exposure
++        economic = desired.copy()
+         desired = self._round_reductions(o.units, desired, i)
+         cuts = desired < o.units-1e-10
+-        self.reduction_ceiling[cuts] = np.minimum(self.reduction_ceiling[cuts], desired[cuts])
++        self._latch_reductions(o.units, economic, desired)
+         self.exit_pending |= held & (desired <= 1e-10)
+         protected = bool(cuts.any()) or cap_cut
+         if protected:
+@@ -162,6 +163,11 @@ class Owner:
+         decision.validated_unit_targets(price, o.nav)
+         return decision
+ 
++    def _latch_reductions(self, current, economic, executable):
++        """Preserve the measured parent's rounded-ceiling behavior by default."""
++        cuts = executable < current-1e-10
++        self.reduction_ceiling[cuts] = np.minimum(self.reduction_ceiling[cuts], executable[cuts])
++
+     def _exposure_ceiling(self, cap, cut):
+         return cap if cut or cap == 0 else min(1., cap+self.config.trade_band)
+ 
+ diff --git a/research/funded_intent.py b/research/funded_intent.py
+new file mode 100644
+--- /dev/null
++++ b/research/funded_intent.py
+@@ -0,0 +1,19 @@
++"""Separate required economic reductions from executable lot-rounding padding."""
++from pathlib import Path
++import numpy as np
++from techquant.data import file_hash
++from research.funded_risk import Owner as FundedOwner, Parameters, grid
++
++
++class Owner(FundedOwner):
++    def identity(self):
++        return {'name': 'funded_economic_intent',
++                'implementation_sha256': file_hash(Path(__file__)),
++                'contract_sha256': file_hash(Path(__file__).with_name('funded_intent_contract.json')),
++                'parent_policy': super().identity(), 'status': 'RESEARCH_NOT_ACCEPTED'}
++
++    def _latch_reductions(self, current, economic, executable):
++        # Padding makes the request executable; it is not a fresh risk obligation.
++        # Only actual units at/below the required ceiling satisfy protection.
++        cuts = economic < current-1e-10
++        self.reduction_ceiling[cuts] = np.minimum(self.reduction_ceiling[cuts], economic[cuts])
+ diff --git a/research/test_funded_intent.py b/research/test_funded_intent.py
+new file mode 100644
+--- /dev/null
++++ b/research/test_funded_intent.py
+@@ -0,0 +1,145 @@
++"""Economic protection is not recursively tightened by execution-rounding padding."""
++import importlib
++import importlib.util
++import unittest
++from dataclasses import asdict
++import numpy as np
++import pandas as pd
++from test_core import sample_market
++from techquant.data import Market
++from techquant.engine import run
++from techquant.policy import CloseObservation
++
++
++class FundedIntentTests(unittest.TestCase):
++    def module(self):
++        self.assertIsNotNone(importlib.util.find_spec('research.funded_intent'),
++                             'economic-ceiling intent correction is not implemented')
++        return importlib.import_module('research.funded_intent')
++
++    def owner(self):
++        module = self.module()
++        owner = module.Owner(sample_market(1, 130), module.Parameters(False))
++        owner.breakout[:] = False
++        return owner
++
++    def observation(self, owner, i, units, cash=100123.):
++        q = np.array([units], dtype=float)
++        price = owner.features.close[i]
++        nav = float(cash + q @ price)
++        return CloseObservation.from_inventory(i, str(owner.market.calendar[i].date()),
++                                               nav, cash, q, q * price / nav)
++
++    def cap(self, owner, cap):
++        def update(i, features, history, config):
++            owner.risk.cap = cap
++            owner.risk.warnings.cap = 0.  # isolate protection, never authorize additions
++            owner.risk.budget = .10 * history[-1]
++            return cap, 'CONTROLLED_PROTECTION'
++        owner.risk.update = update
++
++    def reduction(self, owner):
++        owner.risk.cap = 1.
++        self.cap(owner, .5)
++        o = self.observation(owner, 40, 100000.)
++        economic = .5 * o.nav / owner.features.close[40, 0]
++        d = owner.decide(o)
++        self.assertLess(d.unit_targets[0], economic - 1e-6)
++        return o, economic, d.unit_targets[0]
++
++    def test_latch_tracks_economic_ceiling_not_rounding_padding(self):
++        owner = self.owner()
++        _, economic, _ = self.reduction(owner)
++        self.assertAlmostEqual(owner.reduction_ceiling[0], economic, places=9)
++
++    def test_actual_fill_satisfying_economic_ceiling_does_not_sell_another_lot(self):
++        owner = self.owner()
++        _, economic, rounded = self.reduction(owner)
++        actual = (economic + rounded) / 2.
++        self.cap(owner, 1.)
++        o = self.observation(owner, 41, actual, cash=1_000_000.)
++        d = owner.decide(o)
++        np.testing.assert_array_equal(d.unit_targets, o.units)
++        self.assertTrue(np.isinf(owner.reduction_ceiling[0]))
++
++    def test_blocked_and_insufficient_partial_fills_keep_original_ceiling(self):
++        owner = self.owner()
++        original, economic, _ = self.reduction(owner)
++        self.cap(owner, 1.)
++        for i, actual in [(41, original.units[0]), (42, economic + 5.)]:
++            o = self.observation(owner, i, actual)
++            d = owner.decide(o)
++            self.assertLess(d.unit_targets[0], o.units[0])
++            self.assertLessEqual(d.unit_targets[0], economic)
++            self.assertAlmostEqual(owner.reduction_ceiling[0], economic, places=9)
++            self.assertIn('PROTECTIVE_INVENTORY_PENDING', d.reason)
++
++    def test_new_risk_can_tighten_but_recovery_cannot_cancel_outstanding_ceiling(self):
++        owner = self.owner()
++        _, economic, _ = self.reduction(owner)
++        self.cap(owner, .25)
++        o = self.observation(owner, 41, 100000.)
++        d = owner.decide(o)
++        self.assertLess(owner.reduction_ceiling[0], economic)
++        self.assertLessEqual(d.weights.sum(), .25 + 1e-12)
++        stricter = owner.reduction_ceiling[0]
++        self.cap(owner, 1.)
++        owner.decide(self.observation(owner, 42, 100000.))
++        self.assertEqual(owner.reduction_ceiling[0], stricter)
++
++    def test_full_exit_requires_actual_zero_inventory(self):
++        owner = self.owner()
++        self.cap(owner, 1.)
++        owner.previous_units[0] = 1000.
++        owner.reduction_ceiling[0] = 0.
++        owner.exit_pending[0] = True
++        for i, units in [(40, 1000.), (41, 1.)]:
++            d = owner.decide(self.observation(owner, i, units))
++            self.assertEqual(d.unit_targets[0], 0.)
++            self.assertEqual(owner.reduction_ceiling[0], 0.)
++        owner.decide(self.observation(owner, 42, 0.))
++        self.assertTrue(np.isinf(owner.reduction_ceiling[0]))
++
++    def test_two_candidates_and_parent_dependencies_are_identity_bound(self):
++        from research.finite_study import Study
++        study = Study('funded_intent')
++        self.assertEqual([asdict(p) for p in study.module.grid()],
++                         [{'use_cushion': False}, {'use_cushion': True}])
++        for path in ('funded_intent.py', 'funded_intent_contract.json',
++                     'funded_risk.py', 'funded_risk_contract.json',
++                     'support_budget.py', 'support_budget_contract.json'):
++            self.assertIn(path, study.identity()['dependencies'])
++
++    def test_prefix_removal_and_delay_preserve_actual_ledger(self):
++        module = self.module()
++        market = sample_market(4, 145)
++        frames = {s: f.copy() for s, f in market.frames.items()}
++        for frame in frames.values():
++            frame.loc[market.calendar[65:80],
++                      ['open', 'high', 'low', 'close', 'raw_open', 'raw_close']] *= .82
++        market = Market.from_frames(frames, market.calendar, quality='synthetic')
++        def execute(m, delay=1):
++            return run(m, delay=delay, policy_factory=lambda current, cfg:
++                       module.Owner(current, module.Parameters()))
++        full = execute(market)
++        cutoff = market.calendar[110]
++        short = execute(market.prefix(cutoff))
++        pd.testing.assert_frame_equal(full.equity.loc[:cutoff], short.equity)
++        pd.testing.assert_frame_equal(full.targets.loc[:cutoff], short.targets)
++        excluded = market.symbols[-1]
++        frames[excluded].loc[:, ['open', 'high', 'low', 'close', 'raw_open', 'raw_close']] *= 100.
++        changed = Market.from_frames(frames, market.calendar, quality='synthetic')
++        a = execute(market.subset(market.symbols[:-1]))
++        b = execute(changed.subset(market.symbols[:-1]))
++        pd.testing.assert_frame_equal(a.equity, b.equity)
++        self.assertEqual(a.orders, b.orders)
++        from research.ledger_attribution import attribute
++        for result in (full, execute(market, 2)):
++            self.assertTrue((result.equity.cash >= -1e-8).all())
++            self.assertTrue((result.equity.exposure <= 1 + 1e-10).all())
++            _, _, summary = attribute(market, result)
++            self.assertLess(summary['max_reconciliation_error'], 1e-6)
++
++
++if __name__ == '__main__':
++    unittest.main()
