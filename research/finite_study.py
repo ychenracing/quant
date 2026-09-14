@@ -22,7 +22,7 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str,*,issued_evidence:Path|None=None):
-        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget','risk_reliability','funded_risk'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget','risk_reliability','funded_risk','quantity_obligation'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
         self.issued=None
@@ -47,6 +47,7 @@ class Study:
                     'coherent.py','coherent_contract.json','observed_trend.py',
                     'nonlinear.py','pathwise.py','observed_trend_contract.json',
                     'nonlinear_contract.json','pathwise_contract.json']
+        if self.family=='quantity_obligation':names+=['support_budget.py','support_budget_contract.json','funded_risk.py','funded_risk_contract.json']
         if self.family=='funded_risk':names+=['support_budget.py','support_budget_contract.json']
         return {'source':source_identity(),'family':self.family,
                 'dependencies':{name:file_hash(root/name) for name in names},
@@ -70,12 +71,18 @@ class Study:
         if owner is not None:expected['policy']=owner.identity()
         if self.family=='risk_reliability' and owner is not None:
             owner.preserve_audit(path.parent.parent/'audits', require_existing=path.exists())
-        if path.exists():return load_result(path,expected=expected)
+        intent_path=path.parent.parent/'intents'/(path.name+'.json')
+        if path.exists():
+            if self.family=='quantity_obligation' and owner is not None:
+                self.module.verify_trace(intent_path,expected)
+            return load_result(path,expected=expected)
         factory=(lambda m,c:owner) if owner is not None else None
         result=run(market,cfg,benchmark=benchmark,policy_factory=factory,cost_multiplier=costs,delay=delay)
         result.metadata['study']=self.identity()
         if result.metadata!=expected:raise AssertionError('unexpected study identity')
         save_result(result,path)
+        if self.family=='quantity_obligation' and owner is not None:
+            self.module.preserve_trace(intent_path,expected,owner.trace)
         prediction=getattr(owner,'f',None) or getattr(getattr(owner,'inner',None),'f',None)
         if prediction is not None:
             # Preserve issued arrays, not only hashes that require a potentially

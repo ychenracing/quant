@@ -1,0 +1,17 @@
+{
+  "status": "CORRECTNESS_VERIFIED_ECONOMICS_UNMEASURED",
+  "tested_parent": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+  "preregistration": "fcb35cb3830eab9c8f429b8cf6ec83d0b0851bc8",
+  "file_git_blobs_verified": {
+    "research/quantity_obligation.py": "3a0dd906b685a3fbd582eaa07c891cc901b85d86",
+    "research/test_quantity_obligation.py": "d3a0449e22efd000c504f977b7fa24850a7ae280",
+    "research/finite_study.py": "534ffa1606b622e59affdad85332b9b63613247b",
+    "research/quantity_obligation_contract.json": "8128fbfcd71af6eb70175161e4df56b99ca8283a"
+  },
+  "tests": {"targeted": 8, "offline": 77, "integrated_research": 97},
+  "old_policy_files_changed": false,
+  "production_changed": false,
+  "economic_acceptance": "UNVERIFIED",
+  "original_defect": "The old owner relatches rounded declarations as permanent economic ceilings. The synthetic reproduction and archived actual-inventory target reconstruction are separate evidence; no hypothetical improved portfolio is claimed.",
+  "correction": "Keep the actual economic obligation in policy state and apply the same declaration rounding only to the returned order intention. Actual fills alone release satisfied obligations. Pending full exits and all genuine new risk cuts remain binding."
+}
