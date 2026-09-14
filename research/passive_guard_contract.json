@@ -1,0 +1,12 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"passive_reference_guard",
+  "hypothesis":"Previous shadow protection used a stopped-and-rotated reference whose own cash periods conceal market recovery. Separate alpha and risk by retaining passive economic units in the entire supplied technology pool, with an always-observable passive reference even when actual capital is reduced. This also isolates timing value from ex-post leader selection.",
+  "candidate_grid":{"span":[10,20,40,80],"confirmation":[1,2],"hysteresis":[0.0,0.02],"floor":[0.0,0.5]},
+  "candidate_count":32,
+  "rules":{"reference":"same-engine matched buy-and-hold book on supplied symbols only; no absent leaders or external symbols","reduction":"reference NAV below its causal exponential mean by hysteresis for confirmation consecutive closes","recovery":"reference NAV above its causal exponential mean by hysteresis for confirmation consecutive closes","actual_targets":"on a risk transition adopt contemporaneous passive constituent proportions at cap floor or one; otherwise preserve actual economic units, admitting only causal changes in reference holdings; no daily equal-weight rebalance","execution":"unchanged cash-only next-open engine, capacity and all fees"},
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "caveats":"This diagnoses timing, not economic acceptance or universal dominance. All inspected 2026 results remain retrospective. Preserve all trials, real filled orders and original rejected families. Any transition-induced transaction proliferation counts against this policy. No stage or version product names."
+}
