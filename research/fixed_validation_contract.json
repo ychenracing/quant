@@ -1,0 +1,30 @@
+{
+  "purpose": "Validate the already selected observed-admission singleton on the original frozen finite evaluation scopes, without reselection or modifying any existing family contract.",
+  "family": "observed_admission_completion",
+  "parameters": {},
+  "origin_source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "origin_run": "34868483244",
+  "origin_archive_sha256": "c836b4b4ea4c8d22f4a8a168a97732e70b0fb48b3c136d4077767a65b6121285",
+  "origin_evidence_commit": "8dda5c084a36321473f962ac0373b0615daed678",
+  "baseline_archive_sha256": "6f7864e8f60001790806dcedb2fb7abc5960fb992c936ee9ea2be02069f3f353",
+  "case_plan_member": "evidence/current/evaluate/case_plan.json",
+  "case_plan_sha256": "7910f1a5840aaa30900cbcb8c0a0cf27c2c126b302d547437dfaed952c248d03",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "corrected_source_files": {
+    "data.py": "b8580ccda8bf04cb6c4e8c4d985538946b51638d1c78086c1049bd64239cfa1b",
+    "engine.py": "822bf6d0afd8ea377e74d0811b00e8389daa40b1bbac774ff19b1e915bcc18bc"
+  },
+  "reuse": "Keep original identities. Reuse an old full-period account only after exact configuration/data/research-dependency checks, reviewed correction-only production hashes, runtime equivalence, and reconstruction of every actual fill showing the added materiality guard never triggers. Otherwise measure that account on current source; never rewrite its old metadata.",
+  "scopes": "Read the original 209-case plan by exact archive/member hashes. Measure unchanged-config original pools, singles, leave-one-out, joint/sector removal, fixed seeded subsets, every cardinality, all common-five subsets and original cost/delay stresses. Deduplicate identical account identities, not scenario rows. Add the originally required removal of the actual candidate's top three cash-PnL contributors, without using that removal for selection.",
+  "comparators": ["incumbent", "buy_hold", "equal_weight_on_original_pools"],
+  "windows": "Use research/protocol.json time_windows unchanged.",
+  "prefix_session_indices": [20, 500, 726],
+  "prefix_scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+  "outstanding_requirements": [
+    "Original native-reference comparisons remain necessary; unavailable or invalid native coverage is not a victory.",
+    "The ten original configuration-neighborhood cases cannot be represented honestly through this frozen family's current constructor. Record them as UNVERIFIED, not tested or waived. A production candidate still requires real parameter-stability validation.",
+    "Existing economic deficits and original joint acceptance remain in force; no aggregate screen or successful workflow authorizes main promotion."
+  ],
+  "economic_acceptance": "UNVERIFIED",
+  "limitations": "Repeatedly observed 2026 data are retrospective. Adjusted economic units are not a verified actual-share/corporate-action/tax ledger. Finite tests do not establish all-subset superiority or future profits."
+}
