@@ -1,0 +1,16 @@
+{
+  "status": "RESEARCH_IN_PROGRESS_NOT_ACCEPTED",
+  "parent_source": "bbc002449093e458868a8748687df023958ba283",
+  "authorization": "Continue independent optimization including rewriting, preserve work remotely, no transitional version or phase names; do not relax economic goals.",
+  "scope": "A-share technology equities, 2023-01-03 through the frozen snapshot end 2026-09-11; cash long-only; closing signals and next-session execution; no broker orders.",
+  "design": "Diagnose capital participation and exits separately from selection. Investigate persistent winner ownership, cash reinvestment and causal downside evidence without inheriting any reference production strategy. Keep execution/accounting unchanged for paired comparisons.",
+  "work": ["Reproduce incumbent and measure rule ablations", "Predeclare each new algorithm family before measurement and retain every trial", "Implement the strongest measured candidate with targeted correctness tests", "Run source-bound matched comparisons, removal and subset tests, costs/delay, historical prefixes and risk timing", "Publish only verified improvements with full economic status and preserved failures"],
+  "selection_end": "2025-12-31",
+  "selection_scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+  "selection_objective": "mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "seed": 34,
+  "unchanged": ["original research/protocol.json", "reference implementations", "market snapshot", "benchmark definitions", "initial cash", "fees", "slippage", "liquidity model", "economic acceptance targets"],
+  "evidence": "All earlier experiments and rejected results stay preserved. All historical periods have been seen; later-period results are retrospective robustness evidence, not untouched out-of-sample validation. Record algorithm, source, runner, configuration and data identities. Sampled subsets do not prove universal dominance. Avoid numeric versions and phase labels in code and public documentation; Git identities remain necessary provenance.",
+  "verified_remote_parent": "bbc002449093e458868a8748687df023958ba283",
+  "other_work": "Existing research/independent-tech and its unmerged experiments are preserved, not overwritten. Its ownership experiment was rejected and is not repeated as an undisclosed new trial."
+}
