@@ -1,0 +1,13 @@
+{
+ "status":"DECLARED_BEFORE_MEASUREMENT",
+ "family":"persistent_momentum_rotation",
+ "hypothesis":"Long-lived admission slots can retain stale leadership while strict record-high recovery leaves too much capital idle. Test explicit periodic leadership selection, ordinary slow-trend protection, daily reinvestment after observable positive short momentum, and unit retention whenever membership is unchanged. Isolate selection from the previously failed multi-layer risk filters.",
+ "candidate_grid":{"lookback":[40,80,160],"trend":[20,40,80],"positions":[2,3,5],"review":[10,20]},
+ "candidate_count":54,
+ "fixed_rules":{"minimum_observations":10,"ranking":"causal trailing log price return at lookback, since-observed fallback","admission":"ready, positive rank, close above trend mean and positive five-session return","exit":"two consecutive closes below trend mean","selection":"on review or after a position exit, top ranked eligible names; unchanged membership retains economic units; new membership is equal-weight subject to existing cash/concentration limits","protection":"after an individual trend exit retain proceeds as cash on that close, no same-close replacement"},
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+ "execution":"Identical incumbent next-open cash-only engine/costs; no intraday fills or name/date rules",
+ "limitations":"Retrospective research; all failed predecessor families remain part of the search ledger; no economics are accepted by this declaration."
+}
