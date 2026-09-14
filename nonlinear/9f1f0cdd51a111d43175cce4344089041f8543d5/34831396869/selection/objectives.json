@@ -1,0 +1,42 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "risk_budget": 0.06,
+      "positions": 2
+    },
+    "worst_deficit": 0.45261522646407315,
+    "objective": -1.1003808021929995,
+    "fills": 378
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "risk_budget": 0.06,
+      "positions": 4
+    },
+    "worst_deficit": 0.8348118943018378,
+    "objective": -1.4586385446196415,
+    "fills": 627
+  },
+  {
+    "candidate": 2,
+    "parameters": {
+      "risk_budget": 0.1,
+      "positions": 2
+    },
+    "worst_deficit": 0.26130861010402695,
+    "objective": -0.9212030216914392,
+    "fills": 497
+  },
+  {
+    "candidate": 3,
+    "parameters": {
+      "risk_budget": 0.1,
+      "positions": 4
+    },
+    "worst_deficit": 0.822857142857143,
+    "objective": -1.1592172050836977,
+    "fills": 804
+  }
+]
