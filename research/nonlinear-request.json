@@ -1,9 +1,9 @@
 {
-  "family": "support_budget",
-  "purpose": "Measure only the four preregistered support-risk sizing and capacity candidates. Preserve all source-bound raw outcomes and failed candidates. Do not refit old forecasts or rerun older grids.",
-  "candidate_count": 4,
+  "family": "risk_reliability",
+  "purpose": "Measure exactly the two already-preregistered price-selection controls with unconditional versus prequentially audited tail authority. Reuse the exact original issued predictions; preserve all references, matured losses, authority traces and raw outcomes. No old model or support-budget grid is rerun.",
+  "candidate_count": 2,
   "selection_end": "2025-12-31",
-  "contract_commit": "4797a5883e6fc47b177ffd4b544eac52525f9263",
+  "contract_commit": "f43cdf1699ae388c9ff4267563a824a29b350cfa",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }

@@ -50,7 +50,7 @@ jobs:
           try:
               request = json.loads(pathlib.Path('research/nonlinear-request.json').read_text())
               issued = None
-              if request['family'] == 'coherent':
+              if request['family'] in {'coherent', 'risk_reliability'}:
                   from research.issued_forecasts import retrieve
                   issued = retrieve(root / 'issued-evidence')
               study = Study(request['family'], issued_evidence=issued)

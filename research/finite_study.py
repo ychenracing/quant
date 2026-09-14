@@ -22,12 +22,12 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str,*,issued_evidence:Path|None=None):
-        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory','support_budget','risk_reliability'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
         self.issued=None
-        if family=='coherent':
-            if issued_evidence is None:raise ValueError('coherent comparison requires pinned issued evidence')
+        if family in {'coherent','risk_reliability'}:
+            if issued_evidence is None:raise ValueError(f'{family} comparison requires pinned issued evidence')
             from research.issued_forecasts import IssuedForecasts
             self.issued=IssuedForecasts(issued_evidence)
         elif issued_evidence is not None:
@@ -42,6 +42,11 @@ class Study:
         if self.family=='coherent':names+=['issued_forecasts.py','pathwise.py','pathwise_contract.json']
         if self.family in {'trend_book','recovery_memory'}:names+=['coherent.py','coherent_contract.json','pathwise.py','pathwise_contract.json']
         if self.family=='recovery_memory':names+=['trend_book.py','trend_book_contract.json']
+        if self.family=='risk_reliability':
+            names+=['issued_forecasts.py','trend_book.py','trend_book_contract.json',
+                    'coherent.py','coherent_contract.json','observed_trend.py',
+                    'nonlinear.py','pathwise.py','observed_trend_contract.json',
+                    'nonlinear_contract.json','pathwise_contract.json']
         return {'source':source_identity(),'family':self.family,
                 'dependencies':{name:file_hash(root/name) for name in names},
                 **({'issued_forecasts':self.issued.identity()} if self.issued else {})}
@@ -62,6 +67,8 @@ class Study:
             else:
                 owner=self.module.Owner(market,parameters)
         if owner is not None:expected['policy']=owner.identity()
+        if self.family=='risk_reliability' and owner is not None:
+            owner.preserve_audit(path.parent.parent/'audits', require_existing=path.exists())
         if path.exists():return load_result(path,expected=expected)
         factory=(lambda m,c:owner) if owner is not None else None
         result=run(market,cfg,benchmark=benchmark,policy_factory=factory,cost_multiplier=costs,delay=delay)
