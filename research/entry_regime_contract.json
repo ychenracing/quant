@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"broad_confirmation_entry",
+  "hypothesis":"Forced new deployment into isolated rebounds compounds losses during a broader technology decline. Apply broad trend confirmation to new entry decisions only, leaving already-owned winners untrimmed unless their own independently defined exit is triggered.",
+  "candidate_grid":{"market_window":[60,120],"recovery_breadth":[0.5,0.75],"stop_atr":[2.5,3.5]},
+  "candidate_count":8,
+  "index":"Compound the median return among currently fresh, previously quoted names in exactly the input subset. Missing/unlisted quotes never supply a price return; no external or removed stock is used. This is a causal breadth proxy, not a traded benchmark.",
+  "entry_permission":"Permit a new breakout purchase when the median-return index is above its market_window moving mean (minimum ten observations), OR when the index twenty-session return is positive and at least recovery_breadth of currently ready names are above their twenty-session mean. This gate never forces an existing intact position to sell. Existing capacity-limited entry intentions may finish under their original confirmed authorization; they do not become new discretionary averaging purchases.",
+  "fixed":"Use the independent event policy with entry_window=40, entry_cap=0.7 and trailing exits. No symbol or calendar rules, no forced sector equalization, no shorting or leverage.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "evidence":"Preserve every candidate and rejected predecessor. Test prefix equivalence, permutation invariance, singleton and missing-quote cases. Keep the same cash, fees, delay, capacity, accounting, data and economic acceptance targets. All 2026 comparisons remain retrospective."
+}
