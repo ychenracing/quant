@@ -1,0 +1,14 @@
+{
+  "origin_source_commit": "fd5cbebdf6e5176e2ad6e53c4b6b24460a576505",
+  "origin_source_tree": "90695d17cb44c704e89d04726d91ff4cc5db8aee",
+  "raw_files_count": 65,
+  "raw_files_digest": "9d15979c5ad65377f8fb2621649a3b4d3601c957d2c62f4f2c792398f5b0d2aa",
+  "metadata_bytes_sha256": "886c79789c8b4dece4dd54e9e23919e14cfff436cdc6cb39125e5009b66ce3d2",
+  "purpose": "Raw CSV must reproduce byte-for-byte against these origin digests before materializing an origin snapshot; original source/runtime identities and logs are preserved verbatim, never relabelled.",
+  "metadata_parts": [
+    "research/results/trend_book_origin_metadata.json.xz.part-000",
+    "research/results/trend_book_origin_metadata.json.xz.part-001",
+    "research/results/trend_book_origin_metadata.json.xz.part-002",
+    "research/results/trend_book_origin_metadata.json.xz.part-003"
+  ]
+}

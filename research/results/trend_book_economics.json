@@ -1,0 +1,61 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "source_commit": "fd5cbebdf6e5176e2ad6e53c4b6b24460a576505",
+  "source_tree": "90695d17cb44c704e89d04726d91ff4cc5db8aee",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection": {
+    "candidate": 0,
+    "parameters": {
+      "positions": 2
+    },
+    "worst_deficit": 0.5781120926490755,
+    "objective": -0.9860546756400757,
+    "fills": 478,
+    "status": "DIAGNOSTIC_NOT_ACCEPTED"
+  },
+  "full_period": [
+    {
+      "scope": "union",
+      "wealth": 6.508758044155948,
+      "max_drawdown": 0.3346642675227398,
+      "orders": 198,
+      "average_exposure": 0.5319412057492255
+    },
+    {
+      "scope": "chatgpt_5",
+      "wealth": 9.230336009072989,
+      "max_drawdown": 0.391356116446651,
+      "orders": 194,
+      "average_exposure": 0.5010232922127256
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "wealth": 1.3791126793824653,
+      "max_drawdown": 0.35331033491094144,
+      "orders": 217,
+      "average_exposure": 0.4618496750025545
+    }
+  ],
+  "crash_july_august": [
+    {
+      "scope": "union",
+      "total_return": -0.3005908686663069,
+      "max_drawdown": 0.32225234384789503,
+      "orders": 18
+    },
+    {
+      "scope": "chatgpt_5",
+      "total_return": -0.12080805786035631,
+      "max_drawdown": 0.12080805786035631,
+      "orders": 2
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "total_return": -0.30173584524822084,
+      "max_drawdown": 0.31153247826094344,
+      "orders": 20
+    }
+  ],
+  "economic_acceptance": "NOT_PASSED",
+  "attribution": "Exact actual-fill decision replay and PnL reconciliation completed; global max residual < 5e-9 CNY. Entry on the same close as a security exit warning occurs in 1/3/1 pre2026 entry requests across union/common5/removal. This is an admission-risk inconsistency, not the sole explanation of broad losses. Both candidates remain rejected; no main promotion."
+}

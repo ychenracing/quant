@@ -1,0 +1,38 @@
+{
+  "family": "risk_event_price_memory",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "parent_source": "fd5cbebdf6e5176e2ad6e53c4b6b24460a576505",
+  "parent_contract": "trend_book_contract.json (immutable)",
+  "evidence": "Matched 2023-2025 actual-fill trace: parent entered on its own security exit warning in 1 union,3 common-five,1 removed-leader requests. Recorded common-five drawdown is 39.1356%; removal wealth1.154679 through2025. After repeated protective liquidations the risk recovery test uses rolling trend/health while discarding the event price; a short bounce can restore exposure below the price where the earlier risk was identified. This is a hypothesis about observed decisions, not a claimed causal PnL improvement.",
+  "candidates": [
+    {
+      "remember_risk": false
+    },
+    {
+      "remember_risk": true
+    }
+  ],
+  "fixed_parent": {
+    "positions": 2,
+    "ranking": "unchanged independently written price score",
+    "account": "unchanged Config, RiskState, real inventory, cash and fill clock"
+  },
+  "control": "Both candidates forbid security-level new risk while that same close has broken=true. This necessary risk-consistency repair is explicit and isolated from the memory effect; the old price book and all original evidence stay unchanged.",
+  "memory": "When enabled, the first new protective full-exit instruction remembers that securitys fresh signal close. Any decrease of the actual filled-account risk cap records each currently quoted securitys close, including unheld names; an unresolved older anchor can only ratchet higher, never be lowered by further warnings. Repeated unfilled exit retries do not reset the anchor or recovery clock. Ordinary weight-drift trimming is not a new risk event.",
+  "readmission": "An anchored security needs three consecutive fresh closes at or above its event price and above EMA10 before any new units are requested; all parent entry predicates also remain. A quote recovery or cancelled order is not funded recovery. Clear an anchor only after observing an actual inventory increase with prior confirmed health and a currently healthy quote. Parent actual-liquidation readmission requirements and latched protective sells remain in force. New risk on previously unquoted securities follows the unchanged twenty-observation warm-up; no future price supplies an anchor.",
+  "clock": "Signals and event anchors use only the supplied close or earlier history. An actual fill is visible at its session close. A new event resets affected confirmation counters. No date, stock, industry, outside-universe or forecast input is added.",
+  "tradeoff": "Event memory may avoid repeated losing rebounds but may delay profitable bottom participation; this must be measured, not assumed. It is neither a permanent account-NAV recovery requirement nor an all-time-record-high entry rule.",
+  "selection": "Existing finite_study incumbent wealth/drawdown/fill nonregression, worst-deficit/objective/fills ordering and 2025-12-31 cutoff on the same three scopes; no pooling of different candidate winners. Preserve both raw outcomes. No extra parameter search.",
+  "evaluation": "Same selected candidate across unchanged full-period and retrospective2026 windows, then original native references, pools, removals, subset, costs and delay tests if evidence supports advancement.",
+  "verification": [
+    "active exit veto before allocation",
+    "risk anchor does not disappear on an unfilled request",
+    "actual funded recovery required",
+    "warning retries do not move the goalpost",
+    "new warning cannot lower unresolved event anchor",
+    "prefix causality and exclusion isolation",
+    "strict original cash, protection and execution contracts"
+  ],
+  "economic_acceptance": "UNVERIFIED",
+  "non_goals": "Do not modify any old contract or label, relax return/risk goals, erase actual NAV or risk history, use private reference implementation code, or promote a failed candidate to main."
+}

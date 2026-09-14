@@ -1,11 +1,10 @@
 {
-  "family": "coherent",
-  "purpose": "Measure only two preregistered admission-first filled-account ownership candidates; restore exact already issued parent forecasts, not the rejected model grid",
+  "family": "trend_book",
+  "purpose": "Independently reproduce only the newly implemented two-candidate price-book family for durable raw publication and compare its 65 raw CSV outputs against the separately identified local measurement. Do not repeat old model grids or retrieve old model diagnoses.",
   "candidate_count": 2,
   "selection_end": "2025-12-31",
-  "contract_commit": "3d98567a77f53fe9205e97a2a82d5cc31fb7fa49",
-  "parent_evidence_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
-  "parent_evidence_run": 34809876451,
+  "contract_commit": "5a16e9e04c5d3dd2323b43aef3a4c587c4ecdb7d",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "economic_acceptance": "UNVERIFIED"
+  "raw_expectations": "research/results/trend_book_raw_expectations.json",
+  "economic_acceptance": "NOT_PASSED"
 }
