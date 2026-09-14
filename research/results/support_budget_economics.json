@@ -1,0 +1,35 @@
+{
+  "status": "MEASURED_REJECTED_FOR_JOINT_ACCEPTANCE",
+  "economic_acceptance": "NOT_PASSED",
+  "canonical": false,
+  "source_commit": "9f1f0cdd51a111d43175cce4344089041f8543d5",
+  "source_tree": "7b179839615f0fa476c51737fdef6ca091769943",
+  "source_tree_reconstructed_and_verified": true,
+  "run_id": 34831396869,
+  "evidence_branch": "research/evidence",
+  "evidence_path": "nonlinear/9f1f0cdd51a111d43175cce4344089041f8543d5/34831396869",
+  "artifact_id": 10342088209,
+  "artifact_sha256": "5adfd5e6ee9c1efc411691f6f914b15cbe421fe9d3ddf8f3f0f1ffdaf4a4df2a",
+  "archive_sha256": "59d85a67150c2d314f744f8de00f427daa9c665a52655ef4cc2b1dc4d07fcaf8",
+  "verified_manifest_files": 180,
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selected_parameters": {"risk_budget": 0.1, "positions": 2},
+  "selection_end": "2025-12-31",
+  "selection_worst_deficit": 0.26130861010402695,
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "full_period": {
+    "union": {"wealth": 6.225996519749841, "max_drawdown": 0.30597061798653746, "orders": 224},
+    "chatgpt_5": {"wealth": 7.694105102437422, "max_drawdown": 0.30598943016980829, "orders": 161},
+    "joint_optical_leader_removal": {"wealth": 2.875951977145441, "max_drawdown": 0.35674104385070426, "orders": 213}
+  },
+  "interpretation": "Union and leader-removal wealth and drawdown improve relative to the matched incumbent, but common-five wealth regresses and fills increase in every core pool. Both stress windows remain separately preserved in the original matrix. This is not native-reference superiority, universal acceptance or permission to promote.",
+  "local_recovery_checks": {
+    "offline_tests": 77,
+    "research_tests": 75,
+    "runtime": {"python": "3.13.5", "numpy": "2.3.5", "pandas": "2.2.3"},
+    "initial_research_invocation": "12 import errors because the local command omitted tests from PYTHONPATH; corrected to the existing workflow's src:tests:. without changing code or tests; all75 then passed. Original failed log retained locally."
+  },
+  "continuation": "Execute the already-preregistered risk_reliability_contract.json with exactly its two candidates and unchanged as-issued forecast origin. Preserve all support-budget raw results and concurrent work. Do not rerun older grids or modify old thresholds.",
+  "production_changed": false,
+  "accounting_limitation": "Adjusted economic units remain a proxy, not a verified actual-share/corporate-action/tax ledger."
+}
