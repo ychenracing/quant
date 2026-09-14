@@ -1,0 +1,15 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"causal_adaptive_breakout_ownership",
+  "hypothesis":"The same fixed exit distance is not consistently strongest for every technology subset. Maintain six independently developed breakout policies as causal virtual accounts, and allocate using only their already-observed performance in the supplied subset. This is not a wrapper around the four reference implementations.",
+  "experts":{"entry_window":[20,40,60],"stop_atr":[2.5,3.5],"entry_cap":0.7,"exit_style":"trailing"},
+  "expert_count":6,
+  "candidate_grid":{"score_window":[0,120,240],"review_sessions":[20,40],"mode":["winner","blend"]},
+  "candidate_count":12,
+  "score":"At a review close, use only virtual NAV observations ending at that close. Score = log(end NAV/start NAV) - 0.75 * maximum drawdown inside the score window. Zero score_window means expanding observed history; nonzero windows use at most that many past sessions. Require at least twenty observed sessions before changing initially equal expert weights.",
+  "allocation":"Winner mode switches only when the best score exceeds the currently capital-weighted score by 0.05. Blend mode uses normalized exp(8 * score), computed with a stable max subtraction. Between reviews, expert capital weights drift with each virtual NAV rather than being mechanically equalized daily. Combine only same-close virtual target weights; execute the resulting stock targets next session in one real cash account.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "evidence":"The actual replay charges its own fees and obeys its own cash/capacity limits; virtual fees inform selection but are not deducted twice. Do not claim theoretical expert-regret guarantees under discrete lots and nonlinear liquidity. Preserve all six virtual paths and all twelve actual candidate paths, source dependencies, configs, seeds and data identities. Prefix and input-order invariance are required; removed stocks provide no signals or training observations. 2026 is already observed and is only retrospective evidence."
+}
