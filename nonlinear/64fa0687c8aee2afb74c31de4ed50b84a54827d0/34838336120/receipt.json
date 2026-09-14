@@ -1,0 +1,8 @@
+{
+  "source_commit": "64fa0687c8aee2afb74c31de4ed50b84a54827d0",
+  "run_id": "34838336120",
+  "family": "readmission",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}

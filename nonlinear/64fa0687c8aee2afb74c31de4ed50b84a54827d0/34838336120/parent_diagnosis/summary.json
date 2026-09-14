@@ -1,0 +1,98 @@
+{
+  "status": "DIAGNOSTIC_NOT_ECONOMIC_ACCEPTANCE",
+  "source": {
+    "commit": "965f30c64f3230644beb31109a757cdd716486a9",
+    "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+    "files": {
+      "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+      "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+      "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+      "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+      "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+      "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+      "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+      "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+      "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+      "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+      "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+    },
+    "python": "3.13.5",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3"
+    }
+  },
+  "generator_sha256": "15be074478d8e00848df3f847809dcad02733fc03ef13a7acc13bfe3f2a242dc",
+  "parent_archive_sha256": "c64e6ee882dbca9583573a5fc2da8f1e36bd7bca830b19a205c43ae76189e02f",
+  "scopes": {
+    "union": {
+      "max_reconciliation_error": 2.3283064365386963e-09,
+      "episodes": 54,
+      "wins": 20,
+      "drawdown_peak": "2024-12-30",
+      "drawdown_trough": "2025-06-03",
+      "max_drawdown": 0.31380933931943267,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "average_exposure": 0.4183647358147213,
+      "mean_exposure_cap_one": 0.6324867685606059,
+      "eligible_cash_cap_one_dates": 248,
+      "new_exit_events": 52,
+      "stop_only_events": 6,
+      "mature_stop_only_events": 4,
+      "mature_support_exits_positive_next20": 3,
+      "readmission_health": {
+        "symbol_close_observations": 99,
+        "structural_opportunities": 16,
+        "distinct_names": 8,
+        "higher_than_new_request": 5
+      }
+    },
+    "chatgpt_5": {
+      "max_reconciliation_error": 2.473825588822365e-09,
+      "episodes": 45,
+      "wins": 18,
+      "drawdown_peak": "2023-06-20",
+      "drawdown_trough": "2024-02-28",
+      "max_drawdown": 0.30532145206905426,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "average_exposure": 0.36720312317348863,
+      "mean_exposure_cap_one": 0.5955776228148676,
+      "eligible_cash_cap_one_dates": 170,
+      "new_exit_events": 43,
+      "stop_only_events": 10,
+      "mature_stop_only_events": 6,
+      "mature_support_exits_positive_next20": 4,
+      "readmission_health": {
+        "symbol_close_observations": 89,
+        "structural_opportunities": 37,
+        "distinct_names": 5,
+        "higher_than_new_request": 8
+      }
+    },
+    "joint_optical_leader_removal": {
+      "max_reconciliation_error": 1.367880031466484e-09,
+      "episodes": 56,
+      "wins": 19,
+      "drawdown_peak": "2023-04-20",
+      "drawdown_trough": "2024-07-23",
+      "max_drawdown": 0.35936686353206737,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "average_exposure": 0.4180724941439567,
+      "mean_exposure_cap_one": 0.6536761852826043,
+      "eligible_cash_cap_one_dates": 264,
+      "new_exit_events": 54,
+      "stop_only_events": 12,
+      "mature_stop_only_events": 5,
+      "mature_support_exits_positive_next20": 4,
+      "readmission_health": {
+        "symbol_close_observations": 98,
+        "structural_opportunities": 7,
+        "distinct_names": 5,
+        "higher_than_new_request": 1
+      }
+    }
+  },
+  "method": "Original-source observed filled inventories and exact close target reconstruction. No alternate equity curve or new strategy execution.",
+  "qualification": "Structural opportunities have a vacancy, positive cap and no protective cut. Cash/risk/sector funding is NOT established. Counts are overlapping symbol-close observations; matured future returns are diagnostic only, never policy inputs."
+}

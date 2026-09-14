@@ -1,0 +1,9 @@
+{
+  "parent_source": "965f30c64f3230644beb31109a757cdd716486a9",
+  "run_id": "34836507473",
+  "archive_sha256": "c64e6ee882dbca9583573a5fc2da8f1e36bd7bca830b19a205c43ae76189e02f",
+  "verified_manifest_files": 180,
+  "generator_sha256": "15be074478d8e00848df3f847809dcad02733fc03ef13a7acc13bfe3f2a242dc",
+  "generator_source": "64fa0687c8aee2afb74c31de4ed50b84a54827d0",
+  "status": "DIAGNOSTIC_NOT_ECONOMIC_ACCEPTANCE"
+}
