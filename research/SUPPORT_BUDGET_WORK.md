@@ -1,0 +1,13 @@
+# Support-risk allocation continuation
+
+Continue the original quant task, not a replacement project. The exact source export of 3b21cb0f2f7b0edfae15f3b8e21771ac13375bc2 reconstructs Git tree b6a8a6b87988441515c10cf8524e90de4e979835. The full frozen main archive verified is 6f7864e8f60001790806dcedb2fb7abc5960fb992c936ee9ea2be02069f3f353, with all 6048 manifest members checked. Frozen market fingerprint is d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b.
+
+The recovered risk-memory archive has SHA256 cebc08fd2c642b19c72e4a78fea52ea0a1792ded664b50c3270f755af69708c5; all 144 manifest members checked, and the evidence-branch hash was read back. Current local verification reproduced 77 offline and 66 research test passes. These are engineering checks, not economic acceptance.
+
+The selected no-memory control has full-period wealth 6.743780366655738 / 8.95846776342877 / 1.34092939011985 on union / common five / removed optical leaders. Maximum drawdowns are 0.3101830659277117 / 0.392688089357352 / 0.353310334910941; fills are 201 / 201 / 217. Both declared recovery candidates and their existing raw evidence remain rejected, not replaced or relabeled. Actual-fill attribution reconciles daily PnL within 5e-9 CNY in each pool, so there is no identified missing-cash accounting explanation.
+
+Research/support_budget_contract.json freezes four new risk-sizing/position-capacity combinations before implementation or measurement. The mechanism couples actual units, nondecreasing causal support and cash-funded winner additions; it is not another permanent NAV cushion, forecast fit, entry-price memory or blanket exposure increase. Equal initial cash allocation and varied support distances motivate measurement, but support distance by itself did not reliably distinguish profitable entries in the existing training episodes.
+
+Implementation plan: write failing research tests for the contract; add a standalone ClosePolicy using existing independent platform primitives; add only this family to the identity-bound finite runner; rerun affected correctness tests; save source and verify its remote tree; measure only this grid and preserve every original replay. Source, runtime, contracts and data must match any resumed results. Main stays unchanged unless the full original economic task passes.
+
+A concurrent commit f43cdf1699ae388c9ff4267563a824a29b350cfa preregistered a separate tail-authority study. Preserve it; do not overwrite ACTIVE_WORK.md or its contract, and do not relabel either family's results as the other. This work remains on the original research branch using non-force updates.
