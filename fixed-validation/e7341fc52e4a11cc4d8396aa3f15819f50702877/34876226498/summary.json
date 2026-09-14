@@ -1,0 +1,74 @@
+{
+  "status": "FINITE_FIXED_CANDIDATE_DIAGNOSTIC",
+  "scenario_count": 200,
+  "unique_accounts": 555,
+  "new_accounts": 555,
+  "reused_origin_accounts": 0,
+  "rows": 3085,
+  "economic_acceptance": "UNVERIFIED",
+  "unverified_cases": [
+    {
+      "case": "neighbor_fast_0.9",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_fast_1.1",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_slow_0.9",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_slow_1.1",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_rebalance_0.9",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_rebalance_1.1",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_stop_atr_0.9",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_stop_atr_1.1",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_risk_drawdown_0.9",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    },
+    {
+      "case": "neighbor_risk_drawdown_1.1",
+      "status": "UNVERIFIED",
+      "reason": "Frozen owner constructor does not accept these configuration changes; no stability claim or waiver."
+    }
+  ],
+  "outstanding_requirements": [
+    "Original native-reference comparisons remain necessary; unavailable or invalid native coverage is not a victory.",
+    "The ten original configuration-neighborhood cases cannot be represented honestly through this frozen family's current constructor. Record them as UNVERIFIED, not tested or waived. A production candidate still requires real parameter-stability validation.",
+    "Existing economic deficits and original joint acceptance remain in force; no aggregate screen or successful workflow authorizes main promotion."
+  ],
+  "wealth_below_incumbent_cases": 85,
+  "minimum_wealth_to_incumbent": 0.47843951608699126,
+  "worst_incumbent_case": "sample_8_0",
+  "minimum_wealth_to_buy_hold": 0.07075201338073246,
+  "worst_buy_hold_case": "common_exhaustive_1_2",
+  "all_subset_superiority": "NOT_ESTABLISHED",
+  "native_reference_comparison": "UNVERIFIED",
+  "note": "Scenario counts include aliases; accounts are deduplicated. Comparison counts are diagnostics, not replacement acceptance rules."
+}

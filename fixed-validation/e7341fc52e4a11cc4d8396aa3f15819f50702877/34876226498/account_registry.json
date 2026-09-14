@@ -1,0 +1,2777 @@
+{
+  "ad4d3f9a35804dd52b2d2b6403ac356d9dae1d9c356383095ca24e4b3da65421": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1c0681d70a4dd2b088df687c2c6f561a0c056b142586ca29b352467243eeb474_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9bb0ddb2b9125fa9101bc396c9186c2b70610975d6bf6428e6b31c7461b51b4e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1c0681d70a4dd2b088df687c2c6f561a0c056b142586ca29b352467243eeb474_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c07f286cb48725b781852e7773169f95be6cbd6d323b0ef914df89240cc85d10": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1c0681d70a4dd2b088df687c2c6f561a0c056b142586ca29b352467243eeb474_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "80cd49da2dbd4d6f7800dc23f4f83b0570164037c3f2e52e3f80031337011d4e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1c0681d70a4dd2b088df687c2c6f561a0c056b142586ca29b352467243eeb474_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "964333875b669fe485c89d4876d0b1797e97e3940cad62b9a7f2b865e221faa3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/642c2ac4850d117bb4f206c37b997e0441ec622e526e316fcee0ed251ef028b9_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c428b929fc6d47fa74969f2e15509d33bd4e32258cd10f536cada4ab436cc803": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/642c2ac4850d117bb4f206c37b997e0441ec622e526e316fcee0ed251ef028b9_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "84ef699fad2d29bc7736b945e4e1072a16d50713266f09e085063dcfe178c113": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/642c2ac4850d117bb4f206c37b997e0441ec622e526e316fcee0ed251ef028b9_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6351130dec2cd4509bb613d8ceac5ac3af6c17378acd57dab68531f16cd757e6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/642c2ac4850d117bb4f206c37b997e0441ec622e526e316fcee0ed251ef028b9_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "41d2ade40136b2a5bc61b7489b2bc395ad02e3493f51f4b6e5ebc89c7b25c4b2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/939e5ce5eee6654858f17fad680b6f1581b4d23ca290b42270e8481e03aab106_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3ee1e92bc474c9b1049c41daa9bd4b6ed584a538cc99714ca8d40d8d958b6803": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/939e5ce5eee6654858f17fad680b6f1581b4d23ca290b42270e8481e03aab106_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "920ebc75bd1fa6619fe22036ca7e16f261c91cfe80a7094953aec767e5223487": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/939e5ce5eee6654858f17fad680b6f1581b4d23ca290b42270e8481e03aab106_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "24b886df3a882fe9eb78fb8d51b7433041f713037957ad35f7135fdc350c57a8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/939e5ce5eee6654858f17fad680b6f1581b4d23ca290b42270e8481e03aab106_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "718d46598c6dab0586c6fa5d9b7a9b9db7563ff0fae787bbdee2ed6f57713f86": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5a64eba103f900517137cafaf561d935330b4b507d00357b09eb871636e38ee3_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b9ebf090cb1fbc444481c58686a44740f76f080510d344b5ae1c4cc15054edd3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5a64eba103f900517137cafaf561d935330b4b507d00357b09eb871636e38ee3_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1cfc48d8a44b122b821e74023ce89203e07bdb95a107e975d02de21c576312b0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5a64eba103f900517137cafaf561d935330b4b507d00357b09eb871636e38ee3_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e5a13cacc2676ace0f1115027c15198358fa45e5af989d254097b9fd987ceffb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5a64eba103f900517137cafaf561d935330b4b507d00357b09eb871636e38ee3_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "47e0d8bacd556b667716d7401cd27aece98240b90ee1fc02658299ca37f101a1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/50cafa14a1ac7f7b3d12a6cb1168bc51e42901929b097c95668384b803715a48_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5f0ead9ba7720bd245f9985c115b917c8b68da60ad52b50259dced09310b0bbf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/50cafa14a1ac7f7b3d12a6cb1168bc51e42901929b097c95668384b803715a48_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "cb4d621fcd40924b171647fbe54b7a8f6933b36ac25a8f8a565a48521068b6ba": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/50cafa14a1ac7f7b3d12a6cb1168bc51e42901929b097c95668384b803715a48_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8659ba253c71e0589eb0e4d5803eaa349c8e800ffd931e76d02daf9e81eb72d8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/50cafa14a1ac7f7b3d12a6cb1168bc51e42901929b097c95668384b803715a48_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2cf18598f7ba279a4d34bec37cb5c19e5c926b9a50b39908a0f73a55418c1ef3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5db9257f46b9847a776bbacc72c155023c16ccb63b9b88062915daa64efc4666_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "aa04364b1e8444253e6c8fd14650b441160aa8587274022d84e86b22b2074a9a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5db9257f46b9847a776bbacc72c155023c16ccb63b9b88062915daa64efc4666_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "121ea7245ca4acc4294ae863931e34506c4f27cc513870b612c76ea4e5f51dc4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5db9257f46b9847a776bbacc72c155023c16ccb63b9b88062915daa64efc4666_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b7cc86aa4362648a4565fab71105a630f0dc6f2df50ff6f5f2dc53633865b4bf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5db9257f46b9847a776bbacc72c155023c16ccb63b9b88062915daa64efc4666_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2a00809658a1b24afbcd76261e28400123a0a661407054485175f5b4a892a835": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d07f04e8fc1fe2212cfc842efb026223d5203dce0428033ea97768999a5090df_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d9078c6e35926e3d2ccd44ca5c1db2192ea2c722bd1006e7180da5df214612f0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d07f04e8fc1fe2212cfc842efb026223d5203dce0428033ea97768999a5090df_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d9359af9baeceedd525623f95215fb24e3746722964f9c569f5d7424e9566141": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d07f04e8fc1fe2212cfc842efb026223d5203dce0428033ea97768999a5090df_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fc6b1f7b7eb77c58f519510bbd4c6cf9180cf33a1fa98de985f3f554cba52055": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d07f04e8fc1fe2212cfc842efb026223d5203dce0428033ea97768999a5090df_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d320cd1aa33b0aef01f5bd76bc7e57d0a3179cb8e81f5ee0a6184da1e3ab0d7b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4cde3657fdd54642c5e6d15d2c8a0cd29ce4167c8cbca7f980b425b4080eca73_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "eb6a3249d7fc1fa89382d4d6c5b1ed864ca2d9534336da185eed46648663581c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4cde3657fdd54642c5e6d15d2c8a0cd29ce4167c8cbca7f980b425b4080eca73_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9974768de01948b7b2f7dcb9bcb34f180093e17b65692f5b8878d80cca6ba74b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4cde3657fdd54642c5e6d15d2c8a0cd29ce4167c8cbca7f980b425b4080eca73_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "890596ee81e1d3569b8567e1dd83006d18e1c5f168fb7c7b8a040c77d174952f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4cde3657fdd54642c5e6d15d2c8a0cd29ce4167c8cbca7f980b425b4080eca73_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "daa3f1301cfbff8a202422de85fd8ce601248804213ab25737806b5cb311f38b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f89b3ef9f9482371a1ece9cb1670fbdda5f2b81163004c9c297c55f006d9b52b_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d9b6df1d47d2dd84a096d90b0fbbea6f0a3c0a53a73172e697158dc19fbc9fe4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f89b3ef9f9482371a1ece9cb1670fbdda5f2b81163004c9c297c55f006d9b52b_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "95a9103af50b1d5b1f30204b554918a04f612ddbffb6c268db27b02cac4979a3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f89b3ef9f9482371a1ece9cb1670fbdda5f2b81163004c9c297c55f006d9b52b_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b983cab9759f3f54753f69d232bcb74514d415ac8a3561de950fdc926b4d330e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f89b3ef9f9482371a1ece9cb1670fbdda5f2b81163004c9c297c55f006d9b52b_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6edc57dd9447b8615d9786b9ded10d59ac2a27e7a5af58d67447e09e65d12668": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5c55e8408fa833d658286cea4e93fb76bebacd50a2cbaccf6c617322f74a0a33_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "01ae0edad00c520e8c7c4ea592d959c5c39bc0c8b89d722b316075dc8e42cdaf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5c55e8408fa833d658286cea4e93fb76bebacd50a2cbaccf6c617322f74a0a33_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c7ae92ae30a5ce8427cffc251706aaa1c8503a14019e55873e554b45a32efc19": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5c55e8408fa833d658286cea4e93fb76bebacd50a2cbaccf6c617322f74a0a33_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "369263587b833157205d21af0614abea09f72e731ef9e8fc853c2137d74f195e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5c55e8408fa833d658286cea4e93fb76bebacd50a2cbaccf6c617322f74a0a33_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "28bbb85a20a27c1574d561791d7dd711c801cd3b99f6f9ea57ca097e19195155": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/18b7eb234d121480b0058b8db29595f94a495a9e96ed17629f63775af04b10cb_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2c8c6d448849bb6fe54940177c2c44450f4b9ab027899bb94d90428fd929b436": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/18b7eb234d121480b0058b8db29595f94a495a9e96ed17629f63775af04b10cb_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a1e915322d81dd184904629575ce692fab778fb9f16eab5db5488a805b97f2f4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/18b7eb234d121480b0058b8db29595f94a495a9e96ed17629f63775af04b10cb_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5b93eee44b27bf33c6fcca6c2b96f73fb53c2944f0fd55c6532f8c19b9da142b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/18b7eb234d121480b0058b8db29595f94a495a9e96ed17629f63775af04b10cb_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e45235de8f15184d7e431a8295aecd77f6289230099162efa5896da07a91dcaa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e5b92b94ed7426dffccf9bebd7866d26904cfccdc40786a319ae3aa82be57ad_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0a9ab14a3eff21811e8e83d45285d5b19eb380482f348b8ab30634320bd2cff3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e5b92b94ed7426dffccf9bebd7866d26904cfccdc40786a319ae3aa82be57ad_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5048bac60e15e32b60f7e958ace0f6f64b0a0ae9b888f5e909d4e2c3e8460d32": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e5b92b94ed7426dffccf9bebd7866d26904cfccdc40786a319ae3aa82be57ad_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "613ea662f36aa3b52dd439182c2ca42339d01cc13eee7aa3fb07496d0ccfb098": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e5b92b94ed7426dffccf9bebd7866d26904cfccdc40786a319ae3aa82be57ad_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bd95470669b741dd95b4c0377aff01f011ce1e442fea5a5f6fbeab074d7d5bf0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9bd1ff12debc1197cd4fde983e694dc0801c52baa02886bb6e50215bb3a34e7d_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f19787e3ba6e4acc124ab78495900b4edb1bc25be39fed335b80ec48646ae2f8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9bd1ff12debc1197cd4fde983e694dc0801c52baa02886bb6e50215bb3a34e7d_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d9a83d35391d48ff2ef112fda4f7e6b48863a8bdce79367a8e09e59cbec5b1ca": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9bd1ff12debc1197cd4fde983e694dc0801c52baa02886bb6e50215bb3a34e7d_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "47d20c1953569a1ad7f75a1d550e4806b45443d353d70543f93568348dc9986e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9bd1ff12debc1197cd4fde983e694dc0801c52baa02886bb6e50215bb3a34e7d_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7c349a78b344d8ba0dfa0b8f9bda0cec48055cf7aacdb54285899b429dd3f527": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5e6e11652db5fac105bce11e9cba8164e7d052acbfbfcf97d40098a5490c7422_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e0071dfed4e115e947bd5133f019aabefd223ec0b5909116b0105bc837d9ae1f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5e6e11652db5fac105bce11e9cba8164e7d052acbfbfcf97d40098a5490c7422_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c1bf5c6c26aba6067d3bc509254a9bf5d46d7c63e5b2f6d313c4954f57bef147": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5e6e11652db5fac105bce11e9cba8164e7d052acbfbfcf97d40098a5490c7422_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6f1fd15b4c5a0f438d0223941a72b879573f874f32f372260f1b15678cb1b1a4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5e6e11652db5fac105bce11e9cba8164e7d052acbfbfcf97d40098a5490c7422_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2f49a33616210636878999fa1823f3084dc2b87cec4f4c118813610d04923577": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/67e927184f31949866ff57c4d9bdb8a6c66300e60c33df6ba24ceb27173689aa_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "143c1dac1b0a5a52191cbecf0838dad169f57ae00b37d58621a89847bbe0d148": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/67e927184f31949866ff57c4d9bdb8a6c66300e60c33df6ba24ceb27173689aa_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bb2f38850b4fd89dfa5277f2fd81401f989936edf0b17d9169148b945420b361": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/67e927184f31949866ff57c4d9bdb8a6c66300e60c33df6ba24ceb27173689aa_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e7693c586261ebb7e90a92e928bf197b06790b241e35a521b6198ada16672f8a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/67e927184f31949866ff57c4d9bdb8a6c66300e60c33df6ba24ceb27173689aa_equal_weight",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f81b985f71710e270c837640e81ebcb0a5d66aca32a716544fa302bcee2013d7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6f17ada45204068bd976dbb60e989b7b960e827ded5a7109359178f6bf919c38_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d1ad5c960b9f91dbc54b668d2f0dbc9cdce795a62c24e2aa5f0253e45537c2e2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6f17ada45204068bd976dbb60e989b7b960e827ded5a7109359178f6bf919c38_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8f33afb9e1abf1b36eb08ff1b3d336ebe8e8bae4e541c9d1dac030cfefcb64b2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6f17ada45204068bd976dbb60e989b7b960e827ded5a7109359178f6bf919c38_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4f142f6671dbc4a9a686ea6c41368a4436a88361425779f0bfc79da8d9c71d6c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2d54ead9a3d44a88dca36bcfb98d62f510bc89196825256e972efcf4f23c8d72_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9c8b983fd58b02c72f8ab9ccccbe382118fd54714b7e18b67e703b2207986608": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2d54ead9a3d44a88dca36bcfb98d62f510bc89196825256e972efcf4f23c8d72_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "28a24a3d960d93a44576a6b25a254f0cd8273a99ad230e8970806d3f16dce039": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2d54ead9a3d44a88dca36bcfb98d62f510bc89196825256e972efcf4f23c8d72_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d1f1ad4998ead58098aa6b9a4b3ca36a435e530225cd92ada324f86e7247351d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/732158fdcd78bf92d618ad7535dc57c2855ab0c79885cefb36d45d8ec57128cc_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "dabced22546cf0e7ec4926c129b58657119b6d4aaa4cdb4b0c20b4d8be350aa8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/732158fdcd78bf92d618ad7535dc57c2855ab0c79885cefb36d45d8ec57128cc_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "df3a265c638faa4ddcfb993d068e2feec336850f3df99e943f9388ffdc587de7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/732158fdcd78bf92d618ad7535dc57c2855ab0c79885cefb36d45d8ec57128cc_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c52aed007dc825cf2ba858a559ca71ecb03973af8fe9fd3a3d56e2222f1f60b1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2d4e86998dca9985bf7fa9e7bd973cd24104a271330ffcad4a98b5c4d126f80b_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b698b27513c53d6ad6ab7591c95cfa448290baf5033038ac4125eca5ce3e7429": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2d4e86998dca9985bf7fa9e7bd973cd24104a271330ffcad4a98b5c4d126f80b_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "af7b0a70962b47a9d50aacb1a0bf4b0b399ab5c03001c2542f32c300c8e31fd2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2d4e86998dca9985bf7fa9e7bd973cd24104a271330ffcad4a98b5c4d126f80b_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fc9fe9617b0a531f5cf8c71dc898f11c8b9ed07d4d58831c3fdb96b840b3f797": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5569f796927211ff08c1eda94b4d2e5f00d959b70c9027795b1743290b66342f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e843dd0ad701f1d517109cb2df3f8a2e1cea59b8b757877baa655424850539f3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5569f796927211ff08c1eda94b4d2e5f00d959b70c9027795b1743290b66342f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3b5763d3e8056596136c0580261824f4e483839d4698089c03c838fe3d9e387c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5569f796927211ff08c1eda94b4d2e5f00d959b70c9027795b1743290b66342f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d41b5afe40180003f8cb4d418d0572f312714862047fde73026c7b52c38f21ed": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/483b1d47ce08bb0ca30a92c555e8be37565a79c71bcb64681ab12ed31c1d0970_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c107dc3ea48071712097a81a0aeb9bd807000c6716f2eb27ae0b66e36021c3e4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/483b1d47ce08bb0ca30a92c555e8be37565a79c71bcb64681ab12ed31c1d0970_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "00e8b1cad5f94669561299fc166db5fda74448486de5c520e1ec0fbfff59f1cd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/483b1d47ce08bb0ca30a92c555e8be37565a79c71bcb64681ab12ed31c1d0970_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c5903a1537765e88946b398984a8cabee23212bf318299f4a9118b2f526d4201": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b5be1b4976cff5b3c861fb6de259fb3647f2efbf97efd255fc9282b64e972645_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f6516a6fe65c39b40a0a5d56b327e91b8fd9321faff5d852da3cf1be80174482": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b5be1b4976cff5b3c861fb6de259fb3647f2efbf97efd255fc9282b64e972645_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f059d4b814ef03cbb4747f766851b37b7b40b00089d4a2ca15d420796751eebf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b5be1b4976cff5b3c861fb6de259fb3647f2efbf97efd255fc9282b64e972645_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "de7b0e0f340be75c767043c6a8853177d68a47bcbb0b2c274b9c667fa9f3d104": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a7bf609db9c41921d45770e0c280e6f55790f83a38e8a370fb83e25034dee2db_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "861bb000eb448ea4fae1039b0acd2709797e06659dcd8e14629f7560087815ca": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a7bf609db9c41921d45770e0c280e6f55790f83a38e8a370fb83e25034dee2db_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0df0526d6d522bd9510f07b5a1b0b2e0c2f3489a160a5d90bbe237f391f7d454": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a7bf609db9c41921d45770e0c280e6f55790f83a38e8a370fb83e25034dee2db_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "84a09b72e63e2711c125708edda26fb0cac107f13b55019e09cb88732d0093ae": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b57c9f435ee38e64c0577d47557b0dd487fb019fc87832148712bb77a22198f9_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "96e0b00a31802d843b7f7324e8d24a5f5aaac485c3c4c69e1be8139888413eb7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b57c9f435ee38e64c0577d47557b0dd487fb019fc87832148712bb77a22198f9_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c3eb50730f872b908855e1e33b0ad0d6d4a05ca7bb6a6812347774f21edef7af": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b57c9f435ee38e64c0577d47557b0dd487fb019fc87832148712bb77a22198f9_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a748c5cd454f7c689ef748d49836d4c53b68929217e3018f31b921b4716829fd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b1b2fad43cfd9d34724ae0f6e3d7a2421ebc8eac4de607ea84f497caebab7138_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "255c4659297e5897ed45272f20355d4b6be64b2e43e028a650435430b4924980": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b1b2fad43cfd9d34724ae0f6e3d7a2421ebc8eac4de607ea84f497caebab7138_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5274836e791356e948eed2735f8e80a54cb36d6e532de4c835cdd01e35bb91ca": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b1b2fad43cfd9d34724ae0f6e3d7a2421ebc8eac4de607ea84f497caebab7138_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2452f85e7d29308e98cece9bdefcab621b71a30e96d0bbad638665cee7ce3879": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/72748ec14ffad88c783ddc876d84bbfd197862fee3d33999e951973decd6bd27_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e7db8a19ada069aba775d9792ea5ee26d5ffe8df776b5eeae6191b89b6b90171": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/72748ec14ffad88c783ddc876d84bbfd197862fee3d33999e951973decd6bd27_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4263da6c6a3073ae0f86401ed2f2181b2683d829e9431280b0fc170e59036ee8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/72748ec14ffad88c783ddc876d84bbfd197862fee3d33999e951973decd6bd27_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "18c76dedbd002c90d996d7b161b787809b7fe4e7a03f35401482e79fd88d29df": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2af9eb4ebd0c06b5e250b4f84f4f3301c30e7de763f10b220c729156361ee55d_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "688c6752a0882281ab54b984a72a4756dbad822e13b3ea737202940b50a292f3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2af9eb4ebd0c06b5e250b4f84f4f3301c30e7de763f10b220c729156361ee55d_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "43dbd65a0b5588b241e1e9fe4dbaa2390c2e362adde318f68cc8f0e8c2fd98a1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2af9eb4ebd0c06b5e250b4f84f4f3301c30e7de763f10b220c729156361ee55d_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fd49be15a42786719de0f580941cb8357d0a6717b1962ceb78a67c14f3d14399": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/95cd79a09ff42adab9fcdf85e2151583dcff167551c1afaef04f47737cbf2518_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4bbedaf470738b4b02a2217632ae4cbabf10aa952bff4ed852dc51fb7266c243": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/95cd79a09ff42adab9fcdf85e2151583dcff167551c1afaef04f47737cbf2518_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "72c132d2aa6c1e542f39de4b95974b5afc123a3af6fa5c230f6e26a9e07eefc4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/95cd79a09ff42adab9fcdf85e2151583dcff167551c1afaef04f47737cbf2518_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b222b09971506a743dca0d80e08ea6bb9dbcf2fd4314188f1d5bf4a44feab3e8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/885919e35797339f100331961e99c2fa49846b486539d6dc70a18a8d31fb0b55_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a48c9fbda98bb689dae0eae2414fa04a975528e18b34323c116d8aa660d54cf5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/885919e35797339f100331961e99c2fa49846b486539d6dc70a18a8d31fb0b55_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f878117ade28e3c9d74d0bed7eb3936f73358eaeed7ba973bcb97e61538ee7f0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/885919e35797339f100331961e99c2fa49846b486539d6dc70a18a8d31fb0b55_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "33bec1f534c7cb3b40db57fe1a10e8b9623345f02ae7c9c747831458fe879969": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/457495d7fa6473d1b26c6202d8a0203b3249eede20d8cb2f2794e131db3f9173_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3a8f08b396eeac58bf73702504522f61e4dcf10bbb08087ec612be326db9b17f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/457495d7fa6473d1b26c6202d8a0203b3249eede20d8cb2f2794e131db3f9173_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7e1e3358e680759390c4098a83cfeca3066cc8e692154bbf2a5da5b991f26b58": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/457495d7fa6473d1b26c6202d8a0203b3249eede20d8cb2f2794e131db3f9173_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5b432f6a7f9adeb00698082d0995592413cb9979e1cfb2c180ae2416ec75cefa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3e45d2155fd32f052c6009b3c18e214fbd08a52a05756f25d2af8cd6c7144460_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "aa7f53de4143f851e2396d03d2aeb08e50537520ad1e00875bc2cc6c2762a642": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3e45d2155fd32f052c6009b3c18e214fbd08a52a05756f25d2af8cd6c7144460_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fd8722a024ff70a0f12a0e3c07708841d1acc6db4e99a641b8c563722459ff7d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3e45d2155fd32f052c6009b3c18e214fbd08a52a05756f25d2af8cd6c7144460_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7da0e766b5a54c0a5b2ef4a2e2d77dae77f788dab17cc87f066f160289f8b9a7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/366027a3ee567da8cdba8363a6acfc5a951fc8a29a85f3abe9ecac31df7f0ef1_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bcb23cac30b4de3600eaccae9bfb7d10ec9aef6ef1f41e4f789c35402407da0d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/366027a3ee567da8cdba8363a6acfc5a951fc8a29a85f3abe9ecac31df7f0ef1_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "dc4be694908b30ddb49e0feb65ff4c7eb3083aaf739b62c055260f172a3fde4f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/366027a3ee567da8cdba8363a6acfc5a951fc8a29a85f3abe9ecac31df7f0ef1_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c2c3510dcbecaa2dc07afc5b0587ed7df1a7b2afa6cffe9c799f95dc8035408b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/940d097cf6a936d4f86785fc1a2cdcb2d7f500186cbf59e8c10bc690d94807c1_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9c0584bd4551ef569308059d5e2fc4c711532acae6913f3a5ac33ad84256196b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/940d097cf6a936d4f86785fc1a2cdcb2d7f500186cbf59e8c10bc690d94807c1_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f8968b7fd4eeaf7b5d52040d6ad96e61de172c8359d741fca0c1c57a6f6ffd45": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/940d097cf6a936d4f86785fc1a2cdcb2d7f500186cbf59e8c10bc690d94807c1_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c393be503b221a70d6779b450e77350876772c35446dffee591cbb42cce330aa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/111b7c70cf94d8d961f6767ec6d4106fa41f534cc82a53108249871d6913f047_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ce52a51f2e5fb347e090c4b55db580c3afe283bb74786362b6470e80cb70ed61": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/111b7c70cf94d8d961f6767ec6d4106fa41f534cc82a53108249871d6913f047_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "66baca565b934a72b5fc25ef26c81290b298d2a1bceb722e109c3e59cdaed2eb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/111b7c70cf94d8d961f6767ec6d4106fa41f534cc82a53108249871d6913f047_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7777d217c573c50ccd707033d35e72216b2578d319e815895179de1a3a9022e8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d00f3f60edf47dcbfb465d174e157c1fc13dbf7fbe3189f9b8c7d214f1a73a8f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3b2d053f833d7f905fd199e0e94a8595f4d3a90cff0b8c4001f3a6c0bdbcfa7e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d00f3f60edf47dcbfb465d174e157c1fc13dbf7fbe3189f9b8c7d214f1a73a8f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e52773338f7156b89a9d6037df6da5770e17d47987ceefeb0d5a817784ba2cb6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d00f3f60edf47dcbfb465d174e157c1fc13dbf7fbe3189f9b8c7d214f1a73a8f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "447735bf4b54649e95676334458ab597f7c87c64f66a171114d0b6d8444bccd9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5cc44edc9b5d5ea432634bf9597dcc481bdd733b435a1558c84e83be5c7b539c_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b9774e82e65fc2ac1de4bfefb8e5248c86cbcd3d63a3db400f78ad0f238f41b8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5cc44edc9b5d5ea432634bf9597dcc481bdd733b435a1558c84e83be5c7b539c_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6cf4cc302f6b17ad897679047fe3a5c0069c7216e02ee2143986e88ce13d5cf1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5cc44edc9b5d5ea432634bf9597dcc481bdd733b435a1558c84e83be5c7b539c_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8b9bac3784a3446ba2e87596676525dd3c2be01c3c878dab4ad8b49b68b2868a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d1b50d223f753ca4fbde1d60534d80f2c2405956eddaf5a5bb224c1fee8a2ef8_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "25177d85ddb2c4311a8659ee3aef19f12a1d543aee1190b4866e606c965038b9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d1b50d223f753ca4fbde1d60534d80f2c2405956eddaf5a5bb224c1fee8a2ef8_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e64ea4f5eab52ed68938648e1333e25dd716bd1d41b9b0ff69da82ffb6bc3583": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d1b50d223f753ca4fbde1d60534d80f2c2405956eddaf5a5bb224c1fee8a2ef8_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f47c5aa46e4316c30c952b7cf141098649ebfcd1afa72d33e0365d51129cbdc0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/85c42ad5429038fbb0de8f4864daab0d752d8ad72a716b5f9c2c162f08184a9d_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "80514514a674e176a4407fa645005995a63b4950e3e9b2908ec00d5169b80fb5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/85c42ad5429038fbb0de8f4864daab0d752d8ad72a716b5f9c2c162f08184a9d_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ef9226f0bd7f940bbb941adc9349aba9cebf102bae4ca7005c20db8695b19e5f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/85c42ad5429038fbb0de8f4864daab0d752d8ad72a716b5f9c2c162f08184a9d_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "69c0c6c78e35720ff34c9c978901b776c09899f390ec41439d97f70b4852c8d4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5e9eff3f8c91856b305eaa9e32368b516fc538cfe08bcab7233aeec91cdbc9f5_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "25d3da68e6babe7fafe132dec6b4089008f50dce0596c42eb4919b775216e58e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5e9eff3f8c91856b305eaa9e32368b516fc538cfe08bcab7233aeec91cdbc9f5_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f59d30355403ca7270319e449eb8f51dee8431faa46b92096f977b677c03718d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5e9eff3f8c91856b305eaa9e32368b516fc538cfe08bcab7233aeec91cdbc9f5_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "54b1ce5a9b62337815d12ee0510f7b7d3dfc143977a0b12268d917195235cb70": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab847629dbe7a86ebacebcadf3e657aacf986167a32e88bd75893c53f6f12b46_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3d579957ac7e6e6d929e2c75c08b638496d5c7f41ffc44f08447ba609a81e68c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab847629dbe7a86ebacebcadf3e657aacf986167a32e88bd75893c53f6f12b46_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "59a7aab8a3c092013a24081b4c94a7b724ef282bcb713284eb6660de35c0e6ec": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab847629dbe7a86ebacebcadf3e657aacf986167a32e88bd75893c53f6f12b46_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3681f92c58da0b085d04919b4463a4d0405bb31af2e063059628bcc30bf8e0ca": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8e42722222a185bc6880a531b446c4ff49cb729fadf77f785faf6dd020a19223_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ece463fd160e30c50662550cf47f9a521325ecdadc53eacc2222668e79648978": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8e42722222a185bc6880a531b446c4ff49cb729fadf77f785faf6dd020a19223_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "25558e222362dd40fc0fbbbbbeb8d72a26414c1b9b428fe814a581902363a489": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8e42722222a185bc6880a531b446c4ff49cb729fadf77f785faf6dd020a19223_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "88dfa0c629aeccd7c2644cb18f94b373260cee22106f7c71dddae05594b4938a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/aa273c4ec22ad692c45b2b88d26fda9f95170091a53f358e20bad3aefc82f010_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a0b58e27553ad59aeec161ebab8c6addd4dd11ec539ab030491071281d78415d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/aa273c4ec22ad692c45b2b88d26fda9f95170091a53f358e20bad3aefc82f010_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "888ce3bdf9034ec59211c11143b7ee274b8e56181bfbafb9447132baca8130cf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/aa273c4ec22ad692c45b2b88d26fda9f95170091a53f358e20bad3aefc82f010_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "343c2fee8d22a8ecbe3ffa0f5f14d957a35d2181d9485ee6c96b10e7137b9719": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/dbbb77fe7d9ab20cf6c946be06f0dc0fcc22f6d9d202a84ba12c9de78306582f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d9d8e75e065e08b1f63282487de41a362242e4ab2b7b5fd1441b1c75a5e6e29d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/dbbb77fe7d9ab20cf6c946be06f0dc0fcc22f6d9d202a84ba12c9de78306582f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "670c3cd9a7b63a3e1bb2a9f36eb2e6ea2861179958a10dfb0e387c652268a36f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/dbbb77fe7d9ab20cf6c946be06f0dc0fcc22f6d9d202a84ba12c9de78306582f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4295423eaa70367b0f6a5833ed0791a2aeece57ba89839059910b01e25eee505": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/255fb1580af40dae75a2450362344261b45327720bf15ce653eb17fa3de92047_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "22f6c28f1217eb5514add04e2dcbe04247c2b6281aee6aab6484afc88ddc80bc": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/255fb1580af40dae75a2450362344261b45327720bf15ce653eb17fa3de92047_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3a6a9b124eea52c2870efca9370f5e799c28644101358c21b47a06a609975c3a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/255fb1580af40dae75a2450362344261b45327720bf15ce653eb17fa3de92047_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ffefd12cd5070e66390e3cf4b3fad728ccb5a303ceb615e8e185566190c227ed": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/19153280d76c9ea06b6608e54f2d4cf5554cbdd6bb6e1b28f1b676a788d80ea6_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ae26bf4c39a5d65ccaf20440476a77729abaef8605a0afb6fae952461feeafe5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/19153280d76c9ea06b6608e54f2d4cf5554cbdd6bb6e1b28f1b676a788d80ea6_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8ad5cc8cfd8cc48bd4235fa993160536d18095adee595528c7bc239672fac78e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/19153280d76c9ea06b6608e54f2d4cf5554cbdd6bb6e1b28f1b676a788d80ea6_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "958f730c1bf2f8eeb1b332eb00d685cf64f8950c4d1ba3de445499f461ea17a2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8936434b84163265bd6d3af93d9ec709c550ec8ca471887f1c6874ef911ce5b0_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ae48f93f3113c1c95c8b95ad0947b9d2341bd710af6cf25b04a6e6b121e068a3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8936434b84163265bd6d3af93d9ec709c550ec8ca471887f1c6874ef911ce5b0_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "aab0bee914317be67df050b795f3c078b504273779db6484de04ac5c26022f77": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8936434b84163265bd6d3af93d9ec709c550ec8ca471887f1c6874ef911ce5b0_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c5f47e7b562a7b9677b81f033cd091e909f43a9f6d24afc120a4fc38854cefe3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4a394f7f83929f8ed68c630d878cc828c13513e689b7ba8168fd277f46cd0483_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "24ba863ebd0d14e19967eedb66c8ed79e524dfa67f351bc65203aec7a716eaf4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4a394f7f83929f8ed68c630d878cc828c13513e689b7ba8168fd277f46cd0483_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "44506cb5f5843fa77cade961e4080ee84f12b1d48223515f5bf2026b3807f984": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4a394f7f83929f8ed68c630d878cc828c13513e689b7ba8168fd277f46cd0483_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9a242d1163671a97def17cfcc9a4d968837a25873c8f40f9401397b64e562a21": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/960f4b188fe59b2bb762c2fc85ffff48dd4aa02f3ffab902a1fbac402a1b966a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9cc3ce1e22ac7d59882bf1f525dc70f47bc8290b1a57b4fc6e634f1f114fbade": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/960f4b188fe59b2bb762c2fc85ffff48dd4aa02f3ffab902a1fbac402a1b966a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "671b270b1580675fddc1f3236d46b525067df4cd57398c0812210b2c09563d51": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/960f4b188fe59b2bb762c2fc85ffff48dd4aa02f3ffab902a1fbac402a1b966a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5b186e0696a9e00a3edebaf9e986639ed394897cb1646df4db885eef8cfc33e7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ded6bac562d6b43a6ffd7aee46510fb698b178ae85fa0acb887e1e951d434001_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "36059d89203f44119f046853193172126ae01fb12654590bf6c1064e4f153381": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ded6bac562d6b43a6ffd7aee46510fb698b178ae85fa0acb887e1e951d434001_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ecc4eb8dcd304665540dc01de6af11a80fa120f07918eaa064b846314e9664a2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ded6bac562d6b43a6ffd7aee46510fb698b178ae85fa0acb887e1e951d434001_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b2ad47d0ba7c6c019485887c52f5ed11587985df5b449ba122404b7c2dfa2c6e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f3826329777331e849a02b6eaf7ed595922737de33cffc25435794746159a846_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bc1fc0549dab05f5aa71432bf1de66511ad0fcac1257e3f50df945fd39ee2fea": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f3826329777331e849a02b6eaf7ed595922737de33cffc25435794746159a846_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "269ab12e434d0d9a8a9d18056ddc8c70ef0c1f624d12792ec9e875114e974a11": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f3826329777331e849a02b6eaf7ed595922737de33cffc25435794746159a846_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "584c46dd9b2d7902fbb39d1f3d4fb646b292ef7108453288c564f16b8b33d9c6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8a00374fd87e612da8c7d1c52dd064d4da8cef74c6dfbcc4b8541002fb558860_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "763ba4b570d5c239238e3d6cf554e56cdf86c8a0733b217fea4f8e268a16e359": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8a00374fd87e612da8c7d1c52dd064d4da8cef74c6dfbcc4b8541002fb558860_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5799ab404c3fab3af7db1160887848b4ac286787dc5601149d81a7ab4c83e67a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8a00374fd87e612da8c7d1c52dd064d4da8cef74c6dfbcc4b8541002fb558860_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0cff3537b48ee8f85bbc3e6a3cbaad1ac76d0d4658bf566beff11e1f4c892e4b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6e05e7f6b0105628e6cedcb1fa82190da2513a4f188841c17d1798bf2efaf9df_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2eb3a03d6c0813233dceab5b56d70d49f717ec640ab9584e02e0b0ebf45cf7b6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6e05e7f6b0105628e6cedcb1fa82190da2513a4f188841c17d1798bf2efaf9df_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "23c0e1f27b3e259b334784993b626015b70d9c59eeeb1f31ff1c68596773580a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6e05e7f6b0105628e6cedcb1fa82190da2513a4f188841c17d1798bf2efaf9df_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4503e24fc48c5dc0f4ab74809430b4dcdc927a0bd1583444449ef5b1a2d52567": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6ca46f475fdb8fcdadaada82e5e01d56189de264bf5c6a00bea4d25090015cab_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "19fdc5d944dd9c836009a3840e7378b8ff5afb302b56e3dc1bc9919b1cb9eefa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6ca46f475fdb8fcdadaada82e5e01d56189de264bf5c6a00bea4d25090015cab_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fdf95a1b9e0df971628dc991c2cd8fb48e5217b913f197c36072379f69a1f5c1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6ca46f475fdb8fcdadaada82e5e01d56189de264bf5c6a00bea4d25090015cab_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "817a9f8b2a693cce1edc2058507c6718769c144a62ba720d14a61eeca46f836c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/47abbde6dfe48fc3a3bcbfc77c0ae08ceefa0c83469f351104bfc5f2be12b957_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "22120933785679679928e2a421514e407b9a56223f9f3d9415d57babd50366f5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/47abbde6dfe48fc3a3bcbfc77c0ae08ceefa0c83469f351104bfc5f2be12b957_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ba40963b03b941eda7721c4b4fafb360173d9880ed675b3ecebbcd46d013f5b2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/47abbde6dfe48fc3a3bcbfc77c0ae08ceefa0c83469f351104bfc5f2be12b957_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e4f62db0f0f162e6b3bbe6555d2208484efe0bf83dc85cd860fd2fdf9974cace": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/33d27f04565047c7b97ab63149ddc0a9bc721196e097a86228248768dece14d2_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2b9efc0974b4d905a239eeb803c60ef6ddaed29ea070ea428e9cb9cfa85cb660": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/33d27f04565047c7b97ab63149ddc0a9bc721196e097a86228248768dece14d2_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "35704dcc9fdbbd0d3f8b67dbe6ec0cecaac772771f0ba8f18c9f7c8623c930e0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/33d27f04565047c7b97ab63149ddc0a9bc721196e097a86228248768dece14d2_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a0dbfb0ed1fdebfb84fa602fbbb090bb50bee37951d2bcfd4c5f2cae0172e409": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9d46a23bfe32b240c2d29dd4e7fa409b172da9f70d516f41dfd2ef548a5a6fbe_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e3a4d25c8cfdea059666e4fd0fbabcde8a64af468653d5bc0df0cd3b734df353": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9d46a23bfe32b240c2d29dd4e7fa409b172da9f70d516f41dfd2ef548a5a6fbe_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "befe1f2418b85a12aefd0de4589eafb4f4fb7036d5ac969016c522d8fc465991": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9d46a23bfe32b240c2d29dd4e7fa409b172da9f70d516f41dfd2ef548a5a6fbe_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7b5130965a77dcb8e5ac7ec5544fb2ca37e23ed96c67dbd7706b3b4af6258a84": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0f9080df0a673da15ef0bab54b4750fe40af1659150fc76e003b502593837fe4_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "62ba5bb521f5e69fc25d454d963c93be1e6396f0c0b7749a54bb81705ab74e05": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0f9080df0a673da15ef0bab54b4750fe40af1659150fc76e003b502593837fe4_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1feee958aebf07f85062093a18c63d3719fa9e962a2e1eb5acdd2ab87b8ce8f0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0f9080df0a673da15ef0bab54b4750fe40af1659150fc76e003b502593837fe4_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "df93b96e53945134bb2afffb4cdfbb7c89174a159afcff5b5bcb343c55c2ac1c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9857f792d816ee98770c1f3c3151d0f16df6583d57cd030c54b9f4df87e977f3_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "31011e4b128abe4f6b54c9ba1c79e3cdb915d6981ac1fde967b7875b593f3805": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9857f792d816ee98770c1f3c3151d0f16df6583d57cd030c54b9f4df87e977f3_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "61976550ef6fdfc517d598105aa8a008f199984f504da5ef30f62feb19a476ed": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9857f792d816ee98770c1f3c3151d0f16df6583d57cd030c54b9f4df87e977f3_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "337a0d630ff8a59ea154134d9a77e6fee76a48d10cecc354327188c54a94b13b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/79756957439023768889b7c2879fef0c61d4203a8b827e180b89a225df4718d9_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fd5e0ce81a60835996158e94621b5060124a5a826f386e1537d949bbe054985e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/79756957439023768889b7c2879fef0c61d4203a8b827e180b89a225df4718d9_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "82624afe8a3668b92bf1e45e45c402238ced20bf6e4ea3573ea145a17031dce3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/79756957439023768889b7c2879fef0c61d4203a8b827e180b89a225df4718d9_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d07ed1d38422eb4fcf01c2585b825430f32c5a62043b48f3d4cc55a5fff4cef9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b44b3b58ab5b9b3565321dfad51b767356842dbd05f48229ca1a06bcaa516c9c_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "55dd71938e747197e6fe0b639e2b2c82667d04df085cbab317ae5b19da954a9a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b44b3b58ab5b9b3565321dfad51b767356842dbd05f48229ca1a06bcaa516c9c_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "96ae9d7f16203c57f6152ac44869a3e262df23034e1c71098241f2d21fc554f2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b44b3b58ab5b9b3565321dfad51b767356842dbd05f48229ca1a06bcaa516c9c_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d0004cb65589d481564e5f89e4be627454936c2a065e0162d990a45dba61eb13": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c4b17b97e08219938b654c564edc0ba82ff0e7b57335f88e450c80e9252b26e5_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "40263b60c36b7f671885c39c1e137677ae778140b81a7d453836ac54b0129ebb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c4b17b97e08219938b654c564edc0ba82ff0e7b57335f88e450c80e9252b26e5_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0340a7b9487faf767d3ec7736b12fedba90b41da5ea9fa3dc0feb1c0699efd49": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c4b17b97e08219938b654c564edc0ba82ff0e7b57335f88e450c80e9252b26e5_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fb08c13462a3e18ab1f484460e24b2095577cd950c829f0f3be54860aa3d2bd4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/943008901119604ccfe31ddd1ac12d0d0eacfcf4e1da8ea1bf8dcd81332cdd20_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0c9e7454c8c789f01315ba5a539abc831d32ffed28ec886fe5a3b22cfb990ca6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/943008901119604ccfe31ddd1ac12d0d0eacfcf4e1da8ea1bf8dcd81332cdd20_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d462ea71b3cd5b5ad854de4f680f341be01bf87f687e2f4a6e5969669c3ce44f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/943008901119604ccfe31ddd1ac12d0d0eacfcf4e1da8ea1bf8dcd81332cdd20_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "298977fef2dea1f61296f344c734efe0d27188b9b40edb26ae75153c1263232c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/06faf73afd56feeb760496d06fef7d3bae4f62f876cd9b67ff358f758096468a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6b98aa7c317fad82dbc36eecf0fc7630d9ec2b242b7d0efc9365221ada7a3665": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/06faf73afd56feeb760496d06fef7d3bae4f62f876cd9b67ff358f758096468a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "dd8aabf12f2895b14ed363ab94a903e8c606a6f472ca3d347af2b18a5adf9cb7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/06faf73afd56feeb760496d06fef7d3bae4f62f876cd9b67ff358f758096468a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5963d7116c22382cb59624d079e5f9b4e8fb41bf6422a4eebe0a4d77e12e1552": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/99e1ad3815ba10261aafdf5134ac607a19a0e2532d131f226877af4aaf47e18b_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "53fe1ce93db7b170f43d96e1138148b12521267dd32291a1721708416cc1c4c8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/99e1ad3815ba10261aafdf5134ac607a19a0e2532d131f226877af4aaf47e18b_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3a9bc1e68c41042ee3b4af7a45050baa0ab20cf1154da389a45dd022927e6c8e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/99e1ad3815ba10261aafdf5134ac607a19a0e2532d131f226877af4aaf47e18b_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "dc42782f99bab5785cc25abf4893f01d002f977bff609e2cd2483176d34460c6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8dbb854b6cec4da208a205ff669102969ef44982c795ae9717a38fdeb0ca29fe_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ad012899806d1be5743859206339a1780703516f9e83b83b94d87d448d0952ab": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8dbb854b6cec4da208a205ff669102969ef44982c795ae9717a38fdeb0ca29fe_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "18d5fc67fb832b26cf121130ba40145c77de02b23a0de717df44fc50e492ee52": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8dbb854b6cec4da208a205ff669102969ef44982c795ae9717a38fdeb0ca29fe_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "16f41328399d3c5086ae9d08c7594eaef78c5aa993913af7b1504f42e9084d13": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d53dd8066713a242e629e3ee5de34f633f93c700b96d9efed1d2665e58f3898f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "02d1d6e258867f031ef5a8eb84291ee7501e85dda5d4319110d41072da47d42c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d53dd8066713a242e629e3ee5de34f633f93c700b96d9efed1d2665e58f3898f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "00cedc914290890a59c1d8c96f610bc1bc71a99ac11a9b7107c672c7c9c993d8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d53dd8066713a242e629e3ee5de34f633f93c700b96d9efed1d2665e58f3898f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8e5c96cb22d1bcb72d7ee1008ab381bcf7b5c00b355e311ddc1a679fcd7fb3cf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2761d4239ebc44b1b87c331e9498306f0be88e1e588611306f4f108a866e1fe5_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "72ff07e99f51f4d11f3e5e1968755ee64224b1a1303ec787326bcf1c4693c430": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2761d4239ebc44b1b87c331e9498306f0be88e1e588611306f4f108a866e1fe5_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a39d3751a3857b596dd18ad88edfbf07b3fc811f9148145119289ffdd5721670": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2761d4239ebc44b1b87c331e9498306f0be88e1e588611306f4f108a866e1fe5_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2f2e27954c1aa5786427f745015173a59b224273f435085cbe425a095952f1f3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ef848d0ece1d6045ad4c45efa08b480c92e47b6250baf457e2f58bc3031a0f9d_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0cbcc757e134c8faab4042d8d3516b1c7dcebcf2dc971df43f38b8f2c478d95d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ef848d0ece1d6045ad4c45efa08b480c92e47b6250baf457e2f58bc3031a0f9d_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "da35213ff0d079e43a3c1ab5368b0b7cac621c46eb813ec19bde44b91f65b02e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ef848d0ece1d6045ad4c45efa08b480c92e47b6250baf457e2f58bc3031a0f9d_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0dd39468b08262d40df96147a213f7f4bd8aad1fc0d31fcb1918b1c7c31a79fe": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/aac56738522705ee7ba3a72c95e0b52059b294232324906201f3943f0fba96b3_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "26b0ade136ae0806d31ebaf6405f9ce882de0d7ff69ad5f895a9f74c88695651": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/aac56738522705ee7ba3a72c95e0b52059b294232324906201f3943f0fba96b3_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f0021b5ab50e28aaaf0fd958fef8e9e040b4c924db1af32dcabec540ee1a072f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/aac56738522705ee7ba3a72c95e0b52059b294232324906201f3943f0fba96b3_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "87903c7ec96f28d873dfa91642e724c420c4ef1964feae4c871c70f040c3fec9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/45c3fea00fa6d3598b09b3999279856d3d6091430592d60e70dd32d2df88fc7d_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c3928107dff99a686289122c88e5b1398df6465ffc722e670f910e5151375a5f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/45c3fea00fa6d3598b09b3999279856d3d6091430592d60e70dd32d2df88fc7d_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f655095a639193d248b14d9d0b3acfb4048a76e646bfbcc1acdd4fad0214d68a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/45c3fea00fa6d3598b09b3999279856d3d6091430592d60e70dd32d2df88fc7d_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "009f0ec8601891a262718f744a208fe032bd6ce9ec5ef7300cd3f0ee0369a9bd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a460c24b035f5b779d215796317809756fd64b39d968204453f394cf1a280de0_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e65dd0cd6723375c731ca918b3d994db64b2f23b921a276c28cdcdc1a854cecb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a460c24b035f5b779d215796317809756fd64b39d968204453f394cf1a280de0_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f0ae68e1f984221ab31e2f9423a48f0ba3acd911c298f05725dec50e0ae985fa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a460c24b035f5b779d215796317809756fd64b39d968204453f394cf1a280de0_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "46eeaa19090d7fcede874751edff3121e6db9559a0063dad237ac5bd270656d1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c6d3305f749a71fd4561e67392956c972050007fea17eb3f762444d957586361_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d2d8ffc667fbe8ea1fb33e686c3f32c1ddd663f1a3965cb1792abc8bfb2cd7d8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c6d3305f749a71fd4561e67392956c972050007fea17eb3f762444d957586361_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8967f9025278e5c88f1e22295062fcfb1c7d9fd24c251d2ad50e901b4eabc5e4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c6d3305f749a71fd4561e67392956c972050007fea17eb3f762444d957586361_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d05cdf280e4d838607ba4ef53b1336434cb1747970105e8285c5715ddaa8f248": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/52b552af55b68fa64a45c2dd893122136d43641b55e9899e8a6d43576e77d339_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "278dfde71c79f13a9911b2f91141af256867c7e38490cbd3f299dfe9abff0c6c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/52b552af55b68fa64a45c2dd893122136d43641b55e9899e8a6d43576e77d339_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "472e01f7b338497d684ae061e1c150ea9ee482dd2aab50ddc448392119c184cd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/52b552af55b68fa64a45c2dd893122136d43641b55e9899e8a6d43576e77d339_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "58fbad95cfe4b57666607bc707ab4f1c511b40a43078fc12c48086caa9311381": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e75c1d5197d522a7d8b38982facef042353875b37c90b2c6795381b041356794_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0f7673c9954c1cd631b5a4643acb46a3801920fb08acd6f569f1c22667474bd1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e75c1d5197d522a7d8b38982facef042353875b37c90b2c6795381b041356794_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "42d822834c22c691e340d29dcf81b48caf058602cd327cd0904154376de3fd9f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e75c1d5197d522a7d8b38982facef042353875b37c90b2c6795381b041356794_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4e9e659756b7b74f71426076dd080cffa5b1fb8dd56d5ed09b30d6ab974651db": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/607e816e3c206b8e47d5ac56bc51c7bb713cb902c00ee04f0feae12a22b2f9ef_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "57d67e50eae0298df92fe1d5925635b810352cc85e95e31d0415f21e2455ab5d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/607e816e3c206b8e47d5ac56bc51c7bb713cb902c00ee04f0feae12a22b2f9ef_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4d099d52d19204e1f978d2a55d14e1b21cfd82b18dc8d1cbda28c1f80aa47891": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/607e816e3c206b8e47d5ac56bc51c7bb713cb902c00ee04f0feae12a22b2f9ef_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4b40d63c74f13d4467db316a09f2b0a72722d2bc54d7c9ff0b6fbbd8a4218839": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/fe099ccd3dda1a9030ab526aefd7312942c2dba3d7568b29ff852df41595e95a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9e06b63809c62ebe2b33ef827885ccb22622129d738098a47ebc61d34fdc5d97": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/fe099ccd3dda1a9030ab526aefd7312942c2dba3d7568b29ff852df41595e95a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "30ad9b020ccf4911db3c84e0953314f9d0286c51527b1b1477aef00fe627e183": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/fe099ccd3dda1a9030ab526aefd7312942c2dba3d7568b29ff852df41595e95a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f4b80798bc32f2000742eed2b30641c000e151a054d829b3503c7cc2bb31de63": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/93b91377df8a39ab91dfc3b35f6548635a09202198a5fe02840ac54b465648be_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "16f5eb96749f81ae1ad69d2f1880bfd679afa216c3689bc5fd0655a88b41b625": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/93b91377df8a39ab91dfc3b35f6548635a09202198a5fe02840ac54b465648be_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "cf8d41f72334df964b3f112e01ef11a841259023fb46c43acdb9ce01e6dc1b29": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/93b91377df8a39ab91dfc3b35f6548635a09202198a5fe02840ac54b465648be_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "dec3927b79ed0e5c03dd8e404c27f5bb46ef6f16253d7254742b47f5bb10db98": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5c79ee65f041bdb2e10eb0e62be01b822b55798c03d8aca2f098133011ad0009_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ab89ba18c786101792847d0664e50fb12b55d798de8ab25ce63c79ce009a2d32": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5c79ee65f041bdb2e10eb0e62be01b822b55798c03d8aca2f098133011ad0009_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "84d72993ae0be560ab674d312817d68ffa91c6e4c72a4b5130835b5a5dffc27c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5c79ee65f041bdb2e10eb0e62be01b822b55798c03d8aca2f098133011ad0009_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5407cf058502a2db1aa7e3721e5dcc366644ffd12b778ab7e287e2b130a3c649": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1460e11d3c60befe85790ca40638f9960233d5f93b8f86677467272bdbb82c20_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "099f97ba579a7ce7abd8f76ff6e28a15e70c76b5c3aca64f68112aabe781d110": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1460e11d3c60befe85790ca40638f9960233d5f93b8f86677467272bdbb82c20_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "070d122ebd2aabb9dab5e2d4bb5a8d54146aeb27a8e6a6127908c31c6dfe8893": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1460e11d3c60befe85790ca40638f9960233d5f93b8f86677467272bdbb82c20_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a599fa626698edefd3a9b6153d9c3a40b5c4bc958adf3afa46e315259eadb449": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/648991e978a25bb56887b640c415d0bcd8398fdd5420c3d6c8a234b1fd5fde03_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "52cd0cbe7cec2e7f62d7fecc008c2e6e4aaa80becf5f2049aa7bfa396d97fca3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/648991e978a25bb56887b640c415d0bcd8398fdd5420c3d6c8a234b1fd5fde03_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "740adbf3f23728ae0405afedc1f13a32f4f5bed7d71c721bd542e7f41a80d38d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/648991e978a25bb56887b640c415d0bcd8398fdd5420c3d6c8a234b1fd5fde03_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "33e72a21f0a962ab8f3d7aa285dacadeec93616b68196e99dc7a3f69a45ed3c1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c0c6c72ec3c14e3510adb4ad40bfcde84707c90d2f619ea3671c511a4ecd4ba7_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "48b5f387af78868f2a511e64cf4a2b92c3546cc478161d75d86f55e2a5c17605": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c0c6c72ec3c14e3510adb4ad40bfcde84707c90d2f619ea3671c511a4ecd4ba7_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d01fc605e7053c061e967a01cd1db2e9ac4a0126521eac25db65623714fb5b9c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c0c6c72ec3c14e3510adb4ad40bfcde84707c90d2f619ea3671c511a4ecd4ba7_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "533d3190b4622d8bd431794c8d6dcad30b395afff9078d284f5b301895a6dfbb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0dd62efa8d8a37a633165915bd5f2f012305c0697672965e06e8a4d8d2065033_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ff98791e66543a4a723f044fbb7fc63a218689a3f5e23737820c3f6b207c6ef7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0dd62efa8d8a37a633165915bd5f2f012305c0697672965e06e8a4d8d2065033_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "33fe7b6824f8400f2420cc466fc285323114c5cf118c8770f60ad5dc6fd17ef9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0dd62efa8d8a37a633165915bd5f2f012305c0697672965e06e8a4d8d2065033_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "029a6e18ab4c86930233bd6ff4e21e5cdf25aae41c3d42e64e95cfee3628137f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e0cef64c2711726d317b660cf20dbe674efd2831dadf4420a922df2aa5c2e381_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "76a1b08aae976d578cc106d9374a27cbf262455fc71b26cbfc4a7431fe892a18": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e0cef64c2711726d317b660cf20dbe674efd2831dadf4420a922df2aa5c2e381_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fb7801782112f1edd309032cf417e9e8fa2972777f6b5b964b1204c0591c0c05": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e0cef64c2711726d317b660cf20dbe674efd2831dadf4420a922df2aa5c2e381_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4afd9999be3386d9b6904513d66f2f80edc75c5c6abcfdaf2ed09c48c9256d56": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/34975f2b8395f4fcda17d928182fe840c0a09cbd553f43c304049f9e4018f613_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9826b0cd64cfb33b51fb974fefb4b1896df54bbafc6ba4cc76912a46f7e844ca": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/34975f2b8395f4fcda17d928182fe840c0a09cbd553f43c304049f9e4018f613_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "19f76d45ca308ac317f83fd53dbc298a522d7aa5d63b8ae74df585a21a17b933": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/34975f2b8395f4fcda17d928182fe840c0a09cbd553f43c304049f9e4018f613_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a4bfb926a9ad240277ca4f09070e304e187696f5e0cdaf941a19b882b8bc90db": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6e73a3ba5cde5841dae44ad735501c42282b2241ae71631b561351b38605681f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "db220889610d15ed0d228261406ffe2da90e9258bcf37d8d0c5a30131a21511c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6e73a3ba5cde5841dae44ad735501c42282b2241ae71631b561351b38605681f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6104764d853ebcc8e2e9ce573cba7dba86de5d016fbc7c6131b214e37e60cfe9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6e73a3ba5cde5841dae44ad735501c42282b2241ae71631b561351b38605681f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6f55632a03261c52f6fb3964be52d25c8e2c5f35947dc752c4376657468b39b3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b3ab554c7a8823f997787d89621a32239570417ea900321fa265779db69d4fa0_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9927fa08c660c98d945115a6b65220dbbefd9c6b1a99f484735ebca48955bda1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b3ab554c7a8823f997787d89621a32239570417ea900321fa265779db69d4fa0_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8c5d2fe58889e28fb844645e7be3adb61d015c5f6c0bca502a4d40e50e658e81": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/b3ab554c7a8823f997787d89621a32239570417ea900321fa265779db69d4fa0_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9bd521a6494cf1e92f10b3eaab8e41813505467b87eca9596245134296e53eb3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8f2a7067d8e699aa2e70d0e74704bec6e724ece713323591c99e6072f3659b61_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "40ad5b995d4bd10c8e3f03c4aea67105d99883ed291395b96b6019778541adb7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8f2a7067d8e699aa2e70d0e74704bec6e724ece713323591c99e6072f3659b61_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "016f197433db3ad2dfafb851ccae80f1218c386a9c3203d6b297c00e6d0d9dbf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8f2a7067d8e699aa2e70d0e74704bec6e724ece713323591c99e6072f3659b61_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "71609bdabd4e43464d13ac69a61b1f139413657a66474a5addf6798d146fb20e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cc5f329fac2524302f08a57bc83b037792cfaa5bbebdc37ef422b4d97c204792_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4f0d1bcd4f3f53cca3be2184b822f2d97d4fec1d17a1deebbe11191fb471dce3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cc5f329fac2524302f08a57bc83b037792cfaa5bbebdc37ef422b4d97c204792_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "061e3ac6d37ecbdd3c5709c3485d2cad30d65aa6ebcecd84570193e22d66542d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cc5f329fac2524302f08a57bc83b037792cfaa5bbebdc37ef422b4d97c204792_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "141c600d5d396be16642498a1aa1381b19036df6c56925e786fe4d1c47738b71": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f339f9791f680dc1da999363a04c67da2dd34c72a67d2e63a4c062b08aab0af3_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "16b1d398391efc73dcdc4642c99d2f08db6dc86f3cd7686d79053716b2b04098": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f339f9791f680dc1da999363a04c67da2dd34c72a67d2e63a4c062b08aab0af3_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6754e2c51b73587143fd5c2ae9a4f75853500862902b14811443f8287ebdab5e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/f339f9791f680dc1da999363a04c67da2dd34c72a67d2e63a4c062b08aab0af3_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7ca0d459cbf48434eb0d30848093ac3861adfc9e6d8e5a28c5ebb67ed320d78c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e2f7fb8ed0e11e16001b33232657a1366440b4589f9a6a1f81bd85d71561c9bc_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "89106bc75c8959ee719f0e9450e3bbb71211a524573bb493dd8bcaca897a392c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e2f7fb8ed0e11e16001b33232657a1366440b4589f9a6a1f81bd85d71561c9bc_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "16ee53d66d76cef806a9340638ce3c3605b34ad73fee2a6b5db6ff615e198a93": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e2f7fb8ed0e11e16001b33232657a1366440b4589f9a6a1f81bd85d71561c9bc_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "994ba018888fcc3fdefd3fce7049409317199fea75d99f59fb5ccc0bb3a31c94": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/fc87aa6ed1017f051e3a5689f9531a38af44f18e126a7ecb687c39cdae7b4bbe_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0ce0ceed77068ed87f64ad0b1a2e0fc48aee61a10aafbb416598bcc3181a890d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/fc87aa6ed1017f051e3a5689f9531a38af44f18e126a7ecb687c39cdae7b4bbe_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6138924ee126e9479215f8136f4a47f0fa4bba4f2832438f25c1c814f6b8a2ce": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/fc87aa6ed1017f051e3a5689f9531a38af44f18e126a7ecb687c39cdae7b4bbe_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bc76ba7490eaf1e5adb92c6ee085d6b1ec2ea69e9f1c7d439bd2181e2dbcf186": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/038f539c1fec99f7c4eec57eb1f9eb01cc7048a08cd3acf825f35e4c8f9f5b24_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "067dfec1b9483067342112d2b153c4c438fe351871fa099af3c69bd270f6dbaf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/038f539c1fec99f7c4eec57eb1f9eb01cc7048a08cd3acf825f35e4c8f9f5b24_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8ccac66f28264b04c69cf9dc739c23be47238c6f93af26f0703e257abfccaa09": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/038f539c1fec99f7c4eec57eb1f9eb01cc7048a08cd3acf825f35e4c8f9f5b24_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "782a65b800e6fa5c38153c01b42e23b2d3a6d8b9ae47a3b886d3778acca988e9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6bda2ebe87b3d0b93a585e873cf2a4b6175daa3e456d8711a9ec966b5aa71130_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b108eac62a939b86387191ec5ce03c7793d11e9012cc478e42ec6841eab04943": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6bda2ebe87b3d0b93a585e873cf2a4b6175daa3e456d8711a9ec966b5aa71130_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bf18c383cb306103c3812fd060a3f104253e1d69f107aa12cc286bfbca4bb75a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6bda2ebe87b3d0b93a585e873cf2a4b6175daa3e456d8711a9ec966b5aa71130_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "79091955d956b60231bfb5ded1e9d07811b9d7e463eeb7adc3576f4270625682": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/985de3594dc6f7f7b95710b24f2ab97a65c68f870b91d33c114ec3810cd13bfd_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1b00361f651b1e89a99d42506df00406c8dc0ee7ff7d8ef296a855497c9c8f1c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/985de3594dc6f7f7b95710b24f2ab97a65c68f870b91d33c114ec3810cd13bfd_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ac3b039d8bdf513e77812caf50ec3dfaaa267d53242211363595fa73d0042250": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/985de3594dc6f7f7b95710b24f2ab97a65c68f870b91d33c114ec3810cd13bfd_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c22237c883073b45a32b6edad4597b6814f3f03b65f402a95f20eb8690b27f03": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4e8c0c77d93237daca7a5229979202c9965c6bd029e22cf63d6820a822425421_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6884e88e50da18e6a17221190409dd99e40789883c1660dc477f069cb443b238": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4e8c0c77d93237daca7a5229979202c9965c6bd029e22cf63d6820a822425421_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e6cdea559f641d4414df870d86d8f37aebccb0c40bc4df0d1832fbcba4d6dff7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4e8c0c77d93237daca7a5229979202c9965c6bd029e22cf63d6820a822425421_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "49c17aa3d9bd1cc2b07e507f408caf8783dab5355c45cdbf9a75551af9aea1fa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/de432e2853fbc93f2ca2a7181a5c6880680879c44ccbadfcc28b8cc063f6f078_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "eb2a83bf7cccfdeb3d7125334294920f5d8b4569595139592b03536fc032ddee": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/de432e2853fbc93f2ca2a7181a5c6880680879c44ccbadfcc28b8cc063f6f078_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "20338922049f5b9cb5e68e3d36f51cab7fc114822a7ef8741360cee68eae40a9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/de432e2853fbc93f2ca2a7181a5c6880680879c44ccbadfcc28b8cc063f6f078_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c19bdc5208eec20f52f0c5de626faa2e815442fe819e30078955774e0c078dfb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/11a9fadbbc15ee98255701c8d73595f823d9e0bcc6992869b079f9270c004739_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0cfe8ad2c14e2badd8419147bebfd102f5231c5c4cc4ead414d4b1f36b3f1349": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/11a9fadbbc15ee98255701c8d73595f823d9e0bcc6992869b079f9270c004739_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c493f919b6f6422328289b4958a52a951434a91540e9e3034ba2c018a1b57f47": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/11a9fadbbc15ee98255701c8d73595f823d9e0bcc6992869b079f9270c004739_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e2cdf226fec32bcad73295b057265f442bd34d7dd1ea92c39f697b5577d11afd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d81508726df6864fa06fa0cce11abc0d53e257baf33fa76b3e9d55a24d6bb62c_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "940ae330cbc4bcd75b29fb8f00d1e7d2f673445998f6fd3a00cbc982ef486698": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d81508726df6864fa06fa0cce11abc0d53e257baf33fa76b3e9d55a24d6bb62c_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3e03015c4b5c7148d22bb603f1618d69b4ff8c9fe0b19adfd9fd540488f12d14": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d81508726df6864fa06fa0cce11abc0d53e257baf33fa76b3e9d55a24d6bb62c_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f35e1d37ad7032aa3478bc718ca25c6056fa6284030debeeb0976bae49bbf8c0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e5960534d146b4b27e065c5e623ce3cc3ca4d84d88db86bfeb8990cc1fddd566_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4086fa4e7facfab109490e02921c9f40d78339cfebf31d40c16e5531e658b44e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e5960534d146b4b27e065c5e623ce3cc3ca4d84d88db86bfeb8990cc1fddd566_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "eee2f0cf264faecc340285da411f7274208962d8808a7565f3e4d27e9770608c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e5960534d146b4b27e065c5e623ce3cc3ca4d84d88db86bfeb8990cc1fddd566_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "67eb17b5b7cf59528cf23010ab60ebb76639fd6319d4b47106e337e901d63cee": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/59fdf544a2fb380fe565a45cfaac508af0ec86d9f5dfda30442265401926d880_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9ebc9660b589c1610efff6df6771e03a51ff9ca573b1f95bae3901991376e17e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/59fdf544a2fb380fe565a45cfaac508af0ec86d9f5dfda30442265401926d880_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "13da9707fcaaf6dc3eab4b52fb12e15e3ee958b162e24c992ad8b175dfff3581": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/59fdf544a2fb380fe565a45cfaac508af0ec86d9f5dfda30442265401926d880_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "72ecdfcd82d34fd2648d806e27d456c6d5c64d8e6a287d563840cc57920929b9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/619db8caf1dd7c07bb22cc100fd95601a6423f7ce0fe2da5b1b7d5a356552f07_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c078e0cdb47481b731733b148d6defef4816de138ab7d40f1ecb9461c4297391": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/619db8caf1dd7c07bb22cc100fd95601a6423f7ce0fe2da5b1b7d5a356552f07_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8cc4f42b1becf9daadcb303797131fb8425ccdf8542e87a6acb113b0c3d70158": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/619db8caf1dd7c07bb22cc100fd95601a6423f7ce0fe2da5b1b7d5a356552f07_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c365a688fec99950f9fd516489275c206b1c1b48f6ac67417974017f5ff203b8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/817bcc231dd9fbe15c132672cccd3d70bc97b8d18e30d25cc905c9d9bb0c63af_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f862c45f90262d3207fb6902de8f38b0fe13968e404f0ec15d0f7fc8ec80d26c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/817bcc231dd9fbe15c132672cccd3d70bc97b8d18e30d25cc905c9d9bb0c63af_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7f18bc8af9896289b0c4111e911b76f4ea7cd5e9785927e41d8d63d99798f3e0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/817bcc231dd9fbe15c132672cccd3d70bc97b8d18e30d25cc905c9d9bb0c63af_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4ed7b6c7aa1b9ffa9f484b49f7aed5ca0e2c964da07e165aabeba7bb2f96de9c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cdf8c21c286331c2f362e361b339ad86112c83d0888e68e084829963af642e6b_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e307ba2865c6b4c101704bafc59fb5e63e985f7e65244593557d68c3560b742a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cdf8c21c286331c2f362e361b339ad86112c83d0888e68e084829963af642e6b_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5a2e5034c4b589b51d0ac41d87672171d3d59b030b9d90f4f0825af265dcfc5e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cdf8c21c286331c2f362e361b339ad86112c83d0888e68e084829963af642e6b_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b7f7cd13d66c0a4a699c0578328363668a98d82a172da2c9047d5dd5529a429a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d96443939b1964a07e09a17ba62c3069e06b309d1c7e37fd31490384640e44b1_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "261ae75b1786ee136d7ba3a4d11abafaf4d49c89279b22468c762068c6c4ca2f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d96443939b1964a07e09a17ba62c3069e06b309d1c7e37fd31490384640e44b1_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "360ec4559813549508830bede61294e3364ffdf1671096d3333472304f12addc": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d96443939b1964a07e09a17ba62c3069e06b309d1c7e37fd31490384640e44b1_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "cd00add4350f304b5d2acf69cab6d07a627613b5c186e0b90193e90496540828": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a9eb6d69852313da9f4a5187dbafa01c1dd3a3a7281a0cd65060e326f94d7114_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6ef280f978d1600048314d5e3a32a73e14dbf5dedeca5f300f7d76d51f2207e9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a9eb6d69852313da9f4a5187dbafa01c1dd3a3a7281a0cd65060e326f94d7114_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9e62a15da96dcbf82c836b639bba95485f0fcc13dd888dea6c9861e9f59412da": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a9eb6d69852313da9f4a5187dbafa01c1dd3a3a7281a0cd65060e326f94d7114_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f2a1dbd8ee46bbd5d97366755654178c5b9874ae4e94baceadc809ba2dd64f91": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e91e6a26b7af027693f72a010a4fee10c926cde69d9aed9c9abb3675adbdc45_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c7e7a3a1c4095cdf54d49ff36f0789e19b751fdfce6ec4571eacef4e2be357ae": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e91e6a26b7af027693f72a010a4fee10c926cde69d9aed9c9abb3675adbdc45_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "527173149898a1c8488ee15cf91fb67ba610dcd171f0e9ff3771960c54ca3554": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e91e6a26b7af027693f72a010a4fee10c926cde69d9aed9c9abb3675adbdc45_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "efdbd6c7aa9a7089d97dfe7ffa205e45b2a2b84eccfa2ff980ef1d0df7a6b035": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bd9dd924e140680bb4634706a0cc85ac0264505a376240e44263c8ecac7e5c31_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ca334ff4424ed4c0a11139116e4cf161d7c85bac80af303d6cd6af6c7a427df8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bd9dd924e140680bb4634706a0cc85ac0264505a376240e44263c8ecac7e5c31_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7cfb657cf4c3160301e53923594ba3e883dc053da80d78cac7ae29d55eec42d8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bd9dd924e140680bb4634706a0cc85ac0264505a376240e44263c8ecac7e5c31_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "14c4ac00408a362153931bee4db74c0bba4e787dc4535b705ea60e252381bc4f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/98020d059ec32b7a338308a6a7dc7a17bb36b1f9c6a9d51d9e5f3ed14af796c4_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a5ebcc7cb7ba04c76007308e395bfc76bf3119897fea761026853bb3ebe15bcb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/98020d059ec32b7a338308a6a7dc7a17bb36b1f9c6a9d51d9e5f3ed14af796c4_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1757b56015d6a7f90ff89e128fdf3cc75d415d86ae825241cc4106a5c7f23de5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/98020d059ec32b7a338308a6a7dc7a17bb36b1f9c6a9d51d9e5f3ed14af796c4_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a04e7cd33e75234ca1c015d16a8da8f3ede4761bc3c94570924c1d54592fd263": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/137022a7ee4c732fa139e9f1cec41aa04bd62e2f1a7174493679f713b0703b59_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "74b8c1c11f082980a60433fc9096eb4245ccd0f52da2cbb0773bf139e064ade0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/137022a7ee4c732fa139e9f1cec41aa04bd62e2f1a7174493679f713b0703b59_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "af0df2f2af1944c6726fa9a62301a0b876c03e36b0aa7b535e98e6453e82d0de": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/137022a7ee4c732fa139e9f1cec41aa04bd62e2f1a7174493679f713b0703b59_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "05493cb3d58b27b51e1b61e2e667baefa149877d4310a4bac2cfc84acc42476b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e39bdc2f43d8b3eb2e7fb4c61ee887c7ff89c7bbd3fd4d48b34b477d896e3372_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d33df8458b49d507b8d9d0e6f3b2e93d421aaa28644c8fa2ac8386f4ee7f991d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e39bdc2f43d8b3eb2e7fb4c61ee887c7ff89c7bbd3fd4d48b34b477d896e3372_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "77d589bfae35b4444abafa65468e439a7b294736a912b505f0b0145bd378f698": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e39bdc2f43d8b3eb2e7fb4c61ee887c7ff89c7bbd3fd4d48b34b477d896e3372_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1bcc50e6af1763c1a293c15ec77a39835e0c51b5217cb5cddd5a3d873c23ad09": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6a14665957fec423a280a5b1101549f03d1d462a3ae71afb1c0223d665628bee_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "36051c56ddcfea5ad19adae57eec909f48349205513cbb2535607f2179c1697f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6a14665957fec423a280a5b1101549f03d1d462a3ae71afb1c0223d665628bee_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a4c495634ee4f7beea8e87132737307088c814d03d5d986c8274a47f6ccde5ee": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6a14665957fec423a280a5b1101549f03d1d462a3ae71afb1c0223d665628bee_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "909c603211ebcad54ba78740872c98953f5d1b16eeb0f8825f8a0db398316561": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/240471006e353c242d70f1d8d8aa66609b794d3eefa2a6dfcf6ee4c853ca2d0c_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fa9c11cf6a5c2a8c930d0f0b5167f0d743da292090d80968ebb5a76919c48c4b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/240471006e353c242d70f1d8d8aa66609b794d3eefa2a6dfcf6ee4c853ca2d0c_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "22a8b16940ca58c28016bb2adcb4cf502c80c6323061d855c0785dc492c88ed6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/240471006e353c242d70f1d8d8aa66609b794d3eefa2a6dfcf6ee4c853ca2d0c_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "721059b9778bb0f0b247242113f94e1e2672da067daa52332a8f73eab615e24c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a8ea2932a4426cc1d28beb39af6ebac3958151b1293dde9d2b33e32ff2044bf0_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0ed722753c981202549d3ffe61b3594471279cbed4a209d95f106c9c60d1f8b5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a8ea2932a4426cc1d28beb39af6ebac3958151b1293dde9d2b33e32ff2044bf0_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a53f205b342021e30a9ef1c192ebf29e9e80d31c8485785681132a3a9cda2a50": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a8ea2932a4426cc1d28beb39af6ebac3958151b1293dde9d2b33e32ff2044bf0_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "218e820723862246a890e3c92dd8d85df48ff13c91d846e2040f67e600fb4be5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/45293de8093da2756cf1b4300c74c9c8ff538936bdb48f3b25261e6eaaf38f7f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "79e726c4b3a10b341b78c3fdcd1fe17e3871713a6135d14c42742ea3b3bb7734": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/45293de8093da2756cf1b4300c74c9c8ff538936bdb48f3b25261e6eaaf38f7f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "190f0f2438dd253f1de87ce715cc949f36fba42271b2dae2f18812244988e62f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/45293de8093da2756cf1b4300c74c9c8ff538936bdb48f3b25261e6eaaf38f7f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3dc7652c78d98322d38d9e5285e69fef7a2d59acd92d1ba837727a2d437b5211": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4f7539424e1b556c17d960f587f7e7fb0e1dbc883bdcb1ba3c99d695f4c10f10_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b8f5f943b1026035e9f503782fc91c3f452dca46d0cb957ac19bc019796bf894": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4f7539424e1b556c17d960f587f7e7fb0e1dbc883bdcb1ba3c99d695f4c10f10_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "eb376040f5f011aa73af43f8769e9d264735ff9bcea688fc3fc2c83ba08f88d8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4f7539424e1b556c17d960f587f7e7fb0e1dbc883bdcb1ba3c99d695f4c10f10_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7eeec8d924a406798920128cb3319d8fc283f4ee918e02734d97237b4a275fd6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/86bb299a3da7a32300739c6c9e6c90a9cc20248800ce1d986f1b34509c0fbeba_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4fc35ed30a4449570992de31a3e65dcfa0bf6e0b11543930ffcf301f5fdceb57": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/86bb299a3da7a32300739c6c9e6c90a9cc20248800ce1d986f1b34509c0fbeba_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e91c5167c311506da10f69ad73d787ca243ea06e0c18fe9ff3982cf579db3d8e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/86bb299a3da7a32300739c6c9e6c90a9cc20248800ce1d986f1b34509c0fbeba_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "52af7cb30fcebd9d51dc18bc9017f4036827701cab5c507835691c71579400cf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7698b5aa1253ffa205d44061ff9c7ee143473b0cde5fe82a349b63f3f85c9f9a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fe8069ec988fa58df8dd3fe1cf358a8d4bd0baec888beaee83d17f18a4d23636": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7698b5aa1253ffa205d44061ff9c7ee143473b0cde5fe82a349b63f3f85c9f9a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "03edc61f303d73a34aabd04969204d0229d1c188ac5e14f6057a7071310859a4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7698b5aa1253ffa205d44061ff9c7ee143473b0cde5fe82a349b63f3f85c9f9a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0fdf87efd3b8a221f7c577113df31bf5dab640d2904d046ce0089405d8ea6d34": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/281b46db03cbb05bfd548e50dd6c0bfdca675da36710b753d6390eb393ae1545_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "edbd4ca81df33cec2b9bd8bff1ff5ff60a8ff26ef1f52a54caaf6835b0c05416": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/281b46db03cbb05bfd548e50dd6c0bfdca675da36710b753d6390eb393ae1545_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4af0f484f9f960df1e0c42a048cef8a11534834b6b36b740531a72a6262a5ac9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/281b46db03cbb05bfd548e50dd6c0bfdca675da36710b753d6390eb393ae1545_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ab0ac350214e2bc1156b95114c59f98a0b1fbaaadbe6163d09a1a092a13618a3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/26f3c41183bd3dec02463a56ad091b60c2f83896272dee36337aae3fee597bb7_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1851860162b06a2e8104f20037b5c9b28dbafc32f95c1fd9149b40667236e049": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/26f3c41183bd3dec02463a56ad091b60c2f83896272dee36337aae3fee597bb7_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "21174109efbe5b6e2927b4ba2881584b4343a2f49131bf687c8a28bb06990282": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/26f3c41183bd3dec02463a56ad091b60c2f83896272dee36337aae3fee597bb7_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1eef78d2460009c3d81f9c160fcbaae3bf2a719ba4759c6567e043c7e41d6d9f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bb06f40af6f01cd3f9a125f8a545e36010adb1985a8e017e36490bfef11d4d19_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "806555cb08692e3dfba5cc47501a3beb986fd2b2e037508c5504e407febab6aa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bb06f40af6f01cd3f9a125f8a545e36010adb1985a8e017e36490bfef11d4d19_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "22eb840cd2172c61f89a9c815dce135016090922737faf4517787a8263ce3c80": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bb06f40af6f01cd3f9a125f8a545e36010adb1985a8e017e36490bfef11d4d19_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "05d2d06a5b0872102ab127aaaa4f6c21b4ecb8664ea736b60f47ec21d5d99c69": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cffb0b6e04b2719c917d26bc473c25abe61913b48e9562181386722967db40c1_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7b08572fdfde3d8fa66f0cdb4e50257c8d6f42e2e2aa0b0e913ad28662b09e8e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cffb0b6e04b2719c917d26bc473c25abe61913b48e9562181386722967db40c1_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bb153201b62beb0c7cb281e75e8fa7725861247ba0d339caf0199274f005b19b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cffb0b6e04b2719c917d26bc473c25abe61913b48e9562181386722967db40c1_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a4398f37a16d2634cea5706c20f4b814cc61abda9883f891d5fa0331b7394778": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab3118bd1dfc05ced46361e20805f7329bafa518f56ece67806b10f2ef3ad065_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8b9689f91c15f8a88935f7852834e73ac770b4cce8167f7a1a3d03af1794af32": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab3118bd1dfc05ced46361e20805f7329bafa518f56ece67806b10f2ef3ad065_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fcf37ee87a3370423e378b32881b03eb64842bf92ccf7d2a50a070258174a49d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab3118bd1dfc05ced46361e20805f7329bafa518f56ece67806b10f2ef3ad065_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b0af6ec21eb610412498f8a84a279ef20908eaf4fa4940297c3915767e2313e9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/550694ea947ecc4375e4922254362b04ce41cfead2e220465e762c6cb679144a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ceede4efe1988fa790fdc23f98cf307798011b3bf4c72bf15229e3a0e7565036": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/550694ea947ecc4375e4922254362b04ce41cfead2e220465e762c6cb679144a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "87e9860765a15ed14feb7570966a4859a52a6b963bc1bd41c8f84d8c5e8a2e8a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/550694ea947ecc4375e4922254362b04ce41cfead2e220465e762c6cb679144a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1498cb2f462e8de15bcbe737087ea5776f222468dfc4b7b93170c0b94cac8e98": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/de3d4c4969b1785eda4fde808e4ed5da7e028cd86d37babc5ec20291a876d8f6_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5dfe5e1df3b10ec2140b02ae0cb68ed6459936236e0477018630f26f5eda70dd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/de3d4c4969b1785eda4fde808e4ed5da7e028cd86d37babc5ec20291a876d8f6_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b74a8fd4e789758d590b17d4c5083372bf66aa62813d1706ad843405eb76ef26": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/de3d4c4969b1785eda4fde808e4ed5da7e028cd86d37babc5ec20291a876d8f6_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5825a0e3572d84ebe0e5b27bf32e1e5d687692e4249fc3c582c56aa216ab576a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0f693930d784e885de2825d750c4d6ae7636ec0f1c26b7fb5931e3a21f9f7d7d_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "abf8af6b0c3d3f464f4a56774017807ae45a2162471b6bc52f65e9a32bf90b16": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0f693930d784e885de2825d750c4d6ae7636ec0f1c26b7fb5931e3a21f9f7d7d_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "01cf90efdc3c337bf68c74e1f98ff440c2b623bed4ea257c15d92668169a5765": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0f693930d784e885de2825d750c4d6ae7636ec0f1c26b7fb5931e3a21f9f7d7d_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d5dff02ece98f8b9266d2b6fca391695315abb5c8b7ea88fdcdc12d51f9efe06": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bb4f58e056fe9773d940dc192119d8b16c1c417060d76b4c3a31ede56d0caabe_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1973cea6e25e9370d352fa1aac316ca89e9815374ea4b6e9e5be75f701e49b42": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bb4f58e056fe9773d940dc192119d8b16c1c417060d76b4c3a31ede56d0caabe_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c61e745caade25c46e9c38225549f7bb4d2efb65e60bdb7564d6789bc603ba0a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/bb4f58e056fe9773d940dc192119d8b16c1c417060d76b4c3a31ede56d0caabe_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "865eb2cd5a4e64110e38e30dab8f426bed118f36e2abe4e5554b4b534146d041": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8a88242acc26b5459160ca19a875af3e09d197cd204b078b515de050fc0be793_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "60a1e1318cc37a6f98fa79bd29f42e3e48f318d327cef26fb9c38babd2e60e76": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8a88242acc26b5459160ca19a875af3e09d197cd204b078b515de050fc0be793_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3b4edbee0a291a998d0980ca05a6a7f9afcd3a355e7b6d97089658789f932567": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8a88242acc26b5459160ca19a875af3e09d197cd204b078b515de050fc0be793_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "28545e76d5eb67139acc367ad64886feef4d8858a7a5ad05b7364ac6803f6e4c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/49142a36a874c3dd6545649de461c7c4c03e73f2d238f1f835e16be87faaa69a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d69e0af52dee1cb459f3f0bdd00d518611c8108ddc9c91bfcfc9e952fa69767a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/49142a36a874c3dd6545649de461c7c4c03e73f2d238f1f835e16be87faaa69a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "245fb807ebd4aec1a58e21458aad69c2e82a90217089a90942d419a16429a49e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/49142a36a874c3dd6545649de461c7c4c03e73f2d238f1f835e16be87faaa69a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5ac9f6e552dd72f463814999104185768f27813eaa3297295ebb6d83ff6f4c33": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2aa292d82c67b63813e7a1a7e9e6b89b4caeec013d1a5e8ef207f093dab278fa_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9cd99114d1f6e8421340049f00b1b557d277c079e1b62082ea88b83e7b4bf6cf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2aa292d82c67b63813e7a1a7e9e6b89b4caeec013d1a5e8ef207f093dab278fa_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "536e842250620e00c8f31f52f4352fcb24d626bbdde4d434156d28c7545b83d6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2aa292d82c67b63813e7a1a7e9e6b89b4caeec013d1a5e8ef207f093dab278fa_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ce9437297d2c985d50674d72bcfa83b9a57051b8cd182d22915df007128fc33e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9a3e76bf825a54f879ebc229238d8cec81a984b9bf3661be3e93d0d8339b054f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "38e8f46ede2f9a7532cd5f00b5249f747af7318d939ee33a739c8092bbfb8270": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9a3e76bf825a54f879ebc229238d8cec81a984b9bf3661be3e93d0d8339b054f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9ce05c3b5b7b78404ad308371155985b2d794bf59819818b214eb26c7132a498": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9a3e76bf825a54f879ebc229238d8cec81a984b9bf3661be3e93d0d8339b054f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ddac9db59944a202a6d448778be669e04d62bcc2b0a62ec67c51920b3aeb0a1f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/922d577fb094c1c0f16fd7f8b578d46b30054505e4b9b11544ae3230f8bd177a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "79a9238aade73a919c892569be130f0d1146f25b8001db9f6f7a9ad8c07270bd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/922d577fb094c1c0f16fd7f8b578d46b30054505e4b9b11544ae3230f8bd177a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a74074384c660870a5b10b50e2972ac73c256e0d7601f781303877c3e4ce6c57": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/922d577fb094c1c0f16fd7f8b578d46b30054505e4b9b11544ae3230f8bd177a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "700953c589565599ac266fb355ab253d09468ff9fb49ae3e2cb1d582981e9cf8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e7e8fc7b05d137ffa2d5c9e23a2e88709ddebd9118b6d3339f9056be2766a209_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5d99e40076869fdcb4eaffd2109062ae20fb70c22af1d2413ae04fc3a660c08c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e7e8fc7b05d137ffa2d5c9e23a2e88709ddebd9118b6d3339f9056be2766a209_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "406d3859499cb14f95c2f02b0a45b83ffd1330c2ed665d0e0f01a158f1d757e9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e7e8fc7b05d137ffa2d5c9e23a2e88709ddebd9118b6d3339f9056be2766a209_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "246dd7913cb12677359eb980b0f65831e078845a11d264c8f902f3dd53b8875a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1d1f608c4d8b2002bdf13e2ef253b44652e1e5cf0a90fe5289ba24aefef6fc37_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a022c49f9a67ff082b899147ed17e67c7517c98889b8df36dc9f020205c98837": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1d1f608c4d8b2002bdf13e2ef253b44652e1e5cf0a90fe5289ba24aefef6fc37_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "efab193ac1ed9dd9d38f3680c4189036264f433ad5d7310eaeb2bb050c53183f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1d1f608c4d8b2002bdf13e2ef253b44652e1e5cf0a90fe5289ba24aefef6fc37_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d0c7fd452eaa01096a4bc8c25880b1ade938e8d0580587cac73d399e1f24501b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a1944fd29d96135c666c81f3590c0f8ffda61ee2b5e00bf709ab89b459189986_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "76a86dc163e6170b59e51fff687f8e04c97bad24bb8205f55fa71eb38fd49fd1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a1944fd29d96135c666c81f3590c0f8ffda61ee2b5e00bf709ab89b459189986_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2822801a05733f1304d582d6939727f0e5f3a11de862b15a757c8ef1a1e87a2a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/a1944fd29d96135c666c81f3590c0f8ffda61ee2b5e00bf709ab89b459189986_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ea9a3e404058a58414a27c6005023bbab6148a0696ce9093c8f6440f64aa91cf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0a3b4a4ffe9dc562a3fc9d145182fd20afbe878afa188bfe6c928cba5d33572f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6f5ca27874b73bc5fd49c289a41a70a8d01bd8073530693ac7646ed467d695ca": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0a3b4a4ffe9dc562a3fc9d145182fd20afbe878afa188bfe6c928cba5d33572f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f45af20aa88c83a195a08d16b0368e2d46f806ab08e7abcaa6e2fe352563dd2a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/0a3b4a4ffe9dc562a3fc9d145182fd20afbe878afa188bfe6c928cba5d33572f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "23f436377fdf0bcfa353907fcb69975199e72038d419f630e90398dba24bdaa1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4b579900b70fe71d52b1fc3f460f3300c5a386140a0f8fc6634aab2172adefac_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "010a4653fb4a2f648c49b7b7ce980fcea1e9b2e6b353b32b593785edca15fe3e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4b579900b70fe71d52b1fc3f460f3300c5a386140a0f8fc6634aab2172adefac_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ae8f49427ed661b8898e876abee3336577dde09ce07af1f01e2029b52e10b22c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4b579900b70fe71d52b1fc3f460f3300c5a386140a0f8fc6634aab2172adefac_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6775f72afb4e8b5e4ba9f980d0a6a19f7ef8c8ff11abe66f2c07f4abc04123f1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d9ac78de5397edf920318e004650c80a5a094b9354b2f19f35e3a963ede07188_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d2c076702f07bc92b438e1b28ef18d9f02ae947ccbbcaa00f4c9ea3a1be648d4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d9ac78de5397edf920318e004650c80a5a094b9354b2f19f35e3a963ede07188_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "47962c6c363443470b4fe7f5abbbee0ef69a175b982bf06c93ed5e4ace599641": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d9ac78de5397edf920318e004650c80a5a094b9354b2f19f35e3a963ede07188_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f0426684a6868e5513fa90b0fdfdb9751074a37d9b05f31a98c66673ee61ef82": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/af846d5b54084e8fc630f15ba2237bc22493385f88488acc9dfdab74097ded07_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0fbf03e8df1e2299340974b5d37b0f8a9d7ba1b84e55e98979ec486e1f678274": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/af846d5b54084e8fc630f15ba2237bc22493385f88488acc9dfdab74097ded07_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b5b6aff1ce1589b0b9265f69d15352f2d9be6235085966008115137a284af6c4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/af846d5b54084e8fc630f15ba2237bc22493385f88488acc9dfdab74097ded07_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f954e81385734700dc39d10dea54eab0b7e0994c677ef1822d78009b834811f1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3f7f54c476d674869d10c89b70ba0fd3d51d2ca29df566ecc56e0572fbe6cf42_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "73d3737e28696e508f3471b0fbe275363a59f7df4f9b1639306e67125b16a58e": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3f7f54c476d674869d10c89b70ba0fd3d51d2ca29df566ecc56e0572fbe6cf42_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b3fbb48e2f33fdf4c7aea8b2b8e8cb8d6bbf43541db115c2647f6c8812c35fbe": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3f7f54c476d674869d10c89b70ba0fd3d51d2ca29df566ecc56e0572fbe6cf42_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "755dfe13c08e340f842ef8a71e12421f31803867eb1e6da52abe5a83ddc64ed9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7b9400411767f85ebc3e0a730850573fc4a622474674d6550080ee33ad03a822_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1376ba905c187637cf4fec10266533516650dc7aa195dbd5dab3aae9053a2804": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7b9400411767f85ebc3e0a730850573fc4a622474674d6550080ee33ad03a822_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8c762e1b3e5907316ded02b2a9bce465ead168023e5982ea0de68ce0eb7f5dcb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7b9400411767f85ebc3e0a730850573fc4a622474674d6550080ee33ad03a822_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "53c5e8f0a07c465223032abfa0ddc894b38f09cf6af7fd698a35e5ec4f8a0edd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/db2948a0aa2efd1b1c7c0d111a543ae46f8e805b281231f7c88b80d2238d3b23_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "64c9f13e8e3a91c528043895ec92e53fd129b0d1e96479e13cb7e66f49af1b15": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/db2948a0aa2efd1b1c7c0d111a543ae46f8e805b281231f7c88b80d2238d3b23_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fd294a3d9c3d649c726df0f70fbf7f248df8b6e4dcd457f8183f166f12c8eb71": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/db2948a0aa2efd1b1c7c0d111a543ae46f8e805b281231f7c88b80d2238d3b23_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f1ced149d469da28d878fbd6616289da67e5b09f7916a4802f747d74807c448c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e05ff72e1907545a69ecbeb57eedaecc42603a8c513408267585d679ae2cb1f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a1bb397b976a29af375fe888a9c61dc84c17c652b5055a19e0038068d782a2dc": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e05ff72e1907545a69ecbeb57eedaecc42603a8c513408267585d679ae2cb1f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "42f058b816597dcd3453494d7304cf33b23b358e1809a55e35aace5d62c790ef": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e05ff72e1907545a69ecbeb57eedaecc42603a8c513408267585d679ae2cb1f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4c7856d66435433b2d9f63ba9aefe71155d15864c20005aca144d450fd2fa0af": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2879a338c552b955fb95dcea5c8eddd5f8749c962a48ff80b56a899f7882e0e9_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5ded08f3e857cbc5ed8e4be15415154a15e6e2add5a17bf9e245d5c6ffa4efbc": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2879a338c552b955fb95dcea5c8eddd5f8749c962a48ff80b56a899f7882e0e9_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "012df6cfe92e496deb26cfa5611b7e7e6eee953519c35704d9867d2078a8e345": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2879a338c552b955fb95dcea5c8eddd5f8749c962a48ff80b56a899f7882e0e9_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "60b3c3c022f9d9cdb2d5e6124cc0499771398121ea9c2ce704fcb4c43ea537a7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/19dd34a7e82a4f928e976f5daecff4d373bfe95c566f9b7c788bfcf817042701_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0aa6b7032caaf6a4612c4c482a90c064f00c9dc3228f48e7018248965ba12afe": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/19dd34a7e82a4f928e976f5daecff4d373bfe95c566f9b7c788bfcf817042701_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3cd58fc5d1642bf3f745f4558fc48d3aa97adf7dcf3a9435718717945c0438ec": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/19dd34a7e82a4f928e976f5daecff4d373bfe95c566f9b7c788bfcf817042701_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b7dddfbd1338afcb7193fce2bcf25a27e066617ab2bfef88e4ec8cd7e9093aa6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5161e355685ae79af64264f4c29de0ac9e243b93c8e20a26d1c313862baff4b5_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "80a89d97101418a4f299cc65a79a251c1c464337d28521150f81847b31c8dbe4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5161e355685ae79af64264f4c29de0ac9e243b93c8e20a26d1c313862baff4b5_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8f574680f91936fa90e7d823c185fe36c0e97f32b9ea1a95e548c434027e8513": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/5161e355685ae79af64264f4c29de0ac9e243b93c8e20a26d1c313862baff4b5_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "dfd50b8da9777026dae676782058f2639387a07b3933e911b1b5660eb1b96bf3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4230f1d26ce782e4b5ff3d80f073f0a9dda750e6b49dc4c9ba9df63ff9469200_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1c27ea0d7e23e429265909016dd61350712bd8bdfcf9385098eebc68a3f4a398": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4230f1d26ce782e4b5ff3d80f073f0a9dda750e6b49dc4c9ba9df63ff9469200_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "69e7788f4daa97a5c720952b432e312cd4425df64a2faa79dc9a4688719e48b1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4230f1d26ce782e4b5ff3d80f073f0a9dda750e6b49dc4c9ba9df63ff9469200_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5799f0928c8333789d4aca73c4160c856fd2e6ae84b42c18f4f48ef19851a345": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c163f4127cd94d00819cb0a9d264a18e33b73175a781c3cbe6a290c9519d182a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9084074d3daef29451c4e75500863812baf023fb7cef31ab750e01e75d5d7ebf": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c163f4127cd94d00819cb0a9d264a18e33b73175a781c3cbe6a290c9519d182a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d6ffc7b19c3b74147944451957c0185402a8748776d856ae25bce57e6e4fbebc": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c163f4127cd94d00819cb0a9d264a18e33b73175a781c3cbe6a290c9519d182a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "7da95a5d56a80065286310b0c17306f8cc87dd43f180493febc48bce8160c8f0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e4fa00f139523e5e55be64ab5e54b582720f6826c603078de7b464057e88300_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "08dee8ba5e8ec5364227f8c065d9e832a95f5683d38d370dc04c440c29f9f8ba": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e4fa00f139523e5e55be64ab5e54b582720f6826c603078de7b464057e88300_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a9a9d315e13dbc94a0c3eee75d811eb5c4372a4751aa2dde28cdd61dafbad4d8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/2e4fa00f139523e5e55be64ab5e54b582720f6826c603078de7b464057e88300_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c2d281e6e7f43e0b792f77b520f6067faf1d6c1bebb8f9b37f72b5e505d56cac": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8ff98ea883bee55a82fb8ceca0cc283f870d7ce53ca73f8f4f00c93f8657bc4b_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2ebc645fcc162ceb185733eeb745a3dbcdeb61afc17a17c517d9a83aec214d53": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8ff98ea883bee55a82fb8ceca0cc283f870d7ce53ca73f8f4f00c93f8657bc4b_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c1f81e2331274ce6792d6d0eb768cd04f1c64ee7b3f0402b729afa652908dbe1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8ff98ea883bee55a82fb8ceca0cc283f870d7ce53ca73f8f4f00c93f8657bc4b_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "edc27c34c65e475bc9749e4dabbadf5873f885a3bcb37b06c9105dacad64cbbb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/60be53ac60c5365d335f302669ef6a83f25381e71a021d4b1a3ebd801f685102_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "86daeeba67d96ac1db75256f6d9bc775a6133f5a531353e116f008c05ef6c592": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/60be53ac60c5365d335f302669ef6a83f25381e71a021d4b1a3ebd801f685102_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6c45813cd90a4e25901ead953d58f5aa24c38a26299bfdb4cd3861224a89ae3c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/60be53ac60c5365d335f302669ef6a83f25381e71a021d4b1a3ebd801f685102_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c2bf0f1e456846236ca00af8403977979d1e4888989a44d5253a04d8708369f7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/00c66526f50e23461d7e67ff119590654f0b2738bc278dbaf0551c9bc5df58aa_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "db54c4871c46b8a20341cb5ea3dc4736fc8d8613093ebc35d11c41dcbbfebfc4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/00c66526f50e23461d7e67ff119590654f0b2738bc278dbaf0551c9bc5df58aa_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6266c4b5a742ed0c49d5cef6f39d5e3382b25ca5174d14b0da176352f9366556": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/00c66526f50e23461d7e67ff119590654f0b2738bc278dbaf0551c9bc5df58aa_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "bc30cd3a859dadd321993f759424bab4462df8330b33fd39a956ff59d4a0fae5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/87bbac2736adcb52ff308ded7b6fdd39ba506f086d6666371b5a71e0ce6d6c20_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3230b46b5833fc2c4af2a11939750948f25b7459fc0e5e31896bcd8f2f7619db": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/87bbac2736adcb52ff308ded7b6fdd39ba506f086d6666371b5a71e0ce6d6c20_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "71ca376467b22e7b77027aa5d5bb7cf6a7b06307002398d452960410446d22db": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/87bbac2736adcb52ff308ded7b6fdd39ba506f086d6666371b5a71e0ce6d6c20_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "909e68a13da42dcb15657f96f765516a171fcb7fa40c11d76226089f7c4c0fa5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4b91c3fa087d14604e02e2861ce3dacf8c71ff68dbd8a2ff47031327a1b988f3_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6f8546e17bb18ad70b10fa8b6d2c092ca9dc4787f7b73cd65f5733aab6948571": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4b91c3fa087d14604e02e2861ce3dacf8c71ff68dbd8a2ff47031327a1b988f3_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6fcee61d31c62c0619d32de72ee4ccc98ccdd1cf3574afc5121713b19b0fa82c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4b91c3fa087d14604e02e2861ce3dacf8c71ff68dbd8a2ff47031327a1b988f3_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "00b5f0331c66dff6e0727c9c0859f69111ca67168edddf7ac30b7c8df7cff938": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/954aaffcd1ccaa7502f62333de93ce50dd7dc09d9922dd773da52780c4d89029_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "371c6c356c7ecb78e2a625b4349ca3ed4346c547fb6c5eb4e79aa9ae85d29021": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/954aaffcd1ccaa7502f62333de93ce50dd7dc09d9922dd773da52780c4d89029_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4ddbc8b0cf332815c5a9d500bda4a89cb877db219a28f1989bdc70dafc03d0f6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/954aaffcd1ccaa7502f62333de93ce50dd7dc09d9922dd773da52780c4d89029_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f1cddbc1e01f19238d927c2190d14dfa8f5beabb55f5924608abce49536640f8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7cb65507227e7660397c9992585aa2b1c3c3d85e907b818a499da8197b527d33_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "62a7c85606f063c6e86d88783ae2c9d5f7881836ae37cfdc66279230687135e1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7cb65507227e7660397c9992585aa2b1c3c3d85e907b818a499da8197b527d33_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "27a73ae1350a10e248287423ae13bd69a024c8b366ed13f69fd94d61c832bc5c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7cb65507227e7660397c9992585aa2b1c3c3d85e907b818a499da8197b527d33_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1700bc85bb538e018ec25e64e663cb0301f8d0a75fe0ecaf1804e3ca11ebfc39": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/00e7fc9449dd58075bfbd9a5efc7ee846e4999ef1b92f4a07cae8e35ab1a27d5_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "08aa483c5839f48eae134c83e250ca438c0cfefef5bee888388699559f3f8743": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/00e7fc9449dd58075bfbd9a5efc7ee846e4999ef1b92f4a07cae8e35ab1a27d5_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d28b774ea970cc25eacb1cb26a96087eb61538703e46128bbe86c3f3bf890346": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/00e7fc9449dd58075bfbd9a5efc7ee846e4999ef1b92f4a07cae8e35ab1a27d5_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b9f552cf693a64dd4424f3acbe231e8e2a20c1abdb53a3018466df4786971643": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e38623596a3e263eb5a0538efb3102e53330a5bad82d8018384ff951e5e42aeb_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5d5b15f3a3e12f66fdecb9d2d7f7daa00fed2977e036c3df5a8ee851d4a912dc": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e38623596a3e263eb5a0538efb3102e53330a5bad82d8018384ff951e5e42aeb_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "616e605bb6b451153e61b5681cc0317e1ceba15314eb5af38c6d0e5052d3eea7": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e38623596a3e263eb5a0538efb3102e53330a5bad82d8018384ff951e5e42aeb_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f45b14fb231eb4b47f8149cbd3c907f13886418b4c25a200884575b7e53aad1a": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/15a62325a6e7ce908f78c772f0d2ed2b1be6415884ba1fa32e775b3a4d9f51ab_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "56b1b78880297833458b02b2700c061b885072e71af99174d743714a6685809d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/15a62325a6e7ce908f78c772f0d2ed2b1be6415884ba1fa32e775b3a4d9f51ab_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "436448a6ba46fd6949f212b3ff984d455f2d7ab9b516fda71b30838d571ea2c5": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/15a62325a6e7ce908f78c772f0d2ed2b1be6415884ba1fa32e775b3a4d9f51ab_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0fd0121a69cd75b753c2a0af49016ba24dba42349ff32e21de94c7c770a7cea1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3eccd96faf06cb644880e7a525714533b02e05c449bd81579841e3a552401e21_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b6c40cce0cb7c0453b82eb12f6114faa393630127621169157fd3fa609765393": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3eccd96faf06cb644880e7a525714533b02e05c449bd81579841e3a552401e21_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c0c8f17fce3ae25fcc3b213496458e846f74e0ad0a0e7b50ee516958434fcd9c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/3eccd96faf06cb644880e7a525714533b02e05c449bd81579841e3a552401e21_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5c0b64d9d8ededb435c94c9b4972c2b31e7619e53b09ee94e86fd06c2985ab59": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/773ccd7230c3aeab4c9acd1cc714801cccfaf56a0162800154ffa06b1668abb0_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "247a4be0cce5c7d70252bf79701c3627f9b38e45c99f0e3d3daffd28436e0fa2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/773ccd7230c3aeab4c9acd1cc714801cccfaf56a0162800154ffa06b1668abb0_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4ad2c944e6d026d0409f8d2cbf2c15bc65d50520b36422c6f5879bb90ffaf862": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/773ccd7230c3aeab4c9acd1cc714801cccfaf56a0162800154ffa06b1668abb0_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ae9471c90dcf3afb5778f51bcb3933eea5289d70c8bc888e69e8d822e83494c8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4a0f49abb05a3a5301bbeb0a23b12046ba0c9690d2b53c513f54375a681289c2_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d983512c86090e870e7a5dcaaaee100f3c4f34c363581cb7ff5f8e290ffc7157": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4a0f49abb05a3a5301bbeb0a23b12046ba0c9690d2b53c513f54375a681289c2_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "4d10d2b7a4b69f3e13679b53a0e9705cae84d76a907c1fe6e7fd948e349d2dc4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/4a0f49abb05a3a5301bbeb0a23b12046ba0c9690d2b53c513f54375a681289c2_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6d9ac292dba331a95216cfae0765942c5fa9c6e41eb5ce418d29d97bb4c36ddb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c6f3a402e2a29163057f20b9739f1aceeb4ab7be2059aa2ca08954d47cd53957_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9913898d7ee7b03998fef688df34435627b921b5d3888092a28ca9142b43666d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c6f3a402e2a29163057f20b9739f1aceeb4ab7be2059aa2ca08954d47cd53957_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6de1ce05a1c117226b1d4b10dfcaff75fcddeb0c16816f169997975cb34daf55": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c6f3a402e2a29163057f20b9739f1aceeb4ab7be2059aa2ca08954d47cd53957_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c4a26e53a3e776aa55976b36b308030ef63e26c1afe60ef9b3934c6e2761ea15": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1b2f3bd83cdce243f30e6abb34cbca8a40d3d6f195cb3680841725f83854fe60_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "95fa624cd0b7ab02d582b4265d2087d63eb9fe5cce23197a285f9f65cef62c3c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1b2f3bd83cdce243f30e6abb34cbca8a40d3d6f195cb3680841725f83854fe60_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3d07e04942fea7e47d949d8cf1a472f12ef26e7d40c3d17fcf676ba7c6da65dc": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/1b2f3bd83cdce243f30e6abb34cbca8a40d3d6f195cb3680841725f83854fe60_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c4576f0801f4d7cf993c049697574881f700f0a460666cd09ccb2bcce5364f0b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/dcbd36e9a8bc324803c8d2d6846e673c7007bb143e2b48f22cf4ba020127e99a_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e442f333dc531eecc2c6a10e3af9e707186f27d18ce47835bd0847113fcf8afa": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/dcbd36e9a8bc324803c8d2d6846e673c7007bb143e2b48f22cf4ba020127e99a_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e46355ce682aed2ebfa4ab99cc81d3405fedfb5d2f09d39ad42676f3a8f8483b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/dcbd36e9a8bc324803c8d2d6846e673c7007bb143e2b48f22cf4ba020127e99a_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a00be8729e146b3c2ef9ef5d0a9e79e5be0d4501332149855e0deeb2d8f520eb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9b84bfb2d4a7504f61a883e3ccb3a80acf2ce181782db944a3da2793c6cf6569_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8fd2e3a291f66c2485d0e1bc22117c7fc69aab26b89851e7a085e8503f4187d2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9b84bfb2d4a7504f61a883e3ccb3a80acf2ce181782db944a3da2793c6cf6569_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "00f300fa1cd903c3c47a1270375423c256952f357c9fd15d02b9318923211778": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/9b84bfb2d4a7504f61a883e3ccb3a80acf2ce181782db944a3da2793c6cf6569_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ae6a3b28952fedd64819bc07f92611b53ec5dcacfdf8ffaba73edd5a7124adb6": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cd736bf5431700e33ffe12c5371d2a3d8c034272b6f986978ba5cd2c80203550_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "13961b686d4737104c482c535e75cddd01167b6b00d1c4fa2192184ba7ace312": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cd736bf5431700e33ffe12c5371d2a3d8c034272b6f986978ba5cd2c80203550_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1b6372ce854810f6a339990374329870e5ae4ef15719e3550b14ed5b567c0419": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cd736bf5431700e33ffe12c5371d2a3d8c034272b6f986978ba5cd2c80203550_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "21edb3314bf8d3d3f826b536c8056ae5550d7b6b39697ca92e7aee6c7f61d408": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8c8d035943e072e52455f34b751f50f514a7eadd215c8ebfbe002d15dc00d2ac_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "6f969b435e832b93e81d05d3181bc2b57d2d15e6e42ada3632520563d7aa1789": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8c8d035943e072e52455f34b751f50f514a7eadd215c8ebfbe002d15dc00d2ac_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a221c07713c97debd5bb7153e5cbd7aae8f1e40d3a7d07e14e6063d27277f668": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8c8d035943e072e52455f34b751f50f514a7eadd215c8ebfbe002d15dc00d2ac_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c4c102f0dbee98bb7f526be76cf5cefcec1345b53d21245a34bf9e20099f05e2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab31d22664997e27efa9481466471af372b4c7ab09cdfc7121590eec3587cfb8_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3064847034a939346ba6c763114c6eb1b1392c0e14145460c075e62bf51c7784": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab31d22664997e27efa9481466471af372b4c7ab09cdfc7121590eec3587cfb8_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a9ddda0e7aa238998a513923d585f526685ef1a8e260ae0429c76fc22dbe71b2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/ab31d22664997e27efa9481466471af372b4c7ab09cdfc7121590eec3587cfb8_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "b72a92de045cf6eb8304017e2b25e86f614b2ea0b1543554411959e4a27c1875": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/833ed6a241f12a3d2917e57800d84e91e6cc6c7a39acdc7d1e93b9d7a006d5f2_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2b444d8590bff16670e8e6dc03f4116e8b5054b7c33453fc1601cecb90b94325": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/833ed6a241f12a3d2917e57800d84e91e6cc6c7a39acdc7d1e93b9d7a006d5f2_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0596801e3335b46a7395a0f98054e913e74fac93715292fd0dc8e8db797d7343": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/833ed6a241f12a3d2917e57800d84e91e6cc6c7a39acdc7d1e93b9d7a006d5f2_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "437b7158bb92ee28bba3a9c9b6f174b2395cff98cca1449d0bbdb2a2ad8171f1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cec32af26538ea3fda5ea6b4fcc283255d1e67552882876442f45ffaca5fd9a7_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "36263c78e0cbef650c770634baf046f476438561731a695d08e45a696499c61c": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cec32af26538ea3fda5ea6b4fcc283255d1e67552882876442f45ffaca5fd9a7_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9fa9bff17fa40a953594a16624f6d4016d3eff7bc4d633ca5300a0f92d0ad4cd": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/cec32af26538ea3fda5ea6b4fcc283255d1e67552882876442f45ffaca5fd9a7_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "74bdce942b2adc72b4af7e59aed67303d5c6e00d2a3263a9536e3f648dfa9353": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/daf258fd27844c356aa67a4e782a2867e2f0924bee84acd52b72c2508d4d8b70_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "698cbb471c80d5d9072f48320073c52df4df8d386c06be62eea0e33b956544f8": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/daf258fd27844c356aa67a4e782a2867e2f0924bee84acd52b72c2508d4d8b70_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e0beab2e21598999a59fbded534a8a85e2b5c5d088d1e62281c1f5670fedb16b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/daf258fd27844c356aa67a4e782a2867e2f0924bee84acd52b72c2508d4d8b70_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1bd189e592dfb6adcca3f14763203d3b7279cdebe73771d0a6c6eb39375f84a4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c4d3c0659477bb7a073bb895a8d2013cf337cbd7b2f802605022533ee2cd760f_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0273b4e52ef173a9c34c8b493a4c69915d45dc8915be882c017aa8652fc759ed": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c4d3c0659477bb7a073bb895a8d2013cf337cbd7b2f802605022533ee2cd760f_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "3cb377623ecc624e0769547451d73e6b9cb2d5053def30198e65d078e8aa0441": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/c4d3c0659477bb7a073bb895a8d2013cf337cbd7b2f802605022533ee2cd760f_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "78f47755b628b1cbd6177b5decdd6ffc2dbd9012f784c4aa6c771a20d9a6748d": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d6477e9ac41cfdf4c28c506768788b38e7778313734e01f4165d2ca78a06e02d_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "8028b786153b6f57d533c1acc2caf153067193bd7d9ba8e1527461f1e7e9bc15": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d6477e9ac41cfdf4c28c506768788b38e7778313734e01f4165d2ca78a06e02d_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d97b02ad3ba73639a26a439cf281e1516dbaa1030d1f43e9e96a8e4e4cfd9df0": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/d6477e9ac41cfdf4c28c506768788b38e7778313734e01f4165d2ca78a06e02d_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "c872aed251f041617fc787025fb96b2b5388ae12b079c0afeb80c64df19cd9a3": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/96d95554b9dfa0e4dc13fc5498c86ad437b8b55e61b9a732ad99ef1d5f7bdcb4_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "a389182f007e10ffc55dc3f1e12adabf75c9fda07a6cd785406a3346bf1e873f": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/96d95554b9dfa0e4dc13fc5498c86ad437b8b55e61b9a732ad99ef1d5f7bdcb4_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "82119f1ee622cd6c6f975b216a78bcbbd4b2cd2cd0fe97ae1366ee340eac47c4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/96d95554b9dfa0e4dc13fc5498c86ad437b8b55e61b9a732ad99ef1d5f7bdcb4_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "fe902a1c4e76edefb606211236e67fd47b36d376214b13306ec269841752e4c2": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7d7c7e783fde044a2678dc06e474f624af61926b80fb3c227125d6139669a677_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d6fee13bb05204a6ed0539cfbfff322faca54a2faae51bccf07ff8f29ba43f31": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7d7c7e783fde044a2678dc06e474f624af61926b80fb3c227125d6139669a677_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "2ffda50aaa693eab1cd4cc8696fa10ec8580a69138378a0583f4a3012704c973": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7d7c7e783fde044a2678dc06e474f624af61926b80fb3c227125d6139669a677_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "69017a9f9023fca5d81dcebf2cf6eb9a52c090732560cf0ef322eb405f994bc4": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7fbe0e7b003304a3ddf520456e00ecbb4c0a78ef3d4058579d41e600ba1b82aa_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "72f06b760ae1621aac143e34f9ed93c3c5553f9db11eca273ae6a563b7182a46": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7fbe0e7b003304a3ddf520456e00ecbb4c0a78ef3d4058579d41e600ba1b82aa_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "f73e374b30d1c2ba748d7faaca8a68c07b15ac5edb0e334fab7e88377c6c8757": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7fbe0e7b003304a3ddf520456e00ecbb4c0a78ef3d4058579d41e600ba1b82aa_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "87a05acf01573356977d053e5c06e095c5d37a818e798ddd8ec9d8af4f1fbe51": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7ddc8cd4f86e93bdad59c7bb4e8ebc010ac4e117d95237d61859a8ec9fcd0a62_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e71968a11f62dd12ae5befee7e8372a6bc0eda35b977c2172730f399f2d94112": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7ddc8cd4f86e93bdad59c7bb4e8ebc010ac4e117d95237d61859a8ec9fcd0a62_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "18f381bf690eda16d52d1d060187ebd1a42f4e711bd564c337756d4c64db01eb": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/7ddc8cd4f86e93bdad59c7bb4e8ebc010ac4e117d95237d61859a8ec9fcd0a62_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "9a4fe0ecce16a94950addbf020716dc3c7236440d09a33e768727409dcc82634": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6f0fdd852f65d080c7cf7eea904511027ac67ff05f029cb72b19e0840c41c738_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "5b31c18ca0888a6176125a1652bfea6aaf799a06038fb2a026d0bd93d75eece1": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6f0fdd852f65d080c7cf7eea904511027ac67ff05f029cb72b19e0840c41c738_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "32a869b064c702ff485186bc21af2d1678a1fae56c6bcb4dbf2f4774a7246e6b": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/6f0fdd852f65d080c7cf7eea904511027ac67ff05f029cb72b19e0840c41c738_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "0b5014a9f09ae4997f99270b6e6d19f480a6f231ad323370e34e5a8a005cd3e9": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e235aee765e213504ce7f17299a776d9b7f518f168b605ce124b4609f3f78274_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "e837e837a295cd1a19bd15f0fea8e986b0da1a716a5426da4825935325fc0fae": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e235aee765e213504ce7f17299a776d9b7f518f168b605ce124b4609f3f78274_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "ddd9625a94251a9ea119ac7953d71dca4770fec3d853afe918555b294b77e9ee": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/e235aee765e213504ce7f17299a776d9b7f518f168b605ce124b4609f3f78274_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "97de855af117fdbe08375f873afd04f85d8db90ee3df2b05ffaf18b2f4667977": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8cdcddf0e404b6ee2b7ca0eeed021e7f039d81dfbbc7cb0e8a55d43022fc2b04_candidate",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "1f4d35ae063d2f238ccdef5054ef62a9b029a3e52ca4a875ad861ac1b324f441": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8cdcddf0e404b6ee2b7ca0eeed021e7f039d81dfbbc7cb0e8a55d43022fc2b04_incumbent",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  },
+  "d73594acce4ce33db027609d4230d75e5ef78b055f572ad79613817f1af78a99": {
+    "kind": "SOURCE_BOUND_RUN",
+    "path": "runs/8cdcddf0e404b6ee2b7ca0eeed021e7f039d81dfbbc7cb0e8a55d43022fc2b04_buy_hold",
+    "source_commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877"
+  }
+}

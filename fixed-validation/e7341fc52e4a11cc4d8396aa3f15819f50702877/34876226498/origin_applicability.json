@@ -1,0 +1,214 @@
+{
+  "old_source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "current_source": {
+    "commit": "e7341fc52e4a11cc4d8396aa3f15819f50702877",
+    "package_sha256": "077e833265807e1fcc3d12d0a047fae343bd18d4508b572d0956a6683dfa4960",
+    "files": {
+      "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+      "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+      "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+      "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+      "data.py": "b8580ccda8bf04cb6c4e8c4d985538946b51638d1c78086c1049bd64239cfa1b",
+      "engine.py": "822bf6d0afd8ea377e74d0811b00e8389daa40b1bbac774ff19b1e915bcc18bc",
+      "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+      "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+      "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+      "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+      "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+    },
+    "python": "3.13.5",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3"
+    }
+  },
+  "old_manifest_sha256": "0a7ad55acb16352499f2db953caecb1d288aaaf61c1c433a1226e2de240e8725",
+  "accounts": [
+    {
+      "account": "evaluation/runs/chatgpt_5_buy_hold",
+      "fills": 5,
+      "ordinary_fills": 5,
+      "protective_fills": 0,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.195111,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/chatgpt_5_incumbent",
+      "fills": 139,
+      "ordinary_fills": 63,
+      "protective_fills": 76,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.0859387494709543,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/chatgpt_5_observed_admission_completion",
+      "fills": 137,
+      "ordinary_fills": 70,
+      "protective_fills": 67,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.013258138137365235,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/joint_optical_leader_removal_buy_hold",
+      "fills": 31,
+      "ordinary_fills": 31,
+      "protective_fills": 0,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.010404873394527527,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/joint_optical_leader_removal_incumbent",
+      "fills": 209,
+      "ordinary_fills": 96,
+      "protective_fills": 113,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.09996174809668017,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/joint_optical_leader_removal_observed_admission_completion",
+      "fills": 194,
+      "ordinary_fills": 100,
+      "protective_fills": 94,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.01821899161193108,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/union_buy_hold",
+      "fills": 32,
+      "ordinary_fills": 32,
+      "protective_fills": 0,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.01909911918716805,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/union_incumbent",
+      "fills": 202,
+      "ordinary_fills": 96,
+      "protective_fills": 106,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.09007051314151081,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "evaluation/runs/union_observed_admission_completion",
+      "fills": 175,
+      "ordinary_fills": 91,
+      "protective_fills": 84,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.019108001459182435,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/buy_hold_chatgpt_5",
+      "fills": 5,
+      "ordinary_fills": 5,
+      "protective_fills": 0,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.195111,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/buy_hold_joint_optical_leader_removal",
+      "fills": 30,
+      "ordinary_fills": 30,
+      "protective_fills": 0,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.011974633226555889,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/buy_hold_union",
+      "fills": 32,
+      "ordinary_fills": 32,
+      "protective_fills": 0,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.01909911918716805,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/candidate0_chatgpt_5",
+      "fills": 118,
+      "ordinary_fills": 60,
+      "protective_fills": 58,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.013258138137365235,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/candidate0_joint_optical_leader_removal",
+      "fills": 161,
+      "ordinary_fills": 82,
+      "protective_fills": 79,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.03492556047650012,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/candidate0_union",
+      "fills": 149,
+      "ordinary_fills": 79,
+      "protective_fills": 70,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.03482286677125806,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/incumbent_chatgpt_5",
+      "fills": 119,
+      "ordinary_fills": 56,
+      "protective_fills": 63,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.0859387494709543,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/incumbent_joint_optical_leader_removal",
+      "fills": 179,
+      "ordinary_fills": 81,
+      "protective_fills": 98,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.1036421658360164,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    },
+    {
+      "account": "selection/runs/incumbent_union",
+      "fills": 175,
+      "ordinary_fills": 85,
+      "protective_fills": 90,
+      "subfloor_fills": 0,
+      "minimum_ordinary_fraction": 0.09007051314151081,
+      "maximum_ledger_error": 0.0,
+      "violations": []
+    }
+  ],
+  "reuse_permitted": false,
+  "reasons": [
+    "research dependency identity changed"
+  ],
+  "limitation": "Applicability only for these recorded paths; not new-HEAD economic acceptance."
+}
