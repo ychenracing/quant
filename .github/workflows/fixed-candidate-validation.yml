@@ -1,0 +1,117 @@
+name: Fixed candidate original coverage
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/fixed-candidate-validation.yml
+      - research/fixed-validation-request.json
+permissions:
+  contents: write
+concurrency:
+  group: fixed-candidate-original-coverage
+  cancel-in-progress: false
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src:tests:.
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve exact source
+        run: |
+          mkdir -p "$RUNNER_TEMP/fixed-validation"
+          git archive --format=tar.gz HEAD > "$RUNNER_TEMP/fixed-validation/source.tar.gz"
+          git rev-parse HEAD > "$RUNNER_TEMP/fixed-validation/source-commit.txt"
+          git rev-parse 'HEAD^{tree}' > "$RUNNER_TEMP/fixed-validation/source-tree.txt"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install frozen runtime
+        run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Verify correctness and research contracts
+        run: |
+          python -m unittest discover -s tests -v > "$RUNNER_TEMP/fixed-validation/correctness.txt" 2>&1
+          python -m unittest discover -s research -p 'test_*.py' -v >> "$RUNNER_TEMP/fixed-validation/correctness.txt" 2>&1
+      - name: Validate the fixed candidate without reselection
+        timeout-minutes: 6
+        run: |
+          python -u - <<'PY' > "$RUNNER_TEMP/fixed-validation/execution.txt" 2>&1
+          import json, os, pathlib, traceback
+          from research.fixed_validation import hosted, write_json
+          output=pathlib.Path(os.environ['RUNNER_TEMP'])/'fixed-validation'
+          try:
+              request=json.loads(pathlib.Path('research/fixed-validation-request.json').read_text())
+              if request['family']!='observed_admission_completion' or request['reselection'] or request['candidate_count']!=1:
+                  raise ValueError('unexpected fixed validation request')
+              hosted(output)
+          except Exception:
+              write_json(output/'failure.json',{'status':'FAILED','traceback':traceback.format_exc()})
+              raise
+          PY
+      - name: Preserve complete and partial evidence
+        if: always()
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, tarfile
+          root=pathlib.Path(os.environ['RUNNER_TEMP']);output=root/'fixed-validation'
+          output.mkdir(exist_ok=True)
+          complete=(output/'summary.json').exists() and (output/'prefix_checks.json').exists() and not (output/'failure.json').exists()
+          receipt={'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
+                   'family':'observed_admission_completion','operation':'fixed_original_coverage',
+                   'measurement_complete':complete,'economic_acceptance':'UNVERIFIED',
+                   'status':'FINITE_DIAGNOSTIC' if complete else 'INCOMPLETE_OR_FAILED'}
+          (output/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          manifest={str(p.relative_to(output)):hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in sorted(output.rglob('*')) if p.is_file() and p.name!='MANIFEST.json'}
+          (output/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          archive=root/'fixed-validation.tar.gz'
+          with tarfile.open(archive,'w:gz') as bundle:bundle.add(output,arcname='fixed-validation')
+          (root/'fixed-validation.sha256').write_text(hashlib.sha256(archive.read_bytes()).hexdigest()+'  fixed-validation.tar.gz\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fixed-validation-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/fixed-validation.tar.gz
+            ${{ runner.temp }}/fixed-validation.sha256
+          retention-days: 90
+          if-no-files-found: error
+      - name: Append evidence and verify remote bytes
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -s "$RUNNER_TEMP/fixed-validation.tar.gz"
+          gh auth setup-git
+          git clone --depth=1 --branch research/evidence "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/fixed-evidence-store"
+          cd "$RUNNER_TEMP/fixed-evidence-store"
+          destination="fixed-validation/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"
+          mkdir -p "$destination"
+          split -b 40000000 -d -a 3 "$RUNNER_TEMP/fixed-validation.tar.gz" "$destination/fixed-validation.tar.gz.part-"
+          cp "$RUNNER_TEMP/fixed-validation.sha256" "$destination/"
+          find "$RUNNER_TEMP/fixed-validation" -maxdepth 1 -type f ! -name source.tar.gz -exec cp {} "$destination/" \;
+          (cd "$destination"; sha256sum fixed-validation.tar.gz.part-* > SHA256SUMS)
+          git config user.name 'quant research publisher'
+          git config user.email 'quant-research@users.noreply.github.com'
+          git add -- "$destination"
+          git commit -m 'research: preserve source-bound original coverage and all raw failures'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/evidence; then
+              git fetch origin research/evidence
+              expected=$(cut -d' ' -f1 "$RUNNER_TEMP/fixed-validation.sha256")
+              actual=$(for part in "$destination"/fixed-validation.tar.gz.part-*; do git show "FETCH_HEAD:$part"; done | sha256sum | cut -d' ' -f1)
+              test "$actual" = "$expected"
+              printf '%s\n' "Read-back verified $destination $actual" >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1

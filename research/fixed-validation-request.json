@@ -1,0 +1,10 @@
+{
+  "family": "observed_admission_completion",
+  "operation": "fixed_original_coverage",
+  "contract_commit": "b4fc91c1ea3c98f65f3e7c4efdfd12f58f903749",
+  "origin_source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "origin_run": "34868483244",
+  "candidate_count": 1,
+  "reselection": false,
+  "economic_acceptance": "UNVERIFIED"
+}
