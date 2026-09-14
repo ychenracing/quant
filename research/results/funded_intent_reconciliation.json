@@ -1,0 +1,48 @@
+{
+  "status": "OVERLAPPING_LOCAL_IMPLEMENTATION_NOT_PROMOTED",
+  "local_contract_commit": "119afdf05297460e94a97dd7539207a38f5bb658",
+  "tested_parent_source": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+  "recoverable_patch": {
+    "commit": "6c0da0d818787ffdc704b5bb79c6ba048141cea7",
+    "path": "research/verification/funded_intent_local.patch",
+    "blob_sha": "350c3aeb901b7180773dd68914c5d7afa0afdde6",
+    "read_back": true,
+    "git_apply_returncode": 0,
+    "reconstructed_files_byte_identical_to_locally_tested_source": true,
+    "source_files_sha256": {
+      "research/support_budget.py": "c8db737f5823babd81512b52f63aa4c3a3fd2e570afe16dcf20e2387a65a58a6",
+      "research/funded_intent.py": "ba95f42b30c24726aeeac3a149b9b1fc5e90f664e68c12a872044612feef9f94",
+      "research/finite_study.py": "c25c0e3469bb2a3472385bd1c07d17efcd6e291a44821edc2c8a8f2b2d90ef93",
+      "research/test_funded_intent.py": "5f2118cf039d7b4b12067c32ee0eed2d1bda42f4a05c896899c2cd1fe3b6dcf0"
+    },
+    "warning": "Historical patch for the exact parent plus the separately preserved funded_intent contract. Do not apply it to the concurrent current runner or promote it. It is evidence, not a second production entry point."
+  },
+  "local_engineering": {"offline_tests": 77, "integrated_research_tests": 96, "targeted_tests": 23, "old_parent_close_decisions_reproduced": 4362, "old_parent_maximum_weight_residual": 1.1102230246251565e-16},
+  "comparison_basis": {
+    "source_commit": "180640bff6d3a125cdf1b8928a6e0fc32a1d5f1a",
+    "source_tree": "1b4b648af932b3877bc81f8484ede6cc6564802c",
+    "run_id": 34836286943,
+    "artifact_id": 10343249980,
+    "archive_sha256": "ffc82ff43d6d5ac01d2acbc9f0c265885e916d09d1c717a492df989687f45ec7",
+    "manifest_files_verified": 174,
+    "method": "Restore immutable saved actual holdings and cash for funded and cushion members in union/common-five/joint-leader-removal through 2025-12-31. Reconstruct both implementations on those observations. This is not a new grid or an alternative executable portfolio return."
+  },
+  "observed_comparison": {
+    "close_decisions": 4362,
+    "maximum_saved_quantity_target_residual": 0.0,
+    "maximum_target_weight_difference": 0.0,
+    "maximum_target_unit_difference": 0.0,
+    "maximum_reported_cap_difference": 2.220446049250313e-16,
+    "boolean_state_discrepancies": [
+      {"authority": "cushion", "scope": "union", "date": "2025-09-16", "field": "exit_pending", "symbol_index": 20, "actual_units": 112.16032181017823, "both_declared_targets": 0.0, "local_flag": true, "quantity_flag": false},
+      {"authority": "cushion", "scope": "joint_optical_leader_removal", "date": "2025-09-01", "field": "exit_pending", "symbol_index": 20, "actual_units": 35.853270199171675, "both_declared_targets": 0.0, "local_flag": true, "quantity_flag": false}
+    ],
+    "qualification": "Matching these recorded targets is not full state/path equivalence. The local hook separates ceilings but the inherited rounded-to-zero branch can still latch an unnecessary full-exit obligation. Quantity keeps all declaration rounding outside the economic state and remains the retained implementation."
+  },
+  "measurement": "No funded_intent economic grid was run. Do not redispatch an overlapping comparison or relabel quantity outcomes as the different funded_intent source/two-candidate contract. Preserve the quantity study's additional support control and all previous failures.",
+  "quantity_selected_full_wealth": {"union": 8.657464498421714, "chatgpt_5": 8.045047, "joint_optical_leader_removal": 2.875969},
+  "quantity_economic_acceptance": "NOT_PASSED",
+  "raw_local_diagnostic_preservation": "The original filled-account archives are remotely durable. This worker's full local diagnostic CSVs and exact red/green log bundle are still pending an immutable raw preservation save; this summary does not claim those files are already uploaded.",
+  "production_changed": false,
+  "next": "Continue from the corrected owner's actual remaining selection, funding, holding and exit deficiencies. Preserve unchanged original acceptance, references, risk history and every valid or rejected result."
+}
