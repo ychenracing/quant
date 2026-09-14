@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"trend_conditioned_closing_risk",
+  "parent":"Measured event-driven breakout ownership; fixed entry_window=40, stop_atr=3.5, entry_cap=0.7, exit_style=trailing. No reference engine inheritance.",
+  "hypothesis":"A fixed multiple of intraday true range treats smooth close-to-close leaders and noisy gap-driven leaders alike. Tighten a holding stop when a drawdown becomes unusual relative to its own previously observed positive drift and closing variance, rather than tightening all stocks after the same percentage rally.",
+  "candidate_grid":{"drift_window":[20,40,80],"variance_window":[20,60],"tail_tolerance":[0.05,0.15]},
+  "candidate_count":12,
+  "risk_equation":"Use log close returns. Prior-session drift estimate is rolling mean minus half its estimated standard error. With positive drift mu and prior rolling variance v, Brownian first-passage score gives log-distance d = -log(tail_tolerance) * v / (2*mu). Convert to price distance 1-exp(-d), bound between 6 and 22 percent. With nonpositive/unknown drift, use 22 percent. Combine with the existing ratcheted ownership stop by taking the tighter stop; never loosen after a volatility jump. A crossed closing stop executes at the next opening under unchanged constraints.",
+  "interpretation":"This is a dimensionless risk score motivated by a simplified diffusion model, NOT a calibrated market probability or a guaranteed drawdown bound. Drift shrinkage discourages confidence in a noisy short rally. No date or security identifiers are model inputs.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "evidence":"Preserve every candidate and predecessor, identity-bind the ownership dependency and risk extension, test prefix equivalence and non-widening stops. All 2026 evaluation is retrospective, not untouched validation. Frozen accounting, cash, fees, capacity, data and acceptance targets remain unchanged."
+}
