@@ -1,0 +1,19 @@
+{
+  "audit_identity.json": "320f07c2afb9e4732ecf1cc5a09b64e2d98256f9d4165ac3d2f7d3e46285cecd",
+  "correctness.txt": "624b8677fc64d111df177acbbff33a22c1404ca7554302b32184c62c2122ed9a",
+  "execution.txt": "796a1d4966a2feb3a8933240ae1fb35e7372ea6838a8691d9700ed0a2e0a5ada",
+  "projection_audit/evaluation_chatgpt_5_funded_risk.csv": "1ef84a90b1e895c515e82c7bab0e6c7ab123ba331a05c63891b0c35c27a7bcc6",
+  "projection_audit/evaluation_joint_optical_leader_removal_funded_risk.csv": "f06664b568211b6b5657711671a00e2674b3e062e2180940c626753831f2c54c",
+  "projection_audit/evaluation_union_funded_risk.csv": "308325309af314414c0b427b8304fd17a3071c352964f8d0fd5dad9ade556974",
+  "projection_audit/selection_candidate0_chatgpt_5.csv": "fb494868fa261de3095f862c2c76f828092549ea9f5faec65eeee40f10e33d72",
+  "projection_audit/selection_candidate0_joint_optical_leader_removal.csv": "912e69b8c6d4ea0871b08cd3369fa290a1c8340a01c63c1ddfff37a4276dcad3",
+  "projection_audit/selection_candidate0_union.csv": "622d5cf2d306a4eb530b44c244c148be07542000c2823d9dda50ed0a50e22c39",
+  "projection_audit/selection_candidate1_chatgpt_5.csv": "cda5763904b06d852b497f206aeb399518337eb9c38bb01331859ed1b81c8f35",
+  "projection_audit/selection_candidate1_joint_optical_leader_removal.csv": "7b81a83895fd012eecfacc1f80749e53dc7d1c4f44f712cce987705d1f3707ce",
+  "projection_audit/selection_candidate1_union.csv": "028a3f62769e708d2e6477f3c62efdf5cc6f4a33d64925ccf6a6dc51fa0dd792",
+  "projection_audit/summary.json": "16bcd4936dd1f5377f2f4de528c3c65e6958544875c71888fa7c4de1821b66dd",
+  "receipt.json": "d07bf9cb469cb359bc1cd54c37dd3bcddc350da70851cf8e9cbddad069cb7a9d",
+  "source-commit.txt": "15dcbecd10d9e840e3b0ef8057f65e152d397887fa9fb18135d5ecb0565ca230",
+  "source-tree.txt": "f3632f516d62e1235e855aeb2f8bd09e9a948da8f26b6ab229d259257e6f8a97",
+  "source.tar.gz": "2bd02d2d8a7f91031d17a88181e5d33c38565920a6104c4525a259c07bde69c8"
+}

@@ -1,0 +1,9 @@
+{
+  "source_commit": "43d21e6e33bf2718938c3ec97bd751d898e33426",
+  "run_id": "34836647840",
+  "family": "funded_risk",
+  "operation": "funded_projection_audit",
+  "selection_status": "NOT_APPLICABLE_DIAGNOSTIC",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}

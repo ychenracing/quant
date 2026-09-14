@@ -1,0 +1,127 @@
+{
+  "status": "ACTUAL_FILL_DIAGNOSTIC_NOT_ECONOMIC_ACCEPTANCE",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "original_policy_sha256": "ce4098f237ae4e9be1fd27a870f0554049fce7a3d0cfc1f4b5e191560e4b5631",
+  "corrected_policy_sha256": "f91211b5fd377a54bf50778602d066c6e6247e44acbaab8faf48f9972a5751e0",
+  "method": "Reconstruct all archived actual fills, verify T+1, NAV and every original close target/reason. Feed same observations to corrected policy; changed decisions require fresh execution, not relabeling this trace as a portfolio return.",
+  "qualification": "The corrected owner does not execute its alternative requests in this diagnostic. A requested reduction is never counted as an actual fill or spendable cash.",
+  "runs": [
+    {
+      "run": "evaluation_chatgpt_5_funded_risk.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": true
+      },
+      "sessions": 896,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "1ef84a90b1e895c515e82c7bab0e6c7ab123ba331a05c63891b0c35c27a7bcc6"
+    },
+    {
+      "run": "evaluation_joint_optical_leader_removal_funded_risk.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": true
+      },
+      "sessions": 896,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "f06664b568211b6b5657711671a00e2674b3e062e2180940c626753831f2c54c"
+    },
+    {
+      "run": "evaluation_union_funded_risk.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": true
+      },
+      "sessions": 896,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "308325309af314414c0b427b8304fd17a3071c352964f8d0fd5dad9ade556974"
+    },
+    {
+      "run": "selection_candidate0_chatgpt_5.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": false
+      },
+      "sessions": 727,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "fb494868fa261de3095f862c2c76f828092549ea9f5faec65eeee40f10e33d72"
+    },
+    {
+      "run": "selection_candidate0_joint_optical_leader_removal.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": false
+      },
+      "sessions": 727,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "912e69b8c6d4ea0871b08cd3369fa290a1c8340a01c63c1ddfff37a4276dcad3"
+    },
+    {
+      "run": "selection_candidate0_union.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": false
+      },
+      "sessions": 727,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "622d5cf2d306a4eb530b44c244c148be07542000c2823d9dda50ed0a50e22c39"
+    },
+    {
+      "run": "selection_candidate1_chatgpt_5.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": true
+      },
+      "sessions": 727,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "cda5763904b06d852b497f206aeb399518337eb9c38bb01331859ed1b81c8f35"
+    },
+    {
+      "run": "selection_candidate1_joint_optical_leader_removal.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": true
+      },
+      "sessions": 727,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "7b81a83895fd012eecfacc1f80749e53dc7d1c4f44f712cce987705d1f3707ce"
+    },
+    {
+      "run": "selection_candidate1_union.csv",
+      "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+      "parameters": {
+        "use_cushion": true
+      },
+      "sessions": 727,
+      "changed_close_decisions": 0,
+      "requested_risk_budget_breaches": 0,
+      "first_breach": null,
+      "max_archived_target_absolute_error": 0.0,
+      "audit_sha256": "028a3f62769e708d2e6477f3c62efdf5cc6f4a33d64925ccf6a6dc51fa0dd792"
+    }
+  ]
+}
