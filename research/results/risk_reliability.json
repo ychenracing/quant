@@ -1,0 +1,38 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "economic_acceptance": "NOT_PASSED",
+  "canonical": false,
+  "source_commit": "2c8a4d9a3515a60f5e77079e2e3d143c98272611",
+  "source_tree": "90df7c50d0cf5873e53d34d100b7c667177da1eb",
+  "source_tree_recovered_and_verified": true,
+  "run_id": 34833640407,
+  "artifact_id": 10343106719,
+  "zip_sha256": "e02383b34ecdbb5beb6bf36b8133c907eec094b89ce4a0742ac8b5b0ac72d16f",
+  "archive_sha256": "2ff4d6097aadb4deba169c89899646c8a6302910eca029dd8aeb5a5eb92e143a",
+  "evidence_path": "nonlinear/2c8a4d9a3515a60f5e77079e2e3d143c98272611/34833640407",
+  "manifest_files_verified": 174,
+  "remote_receipt_read_back": true,
+  "issued_forecast_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+  "new_model_fits": 0,
+  "selected_parameters": {"audit_tail": true},
+  "selection_end": "2025-12-31",
+  "selection_worst_deficit": 0.4369747899159664,
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "full_period": [
+    {"scope": "union", "wealth": 3.15191640484295, "max_drawdown": 0.34239296869540403, "orders": 206},
+    {"scope": "chatgpt_5", "wealth": 8.863432244322361, "max_drawdown": 0.3926880893573519, "orders": 201},
+    {"scope": "joint_optical_leader_removal", "wealth": 1.6200951525384168, "max_drawdown": 0.35331033491094144, "orders": 228}
+  ],
+  "hosted_correctness": {"offline_tests": 77, "research_tests": 82},
+  "attribution": {
+    "method": "Reconstruct actual filled inventory and reproduce every selected pre-2026 close target; maximum target residual is zero in every pool. Reconcile carried-inventory and execution PnL. For each active close, remove only current model authority in a copy of the same actual account and obligations. This is a local decision ablation, not a replacement portfolio or executable counterfactual return.",
+    "maximum_nav_reconciliation_error_cny": 3.3614924177527428e-9,
+    "union": {"active_dates": 140, "marginal_target_change_dates": 7, "model_only_exit_warnings": 7, "matured_price_observations": 7, "subsequent_price_appreciation_count": 4, "mean_next_open_to_mature_close_price_return": 0.15040459585244456},
+    "chatgpt_5": {"active_dates": 88, "marginal_target_change_dates": 4, "model_only_exit_warnings": 2, "matured_price_observations": 2, "subsequent_price_appreciation_count": 1, "mean_next_open_to_mature_close_price_return": -0.051559725472548945},
+    "joint_optical_leader_removal": {"active_dates": 129, "marginal_target_change_dates": 10, "model_only_exit_warnings": 6, "matured_price_observations": 5, "subsequent_price_appreciation_count": 3, "mean_next_open_to_mature_close_price_return": 0.27634281616778483},
+    "qualification": "Forward prices are diagnostic outcomes matured by 2025-12-31, never policy inputs or proof of an executable alternative. Held-unit reductions and foregone new additions are separate quantities. Not every price rally means a risk warning was an error. Aggregate positive Brier skill did not establish useful liquidation authority."
+  },
+  "continuation": "Do not tune this rejected reliability grid to 2026 or relabel it accepted. Preserve and assess the concurrently implemented preregistered funded-risk owner, which separates warning-driven new commitments from funded inventory liquidation. Continue evidence-supported decision improvement under the unchanged original acceptance contract.",
+  "production_changed": false,
+  "accounting_limitation": "Adjusted economic units remain a proxy, not a verified actual-share/corporate-action/tax ledger."
+}
