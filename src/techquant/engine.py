@@ -7,6 +7,7 @@ There are no intraday stops or invented fills at a breached stop price.
 """
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from typing import Any
 
@@ -17,6 +18,7 @@ from .config import Config
 from .data import Market
 from .execution import daily_limit, fee, round_quantity
 from .features import build_features
+from .policy import CloseObservation, ClosePolicy
 from .strategy import RiskState, target_weights
 
 
@@ -31,8 +33,11 @@ class Result:
 def run(market: Market, config: Config | None = None, *,
         start: str | None = None, end: str | None = None,
         targets: pd.DataFrame | None = None, delay: int = 1,
-        cost_multiplier: float = 1., benchmark: str | None = None) -> Result:
+        cost_multiplier: float = 1., benchmark: str | None = None,
+        policy_factory: Callable[[Market, Config], ClosePolicy] | None = None) -> Result:
     cfg = config or Config()
+    if policy_factory is not None and (benchmark is not None or targets is not None):
+        raise ValueError('choose one policy, benchmark or external targets')
     if isinstance(delay, bool) or not isinstance(delay, int) or delay < 1:
         raise ValueError('execution delay must be at least one session')
     if not np.isfinite(cost_multiplier) or cost_multiplier < 0:
@@ -50,6 +55,8 @@ def run(market: Market, config: Config | None = None, *,
     if begin >= len(market.calendar):
         raise ValueError('empty measurement window')
     n, names = len(market.calendar), market.symbols
+    # A factory, rather than a reused mutable object, isolates every replay.
+    active_policy = policy_factory(market, cfg) if policy_factory is not None else None
     if targets is not None:
         if not targets.index.equals(market.calendar) or set(targets.columns) != set(names):
             raise ValueError('targets must cover the exact market calendar and universe')
@@ -162,7 +169,12 @@ def run(market: Market, config: Config | None = None, *,
             raise AssertionError('cash/long-only/finite-equity invariant failed')
         history.append(nav)
         weights = holdings / nav
-        if external is not None:
+        if active_policy is not None:
+            observation = CloseObservation.from_inventory(i, date, nav, float(cash), units, weights)
+            decision = active_policy.decide(observation)
+            decisions[i] = decision.validated_weights(len(names))
+            cap, reason = float(decision.cap), decision.reason
+        elif external is not None:
             cap, reason = 1., 'EXTERNAL_TARGETS'
             decisions[i] = external[i]
         elif benchmark is not None:
@@ -197,7 +209,7 @@ def run(market: Market, config: Config | None = None, *,
                      'holdings': float(holdings.sum()), 'exposure': float(weights.sum()),
                      'target_cap': float(cap), 'breadth': float(f.breadth[i]), 'reason': reason})
     from .evidence import source_identity
-    return Result(pd.DataFrame(rows).set_index('date'),
+    result = Result(pd.DataFrame(rows).set_index('date'),
                   pd.DataFrame(decisions[begin:], index=market.calendar[begin:], columns=names),
                   orders, {'config': asdict(cfg), 'universe': list(names), 'quality': market.quality,
                            'data_sha256': market.fingerprint(), 'source': source_identity(),
@@ -206,3 +218,10 @@ def run(market: Market, config: Config | None = None, *,
                            'start': str(market.calendar[begin].date()), 'end': str(market.calendar[-1].date()),
                            'economic_acceptance': 'UNVERIFIED',
                            'accounting': 'adjusted economic units, not actual shares'})
+
+    if active_policy is not None:
+        import json
+        identity = active_policy.identity()
+        json.dumps(identity, allow_nan=False)  # Fail before issuing unsavable evidence.
+        result.metadata['policy'] = identity
+    return result
