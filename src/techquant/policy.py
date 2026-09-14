@@ -37,6 +37,7 @@ class CloseDecision:
     weights: np.ndarray
     reason: str
     cap: float = 1.
+    unit_targets: np.ndarray | None = None
 
     def validated_weights(self, size: int) -> np.ndarray:
         result = np.asarray(self.weights, dtype=float)
@@ -47,6 +48,30 @@ class CloseDecision:
             raise ValueError('policy decision must have exact shape and finite cash-funded weights')
         if not isinstance(self.reason, str) or not self.reason.strip():
             raise ValueError('policy decision needs an explicit reason')
+        return result.copy()
+
+
+    def validated_unit_targets(self, prices: np.ndarray, nav: float) -> np.ndarray | None:
+        """Validate optional fixed inventory against the same close allocation.
+
+        Weight-target policies keep their opening-NAV semantics. An inventory
+        policy can instead request close-time units without changing fees,
+        affordability, lots, liquidity or the next-session execution clock.
+        """
+        if self.unit_targets is None:
+            return None
+        result = np.asarray(self.unit_targets, dtype=float)
+        marks = np.asarray(prices, dtype=float)
+        if (result.shape != marks.shape or result.ndim != 1
+                or not np.isfinite(result).all() or (result < 0).any()
+                or not np.isfinite(nav) or nav <= 0
+                or ((result > 0) & (~np.isfinite(marks) | (marks <= 0))).any()):
+            raise ValueError('unit targets need finite nonnegative inventory and valid close marks')
+        values = np.zeros_like(result)
+        np.multiply(result, marks, out=values, where=result > 0)
+        weights = self.validated_weights(len(result))
+        if not np.allclose(values / nav, weights, rtol=1e-9, atol=1e-10):
+            raise ValueError('unit targets must match the validated close allocation')
         return result.copy()
 
 
