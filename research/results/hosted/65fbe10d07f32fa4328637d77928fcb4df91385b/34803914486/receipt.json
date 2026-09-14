@@ -1,0 +1,11 @@
+{
+  "source_commit": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+  "generator": "hosted_reproduction",
+  "input_archive_commit": "b54eaaf6487005a492b23ee5bce300f93f7e41cf",
+  "families": {
+    "expectation": "MEASURED_NOT_ACCEPTED",
+    "leadership": "MEASURED_NOT_ACCEPTED",
+    "admission": "MEASURED_NOT_ACCEPTED"
+  },
+  "economic_acceptance": "UNVERIFIED"
+}
