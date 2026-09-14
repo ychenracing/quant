@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"independent_cash_sleeves",
+  "hypothesis":"Portfolio rotation repeatedly transfers capital into unsuccessful replacement names during a prolonged technology bear. Give each input security a self-financed cash sleeve, retain gains in that sleeve, stop on an observed peak decline, and reopen only on a fresh closing breakout. Removing a security must remove its signal and budget rather than transferring its historical performance into another signal.",
+  "candidate_grid":{"stop":[0.06,0.10,0.14,0.18],"reentry_window":[20,40,80]},
+  "candidate_count":12,
+  "rules":{"initial_ownership":"one equal initial-capital cash slice per supplied name; first valid observed close may initiate ownership for the next session","stop":"while owned, update observed high-water mark and close risk if close <= peak * (1-stop); no same-close sale","reentry":"after a stop, require a fresh closing high over the prior reentry_window sessions; no same-close exit and reopening","funding":"no borrowing or cross-name recycling; entry cash and realized proceeds stay in their security's sleeve","execution":"existing next-session fees, raw board lots, prior-only capacity, gaps/limits and cash constraints; final implementation must also retain the whole-account 1% ordinary order materiality"},
+  "screening":"An initial independent-single-security replay may screen economic feasibility. Its 1% materiality is per sleeve rather than whole account, so it is explicitly diagnostic, not final economic evidence. Preserve it and then replay any promising implementation under the unchanged whole-account execution rules before making a production claim.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "generalization":"Signals use only their own supplied security history. Equal funding and ownership must be permutation-invariant. This removes a source of cross-name dependence but does not prove universal optimal returns or dominate all four native strategies by itself.",
+  "evidence":"All trials, source and runner hashes, normalized and actual cash assumptions, individual and aggregate equity, and failed predecessors remain traceable. No product stage/version labels or date/ticker rules."
+}
