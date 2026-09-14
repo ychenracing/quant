@@ -1,0 +1,138 @@
+{
+  "identity": {
+    "source": {
+      "commit": "b9c8af18b69aaef672333cc36505477fa05e2c6a",
+      "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.5",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "family": "coherent",
+    "dependencies": {
+      "finite_study.py": "6b1065d266bdc0ed57ee661ba7c288eb901182939577451f934fc12597def8c6",
+      "expectation_study.py": "f71b20322bf9661f65478eb6ea158b0a9c5c715490c8e0e7f2715b5b4923783a",
+      "coherent.py": "29e44b7c8b7b736578f7e3a694b884b0b18543b044b2b0bf3bc62ba9b7ff1a95",
+      "coherent_contract.json": "6a655ab9aa2ec7c1839b3576813ce58c2791f3d74183a7ed63f93c74741aa4a8",
+      "leadership.py": "fe1dfdaf2250e29cbda71e2891c934b54deaed536075da3fae8b37529972a3a1",
+      "expectation.py": "9f48a03e85913dab8ee97eddbff3669b10b1253f85e0b2cfa7823b42c4ac9a7f",
+      "nonlinear.py": "f9e5929d26a752a0bfff22db1b8088c7123fe8c7ebe9b987fc2bcb2891f7b68d",
+      "nonlinear_contract.json": "818b322a77980a1b5bce353190a8a216e4f092d38b7641154f30f0dd6579d0f9",
+      "observed_trend.py": "9801ca612e53e07836712c6823646138da37d289b8b0698406d94feff6e1fff8",
+      "observed_trend_contract.json": "7e485c1d249f77d322b553532b9c4622643c8bb2b74d4983eacefd79497fcb81",
+      "issued_forecasts.py": "1ab1ac6dd2c5ae909c8ab7148ce397e82588022d4532edf4327fd816ff42642d",
+      "pathwise.py": "e23e1747878404f3214f9a73f8cb24a43c736a81ad9fc863dcdd060a785b61c2",
+      "pathwise_contract.json": "a4125d4e5bcae53d11bf949ce53a25c6c6b83036c62e02d3206d854506e3e232"
+    },
+    "issued_forecasts": {
+      "issuing_source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+      "issuing_run": 34809876451,
+      "parent_manifest_sha256": "161210529e6e8aef1044bc6b7a0b8811bf4f1b680afd8f2a9ad2107e4a54bff2",
+      "parent_archive_sha256": "cf2eb81f4fb9b8cdba1de8929798883ac01c8cb7025925891b1ccaa529fc61a0",
+      "model_refitted": false
+    }
+  },
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "selection_end": "2025-12-31",
+  "grid": [
+    {
+      "ranking": "forecast"
+    },
+    {
+      "ranking": "price"
+    }
+  ],
+  "scopes": {
+    "union": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "chatgpt_5": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986"
+    ],
+    "joint_optical_leader_removal": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ]
+  }
+}
