@@ -1,0 +1,110 @@
+{
+  "leadership_union_weights": {
+    "max_reconciliation_error": 4.190951585769653e-09,
+    "episodes": 162,
+    "wins": 55,
+    "drawdown_peak": "2023-04-07",
+    "drawdown_trough": "2024-02-01",
+    "max_drawdown": 0.5737080512096171,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "leadership_union_units": {
+    "max_reconciliation_error": 4.773028194904327e-09,
+    "episodes": 161,
+    "wins": 54,
+    "drawdown_peak": "2023-04-07",
+    "drawdown_trough": "2024-02-01",
+    "max_drawdown": 0.5960795421169462,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "leadership_chatgpt_5_weights": {
+    "max_reconciliation_error": 4.48198989033699e-09,
+    "episodes": 68,
+    "wins": 35,
+    "drawdown_peak": "2023-06-20",
+    "drawdown_trough": "2024-01-31",
+    "max_drawdown": 0.5345700713845705,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "leadership_chatgpt_5_units": {
+    "max_reconciliation_error": 4.540197551250458e-09,
+    "episodes": 67,
+    "wins": 36,
+    "drawdown_peak": "2023-06-20",
+    "drawdown_trough": "2024-01-31",
+    "max_drawdown": 0.5347264171918998,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "leadership_joint_optical_leader_removal_weights": {
+    "max_reconciliation_error": 1.4260876923799515e-09,
+    "episodes": 168,
+    "wins": 55,
+    "drawdown_peak": "2023-04-07",
+    "drawdown_trough": "2024-09-09",
+    "max_drawdown": 0.7358017516453246,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "leadership_joint_optical_leader_removal_units": {
+    "max_reconciliation_error": 1.1932570487260818e-09,
+    "episodes": 167,
+    "wins": 52,
+    "drawdown_peak": "2023-04-07",
+    "drawdown_trough": "2024-09-09",
+    "max_drawdown": 0.7415657126649975,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "admission_union_weights": {
+    "max_reconciliation_error": 4.423782229423523e-09,
+    "episodes": 49,
+    "wins": 18,
+    "drawdown_peak": "2025-09-01",
+    "drawdown_trough": "2026-07-13",
+    "max_drawdown": 0.3962523323277516,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "admission_union_units": {
+    "max_reconciliation_error": 3.5652192309498787e-09,
+    "episodes": 49,
+    "wins": 18,
+    "drawdown_peak": "2025-09-01",
+    "drawdown_trough": "2026-07-13",
+    "max_drawdown": 0.38573340737797956,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "admission_chatgpt_5_weights": {
+    "max_reconciliation_error": 6.984919309616089e-09,
+    "episodes": 45,
+    "wins": 25,
+    "drawdown_peak": "2023-06-20",
+    "drawdown_trough": "2024-01-30",
+    "max_drawdown": 0.47064578842639104,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "admission_chatgpt_5_units": {
+    "max_reconciliation_error": 6.170012056827545e-09,
+    "episodes": 45,
+    "wins": 25,
+    "drawdown_peak": "2023-06-20",
+    "drawdown_trough": "2024-01-30",
+    "max_drawdown": 0.47077536447383383,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "admission_joint_optical_leader_removal_weights": {
+    "max_reconciliation_error": 1.4479155652225018e-09,
+    "episodes": 47,
+    "wins": 15,
+    "drawdown_peak": "2025-09-03",
+    "drawdown_trough": "2025-12-19",
+    "max_drawdown": 0.42447462448586626,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  },
+  "admission_joint_optical_leader_removal_units": {
+    "max_reconciliation_error": 1.7898855730891228e-09,
+    "episodes": 47,
+    "wins": 15,
+    "drawdown_peak": "2025-09-03",
+    "drawdown_trough": "2025-12-19",
+    "max_drawdown": 0.42406034044608787,
+    "episode_return_basis": "cash PnL divided by actual buy notional"
+  }
+}

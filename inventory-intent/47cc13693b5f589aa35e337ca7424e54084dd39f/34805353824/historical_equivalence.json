@@ -1,0 +1,182 @@
+[
+  {
+    "family": "leadership",
+    "scope": "union",
+    "historical_source": {
+      "commit": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+      "package_sha256": "a65fa72d37384b7dc050bd4f2d561eb99a73b47a79b2dfdf725e22a8b497b2c1",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "677fa70759558898e2fd569ba79cc52cd1fe159399ef3defc2802eafa658053e",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "22f1b3dcf1eb8d21faeef56903f07928e4ee32afea386b7012175b72b1b98d30",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.15",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "max_nav_difference": 0.0,
+    "same_orders": true,
+    "equal_curve": true
+  },
+  {
+    "family": "leadership",
+    "scope": "chatgpt_5",
+    "historical_source": {
+      "commit": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+      "package_sha256": "a65fa72d37384b7dc050bd4f2d561eb99a73b47a79b2dfdf725e22a8b497b2c1",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "677fa70759558898e2fd569ba79cc52cd1fe159399ef3defc2802eafa658053e",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "22f1b3dcf1eb8d21faeef56903f07928e4ee32afea386b7012175b72b1b98d30",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.15",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "max_nav_difference": 0.0,
+    "same_orders": true,
+    "equal_curve": true
+  },
+  {
+    "family": "leadership",
+    "scope": "joint_optical_leader_removal",
+    "historical_source": {
+      "commit": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+      "package_sha256": "a65fa72d37384b7dc050bd4f2d561eb99a73b47a79b2dfdf725e22a8b497b2c1",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "677fa70759558898e2fd569ba79cc52cd1fe159399ef3defc2802eafa658053e",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "22f1b3dcf1eb8d21faeef56903f07928e4ee32afea386b7012175b72b1b98d30",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.15",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "max_nav_difference": 0.0,
+    "same_orders": true,
+    "equal_curve": true
+  },
+  {
+    "family": "admission",
+    "scope": "union",
+    "historical_source": {
+      "commit": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+      "package_sha256": "a65fa72d37384b7dc050bd4f2d561eb99a73b47a79b2dfdf725e22a8b497b2c1",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "677fa70759558898e2fd569ba79cc52cd1fe159399ef3defc2802eafa658053e",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "22f1b3dcf1eb8d21faeef56903f07928e4ee32afea386b7012175b72b1b98d30",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.15",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "max_nav_difference": 0.0,
+    "same_orders": true,
+    "equal_curve": true
+  },
+  {
+    "family": "admission",
+    "scope": "chatgpt_5",
+    "historical_source": {
+      "commit": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+      "package_sha256": "a65fa72d37384b7dc050bd4f2d561eb99a73b47a79b2dfdf725e22a8b497b2c1",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "677fa70759558898e2fd569ba79cc52cd1fe159399ef3defc2802eafa658053e",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "22f1b3dcf1eb8d21faeef56903f07928e4ee32afea386b7012175b72b1b98d30",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.15",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "max_nav_difference": 0.0,
+    "same_orders": true,
+    "equal_curve": true
+  },
+  {
+    "family": "admission",
+    "scope": "joint_optical_leader_removal",
+    "historical_source": {
+      "commit": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+      "package_sha256": "a65fa72d37384b7dc050bd4f2d561eb99a73b47a79b2dfdf725e22a8b497b2c1",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "677fa70759558898e2fd569ba79cc52cd1fe159399ef3defc2802eafa658053e",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "22f1b3dcf1eb8d21faeef56903f07928e4ee32afea386b7012175b72b1b98d30",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.15",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "max_nav_difference": 0.0,
+    "same_orders": true,
+    "equal_curve": true
+  }
+]
