@@ -6,12 +6,14 @@ immutable evidence; this owner never fits a model or mutates the cash ledger.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+import math
 from pathlib import Path
 import numpy as np
 
 from techquant.config import Config
 from techquant.data import Market, file_hash
 from techquant.features import build_features
+from techquant.execution import round_quantity
 from techquant.policy import CloseDecision, CloseObservation
 from techquant.strategy import RiskState
 from research.nonlinear import Owner as ForecastValidator, Parameters as ForecastParameters
@@ -47,6 +49,28 @@ def equal_increment(indices, weights, budget, ceilings):
     return result
 
 
+def executable_sale(symbol: str, raw_units: float) -> int:
+    """Smallest declaration at least as large as the observed protective sale.
+
+    Invert the unchanged execution primitive rather than duplicate board rules.
+    This is a close-time request, not a guarantee of the next opening fill.
+    """
+    if not math.isfinite(raw_units) or raw_units <= 0:
+        raise ValueError('protective sale must be finite and positive')
+    tolerance = min(1e-9, raw_units * 1e-6)
+    low = max(1, math.ceil(raw_units - tolerance))
+    high = low
+    while round_quantity(symbol, high) < raw_units - tolerance:
+        high *= 2
+    while low < high:
+        mid = (low + high) // 2
+        if round_quantity(symbol, mid) >= raw_units - tolerance:
+            high = mid
+        else:
+            low = mid + 1
+    return round_quantity(symbol, low)
+
+
 class Owner:
     def __init__(self, market: Market, p: Parameters, *, prediction: Prediction):
         # Reuse the parent's exact-market validation, not its post-allocation
@@ -67,6 +91,10 @@ class Owner:
         self.reduction_ceiling = np.full(n, np.inf)
         self.restoration_pending = False
         self.restoration_targets = None
+        self.restoration_origin_units = None
+        # Only today's observed raw/adjusted conversion is consulted. Missing
+        # raw quotes do not grant a licence to declare an intention completed.
+        self.raw_per_unit = (market.panel('close') / market.panel('raw_close')).to_numpy()
         self.last_session = -1
 
     def decide(self, o: CloseObservation) -> CloseDecision:
@@ -97,6 +125,7 @@ class Owner:
         increased = cap > old_cap + 1e-10
         if cut:
             self.restoration_pending, self.restoration_targets = False, None
+            self.restoration_origin_units = None
         elif increased:
             self.restoration_pending = True
             # Already funded requests remain fixed; newly available cash can be
@@ -117,6 +146,22 @@ class Owner:
             units *= cap / weights.sum()
             weights *= cap / weights.sum()
             reasons.append('FIXED_UNIT_ACCOUNT_REDUCTION')
+        # A floor-rounded partial sale can leave an unexecutable remainder.
+        # Tighten its ceiling to a declaration the unchanged engine can attempt;
+        # never forgive an unfilled protective sale or spend intended proceeds.
+        for j in np.flatnonzero((units > 0) & (units < o.units - 1e-10)):
+            conversion = self.raw_per_unit[i, j]
+            if not np.isfinite(conversion) or conversion <= 0:
+                continue
+            raw_needed = (o.units[j] - units[j]) * conversion
+            raw_sale = executable_sale(self.market.symbols[j], raw_needed)
+            revised = max(0., o.units[j] - raw_sale / conversion)
+            if revised < units[j] - 1e-10:
+                units[j] = revised
+                reasons.append('EXECUTABLE_PROTECTIVE_REDUCTION')
+        values[:] = 0.
+        np.multiply(units, marks, out=values, where=units > 0)
+        weights = values / o.nav
         reducing = units < o.units - 1e-10
         self.reduction_ceiling[reducing] = np.minimum(self.reduction_ceiling[reducing], units[reducing])
         outstanding = bool(self.exit_pending.any() or reducing.any())
@@ -149,8 +194,26 @@ class Owner:
 
         if self.restoration_targets is not None:
             self.restoration_targets[self.exit_pending] = 0.
+            if self.restoration_origin_units is not None:
+                remaining = np.maximum(0., self.restoration_targets - o.units)
+                progressed = o.units > self.restoration_origin_units + 1e-10
+                for j in np.flatnonzero(progressed & (remaining > 1e-10)):
+                    conversion = self.raw_per_unit[i, j]
+                    if not np.isfinite(conversion) or conversion <= 0:
+                        continue
+                    notional = remaining[j] * marks[j]
+                    why = ('MINIMUM_NOTIONAL' if notional < .01 * o.nav else
+                           'MINIMUM_LOT' if round_quantity(self.market.symbols[j],
+                                                          remaining[j] * conversion) == 0 else '')
+                    if why:
+                        # Cancellation is not a fill. Record symbol, remaining
+                        # units and CNY amount in the immutable daily decision.
+                        reasons.append('RESTORATION_RESIDUAL_CANCELLED:'
+                            f'{self.market.symbols[j]}:{remaining[j]:.17g}:{notional:.17g}:{why}')
+                        self.restoration_targets[j] = o.units[j]
             if np.all(o.units >= self.restoration_targets - 1e-10):
                 self.restoration_targets = None
+                self.restoration_origin_units = None
                 self.restoration_pending = increased
         if not outstanding:
             newcomers = entrants[:max(0, capacity - len(existing))]
@@ -164,6 +227,7 @@ class Owner:
                     out=np.zeros_like(units), where=np.isfinite(marks) & (marks > 0))
                 if self.restoration_pending:
                     self.restoration_targets = target.copy()
+                    self.restoration_origin_units = o.units.copy()
             elif self.restoration_targets is not None:
                 target = np.maximum(units, self.restoration_targets)
                 if increased and receivers:
@@ -174,6 +238,7 @@ class Owner:
                     target += np.divide(addition * o.nav, marks, out=np.zeros_like(units),
                                         where=np.isfinite(marks) & (marks > 0))
                     self.restoration_targets = target.copy()
+                    self.restoration_origin_units = o.units.copy()
             else:
                 target = units.copy()
             # Eligibility can disappear while a buy is blocked. Preserve its

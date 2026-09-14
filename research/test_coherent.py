@@ -68,10 +68,12 @@ class CoherentTests(unittest.TestCase):
 
     def test_reduction_survives_partial_fill_and_recovery_without_halving_again(self):
         owner, _, _ = self.owner(2, caps=[.5, 1.])
-        first = self.decision(owner, 1, [100., 0.], 0.)
-        second = self.decision(owner, 2, [75., 0.], 250.)
-        self.assertEqual(first.unit_targets[0], 50.)
-        self.assertEqual(second.unit_targets[0], 50.)
+        # Use executable-sized inventory; sub-lot reductions have their own
+        # conservative-rounding regression, not an assumed fractional fill.
+        first = self.decision(owner, 1, [100000., 0.], 0.)
+        second = self.decision(owner, 2, [75000., 0.], 250000.)
+        self.assertEqual(first.unit_targets[0], 50000.)
+        self.assertEqual(second.unit_targets[0], 50000.)
         self.assertEqual(second.unit_targets[1], 0.)
 
     def test_full_exit_blocks_replacement_until_actual_liquidation(self):
@@ -85,13 +87,14 @@ class CoherentTests(unittest.TestCase):
     def test_restoration_funds_intact_names_and_persists_after_partial_fill(self):
         owner, _, _ = self.owner(4, caps=[1., 1., .5])
         owner.risk.cap = .5
-        first = self.decision(owner, 1, [10.] * 4, 400.)
-        second = self.decision(owner, 2, [15., 10., 10., 10.], 350.)
-        np.testing.assert_allclose(first.unit_targets, [20.] * 4)
-        np.testing.assert_allclose(second.unit_targets, [20.] * 4)
-        third = self.decision(owner, 3, [15., 10., 10., 10.], 350.)
+        # Preserve the partial-fill assertion at a material, executable size.
+        first = self.decision(owner, 1, [10000.] * 4, 400000.)
+        second = self.decision(owner, 2, [15000., 10000., 10000., 10000.], 350000.)
+        np.testing.assert_allclose(first.unit_targets, [20000.] * 4)
+        np.testing.assert_allclose(second.unit_targets, [20000.] * 4)
+        third = self.decision(owner, 3, [15000., 10000., 10000., 10000.], 350000.)
         self.assertLessEqual(third.weights.sum(), .5 + 1e-12)
-        self.assertTrue((third.unit_targets <= [15., 10., 10., 10.]).all())
+        self.assertTrue((third.unit_targets <= [15000., 10000., 10000., 10000.]).all())
 
     def test_new_cap_increase_is_not_lost_when_prior_target_fills_today(self):
         owner, _, _ = self.owner(4, caps=[.5, 1.])

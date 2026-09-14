@@ -35,7 +35,7 @@ jobs:
       - name: Verify offline and forecast ownership contracts
         run: |
           python -m unittest discover -s tests -q > "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
-          python -m unittest research.test_nonlinear research.test_nonlinear_ownership research.test_observed_trend research.test_pathwise research.test_coherent research.test_coherent_execution research.test_issued_forecasts -v >> "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
+          python -m unittest discover -s research -p 'test_*.py' -v >> "$RUNNER_TEMP/nonlinear/correctness.txt" 2>&1
       - name: Measure only the requested registered family
         timeout-minutes: 6
         run: |

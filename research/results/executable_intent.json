@@ -1,0 +1,52 @@
+{
+  "status": "ENGINEERING_VERIFIED_ECONOMICS_PENDING",
+  "base_commit": "b39490cd7fbeda03c16d558ee986a06208cfef74",
+  "base_tree": "173f4b72fc03b0e967c1adde82d0f37b83a5c4ca",
+  "registered_plan": "research/EXECUTABLE_INTENT_WORK.md at 3246d22d5fae991b3d4f18e5b0deef0e303aeefc",
+  "change": "Convert protective reductions to the smallest executable declaration using observed close conversion and the unchanged round_quantity rule. Preserve latched inventory ceilings until actual fills. Cancel a buy remainder only after actual progress in that same symbol and only below current 1% notional or minimum lot; log cancellation units, CNY amount and reason. Material and wholly unfilled requests persist.",
+  "red": {
+    "tests": 8,
+    "assertion_failures_including_subtests": 8,
+    "passing_test_methods": 2,
+    "log": "research/results/executable_intent_red.txt.gz.b64",
+    "log_sha256": "fbc0e5cbdd0ca800234b282fc8f4be7359272f42d37d78b3e4c1451dcf40425e",
+    "encoding": "base64 then gzip, preserving the exact original log bytes"
+  },
+  "green": {
+    "ordinary": 77,
+    "research": 55,
+    "commands": [
+      "PYTHONPATH=src:tests:. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m unittest discover -s tests -v",
+      "PYTHONPATH=src:tests:. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m unittest discover -s research -p 'test_*.py' -v"
+    ],
+    "prefix_causality": true,
+    "removed_symbol_isolation": true
+  },
+  "fixture_correction": "Two existing mocked inventory scenarios were scaled proportionally by 1000 to retain their material partial-fill assertions under real board lots. Their fraction/cash/risk behavior and assertions were not weakened. New tests explicitly cover sub-lot and sub-materiality behavior.",
+  "frozen_input_manifest_files_verified": 6048,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "prior_evidence": {
+    "source": "b65921791b8b9f2c214673345af1949fc85cdf9e",
+    "run_id": 34814692931,
+    "archive_sha256": "7e3e23c2decef3bf41514acff312436f53a559b2e4794fbb00e0c115bc8562fe",
+    "verified_files": 162,
+    "status": "FAILED_RETAINED"
+  },
+  "issued_forecasts": {
+    "source": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+    "run_id": 34809876451,
+    "archive_sha256": "cf2eb81f4fb9b8cdba1de8929798883ac01c8cb7025925891b1ccaa529fc61a0",
+    "model_refitted": false
+  },
+  "source_sha256": {
+    "research/coherent.py": "29e44b7c8b7b736578f7e3a694b884b0b18543b044b2b0bf3bc62ba9b7ff1a95",
+    "research/test_coherent.py": "e5be826f9329401b203f438b5d114feada5fb7ba7dea3ead9881d411f693e678",
+    "research/test_coherent_residuals.py": "680e644a852a2cebd14acbbd4e78410d4b5ccaa59268aae22ff8e45b2a2f121f",
+    "research/coherent_contract.json": "6a655ab9aa2ec7c1839b3576813ce58c2791f3d74183a7ed63f93c74741aa4a8",
+    "src/techquant/engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+    "src/techquant/execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+    "src/techquant/config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+    "src/techquant/strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+  },
+  "next_measurement": "Same two coherent candidates, three core pools, fixed pre-2026 selection and exact parent forecasts. No expansion of old grids. This correction is not total economic acceptance and does not authorize promotion of a failed candidate."
+}
