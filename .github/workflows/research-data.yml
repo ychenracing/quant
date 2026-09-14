@@ -27,12 +27,6 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@v4
         with:
-          repository: ychenracing/trades
-          ref: 5575d1b1b79fab405b92cfb7d164c7054a8bd826
-          path: reference
-          persist-credentials: false
-      - uses: actions/checkout@v4
-        with:
           ref: 30cc7d3bdea38d2d613ce43b2fdf988e0f544daa
           path: parent
           persist-credentials: false
@@ -53,13 +47,13 @@ jobs:
               with open('archives/' + name + '.zip', 'wb') as stream:
                   subprocess.run(['gh', 'api', 'repos/ychenracing/quant/actions/artifacts/' + str(record['artifact_id']) + '/zip'], stdout=stream, check=True)
           PY
-      - name: Reproduce exact source, failed parent and native comparisons
+      - name: Reproduce exact source and failed parent; disclose unavailable private references
         env:
           QUANT_SOURCE_COMMIT: ${{ github.sha }}
           PYTHONPATH: source/src:source
         run: |
           python -m unittest discover -s source/tests -v > engineering.txt 2>&1
-          python source/research/reproduce.py --archives archives --reference reference --parent parent --output result
+          python source/research/reproduce.py --archives archives --without-native --parent parent --output result
       - name: Prepare immutable publication
         run: |
           test -s result.tar.gz
