@@ -1,0 +1,39 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "economic_acceptance": "NOT_PASSED",
+  "source_commit": "0b5626993598d6cbf8bf0af15345e01d18a730e7",
+  "source_tree": "c9fae2f68fd91b4eb86ef10fb816f4d4b02a8eed",
+  "run_id": 34809876451,
+  "artifact_id": 10334561572,
+  "artifact_sha256": "bfa1783e218a16ec1f41a80550ba4116c75576e9594036a1731a14a360f116fb",
+  "archive_sha256": "cf2eb81f4fb9b8cdba1de8929798883ac01c8cb7025925891b1ccaa529fc61a0",
+  "evidence_branch": "research/evidence",
+  "evidence_path": "nonlinear/0b5626993598d6cbf8bf0af15345e01d18a730e7/34809876451",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "manifest_files_verified": 210,
+  "frozen_input_bundle_manifest_files_verified": 6048,
+  "candidate_count": 4,
+  "candidate_scope_rows": 12,
+  "evaluation_rows": 45,
+  "selected": {"horizon": 20, "loss_barrier": 0.12},
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "selection_worst_deficit": 0.6484919307933952,
+  "full_period": [
+    {"scope":"union","wealth":4.160788090473216,"max_drawdown":0.495498197968781,"orders":230,"average_exposure":0.664676639801564},
+    {"scope":"chatgpt_5","wealth":12.177541810750286,"max_drawdown":0.357828109203843,"orders":103,"average_exposure":0.403599212650470},
+    {"scope":"joint_optical_leader_removal","wealth":2.683874570396624,"max_drawdown":0.588496607672850,"orders":213,"average_exposure":0.637733875866166}
+  ],
+  "actual_fill_diagnosis": {
+    "method": "Use restored immutable original fills and exactly matched frozen quotes; no refitting or rerunning the rejected grid.",
+    "union_drawdown": ["2023-04-20", "2024-05-31"],
+    "common_five_drawdown": ["2023-06-20", "2024-01-05"],
+    "removed_leader_drawdown": ["2023-04-20", "2025-05-20"],
+    "common_five_cash_spells": [
+      {"start":"2024-11-26","end":"2025-05-09","sessions":108},
+      {"start":"2026-06-11","end":"2026-09-11","sessions":66}
+    ],
+    "removed_leader_july_august_return": -0.355322,
+    "interpretation": "The whole-period drawdown predates 2026; recent crash losses cannot alone explain rejection. The common-five account repeatedly loses trend participation, while the removed-leader account takes successive losing replacement entries. Continue decision-boundary attribution before any further policy experiment. Do not expand the rejected first-passage grid or treat zero crash-window exposure as universal risk superiority."
+  },
+  "validation": "Both downloaded artifact and inner archive hashes verified; all 210 research and 6048 frozen baseline manifest members verified; restored source tree equals the original Git tree. Original 77 ordinary tests independently pass on the restored source. New policy economics remain unverified, main unchanged."
+}
