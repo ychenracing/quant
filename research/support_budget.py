@@ -120,7 +120,7 @@ class Owner:
         self.exit_pending |= broken
         allowed = (self.ready[i] & self.features.entry[i] & ~self.features.exit[i]
                    & np.isfinite(self.features.score[i]) & (self.features.score[i] > 0))
-        self.healthy = np.where(allowed, self.healthy+1, 0)
+        self.healthy = np.where(self._readmission_health(i, allowed), self.healthy+1, 0)
         self.readmit &= self.healthy < self.config.recovery
         previous_cap = self.risk.cap
         self.history.append(o.nav)
@@ -166,6 +166,9 @@ class Owner:
         decision.validated_weights(len(held))
         decision.validated_unit_targets(price, o.nav)
         return decision
+
+    def _readmission_health(self, i, allowed):
+        return allowed
 
     def _exposure_ceiling(self, cap, cut):
         return cap if cut or cap == 0 else min(1., cap+self.config.trade_band)

@@ -1,0 +1,18 @@
+{
+  "status": "IMPLEMENTED_ENGINEERING_VERIFIED_ECONOMICS_UNMEASURED",
+  "contract_commit": "596482b0438520a179a84e8dcee30c3639b5255d",
+  "source_base": "965f30c64f3230644beb31109a757cdd716486a9",
+  "source_blobs": {
+    "research/readmission.py": "dc389d75bfae0ef03ce2a00add619a03529abe5d",
+    "research/test_readmission.py": "ee4250d86602221bcb03ff935220fa889c86d40a",
+    "research/support_budget.py": "99215639a7fee9381b8e6f18e6109e10d8afe3f6",
+    "research/readmission_diagnostics.py": "c664f05249227d18df41508bdacdec3c446be96d"
+  },
+  "red": "Six new test methods fail through eight missing-implementation assertions before implementation.",
+  "green": {"offline_tests":77,"research_tests":100,"affected_tests":26,"failures":0},
+  "default_parent_equivalence": {"old_source":"965f30c64f3230644beb31109a757cdd716486a9","union":727,"chatgpt_5":727,"joint_optical_leader_removal":727,"weights_units_reasons_caps_exact":true,"qualification":"Only the default hook preserves prior decisions. No old economic result is treated as proof of the new readmission owner."},
+  "diagnostic_verification": "The pinned original-source subprocess reproduced 2181 actual training closes and the declared 99/89/98 recovery witnesses. All 180 parent manifest members and source identity verified. The next hosted request preserves raw CSVs and the new generator identity separately from the old strategy source.",
+  "runtime":{"python":"3.13.5","numpy":"2.3.5","pandas":"2.2.3"},
+  "production_changed":false,
+  "economic_acceptance":"UNVERIFIED"
+}

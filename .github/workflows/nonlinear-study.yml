@@ -51,6 +51,8 @@ jobs:
               request = json.loads(pathlib.Path('research/nonlinear-request.json').read_text())
               if request['family'] == 'completion':
                   from research.completion import Study
+              elif request['family'] == 'readmission':
+                  from research.readmission import Study
               issued = None
               if request['family'] in {'coherent', 'risk_reliability'}:
                   from research.issued_forecasts import retrieve
@@ -64,7 +66,10 @@ jobs:
               if market.fingerprint() != request['data_sha256']:
                   raise ValueError('frozen market identity mismatch')
               try:
-                  if issued is not None:
+                  if request['family'] == 'readmission':
+                      from research.readmission_diagnostics import run_pinned
+                      run_pinned(data, supplement, root / 'completion-parent', output / 'parent_diagnosis')
+                  elif issued is not None:
                       from research.admission_attribution import admission_attribution
                       admission_attribution(issued, market, output / 'parent_diagnosis')
                   else:

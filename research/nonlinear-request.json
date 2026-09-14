@@ -1,9 +1,9 @@
 {
-  "family": "completion",
-  "purpose": "Measure exactly the four fixed controls preregistered for the verified protective-completion defect repair. No new economic parameter or old-grid rerun. Preserve all raw outcomes and the original failed archives.",
-  "candidate_count": 4,
+  "family": "readmission",
+  "purpose": "Measure only the one preregistered trend-health readmission candidate on fixed support sizing. Preserve the exact original-source completion attribution and every raw outcome; do not rerun old grids or refit forecasts.",
+  "candidate_count": 1,
   "selection_end": "2025-12-31",
-  "contract_commit": "8f8d21e4043e1f2f90781e95841c1ace1852fd5e",
+  "contract_commit": "596482b0438520a179a84e8dcee30c3639b5255d",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }
