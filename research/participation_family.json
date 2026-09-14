@@ -1,0 +1,15 @@
+{
+  "status": "DECLARED_BEFORE_MEASUREMENT",
+  "family": "persistent_ownership_local_downside",
+  "reason": "Incumbent paired ablations reject simply removing portfolio risk. Test continuous ownership and local downside decisions with immediate cash reuse under unchanged execution.",
+  "candidate_grid": {"lookback": [60, 120, 180], "trend": [40, 80], "positions": [2, 3], "protection": ["structural", "downside"]},
+  "candidate_count": 24,
+  "fixed_rules": {"entry_window": 10, "rotation_sessions": 20, "entry_single_cap": 0.6, "drift_single_cap": 0.8, "cash_band": 0.05, "momentum_horizons": "lookback/2, lookback, lookback*2 equally weighted log returns; expanding observed history before long horizons exist", "replacement": "only on scheduled review and when outside twice the position count and challenger exceeds incumbent by 25 percent", "structural_exit": "close below trend mean and ten-session momentum negative, or sustained twenty-session low", "downside_alarm": "one-session loss > 2.5 preceding volatility or five-session loss > max(6 percent, 2.5 preceding volatility * sqrt(5)), with close below ten-session mean", "reentry": "two healthy closes above fast mean, positive fast momentum and intact structural trend", "capital": "retain economic units; deploy material idle cash to intact holdings and new eligible leaders; entry caps do not continuously rebalance winners"},
+  "selection_end": "2025-12-31",
+  "selection_scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+  "selection_objective": "mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "selection_ties": "fewer fills, then grid order",
+  "frozen_execution": "Config() from parent main: 2000000 initial cash, 2.5bps commission, 10bps slippage, 0.005 prior average turnover capacity, next open; no intraday invented fills",
+  "retention": "Save all trials, source and runner hashes, configs, NAV, targets and fills, including failure. Superseded independent ownership experiments remain separate.",
+  "interpretation": "Training selects a candidate, not economic acceptance. 2026 was already seen and remains retrospective. No dates or symbol identifiers in production decision rules. No arbitrary-subset or earliest-risk guarantee."
+}
