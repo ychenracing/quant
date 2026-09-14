@@ -175,9 +175,10 @@ class Owner:
             units *= cap / weights.sum()
             weights *= cap / weights.sum()
             reasons.append('FIXED_UNIT_ACCOUNT_REDUCTION')
-        # A floor-rounded partial sale can leave an unexecutable remainder.
-        # Tighten its ceiling to a declaration the unchanged engine can attempt;
-        # never forgive an unfilled protective sale or spend intended proceeds.
+        # Round the outbound declaration, not the completion goal. A later
+        # observed fill can meet the economic goal despite quote-conversion
+        # rounding; a retry must not manufacture an additional reduction.
+        completion = units.copy()
         for j in np.flatnonzero((units > 0) & (units < o.units - 1e-10)):
             conversion = self.raw_per_unit[i, j]
             if not np.isfinite(conversion) or conversion <= 0:
@@ -192,7 +193,8 @@ class Owner:
         np.multiply(units, marks, out=values, where=units > 0)
         weights = values / o.nav
         reducing = units < o.units - 1e-10
-        self.reduction_ceiling[reducing] = np.minimum(self.reduction_ceiling[reducing], units[reducing])
+        completion[units <= 1e-10] = 0.  # an explicit full disposal still requires actual flat inventory
+        self.reduction_ceiling[reducing] = np.minimum(self.reduction_ceiling[reducing], completion[reducing])
         outstanding = bool(self.exit_pending.any() or reducing.any())
         if outstanding:
             reasons.append('PROTECTIVE_INVENTORY_RETRY')
@@ -261,7 +263,7 @@ class Owner:
                     extra = max(0., budget - float((reserved - weights).sum()))
                     addition = equal_increment(receivers, reserved, extra, ceilings)
                     target += np.divide(addition * o.nav, marks, out=np.zeros_like(units),
-                                        where=np.isfinite(marks) & (marks > 0))
+                        where=np.isfinite(marks) & (marks > 0))
                     self.restoration_targets = target.copy()
                     self.restoration_origin_units = o.units.copy()
             else:

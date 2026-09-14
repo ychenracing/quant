@@ -1,0 +1,12 @@
+{
+  "status": "CORRECTNESS_FIXED_ECONOMIC_EFFECT_UNMEASURED",
+  "tested_source_base": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+  "integrated_risk_fix": "e106e0da25d35d9b7651859b67f938ba73fb4357",
+  "source_blobs": {"research/coherent.py": "3a50dab0978b29e22a9ae9f6931151a3dd011fce", "research/support_budget.py": "d2ef58507c4e5f74cdc7720057b9d01955d903ba", "research/test_reduction_completion.py": "35174ee9060a4c4dd5cb5dab16f5ac783dd7232a"},
+  "red": "Fourteen genuine subcase assertions fail on the unchanged parents. An earlier fixture incorrectly passed lists where CloseObservation requires numpy arrays; that fixture invocation is not counted as defect proof. Confirmed failures cover original-goal preservation, actual goal-completing fills, and unfilled obligations in both owners across three declaration rules.",
+  "green": {"offline_tests": 77, "integrated_research_tests": 93, "regression_methods": 3, "regression_subcases": 14, "failures": 0},
+  "changed_contracts_or_thresholds": false,
+  "production_changed": false,
+  "qualification": "Neither correction nor tests prove economic acceptance. Unlike the earlier pure hooks, this fix deliberately changes erroneous decisions. Old 2688-decision equivalence is not asserted for this new source. The concurrent funded concentration-risk fix is preserved and tested.",
+  "economic_acceptance": "UNVERIFIED"
+}

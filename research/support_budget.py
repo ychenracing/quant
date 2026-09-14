@@ -142,9 +142,14 @@ class Owner:
         ceiling = self._exposure_ceiling(cap, cap_cut)
         if exposure > ceiling+1e-12:
             desired *= cap/exposure
+        # Completion is the economic goal, not the conservatively rounded
+        # outbound declaration. Otherwise a partial opening fill can trigger an
+        # extra board lot and ratchet the target down on every retry.
+        completion = desired.copy()
         desired = self._round_reductions(o.units, desired, i)
+        completion[desired <= 1e-10] = 0.
         cuts = desired < o.units-1e-10
-        self.reduction_ceiling[cuts] = np.minimum(self.reduction_ceiling[cuts], desired[cuts])
+        self.reduction_ceiling[cuts] = np.minimum(self.reduction_ceiling[cuts], completion[cuts])
         self.exit_pending |= held & (desired <= 1e-10)
         protected = bool(cuts.any()) or cap_cut
         if protected:

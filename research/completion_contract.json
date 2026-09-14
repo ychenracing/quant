@@ -1,0 +1,20 @@
+{
+  "family": "protective_completion",
+  "status": "PREREGISTERED_BEFORE_CORRECTED_ECONOMIC_MEASUREMENT",
+  "defect_source": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+  "integration_parent": "e106e0da25d35d9b7651859b67f938ba73fb4357",
+  "hypothesis": "An executable declaration must not redefine a protective reduction's economic completion goal. Both independent ownership parents currently latch the rounded request rather than the original analytical target. Changing adjusted/raw quote conversion after an actual partial fill can therefore generate repeated excess reductions despite completion of the original goal. The exact defect has fourteen failing regression cases, now fixed, but its economic effect has not yet been measured.",
+  "repair": "Latch the analytical desired units before board-lot rendering. Retain the minimum of earlier unresolved analytical goals and any genuinely stricter new economic goal. Round only the outbound declaration. Observe actual units, never assumed fills, to retire protection. A rendered explicit whole-position disposal continues to require zero actual inventory. No rounding retry may lower the economic goal by itself. Risk warnings, stop logic, capacities, cash, costs, lot rules, timing, delay behavior, the concurrent post-concentration risk correction, and all original numerical thresholds stay unchanged.",
+  "controls": [
+    {"control": "price", "implementation": "recovery_memory.Owner", "fixed_parameters": {"remember_risk": false}, "origin": "3b21cb0 selected pre-2026 no-memory price control with same-close broken-entry veto"},
+    {"control": "support", "implementation": "support_budget.Owner", "fixed_parameters": {"risk_budget": 0.10, "positions": 2}, "origin": "9f1f0cd selected pre-2026 sizing control"},
+    {"control": "funded", "implementation": "funded_risk.Owner", "fixed_parameters": {"use_cushion": false}, "origin": "e8c627e preregistered no-cushion control"},
+    {"control": "cushion", "implementation": "funded_risk.Owner", "fixed_parameters": {"use_cushion": true}, "origin": "e8c627e preregistered cushion control"}
+  ],
+  "scope": "Exactly these four previously fixed controls under the corrected shared code. No new economic parameter, forecast refit, probability calibration, ranking model, or expanded grid. This is a targeted defect-impact comparison across the two affected ownership parents, not a claim that an old selected candidate automatically passes on a new source.",
+  "selection": "Unchanged finite_study: cutoff 2025-12-31, union/common-five/joint-optical-removal scopes, original worst incumbent-relative wealth/drawdown/fill deficit, then existing objective, fills and declared order. One selected control for all evaluation scopes. Both improved and worsened controls must be retained.",
+  "evaluation": "Unchanged full, bull-through-2026-06-30, 2026-06-22-through-08-31, July-August and retrospective-2026 windows. All original four-reference, original-pool, removal/subset, cost/delay and generalization obligations remain. Original source-bound failed archives are immutable. Observed 2026 is retrospective, not untouched out-of-sample.",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "economic_acceptance": "UNVERIFIED",
+  "accounting": "Adjusted economic units remain a proxy, not a verified actual-share/corporate-action/tax ledger."
+}

@@ -1,0 +1,21 @@
+{
+  "status": "MEASURED_REJECTED_FOR_JOINT_ACCEPTANCE",
+  "canonical": false,
+  "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+  "source_tree": "88cf27c93a8b2e3b78d73408fb22a068c43e6827",
+  "run_id": 34834159593,
+  "artifact_id": 10343861068,
+  "archive_sha256": "3b8b967added9a8257f64e49d1eadc4031309965404261ee621614618592371b",
+  "evidence_path": "research/evidence:nonlinear/e8c627e7529af833d55f516ef4d97ee309f2611e/34834159593",
+  "verified_manifest_files": 144,
+  "selected_parameters": {"use_cushion": true},
+  "selection_worst_deficit": 1.0107000353718762,
+  "full_period_rounded_summary": [
+    {"scope":"union","wealth":1.5161707262,"max_drawdown":0.1906200574,"orders":228},
+    {"scope":"chatgpt_5","wealth":3.7105403598,"max_drawdown":0.1837476208,"orders":256},
+    {"scope":"joint_optical_leader_removal","wealth":1.2929073099,"max_drawdown":0.1917413842,"orders":229}
+  ],
+  "interpretation": "The selected cushion sharply reduces wealth while drawdown falls to about18-19%. The no-cushion control also has excessive fills. All exact metrics and both candidate ledgers remain in the immutable archive. New completion-goal regression tests find a concrete shared order-intent defect; its contribution is not quantified by this old archive alone.",
+  "economic_acceptance": "NOT_PASSED",
+  "production_changed": false
+}
