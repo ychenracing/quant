@@ -16,7 +16,8 @@ class ExecutionPolicyTests(unittest.TestCase):
         from dataclasses import replace
         from techquant.features import build_features
         from techquant.strategy import RiskState
-        cfg = self.config.Config()
+        # Pin the 12% trigger used by this synthetic 13% drawdown episode.
+        cfg = self.config.Config(risk_drawdown=.12)
         f = build_features(sample_market(), cfg)
         f = replace(f, market_return=np.full(170, .001), shock_fraction=np.zeros(170))
         state = RiskState(cap=1.)
