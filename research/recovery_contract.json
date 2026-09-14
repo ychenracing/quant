@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"ownership_circuit_recovery",
+  "parent":"Independent event-driven breakout policy selected on data ending 2025-12-31: entry_window=40, stop_atr=3.5, entry_cap=0.7, trailing exits. Its full virtual account continues while the executable account is in cash.",
+  "hypothesis":"Individual stops permit several correlated losses to accumulate. Stop portfolio exposure on damage to the continuously observed virtual ownership account, and restore only after a fresh recovery breakout. Do not wait for a flat cash account to recover, and do not require a return to a stale pre-crash peak before permitting a cheaper reentry.",
+  "candidate_grid":{"damage":[0.08,0.12,0.16],"recovery_window":[5,10,20]},
+  "candidate_count":9,
+  "risk":"While exposure is enabled, ratchet the virtual NAV peak. Disable risk when its decline from that peak reaches damage. Observe every close while off; after at least three sessions, reenable only when virtual NAV exceeds its prior recovery_window-session maximum by 0.5 percent, its three-session return is positive and its current target exposure exceeds 5 percent. On this independently observed recovery, reset only the virtual risk reference peak to current virtual NAV. Actual equity and its reported all-time drawdown are never reset.",
+  "execution":"Current-close virtual targets times current-close risk budget are executed at the next session under the unchanged cash engine. Virtual and executable paths have separate NAVs and actual fees; hypothetical fees are not deducted twice from actual NAV. No fabricated trigger-price fills, future extremum, leverage or broker execution. Restore the paper's current positions only after a valid recovery signal; do not reuse pre-crash stale quantities.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "evidence":"Keep all nine outcomes and all previous failures. Bind paper config, paper source, risk adapter, runner, input snapshot, costs and delay. Verify no lookahead with prefix-equivalent budgets and actual replay. Every full-period drawdown uses the complete actual NAV path. 2026 remains retrospective rather than untouched validation."
+}
