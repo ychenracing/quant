@@ -1,0 +1,4 @@
+date,symbol,signal,actual_units,target_units,stop,price,health,health_closes,entry,readmit,score,risk_cap,cash_fraction,occupied,cut,restoration_witness,held_symbols
+2025-09-15,sh688498,2025-09-04,0,0,208.68940000000001,251.34899999999999,True,3,False,True,2.202579649285362,0.5,1,0,False,True,
+2025-10-28,sh603986,2025-10-14,0,0,184.393,246.19999999999999,True,3,True,False,2.468770384252966,0.5,1,0,False,True,
+2025-10-28,sh688041,2025-10-14,0,0,213.7415,245.5,True,5,True,False,1.722390294240415,0.5,1,0,False,True,

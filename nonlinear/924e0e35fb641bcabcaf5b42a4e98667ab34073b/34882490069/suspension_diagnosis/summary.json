@@ -1,0 +1,40 @@
+{
+  "status": "HISTORICAL_STATE_ATTRIBUTION_NOT_TREATMENT_RETURN",
+  "source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "new_portfolio_runs": 0,
+  "research_end": "2025-12-31",
+  "scopes": [
+    {
+      "scope": "union",
+      "max_target_error": 0.0,
+      "cuts": 16,
+      "structural_witnesses": 14,
+      "no_purchase_witnesses": 7,
+      "campaigns_with_no_purchase_witness": 4,
+      "entry_missing": 4,
+      "readmit_veto": 4
+    },
+    {
+      "scope": "chatgpt_5",
+      "max_target_error": 0.0,
+      "cuts": 12,
+      "structural_witnesses": 16,
+      "no_purchase_witnesses": 13,
+      "campaigns_with_no_purchase_witness": 6,
+      "entry_missing": 4,
+      "readmit_veto": 5
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "max_target_error": 0.0,
+      "cuts": 13,
+      "structural_witnesses": 10,
+      "no_purchase_witnesses": 3,
+      "campaigns_with_no_purchase_witness": 3,
+      "entry_missing": 1,
+      "readmit_veto": 1
+    }
+  ],
+  "method_sha256": "4ef087a3f3d3e8f8977839048b2d0938dd5100f59bba5a66bdb01528cc40cb16",
+  "interpreter_source_sha256": "8b896831f78474230df33ddc09e2573cebe41fae467d4503c52753e77ecaac1d"
+}

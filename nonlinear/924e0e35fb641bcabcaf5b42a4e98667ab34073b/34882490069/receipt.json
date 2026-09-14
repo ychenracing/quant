@@ -1,0 +1,9 @@
+{
+  "source_commit": "924e0e35fb641bcabcaf5b42a4e98667ab34073b",
+  "run_id": "34882490069",
+  "family": "suspended_campaign",
+  "operation": "measure",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}

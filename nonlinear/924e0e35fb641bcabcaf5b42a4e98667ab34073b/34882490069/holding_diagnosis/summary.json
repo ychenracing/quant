@@ -1,0 +1,89 @@
+{
+  "source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+  "status": "OBSERVATIONAL_NOT_CAUSAL_RETURN_OR_ACCEPTANCE",
+  "new_portfolio_runs": 0,
+  "selection_end": "2025-12-31",
+  "summary": [
+    {
+      "scope": "union",
+      "kind": "mature_stop_only",
+      "count": 5,
+      "fully_matured_outcomes": 5,
+      "mean_forward": -0.008571028978299467,
+      "positive_count": 2,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "union",
+      "kind": "immature_stop_only",
+      "count": 1,
+      "fully_matured_outcomes": 1,
+      "mean_forward": -0.15535717596455123,
+      "positive_count": 0,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "union",
+      "kind": "other_exits",
+      "count": 48,
+      "fully_matured_outcomes": 46,
+      "mean_forward": 0.1251358829265822,
+      "positive_count": 28,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "chatgpt_5",
+      "kind": "mature_stop_only",
+      "count": 6,
+      "fully_matured_outcomes": 6,
+      "mean_forward": 0.2625012237501851,
+      "positive_count": 2,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "chatgpt_5",
+      "kind": "immature_stop_only",
+      "count": 2,
+      "fully_matured_outcomes": 1,
+      "mean_forward": 0.4795244385733157,
+      "positive_count": 1,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "chatgpt_5",
+      "kind": "other_exits",
+      "count": 35,
+      "fully_matured_outcomes": 34,
+      "mean_forward": 0.10683656393896213,
+      "positive_count": 20,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "kind": "mature_stop_only",
+      "count": 5,
+      "fully_matured_outcomes": 5,
+      "mean_forward": 0.023739001725395937,
+      "positive_count": 3,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "kind": "immature_stop_only",
+      "count": 6,
+      "fully_matured_outcomes": 5,
+      "mean_forward": -0.12459235426193065,
+      "positive_count": 1,
+      "max_target_error": 0.0
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "kind": "other_exits",
+      "count": 45,
+      "fully_matured_outcomes": 43,
+      "mean_forward": 0.05816186861668832,
+      "positive_count": 23,
+      "max_target_error": 0.0
+    }
+  ]
+}
