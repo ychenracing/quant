@@ -1,0 +1,14 @@
+{
+ "status":"MEASURED_IMPROVEMENT_NOT_ECONOMIC_ACCEPTANCE",
+ "source_parent":"bbc002449093e458868a8748687df023958ba283",
+ "data_sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+ "selection":{"candidate":22,"objective":-0.316697398368517,"orders":258,"entry_window":40,"stop_atr":3.5,"entry_cap":0.7,"exit_style":"trailing"},
+ "evaluation":[
+  {"scope":"union","wealth":16.250603984027997,"max_drawdown":0.377835608860626,"orders":119,"summer":-0.2368157248424036,"bull":20.390899774257623},
+  {"scope":"chatgpt_5","wealth":16.580405303360802,"max_drawdown":0.3628586141702502,"orders":67,"summer":-0.1443189901454024,"bull":19.37685318758943},
+  {"scope":"joint_optical_leader_removal","wealth":14.36306244678548,"max_drawdown":0.4004396915761807,"orders":107,"summer":-0.2359305208435588,"bull":17.998665595134636}
+ ],
+ "identities":{"research/breakout.py":"94c81232dcaec3024b34a5a7cdfca8587dd95c164ffed10e69457c7f53c6dbca","research/breakout_study.py":"52b1e851e5b3e295c8cd064eaf8679f42c7c7fe8bab8ce29e5437c3014e036b0","tests/test_breakout.py":"dd4a595687471245351fc8f5e3e3260d47c102314727470016a3a11baca0e06f"},
+ "evidence_files":{"evaluation.csv":"68dbb3b3dadfc00ed3938417a6efebff1b31b080402fa4b8a7719780a0c8b4bb","selection.json":"70e3fbf028d6035f4f057b9bc4ecc8e345b335d2200c404ec6ddf434d6eab142","identity.json":"7c85e272782d725164363bae6a2b40a8f3c5ddb97c78e01b63f95e5da3c91488","scores.json":"2555b21bdd775bf164a98072ba2a73beaf1c6054f52849bbbf3845304acf0474","trials.csv":"2f2dfe2b7486d04d065c3594b0678a752cc301c7ee25f470ed8a5defcf49b013"},
+ "limitations":"Still below native best common-five wealth and above its drawdown. Heat extension failed paired protection: common improves but union/removal regress. Not promoted. Reversal prototype has a duplicate warmup implementation deviation; its historical result is not valid evidence of its declared ten-observation protocol. All predecessors preserved. Prior local measurements bind the adapter bytes, not this subsequent Git HEAD."
+}
