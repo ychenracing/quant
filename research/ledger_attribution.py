@@ -82,7 +82,7 @@ def attribute(market: Market, result: Result) -> tuple[pd.DataFrame, pd.DataFram
     peak_label = (str(peak.date()) if nav.loc[peak] >= result.metadata['config']['initial_cash']
                   else 'INITIAL_CASH')
     summary = dict(max_reconciliation_error=max(map(abs, errors), default=0.),
-                   episodes=len(finished), wins=sum(e['pnl'] > 0 for e in finished),
+                   episodes=len(finished), wins=int(sum(e['pnl'] > 0 for e in finished)),
                    drawdown_peak=peak_label, drawdown_trough=str(trough.date()),
                    max_drawdown=float(drawdown.max()),
                    episode_return_basis='cash PnL divided by actual buy notional')
