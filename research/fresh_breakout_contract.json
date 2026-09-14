@@ -1,0 +1,15 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"fresh_breakout_cash_preservation",
+  "parent":"causal_directional_change",
+  "root_cause":"In the directional selected union replay, all 47 protective signal days immediately recycled proceeds into other stocks and restored total target exposure to 1.0. Local name stops were not portfolio de-risking.",
+  "hypothesis":"Require fresh stock-level breakouts for new money, stop reallocating on a protective exit close, retain intact units without scheduled ranking replacements, and use a confirmed slow-trend break in addition to a peak stop. This separates real risk reduction from substitution into stale long-momentum names.",
+  "candidate_grid":{"slow":[20,40,80],"stop":[0.08,0.12,0.16],"positions":[2,3],"entry_window":[10,20]},
+  "candidate_count":36,
+  "fixed_rules":{"minimum_observations":10,"rank":"mean trailing log returns over 30,60,120 sessions with causal since-observed fallback","entry":"fresh prior-window closing high, positive rank, close above slow mean","exit":"observed peak drawdown or two consecutive closes below slow mean; stale quote closes risk","allocation":"retain intact units; initial entry cap 0.6 except singleton; drift cap 0.8 except singleton; use only cash; on any protective exit signal do not recycle its proceeds on that close"},
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "execution":"Unchanged parent next-session engine and all costs/capacity assumptions. No intraday or same-close stop fills.",
+  "limitations":"All inspected periods remain retrospective. Preserve the complete directional trial ledger and all new trials. Do not call finite-subset checks universal dominance."
+}
