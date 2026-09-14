@@ -1,0 +1,11 @@
+{
+  "correctness.txt": "9d4447e6c0f1ad3377cb806605d454d5b923da86dfa4a12f1151e76013356763",
+  "equivalence_failure.json": "6592a67914f0faae58b4acdd380cc4e2c39e801ec750388fb126305c4da8ee98",
+  "execution.txt": "a48eed4ebb18af3bf1a69732413267d7b6ee3964471251ef4d16c1c08897e1ce",
+  "failure.json": "1ffc8759ddbad9b665a88f14199e917fbbe41e0d59cbac2320a752bffb85a239",
+  "original-case-plan.json": "7910f1a5840aaa30900cbcb8c0a0cf27c2c126b302d547437dfaed952c248d03",
+  "receipt.json": "522a3599f6ff2e235f486e7ad911db5da8bef7aec5bf00017814ff878062e79e",
+  "source-commit.txt": "190e8bfbbc3f4799932dd840f8780b54acf96de752a19b5de50399dc3a57d81b",
+  "source-tree.txt": "438626dc6ff2182e93e5b840d3b42510644b50fbd1a7d672364a23de8e8202c5",
+  "source.tar.gz": "82f41a1a5a1ec73771c62b4cc7647ab657b57ea0c2c3cc8a72429bea5a2675d8"
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<stdin>", line 11, in <module>
+  File "/home/runner/work/quant/quant/research/neighborhood_validation.py", line 201, in hosted
+    default_equivalence(cache/'origin/fixed-validation',market,output/'default_equivalence.json')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/quant/quant/research/neighborhood_validation.py", line 103, in default_equivalence
+    error=check_recorded_decision(a,result.targets.loc[date].to_numpy(),row,
+        scope=name,day=day,destination=Path(destination).with_name('equivalence_failure.json'))
+  File "/home/runner/work/quant/quant/research/neighborhood_validation.py", line 55, in check_recorded_decision
+    raise ValueError('default differs from the old actual-inventory path: '+scope+' '+day+
+                     '; exact numeric witness: '+str(destination))
+ValueError: default differs from the old actual-inventory path: joint_optical_leader_removal 2023-09-01; exact numeric witness: /home/runner/work/_temp/fixed-validation/equivalence_failure.json
