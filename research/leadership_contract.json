@@ -1,0 +1,12 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"leadership_admission",
+  "hypothesis":"The event policy allocates newly available cash to the first stock that breaks its own short range, even when stronger technology leaders remain in the universe. The trade ledger shows repeated capital diversion into weak relative performers. Require a genuine cross-sectional leadership rank before a new purchase, without rotating or clipping intact existing winners.",
+  "candidate_grid":{"leader_window":[60,120,240],"eligible_fraction":[0.25,0.5],"stop_atr":[2.5,3.5]},
+  "candidate_count":12,
+  "fixed":"Independent event policy entry_window=40, entry_cap=0.7, trailing style. Rank fresh-quote, ready stocks by log close return over leader_window, using expanding observed history before a full window exists. Admit only the top ceil(eligible_fraction * ready_name_count), minimum one; no stock identifiers, sector preferences, permanent slots or date rules. Resolve exact rank ties deterministically by symbol. Existing holdings are not sold merely because their rank falls. Fresh entry still requires the independently defined breakout; unspent cash remains cash rather than buying a weaker substitute.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "evidence":"Keep all twelve trials, the original unfiltered policy, failed risk extensions and complete prior search multiplicity. Bind both ownership and admission source identities. Test prefix and permutation invariance, including singleton and IPO subsets. All later historical comparisons remain retrospective. Frozen execution, fees, cash, data and acceptance metrics are unchanged."
+}
