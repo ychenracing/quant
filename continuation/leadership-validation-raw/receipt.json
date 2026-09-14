@@ -1,0 +1,29 @@
+{
+  "status": "EXACT_RAW_LOGS_REMOTELY_PRESERVED",
+  "verified_parts_commit": "2af896eb148247bf873b78612abc1dfda8e96eae",
+  "verification": "All six remote Git blob identities read from the immutable directory match the intended local bytes. Concatenation, base64 decoding and gzip decompression reproduce all six original raw files and their SHA256 hashes.",
+  "parts": {
+    "part-00.b64": "ce11596d2bbaef2de5aa632fac2de9f414c6ffb3",
+    "part-01.b64": "c4fa8308629c4043c80f48ac621c6501fb62d7fa",
+    "part-02.b64": "b9ced93471ff1e733d388bacade9653c42f8765e",
+    "part-03.b64": "ec7255be1d1f7564e1a3f91d72117d9916d3b0f3",
+    "part-04.b64": "462471177d65e5ad38d5ea104f056e6f3f760d86",
+    "part-05.b64": "6b71f25c8435823cef5af3ccae3216bd8713b8ef"
+  },
+  "gzip_sha256": "e96f9c22775f4ed5bc37022238f0ac7c6281900a26cb5a7daece5e5f8b0652a9",
+  "decompressed_json_sha256": "a393ed6c49f429ea3d50732f25436760aca1c7996235a587617e7093df6e66c6",
+  "raw_file_sha256": {
+    "leadership-fixture-failure.txt": "2d4800d04e71d911a91fca72ecbe4d5870f8305df368654dab9c553e2a81a192",
+    "leadership-green.txt": "729751a8a5342dcde25e917e0b5f236049da5852cf69d273da15e858d964be8b",
+    "leadership-offline.txt": "f9edc3b2c99e79e9197ebdaa859655ec27d32ebc82d2166736755d04820771aa",
+    "leadership-red.txt": "0a59559d876c78a3d44dc1b8e56f78cf8d3ec1b8a9a4968d2c3ef660db10fbbd",
+    "leadership-research.txt": "6e8dd5450b1d2cdbfc655d17f8ef3c5dc5067c605cee84bb395cdce0ab0da5ae",
+    "recovered-raw-accounts.json": "d639d76eb6e2636dfa7456b92bb5bdf61a30dd8c1ee10b1ff7633221089fdff7"
+  },
+  "restore": "Read parts in lexical order, concatenate, base64-decode ignoring whitespace, verify gzip_sha256, decompress, verify decompressed_json_sha256, parse the filename-to-original-text JSON mapping and verify each raw_file_sha256.",
+  "local_verification": {"targeted_tests": 9, "research_tests": 115, "offline_tests": 77, "passed": true, "runtime": {"python": "3.13.5", "numpy": "2.3.5", "pandas": "2.2.3"}},
+  "source_binding": "The local logs precede hosted source binding; exact implementation/test/runner blobs subsequently matched c5bfda2f031bfc52ea164d55d3b0c60d61b829e6, tree 00809be52f35cd1a49b722245a8945d4a532ef09. Do not relabel locally UNBOUND metadata as hosted evidence. Hosted run 34858766715 supplies its own exact-source evidence.",
+  "failed_upload_preserved": {"commit": "2e2efd8d02a2757b56ff8103fff184eb122e4290", "path": "continuation/leadership-local-raw.json.gz.b64", "blob": "c72bd7a02a4118de9f6fd4056e96d11d6e619736", "status": "INVALID_TRANSPORT_NOT_CANONICAL"},
+  "supersedes": "Only the outstanding-log-repair limitation in LEADERSHIP_HANDOVER_WORK.md is now resolved. It does not supersede any frozen economic contract, failure or acceptance condition.",
+  "economic_acceptance": "NOT_ESTABLISHED"
+}
