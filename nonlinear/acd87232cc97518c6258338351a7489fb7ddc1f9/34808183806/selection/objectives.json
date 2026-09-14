@@ -1,0 +1,42 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "trend_span": 20,
+      "require_market_trend": false
+    },
+    "worst_deficit": 1.1529048746237618,
+    "objective": -1.409282663078325,
+    "fills": 649
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "trend_span": 20,
+      "require_market_trend": true
+    },
+    "worst_deficit": 0.7196424545492697,
+    "objective": -1.4741310174869493,
+    "fills": 553
+  },
+  {
+    "candidate": 2,
+    "parameters": {
+      "trend_span": 60,
+      "require_market_trend": false
+    },
+    "worst_deficit": 1.0631637301599444,
+    "objective": -1.365313594022897,
+    "fills": 465
+  },
+  {
+    "candidate": 3,
+    "parameters": {
+      "trend_span": 60,
+      "require_market_trend": true
+    },
+    "worst_deficit": 0.49986165383124703,
+    "objective": -1.1293112893641621,
+    "fills": 406
+  }
+]
