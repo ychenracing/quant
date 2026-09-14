@@ -1,0 +1,41 @@
+{
+  "identity": {
+    "source": {
+      "commit": "3492354badf4bf4624473e441049bc11db23e2d4",
+      "package_sha256": "fee5a8f51725e65ff5c389879b9c355b5c0785839dba46e344153b131bf28795",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "3c68ee37812178a4e4a296d0b9600ec9b96a99dbc175dc350a56c6e3f7b438de",
+        "engine.py": "3d4fe415c436ef86c2ffa498fba3d3709900d17c898844473e22c8068a3387bc",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.5",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "family": "decision_paths",
+    "dependencies": {
+      "decision_paths.py": "60d31e6d0af2eb226be926ffb39c337c73e033a004143c07ccd6ba334ff1c3e5",
+      "decision_path_study.py": "e5e6feab93367fb078451772e489463678cf41b5c14ede4fe79818afcf15eb57",
+      "decision_path_contract.json": "9892e7b16cf5c763f51ab93c9895779e5f4e8169fd7ca11e9aab342f932dcd2f",
+      "finite_study.py": "135782444d248eab5d50543a7c1b911b44dd1faee7a48e611615aa3aa367c251",
+      "expectation_study.py": "f71b20322bf9661f65478eb6ea158b0a9c5c715490c8e0e7f2715b5b4923783a",
+      "inventory_study.py": "9da41a456bdb66f8dd687039fc344f067cb62e2715d096b0b2ef09ad83a49493",
+      "admission.py": "5f9f1ed4583b59ca8bf297f320de63fa26601d0abc3c39b9e008c9652cfc5ae8",
+      "leadership.py": "fe1dfdaf2250e29cbda71e2891c934b54deaed536075da3fae8b37529972a3a1",
+      "catalog.json": "ff6845fbf1b744f411251da310dc6e085ffec6f44062d2761161914d8feb8d98"
+    }
+  },
+  "status": "MEASURED_NOT_ECONOMIC_ACCEPTANCE",
+  "economic_acceptance": "UNVERIFIED"
+}

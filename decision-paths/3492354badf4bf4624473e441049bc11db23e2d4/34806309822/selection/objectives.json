@@ -1,0 +1,62 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "window": 20,
+      "drawdown_penalty": 1.0
+    },
+    "worst_deficit": 8.451428571428572,
+    "objective": -1.6924417982819506,
+    "fills": 3685
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "window": 20,
+      "drawdown_penalty": 2.0
+    },
+    "worst_deficit": 8.960893854748603,
+    "objective": -1.5162524191268272,
+    "fills": 3779
+  },
+  {
+    "candidate": 2,
+    "parameters": {
+      "window": 60,
+      "drawdown_penalty": 1.0
+    },
+    "worst_deficit": 6.76536312849162,
+    "objective": -1.8835307177684826,
+    "fills": 2969
+  },
+  {
+    "candidate": 3,
+    "parameters": {
+      "window": 60,
+      "drawdown_penalty": 2.0
+    },
+    "worst_deficit": 6.312849162011173,
+    "objective": -2.0433185323300282,
+    "fills": 2836
+  },
+  {
+    "candidate": 4,
+    "parameters": {
+      "window": 120,
+      "drawdown_penalty": 1.0
+    },
+    "worst_deficit": 4.837988826815643,
+    "objective": -1.804019616925436,
+    "fills": 1930
+  },
+  {
+    "candidate": 5,
+    "parameters": {
+      "window": 120,
+      "drawdown_penalty": 2.0
+    },
+    "worst_deficit": 5.662857142857143,
+    "objective": -1.824618240554531,
+    "fills": 2293
+  }
+]

@@ -1,0 +1,30 @@
+test_calendar_is_not_intersection_or_ipo_backfill (test_core.CoreTests.test_calendar_is_not_intersection_or_ipo_backfill) ... ok
+test_config_rejects_nonsense (test_core.CoreTests.test_config_rejects_nonsense) ... ok
+test_cost_stress_fixed_trades_and_trade_fee_dates (test_core.CoreTests.test_cost_stress_fixed_trades_and_trade_fee_dates) ... ok
+test_duplicate_dates_and_nonpositive_prices_fail (test_core.CoreTests.test_duplicate_dates_and_nonpositive_prices_fail) ... ok
+test_evidence_is_non_overwriting_and_checksummed (test_core.CoreTests.test_evidence_is_non_overwriting_and_checksummed) ... ok
+test_invalid_external_targets_not_silently_normalized (test_core.CoreTests.test_invalid_external_targets_not_silently_normalized) ... ok
+test_limit_open_blocks_exit_and_retries (test_core.CoreTests.test_limit_open_blocks_exit_and_retries) ... ok
+test_next_open_cash_conservation_and_terminal_not_liquidated (test_core.CoreTests.test_next_open_cash_conservation_and_terminal_not_liquidated) ... ok
+test_no_future_information (test_core.CoreTests.test_no_future_information) ... ok
+test_protective_exit_ignores_rebalance_and_trade_band (test_core.CoreTests.test_protective_exit_ignores_rebalance_and_trade_band) ... ok
+test_subset_order_and_single_name_are_deterministic (test_core.CoreTests.test_subset_order_and_single_name_are_deterministic) ... ok
+test_today_volume_not_used_for_open_capacity (test_core.CoreTests.test_today_volume_not_used_for_open_capacity) ... ok
+test_delayed_unit_intent_uses_original_signal_not_future_price (test_inventory_intent.InventoryIntentTests.test_delayed_unit_intent_uses_original_signal_not_future_price) ... ok
+test_legacy_weight_target_behavior_remains_explicitly_distinct (test_inventory_intent.InventoryIntentTests.test_legacy_weight_target_behavior_remains_explicitly_distinct) ... ok
+test_queued_buy_cannot_sell_inventory_filled_since_its_signal (test_inventory_intent.InventoryIntentTests.test_queued_buy_cannot_sell_inventory_filled_since_its_signal) ... ok
+test_unit_increase_cannot_turn_into_sell_after_gap_up (test_inventory_intent.InventoryIntentTests.test_unit_increase_cannot_turn_into_sell_after_gap_up) ... ok
+test_unit_reduction_cannot_turn_into_buy_after_gap_down (test_inventory_intent.InventoryIntentTests.test_unit_reduction_cannot_turn_into_buy_after_gap_down) ... ok
+test_unit_targets_must_match_validated_close_allocation (test_inventory_intent.InventoryIntentTests.test_unit_targets_must_match_validated_close_allocation) ... ok
+test_close_units_and_prefix_match_and_removed_names_are_absent (test_inventory_adapter.InventoryAdapterTests.test_close_units_and_prefix_match_and_removed_names_are_absent) ... ok
+test_open_episode_summary_is_strict_json (test_ledger_attribution.LedgerAttributionTests.test_open_episode_summary_is_strict_json) ... ok
+test_partial_sells_and_final_liquidation_reconcile (test_ledger_attribution.LedgerAttributionTests.test_partial_sells_and_final_liquidation_reconcile) ... ok
+test_parameters_reject_invalid_values (test_decision_paths.DecisionPathsTests.test_parameters_reject_invalid_values) ... ok
+test_prefix_matches_and_removed_universe_has_no_external_shadow (test_decision_paths.DecisionPathsTests.test_prefix_matches_and_removed_universe_has_no_external_shadow) ... ok
+test_shadow_labels_and_target_calendar_cannot_be_substituted (test_decision_paths.DecisionPathsTests.test_shadow_labels_and_target_calendar_cannot_be_substituted) ... ok
+test_study_reuses_exact_shadow_and_preserves_checked_scores (test_decision_paths.DecisionPathsTests.test_study_reuses_exact_shadow_and_preserves_checked_scores) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 2.893s
+
+OK
