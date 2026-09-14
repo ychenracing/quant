@@ -1,0 +1,14 @@
+{
+  "kind": "RECOVERED_LOCAL_CODE_AND_RAW_VERIFICATION",
+  "original_local_commit": "e8dddd7b88b5b1007ad08ef92c93042bffd823cb",
+  "published_commit": "655002c1e2fd40064bdc0e191bff913eda493901",
+  "shared_source_tree": "6e1ceef360cdb22b98386825e6395345caed85fc",
+  "parent_commit": "065f3d55006365ee8f3a38376dbca517c1d3cd63",
+  "archive_sha256": "12f102116ece554d548a6941f90362ca6314fc570b264ad12ce9ffcd9a7094d4",
+  "archive_bytes": 36236,
+  "archive_members": 49,
+  "original_attachment_sha256": "2cd1a1ebb25f2f6024aeaac54c1f5abf664dda74d14371fc78498a9c778b0b38",
+  "verification": "Original attachment members, bundles, raw validation records and the exact correction tree were recovered and checked locally. The compact archive preserves original local bundles/patches, red-green and verification logs, prior source/evidence recovery records, publication mapping and its member manifest. Duplicate source/economic archives already durably identified on existing GitHub branches are not copied into this archive.",
+  "economic_acceptance": "UNVERIFIED",
+  "limitations": "Local bundle commit and plugin publication commit differ but their source trees match exactly. These are correctness records, not new economic acceptance. Unmounted workers and previously unavailable originals remain unverified. No failed evidence was deleted or relabelled."
+}
