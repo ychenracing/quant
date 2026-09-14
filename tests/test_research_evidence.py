@@ -32,7 +32,7 @@ class ResearchEvidenceTests(unittest.TestCase):
                 'protocol_sha256': file_hash(Path(study.__file__).with_name('protocol.json')),
                 'runner_sha256': file_hash(Path(study.__file__))}
         for key, value in [('source', {}), ('selection_data_sha256', 'other data'),
-                           ('config', asdict(Config())), ('runner_sha256', 'other runner')]:
+                           ('config', base['config'] | {'fast': base['config']['fast'] + 1}), ('runner_sha256', 'other runner')]:
             with self.subTest(key=key), tempfile.TemporaryDirectory() as tmp:
                 selection = copy.deepcopy(base)
                 selection[key] = value

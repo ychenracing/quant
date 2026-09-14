@@ -1,21 +1,23 @@
-# Execution state
+# 执行状态与恢复入口
 
-## Verified recovery — 2026-09-14
+本文件记录研究代码交付状态，不代替 GitHub 实时分支状态或经济验收。
 
-Repository: `ychenracing/quant`; original PR #1; implementation branch: `research/independent-tech`. Recovered source: `567a2b68a342b4f159d824ce076bacd072c3e0d3`. Main remains LICENSE-only at `234cc5729455ce5440b0a5307aadbcb9c1c0bbc4` at this checkpoint.
+## 已完成并验证
 
-The latest source archive is the PR merge-test commit `d471e3fac7ce33194fffad8f1d9853737bbd6c59`, not a main merge. Its tree contains the independent package and research runners. Local restoration reran all 37 offline tests successfully in 0.997 seconds, using Python 3.13.5, NumPy 2.3.5 and pandas 2.2.3. This is engineering evidence only.
+独立生产包、逐标的中文模型说明、冻结 12 候选选优、有限组合研究、四项目只读原生对照、中文架构/参数/操作/结果文档均已落地。默认 Python 配置与显式选中研究配置一致；没有新增策略参数搜索。38 项必要离线测试通过，本地约 1 秒；编译、wheel 构建、真实冻结数据 audit 和 inspect 命令通过。
 
-All three frozen market/supplement/index archive SHA256 values match `research/run-request.json`. Do not redownload newer vendor data into the frozen comparison.
+完整历史复现绑定源码 `567a2b68a342b4f159d824ce076bacd072c3e0d3`：210 场景、437 次回放、197 个同执行比较仅 3 个同时收益和回撤占优。27 个原生场景中 18 个完整测得、4 个执行预算耗尽、5 个覆盖失效；共同五股的四套原生对照均完整测得。所有失败必须保留。默认配置一致性修复后的包身份不同，不以旧 SHA 证明新提交。
 
-## Preserved economics
+## 发布与经济状态
 
-`evidence/retention_evaluation_checkpoint.json` binds the prior completed 210-case / 437-replay study to `bfcc222009156661a9a67ddc927adb738ca27176`. Only 3 of 197 same-execution buy-and-hold comparisons achieved both return and drawdown dominance. Full-period wealth was 10.824786 for the common five, 5.624793 for the 34-stock union, and 2.246934 after joint optical-leader removal. Economic dominance FAILED; these prior-source results do not prove this or any later HEAD.
+原 PR #1 与 `research/independent-tech` 保存实施过程；按原授权向 main 交付可运行研究代码，不把发布解释为达到用户全部目标。当前提交的完整证据由显式研究流程追加到 `research/evidence`，核验 `LATEST.json` 的 source_commit、对应 SOURCE_IDENTITY、总清单与 receipt。没有对应源码证据时标记未验证，不借用其他提交结果。
 
-Keep the rejected bootstrap, parent selection, fixed 12 numerical candidates, architectural hypothesis and all failures. No post-2026 expansion of the frozen search or relabeling of known historical stress as prospective validation.
+经济目标未通过：没有持平最佳收益，没有证明全面最早的风险识别，也没有证明任意组合最优。不要用于自动下单或冒充实际账户决策。
 
-## Authorized remaining delivery
+## 并行研究记录
 
-Finish source/data-bound reproduction, four read-only native comparators, risk-timing disclosure, Chinese architecture/parameters/operations/results documentation and compact correctness checks. Publish a working research delivery to main with failures and unverified capabilities clearly disclosed; publication is not economic acceptance or live-trading authorization.
+保留远端新增的 `docs/OPTIMIZATION_WORK.md` 和 `research/ownership_protocol.json`，不覆盖或删除。该独立实验不是本次默认配置一致性修复，也不因本次交付而自动成为默认策略；其实现与经济结果须按自己的协议独立核验。
 
-Production implementation remains independently written: no copied reference strategy modules, inherited engines or stock/date-specific tuning. Scope is 2023 onward A-share technology, cash long-only, close-based decisions and next-session execution, human verification, no broker orders. Commit intermediate work to this original branch and verify remote writes. Do not start replacement PRs or ask again for already-granted implementation/publication approval.
+## 不可破坏约束
+
+保持 2023 年起科技股、现金多头、盘后决策与下一交易日执行。参考代码不作为生产底座，不改四个原生实现的策略规则。不更改冻结数值候选、统计口径、选优公式或时间窗，不追加迎合已知 2026 路径的搜索，不删除失败。完整研究不进入日常经济 CI 门禁；长任务中间结果继续按原授权推送并核验远端。
