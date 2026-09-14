@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"extended_trend_damage_protection",
+  "parent":"Training-selected event-driven breakout policy: entry_window=40, stop_atr=3.5, entry_cap=0.7, exit_style=trailing. Preserve its complete 36-candidate ledger and retrospective results.",
+  "hypothesis":"A normal holding trail should tolerate early trend noise, but the same distance surrenders excessive profit after a fast price extension. Tighten the ratcheted stop only after an objectively observed large multi-session gain, and separately test whether breadth confirmation blocks false breakout purchases in a declining technology basket.",
+  "candidate_grid":{"heat_window":[40,80],"heat_gain":[0.4,0.8],"hot_drawdown":[0.06,0.10,0.14],"entry_gate":["none","breadth"]},
+  "candidate_count":24,
+  "protection":"After current close / close[heat_window sessions ago] - 1 exceeds heat_gain, ratchet the observed holding's stop to at least peak * (1-hot_drawdown). Stop cannot loosen on a later volatility spike or when heat dissipates. Fresh closing damage triggers a sell for next open; no intraday or peak-price fill. Risk always precedes entry.",
+  "entry_gate":"For breadth variant only: fresh entries require at least half of currently ready input names above their twenty-session mean; existing intact holdings are never sold solely because breadth declines. No outside symbols or excluded leaders enter the breadth calculation.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "evidence":"Bound both parent policy and extension source bytes, config, runner and data. Preserve all attempted candidates, including failures and source-only testing errors. Already-observed historical evaluation is retrospective, not prospective proof. No production dates, security identifiers or phase/version labels. Accounting, capacity and fee assumptions unchanged."
+}
