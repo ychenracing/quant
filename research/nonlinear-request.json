@@ -1,9 +1,10 @@
 {
-  "family": "observed_readiness",
-  "purpose": "Measure the one preregistered expanding observed-history candidate, preserving exact matched parent PnL attribution, raw outcomes and concurrent leadership work. Do not repeat old candidate grids.",
+  "family": "leadership_handover",
+  "purpose": "Measure the existing one-candidate confirmed leadership handover contract above the corrected support parent. Preserve actual fills, voluntary-exit traces and all failures; do not rerun completed readiness, readmission or old grids.",
   "candidate_count": 1,
   "selection_end": "2025-12-31",
-  "contract_commit": "878617af9c41973c63be25da97f7f97141c3d3f2",
+  "contract_commit": "bf839c9f6d8824a57fd6ee567080a326d321a766",
+  "parent_source": "180640bff6d3a125cdf1b8928a6e0fc32a1d5f1a",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }
