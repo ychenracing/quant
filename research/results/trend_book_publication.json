@@ -1,0 +1,29 @@
+{
+  "origin_source_commit": "fd5cbebdf6e5176e2ad6e53c4b6b24460a576505",
+  "hosted_source_commit": "05ae05bd13961ac4acab3969f8c6a53f95d4d94b",
+  "run_id": 34827147068,
+  "artifact_id": 10341020187,
+  "zip_sha256": "03eb99e2803313678dd8024c1d952e07545427633448b8957d7d2258c520014e",
+  "archive_sha256": "10807186109f3890ff6e6ecad8f78f2533feb7d6400885f9b88019ec4f34b3b3",
+  "manifest_files_verified": 144,
+  "raw_files_compared": 65,
+  "raw_mismatches": [
+    "evaluation/runs/chatgpt_5_incumbent/targets.csv",
+    "evaluation/runs/joint_optical_leader_removal_incumbent/targets.csv",
+    "evaluation/runs/union_incumbent/targets.csv",
+    "selection/runs/incumbent_chatgpt_5/targets.csv",
+    "selection/runs/incumbent_joint_optical_leader_removal/targets.csv",
+    "selection/runs/incumbent_union/targets.csv"
+  ],
+  "original_metadata_documents": 77,
+  "status": "ORIGINAL_BYTES_RECOVERABLE_AND_VERIFIED",
+  "economic_acceptance": "NOT_PASSED",
+  "recovery": "Original metadata is preserved verbatim in four compressed parts. Obtain raw CSV from hosted archive, verify hosted hashes, restore the explicitly recorded original lines in the six control target CSVs, then verify every original digest. Hosted files are not modified, and neither source identity is relabelled. Differences are sub-1e-15 control weights only; all actual orders, NAV and candidate targets reproduce exactly.",
+  "direct_exact_raw_files": 59,
+  "exact_candidate_outputs": true,
+  "all_filled_orders_and_equity_exact": true,
+  "control_target_max_absolute_difference": 1.1102230246251565e-16,
+  "original_line_patch": "research/results/trend_book_original_target_lines.json",
+  "patched_lines": 9,
+  "original_files_reconstructed_and_verified": 141
+}

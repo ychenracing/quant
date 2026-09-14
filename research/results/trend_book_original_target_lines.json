@@ -1,0 +1,53 @@
+{
+  "evaluation/runs/chatgpt_5_incumbent/targets.csv": {
+    "hosted_sha256": "2a547eabc8f3c7b5b4956150412e8b7dfed36e5a3c7fd6ae337f8f3d735e81bf",
+    "origin_sha256": "94b33778838520660acb4e77d61f94f7c30b4a505b3dc7905369b9954dce0aca",
+    "line_count": 897,
+    "original_lines": {
+      "72": "2023-04-20,0,0,0.227983943617308,0.47669431851723609,0\n",
+      "751": "2026-02-05,0,0.40199966634768691,0,0.45946243184636437,0\n",
+      "756": "2026-02-12,0,0.28725033041308251,0,0.42665957719226183,0\n"
+    }
+  },
+  "evaluation/runs/joint_optical_leader_removal_incumbent/targets.csv": {
+    "hosted_sha256": "1a6de10d362d672840d534f4f1c88d3c6255a69d03f38757c52d54d5cce7a2b2",
+    "origin_sha256": "f8ba2d4d497d23eadd402d7354e3a8affef12207a537236eee75d2574f4ec0a0",
+    "line_count": 897,
+    "original_lines": {
+      "616": "2025-07-21,0,0,0.51556235791615213,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.23443764208384787,0,0,0,0,0,0,0,0,0,0\n",
+      "761": "2026-02-27,0,0,0.51512716751164167,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.48487283248835844,0,0\n"
+    }
+  },
+  "evaluation/runs/union_incumbent/targets.csv": {
+    "hosted_sha256": "a83465ebf4eb7d0fca26bfb711a70e6bd02c208c8993e04e4f3d97342360c303",
+    "origin_sha256": "36b0cb26effa428d4b0fa4d5b7167342fff495565371344ee59e8704658a03cd",
+    "line_count": 897,
+    "original_lines": {
+      "432": "2024-10-18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.28677229096964824,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2304678759973286,0,0,0\n"
+    }
+  },
+  "selection/runs/incumbent_chatgpt_5/targets.csv": {
+    "hosted_sha256": "f667ee8cbf7af18be75d0d092fbedc95ea082b3936a082fa2d317b2d45bceeb0",
+    "origin_sha256": "3af77212db104ce5fc0d9f5bfbd95079fcc31cad4553ab5f8cae08e076b6d358",
+    "line_count": 728,
+    "original_lines": {
+      "72": "2023-04-20,0,0,0.227983943617308,0.47669431851723609,0\n"
+    }
+  },
+  "selection/runs/incumbent_joint_optical_leader_removal/targets.csv": {
+    "hosted_sha256": "627c08fcc2b986bed9664a4797dde51161d45a7cd783223b8357d2b7671ce139",
+    "origin_sha256": "09e1279aa4682fb4a5dbde2b21dc76535183a4141b56eaf7f6e06609b8d154ec",
+    "line_count": 728,
+    "original_lines": {
+      "616": "2025-07-21,0,0,0.51556235791615213,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.23443764208384787,0,0,0,0,0,0,0,0,0,0\n"
+    }
+  },
+  "selection/runs/incumbent_union/targets.csv": {
+    "hosted_sha256": "6d6e7344ea7551a4da507679f07dbb196194c1253fe5779fe515317875c82c70",
+    "origin_sha256": "c2fb87255908cdd1dd63402c47f2cdc49b0ef7514557afa6ddb98147acac0842",
+    "line_count": 728,
+    "original_lines": {
+      "432": "2024-10-18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.28677229096964824,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2304678759973286,0,0,0\n"
+    }
+  }
+}

@@ -1,10 +1,9 @@
 {
-  "family": "trend_book",
-  "purpose": "Independently reproduce only the newly implemented two-candidate price-book family for durable raw publication and compare its 65 raw CSV outputs against the separately identified local measurement. Do not repeat old model grids or retrieve old model diagnoses.",
+  "family": "recovery_memory",
+  "purpose": "Measure only the two preregistered same-close exit-veto control and unresolved risk-event-price memory candidates. Preserve their complete source-bound raw outcomes, including failures. No old model grid is rerun.",
   "candidate_count": 2,
   "selection_end": "2025-12-31",
-  "contract_commit": "5a16e9e04c5d3dd2323b43aef3a4c587c4ecdb7d",
+  "contract_commit": "05ae05bd13961ac4acab3969f8c6a53f95d4d94b",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "raw_expectations": "research/results/trend_book_raw_expectations.json",
-  "economic_acceptance": "NOT_PASSED"
+  "economic_acceptance": "UNVERIFIED"
 }

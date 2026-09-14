@@ -22,7 +22,7 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str,*,issued_evidence:Path|None=None):
-        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear','observed_trend','pathwise','coherent','trend_book','recovery_memory'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
         self.issued=None
@@ -37,10 +37,11 @@ class Study:
         root=Path(__file__).parent
         names=['finite_study.py','expectation_study.py',self.family+'.py',
                self.family+'_contract.json','leadership.py','expectation.py']
-        if self.family in {'observed_trend','pathwise','coherent','trend_book'}:names+=['nonlinear.py','nonlinear_contract.json']
-        if self.family in {'pathwise','coherent','trend_book'}:names+=['observed_trend.py','observed_trend_contract.json']
+        if self.family in {'observed_trend','pathwise','coherent','trend_book','recovery_memory'}:names+=['nonlinear.py','nonlinear_contract.json']
+        if self.family in {'pathwise','coherent','trend_book','recovery_memory'}:names+=['observed_trend.py','observed_trend_contract.json']
         if self.family=='coherent':names+=['issued_forecasts.py','pathwise.py','pathwise_contract.json']
-        if self.family=='trend_book':names+=['coherent.py','coherent_contract.json','pathwise.py','pathwise_contract.json']
+        if self.family in {'trend_book','recovery_memory'}:names+=['coherent.py','coherent_contract.json','pathwise.py','pathwise_contract.json']
+        if self.family=='recovery_memory':names+=['trend_book.py','trend_book_contract.json']
         return {'source':source_identity(),'family':self.family,
                 'dependencies':{name:file_hash(root/name) for name in names},
                 **({'issued_forecasts':self.issued.identity()} if self.issued else {})}
