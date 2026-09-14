@@ -1,0 +1,28 @@
+{
+  "source_commit": "2aceefa4115daeefb2d2191ed0b690366959488a",
+  "source_tree": "d16912e97fc64c112132e2d05e8a4e9bd3b8f6fe",
+  "run_id": 34861380791,
+  "offline_run_id": 34861380683,
+  "artifact_id": 10355260287,
+  "zip_sha256_verified": "7e06ec81c9edb95bfdd0cbf5b71852e58466c6650963910491114b6ffbb7f1a0",
+  "archive_sha256_verified": "cc0e347b4b7bfe359fb57f0d24e04721c096a439b2cbaff77a65a31f7402fa56",
+  "durable_raw_root": "nonlinear/2aceefa4115daeefb2d2191ed0b690366959488a/34861380791/",
+  "verification": {"top_manifest_entries": 132, "strict_raw_accounts": 18, "source_bound_intent_traces": 6, "source_archive_dependencies_frozen_scoped_data_and_plan_hashes": "VERIFIED", "metrics_recomputed_without_replay": true, "max_ledger_reconciliation_error_cny": 1.4901161193847656e-8, "hosted_correctness_and_measurement": "success", "local_targeted_tests": 9, "local_research_tests": 124, "local_offline_tests": 77},
+  "selection": {"candidate": 0, "parameters": {}, "worst_deficit": 0.22389315267369225, "objective": -0.8378162898687278, "fills": 456, "status": "DIAGNOSTIC_NOT_ACCEPTED"},
+  "full": {
+    "union": {"wealth": 8.22810624977579, "max_drawdown": 0.3135882888411622, "fills": 189, "voluntary_events": 10},
+    "chatgpt_5": {"wealth": 7.978816654869468, "max_drawdown": 0.3010211554593133, "fills": 146, "voluntary_events": 4},
+    "joint_optical_leader_removal": {"wealth": 3.460874284416184, "max_drawdown": 0.32266446907730917, "fills": 197, "voluntary_events": 10}
+  },
+  "common_five_actual_event_timing": [
+    {"signal": "2023-04-19", "exit_symbol": "sz300394", "challenger": "sz300308", "actual_zero": "2023-04-20", "first_later_buy": "2023-04-24", "bought": ["sz300308"]},
+    {"signal": "2023-12-14", "exit_symbol": "sh688008", "challenger": "sz300394", "actual_zero": "2023-12-15", "first_later_buy": "2023-12-18", "bought": ["sz300394"]},
+    {"signal": "2024-07-16", "exit_symbol": "sh603986", "challenger": "sh688008", "actual_zero": "2024-07-17", "first_later_buy": "2024-07-18", "bought": ["sh688008"]},
+    {"signal": "2026-02-27", "exit_symbol": "sh688008", "challenger": "sh603986", "actual_zero": "2026-03-02", "first_later_buy": "2026-03-23", "bought": ["sz300502"]}
+  ],
+  "interpretation": "The scheduled alternative still loses common-five wealth versus both the corrected support parent and incumbent. It remains a separate failed candidate, not a component selected per pool. Actual sale completion does not reserve the original challenger or guarantee immediate reinvestment. The event timing is descriptive, not a causal swap-profit estimate.",
+  "raw_red_test_log": {"path": "continuation/opportunity-red.txt.gz.b64", "verified_commit": "c897c290a683b8a2f1296d3806d91727df4fecac", "verified_blob": "4649474efde672eeb99f2523aeac34aec43a2aab", "gzip_sha256": "04428c8353abfded63c55733b313a1de9978945f64222f92b8a5406cd349fd17", "raw_sha256": "a0afddcaaf5cc0a105bdc24403d4209d188284911c0c812dcc1fbc02f5d34832", "invalid_transport_commits_retained": ["c44917e363a90af167e8a8c65eb4cc11aefe5966", "95bc6652360a716d3f14e7e431bfe7d2dd5a38de"], "positive_exact_source_logs": "Included in the hosted raw archive; do not relabel local UNBOUND logs."},
+  "next_direction": "Do not tune the two completed swap families. Investigate the original first-admission budget partition with pre-2026 saved decisions. Any residual-budget completion is a new prospective one-candidate hypothesis, not a correctness fix, old-grid extension, global-risk-budget increase or permission to relax original acceptance.",
+  "economic_acceptance": "NOT_MET",
+  "main_promoted": false
+}
