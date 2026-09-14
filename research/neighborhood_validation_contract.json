@@ -1,0 +1,20 @@
+{
+  "operation": "original_parameter_neighborhoods",
+  "family": "observed_admission_completion",
+  "candidate_parameters": {},
+  "purpose": "Close the ten original unverified configuration-neighborhood cases without selecting another candidate, changing their values, modifying old contracts, or rerunning completed fixed coverage.",
+  "measured_default_source": "e7341fc52e4a11cc4d8396aa3f15819f50702877",
+  "measured_default_run": "34876226498",
+  "measured_archive_sha256": "dec1b21efc7a26c36a4827776de6730b62a421b72a263b0e507096384acc8f60",
+  "baseline_archive_sha256": "6f7864e8f60001790806dcedb2fb7abc5960fb992c936ee9ea2be02069f3f353",
+  "case_plan_sha256": "7910f1a5840aaa30900cbcb8c0a0cf27c2c126b302d547437dfaed952c248d03",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "case_source": "Use exactly the ten stability_not_reselection entries in the original 209-case plan: fast, slow, rebalance, stop_atr and risk_drawdown at the originally stored 0.9/1.1 values. Do not regenerate or round their configuration values.",
+  "construction": "Propagate an explicitly validated immutable Config through support, quantity-obligation, observed-readiness and observed-completion constructors before any feature or support estimate is built. Preserve all defaults, economic state transitions, finite family grids, source-bound trace semantics, protections and costs. Do not inject configuration after partial feature construction. Unsupported funded/cushion constructor overrides must fail explicitly rather than silently ignore settings.",
+  "default_equivalence": "Before measurement, compare default decisions and actual resulting paths with the recovered implementation, and verify omitted versus explicit default configuration. Record old/new identities separately. Proven recorded-path equivalence is not a blanket new-HEAD acceptance claim.",
+  "measurement": "Measure the ten original neighbor configurations and one new-source default control on the frozen union34 market, each with same-configuration incumbent controls. Save original full raw ledgers, intended units, identity, dependency hashes and all existing protocol windows. Report default-relative wealth, drawdown and turnover differences without a new numerical acceptance threshold or winner selection. An unused setting with identical paths is explicitly inert for this family, not evidence of a useful sensitivity knob.",
+  "causality": "Verify exact default and changed-configuration prefixes, removed-symbol isolation, independent interleaved owners and actual cash/T+1/execution behavior. Old fixed-coverage and other family evidence remain immutable.",
+  "publication": "Use the existing explicit fixed-validation workflow with an operation selector and distinct source/run identity; do not redispatch completed core or broad coverage. Preserve complete and failed outcomes, read back saves, and keep ordinary CI bounded.",
+  "economic_acceptance": "UNVERIFIED",
+  "limitations": "The default already fails original joint economics. This closes measurement coverage, not the economic deficit. No candidate reselection, frozen-gate waiver, native-reference substitution, unseen-2026 claim, actual-share/tax-ledger claim or main promotion follows from these checks. Preserve concurrent funded/revocable-reentry implementation without altering its modules or request."
+}
