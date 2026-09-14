@@ -1,0 +1,9 @@
+{
+  "source_commit": "2aceefa4115daeefb2d2191ed0b690366959488a",
+  "run_id": "34861380791",
+  "family": "opportunity_reassignment",
+  "operation": "measure",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}
