@@ -1,0 +1,20 @@
+{
+  "family": "quantity_obligation",
+  "status": "PREREGISTERED_BEFORE_MEASUREMENT",
+  "parent_source": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+  "parent_archive_sha256": "3b8b967added9a8257f64e49d1eadc4031309965404261ee621614618592371b",
+  "diagnosis": "Exact pre-2026 reconstruction of all six funded-risk accounts matches every close target within 1.2e-16. The no-cushion common-five account has 243 filled sells, 176 below 1% NAV, but only31 current funded-budget cut dates. Its already-outstanding ceiling is lowered332 times,298 outside a current funded-budget cut. Corresponding union counts are389/342 and leader-removal403/372. Inspection shows support_budget.Owner latches the rounded executable target back into the economic risk obligation every close. Changes in adjusted/raw conversion and partial or blocked executions can therefore cause another minimum declaration and a progressively lower ceiling without a new risk decision. Counts outside the funded cap are not by themselves proof that every event lacks other risk information; the minimal synthetic reproduction isolates this rounding feedback separately.",
+  "correction": "Keep the nonincreasing economic-unit ceiling produced by the actual risk/concentration decision distinct from the rounded order recommendation. Record the former as the pending obligation. Round only the returned executable order with the existing support declaration algorithm. Never write that rounded recommendation back into the obligation merely because an execution is blocked or partial. A genuinely new tighter risk decision may still lower the obligation. Clear it only when observed actual inventory reaches the economic ceiling, not because a signal or requested order says it did. Full exits, stale quotes, cash blocking, stops, T+1, liquidity, costs and the engine remain unchanged. No execution buffer, risk-band waiver, materiality suppression, new numerical parameter or forecast is added.",
+  "fixed_candidates": [
+    {"authority": "support", "parent_parameters": {"risk_budget": 0.1, "positions": 2}},
+    {"authority": "funded", "parent_parameters": {"use_cushion": false}},
+    {"authority": "cushion", "parent_parameters": {"use_cushion": true}}
+  ],
+  "candidate_count": 3,
+  "independence": "An isolated intent adapter around the independently written quant owners. Do not modify old policy modules, contracts or measured results; preserve concurrent work and never use any trades strategy source as a base.",
+  "verification": ["synthetic reproduction against the old owner", "new risk ceiling distinguished from declared quantity", "blocked and partial executions cannot ratchet the obligation", "actual completion clears only the reached ceiling", "fresh tighter risk and full exits still override", "no purchases funded by outstanding sells", "declarations use unchanged rounding", "prefix and removal isolation", "delayed execution cash and PnL reconciliation", "all three fixed parents registered and source bound"],
+  "selection": "Exactly these three already-defined economic parents with the same single correctness correction. Keep finite_study's unchanged pre-2026 cutoff, scopes, wealth/drawdown/fill deficit definition and tie-breaks. No old grids or forecasts are rerun. A diagnostic winner is not acceptance.",
+  "evaluation": "Unchanged full, bull, late-June-through-August, July-August and retrospective-2026 windows. Broader original references, removals, subsets, costs, delays and all original objectives remain obligations before production delivery.",
+  "economic_acceptance": "UNVERIFIED",
+  "limitations": "The correction does not prove profitability, error-free actual-share accounting or a realized risk bound. A declaration may conservatively overshoot an economic ceiling by a legal minimum quantity, and next-open conversion may leave a genuine residual requiring retry. Neither changes the original economic ceiling or permits spending expected proceeds. Adjusted units remain a research proxy."
+}
