@@ -1,0 +1,34 @@
+{
+  "name": "admission_budget_completion",
+  "status": "PREREGISTERED_NOT_ACCEPTED",
+  "parent_source": "180640bff6d3a125cdf1b8928a6e0fc32a1d5f1a",
+  "source_before_implementation": "2aceefa4115daeefb2d2191ed0b690366959488a",
+  "parent": "quantity_obligation support, risk_budget 0.10, positions 2",
+  "candidate_grid": [{}],
+  "basis": {
+    "attribution_source": "bf839c9f6d8824a57fd6ee567080a326d321a766",
+    "attribution_path": "quantity_gap",
+    "parent_archive_sha256": "ffc82ff43d6d5ac01d2acbc9f0c265885e916d09d1c717a492df989687f45ec7",
+    "cutoff": "2025-12-31",
+    "method": "Inspect saved corrected-parent close decisions and filled-inventory PnL. Reconstruct actual NAV, admission stops and pending stops without a portfolio rerun, model fit or forward return calculation. Identify original fresh allocations binding at half the global stop-risk budget and positive residual authorized cash/risk after reserving all original orders.",
+    "scopes": {
+      "union": {"fresh_admission_closes": 42, "half_budget_binding": 31, "binding_with_authorized_cash_above_one_percent_nav_and_risk_above_one_thousandth_nav": 18},
+      "chatgpt_5": {"fresh_admission_closes": 39, "half_budget_binding": 25, "binding_with_authorized_cash_above_one_percent_nav_and_risk_above_one_thousandth_nav": 21},
+      "joint_optical_leader_removal": {"fresh_admission_closes": 44, "half_budget_binding": 31, "binding_with_authorized_cash_above_one_percent_nav_and_risk_above_one_thousandth_nav": 19}
+    },
+    "limits": "Descriptive counts do not establish extra executable capacity or profit. Symbol/sector limits can absorb the residual. The diagnostic cash/risk counting cutoffs are not policy parameters. The original admission partition is a discretionary design, not an identified correctness bug. More exposure can amplify losses. Both completed swap alternatives remain failed and separate."
+  },
+  "decision": [
+    "Run the unchanged corrected support parent first, preserving its membership, requested amounts, ordering, risk update, stops, eligibility and all economic obligations.",
+    "Only the parent's positive allocation path may complete fresh admissions already selected on that close, meaning actual units zero and original desired units positive. Never enlarge actual held positions or introduce another symbol.",
+    "Reserve all original requested purchases before computing residual cash. Cash authority is min(0.99 times actual cash, cap times NAV minus actual held notional), minus all original purchase notional. No blocked or pending sale proceeds are included.",
+    "Global stop-risk authority stays 0.10 times actual NAV times current risk cap. Residual risk subtracts the entire original desired book valued at the identical parent stop distances and two-percent price floor. No cap or stop changes are permitted.",
+    "Complete already-selected fresh symbols in the original score and symbol order, subject simultaneously to residual cash, residual global risk, unchanged single-name cap and unchanged sector cap. Each enlargement belongs to the already proposed fresh order; no additional rebalance or order is introduced.",
+    "Preserve protected exits, partial-sale economic ceilings, declaration rounding, non-resetting NAV risk history, recovery eligibility and original execution/materiality rules. No new allocation occurs on a parent-protected close.",
+    "Save source-bound traces of actual inventory, original desired allocation, completed allocation, authority and remaining resources. Intent changes are not fills, realized loss bounds or risk-avoidance claims."
+  ],
+  "selection": "Use the unchanged finite_study selector through 2025-12-31 across the same three scopes, followed by the unchanged five-window matched evaluation. The singleton is diagnostic, not a waiver of the original full economic and repository acceptance.",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "exclusions": "No old-grid extension or retuning, no swap-policy combination, no forecast entry ranking, no new numerical tuning, no future labels, no reference-source imports, no default production promotion.",
+  "limitations": "2026 is retrospective; adjusted-economic-unit accounting is a proxy. All original native-reference, pool/removal/subset, cost/delay/parameter/prefix, participation and actual-risk-avoidance requirements remain applicable."
+}
