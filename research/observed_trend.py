@@ -53,9 +53,12 @@ def signals(market: Market, p: Parameters) -> Signals:
 
 
 class Owner:
-    def __init__(self, market: Market, p: Parameters):
+    def __init__(self, market: Market, p: Parameters, *, learner: Learner | None = None):
         self.market, self.params = market, p
-        self.inner = Learner(market, ForecastParameters(horizon=60, tail_threshold=.5, positions=4))
+        if learner is not None and (learner.market is not market or learner.last_session != -1):
+            raise ValueError('supplied learner must be a fresh owner of the same market')
+        self.inner = (Learner(market, ForecastParameters(horizon=60, tail_threshold=.5, positions=4))
+                      if learner is None else learner)
         self.s = signals(market, p)
 
     def decide(self, o: CloseObservation) -> CloseDecision:

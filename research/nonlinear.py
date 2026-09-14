@@ -151,8 +151,19 @@ def prepared(market,p):
 
 
 class Owner:
-    def __init__(self,market:Market,p:Parameters):
-        self.market,self.params=market,p;self.f=prepared(market,p)
+    def __init__(self,market:Market,p:Parameters,*,prediction:Prediction|None=None):
+        if prediction is not None:
+            shape=(len(market.calendar),len(market.symbols))
+            if (prediction.symbols!=market.symbols or prediction.data_sha256!=market.fingerprint()
+                    or prediction.horizon!=p.horizon
+                    or any(getattr(prediction,k).shape!=shape for k in
+                           ('expected','tail','ready','price','ema10','ema20','ema60','momentum5','ret1'))
+                    or not np.isfinite(prediction.expected).all()
+                    or not np.isfinite(prediction.tail).all()
+                    or ((prediction.tail<0)|(prediction.tail>1)).any()):
+                raise ValueError('supplied prediction must match the exact market, horizon and finite forecast contract')
+        self.market,self.params=market,p
+        self.f=prepared(market,p) if prediction is None else prediction
         n=len(market.symbols)
         self.negative=np.zeros(n,dtype=int);self.healthy=np.zeros(n,dtype=int)
         self.previous=np.zeros(n,dtype=bool);self.exit_pending=np.zeros(n,dtype=bool)
