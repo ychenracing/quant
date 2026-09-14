@@ -1,0 +1,14 @@
+{
+ "status":"DECLARED_BEFORE_MEASUREMENT",
+ "family":"closing_damage_intervention",
+ "parent":"Training-selected broad-confirmation entry policy: market_window=120, recovery_breadth=0.75, stop_atr=3.5; independent breakout entry_window=40, entry_cap=0.7, trailing exits.",
+ "hypothesis":"Waiting for the full volatility trail ignores an abrupt closing loss. Intervene on observable short-horizon damage before the structural stop, while permitting an intact residual position to participate in a recovery. A partial sale must reduce fixed confirmed units once, not halve the portfolio again every day.",
+ "candidate_grid":{"daily_loss":[0.06,0.08,0.10],"damage_sessions":[1,3],"retained_fraction":[0.0,0.5]},
+ "candidate_count":12,
+ "alarm":"Close-to-close loss over damage_sessions exceeds daily_loss * sqrt(damage_sessions), close is below the ten-session mean, and the quote is fresh. Evaluate at the close, never fill at the alarm or peak price. Full exit uses persistent existing liquidation intent. Partial exit ratchets a fixed-unit ceiling to retained_fraction * currently confirmed units exactly once per holding lifecycle; a blocked or partial sell remains pending until the ceiling is reached. Existing deeper trailing or entry-cost stop always overrides the partial ceiling.",
+ "capital":"Cancel pending adds to the damaged holding. On an alarm close, do not replace the sold risk with a new discretionary purchase; later entry still requires the original fresh breakout and broad gate. No averaging back into the partially sold holding. Reset the one-shot intervention only after the position is genuinely flat. No calendar or security identifiers.",
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+ "evidence":"All twelve trials and earlier failed mechanisms remain preserved. Record all ownership, entry and intervention dependency hashes; test one-shot units, blocked-fill persistence and prefix equivalence. Frozen execution, costs, data, benchmark and acceptance targets are unchanged. Historical 2026 has been seen and is only retrospective evidence."
+}
