@@ -1,0 +1,15 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"downside_scaled_regime_guard",
+  "fixed_alpha":{"family":"persistent_momentum_rotation","lookback":40,"trend":80,"positions":2,"review":20,"identity":"selected using training data ending 2025-12-31; not changed by this experiment"},
+  "hypothesis":"Positive volatility inflates ordinary shock thresholds during a strong advance. Use lagged downside-only root-mean-square returns of the unrestricted alpha book for rapid loss detection. Separately limit renewed exposure when the independently observable passive technology pool remains in a long downtrend. Both references continue while actual capital is cash.",
+  "candidate_grid":{"shock_z":[1.5,2.5],"regime_span":[40,80,120],"recovery":[2,4],"bear_cap":[0.0,0.25]},
+  "candidate_count":24,
+  "rules":{"shock":"alpha reference one-session loss exceeds max(2.5%, shock_z * prior-20-session downside RMS with 0.8% floor)","slow_bear":"passive reference NAV below its causal EMA(regime_span) and that EMA below its value ten sessions ago","cap":"cut immediately to zero on shock; otherwise reduce to bear_cap in slow_bear, one elsewhere","recovery":"recovery consecutive closes with passive NAV above EMA(10) and nonnegative passive daily return; no actual-NAV high-water reset or profit forgery","positions":"unchanged alpha membership; scale observed target proportions on cap transitions, otherwise retain economic units unless alpha has a genuine target change","execution":"unchanged next-open cash engine, capacity and fee assumptions"},
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_rule":"Prefer candidates whose training wealth is no lower, drawdown no higher, and filled-order count no higher than the incumbent in every scope. Among those maximize the existing mean log-relative-wealth minus drawdown/turnover objective. If none qualify, label NO_TRAINING_DOMINANCE and select the least worst normalized deficit only as a diagnostic; this is not a relaxed acceptance.",
+  "objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "deficit":"max over scopes and metrics of log(incumbent wealth / candidate wealth), log(candidate drawdown / incumbent drawdown), log((candidate filled orders+1)/(incumbent filled orders+1)), clipped below at zero",
+  "evidence":"All historical evaluation remains retrospective. Preserve every candidate and failed predecessor. No dates, security identifiers or excluded names enter production signals. No default promotion without separately measured joint economics."
+}
