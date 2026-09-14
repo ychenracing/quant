@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "purpose": "Execution correction, source recovery and retrospective filled-ledger diagnosis; NOT economic acceptance",
+    "repository": "ychenracing/quant",
+    "source_commit": "065f3d55006365ee8f3a38376dbca517c1d3cd63",
+    "source_tree": "af7dadedb5d8328f0c2fb3203721785bbc55ebf3",
+    "parent_commit": "18901a431247a4f73aff08e73f2d0a7b3025de44",
+    "hosted_correctness_run": 34869713149,
+    "local_offline_tests": 82,
+    "local_research_tests": 142,
+    "old_manifests_verified": 555,
+    "audited_accounts": 72,
+    "guard_would_block_recorded_fills": 0,
+    "max_cash_residual_cny": 0.0,
+    "max_nav_residual_cny": 0.0,
+    "max_pnl_residual_cny": 1.4901161193847656e-08,
+    "limitations": [
+      "Adjusted economic units are not a true-share corporate-action/tax ledger.",
+      "The 2026 attribution is retrospective, not an out-of-sample or counterfactual claim.",
+      "Original source/runtime/run identities remain unchanged. The guard audit is only path applicability, not a new-HEAD economic result.",
+      "No economic study was redispatched. Other containers unpublished work remains unknown.",
+      "Local Git restoration anchor is synthetic; the exact remote code identity is verified by matching all blobs and tree af7dadedb5d8328f0c2fb3203721785bbc55ebf3, not by assuming a local commit matches the remote commit."
+    ]
+  },
+  "files": {
+    "fill_audit.json": "1c1da0d5560d124bb25d8528bb5fe37f263d0056762f77ff0a48292e7c60d49e",
+    "materiality-fixture-error.txt": "6b78bfcf74ec09efba9d061bce2c4545153c748a6869df66688f1c4b05e4380f",
+    "materiality-green.txt": "f175996fc7ed040868c5a5b5dcc11cf7d9e1325da481a27996a6a4a18b32b57a",
+    "materiality-red.txt": "44e194c47483c3793e822fe2153806acf763a966649ebb9f9c8f680b9755581f",
+    "materiality_applicability.py": "10e9558c07e630e07d9721c734180146f404f3cb1afa38a344fe154bb16f176c",
+    "offline-after.txt": "d0c31826d355a286b68409f0d42b87b7876b13385ab8886d3a1e3a87c1348ab0",
+    "offline-before.txt": "ca83d37ef48c70867930557f7126edf552b3a6ebfbd31cb90d9de51a71b34ade",
+    "offline-integrated.txt": "598522c8e2d70da8a343fbfe4beb0faa89a670667be2b0cbfe4f97b51ce8f976",
+    "path-applicability.json": "20fbde4f81330c46253996d14e617f0022f78d33c36dae3f7f4af5af1da6831c",
+    "recovery_observed_admission.json": "9787580877e3ca71cab1b6d62984d8199897f1b148e426bd8d44cf0daad932dc",
+    "recovery_verification.json": "acac51dec44494a0b68386acad0b9cedea596af0c7048fac83bea37eb121320e",
+    "research-after.txt": "9700e69d3b8cf572632dd1b8a627016aed5420eadf49ca1dce1305db0aed60e0",
+    "research-integrated.txt": "4ef1b27ed79b649310ee173b2f7783aff4b98a62d5d026f61502a2fe2a726ad8",
+    "retrospective-attribution.json": "8fdf6fc48d010ee7c35a52494af02096a94d5e289d0eb6c1125ecf1c70cf5a1b",
+    "retrospective_attribution.py": "20655f3dc6e2e1bc764767334e023dc042b61356009d644e96d2ebed442eed99",
+    "source.patch": "327a856228d81c3c16323d3747adb4efa290b271a31c5c06474317bc6e44e4ac"
+  },
+  "archive_sha256": "97898d142eee0123304dc6683e93fbb9db8b41a772f42dd0d9a3fd9c0eacb14e",
+  "archive_blob": "ff866d2ccf31eda52bbeb016472e96d0327ca008",
+  "archive_bytes": 28788,
+  "archive_format": "XZ-compressed UTF-8 JSON containing metadata and exact raw file texts",
+  "parts": [
+    {"path": "verification.json.xz.part000", "bytes": 9000, "sha256": "baa4a9323acdd63c1ea3abae0718f9914a90a96b9be138d44c73497d66f257f8", "blob": "59e820d3a3f33575b8a6d3d9ce026efc64618f41"},
+    {"path": "verification.json.xz.part001", "bytes": 9000, "sha256": "3f906ae352c79247efe29d13e62950fb0d7dbbda6caf966b4f2abc3a1c1f8636", "blob": "de2a8271cd038b10c0c3490ef51c948afb13f4d8"},
+    {"path": "verification.json.xz.part002", "bytes": 9000, "sha256": "9be151920b79da27280d9cbffa392b4afba6dd620eab8bed8b11c3e91aeea90e", "blob": "6521f862e6174017f4e8ae5588ac4e49651abf71"},
+    {"path": "verification.json.xz.part003", "bytes": 1788, "sha256": "cc958c5c65caa8d3e14db79834e145d758392c54fa10d3143422a7d61c226103", "blob": "c87f5f0bbd5852f41072a607ad7a594e15356798"}
+  ]
+}
