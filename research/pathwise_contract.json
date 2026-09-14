@@ -1,0 +1,19 @@
+{
+  "family": "first_passage_expectation",
+  "status": "DECLARED_BEFORE_MEASUREMENT",
+  "parent_source": "acd87232cc97518c6258338351a7489fb7ddc1f9",
+  "parent_evidence_run": 34808183806,
+  "parent_evidence_archive_sha256": "15679c4e9a0e9fa597be057cfe472794fd194456d51bf94cb64c7acd5621dbf6",
+  "hypothesis": "Terminal-return regression can rank a severe interim loser as an attractive eventual rebound, while an unrelated five-session classifier does not describe the same holding horizon. Learn the ordering of economically material gains and losses on one completely matured path. This is a bounded change of learning target, not another expansion of exit thresholds or a claim of economic success.",
+  "candidate_grid": {"horizon": [20,60], "loss_barrier": [0.08,0.12]},
+  "candidate_count": 4,
+  "labels": "For feature close t, use next opening price as reference. Inspect all h closing prices t+1 through t+h. Class +1 when +2*loss_barrier is reached before -loss_barrier, -1 when the lower barrier is reached first, otherwise 0. Only fully matured h-session paths may enter a fit, even when a barrier was hit earlier. Any missing or nonpositive opening/closing price invalidates the path. These labels are statistical path outcomes, not fictional fills at barrier prices or executable intraday stops.",
+  "features": "The unchanged independently written 14 causal features in expectation.py, restricted to exactly the supplied universe. No security identifiers, calendar dates, outside quotes or private reference outputs.",
+  "learner": "HistGradientBoostingClassifier with the existing fixed MODEL complexity and random_state=0, refit every 10 sessions, at most 504 feature dates, minimum 40 mature dates, equal aggregate date weight with 120-session half-life. Reuse the existing training-weight builder. Expand class probabilities to [-1,0,+1]; smooth with one pseudocount per class relative to the distinct training-date count. Single-class fits use smoothed empirical probabilities. Preserve issued probability arrays, class identities, tree/training hashes and mature endpoints. Frozen research dependencies unchanged.",
+  "score": "loss_barrier*(2*P(up-first)-P(down-first)); a bounded ranking utility, not a calibrated forecast of realized portfolio return. Downside input is P(down-first) on the same horizon. Until an admissible fit, retain the explicitly uncalibrated causal momentum warm-up and 0.1 risk prior of the parent; mark probability vectors as unavailable, not fabricated fitted estimates.",
+  "ownership": "Keep the already selected observed-trend policy fixed: span 60 and required supplied-universe rising market trend. Keep four positions, existing entry score threshold, tail threshold 0.5, funded-unit retention, exit/retry/readmission and cash constraints. Only substitute the forecast through an explicit validated constructor argument; do not monkeypatch module globals. Old policies without injection remain numerically unchanged. No changes to the engine, costs, fills, limits, T+1 or original targets.",
+  "selection": "Use the unchanged three-core-scope screen through 2025-12-31 and the existing minimax deficit/objective tie-breaker. Preserve all four candidates and full selected retrospective windows. The design has seen previous historical diagnostics; 2026 is retrospective, not independent validation.",
+  "verification": ["first barrier ordering", "strict full-horizon maturity", "missing-path rejection", "class expansion and smoothing", "prefix and excluded-symbol invariance", "wrong forecast identity rejection", "unchanged uninjected parent", "fixed-unit and blocked-sell invariants"],
+  "economic_acceptance": "UNVERIFIED",
+  "delivery": "The original return, risk and generalization targets remain unchanged. A local model test or the necessary core screen is not main acceptance. Publish exact source, raw successful and failed outcomes, and read-back hashes on the existing evidence branch."
+}

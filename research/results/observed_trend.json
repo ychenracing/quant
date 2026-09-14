@@ -1,0 +1,34 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "economic_acceptance": "NOT_PASSED",
+  "source_commit": "acd87232cc97518c6258338351a7489fb7ddc1f9",
+  "source_tree": "01f34be5608ab30bc158d376b2a948aa6d77bd94",
+  "run_id": 34808183806,
+  "evidence_branch": "research/evidence",
+  "evidence_path": "nonlinear/acd87232cc97518c6258338351a7489fb7ddc1f9/34808183806",
+  "archive_sha256": "15679c4e9a0e9fa597be057cfe472794fd194456d51bf94cb64c7acd5621dbf6",
+  "manifest_files_verified": 188,
+  "issued_forecast_archives": 6,
+  "candidate_count": 4,
+  "candidate_scope_rows": 12,
+  "evaluation_rows": 45,
+  "selected": {"trend_span":60,"require_market_trend":true},
+  "full_period": [
+    {"scope":"union","wealth":5.598374601265908,"max_drawdown":0.481034928086517,"orders":219},
+    {"scope":"chatgpt_5","wealth":11.267196311718989,"max_drawdown":0.462809559422631,"orders":105},
+    {"scope":"joint_optical_leader_removal","wealth":4.10052031508711,"max_drawdown":0.498410852230044,"orders":233}
+  ],
+  "interpretation": "Observed trend authority improved removed-leader wealth versus the nonlinear parent but did not resolve joint risk and turnover deficiencies. All four declared candidates fail the unchanged necessary screen. No promotion or superiority claim.",
+  "issued_forecast_diagnosis": {
+    "method": "Use saved pre-2026 issued arrays and fully matured labels, not recomputed forecasts. Daily cross-sectional Spearman correlations have overlapping 60-session labels and are descriptive, not independent statistical observations.",
+    "mean_daily_rank_correlation": {"union":0.03254867523753556,"chatgpt_5":-0.01568379987110996,"joint_optical_leader_removal":0.01678100572172589},
+    "common_five_tail_calibration": [
+      {"probability_bin":[0,0.1],"samples":1187,"mean_prediction":0.0639658098052097,"observed_event_rate":0.18534119629317608},
+      {"probability_bin":[0.1,0.25],"samples":1690,"mean_prediction":0.15334076981696224,"observed_event_rate":0.14615384615384616},
+      {"probability_bin":[0.25,0.5],"samples":553,"mean_prediction":0.33759291729122887,"observed_event_rate":0.1735985533453888},
+      {"probability_bin":[0.5,1],"samples":85,"mean_prediction":0.581053256816292,"observed_event_rate":0.15294117647058825}
+    ],
+    "limitation": "These descriptive pooled reliability bins include the explicit warm-up prior and overlapping paths; they do not establish significance or isolate model error from changing market regimes. They do show that another fixed risk threshold is not supported as a complete remedy."
+  },
+  "validation": "Hosted study completed successfully with 73 ordinary plus 14 research tests. All 188 manifest members and the complete source tree were independently verified after download; the published archive hash was read back from GitHub. Engineering success is not economic acceptance."
+}
