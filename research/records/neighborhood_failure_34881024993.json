@@ -1,0 +1,18 @@
+{
+  "source": "23ef01e9b0271c4de3c93cbaf3bd3fe9bd1bea68",
+  "tree": "ea70e2eba7807f7aaa407b7e71b74c5e63e65a0f",
+  "run": "34881024993",
+  "zip_sha256": "c1e9c2abef6388288590c47081d81d4ad96ae4c390ecb1ca2a5c002849e08e8e",
+  "archive_sha256": "08209b495c8ee0830806b537950ca15a6acc557e1908afdd01fed91e6c493ee6",
+  "manifest_entries_verified": 8,
+  "source_tree_verified": true,
+  "proof_archive_sha256": "308ad8cce594d6ad55627b41b152c41dac7011324bcf059330305bb44022a18d",
+  "proof_parts_read_back_verified": 9,
+  "status": "FAILED_DEFAULT_EQUIVALENCE_BEFORE_NEW_ACCOUNTS",
+  "failure": "default differs from the old actual-inventory path: joint_optical_leader_removal 2023-09-01",
+  "fresh_local_recovery": "Exact recovered source and old measured archive repeat all 2688 core closes without mismatch on local Linux-6.18.44 with numpy2.3.5/pandas2.2.3/Python3.13.5. This does not invalidate the hosted refusal or establish cross-runtime equivalence.",
+  "local_witness": {"date":"2023-09-01","scope":"joint_optical_leader_removal","maximum_weight_error":0.0,"replayed_cap":0.5,"recorded_cap":0.5,"replayed_and_recorded_reason":"RECOVERY_WAIT|CASH_FUNDED_SUPPORT_RISK|ECONOMIC_CEILING_SEPARATE_FROM_DECLARATION","actual_nav":2898040.349385081,"actual_cash":2898040.349385081,"actual_units":"all zero"},
+  "continuation": "Preserve exact replayed and recorded weights, cap binary representation and reasons on the host. Keep the existing 1e-13 weight bound, exact cap/reason and explicit-default checks unchanged; this is instrumentation, not a claimed fix. Three new regression tests failed before instrumentation, then all three plus the seven configuration tests passed (10 total).",
+  "economic_acceptance": "UNVERIFIED",
+  "new_portfolio_accounts_in_failed_run": 0
+}

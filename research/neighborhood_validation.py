@@ -42,6 +42,21 @@ def saved(market,path,config,*,candidate=True,costs=1.,delay=1):
         costs=costs,delay=delay,configuration=config)
 
 
+def check_recorded_decision(decision, recorded_weights, row, *, scope, day, destination):
+    """Keep the existing guard, preserving the actual reason for any refusal."""
+    error=float(np.max(np.abs(decision.weights-recorded_weights)))
+    if error>1e-13 or decision.reason!=row.reason or decision.cap!=row.target_cap:
+        write_json(destination,{'scope':scope,'date':day,'maximum_weight_error':error,
+            'weights_replayed':decision.weights.tolist(),'weights_recorded':recorded_weights.tolist(),
+            'cap_replayed':float(decision.cap),'cap_recorded':float(row.target_cap),
+            'cap_replayed_hex':float(decision.cap).hex(),'cap_recorded_hex':float(row.target_cap).hex(),
+            'reason_replayed':decision.reason,'reason_recorded':row.reason,
+            'study':Study(FAMILY).identity(),'status':'REFUSED_RECORDED_PATH_EQUIVALENCE'})
+        raise ValueError('default differs from the old actual-inventory path: '+scope+' '+day+
+                         '; exact numeric witness: '+str(destination))
+    return error
+
+
 def default_equivalence(origin, market, destination):
     """Replay only policy decisions against old actual inventory, not portfolios."""
     origin=Path(origin)
@@ -85,10 +100,9 @@ def default_equivalence(origin, market, destination):
             np.testing.assert_array_equal(a.unit_targets,b.unit_targets)
             np.testing.assert_array_equal(a.weights,b.weights)
             if a.reason!=b.reason or a.cap!=b.cap:raise ValueError('explicit default changes a decision')
-            error=float(np.max(np.abs(a.weights-result.targets.loc[date].to_numpy())))
+            error=check_recorded_decision(a,result.targets.loc[date].to_numpy(),row,
+                scope=name,day=day,destination=Path(destination).with_name('equivalence_failure.json'))
             max_error=max(max_error,error)
-            if error>1e-13 or a.reason!=row.reason or a.cap!=row.target_cap:
-                raise ValueError('default differs from the old actual-inventory path: '+name+' '+day)
         if plain.trace!=configured.trace:raise ValueError('default trace differs')
         reports.append({'scope':name,'closes':len(sub.calendar),'maximum_weight_error':max_error,
             'actual_ledger':ledger,'old_identity_sha256':file_hash(path/'identity.json'),

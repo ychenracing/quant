@@ -7,5 +7,6 @@
   "candidate_count": 1,
   "reselection": false,
   "economic_acceptance": "UNVERIFIED",
-  "purpose": "Measure only the ten original missing neighborhoods and an exactly equivalent new-source default; do not rerun core selection or completed 555-account coverage."
+  "purpose": "Preserve the exact hosted default-comparison refusal before proceeding with the ten still-unmeasured original neighborhoods. Keep every guard and all completed studies unchanged.",
+  "retry_of_failed_run": "34881024993"
 }
