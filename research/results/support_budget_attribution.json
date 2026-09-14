@@ -1,0 +1,16 @@
+{
+  "status": "DIAGNOSTIC_NOT_ECONOMIC_ACCEPTANCE",
+  "source_commit": "9f1f0cdd51a111d43175cce4344089041f8543d5",
+  "archive_sha256": "59d85a67150c2d314f744f8de00f427daa9c665a52655ef4cc2b1dc4d07fcaf8",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "method": "Reconstruct actual units from all filled orders, feed immutable CloseObservation to the original owner and assert every target matches the archived target within absolute 1e-13. Reconcile daily carried-inventory and execution PnL to NAV. Inspect only pre-2026 nodes for the new hypothesis; future-return diagnostics are restricted to outcomes matured by 2025-12-31 and are never policy inputs.",
+  "training_counts": {
+    "union": {"portfolio_only_cut_dates": 11, "stock_break_dates": 35, "all_cut_dates": 94, "cash_above_25pct_with_cap_one_dates": 275},
+    "chatgpt_5": {"portfolio_only_cut_dates": 5, "stock_break_dates": 27, "all_cut_dates": 75, "cash_above_25pct_with_cap_one_dates": 262},
+    "joint_optical_leader_removal": {"portfolio_only_cut_dates": 11, "stock_break_dates": 39, "all_cut_dates": 99, "cash_above_25pct_with_cap_one_dates": 288}
+  },
+  "rejected_explanation": "No eligible unheld stock was observed being vetoed by an expired above-price pending-support anchor in the measured selected replay. Do not claim such an intent-lifecycle defect explains its observed wealth loss.",
+  "qualification": "Portfolio-only cuts are a decision classification, not proven mistakes. Cash may be appropriate when candidates are unready or risk is already committed. Forward returns after exits are diagnostic outcomes, not executable replacement returns. Mature-exit forward returns are mixed outside the common-five pool.",
+  "raw_origin": "research/evidence:nonlinear/9f1f0cdd51a111d43175cce4344089041f8543d5/34831396869/nonlinear-evidence.tar.gz",
+  "original_raw_results_unchanged": true
+}
