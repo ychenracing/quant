@@ -1,0 +1,37 @@
+{
+  "source_commit": "bfcc222009156661a9a67ddc927adb738ca27176",
+  "source_tree": "a1ee7f1907819a1c0a5ff3dd7320ad0e8d2dd386",
+  "package_sha256": "e8a4c86e67d4d0da27a0b8705dedc2eff2f7909a2a78484c7fad4e0a8a85c49e",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_objective": -0.982980542327249,
+  "selection_candidate": 0,
+  "full_evaluation": {
+    "status": "FINITE_RETROSPECTIVE_DIAGNOSTICS_NOT_UNIVERSAL_ACCEPTANCE",
+    "case_count": 210,
+    "replay_count": 437,
+    "matched_buy_hold_cases": 197,
+    "wealth_at_least_buy_hold": 3,
+    "minimum_wealth_ratio": 0.046166918177178905,
+    "median_wealth_ratio": 0.4305431125609858,
+    "worst_case": "('common_exhaustive_1_2', 'common_five_exhaustive')",
+    "both_return_and_drawdown_dominate": 3,
+    "economic_acceptance": "NOT_ESTABLISHED"
+  },
+  "key_cases": [
+    {"case":"chatgpt_5","window":"full","wealth":10.824786016250098,"max_drawdown":0.3307412348419231,"orders":139},
+    {"case":"chatgpt_5","window":"late_june_august","wealth":0.9543808965625764,"max_drawdown":0.1480831941071746,"orders":4},
+    {"case":"union","window":"full","wealth":5.624793276481121,"max_drawdown":0.320719532270034,"orders":202},
+    {"case":"union","window":"late_june_august","wealth":0.8296000943510129,"max_drawdown":0.2260928960296912,"orders":8},
+    {"case":"remove_optical_leaders","window":"full","wealth":2.2469342641014705,"max_drawdown":0.4586885620328037,"orders":209},
+    {"case":"remove_optical_leaders","window":"late_june_august","wealth":0.8589652774612722,"max_drawdown":0.2295353614756674,"orders":8}
+  ],
+  "artifacts": {
+    "selection_bfcc222/candidates.csv":"2252c1f1aae5850c4697df18430ef4e119c6042ff4abda33eeae10ebfbed4a5b",
+    "evaluation_bfcc222/matrix.csv":"d0c38dd20cf3af31530cb2db992c6f630e9ef6af1765e14c27c20439564d7eff",
+    "evaluation_bfcc222/summary.json":"6c2502a331333d5cb2de2aad432b70a033b41d6214ec720c7b8a7194c755c223"
+  },
+  "status":"FAILED_REQUESTED_ECONOMIC_DOMINANCE",
+  "scope":"Only the explicitly named source; not proof of a later HEAD",
+  "engineering_on_this_source":{"offline_tests":33,"result":"PASS"},
+  "native_status":"Separate input/config binding work; not normalized-execution acceptance"
+}
