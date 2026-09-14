@@ -1,0 +1,22 @@
+{
+  "family": "persistent_leadership",
+  "status": "DECLARED_BEFORE_MEASUREMENT",
+  "motivation": "The matured-label expectation family invested only 7%-32% on the pre-2026 selection scopes because horizon expected gain minus whole-path adverse excursion was usually negative. Do not tune that penalty after observing 2026. Test a separate independent architecture: select persistent positive relative leaders, retain actual funded units, and evaluate faster protection as a distinct asymmetric overlay.",
+  "candidate_grid": {"leadership_window": [60,120,252], "exit_span": [20,60], "positions": [2,4], "pressure_guard": [false,true]},
+  "candidate_count": 24,
+  "signals": {
+    "history": "At least20 actually quoted sessions; no pre-2023 warm-up or IPO backfill.",
+    "rank": "Positive log close return over leadership_window; when the window is unavailable, use return from first observed quote, annualized by the available observation span. This is a causal long-term leadership rank, not an ex-post winner identity.",
+    "entry": "Positive rank, close above EMA10 and EMA exit_span, positive latest five-session return. Fill open capacity from current actual cash, cap60% per new name,100% singleton. Retain actual units between deliberate membership/risk decisions.",
+    "membership": "Review every20 sessions; replacement only when held rank exceeds twice capacity and strongest eligible challenger exceeds held score by25%. Do not allocate imagined sale proceeds at the decision close.",
+    "exit": "Two consecutive closes below0.97*EMA exit_span, or14% decline from the highest actually owned close/entry open, or missing/stale quote. Protective exits latch until actual liquidation. After liquidation a name must first recover above EMA10 for three closes before readmission.",
+    "pressure": "When enabled: daily negative return less than minus2.5 times prior-only20-session downside RMS (floor1%) together with negative three-session return halves actually held units once per pressure episode. No same-close replacement. Restore that saved unit amount only after three consecutive closes above EMA10 and a new prior-ten-session closing high. If full exit triggers first, cancel saved restoration; a fresh actual entry starts a new episode.",
+    "cash": "No leverage, no automatic recycling of still-unfilled exits, no daily equal-weight rebalance. Upper drift weight80%,100% singleton. New entries disabled while any protective exit remains outstanding. Restoration uses only actual available cash and cannot displace other holdings.",
+    "execution": "Unchanged independent engine, next-open adjusted-unit research accounting, costs, T+1, prior-only liquidity, board-lot equivalents, limit-open blocking and whole-account1% normal materiality. No new intraday fill assumptions."
+  },
+  "selection_end": "2025-12-31",
+  "selection_scopes": ["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection": "Same necessary incumbent nonregression screen and minimax normalized deficit as expectation_study, then original log-relative passive-return/risk/turnover objective. Keep all24 candidates. This screen does not replace original four-reference, crash, return and arbitrary-subset targets.",
+  "validation": "Default execution equivalence, causal prefix, exact actual inventory and blocked-exit behavior, pressure reduction is finite and not repeated halving, restoration cannot create cash. Already observed2026 remains retrospective. No security-specific constants, dates, stage labels or reference production inheritance.",
+  "economic_acceptance": "UNVERIFIED"
+}
