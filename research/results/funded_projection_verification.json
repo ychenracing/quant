@@ -1,0 +1,26 @@
+{
+  "status": "CORRECTNESS_FIXED_NOT_ECONOMIC_ACCEPTANCE",
+  "tested_base": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+  "integrated_parent": "9ef198308181f91dc734432a737e06c2a89b974d",
+  "contract_unchanged": true,
+  "defect": "A mandatory concentration cut can change risk density after the funded authority has computed its notional ceiling. Project the identical existing single/sector reductions before calculating the strict funded-risk ratio.",
+  "red": {"requested_risk_cny": 260270.8658430949, "budget_cny": 200000.0},
+  "green": {"offline_tests": 77, "research_tests": 90, "parent_and_funded_tests": 17},
+  "source_blobs": {"research/funded_risk.py": "b2f708d0480af9c20bfc1a205dd5556ef0596ed6", "research/test_funded_projection.py": "a6f31161d9176a7ae8afabb63efdf2dcc1b3115d"},
+  "historical_diagnostic": {
+    "archive_sha256": "3b8b967added9a8257f64e49d1eadc4031309965404261ee621614618592371b",
+    "source_commit": "e8c627e7529af833d55f516ef4d97ee309f2611e",
+    "run_id": 34834159593,
+    "verified_manifest_files": 144,
+    "candidate_training_runs": 6,
+    "selected_full_runs": 3,
+    "reconstructed_actual_closes": 7050,
+    "changed_close_decisions": 0,
+    "requested_risk_breaches_on_archived_paths": 0,
+    "max_archived_target_absolute_error": 1.1102230246251565e-16,
+    "qualification": "This is actual-fill decision reconstruction, not a newly executed portfolio or new-source economic acceptance. The correction does not explain the measured wealth loss. Do not rerun these old grids for an expected improvement from this fix. Full raw audit CSVs and the reproducer are locally preserved pending durable publication; do not claim they are already uploaded."
+  },
+  "production_changed": false,
+  "economic_acceptance": "NOT_PASSED",
+  "concurrent_work": "The existing funded-risk implementation, tail-reliability implementation and rejection, shared runner, requests, older evidence and all other branches are preserved."
+}

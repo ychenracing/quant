@@ -48,6 +48,19 @@ class RiskAuthority:
         price = np.nan_to_num(features.close[i], nan=0.)
         projected = np.minimum(o.units, self.owner.reduction_ceiling)
         projected[self.owner.exit_pending] = 0.
+        # Match the parent's pending concentration reductions BEFORE translating
+        # stop risk into a notional ceiling. Cutting a low-risk name changes the
+        # remaining book's risk density; an earlier scalar ratio can undercut risk.
+        weights = projected*price/o.nav
+        admission_cap = max(config.single_cap, 1/len(projected))
+        over = weights > (1. if len(projected) == 1 else .8)+1e-12
+        projected[over] *= admission_cap/weights[over]
+        if len(set(features.sectors)) > 1:
+            for sector in sorted(set(features.sectors)):
+                group = np.array([s == sector for s in features.sectors])
+                weight = float((projected*price/o.nav)[group].sum())
+                if weight > config.sector_cap+config.trade_band+1e-12:
+                    projected[group] *= config.sector_cap/weight
         distance = np.maximum(price-self.owner.stop, .02*price)
         risk = float(projected@distance)
         exposure = float(projected@price/o.nav)
