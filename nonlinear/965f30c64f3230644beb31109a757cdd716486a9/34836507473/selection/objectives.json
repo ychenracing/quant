@@ -1,0 +1,38 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "control": "price"
+    },
+    "worst_deficit": 0.9556988728216337,
+    "objective": -1.122309695147641,
+    "fills": 395
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "control": "support"
+    },
+    "worst_deficit": 0.21789843118168037,
+    "objective": -0.8457765644728023,
+    "fills": 418
+  },
+  {
+    "candidate": 2,
+    "parameters": {
+      "control": "funded"
+    },
+    "worst_deficit": 0.8991596638655461,
+    "objective": -0.894871588273,
+    "fills": 738
+  },
+  {
+    "candidate": 3,
+    "parameters": {
+      "control": "cushion"
+    },
+    "worst_deficit": 0.755044139135304,
+    "objective": -1.4013928409228873,
+    "fills": 491
+  }
+]
