@@ -1,0 +1,28 @@
+{
+  "status": "IMPLEMENTED_ENGINEERING_VERIFIED_ECONOMICS_UNMEASURED",
+  "contract_commit": "4f3571ba860e49a87af1ecbe2b0f0a5c7a74b42c",
+  "integrated_parent": "2c8a4d9a3515a60f5e77079e2e3d143c98272611",
+  "git_blobs": {
+    "research/funded_risk.py": "a856186324d82327f60872b3f24c7afb057aded3",
+    "research/test_funded_risk.py": "138f76ec0a160d640c29f236cb0bffa997473267",
+    "research/support_budget.py": "57b6069940b5b299a02c5bc5f8549b172dbbd81f",
+    "research/finite_study.py": "6cd2868ea38ea923131efa49b3a13947f144535b",
+    "research/funded_risk_contract.json": "67032584dcb92c9dd39eebfd3acd23324508a141"
+  },
+  "new_targeted_tests": 7,
+  "red": "All seven missing-policy assertions failed before implementation. One later budget-breach fixture incorrectly put requested risk below the already-declared 1% exploration floor; diagnostic reproduction confirmed no actual breach. Its inventory fixture was corrected to put risk above the unchanged floor; no policy or acceptance parameter was changed.",
+  "green": {"targeted_with_parent": 16, "offline": 77, "integrated_research": 89, "failures": 0},
+  "parent_default_equivalence": {
+    "old_source": "9f1f0cdd51a111d43175cce4344089041f8543d5",
+    "old_file_sha256": "cd48d77586557ccffbfcec31f79bd100f4ae5eca989b52758634adc4c1dfeaee",
+    "new_file_sha256": "a22e78df1e9c21ec2ff7bc770975f827bd10c607f758036524e68f376623b3cf",
+    "scope_counts": {"union": 896, "chatgpt_5": 896, "joint_optical_leader_removal": 896},
+    "weights_units_reasons_caps_exact": true,
+    "archived_targets_absolute_tolerance": 1e-13,
+    "interpretation": "The two default extension points preserve prior decisions. This is not reuse of old economic evidence as proof of the new funded-risk owner."
+  },
+  "runtime": {"python": "3.13.5", "numpy": "2.3.5", "pandas": "2.2.3"},
+  "concurrent_work": "The exact source export of 2c8a4d9 reconstructs tree 90df7c50d0cf5873e53d34d100b7c667177da1eb. Its full tail-authority implementation and runner audit preservation were integrated before the 89-test run. The existing issued-prediction workflow and tail request remain preserved at their original commit, not canceled or relabeled.",
+  "production_changed": false,
+  "economic_acceptance": "UNVERIFIED"
+}

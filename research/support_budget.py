@@ -139,7 +139,7 @@ class Owner:
                 if exposure > self.config.sector_cap+self.config.trade_band+1e-12:
                     desired[group] *= self.config.sector_cap/exposure
         exposure = float(desired@price/o.nav)
-        ceiling = cap if cap_cut or cap == 0 else min(1., cap+self.config.trade_band)
+        ceiling = self._exposure_ceiling(cap, cap_cut)
         if exposure > ceiling+1e-12:
             desired *= cap/exposure
         desired = self._round_reductions(o.units, desired, i)
@@ -162,13 +162,19 @@ class Owner:
         decision.validated_unit_targets(price, o.nav)
         return decision
 
+    def _exposure_ceiling(self, cap, cut):
+        return cap if cut or cap == 0 else min(1., cap+self.config.trade_band)
+
+    def _risk_limit(self, o, cap):
+        return self.params.risk_budget*o.nav*cap
+
     def _allocate(self, o, desired, price, initial, allowed, cap):
         held = o.units > 1e-10
         capacity = min(self.params.positions, len(held))
         occupied = int(held.sum())
         stops = np.where(held, self.stop, np.maximum(initial, self.pending_stop))
         distance = np.maximum(price-stops, .02*price)
-        risk_limit = self.params.risk_budget*o.nav*cap
+        risk_limit = self._risk_limit(o, cap)
         remaining_risk = max(0., risk_limit-float(o.units@distance))
         cash = max(0., min(.99*o.cash, cap*o.nav-float(o.units@price)))
         symbol_cap = max(self.config.single_cap, 1/len(held))
