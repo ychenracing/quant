@@ -14,6 +14,8 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import time
+import urllib.error
 import urllib.request
 
 PREFIX='https://raw.githubusercontent.com/ychenracing/quant/b54eaaf6487005a492b23ee5bce300f93f7e41cf/published/bbc002449093e458868a8748687df023958ba283/34794779702/'
@@ -26,21 +28,42 @@ def digest(path):
     with path.open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
 
 
+def get_part(cache:Path,index:int):
+    """At most three transport attempts, atomic publication and mandatory hashes."""
+    name=f'evidence.tar.gz.part-{index:03}'
+    destination=cache/name
+    if destination.is_file() and digest(destination)==PARTS[index]:
+        return destination
+    temporary=cache/(name+'.partial')
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(PREFIX+name,timeout=45) as src,temporary.open('wb') as dst:
+                shutil.copyfileobj(src,dst)
+            if digest(temporary)!=PARTS[index]:
+                raise ValueError('frozen input archive hash mismatch')
+            temporary.replace(destination)
+            return destination
+        except (OSError,ValueError) as error:
+            temporary.unlink(missing_ok=True)
+            permanent=isinstance(error,urllib.error.HTTPError) and error.code not in {408,429,500,502,503,504}
+            if permanent or attempt==2:raise
+            print(f'frozen part {index}: retry after {type(error).__name__}',flush=True)
+            time.sleep(attempt+1)
+    raise AssertionError('unreachable bounded download state')
+
+
 def inputs(cache):
     cache.mkdir(parents=True,exist_ok=True)
     def get(index):
-        name=f'evidence.tar.gz.part-{index:03}'
-        destination=cache/name
-        with urllib.request.urlopen(PREFIX+name,timeout=90) as src,destination.open('wb') as dst:
-            shutil.copyfileobj(src,dst)
-        if digest(destination)!=PARTS[index]:raise ValueError('frozen input archive hash mismatch')
-        return destination
+        return get_part(cache,index)
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
         parts=list(pool.map(get,range(len(PARTS))))
     archive=cache/'input.tar.gz'
     with archive.open('wb') as dst:
         for part in parts:
             with part.open('rb') as src:shutil.copyfileobj(src,dst)
+    if digest(archive)!='6f7864e8f60001790806dcedb2fb7abc5960fb992c936ee9ea2be02069f3f353':
+        raise ValueError('complete frozen input archive hash mismatch')
     with tarfile.open(archive) as source:
         members=[m for m in source.getmembers() if m.isfile() and
                  (m.name.startswith('evidence/inputs/market/') or m.name.startswith('evidence/inputs/supplement/'))]

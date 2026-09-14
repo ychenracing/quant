@@ -1,13 +1,16 @@
 {
   "family": "pathwise",
-  "purpose": "Measure only the four preregistered first-passage learning candidates, retaining the parent ownership and execution semantics",
+  "purpose": "Resume the same four first-passage candidates after a transport reset before any economic replay; do not change the registered experiment",
   "candidate_count": 4,
   "selection_end": "2025-12-31",
   "contract_blob": "90b3a49a983f8e4a1cd570e4b3c520102998c7ff",
   "implementation_commit": "6119ff811b69c97db4a0dc1f63023cfe568c9492",
+  "interrupted_source": "75e233e154eb272a0c168603fdc0c6d8cbee34a6",
+  "interrupted_run": 34809639052,
+  "interruption": "Frozen input HTTPS connection reset; original failure, source and tests retained on research/evidence. No first-passage economic replays completed in that run.",
   "parent_evidence_source": "acd87232cc97518c6258338351a7489fb7ddc1f9",
   "parent_evidence_run": 34808183806,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "local_correctness": "73 ordinary plus 23 forecast/ownership tests pass; 9 first-passage tests include explicit parent equivalence and actual-fill prefix/cash checks",
+  "local_correctness": "77 ordinary plus 23 forecast/ownership tests pass, including four reproduced transport/cache integrity failures",
   "economic_acceptance": "UNVERIFIED"
 }
