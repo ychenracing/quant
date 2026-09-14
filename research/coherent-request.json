@@ -1,0 +1,11 @@
+{
+  "family": "coherent",
+  "purpose": "Execute the two already registered admission-first filled-account candidates using exact issued forecasts; no refit or old-grid rerun",
+  "candidate_count": 2,
+  "evidence_commit": "d70528e599a2b5d3e9ebae9b45ad1425bc1dbbc3",
+  "parent_archive_path": "nonlinear/0b5626993598d6cbf8bf0af15345e01d18a730e7/34809876451/nonlinear-evidence.tar.gz",
+  "parent_archive_sha256": "cf2eb81f4fb9b8cdba1de8929798883ac01c8cb7025925891b1ccaa529fc61a0",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_end": "2025-12-31",
+  "economic_acceptance": "UNVERIFIED"
+}
