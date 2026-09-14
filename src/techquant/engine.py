@@ -79,6 +79,7 @@ def run(market: Market, config: Config | None = None, *,
     decisions = np.zeros((n, len(names)))
     unit_decisions = np.zeros_like(decisions)
     inventory_intent = np.zeros(n, dtype=bool)
+    inventory_side = np.zeros_like(decisions)
     actions = np.zeros_like(decisions, dtype=bool)
     urgent = np.zeros_like(decisions, dtype=bool)
     buy_hold_budget = np.full(len(names), cfg.initial_cash / len(names))
@@ -98,6 +99,9 @@ def run(market: Market, config: Config | None = None, *,
                 # Freeze intended inventory at its signal close. A price gap
                 # must not reverse a unit reduction into an opening purchase.
                 difference = (unit_decisions[signal_i] - units) * open_marks
+                # Earlier queued fills may already have reached this target.
+                # A stale increase/reduction must never execute its opposite.
+                difference[difference * inventory_side[signal_i] <= 0] = 0.
             if benchmark == 'buy_hold':
                 # Spend each original cash slice once; never sell to restore weights.
                 difference = buy_hold_budget.copy()
@@ -183,6 +187,7 @@ def run(market: Market, config: Config | None = None, *,
             if requested_units is not None:
                 inventory_intent[i] = True
                 unit_decisions[i] = requested_units
+                inventory_side[i] = np.sign(requested_units - units)
             cap, reason = float(decision.cap), decision.reason
         elif external is not None:
             cap, reason = 1., 'EXTERNAL_TARGETS'

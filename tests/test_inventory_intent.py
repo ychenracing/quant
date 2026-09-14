@@ -68,3 +68,18 @@ class InventoryIntentTests(unittest.TestCase):
                 def identity(self): return {'name': 'bad'}
             with self.subTest(units=units), self.assertRaises(ValueError):
                 run(market, policy_factory=Bad)
+
+    def test_queued_buy_cannot_sell_inventory_filled_since_its_signal(self):
+        market = self.market(0.)
+        frames = {s: f.copy() for s, f in market.frames.items()}
+        frame = frames[market.symbols[0]]
+        frame.loc[market.calendar[1], ['close', 'high', 'raw_close']] = 22.
+        market = Market.from_frames(frames, market.calendar, quality='synthetic')
+        class QueuedBuy:
+            def __init__(self, m, cfg): self.prices = m.panel('close').to_numpy()
+            def decide(self, o):
+                w = np.array([.5]) if o.session < 2 else o.weights.copy()
+                return CloseDecision(w, 'BUY_OR_KEEP', unit_targets=w*o.nav/self.prices[o.session])
+            def identity(self): return {'name': 'queued_buy'}
+        result = run(market, policy_factory=QueuedBuy, delay=2)
+        self.assertFalse(any(o['side'] == 'SELL' for o in result.orders))

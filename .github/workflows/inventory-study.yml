@@ -1,0 +1,90 @@
+name: Fixed inventory intent evidence
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/inventory-study.yml
+      - research/inventory-request.json
+permissions:
+  contents: write
+concurrency:
+  group: inventory-intent-study
+  cancel-in-progress: false
+jobs:
+  paired:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src:tests:.
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3
+      - name: Verify necessary correctness
+        run: python -m unittest discover -s tests -v > "$RUNNER_TEMP/correctness.txt" 2>&1
+      - name: Measure only the fixed paired contract
+        run: |
+          python - <<'PY'
+          import os, pathlib, subprocess, sys, tarfile
+          from research.hosted_study import inputs, digest
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          data, supplement = inputs(root / 'frozen-input')
+          archive = pathlib.Path('research/results/hosted/65fbe10d07f32fa4328637d77928fcb4df91385b/34803914486/research-evidence.tar.gz')
+          if digest(archive) != 'cc3c7c5a556eebbcce146b9385dbe5152139333ac96a0b431989b1fd39a0d7da':
+              raise ValueError('historical evidence hash mismatch')
+          with tarfile.open(archive) as source:
+              source.extractall(root / 'historical', filter='data')
+          with (root / 'inventory-execution.txt').open('w') as log:
+              subprocess.run([sys.executable, '-m', 'research.inventory_study', '--data', str(data),
+                  '--supplement', str(supplement), '--historical', str(root / 'historical/evidence'),
+                  '--output', str(root / 'inventory')], stdout=log, stderr=subprocess.STDOUT, check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: inventory-intent-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/inventory/
+            ${{ runner.temp }}/inventory.tar.gz
+            ${{ runner.temp }}/inventory.tar.gz.sha256
+            ${{ runner.temp }}/inventory-execution.txt
+            ${{ runner.temp }}/correctness.txt
+          retention-days: 90
+          if-no-files-found: error
+      - name: Append raw evidence without replacing other research
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -s "$RUNNER_TEMP/inventory.tar.gz"
+          gh auth setup-git
+          git clone --depth=1 --branch research/evidence "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/evidence-store"
+          cd "$RUNNER_TEMP/evidence-store"
+          destination="inventory-intent/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"
+          mkdir -p "$destination"
+          cp "$RUNNER_TEMP/inventory.tar.gz" "$RUNNER_TEMP/inventory.tar.gz.sha256" "$destination/"
+          cp "$RUNNER_TEMP/correctness.txt" "$RUNNER_TEMP/inventory-execution.txt" "$destination/"
+          for file in plan.json matrix.csv status.json failure.json attribution.json historical_equivalence.json MANIFEST.json execution.json; do
+            if [ -f "$RUNNER_TEMP/inventory/$file" ]; then cp "$RUNNER_TEMP/inventory/$file" "$destination/"; fi
+          done
+          git config user.name 'quant research publisher'
+          git config user.email 'quant-research@users.noreply.github.com'
+          git add -- "$destination"
+          git commit -m 'research: preserve fixed inventory measurements and reconciled losses'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/evidence; then
+              remote=$(git ls-remote origin refs/heads/research/evidence | cut -f1)
+              test "$remote" = "$(git rev-parse HEAD)"
+              exit 0
+            fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1

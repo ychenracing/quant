@@ -1,0 +1,20 @@
+{
+  "purpose": "paired_execution_semantics_and_reconciled_loss_attribution",
+  "status": "DECLARED_BEFORE_PAIRED_MEASUREMENT",
+  "baseline_source": "65fbe10d07f32fa4328637d77928fcb4df91385b",
+  "baseline_run": "34803914486",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "hypothesis": "A policy that describes retention and risk reduction in actual inventory should send explicit close-time units, rather than allow gaps or earlier queued fills to reverse its order direction. This may alter economics but is not assumed to improve them.",
+  "parameters": {
+    "leadership": {"leadership_window": 60, "exit_span": 20, "positions": 4, "pressure_guard": false},
+    "admission": {"leader_rule": "responsive", "market_span": 20, "minimum_breadth": 0.6}
+  },
+  "selection": "No new parameter selection. Use only the already frozen pre-2026 winners and preserve their old evidence unmodified.",
+  "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+  "execution": "Compare legacy weight targets and explicit unit intentions on one source/runtime and frozen inputs, costs, capacity, lots, limit blocks, next-session clock and materiality. Default production and old research families retain weight-target semantics.",
+  "runs": 12,
+  "windows": ["full", "through_2025", "bull", "late_june_through_august", "july_august", "retrospective_2026"],
+  "required_artifacts": ["all paired equity/targets/orders/identities/manifests", "daily PnL reconciliation", "position episodes", "summary including failures"],
+  "follow_on": "Use reconciled pre-2026 loss chains to diagnose selection, holding, exit and re-entry. Do not retune frozen families, silently switch their execution, repeat the existing grids or call this necessary diagnostic economic acceptance.",
+  "economic_acceptance": "UNVERIFIED"
+}
