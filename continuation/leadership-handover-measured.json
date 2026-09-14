@@ -1,0 +1,27 @@
+{
+  "source_commit": "c5bfda2f031bfc52ea164d55d3b0c60d61b829e6",
+  "source_tree": "00809be52f35cd1a49b722245a8945d4a532ef09",
+  "run_id": 34858766715,
+  "artifact_id": 10354785287,
+  "zip_sha256_verified": "5b7863c8613c44700a2dddcf2c88731112bb28b89b845ff6f4a738d483760a35",
+  "archive_sha256_verified": "f9415cbd772ed4ba85d626fb7ad71f660e0d73a38fcb52a4ce98226a6024fcc7",
+  "durable_raw_root": "nonlinear/c5bfda2f031bfc52ea164d55d3b0c60d61b829e6/34858766715/",
+  "validation": {"top_manifest_entries": 132, "strict_raw_accounts": 18, "source_and_transitive_dependencies_verified": true, "frozen_scoped_data_verified": true, "selection_and_evaluation_plan_hashes_verified": true, "metrics_recomputed_without_replaying": true, "source_bound_intent_traces_verified": 6, "max_ledger_reconciliation_error_cny": 1.4901161193847656e-8, "hosted_correctness_and_measurement": "success", "separate_offline_run": 34858766891},
+  "selection": {"candidate": 0, "parameters": {}, "worst_deficit": 0.2886588015730263, "objective": -0.8757910252088995, "fills": 436, "status": "DIAGNOSTIC_NOT_ACCEPTED"},
+  "full": {
+    "union": {"wealth": 8.714595288927713, "max_drawdown": 0.32066724087785325, "fills": 173, "voluntary_handover_events": 4},
+    "chatgpt_5": {"wealth": 7.496052735529612, "max_drawdown": 0.326650754503073, "fills": 145, "voluntary_handover_events": 4},
+    "joint_optical_leader_removal": {"wealth": 3.7724069101496793, "max_drawdown": 0.35616401166978207, "fills": 194, "voluntary_handover_events": 8}
+  },
+  "common_five_actual_event_timing": [
+    {"signal": "2023-12-14", "exit_symbol": "sh688008", "observed_challenger": "sz300394", "actual_zero": "2023-12-15", "first_later_buy": "2023-12-18", "bought": ["sz300394"]},
+    {"signal": "2024-03-01", "exit_symbol": "sz300502", "observed_challenger": "sz300308", "actual_zero": "2024-03-04", "first_later_buy": "2024-03-06", "bought": ["sz300308"]},
+    {"signal": "2024-06-21", "exit_symbol": "sh603986", "observed_challenger": "sz300308", "actual_zero": "2024-06-24", "first_later_buy": "2024-06-25", "bought": ["sz300308"]},
+    {"signal": "2025-09-24", "exit_symbol": "sh603986", "observed_challenger": "sz300308", "actual_zero": "2025-09-25", "first_later_buy": "2025-10-24", "bought": ["sz300308"]}
+  ],
+  "interpretation": "The candidate improves leader-removal wealth over the separately archived corrected support parent but worsens common-five wealth. It fails the unchanged necessary core selector and original economic acceptance. A score-confirmed sale is not an immediately investable replacement. Event timing is descriptive ledger attribution, not a causal estimate of the holding/swap profit difference. The first subsequent buy is not guaranteed to be the original challenger; no hypothetical proceeds were spent.",
+  "next_registered_comparison": "Inspect and implement the already-frozen opportunity_reassignment contract independently above the same corrected support parent. Its scheduled review, actual holding age, original rank and cap-one restrictions differ from the completed handover comparison. Do not tune or rerun leadership_handover, mix policy winners, modify its contract or reclassify its losses.",
+  "log_preservation_repair": "continuation/leadership-validation-raw/receipt.json at fef0557395918cda783d47b5438740733bf1a4a6 verifies the exact earlier local red/fixture-failure/green/research/offline logs and recovery audit. The invalid monolithic upload remains preserved.",
+  "economic_acceptance": "NOT_MET",
+  "main_promoted": false
+}
