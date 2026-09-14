@@ -1,0 +1,16 @@
+{
+ "status":"NEW_EXECUTION_RESEARCH_SCOPE_DECLARED_BEFORE_MEASUREMENT",
+ "family":"predeclared_next_session_protection",
+ "boundary":"Prior open-only contracts, results and engine remain unchanged. This separate research engine accepts protection instructions determined at an earlier close, executable no earlier than the following session. It is not canonical evidence that an old open-only strategy passed its old contract. No reference engine or strategy is inherited. Human decision support only; no broker integration or automatic orders.",
+ "hypothesis":"Delayed next-open liquidation and signal quality are different sources of loss. Quantify whether standing protection known before the trading session reduces execution loss, without representing that change as earlier prediction.",
+ "candidate_grid":{"stop_atr":[1.5,2.5,3.5],"entry_cap":[0.5,0.7],"entry_gate":["breakout","broad"]},
+ "candidate_count":12,
+ "alpha":"Independent event-driven breakout ownership, entry_window=40. Broad variant uses the declared 120-session median-index and 0.75 recovery-breadth entry gate. No contemporaneous highs or ATR update may move an already active intraday protection level.",
+ "protection":"A close publishes the ratcheted holding stop, including the original hard entry-cost guard, for subsequent sessions. A gap through the protection price fills at the worse opening price minus slippage, not at the stop. A within-session low touch is simulated at the predeclared level minus slippage; this is an OHLC fill assumption, not observed tick execution. Apply the configured execution delay to protection instructions as well.",
+ "conservatism":"Only units owned before the session, less opening sells, can be sold: new same-day buys cannot be resold. Opening orders execute before subsequent simulated protection, so intraday proceeds cannot fund earlier opening purchases. Opening-limit-down, nontrading bars, missing quotes, protection at the lower price limit, insufficient prior ADV capacity and minimum lots block fills. Capacity already used by opening fills is deducted. A triggered but incomplete exit persists to the next decision. Actual cash and total drawdown are never reset.",
+ "comparability":"Rerun unchanged open-only parent and buy_hold inside the new engine with protection disabled and require exact NAV/order/target equality to the frozen engine. Report enabled and disabled execution separately. Native comparator results remain diagnostic until their action and accounting assumptions are matched; no performance superiority is inferred solely by changing an execution model.",
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+ "evidence":"Preserve every candidate, all prior failed experiments, full announced protection levels, trigger times, blocked reasons and fills. Hash the new engine separately from unchanged production execution. Verify T+1, gap, limit, capacity and prefix behavior. Cost, liquidity assumptions and source/data identities remain explicit. Full 2026 evaluation is retrospective, not prospective validation. No changes to original economic acceptance definitions."
+}

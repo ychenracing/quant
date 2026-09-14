@@ -1,0 +1,15 @@
+{
+ "status":"MEASURED_IMPROVEMENT_NOT_ECONOMIC_ACCEPTANCE",
+ "base_source":"bbc002449093e458868a8748687df023958ba283",
+ "data_sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+ "selection_end":"2025-12-31",
+ "selection":{"candidate":7,"objective":0.016802738094991426,"orders":179,"market_window":120,"recovery_breadth":0.75,"stop_atr":3.5},
+ "evaluation":[
+  {"scope":"union","wealth":28.909585028489904,"max_drawdown":0.4017417469651581,"orders":92,"summer":-0.2859199979407902,"bull":38.56139859124494},
+  {"scope":"chatgpt_5","wealth":19.537752397244905,"max_drawdown":0.3886020331991467,"orders":63,"summer":-0.1421414273326153,"bull":22.77502728275495},
+  {"scope":"joint_optical_leader_removal","wealth":17.851305979740108,"max_drawdown":0.5177377773134519,"orders":69,"summer":-0.2391972685665798,"bull":22.574840035915773}
+ ],
+ "files":{"research/entry_regime.py":"18f9ff18467f0bf638e6d01c531cad0fdab7f09c29a0722dd5c60dee9b8c0d71","research/entry_regime_study.py":"631c829e97bf80edd5ecdce6bab32675f8e43ef12024f4386415415cdc4dc89e","trials.csv":"75c42f205fca15334ae6c62cd10d15b983576f5842f3ad67de34f8dbe90d8f76","scores.json":"a3ec0b853babdd4e18a0fca7bca066f86dde6df4736a7405a86f8026a91bc81d","selection.json":"928a2a1cc73f82df062a7b4067ae7edaadfc508590a5d34941637721c41f0293","evaluation.csv":"09e35f387fa7acafa47331a82da61d1954cdd9084c83544118a1c8f84344dad5"},
+ "preserved_trials_per_family":{"participation":24,"reversal":32,"market_trend":18,"sentinel":48,"ownership_guard":16,"forecast_guard":12,"breakout":36,"heat":24,"statistical_trail":12,"leadership":12,"recovery":9,"adaptive":12,"entry_regime":8,"closing_damage":12,"structural_admission":12},
+ "limitations":["All historical periods have been observed; no pristine holdout claim.","Reversal duplicate warmup deviates from its declaration; not valid declared-protocol evidence.","Closing damage produces an unused inf*0 warning for unavailable flat IPO columns; consumed targets remain finite. Original measured source is preserved.","Local source-byte-bound measurements do not prove a subsequent production HEAD.","No arbitrary-subset, all-reference or earliest-risk target passed.","Complete local traces remain preserved separately; this checkpoint is not a complete trace archive."]
+}
