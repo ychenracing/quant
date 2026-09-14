@@ -1,0 +1,19 @@
+{
+  "status":"REJECTED_NOT_PROMOTED",
+  "experiment":"persistent_ownership_local_downside",
+  "candidate_count":24,
+  "training_replays":75,
+  "algorithm_sha256":"dfb0c099dc8200027a8f6c5643efd8e250afbc178abbfc1ad7b6c1479f5465c4",
+  "runner_sha256":"38853e9eee972f5c39cdeadfeeea3cf1f48567c84ee363d206ced527507c1f81",
+  "all_trial_metrics_sha256":"dc220272ea3749af4cafbb874617f1f74d50ad6c2d2cd1c13387e2d4798ac925",
+  "data_sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selected":{"lookback":120,"trend":40,"positions":2,"protection":"structural","training_objective":-0.7823193183046699},
+  "evaluation":[
+    {"pool":"union","wealth_approx":11.113211,"max_drawdown_approx":0.700272,"fills":195,"july_august_return_approx":-0.411455},
+    {"pool":"chatgpt_5","wealth_approx":10.868664,"max_drawdown_approx":0.511913,"fills":120,"july_august_return_approx":-0.170958},
+    {"pool":"joint_optical_leader_removal","wealth_approx":7.819671,"max_drawdown_approx":0.682516,"fills":168,"july_august_return_approx":-0.315659}
+  ],
+  "engineering":"45 offline tests passed; six target new ownership behavior. This is not economic acceptance.",
+  "conclusion":"Do not promote. Merely deploying idle capital transfers the problem into downside losses. Investigate an explicit causal high-water/trough reversal state with fast independent recovery, preserving this failed trial and unchanged execution.",
+  "provenance":"Measured in an isolated local research adapter, separately hashed from production source. Does not prove the parent production HEAD or subsequent rewritten algorithms. Full NAV, targets and fills retained locally for evidence publication."
+}
