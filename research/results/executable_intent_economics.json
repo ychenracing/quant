@@ -1,0 +1,25 @@
+{
+  "status": "REJECTED_NOT_PROMOTED",
+  "source_commit": "b9c8af18b69aaef672333cc36505477fa05e2c6a",
+  "source_tree": "c74ab25d40bbb8011bf9e16ff232d1a60c67ec76",
+  "run_id": 34819708736,
+  "artifact_id": 10338081129,
+  "archive_sha256": "9a3e2fc2f62f77370c0b1d5c78972969112b80371bfc655cc4ab861c81f5b058",
+  "zip_sha256": "021bf16c1571182a4ceefb5d4c26125bb6f957e9bae1beb45bb7ae0775bc86f3",
+  "manifest_files_verified": 162,
+  "selected": {"ranking":"forecast"},
+  "worst_deficit_pre2026": 1.0429495554272146,
+  "full_period": [
+    {"scope":"union","wealth":1.7481913469567627,"max_drawdown":0.35600565273843843,"orders":390,"average_exposure":0.5129574284151318},
+    {"scope":"chatgpt_5","wealth":22.771673303641073,"max_drawdown":0.2549784876146034,"orders":145,"average_exposure":0.37000935666719714},
+    {"scope":"joint_optical_leader_removal","wealth":2.9915298717791234,"max_drawdown":0.30112276675753857,"orders":337,"average_exposure":0.51759938869408595}
+  ],
+  "execution_boundary": [
+    {"scope":"union","max_weight_difference":0.0,"all_days_exact":896,"protected_unexecutable":0,"forecast_only_exits":13,"forecast_only_exits_pre2026":11,"tail_veto_top_price":316,"tail_veto_pre2026":221},
+    {"scope":"chatgpt_5","max_weight_difference":0.0,"all_days_exact":896,"protected_unexecutable":0,"forecast_only_exits":26,"forecast_only_exits_pre2026":21,"tail_veto_top_price":81,"tail_veto_pre2026":73},
+    {"scope":"joint_optical_leader_removal","max_weight_difference":0.0,"all_days_exact":896,"protected_unexecutable":0,"forecast_only_exits":16,"forecast_only_exits_pre2026":10,"tail_veto_top_price":436,"tail_veto_pre2026":332}
+  ],
+  "interpretation": "The registered residual repair works; no sub-lot protective intent remains in the reproduced daily requests. Economics still fail jointly. The new selected forecast candidate differs from the older selected price candidate; do not attribute their aggregate wealth difference solely to the repair. Both unchanged candidates and all source-specific raw results are retained. Union selection and repeated losing entries, rather than residual handling alone, remain unresolved.",
+  "economic_acceptance": "NOT_PASSED",
+  "continuation": "The separately declared trend_book experiment removes mandatory forecast gates and uses an observed-price book with the same filled-account risk and repaired inventory-intent rules. Original coherent and all earlier contracts are immutable. No main promotion."
+}

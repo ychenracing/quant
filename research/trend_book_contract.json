@@ -1,0 +1,33 @@
+{
+  "family": "observed_price_trend_book",
+  "status": "PREREGISTERED_NOT_ACCEPTED",
+  "evidence_source": "b9c8af18b69aaef672333cc36505477fa05e2c6a",
+  "evidence_run": 34819708736,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "hypothesis": "The filled-account repair removes execution deadlock but union ownership still distributes capital to repeated losing entries. Forecast utility has not shown reliable cross-sectional ordering and its tail veto blocks price-qualified leaders. Test an observed-price authority independent of forecast fit/calibration, while keeping the working account-risk and actual-inventory coordination. This is not a threshold retune of an old model.",
+  "candidates": [
+    {
+      "positions": 2
+    },
+    {
+      "positions": 4
+    }
+  ],
+  "observation": "All inputs are recomputed on the exact supplied universe. Use independent production Features.score as relative leadership rank, fresh quoted close/volume and at least20 actually observed closes; EMA10, EMA20 and EMA60 use only supplied sessions from2023. No classifier, learned labels, forecast tail, pretrained model, named stock or calendar exception enters decisions.",
+  "admission": "Before slots/cash: fresh readiness, positive finite price leadership score, close above rising EMA60 and EMA20, positive5-session momentum, and original observed same-universe market trend open. Previously exited names need3 healthy closes above EMA10. No forecast-based readmission veto.",
+  "holding": "Keep actual funded units. Exit on the existing two-close below EMA60 plus negative20-session price return, a one-day loss of at least8%, or stale readiness. Protective full exits remain latched. No forecast-utility or forecast-tail exit. Review weakest membership each20sessions only when full; replace only if rank falls below twice capacity and an admissible challenger exceeds1.25 times max(weakest score,0.001). Retain existing new-name60%,held80%,singleton100% limits.",
+  "account_risk": "Use unchanged Config and RiskState, updated once from actual NAV and exact-universe Features. Preserve conservative executable protective reductions, strict actual-fill completion, new-risk block during outstanding protective sells, cap drift band, per-symbol partial-buy materiality cancellation and actual-cash-only vacancy/restoration funding from the repaired coherent inventory owner. Signal inputs get an explicit hook; old forecast owner default outputs must remain identical, not monkeypatched globals.",
+  "design_tradeoff": "Two or four slots tests concentration versus breadth using the same price authority. No further parameters are searched. It is not a mixture of the winning pool from different candidates.",
+  "selection": "Existing finite_study necessary incumbent nonregression and worst-deficit/objective/fills ordering unchanged. Select only through2025-12-31 on union,common5,jointopticalleaderremoval. Keep both raw results. The declared positive-score entry gate is part of this new mechanism, not a retroactive change to coherent_contract.",
+  "evaluation": "Same selected candidate full period and recorded2026crash windows, with identical same-source controls and fixed fees/execution. 2026 remains retrospective. Broader original pools/removals/sectors/subsets/stress and four native references are still required; a core screen is not original acceptance.",
+  "validation": [
+    "new signal-hook default equivalence against saved filled-account decisions",
+    "readiness and price-prefix causality",
+    "no reference model fit",
+    "removed symbol and sector isolation",
+    "actual cash, protective exit retries and materiality invariants",
+    "same candidate/source/data/runner identity"
+  ],
+  "non_goals": "Do not mutate old contracts or grids, weaken risk/fees/execution, import the four private reference implementations, invent guaranteed drawdown limits, or promote a failed candidate to main.",
+  "economic_acceptance": "UNVERIFIED"
+}
