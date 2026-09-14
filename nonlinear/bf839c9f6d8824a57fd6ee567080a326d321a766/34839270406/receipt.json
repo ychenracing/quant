@@ -1,0 +1,9 @@
+{
+  "source_commit": "bf839c9f6d8824a57fd6ee567080a326d321a766",
+  "run_id": "34839270406",
+  "family": "observed_readiness",
+  "operation": "measure",
+  "selection_status": "DIAGNOSTIC_NOT_ACCEPTED",
+  "economic_acceptance": "NOT_PASSED",
+  "evaluation_present": true
+}
