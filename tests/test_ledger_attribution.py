@@ -23,3 +23,12 @@ class LedgerAttributionTests(unittest.TestCase):
         broken.orders[0]['fee'] += 100.
         with self.assertRaisesRegex(ValueError, 'reconcile'):
             attribute(m, broken)
+
+    def test_open_episode_summary_is_strict_json(self):
+        import json
+        market = sample_market(2, 90)
+        targets = pd.DataFrame(.45, index=market.calendar, columns=market.symbols)
+        result = run(market, targets=targets)
+        _, episodes, summary = attribute(market, result)
+        self.assertTrue((episodes.exit == 'OPEN').any())
+        json.dumps(summary, allow_nan=False)
