@@ -9,6 +9,7 @@ from pathlib import Path
 import hashlib
 import json
 import numpy as np
+from techquant.config import Config
 from techquant.data import Market, file_hash
 from techquant.policy import CloseObservation
 from research.support_budget import Owner as SupportOwner, Parameters as SupportParameters
@@ -44,9 +45,11 @@ class FundedIntent(EconomicCeiling, FundedOwner):
 
 
 class Owner:
-    def __init__(self, market: Market, parameters: Parameters):
+    def __init__(self, market: Market, parameters: Parameters, *, config: Config | None = None):
+        if config is not None and parameters.authority != "support":
+            raise ValueError("explicit configuration is supported only by support authority")
         self.market, self.parameters = market, parameters
-        self.inner = (SupportIntent(market, SupportParameters(.10, 2))
+        self.inner = (SupportIntent(market, SupportParameters(.10, 2), config=config)
             if parameters.authority == 'support' else
             FundedIntent(market, FundedParameters(parameters.authority == 'cushion')))
         self.trace = []

@@ -47,7 +47,14 @@ jobs:
               request=json.loads(pathlib.Path('research/fixed-validation-request.json').read_text())
               if request['family']!='observed_admission_completion' or request['reselection'] or request['candidate_count']!=1:
                   raise ValueError('unexpected fixed validation request')
-              hosted(output)
+              operation=request['operation']
+              if operation=='original_parameter_neighborhoods':
+                  from research.neighborhood_validation import hosted as validate_neighborhoods
+                  validate_neighborhoods(output)
+              elif operation=='fixed_original_coverage':
+                  hosted(output)
+              else:
+                  raise ValueError('unregistered validation operation')
           except Exception:
               write_json(output/'failure.json',{'status':'FAILED','traceback':traceback.format_exc()})
               raise
@@ -59,9 +66,13 @@ jobs:
           import hashlib, json, os, pathlib, tarfile
           root=pathlib.Path(os.environ['RUNNER_TEMP']);output=root/'fixed-validation'
           output.mkdir(exist_ok=True)
+          request=json.loads(pathlib.Path('research/fixed-validation-request.json').read_text())
+          operation=request['operation']
           complete=(output/'summary.json').exists() and (output/'prefix_checks.json').exists() and not (output/'failure.json').exists()
+          if operation=='original_parameter_neighborhoods':
+              complete=complete and (output/'default_equivalence.json').exists()
           receipt={'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
-                   'family':'observed_admission_completion','operation':'fixed_original_coverage',
+                   'family':'observed_admission_completion','operation':operation,
                    'measurement_complete':complete,'economic_acceptance':'UNVERIFIED',
                    'status':'FINITE_DIAGNOSTIC' if complete else 'INCOMPLETE_OR_FAILED'}
           (output/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')

@@ -1,0 +1,63 @@
+{
+  "format": "Concatenate proof parts in listed order, lzma.decompress, decode UTF-8 JSON.",
+  "sha256": "308ad8cce594d6ad55627b41b152c41dac7011324bcf059330305bb44022a18d",
+  "bytes": 27120,
+  "parts": [
+    {
+      "path": "proof-00",
+      "bytes": 3072,
+      "sha256": "ccf0d84b024ac2b5763aeef44f5ebab224806f56ba0dc45fe9f6a331ffb902f7",
+      "git_blob": "d8bd763b63ca5c9cb827381ea7e5bc105d591fa8"
+    },
+    {
+      "path": "proof-01",
+      "bytes": 3072,
+      "sha256": "9268be2300d0e1e420cfead3e8ff3ec8dc4ea3bd68444b7044fb9496b3874157",
+      "git_blob": "7f343febc72d9f489255f430830373d0fe7d5be3"
+    },
+    {
+      "path": "proof-02",
+      "bytes": 3072,
+      "sha256": "8b38c1a6576a6bf4a1d145e35d642916cf335a91f7629b26595c0ae9d5c5f024",
+      "git_blob": "f082dd8b09ab8a13666c9d55446ee8fa377060ea"
+    },
+    {
+      "path": "proof-03",
+      "bytes": 3072,
+      "sha256": "1a6472cacbdf165ba8680c3c4ff496052095975ed225ea0f63c80b8522da6987",
+      "git_blob": "c201cedeb493212654619bc0bb4104815fafe190"
+    },
+    {
+      "path": "proof-04",
+      "bytes": 3072,
+      "sha256": "79743ca8b2d54ae90b55bc81365534ff8258bbe3cdb7f5ab5b40d77b24a8fb21",
+      "git_blob": "9e89f018afc7ccf6308d615a347669c7dd34d40c"
+    },
+    {
+      "path": "proof-05",
+      "bytes": 3072,
+      "sha256": "436a81538ef703b1bcf6cfeb9b202804f79a938ea70f1f52578e5f702af0799f",
+      "git_blob": "42529dddea88492d8e75e70c2f474f47cd4f60dc"
+    },
+    {
+      "path": "proof-06",
+      "bytes": 3072,
+      "sha256": "b6da7d95d064f05681756bf658e4e4c14156b1532b8fe8e53adf398937c87b35",
+      "git_blob": "549f3ad5840cd096305fb4092bf0449ee73a6b0e"
+    },
+    {
+      "path": "proof-07",
+      "bytes": 3072,
+      "sha256": "ac9b93ca5ebb7a7f729044328181a715fa3e05a70c23408fb37d282d269d9e94",
+      "git_blob": "2b41d8a27941ab7677f6515384a851b0719bcfa6"
+    },
+    {
+      "path": "proof-08",
+      "bytes": 2544,
+      "sha256": "dbc5df4a4bf355e58bb1b951797835d61b8e01d6689a38a307987b0d3bd060fb",
+      "git_blob": "a627ac35998581514524115cd5df1074f0870dee"
+    }
+  ],
+  "economic_acceptance": "UNVERIFIED",
+  "classification": "LOCAL_VERIFICATION_AND_SUPERSEDED_WORK_NOT_ACCEPTED_ECONOMIC_EVIDENCE"
+}

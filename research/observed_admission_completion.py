@@ -5,6 +5,7 @@ entire state transition; an early estimate does not relax protective authority.
 """
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from techquant.config import Config
 from techquant.data import Market, file_hash
 from research.observed_readiness import Owner as Readiness, Parameters as ReadinessParameters
 from research.admission_budget_completion import Owner as Completion, Parameters as CompletionParameters
@@ -21,13 +22,13 @@ def grid():
 
 
 class Owner(Completion):
-    def __init__(self, market: Market, parameters: Parameters):
+    def __init__(self, market: Market, parameters: Parameters, *, config: Config | None = None):
         if type(parameters) is not Parameters:
             raise ValueError('observed completion requires its registered singleton')
         # Both components use the same corrected support parent. Initialize that
         # parent once through Readiness, then reuse Completion's unchanged decide.
         # No owner or state is replaced after the first observed account close.
-        parent = Readiness(market, ReadinessParameters())
+        parent = Readiness(market, ReadinessParameters(), config=config)
         self.market, self.parameters = parent.market, parent.parameters
         self.inner, self.trace = parent.inner, parent.trace
         self.completion_parameters = CompletionParameters()

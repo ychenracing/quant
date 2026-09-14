@@ -7,6 +7,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from techquant.config import Config
 from techquant.data import Market, file_hash
 from research.quantity_obligation import Owner as Parent, Parameters as ParentParameters
 from research.quantity_obligation import preserve_trace, verify_trace
@@ -22,10 +23,10 @@ def grid():
 
 
 class Owner(Parent):
-    def __init__(self, market: Market, parameters: Parameters):
+    def __init__(self, market: Market, parameters: Parameters, *, config: Config | None = None):
         if type(parameters) is not Parameters:
             raise ValueError('only the registered parameter-free candidate is supported')
-        super().__init__(market, ParentParameters('support'))
+        super().__init__(market, ParentParameters('support'), config=config)
         self.readiness_parameters = parameters
         minimum = self.inner.config.fast
         close = market.panel('close').ffill()

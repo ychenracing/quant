@@ -35,8 +35,10 @@ def grid():
 
 
 class Owner:
-    def __init__(self, market: Market, parameters: Parameters):
-        self.market, self.params, self.config = market, parameters, Config()
+    def __init__(self, market: Market, parameters: Parameters, *, config: Config | None = None):
+        if config is not None and type(config) is not Config:
+            raise ValueError("support configuration must be an immutable Config")
+        self.market, self.params, self.config = market, parameters, Config() if config is None else config
         self.features = build_features(market, self.config)
         close = market.panel('close').ffill()
         high, low = market.panel('high'), market.panel('low')
@@ -72,6 +74,7 @@ class Owner:
         return {'name': 'support_risk_budget', 'parameters': asdict(self.params),
                 'implementation_sha256': file_hash(Path(__file__)),
                 'contract_sha256': file_hash(root/'support_budget_contract.json'),
+                'configuration': asdict(self.config),
                 'data_sha256': self.market.fingerprint(), 'status': 'RESEARCH_NOT_ACCEPTED'}
 
     def _round_reductions(self, current, desired, i):

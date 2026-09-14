@@ -59,8 +59,11 @@ class Study:
                 'dependencies':{name:file_hash(root/name) for name in names},
                 **({'issued_forecasts':self.issued.identity()} if self.issued else {})}
 
-    def saved(self,market,path,parameters=None,benchmark=None,costs=1.,delay=1):
-        cfg=Config()
+    def saved(self,market,path,parameters=None,benchmark=None,costs=1.,delay=1,*,configuration=None):
+        if configuration is not None and (type(configuration) is not Config
+                or self.family != "observed_admission_completion"):
+            raise ValueError("configuration override is supported only for the fixed observed-admission owner")
+        cfg=Config() if configuration is None else configuration
         expected={'config':asdict(cfg),'universe':list(market.symbols),'quality':market.quality,
             'data_sha256':market.fingerprint(),'source':source_identity(),'provenance':market.provenance,
             'delay':delay,'cost_multiplier':costs,'benchmark':benchmark,
@@ -73,7 +76,8 @@ class Study:
                 forecast,origin=self.issued.load(market)
                 owner=self.module.Owner(market,parameters,prediction=forecast)
             else:
-                owner=self.module.Owner(market,parameters)
+                owner=(self.module.Owner(market,parameters) if configuration is None else
+                       self.module.Owner(market,parameters,config=cfg))
         if owner is not None:expected['policy']=owner.identity()
         if self.family=='risk_reliability' and owner is not None:
             owner.preserve_audit(path.parent.parent/'audits', require_existing=path.exists())
