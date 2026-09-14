@@ -172,7 +172,7 @@ class Owner:
         broken=(tail_alert|((self.negative>=3)&(f.price[i]<f.ema60[i]))|(f.ret1[i]<=-.08)|~f.ready[i])
         self.exit_pending|=held&broken
         want=o.weights.copy();want[self.exit_pending]=0.;why=[]
-        if self.exit_pending.any():why.append('TAIL_OR_TREND_EXIT_RETRY')
+        if self.exit_pending.any():why.append('FULL_EXIT_RETRY')
         want=np.minimum(want,1. if len(held)==1 else .8)
         if not self.exit_pending.any():
             score=f.expected[i]
@@ -184,14 +184,23 @@ class Owner:
                 ranks={j:k+1 for k,j in enumerate(ranked)}
                 worst=min(existing,key=lambda j:(score[j],self.market.symbols[j]))
                 if ranks.get(worst,len(held)+1)>2*capacity and score[entrants[0]]>1.25*max(score[worst],.001):
-                    want[worst]=0.;why.append('EXPECTED_RETURN_LEADER_REPLACEMENT')
+                    want[worst]=0.;self.exit_pending[worst]=True
+                    why.append('EXPECTED_RETURN_LEADER_REPLACEMENT')
             entrants=entrants[:max(0,capacity-len(existing))]
             cash=min(o.cash/o.nav,max(0.,1.-o.weights.sum()))
             if entrants and cash>=.01:
                 want[entrants]=min(cash/len(entrants),1. if len(held)==1 else .6)
                 why.append('FUNDED_EXPECTED_RETURN_ENTRY')
         self.previous=held.copy()
-        return CloseDecision(want,'|'.join(why) if why else 'RETAIN_PREDICTED_TRENDS')
+        # Signal-close units preserve inventory through overnight gaps. The engine
+        # still controls affordability, lots, T+1 and all actual execution.
+        marks=f.price[i]
+        targets=np.divide(want*o.nav,marks,out=np.zeros_like(want),
+                          where=np.isfinite(marks)&(marks>0))
+        unchanged=want==o.weights
+        targets[unchanged]=o.units[unchanged]
+        return CloseDecision(want,'|'.join(why) if why else 'RETAIN_PREDICTED_TRENDS',
+                             unit_targets=targets)
 
     def identity(self):
         return {'name':'separate_return_and_tail_forecasts','parameters':asdict(self.params),
