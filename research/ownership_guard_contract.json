@@ -1,0 +1,14 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"benchmark_faithful_ownership_guard",
+  "hypothesis":"Winner selection and repeated replacement have added negative value. Preserve the user's supplied technology basket as fixed economic-unit ownership, allow winners to compound, and time risk using that continuously marked portfolio rather than a daily-rebalanced breadth proxy or a frozen cash account.",
+  "paper_policy":"Unchanged engine buy_hold benchmark, including reserved initial cash slices for not-yet-listed names and actual liquidity/cost constraints. The paper portfolio is diagnostic only; executable protection remains next-session cash-only trading.",
+  "candidate_grid":{"window":[10,20,40,80],"exit_band":[0.02,0.05],"recovery_closes":[1,3]},
+  "candidate_count":16,
+  "rules":"Close risk below the paper NAV's causal exponential mean * (1-exit_band). Reopen after recovery_closes above that mean * 1.01 with positive three-session paper return. Signal observed at close; execute paper target proportions only at the following open. No security/date-specific rule, peak oracle, leverage, shorting or broker orders.",
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "tie_break":"fewer fills, then grid order",
+  "limitations":"No claim that timing always improves buy_hold. Basket size increases fill count; compare orders and turnover explicitly. All historical periods are already observed. Preserve all prior attempts, not just best candidates. All engine, input, fee, capacity and metric definitions remain unchanged."
+}
