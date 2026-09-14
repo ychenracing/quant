@@ -1,0 +1,33 @@
+{
+  "encoding": "Concatenate binary parts in listed order, then gzip-decompress UTF-8 JSON",
+  "sha256": "06a8f128cc05f334206102c86dfff99083f12c94017945312e5a36bd8384736e",
+  "decoded_json_sha256": "faf3c85907d7632c248d7135f095e9e620e7bf9f90f31c956335d8dbe0ac7c02",
+  "bytes": 3518,
+  "parts": [
+    {
+      "path": "suspended_campaign_verification/part-00",
+      "bytes": 1024,
+      "sha256": "449aacc5dd54180832d02f5f6c69fed810353afd89dd48d1caa45481d6da33e3",
+      "git_blob": "5c6f9737509bf26b48936bedabd55962b672b5e0"
+    },
+    {
+      "path": "suspended_campaign_verification/part-01",
+      "bytes": 1024,
+      "sha256": "2b6445c5c46f2a818169824116102b7a06c9ad4cb8a35fcc9d0c12ec39268fb8",
+      "git_blob": "40efd30bf52209408b3d7b3fa3c93e4a1e58e86a"
+    },
+    {
+      "path": "suspended_campaign_verification/part-02",
+      "bytes": 1024,
+      "sha256": "88b93b160799aadfae13fcb2f4367cd48faaff8ccde58f715310e465b8ed1346",
+      "git_blob": "97758685dab8869b26ae032c93c0458fb231d90c"
+    },
+    {
+      "path": "suspended_campaign_verification/part-03",
+      "bytes": 446,
+      "sha256": "5081ce3596a2ac886f3a6c5562d032ebb87d58963bfdd9849c9a1900b2348453",
+      "git_blob": "1a86b5652d73cb6b489abfd695fed0351b68c386"
+    }
+  ],
+  "rejected_unreferenced_tree": "5797fa8483481995f8766d3e43b4333e06e06006 contained an unmatched diagnostic-record transcription; it is not published as evidence. Source code trees before that record matched exactly."
+}

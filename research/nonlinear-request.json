@@ -1,10 +1,10 @@
 {
-  "family": "revocable_reentry",
-  "purpose": "Measure only the preregistered revocable pre-fill health permission; preserve its failed parent and avoid redispatching completed studies or the concurrent fixed validation.",
+  "family": "suspended_campaign",
+  "purpose": "Measure the separately registered actual-cash restoration of risk-suspended campaigns, preserving both failed generic reentry alternatives and the exact historical diagnosis. No old grid or concurrent validation is redispatched.",
   "candidate_count": 1,
   "selection_end": "2025-12-31",
-  "contract_commit": "1b8b6a589b622cf3fa23e2a116a38a8da538c1cb",
-  "parent_source": "f40d6a66071dd1064a2686cc097fe1c4489241ce",
+  "contract_commit": "f0fb7c655c5015578c33dc537d9f5ac7347e3496",
+  "parent_source": "18901a431247a4f73aff08e73f2d0a7b3025de44",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "economic_acceptance": "UNVERIFIED"
 }

@@ -75,6 +75,9 @@ jobs:
                       elif request['family'] == 'funded_reentry':
                           from research.reentry_diagnosis import hosted as diagnose_reentry
                           diagnose_reentry(output, data, supplement)
+                      elif request['family'] == 'suspended_campaign':
+                          from research.suspension_diagnosis import hosted as diagnose_suspension
+                          diagnose_suspension(output, data, supplement)
                       elif request['family'] == 'revocable_reentry':
                           # Its exact parent archive and state witnesses are already preserved.
                           pass
@@ -146,7 +149,7 @@ jobs:
           for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json; do
             if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
           done
-          for dir in selection evaluation parent_diagnosis projection_audit quantity_gap reentry_diagnosis; do
+          for dir in selection evaluation parent_diagnosis projection_audit quantity_gap reentry_diagnosis suspension_diagnosis holding_diagnosis; do
             if [ -d "$RUNNER_TEMP/nonlinear/$dir" ]; then
               mkdir -p "$destination/$dir"
               find "$RUNNER_TEMP/nonlinear/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;
