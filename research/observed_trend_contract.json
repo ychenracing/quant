@@ -1,0 +1,20 @@
+{
+  "family": "observed_trend_authority",
+  "status": "DECLARED_BEFORE_MEASUREMENT",
+  "parent_evidence": "nonlinear/d9c639278cf30d4bbcbfa33258ab304da3e394f9/34807272116 on research/evidence; archive ff1b47b5bc047a928068a72d8cc1280ea1ef9b32958ed5334bde4fdfb02fc3e8",
+  "diagnosis": "Reconciled pre-2026 losing inventory persisted through sustained observed downtrends because the return forecast also had to become negative before a slow-trend exit was authorized. Fresh vacancies could then be funded on short rebounds without evidence of a rising medium trend. Account discrepancies and nightly weight drift do not explain this loss.",
+  "hypothesis": "Model forecasts are useful ranking inputs but cannot veto independently observed persistent trend failure. Requiring a rising observable trend for new risk and exiting confirmed negative trends can improve the failed joint risk/return trade-off while retaining funded winning units. This is a new bounded hypothesis, not a claim it will pass.",
+  "frozen_learner": {"horizon":60, "tail_threshold":0.5, "positions":4, "selection_end":"2025-12-31", "source":"d9c639278cf30d4bbcbfa33258ab304da3e394f9", "implementation_sha256":"8c129a96d732b8c713a8d22d3caaffee924d2b694d3eb84ebb3a0a7b665d987b"},
+  "candidate_grid": {"trend_span":[20,60], "require_market_trend":[false,true]},
+  "candidate_count": 4,
+  "rules": {
+    "individual_exit": "At a completed close, independently latch full liquidation when close has been below the candidate EMA for two consecutive closes and the 20-session return is negative. Optimistic model forecasts cannot cancel it. Existing tail, stale-quote, daily-loss and replacement exits remain. Pending orders must actually liquidate before readmission can start.",
+    "new_risk": "Existing nonlinear entry requirements remain. Any increase additionally requires close above the candidate EMA and that EMA above its value five sessions earlier. Denied increases leave existing funded units untouched.",
+    "market_admission": "Only for require_market_trend=true, new risk also requires the equal-weight compounded fresh-quote return index of exactly the supplied universe above its EMA60 and that EMA above its value five sessions earlier. Missing quotes do not become zero-return observations. This market gate never independently sells intact held units and never requires account NAV to recover to its permanent peak.",
+    "execution": "Signal-close fixed-unit intents, real cash/inventory, next-session execution, fees, liquidity, limits, board lots and T+1 remain unchanged. No same-close hypothetical sale proceeds fund purchases. No per-stock, per-sector or date branches, no outside-universe information, and no copied trades strategy code."
+  },
+  "selection": "The existing core incumbent wealth/drawdown/fill nonregression screen, then minimax normalized deficit and its unchanged objective, using only the three existing scopes through 2025-12-31. Preserve all four candidates and all raw results. This iterative design has seen the history and is not an independent holdout; 2026 remains retrospective.",
+  "verification": ["optimistic forecast cannot veto observed exit", "blocked exit remains latched", "new-risk gates do not liquidate intact inventory", "exact funded units", "prefix and excluded-symbol isolation", "cash and T+1 reconciliation"],
+  "economic_acceptance": "UNVERIFIED",
+  "original_goals": "Unchanged original four-reference return, crash protection and universe/generalization goals. This necessary core test alone is not acceptance or permission to promote."
+}
