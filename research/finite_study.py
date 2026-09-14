@@ -22,7 +22,7 @@ from research.expectation_study import write_json,scopes
 
 class Study:
     def __init__(self,family:str):
-        if family not in {'shock_ownership'}:raise ValueError('undeclared research family')
+        if family not in {'shock_ownership','nonlinear'}:raise ValueError('undeclared research family')
         self.family=family
         self.module=importlib.import_module('research.'+family)
 
@@ -30,7 +30,7 @@ class Study:
         root=Path(__file__).parent
         return {'source':source_identity(),'family':self.family,'dependencies':{
             name:file_hash(root/name) for name in
-            ('finite_study.py','expectation_study.py',self.family+'.py','leadership.py')}}
+            ('finite_study.py','expectation_study.py',self.family+'.py','leadership.py','expectation.py')}}
 
     def saved(self,market,path,parameters=None,benchmark=None,costs=1.,delay=1):
         cfg=Config()
