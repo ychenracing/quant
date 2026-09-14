@@ -1,0 +1,37 @@
+frozen part 0: retry after URLError
+frozen part 0: retry after URLError
+frozen part 0: retry after ValueError
+frozen part 0: retry after ValueError
+frozen part 0: retry after URLError
+----------------------------------------------------------------------
+Ran 77 tests in 3.753s
+
+OK
+test_actual_cash_fills_and_prefix_remain_consistent (research.test_nonlinear.NonlinearTests.test_actual_cash_fills_and_prefix_remain_consistent) ... ok
+test_excluded_name_changes_cannot_affect_forecast (research.test_nonlinear.NonlinearTests.test_excluded_name_changes_cannot_affect_forecast) ... ok
+test_forecasts_and_fit_endpoints_are_prefix_causal (research.test_nonlinear.NonlinearTests.test_forecasts_and_fit_endpoints_are_prefix_causal) ... ok
+test_single_tail_class_uses_smoothed_frequency (research.test_nonlinear.NonlinearTests.test_single_tail_class_uses_smoothed_frequency) ... ok
+test_leader_replacement_retries_until_actual_liquidation (research.test_nonlinear_ownership.OwnershipTests.test_leader_replacement_retries_until_actual_liquidation) ... ok
+test_protective_exit_retries_after_signal_recovers (research.test_nonlinear_ownership.OwnershipTests.test_protective_exit_retries_after_signal_recovers) ... ok
+test_readmission_counts_only_post_liquidation_healthy_closes (research.test_nonlinear_ownership.OwnershipTests.test_readmission_counts_only_post_liquidation_healthy_closes) ... ok
+test_retention_emits_fixed_actual_units_not_opening_nav_weights (research.test_nonlinear_ownership.OwnershipTests.test_retention_emits_fixed_actual_units_not_opening_nav_weights) ... ok
+test_stale_held_quote_cannot_open_another_position (research.test_nonlinear_ownership.OwnershipTests.test_stale_held_quote_cannot_open_another_position) ... ok
+test_confirmed_observed_exit_overrides_positive_forecast (research.test_observed_trend.ObservedTrendTests.test_confirmed_observed_exit_overrides_positive_forecast) ... ok
+test_failed_admission_cannot_fund_new_inventory (research.test_observed_trend.ObservedTrendTests.test_failed_admission_cannot_fund_new_inventory) ... ok
+test_failed_admission_retains_existing_units (research.test_observed_trend.ObservedTrendTests.test_failed_admission_retains_existing_units) ... ok
+test_market_gate_only_applies_when_requested (research.test_observed_trend.ObservedTrendTests.test_market_gate_only_applies_when_requested) ... ok
+test_signals_are_prefix_causal (research.test_observed_trend.ObservedTrendTests.test_signals_are_prefix_causal) ... ok
+test_early_hit_does_not_bypass_full_path_maturity (research.test_pathwise.PathwiseTests.test_early_hit_does_not_bypass_full_path_maturity) ... ok
+test_excluded_quotes_do_not_enter_features_or_training (research.test_pathwise.PathwiseTests.test_excluded_quotes_do_not_enter_features_or_training) ... ok
+test_explicit_same_forecast_preserves_parent_actual_fills (research.test_pathwise.PathwiseTests.test_explicit_same_forecast_preserves_parent_actual_fills) ... ok
+test_first_reached_barrier_not_terminal_return_decides_class (research.test_pathwise.PathwiseTests.test_first_reached_barrier_not_terminal_return_decides_class) ... ok
+test_missing_after_hit_still_rejects_path (research.test_pathwise.PathwiseTests.test_missing_after_hit_still_rejects_path) ... ok
+test_multiclass_learning_and_real_fill_accounting_remain_causal (research.test_pathwise.PathwiseTests.test_multiclass_learning_and_real_fill_accounting_remain_causal) ... ok
+test_predictions_and_mature_training_are_prefix_causal (research.test_pathwise.PathwiseTests.test_predictions_and_mature_training_are_prefix_causal) ... ok
+test_probability_expansion_smooths_missing_and_single_classes (research.test_pathwise.PathwiseTests.test_probability_expansion_smooths_missing_and_single_classes) ... ok
+test_wrong_forecast_identity_rejected (research.test_pathwise.PathwiseTests.test_wrong_forecast_identity_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 5.016s
+
+OK

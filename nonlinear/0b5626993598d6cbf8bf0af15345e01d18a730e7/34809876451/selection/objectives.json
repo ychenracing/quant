@@ -1,0 +1,42 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "horizon": 20,
+      "loss_barrier": 0.08
+    },
+    "worst_deficit": 0.966012471563264,
+    "objective": -1.7505670190860372,
+    "fills": 341
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "horizon": 20,
+      "loss_barrier": 0.12
+    },
+    "worst_deficit": 0.6484919307933952,
+    "objective": -1.4535047035826218,
+    "fills": 400
+  },
+  {
+    "candidate": 2,
+    "parameters": {
+      "horizon": 60,
+      "loss_barrier": 0.08
+    },
+    "worst_deficit": 0.9280891538538859,
+    "objective": -1.7015057499542496,
+    "fills": 222
+  },
+  {
+    "candidate": 3,
+    "parameters": {
+      "horizon": 60,
+      "loss_barrier": 0.12
+    },
+    "worst_deficit": 1.4779490337167802,
+    "objective": -1.9239321813069556,
+    "fills": 278
+  }
+]
