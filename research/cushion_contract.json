@@ -1,0 +1,19 @@
+{
+ "family":"capital_cushion_protection",
+ "status":"DECLARED_BEFORE_MEASUREMENT",
+ "motivation":"The pre-2026 admission winner raises union/common-five wealth and lowers turnover, but common-five drawdown remains47.06%. Individual stops and admission confirmation do not limit a sequence of correlated losses. Test a separate account-level capital cushion whose equity peak never resets, rather than tighter date-fitted stock stops.",
+ "underlying_policy":{"leader_rule":"responsive","market_span":20,"minimum_breadth":0.6,"selection_source":"1f61a12cc03324cdd3db89d5e6fdd9bec20dc0a9","selected_using":"2023-2025 only"},
+ "candidate_grid":{"drawdown_budget":[0.16,0.20],"multiplier":[5.0,8.0,12.0]},
+ "candidate_count":6,
+ "rules":{
+  "high_water":"max of actual complete-session NAV from inception; never reset either control or reported peak",
+  "exposure_ceiling":"clip(multiplier * (NAV - (1-drawdown_budget)*permanent_peak) / NAV,0.10,1.0). The10% floor permits recovery but means this is explicitly NOT a guaranteed hard drawdown bound.",
+  "reduction":"When desired exposure exceeds the ceiling by more than1% of account NAV, proportionally reduce; per-name complete exits remain untouched. Keep absolute-unit reduction intent until actual execution. Do not cancel unfilled risk reductions on a quote rebound.",
+  "restoration":"Only after the underlying three-close market admission is open, no pending reduction remains, and ceiling exceeds actual exposure by at least10percentage points; refill surviving intended membership proportionally, with80% per-name drift ceiling or100% singleton, never using intended sale proceeds.",
+  "execution":"No changes to next-open engine, fees, minimum lots, prior liquidity, blocked fills,1% ordinary materiality or original acceptance. Execution dust at most1% NAV may remain. No intraday or same-day new-share sale assumption. No leverage."
+ },
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_rule":"Same necessary incumbent wealth/drawdown/order nonregression and minimax deficit screen; preserve every candidate and the failed predecessor families. Original return/risk/generalization goals unchanged. Already observed2026 is retrospective.",
+ "economic_acceptance":"UNVERIFIED"
+}
