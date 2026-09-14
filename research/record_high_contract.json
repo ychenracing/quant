@@ -1,0 +1,13 @@
+{
+  "status":"DECLARED_BEFORE_MEASUREMENT",
+  "family":"record_high_ownership",
+  "hypothesis":"Short-window breakouts and small trough rebounds repeatedly reopen positions inside a larger decline. Require a stock to establish a fresh highest observed close for new risk, preserve existing units until a bounded peak loss, and keep stopped capital in cash. This deliberately exchanges early bottom participation for fewer failed recoveries without using future troughs or symbol/date switches.",
+  "candidate_grid":{"stop":[0.06,0.08,0.12,0.16],"positions":[2,3,4,34],"minimum_observations":[10,40]},
+  "candidate_count":32,
+  "fixed_rules":{"entry":"fresh running highest observed close after minimum history; no pre-2023 bars","exit":"close <= observed running peak * (1-stop), or stale quote","ranking":"mean causal 30/60/120-session log momentum with since-observed fallback","capital":"retain intact economic units; allocate only on fresh record evidence; never recycle proceeds on an exit close; entry/drift concentration bounds unchanged"},
+  "selection_end":"2025-12-31",
+  "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective":"mean(log(wealth / matched buy_hold wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20))",
+  "execution":"Unchanged daily-close decision / next-open fill engine and costs.",
+  "limits":"Retrospective diagnostic family. Preserve all prior directional, fresh-entry and shadow-guard failures. Training rank is not economic acceptance."
+}
