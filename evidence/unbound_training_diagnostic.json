@@ -1,8 +1,8 @@
 {
   "status":"UNBOUND_TRAINING_DIAGNOSTIC_NOT_ACCEPTANCE",
   "measured_source_commit":"UNBOUND_LOCAL_SNAPSHOT",
-  "measured_package_sha256":"258a3d6ddf62694ae8197954485965c721179860a24749d8822e970a6080a0ce439ab6",
-  "package_hash_requires_verification":"The complete original source identity remains in the local diagnostic selection.json; this record must not be used to prove any Git HEAD.",
+  "measured_package_sha256":"258a3d6ddf62694ae8197954485965c721179860a24749d8822e970a6080a57e",
+  "identity_note":"The digest was read from the original measured selection.json. It does not bind that diagnostic to a Git HEAD; the preserved implementation has a subsequent comment-only difference.",
   "preserved_implementation_commit":"b958770bd3a4b7be14cee92f8a947c6bdd6fe485",
   "scope":"2023-01-03 through 2025-12-31; same frozen three scopes and 12 numeric candidates; no 2026 evaluation for this diagnostic",
   "selection_data_sha256":"894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
