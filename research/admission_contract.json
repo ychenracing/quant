@@ -1,0 +1,14 @@
+{
+ "family":"confirmed_market_admission",
+ "status":"DECLARED_BEFORE_MEASUREMENT",
+ "diagnosis":"Persistent leadership can retain strong winners, but the pre-2026 union ledger repeatedly spends stop proceeds on different weak correlated names. For example the lead252/exit60/two-position trial reaches63.21% peak drawdown by2024-01-30 despite14% per-position protection. Avoid repeating an unconditional five-day pause or the existing market-envelope design that liquidates all intact leaders.",
+ "hypothesis":"Restrict new money and restoration, not existing intact units, until observable supplied-universe market health recovers. Protective sells are always allowed. Thus broad weakness cannot repeatedly fund weak replacements, while an intact strong technology holding is not sold merely because its peers are weak.",
+ "candidate_grid":{"leader_rule":[{"leadership_window":60,"exit_span":20,"positions":2,"pressure_guard":false},{"leadership_window":252,"exit_span":60,"positions":2,"pressure_guard":false}],"market_span":[10,20,40],"minimum_breadth":[0.4,0.6]},
+ "candidate_count":12,
+ "market_signal":"Cumulative product of equal-weight fresh-quote daily returns from exactly the supplied securities; above its EMA market_span, and fraction of ready securities above their EMA20 at least minimum_breadth. Admission requires three consecutive such observed closes. No external/reference/excluded security can supply the gate.",
+ "execution":"The independent funded leadership owner still sees actual inventory and cash. When the gate is closed, clamp every requested increase to actual current weight; do not clamp or delay reductions. Never invent fills or reserve imaginary proceeds. All other selected ownership rules and production execution remain unchanged.",
+ "selection_end":"2025-12-31",
+ "selection_scopes":["union","chatgpt_5","joint_optical_leader_removal"],
+ "selection_rule":"Same all-core incumbent wealth/drawdown/fill nonregression screen; otherwise minimize worst normalized deficit, then original log-relative-wealth/risk/turnover objective. Preserve all twelve. Original economic goals, stock sets, costs, metrics and source identity obligations unchanged. 2026 is retrospective, not untouched holdout.",
+ "economic_acceptance":"UNVERIFIED"
+}
