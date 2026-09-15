@@ -1,0 +1,22 @@
+{
+  "REVIEW.md": "0daae88a45dbab05de2827b19c2231ed5f97fde95c84444059d58dc18ede47d5",
+  "corrected/equity.csv": "ff54c25fbf7d2dc2937606b87a981eca08b2eeeedf2228c94471f7b6c638aad5",
+  "corrected/identity.json": "34e95754ad6e881be43d5831c4433d5e8a84bf971f2699a7f1725eb96569ec0d",
+  "corrected/manifest.json": "49b3d31f6877717ba63fc4e039ec24ef3885dadfc0e9e3ee69330c837549866a",
+  "corrected/native_frame.csv": "04d6f856ff33a72e1038f1597b2bb4bfc122fa18168ddc3bd8a3700b1e94b615",
+  "corrected/run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "corrected/run.stdout": "c180d5ddb6d5ca6c6ab8ff6e53c567ae2592dd6d02a6705c34d95a803ccd9cfb",
+  "corrected/settings.json": "42f8ea91c48a479e307ef0f11a9f1c39bb8f9eebdf844a8de8473c6791a6f24f",
+  "corrected/summary.json": "c5b29a6b3520c585543a248f163297a9cdc6c0794dbbdfc10f049eaa1f2a6917",
+  "corrected/trades.csv": "3883335e946624ba07ab41779a841b6336d9b6e468a894f55f8cc90e0325526b",
+  "native/equity.csv": "6ecfeeb4e2466d59e272a4e4326db001c6e892b9d71ba855e37563549ca784be",
+  "native/identity.json": "9d10bd7fb3630131d0d4b563008bb5d923e226c7c5d956f802fade12902ac463",
+  "native/manifest.json": "b9251a9a788741d9df19cdb25637ef8c8a4b8b8b06277ad4fa0dabde5c863dd6",
+  "native/native_frame.csv": "18857aac1059caeff3fd755a5a9be1e6468a54d37c4b97ad1b7db305e414f6a4",
+  "native/run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "native/run.stdout": "0d2142a83dbf5c8a88164fa6c3c67a6edf99f8e016e4557520b8c5705a1da781",
+  "native/settings.json": "42f8ea91c48a479e307ef0f11a9f1c39bb8f9eebdf844a8de8473c6791a6f24f",
+  "native/summary.json": "975109e5eddeb27bbedbb11b3caefe7d47eacaff14ec45ac969fb9a66bdc1e09",
+  "native/trades.csv": "ff5323c9ee0e8d6a3ee0808bd88698549d00163af4cc3773642063ffcf82c15e",
+  "result.json": "db7c8af942733dc208730e3c77ac32351758b5e299ec429d5d93d8d6ec931b26"
+}
