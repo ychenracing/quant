@@ -22,7 +22,7 @@ The same pre-2026 candidate was evaluated on all three required core scopes. No 
 
 | scope | control wealth | treatment wealth | relative wealth | control MDD | treatment MDD | orders control/treatment |
 |---|---:|---:|---:|---:|---:|---:|
-| union | 4.2311864967x | 3.5202595782x | -16.8027% | 29.6451% | 36.8051% | 149 / 140 |
+| union | 4.2311864967x | 3.5202595782x | -16.8021% | 29.6451% | 36.8051% | 149 / 140 |
 | common-five | 5.7180461463x | 6.1328140800x | +7.2537% | 31.5516% | 31.5516% | 118 / 114 |
 | joint optical-leader removal | 2.3582051229x | 2.4106330596x | +2.2232% | 33.0300% | 32.8387% | 161 / 146 |
 
