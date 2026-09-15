@@ -1,0 +1,9 @@
+{
+  "source_commit": "48c2df4ab101601d09d9feaca82d259452b37240",
+  "run_id": "35002117259",
+  "family": "shock_reclaim",
+  "operation": "measure",
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
