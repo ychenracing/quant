@@ -59,6 +59,8 @@ jobs:
               study_type = Study
               if request['family'] == 'relative_leadership':
                   from research.relative_leadership_study import Study as study_type
+              elif request['family'] == 'campaign_payoff':
+                  from research.campaign_payoff_study import Study as study_type
               study = study_type(request['family'], issued_evidence=issued)
               if len(study.module.grid()) != request['candidate_count']:
                   raise ValueError('declared candidate count mismatch')
@@ -110,7 +112,7 @@ jobs:
                       elif request['family'] == 'protected_retention':
                           from research.retention_diagnosis import hosted as observe_reductions
                           observe_reductions(output, data, supplement)
-                      elif request['family'] in {'revocable_reentry', 'allocation_auction', 'relative_leadership'}:
+                      elif request['family'] in {'revocable_reentry', 'allocation_auction', 'relative_leadership', 'campaign_payoff'}:
                           # Its exact parent archive and state witnesses are already preserved.
                           pass
                       elif issued is not None:

@@ -1,0 +1,14 @@
+{
+  "scope": "LOCAL_PURE_NUMERICAL_AND_COMPILE_ONLY",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "red": "Missing research.campaign_payoff module observed before implementation",
+  "green": "8 pure numerical tests passed",
+  "full_integration": "NOT_YET_RUN_LOCAL_SOURCE_CHECKOUT_UNAVAILABLE; hosted exact-source suite is required before economic measurement",
+  "read_attempts": {
+    "git_clone": "failed: github.com DNS unavailable",
+    "archive_download": "failed: URL unavailable to local download gateway"
+  },
+  "production_source_unchanged": true
+}

@@ -1,18 +1,16 @@
 {
-  "family": "relative_leadership",
-  "operation": "relative_leadership_evidence_audit",
+  "family": "campaign_payoff",
+  "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "measurement_source": "0cca61f6f38019fc47b0901eb58b891662e71d0f",
-  "measurement_run": 34960173025,
-  "recorded_archive_sha256": "ce5a4bbfefe741f0e721dc85ce43231e94bd1f406b5f0d00eddd34291a533aad",
-  "purpose": "Read-only verification and attribution of the already completed six-account pair. Zero new strategy accounts, refits, parameter trials or 2026 treatment runs. Do not redispatch the failed economic pair.",
+  "registration_commit": "9755458a87692c490f13452f7d9173b05dc5f2c7",
+  "request": "Execute one fixed settled-campaign-payoff pair with the unchanged matched control reused for labels. Run all correctness checks before economics. No prior failed mechanism rerun or 2026 rejected treatment replay. Preserve complete labels, fits, actual accounts and failures.",
   "source_sha256": {
-    "research/relative_rank.py": "fda698ae09215e3c727fefd1fe301b36d2a87202fd2c339c6765212d5422bcca",
-    "research/relative_leadership.py": "81032175886d1fcc6ddf3bc39496b5f35fff93372ca5d70f77570e2bc0d01a73",
-    "research/relative_leadership_study.py": "01c1c847bc6f839f0766594c29ca0df3fa94c095f8c94408ff7e5d82f2f48855",
-    "research/relative_leadership_audit.py": "8cc9807c1908abd6447db65ab1b4c070086aaaaba782b52f2b4f4ae960a11d09",
-    "research/test_relative_leadership_audit.py": "f6da6d62a328b330c055cb9546a947f7a000524553f7b609d7988ccfefd8805f",
-    ".github/workflows/nonlinear-study.yml": "09bba60ed7eca10f2a3ee57fd09952e927dfb1a84156d70ce18f5c45b75f946c"
+    "research/campaign_payoff.py": "90a31b8602bed443da3a5d0e0f95f23a03f1b2664f919b05fcc425bb7f8007b4",
+    "research/test_campaign_payoff_policy.py": "1812810455965af41d3cce4da68cbd2944748ecad7b30fc5d8bb4e1e41ef4c4b",
+    "research/campaign_payoff_policy.py": "977da60a850b09d159198e49ff2b486f220b081ab30815b2a89a35dcdf7b07b3",
+    "research/test_campaign_payoff.py": "f2bc71d946e5cf57a95bb59ebb84887915d907100561eed59b406b3ed477a921",
+    "research/campaign_payoff_study.py": "d4a68cf45ecd77eac54e028b1487fa8cf16b68c7e1321d48a4d625aa00d5a2e8",
+    ".github/workflows/nonlinear-study.yml": "93d3f93748850bed5a12862263f5a92226e027ed5b07467d0c330634bed40b91"
   }
 }
