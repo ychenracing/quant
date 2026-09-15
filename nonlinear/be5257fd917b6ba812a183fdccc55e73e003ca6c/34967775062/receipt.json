@@ -1,0 +1,9 @@
+{
+  "source_commit": "be5257fd917b6ba812a183fdccc55e73e003ca6c",
+  "run_id": "34967775062",
+  "family": "joint_funding",
+  "operation": "continuation_account_audit",
+  "selection_status": "NOT_APPLICABLE_DIAGNOSTIC",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}

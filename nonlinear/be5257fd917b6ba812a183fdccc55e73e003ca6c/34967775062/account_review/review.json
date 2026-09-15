@@ -1,0 +1,602 @@
+{
+  "status": "TWO_REJECTED_PAIRS_INDEPENDENTLY_RECONCILED",
+  "producer": {
+    "commit": "be5257fd917b6ba812a183fdccc55e73e003ca6c",
+    "package_sha256": "077e833265807e1fcc3d12d0a047fae343bd18d4508b572d0956a6683dfa4960",
+    "files": {
+      "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+      "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+      "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+      "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+      "data.py": "b8580ccda8bf04cb6c4e8c4d985538946b51638d1c78086c1049bd64239cfa1b",
+      "engine.py": "822bf6d0afd8ea377e74d0811b00e8389daa40b1bbac774ff19b1e915bcc18bc",
+      "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+      "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+      "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+      "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+      "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+    },
+    "python": "3.13.5",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3"
+    }
+  },
+  "pairs": [
+    {
+      "family": "campaign_payoff",
+      "measurement_source": "eddbc617787d85215124d974ea10ec8c4e89da68",
+      "measurement_run": "34964181664",
+      "evidence_commit": "d5266c62a8d75c8cbd7fed3d2c8cbf8e14639738",
+      "archive_sha256": "5881c2d6eb7efff5252baf7dce5ca0ad201021e83ba61fd19f133c6bbbec0349",
+      "archive_bytes": 20676286,
+      "manifest_files_verified": 70,
+      "source_tree": "8534461fa4d8c90d7d604e8da77d3b3e59b2645c",
+      "accounts_verified": 6,
+      "rows": [
+        {
+          "scope": "union",
+          "terminal_nav_difference": -36089.294237596914,
+          "symbol_error": 3.259629011154175e-09,
+          "log_gap": {
+            "participation_log": -0.03548736938334468,
+            "selection_log": 0.33024259746131374,
+            "execution_log": -0.29902902555360344,
+            "total_log": -0.004273797475634273
+          },
+          "largest_negative": [
+            {
+              "symbol": "sh601869",
+              "control": 1848625.324850489,
+              "treatment": -131046.2226143509,
+              "difference": -1979671.5474648399
+            },
+            {
+              "symbol": "sh688498",
+              "control": 2432980.1865643347,
+              "treatment": 1369216.077224159,
+              "difference": -1063764.1093401758
+            },
+            {
+              "symbol": "sh688256",
+              "control": 1899276.9938091373,
+              "treatment": 1221765.9193485996,
+              "difference": -677511.0744605376
+            },
+            {
+              "symbol": "sh688041",
+              "control": 467954.61234011117,
+              "treatment": 97868.60625774729,
+              "difference": -370086.0060823639
+            },
+            {
+              "symbol": "sh600206",
+              "control": 35733.23511920839,
+              "treatment": -290739.4469271573,
+              "difference": -326472.6820463657
+            }
+          ],
+          "largest_positive": [
+            {
+              "symbol": "sz300502",
+              "control": -102332.15635134498,
+              "treatment": 4034408.3318408546,
+              "difference": 4136740.4881921997
+            },
+            {
+              "symbol": "sz002371",
+              "control": -135804.7625033883,
+              "treatment": 437715.94586292334,
+              "difference": 573520.7083663116
+            },
+            {
+              "symbol": "sz300394",
+              "control": 97085.83700720473,
+              "treatment": 208126.0162753477,
+              "difference": 111040.17926814298
+            },
+            {
+              "symbol": "sh688249",
+              "control": -100853.80752831139,
+              "treatment": 0.0,
+              "difference": 100853.80752831139
+            },
+            {
+              "symbol": "sh688037",
+              "control": -235299.8826004112,
+              "treatment": -188182.96312055655,
+              "difference": 47116.91947985464
+            }
+          ],
+          "control_ledger": {
+            "max_reconciliation_error": 2.270098775625229e-09,
+            "episodes": 56,
+            "wins": 21,
+            "drawdown_peak": "2024-12-30",
+            "drawdown_trough": "2025-06-03",
+            "max_drawdown": 0.2964510683651256,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.0097452308197603e-16
+          },
+          "treatment_ledger": {
+            "max_reconciliation_error": 2.1100277081131935e-09,
+            "episodes": 55,
+            "wins": 19,
+            "drawdown_peak": "2024-12-30",
+            "drawdown_trough": "2025-05-27",
+            "max_drawdown": 0.30583169052812453,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.0878077872387166e-16
+          }
+        },
+        {
+          "scope": "chatgpt_5",
+          "terminal_nav_difference": -192451.6523139961,
+          "symbol_error": 6.984919309616089e-10,
+          "log_gap": {
+            "participation_log": -0.05504369096311657,
+            "selection_log": 0.011540541731201101,
+            "execution_log": 0.026531496849972802,
+            "total_log": -0.016971652381942627
+          },
+          "largest_negative": [
+            {
+              "symbol": "sh603986",
+              "control": -618222.3210336048,
+              "treatment": -1128958.1389556313,
+              "difference": -510735.8179220265
+            },
+            {
+              "symbol": "sh688008",
+              "control": 206280.37278352724,
+              "treatment": -195182.45265595635,
+              "difference": -401462.8254394836
+            },
+            {
+              "symbol": "sz300308",
+              "control": 3127348.9740029816,
+              "treatment": 2888064.6110891853,
+              "difference": -239284.3629137962
+            }
+          ],
+          "largest_positive": [
+            {
+              "symbol": "sz300502",
+              "control": 6844934.043362829,
+              "treatment": 7378962.549115218,
+              "difference": 534028.5057523893
+            },
+            {
+              "symbol": "sz300394",
+              "control": -124248.77660424967,
+              "treatment": 300754.0716046721,
+              "difference": 425002.8482089218
+            }
+          ],
+          "control_ledger": {
+            "max_reconciliation_error": 1.979060471057892e-09,
+            "episodes": 45,
+            "wins": 17,
+            "drawdown_peak": "2023-06-20",
+            "drawdown_trough": "2024-02-23",
+            "max_drawdown": 0.3155163499985997,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.2612801348363973e-16
+          },
+          "treatment_ledger": {
+            "max_reconciliation_error": 1.979060471057892e-09,
+            "episodes": 44,
+            "wins": 18,
+            "drawdown_peak": "2023-06-20",
+            "drawdown_trough": "2024-02-23",
+            "max_drawdown": 0.3067275363499895,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.191891195797325e-16
+          }
+        },
+        {
+          "scope": "joint_optical_leader_removal",
+          "terminal_nav_difference": 198080.84197817277,
+          "symbol_error": 0.0,
+          "log_gap": {
+            "participation_log": -0.058072834424016784,
+            "selection_log": 0.2723661696395197,
+            "execution_log": -0.17315309874230553,
+            "total_log": 0.041140236473197735
+          },
+          "largest_negative": [
+            {
+              "symbol": "sh601869",
+              "control": 1568167.9841946464,
+              "treatment": 781954.7809610306,
+              "difference": -786213.2032336157
+            },
+            {
+              "symbol": "sz002281",
+              "control": -33793.259340812154,
+              "treatment": -240727.78208249816,
+              "difference": -206934.522741686
+            },
+            {
+              "symbol": "sh688019",
+              "control": 9794.734643577027,
+              "treatment": -138134.96001479047,
+              "difference": -147929.6946583675
+            },
+            {
+              "symbol": "sh688205",
+              "control": 221457.55645244027,
+              "treatment": 89104.28565701442,
+              "difference": -132353.27079542587
+            },
+            {
+              "symbol": "sh603986",
+              "control": -136046.94914617733,
+              "treatment": -250950.772997819,
+              "difference": -114903.82385164167
+            }
+          ],
+          "largest_positive": [
+            {
+              "symbol": "sh688498",
+              "control": 594894.5055202413,
+              "treatment": 1622909.564533589,
+              "difference": 1028015.0590133476
+            },
+            {
+              "symbol": "sh688041",
+              "control": 200466.6386195595,
+              "treatment": 466651.3960577987,
+              "difference": 266184.7574382392
+            },
+            {
+              "symbol": "sh688120",
+              "control": -2133.7682434427716,
+              "treatment": 123117.26946521713,
+              "difference": 125251.0377086599
+            },
+            {
+              "symbol": "sh688535",
+              "control": -153713.8247395631,
+              "treatment": -45454.063706865214,
+              "difference": 108259.76103269789
+            },
+            {
+              "symbol": "sh688409",
+              "control": -115389.99584996808,
+              "treatment": -45600.716983051454,
+              "difference": 69789.27886691663
+            }
+          ],
+          "control_ledger": {
+            "max_reconciliation_error": 1.2514647096395493e-09,
+            "episodes": 58,
+            "wins": 18,
+            "drawdown_peak": "2023-04-20",
+            "drawdown_trough": "2024-07-23",
+            "max_drawdown": 0.3302999756539289,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.469446951953614e-16
+          },
+          "treatment_ledger": {
+            "max_reconciliation_error": 1.2369127944111824e-09,
+            "episodes": 56,
+            "wins": 16,
+            "drawdown_peak": "2024-12-30",
+            "drawdown_trough": "2025-06-03",
+            "max_drawdown": 0.2990604956295282,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.885780586188048e-16
+          }
+        }
+      ]
+    },
+    {
+      "family": "joint_funding",
+      "measurement_source": "0578a23c52007bde657ed97e9ce033fa58675ce6",
+      "measurement_run": "34966383125",
+      "evidence_commit": "565660bea72e1dc2783aea2fe27f8d5e747ffdaf",
+      "archive_sha256": "abd1b3687813a9e18dc7030669991db8a272d9d4cb3ffad2f96bf0bffa1cba96",
+      "archive_bytes": 20376744,
+      "manifest_files_verified": 64,
+      "source_tree": "6f5f1f20b28938a31798287d34b52d7a4f3bda00",
+      "accounts_verified": 6,
+      "rows": [
+        {
+          "scope": "union",
+          "terminal_nav_difference": -662830.2067491291,
+          "symbol_error": 3.3760443329811096e-09,
+          "log_gap": {
+            "participation_log": -0.011590328934783727,
+            "selection_log": -0.05967524375441124,
+            "execution_log": -0.010298942390244491,
+            "total_log": -0.08156451507943933
+          },
+          "largest_negative": [
+            {
+              "symbol": "sh688041",
+              "control": 467954.61234011117,
+              "treatment": 71536.88377714489,
+              "difference": -396417.7285629663
+            },
+            {
+              "symbol": "sh601869",
+              "control": 1848625.324850489,
+              "treatment": 1503375.0330238407,
+              "difference": -345250.2918266482
+            },
+            {
+              "symbol": "sz300308",
+              "control": 851423.8982843352,
+              "treatment": 690027.0665038642,
+              "difference": -161396.8317804709
+            },
+            {
+              "symbol": "sh688256",
+              "control": 1899276.9938091373,
+              "treatment": 1795920.6231283932,
+              "difference": -103356.37068074406
+            },
+            {
+              "symbol": "sh688072",
+              "control": -10893.491449118166,
+              "treatment": -38402.08831711863,
+              "difference": -27508.596868000463
+            }
+          ],
+          "largest_positive": [
+            {
+              "symbol": "sz300502",
+              "control": -102332.15635134498,
+              "treatment": 17753.500921462786,
+              "difference": 120085.65727280776
+            },
+            {
+              "symbol": "sh688037",
+              "control": -235299.8826004112,
+              "treatment": -127317.74811892267,
+              "difference": 107982.13448148852
+            },
+            {
+              "symbol": "sh688249",
+              "control": -100853.80752831139,
+              "treatment": 0.0,
+              "difference": 100853.80752831139
+            },
+            {
+              "symbol": "sh688300",
+              "control": 0.0,
+              "treatment": 31601.27781953272,
+              "difference": 31601.27781953272
+            },
+            {
+              "symbol": "sh688535",
+              "control": -142364.00938288984,
+              "treatment": -125562.23718641426,
+              "difference": 16801.772196475576
+            }
+          ],
+          "control_ledger": {
+            "max_reconciliation_error": 2.270098775625229e-09,
+            "episodes": 56,
+            "wins": 21,
+            "drawdown_peak": "2024-12-30",
+            "drawdown_trough": "2025-06-03",
+            "max_drawdown": 0.2964510683651256,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.0097452308197603e-16
+          },
+          "treatment_ledger": {
+            "max_reconciliation_error": 1.7462298274040222e-09,
+            "episodes": 54,
+            "wins": 21,
+            "drawdown_peak": "2025-01-24",
+            "drawdown_trough": "2025-06-03",
+            "max_drawdown": 0.30359911240122983,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.469446951953614e-16
+          }
+        },
+        {
+          "scope": "chatgpt_5",
+          "terminal_nav_difference": -388647.3305611126,
+          "symbol_error": -3.6088749766349792e-09,
+          "log_gap": {
+            "participation_log": -0.010312564845204127,
+            "selection_log": -0.006386414185191495,
+            "execution_log": -0.017876189681893064,
+            "total_log": -0.03457516871228869
+          },
+          "largest_negative": [
+            {
+              "symbol": "sz300502",
+              "control": 6844934.043362829,
+              "treatment": 6435894.335470601,
+              "difference": -409039.7078922279
+            },
+            {
+              "symbol": "sh603986",
+              "control": -618222.3210336048,
+              "treatment": -641680.5467768771,
+              "difference": -23458.22574327234
+            },
+            {
+              "symbol": "sh688008",
+              "control": 206280.37278352724,
+              "treatment": 195503.22784761823,
+              "difference": -10777.144935909018
+            }
+          ],
+          "largest_positive": [
+            {
+              "symbol": "sz300308",
+              "control": 3127348.9740029816,
+              "treatment": 3173793.208477489,
+              "difference": 46444.234474507626
+            },
+            {
+              "symbol": "sz300394",
+              "control": -124248.77660424967,
+              "treatment": -116065.2630684642,
+              "difference": 8183.51353578546
+            }
+          ],
+          "control_ledger": {
+            "max_reconciliation_error": 1.979060471057892e-09,
+            "episodes": 45,
+            "wins": 17,
+            "drawdown_peak": "2023-06-20",
+            "drawdown_trough": "2024-02-23",
+            "max_drawdown": 0.3155163499985997,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.2612801348363973e-16
+          },
+          "treatment_ledger": {
+            "max_reconciliation_error": 2.9103830456733704e-09,
+            "episodes": 45,
+            "wins": 17,
+            "drawdown_peak": "2023-06-20",
+            "drawdown_trough": "2024-02-23",
+            "max_drawdown": 0.313563627087904,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.0531133177191805e-16
+          }
+        },
+        {
+          "scope": "joint_optical_leader_removal",
+          "terminal_nav_difference": 495227.6396068949,
+          "symbol_error": 2.735760062932968e-09,
+          "log_gap": {
+            "participation_log": -0.029535061404276284,
+            "selection_log": 0.10539131406608937,
+            "execution_log": 0.02398995800185407,
+            "total_log": 0.09984621066366713
+          },
+          "largest_negative": [
+            {
+              "symbol": "sz002371",
+              "control": 105272.1430493118,
+              "treatment": 30465.95930991113,
+              "difference": -74806.18373940067
+            },
+            {
+              "symbol": "sh688256",
+              "control": 1368695.9059632279,
+              "treatment": 1343327.7919384236,
+              "difference": -25368.114024804207
+            },
+            {
+              "symbol": "sh688361",
+              "control": -49472.05740311266,
+              "treatment": -74395.23986131052,
+              "difference": -24923.182458197858
+            },
+            {
+              "symbol": "sh600206",
+              "control": -26694.329634943173,
+              "treatment": -37022.897406737415,
+              "difference": -10328.567771794242
+            },
+            {
+              "symbol": "sz300223",
+              "control": -76743.77699091175,
+              "treatment": -81595.39507654411,
+              "difference": -4851.618085632363
+            }
+          ],
+          "largest_positive": [
+            {
+              "symbol": "sh688205",
+              "control": 221457.55645244027,
+              "treatment": 363475.7105613607,
+              "difference": 142018.15410892043
+            },
+            {
+              "symbol": "sh688037",
+              "control": -158636.22321992877,
+              "treatment": -54315.08649538124,
+              "difference": 104321.13672454753
+            },
+            {
+              "symbol": "sh601869",
+              "control": 1568167.9841946464,
+              "treatment": 1662017.5515061622,
+              "difference": 93849.5673115158
+            },
+            {
+              "symbol": "sh603986",
+              "control": -136046.94914617733,
+              "treatment": -45326.774257667625,
+              "difference": 90720.1748885097
+            },
+            {
+              "symbol": "sh688249",
+              "control": -59528.44780816046,
+              "treatment": 0.0,
+              "difference": 59528.44780816046
+            }
+          ],
+          "control_ledger": {
+            "max_reconciliation_error": 1.2514647096395493e-09,
+            "episodes": 58,
+            "wins": 18,
+            "drawdown_peak": "2023-04-20",
+            "drawdown_trough": "2024-07-23",
+            "max_drawdown": 0.3302999756539289,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 3.469446951953614e-16
+          },
+          "treatment_ledger": {
+            "max_reconciliation_error": 1.076841726899147e-09,
+            "episodes": 56,
+            "wins": 22,
+            "drawdown_peak": "2023-04-20",
+            "drawdown_trough": "2024-07-23",
+            "max_drawdown": 0.3348110008737897,
+            "episode_return_basis": "cash PnL divided by actual buy notional",
+            "maximum_daily_return_error": 4.0939474033052647e-16
+          }
+        }
+      ]
+    }
+  ],
+  "controls_nonprice_context": {
+    "union": {
+      "settled_contexts": 54,
+      "censored_open": 2,
+      "unavailable_context": 0,
+      "winning_context_median": 1.18612291156732,
+      "losing_context_median": 1.0621278419779752,
+      "payoff_rank_correlation": 0.1463312368972746,
+      "interpretation": "selected already-studied control campaigns; no threshold/model fitted, no causal or predictive guarantee"
+    },
+    "chatgpt_5": {
+      "settled_contexts": 43,
+      "censored_open": 2,
+      "unavailable_context": 0,
+      "winning_context_median": 1.0263131711571831,
+      "losing_context_median": 1.0352613848593921,
+      "payoff_rank_correlation": 0.048625792811839326,
+      "interpretation": "selected already-studied control campaigns; no threshold/model fitted, no causal or predictive guarantee"
+    },
+    "joint_optical_leader_removal": {
+      "settled_contexts": 56,
+      "censored_open": 2,
+      "unavailable_context": 0,
+      "winning_context_median": 1.203645824235728,
+      "losing_context_median": 1.0698531876408652,
+      "payoff_rank_correlation": -0.004716336295283664,
+      "interpretation": "selected already-studied control campaigns; no threshold/model fitted, no causal or predictive guarantee"
+    }
+  },
+  "new_strategy_accounts": 0,
+  "parameter_trials": 0,
+  "model_fits": 0,
+  "economic_acceptance": "NOT_MET",
+  "limitations": [
+    "Arithmetic account attribution is not a feasible profit bound or causal intervention.",
+    "Turnover diagnostics are retrospective selected-control associations, not a trained strategy or new authorization.",
+    "Do not combine per-pool winners or relabel old source economics as current HEAD acceptance."
+  ]
+}
