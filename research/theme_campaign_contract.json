@@ -1,0 +1,32 @@
+{
+  "family": "causal_theme_campaign",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "parent": {
+    "implementation": "research/trend_book.py",
+    "parameters": {"positions": 2},
+    "source_boundary": "Reuse the independently written price-led actual-inventory owner. Do not consume or refit any external/reference strategy."
+  },
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "economic_hypothesis": "The working lifecycle loses broad-universe alpha because isolated positive names consume capital as if they represented a synchronized AI campaign. A causal same-sector co-leader state can preserve theme participation while refusing isolated distractor admissions.",
+  "observed_basis": {
+    "account_source": "b9c8af18b69aaef672333cc36505477fa05e2c6a/34819708736, exact saved filled orders; descriptive rather than counterfactual",
+    "pre_2026_sector_cashflow_cny": {
+      "union": {"optical_interconnect": 579381, "all_other_sectors": -2574972},
+      "common_five": {"optical_interconnect": 22053515, "storage": -15658854},
+      "joint_optical_leader_removal": {"optical_interconnect": 299261, "all_other_sectors": -2295633}
+    },
+    "causal_top_two_same_sector_closes": {
+      "union": 201,
+      "common_five": 248,
+      "joint_optical_leader_removal": 120
+    },
+    "warning": "Sector cashflows are realized outcomes and do not authorize a hard-coded winning sector. Runtime must discover any theme from causal same-universe signals."
+  },
+  "formation": "After the parent has computed its unchanged causal admission predicates and price score, order all currently parent-allowed names by unchanged score descending and symbol ascending. An inactive theme activates immediately only when the first two names share the same generic catalog sector. Two is the fixed parent position capacity, not a searched threshold. No ticker, date, winning-sector label, return target or fitted model is used.",
+  "persistence": "Keep the active sector between the parent's existing Config.rebalance review closes. At a review close, keep it only if at least two currently parent-allowed names still belong to it; otherwise switch to the current same-sector top-two cohort if one exists, or become inactive. An inactive theme may activate on any later close. This uses the existing ten-session review clock and adds no new numerical parameter.",
+  "authority": "Only new or restored unit increases are eligible inside the active theme. If no theme is active, issue no increase. Existing funded holdings are not sold merely because theme state changes; every unchanged security exit, account-risk cut, actual-fill obligation, T+1 rule, cash/slot/name constraint, cost, slippage and liquidity rule remains authoritative. Parent rotation may act only through a currently active-theme entrant.",
+  "comparison": "One fixed treatment versus the exact unchanged two-position price-book control on union, common-five and joint optical-leader removal, all ending 2025-12-31. Record theme transitions, admission suppressions, orders, wealth, MDD, turnover, exposure, costs and ledger reconciliation.",
+  "failure": "Reject without neighboring rules if treatment wealth is below control in any core scope, if union does not strictly improve, or if no core scope strictly improves. A passing core screen permits but does not itself satisfy original acceptance.",
+  "advancement": "Only a passing identical source candidate may proceed to full history, both 2026 decline windows, original native references, pools/removals/subsets, cost/delay, causal-prefix, stability and engineering/repository checks.",
+  "forbidden": "No ranking-weight or funding-weight change, no risk patch, no parameter grid, no per-pool branch, no hard-coded sector/ticker/date, no reference transaction at runtime, no best-row splicing and no relabelling of rejected candidates."
+}
