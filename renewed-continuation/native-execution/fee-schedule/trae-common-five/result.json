@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "classification": "EXECUTION_COST_CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+  "scope": "Trae/common-five only; fixed historical sell-stamp schedule correction; no strategy budget consumed",
+  "source": {
+    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+    "original_backtest_sha256": "9760501990174143759e74d28530530cb35d30a8cdb9ac15d34d227a19cc1937",
+    "local_corrected_backtest_sha256": "266b8c83b3a42cdb5de5228c46bf6af6b87c2b1b605d7694876f4d5382056cb4",
+    "private_corrected_source_published": false,
+    "change": "sell stamp duty only: 10bp before 2023-08-28, native configured 5bp thereafter; all other execution/policy settings unchanged"
+  },
+  "native": {
+    "wealth": 10.674861915266794,
+    "max_drawdown": 0.3310775282947074,
+    "trade_rows": 800,
+    "trades_sha256": "ff5323c9ee0e8d6a3ee0808bd88698549d00163af4cc3773642063ffcf82c15e",
+    "equity_sha256": "6ecfeeb4e2466d59e272a4e4326db001c6e892b9d71ba855e37563549ca784be",
+    "matches_authenticated_trades": true,
+    "matches_authenticated_equity": true
+  },
+  "binding_probe": {
+    "pre_2023_08_28_sell_rows": 52,
+    "pre_2023_08_28_sell_notional": 32863762.6986,
+    "missing_extra_5bp_on_unchanged_native_path_cny": 16431.8813493,
+    "first_affected_sell_date": "2023-02-20",
+    "first_affected_sell_notional": 1049015.23,
+    "first_day_extra_stamp_cny": 524.507615,
+    "result": "BINDING"
+  },
+  "corrected": {
+    "wealth": 10.63897454010233,
+    "max_drawdown": 0.3311714174562034,
+    "trade_rows": 798,
+    "trades_sha256": "3883335e946624ba07ab41779a841b6336d9b6e468a894f55f8cc90e0325526b",
+    "equity_sha256": "ff54c25fbf7d2dc2937606b87a981eca08b2eeeedf2228c94471f7b6c638aad5",
+    "pre_2023_08_28_sell_rows": 52,
+    "pre_2023_08_28_sell_notional": 32672162.7465,
+    "extra_5bp_paid_on_corrected_path_cny": 16336.081373250001
+  },
+  "delta": {
+    "wealth_multiple": -0.03588737516446372,
+    "relative_wealth": -0.003361858490472769,
+    "max_drawdown_percentage_points": 0.009388916149599691,
+    "trade_rows": -2
+  },
+  "verification": {
+    "corrected_repeat_equity_byte_identical": true,
+    "corrected_repeat_trades_byte_identical": true,
+    "corrected_repeat_native_frame_byte_identical": true,
+    "corrected_repeat_settings_byte_identical": true,
+    "first_equity_divergence_date": "2023-02-20",
+    "first_equity_difference_cny": 524.507615,
+    "first_equity_difference_equals_first_day_extra_stamp": true
+  },
+  "interpretation": [
+    "The native constant-5bp historical stamp assumption is a real binding correctness difference, but its measured effect on this authenticated account is small relative to the original project gap.",
+    "The fixed correction lowers terminal wealth by about 0.3362% relative and worsens MDD by about 0.00939 percentage points; it does not change the dominant benchmark or justify lowering the original target.",
+    "Do not expand into a fee parameter grid. Native and corrected comparator results remain separate, and quant economic acceptance remains NOT_MET."
+  ]
+}
