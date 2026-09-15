@@ -1,0 +1,9 @@
+{
+  "source_commit": "07f4f32f2a856866bb774e128470b437ceb7f779",
+  "run_id": "34919407590",
+  "family": "healthy_hold_funding",
+  "operation": "decision_review_pair",
+  "selection_status": "REJECTED",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
