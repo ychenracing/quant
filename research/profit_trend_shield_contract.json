@@ -1,6 +1,7 @@
 {
   "family": "profit_trend_shield",
   "created": "2026-09-15",
+  "status": "PREREGISTERED_AND_LIFECYCLE_CLARIFIED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
   "authority": "User explicitly redirected the original PR #1 continuation to alpha-first offensive optimization and requested continued implementation until the original target is met. This registration does not reopen or relabel any previously rejected experiment.",
   "purpose": "Test whether preserving only already-held, profitable, causally strong-trend campaigns through pure portfolio market-shock reductions can recover material alpha without retaining weak or losing inventory.",
   "premise": {
@@ -25,9 +26,12 @@
   },
   "treatment": {
     "control": "current parent owner behavior unchanged",
-    "treatment": "On a pure CROSS_SECTION_SHOCK or ACCUMULATED_MARKET_SHOCK only, restore at most the actual pre-close units of positions meeting the fixed strong_definition. Never add units. Weak/losing positions follow the parent reduction.",
-    "account_drawdown_priority": "Any independently true account-drawdown shock remains immediate and cannot be shielded.",
-    "individual_protection_priority": "Individual stop, exit, stale/not-ready conditions and any pre-existing pending sale or reduction ceiling remain binding and cannot be cleared.",
+    "activation": "On a pure CROSS_SECTION_SHOCK or ACCUMULATED_MARKET_SHOCK, retain at most the actual pre-close units of positions meeting the fixed strong_definition. Never add units. Weak/losing positions follow the parent reduction.",
+    "lifecycle": "A shield activated by that pure market shock remains latched only for the same actually-held campaign while the parent is in RECOVERY_WAIT or CONFIRMED_RECOVERY and the position still satisfies the fixed strong_definition. It clears immediately if the strong definition fails, the actual position is gone, the parent no longer asks to reduce it, or a non-market risk/protection condition applies. This clarification is registered before implementation and before any treatment account is run; without it a one-close restoration would be mechanically sold on the next RECOVERY_WAIT close and would not test trend ownership.",
+    "account_drawdown_priority": "Any independently true account-drawdown shock remains immediate and clears/bypasses the shield.",
+    "individual_protection_priority": "Individual stop, exit, stale/not-ready conditions and any pre-existing pending sale or reduction ceiling remain binding and clear/bypass the shield.",
+    "other_risk_priority": "BROAD_TREND_BREAKDOWN, PORTFOLIO_WARNING, and any non-market protective reason are not shielded.",
+    "state_repair_boundary": "Only a reduction ceiling or exit-pending flag newly created solely by the shielded market-shock/recovery reduction may be cleared for that shielded position. Pre-existing obligations are immutable.",
     "cash_and_execution": "Preserve actual cash, fees, liquidity, lot sizing, T+1 sellable inventory, mandatory protection obligations and non-resetting NAV risk history.",
     "no_special_cases": true,
     "parameter_search": false,
