@@ -6,8 +6,8 @@
   "registration_commit": "66354029843c1704808fa8717b804c745389e302",
   "request": "Execute the single preregistered profitable-trend market-shock shield control/treatment pair through 2025-12-31. Preserve account-drawdown and security-specific protection priority, actual inventory, cash and traces. Reject on any scope wealth regression; do not run a rejected treatment in 2026 or search neighboring trend windows or thresholds.",
   "source_sha256": {
-    "research/profit_trend_shield.py": "85bdd6ded97a2e9d9a60c8a82c42bb5bae4f42dcf3fd5e3a826e81601c570919",
-    "research/test_profit_trend_shield.py": "dd78faeb9964bbefe298c8e5eb4e4cf84773bf0f9dd6f4f0fc9f8ab46ff05933",
+    "research/profit_trend_shield.py": "043b9699a0f340ff864f8938f0a801fce331aa3a31143d5ddba11ccf3b90432e",
+    "research/test_profit_trend_shield.py": "b66a3723754302de2ee858f65a726f03132207929153d46d642d6c34b7fd6a75",
     "research/profit_trend_shield_contract.json": "6ebd8885c935c8fede0fd841c6ff3dfb6b4e67a3baed1db20da89336baf53c9a",
     "research/finite_study/__init__.py": "5d0011d2f066520fd205bbbaae03b83d7eb4288eb427deab22a5146868777c62",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
