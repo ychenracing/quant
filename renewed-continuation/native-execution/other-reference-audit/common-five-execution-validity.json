@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "classification": "CORRECTNESS_EXECUTION_VALIDITY_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+  "scope": "authenticated common-five native streams only; no quant economic candidate and no budget reset",
+  "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+  "archive": "quant-main-bbc0024-native-evidence.zip",
+  "archive_sha256": "0a03c52f24dd08c2488b897b6e0a3f3d7211c467c49300645e1d722894ee620f",
+  "references": {
+    "chatgpt": {
+      "subtree": "c06585d7837d32905ef4b954b8b2c22f4f3f51f9",
+      "entry_sha256": "00d23e36c9f02a719c798412a43c58ec8c8ca2e6147ddaaaf538c6e31e2bd1ec",
+      "native_wealth": 1.778233112870138,
+      "native_mdd": 0.298051526553913,
+      "native_rows": 178,
+      "static_classification": "CLOSE_SIGNAL_PENDING_LATER_OPEN",
+      "ledger_check": {
+        "all_signal_dates_strictly_before_fill_dates": true,
+        "same_day_signal_fill_rows": 0,
+        "max_calendar_wait_days": 6
+      },
+      "finding": "The authenticated implementation explicitly represents close-generated signals as pending T+1 instructions and executes pending signals at a later tradable open. No same-close timing correction is warranted from the inspected common-five ledger.",
+      "remaining_limits": [
+        "native cost/liquidity semantics and corporate-action economic units remain non-normalized"
+      ]
+    },
+    "trae": {
+      "subtree": "0ba9d9b776d1b01712e0086af12dfa81d9589b56",
+      "backtest_sha256": "9760501990174143759e74d28530530cb35d30a8cdb9ac15d34d227a19cc1937",
+      "native_wealth": 10.674861915266794,
+      "native_mdd": 0.3310775282947074,
+      "native_rows": 800,
+      "static_classification": "SHIFTED_TARGET_NEXT_OPEN_WITH_CURRENT_SESSION_AMOUNT_CAPACITY",
+      "issue": "Targets are shifted one session and filled at the current open, but liquidity capacity reads amount_df for that same session; complete daily amount is not known at the open.",
+      "binding_probe": {
+        "method": "exact authenticated common-five inputs/source; compare native against amount_df shifted one session and against disabled volume capacities",
+        "probe_script_sha256": "5a3e7134ccf682822cf53f19d23a80b6bf52e9046f1493d94b1bb6e836ad3f38",
+        "native_vs_archived_trades_all_six_columns_equal": true,
+        "native_vs_archived_equity_max_abs_diff": 0.0,
+        "prior_session_amount_vs_native_trades_equal": true,
+        "prior_session_amount_vs_native_equity_max_abs_diff": 0.0,
+        "no_liquidity_cap_vs_native_trades_equal": true,
+        "no_liquidity_cap_vs_native_equity_max_abs_diff": 0.0,
+        "result": "NONBINDING_IN_AUTHENTICATED_COMMON_FIVE"
+      },
+      "finding": "The amount-cap timing issue exists in source but has zero economic or trade-path effect in this authenticated common-five account, so no corrected return should be manufactured for this case."
+    },
+    "dumate": {
+      "subtree": "5b8f1863def6fd784284f9b7a782be28caa3f009",
+      "backtest_sha256": "43a478789fdfbd75a1dd4b05e39b7d1d28357172b4e5ab98618ccf5739d36d22",
+      "native_wealth": 1.465009570726167,
+      "native_mdd": 0.20686106331849607,
+      "native_rows": 237,
+      "static_classification": "SAME_SESSION_CLOSE_FILL",
+      "ledger_check": {
+        "all_fill_prices_equal_same_session_close_with_configured_slippage": true,
+        "matching_rows": 237,
+        "rows": 237,
+        "max_price_error": 2.2737367544323206e-13
+      },
+      "source_finding": "buy/sell use get_price(code,date), which returns the same-date close; run_day calculates current-close NAV/risk and may stop/derisk/rebalance before those same-date close fills. Selection factors mostly use history strictly before date, but current-date tradeability and risk state can also consume same-date observations.",
+      "result": "BINDING_EXECUTION_TIMING_CLASS_DIFFERENCE_REQUIRES_FIXED_NEXT_SESSION_DIAGNOSTIC_IF_QUANTIFICATION_NEEDED"
+    },
+    "workbuddy": {
+      "status": "separately corrected and measured",
+      "source": "89cf5c47188bde63d6c09a2c7d9207e3178b9904",
+      "timing_inventory_corrected_wealth": 17.827945716714925,
+      "timing_inventory_corrected_mdd": 0.23670313327015946,
+      "evidence_commit_before_this_audit": "053bf28fd5290a58f6c4b92eafc67e73c25d6d23"
+    }
+  },
+  "decision": "Do not rerun ChatGPT or Trae common-five for the identified timing questions. If further comparator normalization is needed, the next fixed correctness experiment should target Dumate same-session-close execution only, preserving its native result separately. No new quant strategy hypothesis is authorized.",
+  "economic_acceptance": "NOT_MET",
+  "production_delivery": "NOT_COMPLETE"
+}
