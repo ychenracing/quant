@@ -1,0 +1,37 @@
+{
+  "format": "Strip base64 whitespace, decode, xz-decompress to the exact UTF-8 JSON filename-to-original-text mapping. Check the encoded file, decoded JSON, every original member and tested source hash.",
+  "registration": "1751b674a941bb334af1138c3300e826444c830f",
+  "status": "LOCAL_ENGINEERING_NOT_ECONOMIC_ACCEPTANCE",
+  "payload": "protected_retention_verification.xz.b64",
+  "payload_sha256": "2c2cc9e9d604d9c0f587e5e6ee98070020af4e059d9db92010b5c49198a8dbbb",
+  "decoded_json_sha256": "2f92abaa39be979b567062d6302d22073688a90c1a96940d0312924a29f01bed",
+  "member_sha256": {
+    "protected-retention-green.txt": "7597d6489a1180b54c62ef17fd11e8ad9429ff862cb17120f28b5c0031b3eb0f",
+    "protected-retention-offline.txt": "ca396fd8678c8676401c23102f0243983a4c94010864c04b8b3b82f3b84e9dd4",
+    "protected-retention-red.txt": "e637b61a2a0cf8fedd600ef9bd4d673b17f6b3477ae6b11b5c69962dd9e25e2f",
+    "protected-retention-research-rest.txt": "41d27c7e45e6d0951c67f6509ee3882e8a19b8b6fdbb6a7613cb67971c492548",
+    "protected-retention-research.txt": "b7bfb4440f81c73d1444c5efaf5d372e9405530e9cf9c4598797b1c81f5f6299",
+    "protected-retention-targeted.txt": "55e3cba2589abc2c30bdc35a45782b609fc70c7c297798d062077c802403ade1",
+    "protected-retention-check-coverage.json": "73ecdc0fa9c5837394fbc6f61d42a8941cc54b3c683f6dd21040bb7ca4a22ba6",
+    "manifest-red.txt": "e3153a16d4cb6c9a02cad5e952ff74691c3d7e0de89a1213fe9d57266875aefa",
+    "preservation.json": "6192c74592a217d20ff96cb0e486b48cb5b66361e5c97fa2c2aa85feed406773"
+  },
+  "tested_source_sha256": {
+    "research/protected_retention.py": "5bc744330d9dd2e2ecfbcfa946aeae02af5cb019a7f6f2f9d9f3a85c4ffdd06a",
+    "research/protected_retention_contract.json": "2adf183d65f14aabc5f5a2286cd7e30089a7f5d16bb25e9ecf4499640865d186",
+    "research/support_budget.py": "1897c5b3b3d104dd0d6d3da3e98e593780bd2abcc897d9f2b00e5ea88dad28df",
+    "research/finite_study.py": "4b47e63b6a74ccbb251bb54302d8b466f9de2497e2af55b8c744a0a736414b98",
+    "research/admission_geometry.py": "11e92c1d4143fc12e8907e8d668a389d2cc08ba044e3991dbba2b40f8562f480",
+    "research/retention_diagnosis.py": "83c1da6adc2a6ded09fd5605b9671f612d008e0de631696bb6b7d2220e0d2790",
+    "research/test_protected_retention.py": "51c1c77cd1bf6cc75a92a1f32c5aed2738c1b0bee8cc9ffb4cb204413e00c4d8",
+    "research/test_observation_manifest.py": "f93ac62473e8cc2fbdc5a77aaa905b04afc3901fc23584db3021a1f4a07365a2"
+  },
+  "offline_tests": 87,
+  "new_targeted_tests": 13,
+  "research_total": 217,
+  "research_completed_before_timeout": 167,
+  "research_remaining_completed": 50,
+  "research_remaining_success": true,
+  "transport_blob_sha1": "b8aebcf528aefdb320fb52790a308056268f10dd",
+  "note": "Original timeout log retained; only unfinished tests resumed. Final source publication and hosted checks are separate from these local logs."
+}

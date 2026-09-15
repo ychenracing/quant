@@ -1,0 +1,153 @@
+{
+  "source": "8ebcb5311f08f77d8e3077277126bd6bbd43504c",
+  "source_tree": "fc96ac9ff911278c7f496b5aa0fcc80683875b40",
+  "run": "34915730072",
+  "zip_sha256": "7d428db9e1e5c12c366b4c3abdd09ad68ea0eae44822f166fad2e759bbc0e155",
+  "archive_sha256": "4cc550c9ca4875cc10cd59b4f7e0770e0aaa421001f384484ce36b53aee994a2",
+  "manifest_files_verified": 167,
+  "status": "TREATMENT_REJECTED_CONTROL_SELECTED",
+  "economic_acceptance": "NOT_MET",
+  "selection": {
+    "parameters": {
+      "require_stable_support": false
+    },
+    "worst_deficit": 0.0,
+    "objective": -0.8559598360483281,
+    "fills": 428,
+    "status": "CORE_NONREGRESSION_ONLY"
+  },
+  "training_trials": [
+    {
+      "candidate": 0,
+      "scope": "union",
+      "wealth": 4.231186496672099,
+      "max_drawdown": 0.2964510683651256,
+      "orders": 149,
+      "deficit": 0.0,
+      "objective": -0.5183551564850456
+    },
+    {
+      "candidate": 0,
+      "scope": "chatgpt_5",
+      "wealth": 5.718046146255741,
+      "max_drawdown": 0.3155163499985997,
+      "orders": 118,
+      "deficit": 0.0,
+      "objective": -1.4777632383827963
+    },
+    {
+      "candidate": 0,
+      "scope": "joint_optical_leader_removal",
+      "wealth": 2.35820512290061,
+      "max_drawdown": 0.3302999756539289,
+      "orders": 161,
+      "deficit": 0.0,
+      "objective": -0.5717611132771422
+    },
+    {
+      "candidate": 1,
+      "scope": "union",
+      "wealth": 3.1829804735661322,
+      "max_drawdown": 0.3015903845613942,
+      "orders": 153,
+      "deficit": 0.23384497294346182,
+      "objective": -0.8095474553748294
+    },
+    {
+      "candidate": 1,
+      "scope": "chatgpt_5",
+      "wealth": 5.2015164656057,
+      "max_drawdown": 0.3152174239358211,
+      "orders": 104,
+      "deficit": 0.056387412436740815,
+      "objective": -1.5628591808765273
+    },
+    {
+      "candidate": 1,
+      "scope": "joint_optical_leader_removal",
+      "wealth": 2.288759332559588,
+      "max_drawdown": 0.3722473982311605,
+      "orders": 161,
+      "deficit": 0.0,
+      "objective": -0.6331125741680829
+    }
+  ],
+  "full_period": [
+    {
+      "scope": "union",
+      "policy": "admission_structure",
+      "wealth": 7.519780313068894,
+      "max_drawdown": 0.2964510683651256,
+      "orders": 175
+    },
+    {
+      "scope": "union",
+      "policy": "incumbent",
+      "wealth": 5.624793276481121,
+      "max_drawdown": 0.320719532270034,
+      "orders": 202
+    },
+    {
+      "scope": "union",
+      "policy": "buy_hold",
+      "wealth": 9.102309123301799,
+      "max_drawdown": 0.39879079738928846,
+      "orders": 32
+    },
+    {
+      "scope": "chatgpt_5",
+      "policy": "admission_structure",
+      "wealth": 10.598717085973565,
+      "max_drawdown": 0.3155163499985997,
+      "orders": 137
+    },
+    {
+      "scope": "chatgpt_5",
+      "policy": "incumbent",
+      "wealth": 10.824786016250098,
+      "max_drawdown": 0.3307412348419232,
+      "orders": 139
+    },
+    {
+      "scope": "chatgpt_5",
+      "policy": "buy_hold",
+      "wealth": 29.06295703478858,
+      "max_drawdown": 0.5238947006691501,
+      "orders": 5
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "policy": "admission_structure",
+      "wealth": 2.319565329998904,
+      "max_drawdown": 0.3302999756539289,
+      "orders": 194
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "policy": "incumbent",
+      "wealth": 2.2469342641014705,
+      "max_drawdown": 0.4586885620328037,
+      "orders": 209
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "policy": "buy_hold",
+      "wealth": 5.716080460478996,
+      "max_drawdown": 0.4569130212668787,
+      "orders": 31
+    }
+  ],
+  "engineering": {
+    "offline": 87,
+    "research": 204
+  },
+  "diagnostic_restore": {
+    "original_status": "DIAGNOSTIC_RESTORE_FAILED",
+    "cause": "Only JSON key ordering differed; all sixteen other declared files matched original hashes.",
+    "identical_mapping": true,
+    "original_manifest_sha256": "f72d734f63af3be37f2596e4d4db2fe37427b0fa4595d63eea2fd8d39c6e9de4",
+    "received_manifest_sha256": "dd9015216249575b10c3258c6283118f38c74e35919799506ec0eeb70ff31074",
+    "correction": "Preserve immutable original manifest bytes after verifying its payload mapping; do not change original expected hashes or relabel old failure."
+  },
+  "production_changed": false
+}

@@ -144,7 +144,7 @@ class Owner:
         exposure = float(desired@price/o.nav)
         ceiling = self._exposure_ceiling(cap, cap_cut)
         if exposure > ceiling+1e-12:
-            desired *= cap/exposure
+            desired = self._reduce_exposure(o, desired, price, cap, exposure)
         desired = self._round_reductions(o.units, desired, i)
         cuts = desired < o.units-1e-10
         self.reduction_ceiling[cuts] = np.minimum(self.reduction_ceiling[cuts], desired[cuts])
@@ -164,6 +164,10 @@ class Owner:
         decision.validated_weights(len(held))
         decision.validated_unit_targets(price, o.nav)
         return decision
+
+    def _reduce_exposure(self, o, desired, price, cap, exposure):
+        """Default arithmetic is the original proportional aggregate reduction."""
+        return desired * (cap/exposure)
 
     def _exposure_ceiling(self, cap, cut):
         return cap if cut or cap == 0 else min(1., cap+self.config.trade_band)

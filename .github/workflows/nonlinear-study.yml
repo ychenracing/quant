@@ -81,6 +81,9 @@ jobs:
                       elif request['family'] == 'admission_structure':
                           from research.admission_geometry import hosted as observe_admissions
                           observe_admissions(output, data, supplement)
+                      elif request['family'] == 'protected_retention':
+                          from research.retention_diagnosis import hosted as observe_reductions
+                          observe_reductions(output, data, supplement)
                       elif request['family'] in {'revocable_reentry', 'allocation_auction'}:
                           # Its exact parent archive and state witnesses are already preserved.
                           pass
@@ -152,7 +155,7 @@ jobs:
           for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json; do
             if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
           done
-          for dir in selection evaluation parent_diagnosis projection_audit quantity_gap reentry_diagnosis suspension_diagnosis holding_diagnosis admission_diagnosis; do
+          for dir in selection evaluation parent_diagnosis projection_audit quantity_gap reentry_diagnosis suspension_diagnosis holding_diagnosis admission_diagnosis retention_diagnosis; do
             if [ -d "$RUNNER_TEMP/nonlinear/$dir" ]; then
               mkdir -p "$destination/$dir"
               find "$RUNNER_TEMP/nonlinear/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;

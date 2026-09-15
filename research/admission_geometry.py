@@ -13,6 +13,21 @@ RUN = '34910777906'
 ARCHIVE = '2c48197eb14888e340b95f193b7affde4026614dd87a1276bd723ae73e77e73c'
 
 
+
+def preserve_manifest(folder, original, expected_sha256):
+    """Retain original ordered bytes after checking their full payload mapping."""
+    folder, original = Path(folder), Path(original)
+    if file_hash(original) != expected_sha256:
+        raise ValueError('original observation manifest identity mismatch')
+    raw = original.read_bytes(); mapping = json.loads(raw)
+    if (not isinstance(mapping, dict) or any(Path(n).name != n for n in mapping)
+            or {p.name for p in folder.iterdir() if p.name != 'MANIFEST.json'} != set(mapping)
+            or any(not (folder/n).is_file() or file_hash(folder/n) != digest
+                   for n,digest in mapping.items())):
+        raise ValueError('observation manifest payload mismatch')
+    (folder/'MANIFEST.json').write_bytes(raw)
+
+
 def generate(parent, market, output):
     parent, output = Path(parent), Path(output)
     receipt = json.loads((parent/'receipt.json').read_text())
@@ -63,10 +78,10 @@ def generate(parent, market, output):
         'hypothesis':'Fresh upward momentum over a recently falling support base may be a weak rebound. Compare existing 20-session support to its value config.fast sessions earlier; use no new fitted threshold. This diagnostic does not establish the result of withholding admission.',
         'summary':summaries,'status':'OBSERVATIONAL_NOT_CAUSAL_OR_ACCEPTED'}
     (geometry/'summary.json').write_text(json.dumps(report,indent=2)+'\n')
-    (geometry/'MANIFEST.json').write_text(json.dumps(
-        {p.name:file_hash(p) for p in geometry.iterdir() if p.name!='MANIFEST.json'},indent=2)+'\n')
     expected = json.loads(Path(__file__).with_name('records').joinpath(
         'admission_structure_observations.json').read_text())
+    preserve_manifest(geometry, Path(__file__).with_name('records')/'admission_geometry_manifest.json',
+                      expected['files']['admission-geometry/MANIFEST.json'])
     checks = {name:file_hash(output/name)==digest for name,digest in expected['files'].items()}
     (output/'preservation.json').write_text(json.dumps({'origin_source':SOURCE,'origin_run':RUN,
         'expected_manifest_sha256':file_hash(Path(__file__).with_name('records')/

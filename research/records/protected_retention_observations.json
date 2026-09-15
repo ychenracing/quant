@@ -1,0 +1,12 @@
+{
+  "origin_source": "8ebcb5311f08f77d8e3077277126bd6bbd43504c",
+  "origin_run": "34915730072",
+  "new_portfolio_runs": 0,
+  "files": {
+    "opening-risk/chatgpt_5.csv": "10e5d25fd3cf2fec73ec847dbdb393cc73c77f3c94caf6295a59723cb5379b15",
+    "opening-risk/joint_optical_leader_removal.csv": "f3eb6392fa51c0197249db0094728f50ea29fff67e1e09b99779802e92e08b7d",
+    "opening-risk/summary.json": "1b29e408090a8ad97aae96824d35bf0de59708cc4db48f779b4bdecc4004975f",
+    "opening-risk/union.csv": "eb444b5d3e155af24a7a0e9d8143414379a2e91279351761629697e44111eeb9",
+    "reduction-opportunity/observations.json": "468927901eac559ad907fa6582a83b792567d580620bfdf52788a281aaaf8662"
+  }
+}
