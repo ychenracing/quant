@@ -1,0 +1,23 @@
+{
+  "task":"ychenracing/quant original PR1",
+  "status":"FIXED_CAMPAIGN_PAYOFF_REJECTED_TASK_CONTINUES",
+  "registration":"9755458a87692c490f13452f7d9173b05dc5f2c7",
+  "source":"eddbc617787d85215124d974ea10ec8c4e89da68",
+  "tree":"8534461fa4d8c90d7d604e8da77d3b3e59b2645c",
+  "run":34964181664,
+  "raw_evidence_commit":"d5266c62a8d75c8cbd7fed3d2c8cbf8e14639738",
+  "raw_path":"nonlinear/eddbc617787d85215124d974ea10ec8c4e89da68/34964181664/",
+  "archive_sha256":"5881c2d6eb7efff5252baf7dce5ca0ad201021e83ba61fd19f133c6bbbec0349",
+  "verification":"Hosted exact-source hash gate and source-bound offline/research tests passed; publisher performed remote archive hash readback. This continuation has read the selection and logs, not independently downloaded/verified every archive member locally.",
+  "tests":{"offline_passed":87,"research_run":328,"research_passed":319,"research_skipped":9},
+  "measurement_window":{"start":"2023-01-03","end":"2025-12-31","sessions":727,"initial_cash":2000000},
+  "full_data_sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "rows":[
+    {"scope":"union","control_wealth":4.231186496672099,"treatment_wealth":4.213141849553301,"control_mdd":0.2964510683651256,"treatment_mdd":0.30583169052812453,"control_fills":149,"treatment_fills":155,"status":"FAIL_WEALTH_AND_MDD"},
+    {"scope":"chatgpt_5","control_wealth":5.718046146255741,"treatment_wealth":5.621820320098743,"control_mdd":0.3155163499985997,"treatment_mdd":0.3067275363499895,"control_fills":118,"treatment_fills":115,"status":"FAIL_WEALTH"},
+    {"scope":"joint_optical_leader_removal","control_wealth":2.35820512290061,"treatment_wealth":2.4572455438896963,"control_mdd":0.3302999756539289,"treatment_mdd":0.2990604956295282,"control_fills":161,"treatment_fills":155,"status":"PAIRED_SCOPE_PASS_NOT_ACCEPTANCE"}
+  ],
+  "advance":false,"economic_acceptance":"NOT_MET","production_delivery":"NOT_COMPLETE","main_changed":false,
+  "interpretation":"Changing learned labels to actual settled cash payoffs repairs neither the three-pool joint screen nor the large original goal gap. Sparse selected control campaigns and original sequential funding remain limitations; causal attribution of the failed result is not established by these aggregates.",
+  "next":"No neighboring model retry. Under latest explicit user authority, prospectively examine joint funding of original eligible additions within unchanged actual cash/aggregate risk/slots and all existing protection. Preserve old models and screens; this record does not itself establish the next mechanism or a success claim."
+}
