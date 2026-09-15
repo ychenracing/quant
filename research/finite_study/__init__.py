@@ -30,7 +30,7 @@ from research.expectation_study import write_json, scopes
 
 _PAIRED = {
     "confirmed_shock", "profit_trend_shield", "shock_reclaim",
-    "theme_campaign",
+    "theme_campaign", "leader_anchor_slots",
 }
 
 
@@ -60,7 +60,7 @@ class Study(_base.Study):
             "observed_admission_completion_contract.json", "decision_review.py",
             "ledger_attribution.py",
         ]
-        if self.family == "theme_campaign":
+        if self.family in {"theme_campaign", "leader_anchor_slots"}:
             names += [
                 "trend_book.py", "trend_book_contract.json", "coherent.py",
                 "coherent_contract.json", "observed_trend.py",
@@ -115,10 +115,14 @@ class Study(_base.Study):
             full_data_sha = contract["data"]["full_sha256"]
             selection_end = contract["data"]["selection_end"]
             registration_commit = "1ce819815f7c6a5cd6e9f00e64cf972d183e1888"
-        elif self.family == "theme_campaign":
+        elif self.family in {"theme_campaign", "leader_anchor_slots"}:
             full_data_sha = contract["data_sha256"]
             selection_end = "2025-12-31"
-            registration_commit = "38136909efb4124ec3ca02822e26c012debced59"
+            registration_commit = (
+                "38136909efb4124ec3ca02822e26c012debced59"
+                if self.family == "theme_campaign"
+                else "fbab56360b555bc69c9a771b4b27c5db1d603c61"
+            )
         else:
             full_data_sha = contract["frozen_inputs"]["sha256"]
             selection_end = contract["measurement"]["window"]["end"]
@@ -176,6 +180,18 @@ class Study(_base.Study):
                             "transitions": sum(r.get("previous") != r.get("active") for r in state),
                             "suppressed": sum(len(r.get("suppressed", [])) for r in state),
                         }
+                    elif self.family == "leader_anchor_slots":
+                        state = [r for r in trace if r.get("kind") == "LEADER_ANCHOR_SLOTS"]
+                        row["leader_anchor_slots"] = {
+                            "records": len(state),
+                            "sector_companion": sum(
+                                r.get("mode") == "SECTOR_COMPANION" for r in state
+                            ),
+                            "parent_fallback": sum(
+                                r.get("mode") == "PARENT_FALLBACK" for r in state
+                            ),
+                            "suppressed": sum(len(r.get("suppressed", [])) for r in state),
+                        }
                     else:
                         state = [r for r in trace if r.get("kind") == "SHOCK_RECLAIM_PERMISSION"]
                         row["shock_reclaim"] = {"events": len(state), "released": sum(len(r["released"]) for r in state), "requested": sum(len(r["requested"]) for r in state)}
@@ -200,11 +216,13 @@ class Study(_base.Study):
             )
             decision = {
                 "advance": nonregression and strict
-                           and (union_strict if self.family == "theme_campaign" else True),
+                           and (union_strict if self.family in {
+                               "theme_campaign", "leader_anchor_slots"
+                           } else True),
                 "wealth_nonregression_all_scopes": nonregression,
                 "strict_wealth_improvement": strict,
             }
-            if self.family == "theme_campaign":
+            if self.family in {"theme_campaign", "leader_anchor_slots"}:
                 decision["strict_union_improvement"] = union_strict
         decision.update(
             status="PAIRED_SCREEN_ADVANCE" if decision["advance"] else "REJECTED_PAIRED_SCREEN",
