@@ -1,0 +1,39 @@
+{
+  "family": "shock_reclaim",
+  "created": "2026-09-16",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "User explicitly redirected original PR #1 to alpha-first offensive optimization and instructed continued implementation for maximum return. This is a new structural mechanism; it does not reopen or relabel profit_trend_shield, suspended_campaign, funded_reentry, revocable_reentry, ranking or funding failures.",
+  "purpose": "Test whether the parent loses alpha by waiting through its ordinary readmission confirmation after a portfolio market-shock liquidation even when the exited name has already re-established itself as the strongest current executable opportunity.",
+  "premise": {
+    "source_evidence": "Exact f02c17d pre-2026 control accounts and frozen market input, inspected without a new portfolio replay.",
+    "shock_exit_forward_diagnostic": {
+      "union": {"shock_exits": 22, "qualifying_first_reclaims": 15, "median_signal_sessions_after_exit": 4, "mean_forward_10_open_return": 0.1174},
+      "chatgpt_5": {"shock_exits": 18, "qualifying_first_reclaims": 15, "median_signal_sessions_after_exit": 4, "mean_forward_10_open_return": 0.0227},
+      "joint_optical_leader_removal": {"shock_exits": 17, "qualifying_first_reclaims": 9, "median_signal_sessions_after_exit": 8, "mean_forward_10_open_return": 0.1428}
+    },
+    "diagnostic_definition": "After an actual exit whose original close decision was a pure CROSS_SECTION_SHOCK or ACCUMULATED_MARKET_SHOCK, find the first later completed close at which the name satisfies the unchanged parent's full current entry/ready/not-exit/positive-score conditions, has the highest unchanged score among all such names in the current scope, and closes above its saved shock-signal close. The diagnostic records next-open forward returns only for premise sizing; those future returns never enter the treatment.",
+    "prior_failure_boundary": "profit_trend_shield proved that simply holding winners through the shock is harmful in union; funded/revocable reentry and suspended_campaign proved that generic health release or privileged restoration is insufficient. The treatment therefore exits normally first and grants no persistent restoration right."
+  },
+  "treatment": {
+    "parent": "observed_admission_completion unchanged",
+    "capture": "Record a reclaim candidate only when an actually held position is targeted to zero by a pure CROSS_SECTION_SHOCK or ACCUMULATED_MARKET_SHOCK and no independently true account-drawdown/non-market/individual protection condition is the causal requirement. Retain the signal-close price and wait for actual zero inventory; blocked or partial exits remain protective obligations and cannot authorize reclaim.",
+    "release": "Only while the parent readmission veto for that flat shock-exited campaign is still active, provisionally clear that one veto for one close if the symbol currently satisfies the parent's unchanged full entry eligibility, is the unique deterministic rank-1 positive score among all currently eligible names, and current close is strictly above the saved shock-signal close. The parent then runs unchanged and may still reject the purchase for risk cap, cash, slots, concentration, stop distance, materiality, liquidity or execution reasons.",
+    "provisional_permission": "If no actual new holding is observed, restore the original readmission veto after the decision; an unfilled request never becomes stale permanent permission. Actual reacquisition consumes the reclaim memory. If ordinary parent recovery clears readmission first, the special memory expires because it is no longer needed.",
+    "invalidation": "Cancel reclaim memory on any individual exit/stale/not-ready condition before actual liquidation completes, any non-market/account protective reason, or actual reacquisition. No expected sale proceeds, shadow account, reserved future slot or guaranteed fill.",
+    "no_parameter_search": true,
+    "new_numeric_parameters": 0,
+    "ranking": "Use the existing Features.score unchanged; no score transformation, learned model, ranking weight or threshold grid is introduced.",
+    "cash_and_execution": "Preserve actual cash, fees, slippage, liquidity, lots, T+1 sellable inventory, economic ceilings, mandatory protection and non-resetting actual NAV risk history."
+  },
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "pair_members": ["control", "shock_reclaim"],
+    "alpha_screen": "Treatment wealth must be no lower than control in all three scopes and strictly higher in at least one. Record MDD, fills, exposure, reclaim requests/fills and ledger reconciliation, but do not substitute defensive metrics for this alpha-first screen.",
+    "failure_rule": "If fixed alpha screen fails, reject this mechanism. Do not add rank cutoffs, price buffers, waiting windows, symbol/date rules or nearby score thresholds, and do not run its rejected treatment over 2026/final matrix.",
+    "advance_rule": "Only a fixed-screen pass may advance the same treatment to the existing full original reference, risk, bull/crash, removal, subset, cost/delay, prefix and stability acceptance requirements."
+  },
+  "frozen_inputs": {"names":34,"sessions":896,"start":"2023-01-03","end":"2026-09-11","sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"},
+  "prohibitions": ["No per-symbol or calendar-date rule.","No trades reference source enters production.","No frozen acceptance, benchmark, data, universe, seed or cost change.","No pool-wise winner stitching or relabeling of prior rejected evidence."]
+}
