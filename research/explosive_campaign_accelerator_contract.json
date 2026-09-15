@@ -1,0 +1,26 @@
+{
+  "family": "explosive_campaign_accelerator",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "parent": {
+    "implementation": "research/trend_book.py",
+    "parameters": {"positions": 2},
+    "source_boundary": "Independent close-only price/volume observations. Reference trade records motivate the hypothesis but are not runtime inputs and no reference source is used."
+  },
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "economic_hypothesis": "The current two-position price book often holds only one or two names and substantial cash while missing explosive, broadly confirmed campaign launches. A rare causal accelerator that temporarily opens four admission slots should put otherwise idle cash into independently observable leadership without selling existing inventory or repeatedly rotating the book.",
+  "observed_basis": {
+    "selection_end": "2025-12-31",
+    "records": "corrected WorkBuddy trades joined read-only to fixed-passive and quant account records",
+    "entry_rows_union_common": 34,
+    "quant_absent_union_common": [26, 23],
+    "median_quant_cash_when_absent_union_common": [0.475, 0.420],
+    "strongest_record_group_union": "7 of 8 absent entry_v4 rows had positive 20-session returns and 7 of 8 beat the then-held quant book",
+    "warning": "Reason labels and realized returns are retrospective attribution only. They are not available to runtime and do not define the signal."
+  },
+  "fixed_signal": "At close D, a security is explosive only when it has at least 60 active observations, the close is at or above the prior 20-session high, volume is above the prior 20-session mean, its 20-session return is in the top cross-sectional decile among ready securities and is positive, and at least one other ready generic-sector member has positive 20-session return. Ties are deterministic by symbol. No fitted model or future value is used.",
+  "fixed_action": "Reuse the exact parent signals and score. OR explosive securities into the parent's admission set. Only while at least one explosive security exists, expose four slots instead of two. The unchanged parent may use only actual observed cash and continues to own ranking, name ceilings, sector ceilings, risk state, exits, readmission, pending inventory, fees, slippage, liquidity, T+1 and next-session execution. The accelerator never forces a sale, changes a score or creates anticipated cash.",
+  "comparison": "One fixed treatment versus the exact unchanged two-position parent on union, common-five and joint optical-leader removal through 2025-12-31. Record triggers, admitted names, cash, exposure, orders, wealth, MDD, turnover and ledger reconciliation.",
+  "failure": "Reject without neighboring rules if treatment wealth is below control in any core scope, if union does not strictly improve, or if no core scope strictly improves. Do not tune the decile, readiness, breakout, volume, peer or capacity rule after observing results.",
+  "advancement": "A passing core screen only permits the original complete acceptance matrix; it is not production acceptance.",
+  "forbidden": "No reference transaction or reason label at runtime, no ticker/date/sector special case, no score or funding-weight change, no sale to finance an accelerator entry, no risk relaxation, no parameter grid, no per-pool branch, no best-row splicing and no relabelling of leader_anchor_slots, causal_theme_campaign or sector_campaign_ownership."
+}
