@@ -9,7 +9,7 @@ Updated 2026-09-15 UTC. Continue `ychenracing/quant` original PR #1, not a new p
 - Current measured research source: `research/expectation-learning@f02c17dbf57b02f5cac48b88e5b46ac45a7e2b30`, tree `0b52c21ea3ee6239ed50a2c616e764bdf63c6b54`.
 - Complete hosted evidence: run `34995318510`, evidence commit `8188c94221a66e6de06a19a4ad6a5e007936a1da`, original evidence tree `ef8abe282b63b1eeb7827fe6e9491922b6b0b234`.
 - Correctness run `34995318623`: success.
-- Latest detailed attribution and handoff note: `renewed-continuation/alpha-gap/f02c17d-profit-trend-shield-and-reference-gap.md`, preserved at commit `a988a2275d74fccc9cc0372b6cb7999ac84f9908`.
+- Latest detailed attribution and handoff note: `renewed-continuation/alpha-gap/f02c17d-profit-trend-shield-and-reference-gap.md`, preserved at commit `8ac9e97ef5caae13caf310fcc48dda66a7d8e909`.
 
 The source-branch `research/ACTIVE_WORK.md` is an older released-writer snapshot and is superseded for current recovery by this file and the detailed note above. Still reread it to avoid losing historical constraints. No writer currently owns unpublished source or a pending run.
 
