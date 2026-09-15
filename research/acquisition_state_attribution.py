@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -12,10 +13,6 @@ from techquant.data import load_market
 from research.expectation_study import scopes
 
 
-ROOT = Path("/workspace/scratch/1816e11a0469")
-SOURCE = ROOT / "quant-source"
-INPUTS = ROOT / "frozen-input/evidence/inputs"
-RUNS = ROOT / "coherent-evidence/payload/nonlinear/evaluation/runs"
 CUTOFF = pd.Timestamp("2025-12-31")
 EPSILON = 1e-8
 
@@ -111,10 +108,17 @@ def finite(value):
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=Path("."))
+    parser.add_argument("--data", type=Path, required=True)
+    parser.add_argument("--supplement", type=Path, required=True)
+    parser.add_argument("--runs", type=Path, required=True)
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
     config = Config()
-    catalog = json.loads((SOURCE / "research/catalog.json").read_text())
+    catalog = json.loads((args.source / "research/catalog.json").read_text())
     full = load_market(
-        INPUTS / "market", supplement=INPUTS / "supplement", sectors=catalog["sectors"]
+        args.data, supplement=args.supplement, sectors=catalog["sectors"]
     )
     market = full.prefix(CUTOFF)
     output = {
@@ -136,7 +140,7 @@ def main() -> None:
     }
     for scope, symbols in scopes(market, catalog).items():
         scoped = market.subset(symbols)
-        folder = RUNS / f"{scope}_incumbent"
+        folder = args.runs / f"{scope}_incumbent"
         close = scoped.panel("close").ffill()
         rows = []
         for campaign in closed_campaigns(folder):
@@ -193,7 +197,11 @@ def main() -> None:
         "ADVANCE_TO_PREREGISTRATION" if output["advance_to_implementation"]
         else "REJECTED_BEFORE_IMPLEMENTATION"
     )
-    print(json.dumps(output, ensure_ascii=False, indent=2, allow_nan=False))
+    rendered = json.dumps(output, ensure_ascii=False, indent=2, allow_nan=False) + "\n"
+    if args.output is not None:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(rendered, encoding="utf-8")
+    print(rendered, end="")
 
 
 if __name__ == "__main__":

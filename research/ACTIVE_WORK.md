@@ -39,7 +39,7 @@ admissions in all scopes. Thus acquisition gates would remove important alpha;
 they do not explain the shared lifecycle gap.
 
 Source/result SHA256 are
-`cadb14a64fe659fbb1d146e2c2123b395b378dbbc567e8896fb851617fba130d` /
+`0e3ab86b25f933278dad93f8271b42575b3ae6eccbe80beb2827a181035e3935` /
 `38e5df8de2b121db308370b060b15c677688f5b5ec7be094eaaac92cc305dd7a`.
 
 Do not repeat `campaign_payoff`, `joint_funding`, `confirmed_shock`,
@@ -63,4 +63,3 @@ search is allowed.
 
 Writer state: released after this additive save. No accepted production tree or
 pending economic run exists. PR #1 remains Draft/unmerged.
-
