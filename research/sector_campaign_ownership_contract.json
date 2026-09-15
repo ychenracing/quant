@@ -1,0 +1,48 @@
+{
+  "family": "sector_campaign_ownership",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "source_parent": "ba80d785846dc5881d395c5f327b88f32ed738a0",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "economic_hypothesis": "The passive alpha source is winner compounding rather than frequent security replacement. A supplied-universe sector campaign can own every causally qualified member of one leading technology sector, let funded units drift without routine rebalancing, and change ownership only when the current sector's aggregate trend has failed. This may preserve common-five optical/storage campaign handovers while preventing broad-universe capital from being spread across unrelated weak sectors.",
+  "diagnostic_basis": {
+    "same_engine_pre_2026_single_security_buy_hold": {
+      "profitable_symbols": 29,
+      "symbols": 34,
+      "median_wealth": 2.1602813479185863,
+      "warning": "Terminal outcomes are descriptive and never enter runtime selection."
+    },
+    "same_engine_pre_2026_scope_wealth": {
+      "union": {"buy_hold": 5.3597431143899605, "twenty_session_equal_weight": 3.823840723981731},
+      "common_five": {"buy_hold": 19.02756176483687, "twenty_session_equal_weight": 12.842341664153842},
+      "joint_optical_leader_removal": {"buy_hold": 3.0475364255241244, "twenty_session_equal_weight": 2.8241124657325076}
+    },
+    "buy_hold_max_drawdown_shape": {
+      "union": "2023-06-20 to 2024-02-05; broad cross-sector losses; peak top-two weight 18.89%",
+      "common_five": "2024-10-08 to 2025-04-08; three optical leaders contributed -51.81 percentage points; peak top-two weight 66.53%",
+      "joint_optical_leader_removal": "2023-04-20 to 2024-02-05; broad cross-sector losses; peak top-two weight 14.92%"
+    },
+    "corrected_workbuddy_common_five": "Recorded trades descriptively show optical ownership sold in October 2024, storage ownership in November/December 2024, and optical ownership restored in June 2025. These trades are attribution evidence only; no reference source, target, date or symbol enters runtime.",
+    "closed_predecessors": "Do not rerun passive_guard, ownership_guard, independent_cash_sleeves, participation, market_envelope_leadership, trend rotation, causal_theme_campaign, leader anchors, breadth concentration or exit-retention wrappers."
+  },
+  "signals": {
+    "security_ready": "At least 60 observed closes and at least 16 fresh closes in the latest 20 supplied sessions.",
+    "security_score": "Mean causal log return over 20, 60 and 120 sessions, using since-first-observed return before a horizon is available.",
+    "security_qualified": "Ready, close above EMA20, EMA20 above EMA60 and positive security score.",
+    "sector_score": "Median security score among ready members of each catalog sector.",
+    "sector_breadth": "Fraction of ready sector members above EMA20.",
+    "sector_qualified": "Finite positive median score, at least one qualified member and sector breadth at least one half."
+  },
+  "ownership": {
+    "initial": "At the first close with a qualified sector, select highest sector score then sector name and target equal weights across every qualified member of that sector.",
+    "persistence": "Between reviews preserve actual funded economic units; never trim winners to restore equal weights.",
+    "review": "Use the unchanged Config.rebalance ten-session clock. Keep the active sector while it remains sector-qualified. Only when it fails may the highest currently qualified sector replace it; if none qualifies, target cash.",
+    "membership": "At a sector transition or active-sector failure, target the then-qualified members of the selected sector. No security can enter from another sector until a campaign transition.",
+    "stale": "An unready held security is removed at the next decision without waiting for a sector transition."
+  },
+  "execution": "Unchanged cash-only, long-only, after-close decision and next-session open execution with original fees, slippage, prior-only liquidity, board lots, order materiality, no leverage, no shorting and no broker orders.",
+  "minimal_screen": "One fixed pre-2026 paired screen against unchanged trend_book positions=2 on union, common-five and joint optical-leader removal. Record wealth, MDD, turnover, exposure, orders and ledger reconciliation.",
+  "failure": "Reject if treatment wealth is lower in any scope or union does not strictly improve. No sector-score, breadth, window, review, membership or weighting neighbor is permitted after failure.",
+  "advance": "Only the identical source may proceed to full 2026 windows and the original final matrix if the fixed three-scope screen passes.",
+  "forbidden": "No reference implementation or runtime target, no ticker/date rule, no winning-sector label, no best-row or pool-specific splicing, no ranking/funding micro-tuning, no altered data/benchmark/universe/seed/cost/metric/acceptance identity."
+}

@@ -38,14 +38,27 @@ Also do not repeat `campaign_payoff`, `joint_funding`,
 `leader_anchor_slots`, `campaign_handover`,
 `persistent_leader_ownership` or `early_leader_ownership`.
 
-## Direct continuation
+## Active batch
 
-The remaining high-return clue is the same-engine passive/buy-and-hold account,
-which materially exceeds active policies across the three core scopes. Before
-proposing another candidate, recover the already completed
-`passive_guard`, benchmark-faithful ownership, participation and sleeves
-evidence. Do not rerun an old guard/grid. Decompose the passive advantage into
-initial ownership, admission timing, turnover avoidance and winner compounding,
-then identify one causally observable structural difference not already closed.
+The old passive-guard, ownership-guard, sleeves, participation, reversal,
+record-high and rotation evidence was recovered; none jointly passed and none
+may be rerun. New read-only attribution finds 29/34 single-security passive
+accounts profitable through 2025-12-31, while twenty-session equal weighting
+reduced wealth in every core scope. Winner drift, not routine rebalancing, is the
+passive alpha source. Common-five drawdown is concentrated in three optical
+winners, while union and leader-removal drawdowns are broad.
 
-Writer state: released. No hosted request or unpublished source is pending.
+`sector_campaign_ownership` is preregistered as one standalone price-led
+engine. It selects the strongest qualified supplied-universe sector by causal
+median momentum and sector breadth, owns all qualified members, preserves
+actual units, and changes sector only when the active campaign fails on the
+unchanged review clock. It is not the rejected same-sector admission gate and
+does not consume a parent or reference target.
+
+Implement exactly by TDD, then run focused, ordinary and research suites and
+the fixed three-scope pre-2026 paired screen. Reject without any neighbor if any
+scope loses wealth or union does not strictly improve. Only one identical
+passing source may advance.
+
+Writer state: this batch owns only the registered sector campaign implementation
+and its one fixed screen. No hosted request is pending.

@@ -1,0 +1,19 @@
+{
+  "status": "READ_ONLY_DIAGNOSIS_NOT_ACCEPTANCE",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "scripts": {
+    "passive_symbol_diagnostic.py": "2766702e656f1b69d327db852c2805ec389a410e7e49dd732810c35d8e4490a7",
+    "passive_drawdown_attribution.py": "4a74cc9da4c4ae813404b3f3e953b4c6d9a81a5f86ba99243f89177a2b4df9ff"
+  },
+  "outputs": {
+    "passive-symbol-diagnostic.json": "d18c758a49c021b6cede08e49ee034b6a91fceeb266847af793df1d0bea2486f",
+    "passive-drawdown-attribution.json": "b5609c647f3301f7477b31b77ccf2d5f9d139fa8e7db59d8728fb3d1b424315e"
+  },
+  "observations": {
+    "profitable_buy_hold_symbols": "29/34 through 2025-12-31; median single-security wealth 2.160281x.",
+    "winner_drift": "Twenty-session equal weighting reduced wealth versus buy-and-hold in all three scopes, so routine rebalancing is not the passive alpha source.",
+    "drawdown": "Common-five maximum drawdown was concentrated in its three optical winners; union and leader-removal maximum drawdowns were broad.",
+    "old_evidence": "Recovered causal research status confirms old passive guard, benchmark-faithful ownership guard, cash sleeves, trend rotation, record-high and reversal families were already measured and did not jointly pass."
+  },
+  "limitations": "This is retrospective attribution. It justifies one prospective fixed structure but is not evidence that sector campaign ownership will improve wealth."
+}
