@@ -1,0 +1,9 @@
+{
+  "source_commit": "32304314270586d078d527aa2860aab78a09f613",
+  "run_id": "34926804636",
+  "family": "continuity_selection",
+  "operation": "continuity_selection_pair",
+  "selection_status": "REJECTED",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
