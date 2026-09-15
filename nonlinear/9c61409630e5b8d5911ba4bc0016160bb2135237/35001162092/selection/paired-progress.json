@@ -1,0 +1,194 @@
+[
+  {
+    "scope": "union",
+    "control": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 4.231186496672099,
+      "total_return": 3.231186496672099,
+      "cagr": 0.6193701062943131,
+      "max_drawdown": 0.2964510683651256,
+      "inherited_drawdown": 0.2964510683651256,
+      "sharpe_zero_rf": 1.5732214338828439,
+      "orders": 149,
+      "orders_per_year": 49.7916285452882,
+      "gross_turnover": 34.41239746537388,
+      "fees": 82844.5073449225,
+      "slippage": 153890.51847010918,
+      "average_exposure": 0.42898144662821713,
+      "blocked_attempts": 4
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 2.270098775625229e-09,
+      "episodes": 56,
+      "wins": 21,
+      "drawdown_peak": "2024-12-30",
+      "drawdown_trough": "2025-06-03",
+      "max_drawdown": 0.2964510683651256,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 4.231186496672099,
+      "total_return": 3.231186496672099,
+      "cagr": 0.6193701062943131,
+      "max_drawdown": 0.2964510683651256,
+      "inherited_drawdown": 0.2964510683651256,
+      "sharpe_zero_rf": 1.5732214338828439,
+      "orders": 149,
+      "orders_per_year": 49.7916285452882,
+      "gross_turnover": 34.41239746537388,
+      "fees": 82844.5073449225,
+      "slippage": 153890.51847010918,
+      "average_exposure": 0.42898144662821713,
+      "blocked_attempts": 4
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 2.270098775625229e-09,
+      "episodes": 56,
+      "wins": 21,
+      "drawdown_peak": "2024-12-30",
+      "drawdown_trough": "2025-06-03",
+      "max_drawdown": 0.2964510683651256,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "shock_reclaim": {
+      "events": 0,
+      "released": 0,
+      "requested": 0
+    }
+  },
+  {
+    "scope": "chatgpt_5",
+    "control": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 5.718046146255741,
+      "total_return": 4.718046146255741,
+      "cagr": 0.7908160021534625,
+      "max_drawdown": 0.3155163499985997,
+      "inherited_drawdown": 0.3155163499985997,
+      "sharpe_zero_rf": 1.7926521650849137,
+      "orders": 118,
+      "orders_per_year": 39.43229643183898,
+      "gross_turnover": 29.63405810981868,
+      "fees": 82764.190850817,
+      "slippage": 150386.73916674603,
+      "average_exposure": 0.38971442205346496,
+      "blocked_attempts": 3
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 1.979060471057892e-09,
+      "episodes": 45,
+      "wins": 17,
+      "drawdown_peak": "2023-06-20",
+      "drawdown_trough": "2024-02-23",
+      "max_drawdown": 0.3155163499985997,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 5.718046146255741,
+      "total_return": 4.718046146255741,
+      "cagr": 0.7908160021534625,
+      "max_drawdown": 0.3155163499985997,
+      "inherited_drawdown": 0.3155163499985997,
+      "sharpe_zero_rf": 1.7926521650849137,
+      "orders": 118,
+      "orders_per_year": 39.43229643183898,
+      "gross_turnover": 29.63405810981868,
+      "fees": 82764.190850817,
+      "slippage": 150386.73916674603,
+      "average_exposure": 0.38971442205346496,
+      "blocked_attempts": 3
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 1.979060471057892e-09,
+      "episodes": 45,
+      "wins": 17,
+      "drawdown_peak": "2023-06-20",
+      "drawdown_trough": "2024-02-23",
+      "max_drawdown": 0.3155163499985997,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "shock_reclaim": {
+      "events": 0,
+      "released": 0,
+      "requested": 0
+    }
+  },
+  {
+    "scope": "joint_optical_leader_removal",
+    "control": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 2.35820512290061,
+      "total_return": 1.35820512290061,
+      "cagr": 0.3320064646484908,
+      "max_drawdown": 0.3302999756539289,
+      "inherited_drawdown": 0.3302999756539289,
+      "sharpe_zero_rf": 1.0330065757088278,
+      "orders": 161,
+      "orders_per_year": 53.80169258920403,
+      "gross_turnover": 39.250112257289395,
+      "fees": 62244.70801460173,
+      "slippage": 113755.24849531098,
+      "average_exposure": 0.43698732389095907,
+      "blocked_attempts": 5
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 1.2514647096395493e-09,
+      "episodes": 58,
+      "wins": 18,
+      "drawdown_peak": "2023-04-20",
+      "drawdown_trough": "2024-07-23",
+      "max_drawdown": 0.3302999756539289,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 2.35820512290061,
+      "total_return": 1.35820512290061,
+      "cagr": 0.3320064646484908,
+      "max_drawdown": 0.3302999756539289,
+      "inherited_drawdown": 0.3302999756539289,
+      "sharpe_zero_rf": 1.0330065757088278,
+      "orders": 161,
+      "orders_per_year": 53.80169258920403,
+      "gross_turnover": 39.250112257289395,
+      "fees": 62244.70801460173,
+      "slippage": 113755.24849531098,
+      "average_exposure": 0.43698732389095907,
+      "blocked_attempts": 5
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 1.2514647096395493e-09,
+      "episodes": 58,
+      "wins": 18,
+      "drawdown_peak": "2023-04-20",
+      "drawdown_trough": "2024-07-23",
+      "max_drawdown": 0.3302999756539289,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "shock_reclaim": {
+      "events": 0,
+      "released": 0,
+      "requested": 0
+    }
+  }
+]
