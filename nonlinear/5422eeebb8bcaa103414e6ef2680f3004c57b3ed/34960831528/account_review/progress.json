@@ -1,0 +1,359 @@
+[
+  {
+    "scope": "union",
+    "terminal_nav_difference": 724929.5087584909,
+    "first_nav_divergence": "2023-09-07",
+    "log_gap": {
+      "participation_log": 0.24580909909902135,
+      "selection_log": 0.0777972706587538,
+      "execution_log": -0.24141363177338565,
+      "total_log": 0.0821927379843898
+    },
+    "symbol_pnl_sum_error": 9.313225746154785e-10,
+    "largest_negative_symbol_contributions": [
+      {
+        "symbol": "sh601869",
+        "control": 1848625.324850489,
+        "treatment": 0.0,
+        "difference": -1848625.324850489
+      },
+      {
+        "symbol": "sh688256",
+        "control": 1899276.9938091373,
+        "treatment": 1228817.7699219778,
+        "difference": -670459.2238871595
+      },
+      {
+        "symbol": "sh688498",
+        "control": 2432980.1865643347,
+        "treatment": 2105994.538011479,
+        "difference": -326985.6485528555
+      },
+      {
+        "symbol": "sh688535",
+        "control": -142364.00938288984,
+        "treatment": -393320.63351725036,
+        "difference": -250956.62413436052
+      },
+      {
+        "symbol": "sh688205",
+        "control": 114789.14227731767,
+        "treatment": -71253.14171699791,
+        "difference": -186042.2839943156
+      }
+    ],
+    "largest_positive_symbol_contributions": [
+      {
+        "symbol": "sz300502",
+        "control": -102332.15635134498,
+        "treatment": 3368451.9255296015,
+        "difference": 3470784.0818809466
+      },
+      {
+        "symbol": "sz300308",
+        "control": 851423.8982843352,
+        "treatment": 1205280.922367779,
+        "difference": 353857.0240834439
+      },
+      {
+        "symbol": "sz002371",
+        "control": -135804.7625033883,
+        "treatment": 150546.82871860603,
+        "difference": 286351.5912219944
+      },
+      {
+        "symbol": "sh688037",
+        "control": -235299.8826004112,
+        "treatment": -31843.55598321192,
+        "difference": 203456.32661719926
+      },
+      {
+        "symbol": "sh688019",
+        "control": -317326.8294771471,
+        "treatment": -119084.67831796629,
+        "difference": 198242.1511591808
+      }
+    ],
+    "annual_actual_account_returns": [
+      {
+        "year": 2023,
+        "control": 0.7844385758299404,
+        "treatment": 0.6542272693129896
+      },
+      {
+        "year": 2024,
+        "control": 0.6234196051066985,
+        "treatment": 0.3663941244709483
+      },
+      {
+        "year": 2025,
+        "control": 0.46059489511244167,
+        "treatment": 1.0322955161275544
+      }
+    ],
+    "issued_rank_diagnostic": {
+      "cohorts": 656,
+      "learned_pair_accuracy": 0.48468834508912917,
+      "original_pair_accuracy": 0.48719988457730595,
+      "population": "same available matured cross-sectional pairs, equal cohort weight; not actual traded opportunities or an independent unseen sample"
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 2.270098775625229e-09,
+      "episodes": 56,
+      "wins": 21,
+      "drawdown_peak": "2024-12-30",
+      "drawdown_trough": "2025-06-03",
+      "max_drawdown": 0.2964510683651256,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "maximum_daily_return_error": 3.0097452308197603e-16
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 2.459273673593998e-09,
+      "episodes": 56,
+      "wins": 19,
+      "drawdown_peak": "2024-10-18",
+      "drawdown_trough": "2025-05-27",
+      "max_drawdown": 0.25811190803109185,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "maximum_daily_return_error": 3.365363543395006e-16
+    }
+  },
+  {
+    "scope": "chatgpt_5",
+    "terminal_nav_difference": 1044642.3497948851,
+    "first_nav_divergence": "2023-11-22",
+    "log_gap": {
+      "participation_log": 0.035907790316646114,
+      "selection_log": 0.056124551086595593,
+      "execution_log": -0.004620459401577886,
+      "total_log": 0.08741188200166376
+    },
+    "symbol_pnl_sum_error": -4.6566128730773926e-09,
+    "largest_negative_symbol_contributions": [
+      {
+        "symbol": "sh603986",
+        "control": -618222.3210336048,
+        "treatment": -908259.2807837228,
+        "difference": -290036.95975011797
+      },
+      {
+        "symbol": "sz300394",
+        "control": -124248.77660424967,
+        "treatment": -201507.56724663623,
+        "difference": -77258.79064238656
+      },
+      {
+        "symbol": "sh688008",
+        "control": 206280.37278352724,
+        "treatment": 255872.42842506157,
+        "difference": 49592.05564153433
+      },
+      {
+        "symbol": "sz300502",
+        "control": 6844934.043362829,
+        "treatment": 7096821.773649615,
+        "difference": 251887.73028678633
+      },
+      {
+        "symbol": "sz300308",
+        "control": 3127348.9740029816,
+        "treatment": 4237807.288262046,
+        "difference": 1110458.3142590644
+      }
+    ],
+    "largest_positive_symbol_contributions": [
+      {
+        "symbol": "sz300308",
+        "control": 3127348.9740029816,
+        "treatment": 4237807.288262046,
+        "difference": 1110458.3142590644
+      },
+      {
+        "symbol": "sz300502",
+        "control": 6844934.043362829,
+        "treatment": 7096821.773649615,
+        "difference": 251887.73028678633
+      },
+      {
+        "symbol": "sh688008",
+        "control": 206280.37278352724,
+        "treatment": 255872.42842506157,
+        "difference": 49592.05564153433
+      },
+      {
+        "symbol": "sz300394",
+        "control": -124248.77660424967,
+        "treatment": -201507.56724663623,
+        "difference": -77258.79064238656
+      },
+      {
+        "symbol": "sh603986",
+        "control": -618222.3210336048,
+        "treatment": -908259.2807837228,
+        "difference": -290036.95975011797
+      }
+    ],
+    "annual_actual_account_returns": [
+      {
+        "year": 2023,
+        "control": 1.0652404726078224,
+        "treatment": 1.1459992006248685
+      },
+      {
+        "year": 2024,
+        "control": 0.0027720918259832583,
+        "treatment": 0.0334585478500804
+      },
+      {
+        "year": 2025,
+        "control": 1.761053297047341,
+        "treatment": 1.8137631414974633
+      }
+    ],
+    "issued_rank_diagnostic": {
+      "cohorts": 656,
+      "learned_pair_accuracy": 0.5239329268292683,
+      "original_pair_accuracy": 0.5503048780487805,
+      "population": "same available matured cross-sectional pairs, equal cohort weight; not actual traded opportunities or an independent unseen sample"
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 1.979060471057892e-09,
+      "episodes": 45,
+      "wins": 17,
+      "drawdown_peak": "2023-06-20",
+      "drawdown_trough": "2024-02-23",
+      "max_drawdown": 0.3155163499985997,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "maximum_daily_return_error": 3.2612801348363973e-16
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 2.270098775625229e-09,
+      "episodes": 43,
+      "wins": 18,
+      "drawdown_peak": "2023-06-20",
+      "drawdown_trough": "2024-02-23",
+      "max_drawdown": 0.2892487504759925,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "maximum_daily_return_error": 3.400058012914542e-16
+    }
+  },
+  {
+    "scope": "joint_optical_leader_removal",
+    "terminal_nav_difference": -785365.4273983068,
+    "first_nav_divergence": "2023-10-17",
+    "log_gap": {
+      "participation_log": 0.07185634697794703,
+      "selection_log": -0.22578887297735653,
+      "execution_log": -0.028210195448696317,
+      "total_log": -0.18214272144810606
+    },
+    "symbol_pnl_sum_error": -6.984919309616089e-10,
+    "largest_negative_symbol_contributions": [
+      {
+        "symbol": "sh601869",
+        "control": 1568167.9841946464,
+        "treatment": 33857.064224222435,
+        "difference": -1534310.919970424
+      },
+      {
+        "symbol": "sh688498",
+        "control": 594894.5055202413,
+        "treatment": -18849.690492634225,
+        "difference": -613744.1960128755
+      },
+      {
+        "symbol": "sz002281",
+        "control": -33793.259340812154,
+        "treatment": -229675.33620254468,
+        "difference": -195882.07686173252
+      },
+      {
+        "symbol": "sh688120",
+        "control": -2133.7682434427716,
+        "treatment": -168022.05965193384,
+        "difference": -165888.29140849106
+      },
+      {
+        "symbol": "sh603986",
+        "control": -136046.94914617733,
+        "treatment": -281270.92417216196,
+        "difference": -145223.97502598463
+      }
+    ],
+    "largest_positive_symbol_contributions": [
+      {
+        "symbol": "sh688347",
+        "control": -67467.30015453119,
+        "treatment": 1052605.087847082,
+        "difference": 1120072.388001613
+      },
+      {
+        "symbol": "sh688041",
+        "control": 200466.6386195595,
+        "treatment": 503279.9329270145,
+        "difference": 302813.29430745495
+      },
+      {
+        "symbol": "sh688535",
+        "control": -153713.8247395631,
+        "treatment": 0.0,
+        "difference": 153713.8247395631
+      },
+      {
+        "symbol": "sh688300",
+        "control": -55505.152918503736,
+        "treatment": 85015.3631606657,
+        "difference": 140520.51607916944
+      },
+      {
+        "symbol": "sh688205",
+        "control": 221457.55645244027,
+        "treatment": 358574.1728575396,
+        "difference": 137116.61640509934
+      }
+    ],
+    "annual_actual_account_returns": [
+      {
+        "year": 2023,
+        "control": 0.24543070519095678,
+        "treatment": 0.47309421333716384
+      },
+      {
+        "year": 2024,
+        "control": 0.3716650554871561,
+        "treatment": 0.25184246125544263
+      },
+      {
+        "year": 2025,
+        "control": 0.3804285572003909,
+        "treatment": 0.06585419251661451
+      }
+    ],
+    "issued_rank_diagnostic": {
+      "cohorts": 656,
+      "learned_pair_accuracy": 0.5167015618597831,
+      "original_pair_accuracy": 0.47346765437860905,
+      "population": "same available matured cross-sectional pairs, equal cohort weight; not actual traded opportunities or an independent unseen sample"
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 1.2514647096395493e-09,
+      "episodes": 58,
+      "wins": 18,
+      "drawdown_peak": "2023-04-20",
+      "drawdown_trough": "2024-07-23",
+      "max_drawdown": 0.3302999756539289,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "maximum_daily_return_error": 3.469446951953614e-16
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 9.89530235528946e-10,
+      "episodes": 59,
+      "wins": 22,
+      "drawdown_peak": "2024-11-11",
+      "drawdown_trough": "2025-06-03",
+      "max_drawdown": 0.29484356108255816,
+      "episode_return_basis": "cash PnL divided by actual buy notional",
+      "maximum_daily_return_error": 2.983724378680108e-16
+    }
+  }
+]
