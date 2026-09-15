@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "classification": "READ_ONLY_CORRECTNESS_AUDIT_NOT_ECONOMIC_ACCEPTANCE",
+  "input_archive_sha256": "0a03c52f24dd08c2488b897b6e0a3f3d7211c467c49300645e1d722894ee620f",
+  "input_root_manifest_sha256": "56018946a68ae499b04ef5cefc1f5480c7aa0fd082d0e7c12d15d8a8d2499216",
+  "pool": "chatgpt_5",
+  "period": ["2023-01-03", "2026-09-11"],
+  "method": {
+    "rule": "For each native position key and trade date, aggregate all sells and require sell quantity <= position carried into that date. Same-day buys do not increase sellable inventory. End-of-day inventory = opening + buys - sells.",
+    "position_keys": {
+      "chatgpt": ["symbol", "strategy_name"],
+      "trae": ["code"],
+      "dumate": ["code"],
+      "workbuddy": ["symbol"]
+    },
+    "scope": "raw native common-five trades only; this is a targeted T+1/sellable-inventory audit, not a full execution-normalization review"
+  },
+  "results": {
+    "chatgpt": {
+      "trade_rows": 178,
+      "same_day_sellable_inventory_violations": 0,
+      "negative_end_inventory_events": 0,
+      "trades_sha256": "9ef8bb544efd5eb6c2f6447ea7b2b94d66b9fbe13916b96179d332fb3fa15a89"
+    },
+    "trae": {
+      "trade_rows": 800,
+      "same_day_sellable_inventory_violations": 0,
+      "negative_end_inventory_events": 0,
+      "trades_sha256": "ff5323c9ee0e8d6a3ee0808bd88698549d00163af4cc3773642063ffcf82c15e"
+    },
+    "dumate": {
+      "trade_rows": 237,
+      "same_day_sellable_inventory_violations": 0,
+      "negative_end_inventory_events": 0,
+      "trades_sha256": "14459891c5bf4ea23729528747f0c7a1d3b4273a05ca9fd8020b8b93255b3f54"
+    },
+    "workbuddy_original": {
+      "trade_rows": 107,
+      "same_day_sellable_inventory_violations": 1,
+      "negative_end_inventory_events": 0,
+      "trades_sha256": "a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb",
+      "violations": [
+        {
+          "date": "2025-04-28",
+          "symbol": "sz300502",
+          "opening_inventory": 0,
+          "same_day_buy_quantity": 52100,
+          "sell_quantity": 52100,
+          "excess_over_opening_sellable_inventory": 52100
+        }
+      ]
+    },
+    "workbuddy_t1_corrected": {
+      "trade_rows": 109,
+      "same_day_sellable_inventory_violations": 0,
+      "trades_sha256": "7befacaa4c82792aa6d380c1412fdce812830e1d126ee15ba895e1721a668db0"
+    }
+  },
+  "conclusion": "The exact recovered raw common-five streams do not show the WorkBuddy-style same-day sellable-inventory violation in ChatGPT, Trae, or Dumate. The single original WorkBuddy violation is reproduced exactly and is removed in the separately preserved T+1-corrected replay. This closes only this targeted anomaly class; it does not establish normalized execution equivalence or economic acceptance.",
+  "economic_candidate_budget_consumed": 0
+}
