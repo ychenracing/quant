@@ -72,6 +72,11 @@ jobs:
                       raise ValueError('decision review requires its registered paired family')
                   from research.decision_review import hosted as review_pair
                   review_pair(output, data, supplement)
+              elif operation == 'opportunity_allocation_pair':
+                  if request['family'] != 'opportunity_allocation':
+                      raise ValueError('opportunity allocation requires its registered paired family')
+                  from research.opportunity_allocation_study import paired
+                  paired(output, data, supplement)
               elif operation == 'measure':
                   try:
                       if request['family'] == 'observed_readiness':

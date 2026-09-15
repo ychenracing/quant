@@ -1,10 +1,10 @@
 {
-  "family": "healthy_hold_funding",
-  "operation": "decision_review_pair",
+  "family": "opportunity_allocation",
+  "operation": "opportunity_allocation_pair",
   "candidate_count": 2,
-  "contract_commit": "080767e443b0dcfc97e531c204b6283e365e5c78",
+  "contract_commit": "80c0252aa3f1bb33fb4b158209521f14aed43dcf",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "purpose": "Recover and attribute old actual accounts, then measure only the fixed six paired pre-2026 accounts; no old grid or final-matrix rerun on failed screen.",
-  "cumulative_budget": "admission used; protected_retention concurrent reserved; healthy_hold_funding used; no unreserved fourth hypothesis",
+  "purpose": "Exactly six fixed paired pre-2026 accounts under renewed user authority; no nearby capacity search and no rejected-treatment full-history replay.",
+  "cumulative_budget": "prior correction 3/3 closed; renewed continuation at most 2, opportunity_allocation is the first registered hypothesis",
   "economic_acceptance": "UNVERIFIED"
 }
