@@ -164,7 +164,7 @@ class EarlyLeaderOwnershipTests(unittest.TestCase):
         units = np.array([10_000.0, 10_000.0, 0.0])
         owner.observed_units = units.copy()
         owner.acquisition_open = owner.features.close[session] * 0.9
-        owner.episode_age[:] = 2
+        owner.episode_age[:] = np.array([2, Config().rebalance, -1])
         owner.confirmed[:] = np.array([True, False, False])
         self.shock(owner, session)
 
@@ -174,7 +174,7 @@ class EarlyLeaderOwnershipTests(unittest.TestCase):
         self.assertEqual(decision.unit_targets[1], 0.0)
         self.assertIn("EARLY_LEADER_OWNERSHIP", decision.reason)
         self.assertFalse(owner.exit_pending[0])
-        self.assertTrue(owner.exit_pending[1])
+        self.assertEqual(owner.reduction_ceiling[1], 0.0)
 
     def test_account_drawdown_and_existing_obligation_remain_authoritative(self):
         owner = self.owner()
