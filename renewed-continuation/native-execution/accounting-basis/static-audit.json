@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "classification": "CORRECTNESS_STATIC_ACCOUNTING_BASIS_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+  "scope": "Authenticated four-reference common-five source/input execution-accounting audit; no strategy candidate, no budget reset, no private source publication.",
+  "source_identities": {
+    "quant_main": "bbc002449093e458868a8748687df023958ba283",
+    "quant_execution_sha256": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+    "native_harness_sha256": "32f310eac06c0c7c684c409d29028ea18312c4bd1400c132f2a50dd9b6ecb64e",
+    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+    "chatgpt_entry_sha256": "00d23e36c9f02a719c798412a43c58ec8c8ca2e6147ddaaaf538c6e31e2bd1ec",
+    "trae_entry_sha256": "9760501990174143759e74d28530530cb35d30a8cdb9ac15d34d227a19cc1937",
+    "dumate_entry_sha256": "43a478789fdfbd75a1dd4b05e39b7d1d28357172b4e5ab98618ccf5739d36d22",
+    "workbuddy_entry_sha256": "d74e8cd6c9a68823a08c5ed5526d72e65dce7b9cdc7568eeb38d1f9d80483a29",
+    "frozen_data_fingerprint": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"
+  },
+  "shared_input_basis": {
+    "harness_behavior": "The native harness loads the frozen quant market once, records qfq input as a known limitation, and writes the same adjusted OHLCV/economic-unit frames into each private reference adapter without rewriting prices.",
+    "actual_share_corporate_action_ledger": "NOT_VERIFIED_AND_NOT_MODELED_BY_NATIVE_HARNESS",
+    "conclusion": "Corporate-action/actual-share accounting is a shared comparison-basis limitation, not an isolated defect in one reference. No corrected return is manufactured from this static finding."
+  },
+  "fee_semantics": {
+    "quant": {"commission_bps": 2.5, "minimum_commission_cny": 5.0, "sell_stamp": "10bp before 2023-08-28; 5bp from 2023-08-28", "transfer_fee_bps_each_side": 0.1, "slippage_bps": 10.0},
+    "chatgpt_native": {"commission_bps": 2.5, "minimum_commission_cny": 5.0, "sell_stamp_bps": 5.0, "explicit_transfer_fee_in_inspected_execution_path": false, "slippage_bps": 10.0},
+    "trae_native": {"commission_bps": 2.5, "minimum_commission_cny": 5.0, "sell_stamp_bps": 5.0, "transfer_fee_bps_each_side": 0.1, "slippage_bps": 5.0},
+    "dumate_native": {"commission_bps": 3.0, "minimum_commission_cny": 5.0, "sell_stamp_bps": 5.0, "explicit_transfer_fee_in_inspected_execution_path": false, "slippage_bps": 10.0},
+    "workbuddy_native": {"commission_bps": 2.5, "minimum_commission_cny": null, "sell_stamp_bps": 5.0, "explicit_transfer_fee_in_inspected_execution_path": false, "slippage_bps": 10.0}
+  },
+  "measured_fee_correctness": {
+    "trae_historical_stamp": {
+      "native_wealth": 10.674861915267,
+      "native_mdd": 0.33107753,
+      "corrected_wealth": 10.638974540102,
+      "corrected_mdd": 0.33117142,
+      "relative_terminal_wealth_change": -0.003362,
+      "mdd_change_percentage_points": 0.00939,
+      "pre_2023_08_28_sells": 52,
+      "pre_change_sell_notional_cny": 32863762.70,
+      "fixed_path_missing_stamp_cny": 16431.88,
+      "classification": "BINDING_BUT_SMALL",
+      "decision": "Per the preregistered fee scope, do not expand this into a reference-by-reference fee grid."
+    }
+  },
+  "static_conclusions": [
+    "The historical stamp-rate mismatch is real but the fixed Trae diagnostic measures only a 0.3362% terminal-wealth effect; it is not a plausible explanation for the order-of-magnitude strategy gap.",
+    "Other commission/slippage/minimum/transfer differences are disclosed native execution assumptions, not automatically bugs. Replacing all private costs with quant costs without a prospective contract would redefine the benchmarks rather than repair one proven defect.",
+    "All four authenticated native replays share the qfq adjusted-economic-unit adapter. The current harness explicitly does not certify an actual-share corporate-action/tax ledger, so corporate-action normalization cannot be claimed complete for any side of the comparison.",
+    "No additional economic replay is justified by this static audit. Further correctness work should be event-driven: inspect risk/protection state semantics and run a fixed comparator only if a specific issue binds an authenticated ledger."
+  ],
+  "attempt_log": {
+    "chatgpt_native_replay_in_this_audit": "Attempted exact native replay from authenticated source/input; stopped after 300 seconds with only START_NATIVE_REPLAY/IMPORT_FINISHED and no economic result. This incomplete run is not used as evidence and is not a reason to rerun because the preregistered fee scope already says to stop after the Trae correction proved economically small."
+  },
+  "economic_acceptance": "NOT_MET",
+  "production_delivery": "NOT_COMPLETE",
+  "merge_eligible": false
+}
