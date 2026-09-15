@@ -1,64 +1,114 @@
 # quant current recovery entry
 
-Updated 2026-09-15 UTC. Continue `ychenracing/quant` original PR #1, not a new project. Latest explicit authority is alpha-first: maximize return capability while preserving original effective acceptance, frozen identities and execution boundaries. Do not return to defensive patching, ranking/funding micro-tuning, extra gates or neighboring parameter searches.
+Updated 2026-09-15 UTC. Continue `ychenracing/quant` original PR #1 under the
+latest alpha-first authority. Maximize return capability while preserving the
+original acceptance, frozen identities and execution boundaries. Do not return
+to defensive patching, ranking/funding micro-tuning, extra gates or neighboring
+parameter searches.
 
-## Live identities verified in this batch
+## Live identities
 
 - `main@966f7428658431c9da5a6fcaf7d9b9d5c446f2cd`.
-- PR #1: OPEN, Draft, unmerged; head `research/independent-tech@efffb9a428258e921feaff125011cba46223bb18`.
-- Current measured research source: `research/expectation-learning@f02c17dbf57b02f5cac48b88e5b46ac45a7e2b30`, tree `0b52c21ea3ee6239ed50a2c616e764bdf63c6b54`.
-- Complete hosted evidence: run `34995318510`, evidence commit `8188c94221a66e6de06a19a4ad6a5e007936a1da`, original evidence tree `ef8abe282b63b1eeb7827fe6e9491922b6b0b234`.
-- Correctness run `34995318623`: success.
-- Latest detailed attribution and handoff note: `renewed-continuation/alpha-gap/f02c17d-profit-trend-shield-and-reference-gap.md`, preserved at commit `8ac9e97ef5caae13caf310fcc48dda66a7d8e909`.
+- PR #1 remains OPEN, Draft and unmerged; implementation head
+  `research/independent-tech@efffb9a428258e921feaff125011cba46223bb18`.
+- Latest measured research source:
+  `research/expectation-learning@69e56f375763ab78a94097ad05608ba03ece0ec1`,
+  tree `0e68627a83874f1bd43e89c17525a0732bd725eb`.
+- Latest hosted economic run:
+  [35004916170](https://github.com/ychenracing/quant/actions/runs/35004916170);
+  correctness run:
+  [35004916094](https://github.com/ychenracing/quant/actions/runs/35004916094).
+- The source-branch `research/ACTIVE_WORK.md` is a released-writer historical
+  snapshot. Reread it for constraints, but this handoff is the current recovery
+  authority. No pending hosted run owns unpublished results.
 
-The source-branch `research/ACTIVE_WORK.md` is an older released-writer snapshot and is superseded for current recovery by this file and the detailed note above. Still reread it to avoid losing historical constraints. No writer currently owns unpublished source or a pending run.
+## Latest closure: causal same-sector theme campaign
 
-## Latest closure: corrected shock reclaim
+The prospectively registered treatment allowed increases only in a causal
+same-sector cohort formed when the parent's two top currently admissible names
+shared a generic sector. It used the parent's existing review clock and changed
+no data, universe, seed, costs, execution, risk or ticker/date rules.
 
-- Registration `39b7e7aa`; corrected source `48c2df4ab101601d09d9feaca82d259452b37240`, tree `d7e84fa78fc642182b69c0cd9d28066d87e1ab4e`.
-- The first hosted zero-event result was traced to implementation ordering: newly flat shock-exit memory was erased before the parent observed the fill and armed ordinary readmission. The targeted regression and full 87 ordinary / 371 research test run pass after the minimal repair; hosted correctness run `35002117215` succeeded.
-- Corrected hosted economic run `35002117259` produced real activity: union/common-five/removal release events `28/16/13` and requests `4/2/2`. Nevertheless all six treatment/control accounts are exactly equal in wealth, MDD, orders, turnover, costs, exposure and ledger outcomes because every request coincides with the unchanged parent's natural readmission maturity.
-- Final status remains `REJECTED_PAIRED_SCREEN`: all-scope non-regression true, strict wealth improvement false, no 2026 treatment/final matrix. Do not tune reclaim rank/price/waiting neighbours or repackage this result.
-- Durable analysis: `renewed-continuation/alpha-gap/48c2df4-shock-reclaim-correctness-and-rejection.md`. Evidence archive SHA256 `b808b22a65c3e9f36dfd70c93bba5a0806d5c114ab4b70f69228f8028717bea6`; selection SHA256 `8d6c590b272d5e714539f96efc70410370d4cb80cd57230d70e5f7060232fe03`.
-- This closes selective shock re-entry under the current lifecycle. Continue with the already-defined unified causal strong-theme/co-leader campaign architecture; opportunity formation must change before another release wrapper can add alpha.
+The hosted fixed pair strongly failed:
 
-## Completed work: do not repeat
+- union: `4.7441484288x -> 1.9829668590x` (-58.20%),
+  MDD `30.5579% -> 34.1306%`;
+- common-five: `7.9041830487x -> 5.3737685430x` (-32.01%),
+  MDD `39.1356% -> 42.0254%`;
+- joint optical-leader removal:
+  `1.1546791489x -> 0.8106753497x` (-29.79%),
+  MDD `35.3310% -> 38.2653%`.
 
-- `campaign_payoff`, `joint_funding`, `confirmed_shock`, inventory/T+1 corrections and native timing/fee correctness probes are complete and preserved.
-- `profit_trend_shield` was prospectively registered, implemented and verified. The first `e8ba999` hosted run failed on trace-only NaN serialization and is retained at evidence commit `cee06df17422b3292226f8ede494d4b9948cf8c1`. The fixed source adds a regression test; 87/87 ordinary tests and 363 research tests passed with 9 skips.
-- Fixed pre-2026 paired screen at `f02c17d`:
-  - union `4.2311864967x -> 3.5202595782x`, MDD `29.6451% -> 36.8051%`;
-  - common-five `5.7180461463x -> 6.1328140800x`, MDD unchanged `31.5516%`;
-  - joint optical-leader removal `2.3582051229x -> 2.4106330596x`, MDD `33.0300% -> 32.8387%`.
-- Hosted status is `REJECTED_PAIRED_SCREEN`; treatment 2026 runs = 0. Do not relabel it, tune its EMA/return neighbors, or run its final matrix.
+Status is `REJECTED_PAIRED_SCREEN`; treatment 2026 runs = 0. Hosted archive
+SHA-256 is
+`6b81d5402bf0f84347898b9f44aacb856747ab2057a933cce0f9d82932376c1d`;
+selection SHA-256 is
+`0402d763e62b4f51b147eccb6054fc63ac58491d9532f4288df7b90f0d98219e`.
+Detailed durable evidence:
+`renewed-continuation/alpha-gap/69e56f3-theme-campaign-rejection.md`.
 
-## Alpha-gap result
+The causal suppression trace joined to the control episode ledger explains the
+failure. Entries suppressed by the treatment later realized aggregate control
+PnL of +1.271m in union and +9.477m in common-five; one isolated `sz300502`
+campaign signalled 2025-05-09 produced +8.429m (+253.14% on buy notional).
+The removal scope aggregate was -0.360m, but its suppressed set still contained
++1.334m winners. This is retrospective diagnosis, not acceptance evidence.
+It proves a complete theme admission veto removes large isolated-leader alpha
+along with distractors.
 
-Using only authenticated existing transaction/equity outputs, corrected WorkBuddy versus quant main closed campaigns show:
+Do not tune the theme persistence, top-two rule, review interval or neighboring
+thresholds, and do not repackage the failed candidate.
 
-- WorkBuddy: 39 campaigns, 76.92% winners, median campaign return +11.60%, median/mean hold 55/60.4 calendar days, loss PnL about -0.690m CNY.
-- quant main: 46 campaigns, 50.00% winners, median campaign return -0.33%, median/mean hold 21.5/30.9 days, loss PnL about -3.907m CNY.
-- Descriptive total campaign PnL gap is about 20.139m CNY. About 16.922m comes from larger positive campaigns and 3.217m from smaller losses. The dominant problem is profitable campaign discovery/participation/lifecycle, not defensive loss reduction.
-- Largest symbol gaps are `sz300394 +6.058m`, `sh603986 +5.973m`, `sz300502 +4.449m`, `sz300308 +2.866m`, `sh688008 +0.794m`.
-- Concrete causes include 63-day late entry in a major `sz300394` campaign, 29-day late entry in a major `sz300308` campaign, a 49-day premature `sh603986` exit, and one entirely missed `sz300502` 2026 campaign.
-- Reference trade-price campaign PnL is gross while quant is net, so terminal wealth is the normalized authority. The entry/exit/lifecycle conclusions are not sensitive to that small accounting difference. No private reference source was read or copied and no historical comparator was rerun.
+## Direct alpha continuation
 
-Most important reusable fact: the existing independent coherent account reaches full-history `22.7716733036x` on common-five and `2.9915298718x` after joint optical-leader removal, but only `1.7481913470x` on union versus incumbent `5.6247932765x`. One lifecycle is therefore capable of clearing the strongest common-five reference and improving removal; isolated broad-universe distractor admission destroys union. Never splice per-pool winners.
+The next distinct mechanism must preserve strongest individual-leader
+admission while using causal cohort evidence only for a marginal book
+responsibility. A bounded candidate is a unified two-slot owner:
 
-## Direct continuation
+1. Slot 1 always preserves the unchanged parent's highest-ranked admissible
+   individual leader.
+2. Slot 2 prefers the highest-ranked admissible name sharing slot 1's generic
+   sector; if none exists, it falls back to the unchanged parent's second name.
+3. Existing exits, holdings, sector/single-name caps, risk state, fill logic,
+   T+1, cash, costs, liquidity and next-session execution remain unchanged.
+4. No ticker/date/sector key, per-pool branch, reference transaction at runtime,
+   numerical threshold, parameter grid or capital-weight tuning.
+5. Preregister one control/treatment pair. Reject without neighbors if any of
+   union/common-five/removal wealth declines, if union does not strictly
+   improve, or if no scope strictly improves. Only a passing fixed core screen
+   may enter 2026 and the original final matrix.
 
-The next distinct alpha direction is one unified causal strong-theme/co-leader campaign architecture:
+This is structural slot ownership, not score/weight micro-tuning: it cannot
+block the strongest isolated leader and only decides whether the marginal slot
+confirms that leader's campaign.
 
-1. Before implementation, preregister one fixed rule using only supplied-universe causal price/volume/breadth plus generic sector metadata. No ticker/date keys, reference transactions at runtime, per-pool branches, forecast refit, parameter grid or risk-threshold change.
-2. The economic hypothesis is that coherent-style lifecycle works after genuine synchronized theme leadership is established, while broad-universe isolated positive ranks are distractors. The mechanism must form and persist a theme cohort before admitting capital, not merely reorder the same list.
-3. Use one unchanged control and one candidate on union/common-five/joint-removal through 2025-12-31. Record wealth, MDD, turnover, exposure, lifecycle events, fills and ledger reconciliation.
-4. Reject without neighbors if any core scope loses wealth, or if union is not materially repaired while the common-five/removal advantage is retained. A failed core screen gets no 2026/final matrix.
-5. If the fixed core screen passes, then and only then expand the same source candidate to original native-reference, pool/removal/subset, bull/two-2026-window, cost/delay, stability and causal-prefix obligations.
+## Closed work: do not repeat
 
-This direction is different from failed generic shadow-path routing, unconditional price-trend books, winner top-ups, risk-shock retention, generic re-entry and allocation/ranking refinements. Reuse old evidence; do not rerun those families.
+Preserve and do not reopen `campaign_payoff`, `joint_funding`,
+`confirmed_shock`, inventory/T+1 corrections, native timing/fee probes,
+`profit_trend_shield`, or corrected `shock_reclaim`.
+
+- `profit_trend_shield@f02c17d` improved common-five and removal but cut union
+  wealth; it is `REJECTED_PAIRED_SCREEN`.
+- corrected `shock_reclaim@48c2df4` generated real events but all six
+  treatment/control accounts were exactly equal because requests coincided
+  with natural parent maturity; it is rejected.
+- Existing coherent evidence reaches `22.7716733036x` on common-five and
+  `2.9915298718x` after joint leader removal, but only `1.7481913470x` on
+  union. Never splice per-pool winners.
+- WorkBuddy versus quant campaign attribution shows the dominant gap is larger
+  profitable campaigns and longer holding, not defensive loss reduction.
 
 ## Immutable boundaries and completion
 
-A-share AI/technology, daily cash long-only, after-close decision and next-session execution, human verification, no broker auto-order, leverage or shorting. Frozen 34-name/896-session data, benchmark, universe, seed, costs, liquidity, evidence identity and metrics remain unchanged. Do not use the four private implementations as production foundations. Preserve every failure and never combine best rows from different candidates.
+A-share AI/technology, daily cash long-only, after-close decision and
+next-session execution, human verification, no broker auto-order, leverage or
+shorting. Frozen data, benchmark, universe, seed, costs, liquidity, evidence
+identity and metrics remain unchanged. Do not use the four private
+implementations as production foundations. Preserve every failure and never
+combine best rows from different candidates.
 
-Original economic acceptance remains `NOT_MET`; no accepted final production tree exists. Keep PR #1 Draft/unmerged. Merge only when the same candidate satisfies all effective economic, engineering and repository-protection requirements, then verify the merge and main inclusion. Keep the existing continuation active until that real completion or a later explicit user stop.
+Economic acceptance remains `NOT_MET`; no accepted production tree exists.
+Keep PR #1 Draft/unmerged. Merge only when the same candidate satisfies all
+effective economic, engineering and repository-protection requirements, then
+verify the merge and main inclusion.
