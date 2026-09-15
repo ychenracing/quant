@@ -51,6 +51,5 @@ common-five compounders.  Any continuation must first quantify that event on
 the same closed campaigns; no gate, leader wrapper, risk wrapper, named stock,
 pool branch, or nearby threshold search is authorized.
 
-Source SHA256: `cadb14a64fe659fbb1d146e2c2123b395b378dbbc567e8896fb851617fba130d`  
+Source SHA256: `0e3ab86b25f933278dad93f8271b42575b3ae6eccbe80beb2827a181035e3935`  
 Result SHA256: `38e5df8de2b121db308370b060b15c677688f5b5ec7be094eaaac92cc305dd7a`
-
