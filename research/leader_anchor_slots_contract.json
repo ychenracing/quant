@@ -1,0 +1,27 @@
+{
+  "family": "leader_anchor_slots",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "parent": {
+    "implementation": "research/trend_book.py",
+    "parameters": {"positions": 2},
+    "source_boundary": "Reuse the independently written price-led actual-inventory owner. Do not consume or refit any external/reference strategy."
+  },
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "economic_hypothesis": "The failed binary theme gate removed large isolated-leader alpha. Preserve the parent's strongest currently admissible individual leader, while assigning only the marginal second slot to the best causal same-sector co-leader when one exists. This should retain standalone winners and reduce broad-universe distractor ownership without changing scores or capital weights.",
+  "observed_basis": {
+    "source": "69e56f375763ab78a94097ad05608ba03ece0ec1/35004916170 hosted treatment suppression trace joined read-only to the exact control filled episode ledger",
+    "suppressed_entry_episode_pnl_cny": {
+      "union": {"episodes": 24, "aggregate": 1270570, "winning": 3361292, "losing": -2090722},
+      "common_five": {"episodes": 10, "aggregate": 9477490, "winning": 10356773, "losing": -879282},
+      "joint_optical_leader_removal": {"episodes": 32, "aggregate": -360027, "winning": 1334245, "losing": -1694272}
+    },
+    "largest_missed_cycle": "sz300502 signal 2025-05-09, control realized PnL +8429215 CNY and +253.14% on buy notional",
+    "warning": "This is retrospective diagnosis and only motivates the forward fixed pair. Runtime cannot consult realized outcomes or reference trades."
+  },
+  "selection_rule": "After the parent computes unchanged causal allowed flags and score, rank currently allowed names by score descending and symbol ascending. Preserve the highest-ranked name as the anchor. If another allowed name shares its generic catalog sector, retain only the highest-ranked such co-leader as the marginal second-slot candidate; otherwise retain the unchanged second-ranked allowed name. If fewer than two names are allowed, preserve them unchanged. Existing holdings are never sold merely because they are outside this admission mask.",
+  "authority": "The mask applies only to new or restored increases and parent rotation entrants. Every parent security exit, account-risk state, actual-fill obligation, readmission state, T+1 rule, cash/capacity/name/sector constraint, cost, slippage, liquidity rule and next-session execution remains authoritative.",
+  "comparison": "One fixed treatment versus the exact unchanged two-position price-book control on union, common-five and joint optical-leader removal through 2025-12-31. Record anchor/co-leader/fallback observations, suppressions, orders, wealth, MDD, turnover, exposure, costs and ledger reconciliation.",
+  "failure": "Reject without neighboring rules if treatment wealth is below control in any core scope, if union does not strictly improve, or if no core scope strictly improves. A passing core screen permits but does not satisfy original acceptance.",
+  "advancement": "Only a passing identical source candidate may proceed to full history, both 2026 decline windows, original native references, pools/removals/subsets, cost/delay, causal-prefix, stability and engineering/repository checks.",
+  "forbidden": "No score modification, ranking-weight or funding-weight change, no new numeric threshold or persistence clock, no risk patch, no parameter grid, no per-pool branch, no hard-coded sector/ticker/date, no reference transaction at runtime, no best-row splicing, and no relabelling of causal_theme_campaign."
+}
