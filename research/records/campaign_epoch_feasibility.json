@@ -1,0 +1,270 @@
+{
+  "diagnosis": "standalone causal campaign-epoch feasibility",
+  "status": "REJECTED_BEFORE_IMPLEMENTATION",
+  "advance": false,
+  "selection_end": "2025-12-31",
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_sha256": "211b46c53b2749bb2b4aaa43f1cd9a3528b409e6f7af4ff0fe66295a831316d6",
+  "config": {
+    "fast": 10,
+    "slow": 40,
+    "max_positions": 2,
+    "rebalance": 10,
+    "single_cap": 0.55,
+    "sector_cap": 0.75,
+    "trade_band": 0.08,
+    "stop_atr": 6.0,
+    "target_vol": 0.8,
+    "shock_z": 2.5,
+    "risk_drawdown": 0.18,
+    "recovery": 3,
+    "initial_cash": 2000000.0,
+    "commission_bps": 2.5,
+    "slippage_bps": 10.0,
+    "max_adv": 0.005
+  },
+  "causal_rule": {
+    "security_ready": "60 observations and at least 80% active in trailing 20 sessions",
+    "security_qualified": "close > EMA20 > EMA60 and 60-session return > 0",
+    "launch": "qualified breadth >= 1/2, equal-weight market EMA20 > EMA60, median 60-session return > 0",
+    "finish": "qualified breadth < 1/2, equal-weight market EMA20 < EMA60, median 60-session return <= 0",
+    "ownership": "one equal-notional cohort at next open; no membership change until next-open finish",
+    "cost": "unchanged commission plus slippage on entry and exit"
+  },
+  "advance_rule": "every scope has at least two settled epochs, positive median settled net return, at least half positive, and settled compound factor above one",
+  "limitations": [
+    "read-only cohort opportunity diagnostic, not an executable account or economic acceptance",
+    "the final open epoch is censored and excluded from the advance rule",
+    "adjusted economic units are not verified actual-share corporate-action accounting",
+    "all observed history is retrospective"
+  ],
+  "results": [
+    {
+      "scope": "union",
+      "summary": {
+        "launches": 5,
+        "settled_epochs": 4,
+        "censored_epochs": 1,
+        "settled_median_net_return": -0.07169430289729717,
+        "settled_positive_fraction": 0.0,
+        "settled_compound_factor": 0.7651025997969151,
+        "market_index_factor": 4.100622640536511,
+        "scope_pass": false
+      },
+      "epochs": [
+        {
+          "launch_signal": "2023-04-04",
+          "entry_open": "2023-04-06",
+          "finish_signal": "2023-08-09",
+          "exit_open_or_mark": "2023-08-10",
+          "settled": true,
+          "duration_sessions": 85,
+          "launch_breadth": 0.8928571428571429,
+          "members": 25,
+          "net_return": -0.015662498237024924,
+          "positive_member_fraction": 0.32,
+          "max_entry_adv_utilization": 0.09107554616599055
+        },
+        {
+          "launch_signal": "2023-11-13",
+          "entry_open": "2023-11-14",
+          "finish_signal": "2023-12-26",
+          "exit_open_or_mark": "2023-12-27",
+          "settled": true,
+          "duration_sessions": 31,
+          "launch_breadth": 0.5,
+          "members": 16,
+          "net_return": -0.09786219303619448,
+          "positive_member_fraction": 0.0625,
+          "max_entry_adv_utilization": 0.6822686776235741
+        },
+        {
+          "launch_signal": "2024-06-11",
+          "entry_open": "2024-06-12",
+          "finish_signal": "2024-08-07",
+          "exit_open_or_mark": "2024-08-08",
+          "settled": true,
+          "duration_sessions": 41,
+          "launch_breadth": 0.5,
+          "members": 16,
+          "net_return": -0.08423525592184611,
+          "positive_member_fraction": 0.125,
+          "max_entry_adv_utilization": 0.32523495815735826
+        },
+        {
+          "launch_signal": "2024-10-08",
+          "entry_open": "2024-10-09",
+          "finish_signal": "2025-04-07",
+          "exit_open_or_mark": "2025-04-08",
+          "settled": true,
+          "duration_sessions": 121,
+          "launch_breadth": 0.6875,
+          "members": 22,
+          "net_return": -0.05915334987274823,
+          "positive_member_fraction": 0.2727272727272727,
+          "max_entry_adv_utilization": 0.08424247815761027
+        },
+        {
+          "launch_signal": "2025-06-27",
+          "entry_open": "2025-06-30",
+          "finish_signal": null,
+          "exit_open_or_mark": "2025-12-31",
+          "settled": false,
+          "duration_sessions": 126,
+          "launch_breadth": 0.5483870967741935,
+          "members": 17,
+          "net_return": 1.1244670139933373,
+          "positive_member_fraction": 1.0,
+          "max_entry_adv_utilization": 0.14552488032803304
+        }
+      ]
+    },
+    {
+      "scope": "chatgpt_5",
+      "summary": {
+        "launches": 4,
+        "settled_epochs": 3,
+        "censored_epochs": 1,
+        "settled_median_net_return": 0.20097224764433963,
+        "settled_positive_fraction": 0.6666666666666666,
+        "settled_compound_factor": 1.1413427246563606,
+        "market_index_factor": 12.830165430625062,
+        "scope_pass": true
+      },
+      "epochs": [
+        {
+          "launch_signal": "2023-04-04",
+          "entry_open": "2023-04-06",
+          "finish_signal": "2023-08-23",
+          "exit_open_or_mark": "2023-08-24",
+          "settled": true,
+          "duration_sessions": 95,
+          "launch_breadth": 1.0,
+          "members": 5,
+          "net_return": 0.20097224764433963,
+          "positive_member_fraction": 0.6,
+          "max_entry_adv_utilization": 0.07055780819393966
+        },
+        {
+          "launch_signal": "2023-12-11",
+          "entry_open": "2023-12-12",
+          "finish_signal": "2024-08-08",
+          "exit_open_or_mark": "2024-08-09",
+          "settled": true,
+          "duration_sessions": 160,
+          "launch_breadth": 0.6,
+          "members": 3,
+          "net_return": 0.26666757381736717,
+          "positive_member_fraction": 0.6666666666666666,
+          "max_entry_adv_utilization": 0.2272303380935323
+        },
+        {
+          "launch_signal": "2024-10-08",
+          "entry_open": "2024-10-09",
+          "finish_signal": "2025-03-11",
+          "exit_open_or_mark": "2025-03-12",
+          "settled": true,
+          "duration_sessions": 103,
+          "launch_breadth": 0.6,
+          "members": 3,
+          "net_return": -0.24972504382547345,
+          "positive_member_fraction": 0.3333333333333333,
+          "max_entry_adv_utilization": 0.016153787765856013
+        },
+        {
+          "launch_signal": "2025-06-09",
+          "entry_open": "2025-06-10",
+          "finish_signal": null,
+          "exit_open_or_mark": "2025-12-31",
+          "settled": false,
+          "duration_sessions": 140,
+          "launch_breadth": 0.6,
+          "members": 3,
+          "net_return": 1.918643956349706,
+          "positive_member_fraction": 1.0,
+          "max_entry_adv_utilization": 0.06561660468325747
+        }
+      ]
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "summary": {
+        "launches": 5,
+        "settled_epochs": 4,
+        "censored_epochs": 1,
+        "settled_median_net_return": -0.06809623696826922,
+        "settled_positive_fraction": 0.0,
+        "settled_compound_factor": 0.7689858263536546,
+        "market_index_factor": 3.1082574101547786,
+        "scope_pass": false
+      },
+      "epochs": [
+        {
+          "launch_signal": "2023-04-04",
+          "entry_open": "2023-04-06",
+          "finish_signal": "2023-07-28",
+          "exit_open_or_mark": "2023-07-31",
+          "settled": true,
+          "duration_sessions": 77,
+          "launch_breadth": 0.88,
+          "members": 22,
+          "net_return": -0.10441570466144467,
+          "positive_member_fraction": 0.18181818181818182,
+          "max_entry_adv_utilization": 0.10349493882498927
+        },
+        {
+          "launch_signal": "2023-11-09",
+          "entry_open": "2023-11-10",
+          "finish_signal": "2023-12-22",
+          "exit_open_or_mark": "2023-12-25",
+          "settled": true,
+          "duration_sessions": 31,
+          "launch_breadth": 0.5172413793103449,
+          "members": 15,
+          "net_return": -0.06016069113280509,
+          "positive_member_fraction": 0.26666666666666666,
+          "max_entry_adv_utilization": 0.5790391132409843
+        },
+        {
+          "launch_signal": "2024-06-11",
+          "entry_open": "2024-06-12",
+          "finish_signal": "2024-08-06",
+          "exit_open_or_mark": "2024-08-07",
+          "settled": true,
+          "duration_sessions": 40,
+          "launch_breadth": 0.5172413793103449,
+          "members": 15,
+          "net_return": -0.07603178280373335,
+          "positive_member_fraction": 0.13333333333333333,
+          "max_entry_adv_utilization": 0.3469172887011822
+        },
+        {
+          "launch_signal": "2024-10-08",
+          "entry_open": "2024-10-09",
+          "finish_signal": "2025-04-07",
+          "exit_open_or_mark": "2025-04-08",
+          "settled": true,
+          "duration_sessions": 121,
+          "launch_breadth": 0.6896551724137931,
+          "members": 20,
+          "net_return": -0.011216461032607539,
+          "positive_member_fraction": 0.3,
+          "max_entry_adv_utilization": 0.09266672597337129
+        },
+        {
+          "launch_signal": "2025-06-27",
+          "entry_open": "2025-06-30",
+          "finish_signal": null,
+          "exit_open_or_mark": "2025-12-31",
+          "settled": false,
+          "duration_sessions": 126,
+          "launch_breadth": 0.5,
+          "members": 14,
+          "net_return": 0.8293976073770999,
+          "positive_member_fraction": 1.0,
+          "max_entry_adv_utilization": 0.1767087832554687
+        }
+      ]
+    }
+  ]
+}

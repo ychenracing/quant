@@ -11,56 +11,59 @@ per-pool splicing or reference-source reuse.
 - main: `966f7428658431c9da5a6fcaf7d9b9d5c446f2cd`;
 - PR #1: OPEN, Draft, unmerged; implementation head
   `efffb9a428258e921feaff125011cba46223bb18`;
-- latest research result before this status commit:
-  `39695299d8c7cdab27c1818f861ee6111715415e`.
+- previous research status: `8402d40b19bff2be2be96cd38fb90c892d0354f9`;
+- frozen pre-2026 data:
+  `894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157`.
 
-## Latest alpha attribution
+## Latest alpha closure
 
-The fixed-passive / corrected-WorkBuddy / quant lifecycle join closes the idea
-of importing a sparse reference exit event. Across the three core passive
-accounts, WorkBuddy `dd_clear` records were followed by median 20-session NAV
-returns of +6.29%/+9.01%/+7.08%; half exits were followed by
-+4.31%/+1.83%/+0.88%. The exit labels do not identify a cross-scope alpha edge.
-They remain descriptive records only and cannot become runtime rules.
+The independent `campaign_epoch` feasibility direction is
+`REJECTED_BEFORE_IMPLEMENTATION`. This was a read-only causal cohort test, not
+an executable account. A launch required a majority of ready securities in
+positive 20/60-day trend, a rising supplied-universe equal-weight 20/60 EMA and
+positive median 60-session return. A campaign bought the launch cohort at the
+next open, never changed membership and exited only after all three market
+conditions reversed. Frozen commission and slippage were charged.
 
-Reference entry records did reveal that an older incumbent account often missed
-positive launch events while retaining cash. A fixed independent close-only
-`explosive_campaign_accelerator` was therefore preregistered before measurement
-at `9ce87bef`, implemented/tested at `0cc83f09`, and screened at `39695299`.
-Focused tests passed 5/5, ordinary 87/87 and research 410 with 9 skips.
+The rule was sparse (5/4/5 launches in union/common-five/removal), but completed
+campaign economics were not cross-scope alpha:
 
-The candidate is permanently `REJECTED_PAIRED_SCREEN`:
+- union: four settled epochs, median net return -7.17%, 0/4 positive,
+  settled compound factor 0.7651;
+- common-five: three settled epochs, median +20.10%, 2/3 positive,
+  settled compound factor 1.1413;
+- joint optical-leader removal: four settled epochs, median -6.81%, 0/4
+  positive, settled compound factor 0.7690.
 
-- union: `4.744148x -> 1.549907x` (-67.33%), MDD +6.30pp;
-- common-five: `7.904183x -> 5.921825x` (-25.08%), MDD +8.42pp;
-- joint leader-removal: `1.154679x -> 1.223147x` (+5.93%), MDD +6.88pp.
+Each scope also had one open 2025 campaign with a large positive mark
+(+112.45%/+191.86%/+82.94%). It is censored and was excluded from the advance
+rule. It cannot be used to erase the losing settled epochs or justify a replay.
+The executable-capacity diagnostic was within the unchanged 0.5% ADV limit at
+every launch. Source SHA256 is
+`211b46c53b2749bb2b4aaa43f1cd9a3528b409e6f7af4ff0fe66295a831316d6`;
+result SHA256 is
+`dc8fa4e78a60664626b03e4bbb3a4a2e501c565930cfff78df97741c072c6d4c`.
+Ordinary tests passed 87/87 and research tests 410/410 with 9 skips.
 
-The supposed rare accelerator fired on 304/117/271 session-days and increased
-orders to 307/192/280. Generic top-decile breakout plus sector confirmation did
-not recover the reference launch semantics; it recreated broad-universe churn.
-Do not tune its decile, readiness, breakout, volume, peer or capacity rule, and
-do not splice its positive removal row.
-
-Exact current-parent replay further corrected the earlier attribution. For the
-11 strongest descriptive launch records, union classifications were 4 pending
-protection, 4 full capacity, 2 already owned and 1 market regime; common-five
-was 6 already owned, 2 pending protection, 2 capacity and 1 funding/selection;
-the removal scope had one applicable event, blocked by capacity. The current
-price book usually recognized the same individual conditions. Broadening its
-admission set was redundant, while bypassing actual protection is forbidden.
+Do not tune or repackage the epoch majority, EMA/return windows, finish rule,
+cohort weights or positive censored row. Also do not repeat `campaign_payoff`,
+`joint_funding`, `confirmed_shock`, inventory/T+1 corrections,
+`profit_trend_shield`, `causal_theme_campaign`, `leader_anchor_slots`,
+handover/reentry, persistent/early ownership, breadth/sector ownership,
+accelerator, participation, reversal, record-high, breakout, rotation or
+decision-path grids.
 
 ## Direct continuation
 
-Wrapper-level admission expansion, leader slots, handover, reentry, winner
-retention and broad/sector ownership have all failed fixed joint screens. Do
-not add another gate, slot or trend-book wrapper. The next independent work must
-evaluate a standalone campaign-epoch ownership engine as a complete decision
-path, with sparse launches and persistent actual units defined from the
-independent market record alone. Before implementation, establish that its
-launches and ownership duration explain alpha in union, common-five and removal,
-not only the optical leaders; otherwise stop that direction without a replay.
+A market-wide epoch correctly identifies the late-2025 boom but does not explain
+when broad ownership adds alpha: every settled union and removal epoch lost
+money. Do not implement a campaign-epoch owner. The next independent work must
+use the already saved same-engine buy-hold and quant accounts to attribute the
+cross-sectional source of winner drift before proposing code. Any new complete
+decision path must demonstrate a causal, fixed admission or lifecycle advantage
+over the matched buy-hold opportunity in union, common-five and removal before
+implementation; a named leader, per-pool branch, extra wrapper or parameter
+search is forbidden.
 
-Writer state: released after this status/evidence save. No accepted production
-tree exists, no full matrix is authorized for the rejected candidate, and PR #1
-must remain Draft/unmerged.
-
+Writer state: released after this status save. No accepted production tree or
+pending economic run exists. PR #1 remains Draft/unmerged.
