@@ -72,7 +72,12 @@ jobs:
               if market.fingerprint() != request['data_sha256']:
                   raise ValueError('frozen market identity mismatch')
               operation = request.get('operation', 'measure')
-              if operation == 'relative_leadership_evidence_audit':
+              if operation == 'continuation_account_audit':
+                  if request['family'] != 'joint_funding':
+                      raise ValueError('recorded account audit requires the declared research route')
+                  from research.continuation_account_audit import review
+                  review(output, data, supplement)
+              elif operation == 'relative_leadership_evidence_audit':
                   if request['family'] != 'relative_leadership':
                       raise ValueError('read-only audit requires its recorded family')
                   from research.relative_leadership_audit import review
@@ -144,7 +149,7 @@ jobs:
           request = json.loads(pathlib.Path('research/nonlinear-request.json').read_text())
           selection = output / 'selection/selection.json'
           selected = json.loads(selection.read_text()) if selection.exists() else {}
-          audit_only = request.get('operation') in {'funded_projection_audit', 'relative_leadership_evidence_audit'}
+          audit_only = request.get('operation') in {'funded_projection_audit', 'relative_leadership_evidence_audit', 'continuation_account_audit'}
           receipt = {'source_commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
                      'family': request['family'], 'operation': request.get('operation', 'measure'),
                      'selection_status': 'NOT_APPLICABLE_DIAGNOSTIC' if audit_only else selected.get('status', 'INCOMPLETE'),

@@ -1,16 +1,12 @@
 {
   "family": "joint_funding",
-  "operation": "measure",
+  "operation": "continuation_account_audit",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "637fdb539580c1ecddbff9958d74ba79c27ce1c1",
-  "request": "One fixed joint-resource funding pair, no forecast imports or closed experiment retries. Correctness gates economics; preserve all actual accounts and resource traces. Rejecting the pair prohibits its 2026 evaluation, not continuation of the original user task.",
+  "request": "Read-only exact recovery of both completed rejected pairs, twelve recorded accounts and close-known non-price context. ZERO new strategy accounts, fits or parameter trials. Retain source-bound results and investigate distinct next information without changing any frozen policy or screen.",
   "source_sha256": {
-    "research/joint_resources.py": "103a684ae48d0683cb9cd4332050a4be4ea44cdeda0f9ad2296cab78a15695f8",
-    "research/joint_funding.py": "03f555a86e2303d8eecbf03aa4b80dfde3d5f32c57c8f16c9393a75400cefd42",
-    "research/joint_funding_study.py": "7f7cf5f372f82a207d0f98f662b6f9d496010f5758ccddb04332925e6e7bc691",
-    "research/test_joint_resources.py": "e590382d12ac9cb1159de8d9759a6f8d7cfa1425a431f093a38ea304b10f8d23",
-    "research/test_joint_funding.py": "edc83962f49b90d8710227440633c15730e5783b654e078803da961d79c748da",
-    ".github/workflows/nonlinear-study.yml": "223208aaaf81ff4ddf8e1a391f028e40f074ce504bff323cff0513ffa04afa9b"
+    "research/continuation_account_audit.py": "32aed74da4f85ee8e8af5f77144f623a7b25a521056e2807e6164ecc8a80f555",
+    "research/test_continuation_account_audit.py": "d1592caec14ef321d42bb0e1b5f7b33e4a98a983783213bbbf1478733a84ce58",
+    ".github/workflows/nonlinear-study.yml": "b2dd941475ae7f6c6d077cd8a8d7d42e2e61c7beb683e28bc5bc996218a5bfc9"
   }
 }
