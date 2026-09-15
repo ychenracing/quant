@@ -119,7 +119,7 @@ jobs:
                       elif request['family'] == 'protected_retention':
                           from research.retention_diagnosis import hosted as observe_reductions
                           observe_reductions(output, data, supplement)
-                      elif request['family'] in {'revocable_reentry', 'allocation_auction', 'relative_leadership', 'campaign_payoff', 'joint_funding'}:
+                      elif request['family'] in {'revocable_reentry', 'allocation_auction', 'relative_leadership', 'campaign_payoff', 'joint_funding', 'theme_campaign'}:
                           # Its exact parent archive and state witnesses are already preserved.
                           pass
                       elif issued is not None:
