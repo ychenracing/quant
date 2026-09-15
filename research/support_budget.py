@@ -175,6 +175,9 @@ class Owner:
     def _risk_limit(self, o, cap):
         return self.params.risk_budget*o.nav*cap
 
+    def _funding_eligible(self, o, held, allowed, price, stops):
+        return allowed & (price > stops) & (~held | self.breakout[o.session])
+
     def _allocate(self, o, desired, price, initial, allowed, cap):
         held = o.units > 1e-10
         capacity = min(self.params.positions, len(held))
@@ -186,7 +189,7 @@ class Owner:
         cash = max(0., min(.99*o.cash, cap*o.nav-float(o.units@price)))
         symbol_cap = max(self.config.single_cap, 1/len(held))
         sector_cap = self.config.sector_cap if len(set(self.features.sectors)) > 1 else 1.
-        candidates = np.flatnonzero(allowed & (price > stops) & (~held | self.breakout[o.session]))
+        candidates = np.flatnonzero(self._funding_eligible(o, held, allowed, price, stops))
         candidates = sorted(candidates, key=lambda j: (-self.features.score[o.session,j], self.market.symbols[j]))
         for j in candidates:
             if not held[j] and occupied >= capacity:
