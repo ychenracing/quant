@@ -1,15 +1,15 @@
 {
-  "family": "confirmed_shock",
+  "family": "profit_trend_shield",
   "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "1ce819815f7c6a5cd6e9f00e64cf972d183e1888",
-  "request": "Execute the single preregistered confirmed-market-shock control/treatment pair through 2025-12-31. Preserve account-drawdown immediate-zero priority, all raw accounts and traces. Reject on any scope wealth or drawdown regression; do not run rejected treatment in 2026 or search neighboring thresholds.",
+  "registration_commit": "66354029843c1704808fa8717b804c745389e302",
+  "request": "Execute the single preregistered profitable-trend market-shock shield control/treatment pair through 2025-12-31. Preserve account-drawdown and security-specific protection priority, actual inventory, cash and traces. Reject on any scope wealth regression; do not run a rejected treatment in 2026 or search neighboring trend windows or thresholds.",
   "source_sha256": {
-    "research/confirmed_shock.py": "412d804586a9952faaac5a994c34a5f6ad6352899d8f8102ce9f91aad4e38158",
-    "research/test_confirmed_shock.py": "ad20d7515860cb2af5aa8fdef84059669d8dee07dea31ff4d1f74aa7b4c8a1bb",
-    "research/confirmed_shock_contract.json": "bca9fd7b7a4b95e7d8c512fe093e5bfc2aed35eaa154b84ff165b359a707a699",
-    "research/finite_study/__init__.py": "65874fef525de6ec3bf4debe2dd0b64a10d783015032a2951357dfb2b5b5433a",
+    "research/profit_trend_shield.py": "85bdd6ded97a2e9d9a60c8a82c42bb5bae4f42dcf3fd5e3a826e81601c570919",
+    "research/test_profit_trend_shield.py": "dd78faeb9964bbefe298c8e5eb4e4cf84773bf0f9dd6f4f0fc9f8ab46ff05933",
+    "research/profit_trend_shield_contract.json": "6ebd8885c935c8fede0fd841c6ff3dfb6b4e67a3baed1db20da89336baf53c9a",
+    "research/finite_study/__init__.py": "5d0011d2f066520fd205bbbaae03b83d7eb4288eb427deab22a5146868777c62",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
     ".github/workflows/nonlinear-study.yml": "b2dd941475ae7f6c6d077cd8a8d7d42e2e61c7beb683e28bc5bc996218a5bfc9"
   }
