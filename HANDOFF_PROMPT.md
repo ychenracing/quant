@@ -11,64 +11,54 @@ per-pool splicing or private-reference implementation use.
 - `main@966f7428658431c9da5a6fcaf7d9b9d5c446f2cd`.
 - PR #1 remains OPEN, Draft and unmerged; implementation head
   `research/independent-tech@efffb9a428258e921feaff125011cba46223bb18`.
-- Latest research source/result record:
-  `research/expectation-learning@9c238a0dd6ae0073cfdb385821ce7c94571f6f53`.
-- Frozen market SHA-256:
-  `d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b`.
-- Pre-2026 selection SHA-256:
+- latest research source/result:
+  `research/expectation-learning@d39eb5a5df0def5bf5c0487f8b096a31f89c6813`;
+- frozen full / pre-2026 data SHA256:
+  `d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b` /
   `894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157`.
 
-Reread source `research/ACTIVE_WORK.md` for writer state. It is released; no
-hosted run or unpublished source is pending.
+Reread source `research/ACTIVE_WORK.md`. Writer is released; no hosted run or
+unpublished source is pending.
 
-## Latest closure: early leader ownership
+## Latest closures
 
-The fixed, preregistered prefix-confirmation state is
-`REJECTED_PAIRED_SCREEN`:
+`breadth_concentration_ownership` is rejected: wealth changed
+-63.54%/-14.46%/-35.61% and MDD worsened in all three scopes. Result commit
+`ba80d785`; no 2026/final matrix.
 
-- union: `4.7441484288x -> 4.1189037362x` (-13.18%), MDD +0.13pp;
-- common-five: `7.9041830487x -> 5.6676404289x` (-28.30%), MDD +0.83pp;
-- joint leader-removal: `1.1546791489x -> 1.2189637440x` (+5.57%), MDD +2.49pp.
+`sector_campaign_ownership` is rejected: wealth changed
+-56.87%/-66.27%/+6.35% and MDD worsened by 31.19/17.32/29.51pp. Result commit
+`d39eb5a5`, tree `7ab3650f`; focused 6/6, ordinary 87/87, research 405 passed
+with 9 skips. No 2026/final matrix. Do not tune or repackage either family.
+Detailed evidence:
+`renewed-continuation/alpha-gap/d39eb5a-breadth-and-sector-ownership-rejections.md`.
 
-No treatment 2026 or final matrix was run. Registration `eacb68ea...`, RED test
-`f75f3372...`, implementation `dd39d42c...`, result record `9c238a0d...`, result
-tree `2d6a1085...`. Focused 6/6, ordinary 87/87, research 393 passed with 9
-skips. Maximum ledger residual was CNY3.93e-9. Detailed evidence:
-`renewed-continuation/alpha-gap/9c238a0-early-leader-ownership-rejection.md`.
+Old passive guards, benchmark-faithful ownership, cash sleeves, participation,
+reversal, record-high, breakout, rotation and decision-path families were
+recovered and remain closed. Do not rerun them.
 
-Do not tune or repackage its ten-day clock, rank boundary, gain sign or
-retention fraction. Together with `profit_trend_shield` and
-`persistent_leader_ownership`, it closes selective market-exit override wrappers
-for existing `trend_book` inventory.
+## Alpha finding and direct continuation
 
-## Direct continuation
+Through 2025-12-31, 29/34 individual same-engine buy-and-hold accounts were
+profitable; routine equal weighting reduced wealth versus buy-and-hold in every
+core scope. The return source is broad one-time ownership plus unconstrained
+winner drift. Repeated security, breadth and sector switching destroyed it.
 
-Reset the source of alpha, not the evidence or old budgets. Existing same-engine
-broad buy-and-hold through 2025-12-31 produced 5.359743x / 19.027562x /
-3.047536x on union/common-five/removal, exceeding the latest concentrated parent
-in all three core scopes. The already rejected persistent local-ownership
-account was stronger on full-period union/removal but weaker on common-five.
+Common-five passive drawdown was concentrated in the three optical winners,
+whereas union and joint-removal drawdowns were broad. Continue by comparing
+fixed passive winner units with corrected WorkBuddy entry/half-exit/full-exit/
+reentry events and quant lifecycle records. Establish a sparse causal event
+across all three scopes before registering another mechanism. It may not become
+another broad guard, ranking/funding tweak, admission gate or rebalance.
 
-The next high-information work is a read-only comparison of ownership shape
-against causal market breadth: test whether narrow leadership and broad theme
-participation are distinguishable before a decision, consistently across all
-three supplied scopes. If and only if that state is supported, preregister one
-standalone breadth-responsive ownership engine. It cannot compose old candidate
-rows, consume an old policy's runtime targets, or rerun `passive_guard` or
-`participation` parameter grids. It must remove ranking as the sole alpha source,
-not add another filter or exit wrapper.
-
-## Closed work: do not repeat
+## Closed work and immutable boundaries
 
 Preserve and do not reopen `campaign_payoff`, `joint_funding`,
 `confirmed_shock`, inventory/T+1 corrections, native timing/fee probes,
-`profit_trend_shield`, corrected `shock_reclaim`, `causal_theme_campaign`,
-`leader_anchor_slots`, `campaign_handover`, peer-confirmed exit delay,
-`persistent_leader_ownership` or `early_leader_ownership`. Older declared
-families including passive guards, participation grids, breakout/record-high,
-directional, leadership and relative-rank grids remain closed evidence too.
-
-## Immutable boundaries and completion
+`profit_trend_shield`, corrected `shock_reclaim`,
+`causal_theme_campaign`, `leader_anchor_slots`, `campaign_handover`,
+peer-confirmed exit delay, `persistent_leader_ownership`,
+`early_leader_ownership`, breadth concentration or sector campaign ownership.
 
 A-share AI/technology, daily cash long-only, after-close decision and
 next-session execution, human verification, no broker auto-order, leverage or
