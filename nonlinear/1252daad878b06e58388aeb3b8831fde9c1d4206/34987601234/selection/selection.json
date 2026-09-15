@@ -1,0 +1,278 @@
+{
+  "advance": false,
+  "status": "REJECTED_PAIRED_SCREEN",
+  "failures": [
+    {
+      "scope": "chatgpt_5",
+      "metric": "wealth",
+      "control": 5.718046146255741,
+      "treatment": 5.618539379186954
+    },
+    {
+      "scope": "chatgpt_5",
+      "metric": "max_drawdown",
+      "control": 0.3155163499985997,
+      "treatment": 0.3487442448787209
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "metric": "max_drawdown",
+      "control": 0.3302999756539289,
+      "treatment": 0.3543017930736939
+    }
+  ],
+  "strict_improvement": true,
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "rows": [
+    {
+      "scope": "union",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 4.231186496672099,
+        "total_return": 3.231186496672099,
+        "cagr": 0.6193701062943131,
+        "max_drawdown": 0.2964510683651256,
+        "inherited_drawdown": 0.2964510683651256,
+        "sharpe_zero_rf": 1.5732214338828439,
+        "orders": 149,
+        "orders_per_year": 49.7916285452882,
+        "gross_turnover": 34.41239746537388,
+        "fees": 82844.5073449225,
+        "slippage": 153890.51847010918,
+        "average_exposure": 0.42898144662821713,
+        "blocked_attempts": 4
+      },
+      "control_ledger": {
+        "max_reconciliation_error": 2.270098775625229e-09,
+        "episodes": 56,
+        "wins": 21,
+        "drawdown_peak": "2024-12-30",
+        "drawdown_trough": "2025-06-03",
+        "max_drawdown": 0.2964510683651256,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 4.326295563973108,
+        "total_return": 3.326295563973108,
+        "cagr": 0.6314441858844873,
+        "max_drawdown": 0.2872889215087592,
+        "inherited_drawdown": 0.2872889215087592,
+        "sharpe_zero_rf": 1.544283849869301,
+        "orders": 149,
+        "orders_per_year": 49.7916285452882,
+        "gross_turnover": 31.915629349119666,
+        "fees": 71407.50194103291,
+        "slippage": 132345.0684292843,
+        "average_exposure": 0.4647363728791648,
+        "blocked_attempts": 14
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 1.7171259969472885e-09,
+        "episodes": 49,
+        "wins": 16,
+        "drawdown_peak": "2024-12-30",
+        "drawdown_trough": "2025-06-03",
+        "max_drawdown": 0.2872889215087592,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "confirmed_shock": {
+        "state_records": 727,
+        "first_half_risk": 10,
+        "zero_risk": 149,
+        "account_drawdown_zero": 1
+      }
+    },
+    {
+      "scope": "chatgpt_5",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 5.718046146255741,
+        "total_return": 4.718046146255741,
+        "cagr": 0.7908160021534625,
+        "max_drawdown": 0.3155163499985997,
+        "inherited_drawdown": 0.3155163499985997,
+        "sharpe_zero_rf": 1.7926521650849137,
+        "orders": 118,
+        "orders_per_year": 39.43229643183898,
+        "gross_turnover": 29.63405810981868,
+        "fees": 82764.190850817,
+        "slippage": 150386.73916674603,
+        "average_exposure": 0.38971442205346496,
+        "blocked_attempts": 3
+      },
+      "control_ledger": {
+        "max_reconciliation_error": 1.979060471057892e-09,
+        "episodes": 45,
+        "wins": 17,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-23",
+        "max_drawdown": 0.3155163499985997,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 5.618539379186954,
+        "total_return": 4.618539379186954,
+        "cagr": 0.7803408763529953,
+        "max_drawdown": 0.3487442448787209,
+        "inherited_drawdown": 0.3487442448787209,
+        "sharpe_zero_rf": 1.7452656880780573,
+        "orders": 123,
+        "orders_per_year": 41.10315645013724,
+        "gross_turnover": 27.286231454841154,
+        "fees": 74938.31737582713,
+        "slippage": 134679.6971757194,
+        "average_exposure": 0.41906649412407804,
+        "blocked_attempts": 5
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 2.270098775625229e-09,
+        "episodes": 39,
+        "wins": 14,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-23",
+        "max_drawdown": 0.3487442448787209,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "confirmed_shock": {
+        "state_records": 727,
+        "first_half_risk": 11,
+        "zero_risk": 91,
+        "account_drawdown_zero": 3
+      }
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 2.35820512290061,
+        "total_return": 1.35820512290061,
+        "cagr": 0.3320064646484908,
+        "max_drawdown": 0.3302999756539289,
+        "inherited_drawdown": 0.3302999756539289,
+        "sharpe_zero_rf": 1.0330065757088278,
+        "orders": 161,
+        "orders_per_year": 53.80169258920403,
+        "gross_turnover": 39.250112257289395,
+        "fees": 62244.70801460173,
+        "slippage": 113755.24849531098,
+        "average_exposure": 0.43698732389095907,
+        "blocked_attempts": 5
+      },
+      "control_ledger": {
+        "max_reconciliation_error": 1.2514647096395493e-09,
+        "episodes": 58,
+        "wins": 18,
+        "drawdown_peak": "2023-04-20",
+        "drawdown_trough": "2024-07-23",
+        "max_drawdown": 0.3302999756539289,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 2.7989734559659682,
+        "total_return": 1.7989734559659682,
+        "cagr": 0.41050450602388056,
+        "max_drawdown": 0.3543017930736939,
+        "inherited_drawdown": 0.3543017930736939,
+        "sharpe_zero_rf": 1.1748494448068971,
+        "orders": 160,
+        "orders_per_year": 53.46752058554438,
+        "gross_turnover": 35.21910219924209,
+        "fees": 55308.53640394194,
+        "slippage": 100507.87289197625,
+        "average_exposure": 0.4684975550295837,
+        "blocked_attempts": 17
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 1.3533281162381172e-09,
+        "episodes": 52,
+        "wins": 15,
+        "drawdown_peak": "2023-04-20",
+        "drawdown_trough": "2024-07-25",
+        "max_drawdown": 0.3543017930736939,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "confirmed_shock": {
+        "state_records": 727,
+        "first_half_risk": 9,
+        "zero_risk": 164,
+        "account_drawdown_zero": 0
+      }
+    }
+  ],
+  "identity": {
+    "source": {
+      "commit": "1252daad878b06e58388aeb3b8831fde9c1d4206",
+      "package_sha256": "077e833265807e1fcc3d12d0a047fae343bd18d4508b572d0956a6683dfa4960",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "b8580ccda8bf04cb6c4e8c4d985538946b51638d1c78086c1049bd64239cfa1b",
+        "engine.py": "822bf6d0afd8ea377e74d0811b00e8389daa40b1bbac774ff19b1e915bcc18bc",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.5",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "family": "confirmed_shock",
+    "dependencies": {
+      "finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
+      "finite_study/__init__.py": "65874fef525de6ec3bf4debe2dd0b64a10d783015032a2951357dfb2b5b5433a",
+      "expectation_study.py": "f71b20322bf9661f65478eb6ea158b0a9c5c715490c8e0e7f2715b5b4923783a",
+      "confirmed_shock.py": "412d804586a9952faaac5a994c34a5f6ad6352899d8f8102ce9f91aad4e38158",
+      "confirmed_shock_contract.json": "bca9fd7b7a4b95e7d8c512fe093e5bfc2aed35eaa154b84ff165b359a707a699",
+      "leadership.py": "fe1dfdaf2250e29cbda71e2891c934b54deaed536075da3fae8b37529972a3a1",
+      "expectation.py": "9f48a03e85913dab8ee97eddbff3669b10b1253f85e0b2cfa7823b42c4ac9a7f",
+      "quantity_obligation.py": "7345fd9f4e4631179d77222898e68a04754483bfbcc05944b9f3f8b2a4c31aa9",
+      "quantity_obligation_contract.json": "6b38a211c2e4c41df2392d5c17d4efb8bd399a74acd43a3354fea0d90690c472",
+      "support_budget.py": "7c01c401bccb71fa54827150a78bd5e5df04cfd617634e36b5ac8e9af90deef6",
+      "support_budget_contract.json": "f68dc02717b35c5f5bd7e1feb6dba2436dc63d596aa0e1affe8bd672dce9bc52",
+      "funded_risk.py": "f91211b5fd377a54bf50778602d066c6e6247e44acbaab8faf48f9972a5751e0",
+      "funded_risk_contract.json": "065e0c70d37677e785f32ca54d6183294c9150e1aa59c415d0c103d25eae35a6",
+      "observed_readiness.py": "e3e24d801156d8eb9b8c4eae2ceaf0365b9001ea93641e93d9340d1a2a252e60",
+      "observed_readiness_contract.json": "a64db872be98b11a1c3010051499af29ef0113fc1909290cee668e4e10ba4617",
+      "admission_budget_completion.py": "abdcc4922c3c6d9d02a216174d77d3f5d9fbc899916dd08e2f08dea237fb89df",
+      "admission_budget_completion_contract.json": "a2f739923d409f3b589d5f8744f300fc8336fef410daf920f4ffc6826a4ec126",
+      "observed_admission_completion.py": "13e11084e1a3c21595f662aa02498f5120da7d191f487ed27aebbad36c7f8f48",
+      "observed_admission_completion_contract.json": "7a4f8e4a080a918de51d68babde747e5cf9bad0bc586252b1cea9c2280136aed",
+      "decision_review.py": "c7c7de645b958420fab8153532a1113dabfcb01fa163df48992cb908d4603593",
+      "ledger_attribution.py": "c338767d01400b119e089363df5eaee71de4b53b5c5bdef80ad2f46bfec48d47"
+    }
+  },
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "new_accounts": 6,
+  "candidate": 0,
+  "plan_sha256": "48f2571e45cea48a71574359a3db213313f85b359603d69ee0f44581a325c478",
+  "historical_exposure": "RETROSPECTIVE_NOT_UNSEEN_OUT_OF_SAMPLE"
+}

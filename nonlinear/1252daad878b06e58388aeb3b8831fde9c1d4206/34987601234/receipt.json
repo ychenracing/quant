@@ -1,0 +1,9 @@
+{
+  "source_commit": "1252daad878b06e58388aeb3b8831fde9c1d4206",
+  "run_id": "34987601234",
+  "family": "confirmed_shock",
+  "operation": "measure",
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
