@@ -1,0 +1,9 @@
+{
+  "source_commit": "0578a23c52007bde657ed97e9ce033fa58675ce6",
+  "run_id": "34966383125",
+  "family": "joint_funding",
+  "operation": "measure",
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
