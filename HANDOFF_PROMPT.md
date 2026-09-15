@@ -13,6 +13,15 @@ Updated 2026-09-15 UTC. Continue `ychenracing/quant` original PR #1, not a new p
 
 The source-branch `research/ACTIVE_WORK.md` is an older released-writer snapshot and is superseded for current recovery by this file and the detailed note above. Still reread it to avoid losing historical constraints. No writer currently owns unpublished source or a pending run.
 
+## Latest closure: corrected shock reclaim
+
+- Registration `39b7e7aa`; corrected source `48c2df4ab101601d09d9feaca82d259452b37240`, tree `d7e84fa78fc642182b69c0cd9d28066d87e1ab4e`.
+- The first hosted zero-event result was traced to implementation ordering: newly flat shock-exit memory was erased before the parent observed the fill and armed ordinary readmission. The targeted regression and full 87 ordinary / 371 research test run pass after the minimal repair; hosted correctness run `35002117215` succeeded.
+- Corrected hosted economic run `35002117259` produced real activity: union/common-five/removal release events `28/16/13` and requests `4/2/2`. Nevertheless all six treatment/control accounts are exactly equal in wealth, MDD, orders, turnover, costs, exposure and ledger outcomes because every request coincides with the unchanged parent's natural readmission maturity.
+- Final status remains `REJECTED_PAIRED_SCREEN`: all-scope non-regression true, strict wealth improvement false, no 2026 treatment/final matrix. Do not tune reclaim rank/price/waiting neighbours or repackage this result.
+- Durable analysis: `renewed-continuation/alpha-gap/48c2df4-shock-reclaim-correctness-and-rejection.md`. Evidence archive SHA256 `b808b22a65c3e9f36dfd70c93bba5a0806d5c114ab4b70f69228f8028717bea6`; selection SHA256 `8d6c590b272d5e714539f96efc70410370d4cb80cd57230d70e5f7060232fe03`.
+- This closes selective shock re-entry under the current lifecycle. Continue with the already-defined unified causal strong-theme/co-leader campaign architecture; opportunity formation must change before another release wrapper can add alpha.
+
 ## Completed work: do not repeat
 
 - `campaign_payoff`, `joint_funding`, `confirmed_shock`, inventory/T+1 corrections and native timing/fee correctness probes are complete and preserved.
