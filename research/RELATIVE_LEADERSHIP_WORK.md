@@ -1,19 +1,13 @@
-# Relative-leadership continuation
+# Relative-leadership implementation and measured outcome
 
-This is original quant PR #1, not a replacement project. The user explicitly requested renewed optimization after the five prior structural hypotheses and comparator corrections had closed. All those failures/budgets remain closed. The new contract is research/relative_leadership_contract.json: one fixed, substantive learning-objective hypothesis; no parameter grid or adjacent retries.
+Original quant PR #1 continuation, not a replacement project. The user's renewed 2026-09-15 optimization instruction led to one new fixed relative-leadership hypothesis registered at98341651d0320cb7be37c653ac32a03f2b581985. All older failures and budgets remain preserved.
 
-## Design and implementation
+Implemented a NumPy-only mature-cohort relative regression, a priority-only adapter to the existing observed-admission owner, real-engine integration tests, source-bound paired measurement and issued-rank preservation. Production Config, entry eligibility, cash authority, slots, stops, protective retries, execution/accounting and original acceptance did not change. The parent remains independent quant code, not one of the private references.
 
-Separate research/relative_rank.py (NumPy-only causal cohort regression) from research/relative_leadership.py (priority-only adapter to the existing observed-admission owner). Reuse the original engine, Config, quote readiness, allowed opportunities, two-slot funding, risk, inventory and completion rules. Never apply predicted sign as an entry gate. A removed symbol must be absent from features, cohorts, fitting and ranking.
+Implementation and paired economic measurement completed at0cca61f6f38019fc47b0901eb58b891662e71d0f/run34960173025. Union and common five improve wealth and drawdown; joint optical-leader removal loses16.651762% terminal wealth. The original paired screen rejects this treatment. It has not been advanced to2026, production defaults, a formal full matrix or main.
 
-Implement tests first for strict outcome maturity, prefix invariance, missing endpoints, cohort common-return invariance, single-name fallback, malformed-input rejection and stable ordering. Verify the neutral adapter returns exact original decisions. Add a small paired runner reusing the existing paired_screen and ledger attribution. The existing bounded nonlinear workflow remains the sole runner/publisher; no new workflow or scheduler is needed.
+A separate read-only audit at5422eeebb8bcaa103414e6ef2680f3004c57b3ed/run34960831528 authenticated the20653524-byte recorded archive and70 payload hashes, reconstructed six original account ledgers, attributed symbol/participation/mix/execution differences and examined656 matured issued-rank cohorts per scope. It did not rerun a strategy or refit a model. Maximum per-day return reconciliation error was3.47e-16. The audit's ranking population is all matched available cohorts, not only executed opportunities; accuracy is diagnostic, not economic acceptance.
 
-Before economic execution, source, tests, fixed contract and request must be durable at one exact source commit. Hosted tests run before economics. Preserve six pre-2026 control/treatment accounts, issued ranks/cohort fit provenance, per-name cash/PnL attribution and every failure in nonlinear/<source>/<run>/. If the immutable pair fails, do not evaluate the treatment on 2026 or search nearby parameters. If it passes, continue the same candidate's original validation; do not treat the screen as acceptance.
+Key result: joint-removal pair accuracy improves47.35%->51.67% but actual wealth worsens; short-horizon ordering quality alone is not aligned with the payoff of the unchanged holding/exit policy. The saved campaign CSVs contain the next useful information; do not respond with another horizon/feature/shrinkage grid or stock-specific branch.
 
-## Current writer and recovery
-
-At preregistration this ChatGPT execution owns only the relative_leadership additions, the existing research/ACTIVE_WORK.md navigation, and the corresponding nonlinear request/workflow adapter on research/expectation-learning. Other implementation branches, PR head and main remain unchanged. No running quant Actions were observed; check queued/running work and live refs before every shared write. Do not infer that an active writer has stopped merely from elapsed time. Existing single-writer and experiment registration are reused, not replaced by a new orchestration system.
-
-Local Git transport cannot resolve github.com in this execution. Authorized GitHub connector reads/writes and the existing hosted test/research runner are the execution route; no credential or permission change is authorized.
-
-Original economic acceptance remains NOT_MET. Original production delivery remains NOT_COMPLETE. This is preregistration, not an implementation, test or economic success claim.
+Read research/ACTIVE_WORK.md and research/evidence:relative-leadership/REVIEW.md for exact identities, all outcomes, remaining gaps and next-work boundaries. This writer is released; no experiment is pending under this completed registration. Original PR remains Draft/unmerged and economic acceptance NOT_MET.
