@@ -1,0 +1,68 @@
+{
+  "family": "persistent_leader_ownership",
+  "status": "REJECTED_PAIRED_SCREEN",
+  "advance": false,
+  "registration_commit": "fc329427c50c29e994f622330fbaa6d626f0d50b",
+  "implementation_commit": "0970e07a6403c868e20deef02d85b6956d8f4906",
+  "test_commit": "7f9b09e9c08462b99d4043e16ed2cd00b1a1f1e6",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_sha256": {
+    "persistent_leader_ownership.py": "fd7549a02d895042645f277d8faaaa64372f56d6f63ecadb22341b45fba40730",
+    "test_persistent_leader_ownership.py": "0bf6c8e9f768c7b3682b4ceca8fa03ed1a64e2818e6eed1d588b0ff2b2cee28e",
+    "persistent_leader_ownership_contract.json": "ad67a74efcf5eddbbe1a658d096fcb50902b70c695968a7200ed99500624f4c0"
+  },
+  "verification": {
+    "ordinary_tests": {"passed": 87, "failed": 0},
+    "research_tests": {"passed": 378, "skipped": 9, "failed": 0},
+    "focused_tests": {"passed": 6, "failed": 0},
+    "control_hosted_max_numeric_error": {
+      "union": 1.862645149230957e-9,
+      "chatgpt_5": 1.862645149230957e-9,
+      "joint_optical_leader_removal": 4.656612873077393e-10
+    },
+    "maximum_ledger_reconciliation_error_cny": 5.471520125865936e-9
+  },
+  "rows": [
+    {
+      "scope": "union",
+      "control_wealth": 4.74414842883842,
+      "treatment_wealth": 3.0566904347838966,
+      "wealth_change": -0.35569249557979965,
+      "control_mdd": 0.3055789380480397,
+      "treatment_mdd": 0.4860131149758421,
+      "control_orders": 145,
+      "treatment_orders": 94,
+      "control_average_exposure": 0.51337827889083,
+      "treatment_average_exposure": 0.736563044671028
+    },
+    {
+      "scope": "chatgpt_5",
+      "control_wealth": 7.904183048701599,
+      "treatment_wealth": 10.90452572827606,
+      "wealth_change": 0.3795892201746669,
+      "control_mdd": 0.391356116446651,
+      "treatment_mdd": 0.4459517896575499,
+      "control_orders": 164,
+      "treatment_orders": 76,
+      "control_average_exposure": 0.48819175555248917,
+      "treatment_average_exposure": 0.6742399959402497
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "control_wealth": 1.1546791488756403,
+      "treatment_wealth": 0.8432128697381335,
+      "wealth_change": -0.2697427068296805,
+      "control_mdd": 0.35331033491094144,
+      "treatment_mdd": 0.6598513274762906,
+      "control_orders": 169,
+      "treatment_orders": 96,
+      "control_average_exposure": 0.46688897802252155,
+      "treatment_average_exposure": 0.6958898726351816
+    }
+  ],
+  "interpretation": "Persistent ownership creates substantial common-five alpha but unconditionally carries broad-universe and removed-leader distractors. The direction proves that ownership duration has material return leverage, but security-specific trend state alone cannot distinguish durable leaders from persistent losers. Reject without shock-threshold, hold-window or partial-book neighbors.",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "historical_exposure": "RETROSPECTIVE_NOT_UNSEEN_OUT_OF_SAMPLE",
+  "production_changed": false
+}
