@@ -210,12 +210,18 @@ class Owner(ParentOwner):
                 "session": i,
                 "market_reason": market_reason,
                 "symbols": [self.market.symbols[j] for j in np.flatnonzero(shielded)],
-                "actual_units": o.units.tolist(),
-                "parent_targets": decision.unit_targets.tolist(),
-                "shielded_targets": targets.tolist(),
-                "campaign_gain": gain.tolist(),
-                "return20": self.return20[i].tolist(),
-                "return60": self.return60[i].tolist(),
+                "positions": [
+                    {
+                        "symbol": self.market.symbols[j],
+                        "actual_units": float(o.units[j]),
+                        "parent_target": float(decision.unit_targets[j]),
+                        "shielded_target": float(targets[j]),
+                        "campaign_gain": float(gain[j]),
+                        "return20": float(self.return20[i, j]),
+                        "return60": float(self.return60[i, j]),
+                    }
+                    for j in np.flatnonzero(shielded)
+                ],
                 "risk_cap_after_parent": float(decision.cap),
                 "retained_exposure": exposure,
                 "parent_risk_cap": float(p.risk.cap),
