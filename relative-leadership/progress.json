@@ -1,0 +1,62 @@
+{
+  "repository": "ychenracing/quant",
+  "original_pr": 1,
+  "user_renewal": "2026-09-15: 继续优化改造，达到目标, received after the earlier budget-closure report",
+  "status": "IMPLEMENTED_MEASURED_AUDITED_TREATMENT_REJECTED",
+  "economic_acceptance": "NOT_MET",
+  "production_delivery": "NOT_COMPLETE",
+  "merge_eligible": false,
+  "registration": "98341651d0320cb7be37c653ac32a03f2b581985",
+  "registered_hypothesis": "relative_leadership",
+  "registered_scope": {"hypotheses":1,"measured":1,"rejected":1,"pending":0,"neighbor_retries_allowed":false},
+  "old_budgets": {"decision_review":"CLOSED_3_REJECTED","renewed_continuation":"CLOSED_2_REJECTED","reset":false},
+  "authority_boundary": "This completed one-hypothesis preregistration is not evidence of a user-imposed permanent one-experiment approval cap. Any further economic work must use the latest explicit user authority and applicable budget, establish a substantively different prospective contract, and not reopen this rejected treatment or reset old frozen ledgers. This progress record does not itself grant a new experiment or relax a gate.",
+  "measurement": {
+    "source":"0cca61f6f38019fc47b0901eb58b891662e71d0f",
+    "tree":"942e5f05dcbc6e44f92f93494df1c5c61927bb6e",
+    "run":34960173025,
+    "artifact":10393330983,
+    "artifact_zip_sha256":"6fc675d69e31e71ac80638bfb0f374614c7ac06e883a8485337ce9d5b2d6263e",
+    "evidence_commit":"1291edc243eec1aab9f8e71f9eaa133cff3ecd4e",
+    "path":"nonlinear/0cca61f6f38019fc47b0901eb58b891662e71d0f/34960173025/",
+    "archive_bytes":20653524,
+    "archive_sha256":"ce5a4bbfefe741f0e721dc85ce43231e94bd1f406b5f0d00eddd34291a533aad",
+    "start":"2023-01-03","end":"2025-12-31","sessions":727,"initial_cash":2000000,
+    "full_frozen_market_sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "runtime":{"python":"3.13.5","numpy":"2.3.5","pandas":"2.2.3","OPENBLAS_NUM_THREADS":1,"OMP_NUM_THREADS":1},
+    "new_accounts":6,"advance":false,"treatment_2026_runs":0,"final_matrix_runs":0,
+    "rows":[
+      {"scope":"union","control_wealth":4.231186496672099,"treatment_wealth":4.5936512510513445,"wealth_change_relative":0.08566503855699349,"control_mdd":0.2964510683651256,"treatment_mdd":0.25811190803109185,"control_fills":149,"treatment_fills":152,"paired_scope":"PASS"},
+      {"scope":"chatgpt_5","control_wealth":5.718046146255741,"treatment_wealth":6.240367321153183,"wealth_change_relative":0.0913460929725909,"control_mdd":0.3155163499985997,"treatment_mdd":0.2892487504759925,"control_fills":118,"treatment_fills":108,"paired_scope":"PASS"},
+      {"scope":"joint_optical_leader_removal","control_wealth":2.35820512290061,"treatment_wealth":1.9655224092014565,"wealth_change_relative":-0.16651762388513124,"control_mdd":0.3302999756539289,"treatment_mdd":0.29484356108255816,"control_fills":161,"treatment_fills":165,"paired_scope":"FAIL_WEALTH"}
+    ]
+  },
+  "read_only_audit": {
+    "producer_source":"5422eeebb8bcaa103414e6ef2680f3004c57b3ed",
+    "run":34960831528,
+    "evidence_commit":"521cc7c6e7c2cc0f9f6e3f4e72ecb638f21debe4",
+    "path":"nonlinear/5422eeebb8bcaa103414e6ef2680f3004c57b3ed/34960831528/account_review/",
+    "manifest_files_verified":70,"new_strategy_accounts":0,"refits":0,"parameter_trials":0,
+    "max_daily_return_reconciliation_error":3.469446951953614e-16,
+    "max_symbol_gap_reconciliation_error_cny":4.6566128730773926e-09,
+    "removal_log_gap":{"participation":0.07185634697794703,"held_name_mix":-0.22578887297735653,"execution":-0.028210195448696317,"total":-0.18214272144810606},
+    "removal_rank_diagnostic":{"matured_cohorts":656,"original_pair_accuracy":0.47346765437860905,"learned_pair_accuracy":0.5167015618597831},
+    "interpretation":"Improved short-window pair accuracy did not convert into improved actual-account payoff after leader removal. Increased average exposure did not repair adverse held-name contribution; this is not proof of an investable counterfactual or of the objective being impossible."
+  },
+  "engineering": {
+    "economic_source":{"offline_passed":87,"research_ran":309,"research_passed":300,"research_skipped":9,"ordinary_ci_run":34960172988,"ordinary_ci":"SUCCESS"},
+    "audit_source":{"offline_passed":87,"research_ran":313,"research_passed":304,"research_skipped":9,"ordinary_ci_run":34960831820,"ordinary_ci":"SUCCESS"},
+    "source_navigation_snapshot":"423d781a94631977fc4a6cc8e2b23f8ecac40d36",
+    "navigation_snapshot_scope":"Documentation only; its branch attachment and CI must be independently read back. It is not a newly measured economic source."
+  },
+  "delivery_refs_at_review":{"main":"bbc002449093e458868a8748687df023958ba283","pr_head":"4fa306fdcde2f9a77d941200ef7ff2f988c045e5","pr_state":"OPEN_DRAFT_UNMERGED"},
+  "collaboration":{"this_writer":"FINISHED_RELEASED","pending_registered_experiments":0,"other_work_containers":"NOT_GLOBALLY_OBSERVABLE; use current refs and collaboration records"},
+  "next_work": {
+    "status":"DESIGN_DIRECTION_NOT_REGISTERED_OR_MEASURED",
+    "question":"Can opportunity selection be aligned to the existing holding/exit payoff rather than short-window relative-order accuracy, with a material feasible effect on joint-leader-removal performance?",
+    "first_evidence":"Use the already saved account_review episode, per-symbol PnL and issued-rank CSVs. No new replay is needed to locate the observed loss periods.",
+    "do_not":"Do not tune neighboring relative-rank parameters, splice per-pool winners, buy named historical winners by exception, repeat completed studies, waive original gates or label this diagnostic as acceptance.",
+    "remaining_original_requirements":"A single accepted production candidate; strongest applicable reference comparison; full and bull periods; both2026 crash windows; original pools/removals/subsets; cost/delay/neighborhood/prefix checks; execution/accounting validity; live repository integration requirements.",
+    "acceptance_provenance":"Resolve the historical inconsistent wording about Config.risk_drawdown=.18 versus a universal acceptance ceiling before promotion; do not infer a waiver from that ambiguity."
+  }
+}
