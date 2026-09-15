@@ -1,0 +1,13 @@
+{
+  "status": "PRIMITIVE_VERIFIED_INTEGRATION_AND_ECONOMICS_NOT_YET_VERIFIED",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "tests": {"command": "python -m unittest research.test_relative_rank -v", "passed": 19, "elapsed_seconds": 0.625, "log_sha256": "34de3b83addd95a8be2e5eb371cb0fbaac9fcfd71998958a00bacdc6fe85b65a"},
+  "tdd": "The primitive suite first failed because relative_rank was absent; the three ordering tests then failed because rank_order was absent. Both were implemented and the combined 19-test suite passed. These failures were implementation-before-test checks, not economic experiments.",
+  "primitive_sha256": "fda698ae09215e3c727fefd1fe301b36d2a87202fd2c339c6765212d5422bcca",
+  "test_sha256": "ff168182a73757ae97cb74e93473368a787833d6914e58874fa171d65ac14104",
+  "workflow": "Recovered original workflow byte-exact to Git blob 97374f8bbbf98d0896ad9a82eb7a7ba2f71c3caf, then applied a minimal family adapter, source-byte guard and rejected-evaluation receipt preservation. Both embedded Python scripts compile.",
+  "not_run_locally": ["real-engine integration tests", "frozen-data economic pair", "original final economic acceptance"],
+  "transport": "All six uploaded implementation/test/workflow Git blob SHAs match independently computed local Git blob SHAs. A blob upload alone is not proof of a branch update; verify the source commit/ref before accepting preservation."
+}

@@ -1,10 +1,16 @@
 {
-  "family": "continuity_selection",
-  "operation": "continuity_selection_pair",
+  "family": "relative_leadership",
+  "operation": "measure",
   "candidate_count": 2,
-  "contract_commit": "5418e5f5be67d6caffa5a60581eda1730e88579f",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "purpose": "One fixed causal information-continuity comparison, exactly six pre-2026 paired accounts. Keep original eligibility, capacity, funding and risk protection; no neighboring rank or capacity search.",
-  "cumulative_budget": "prior correction 3/3 closed; renewed continuation 2/2 registered, opportunity_allocation REJECTED and continuity_selection pending",
-  "economic_acceptance": "UNVERIFIED"
+  "registration_commit": "98341651d0320cb7be37c653ac32a03f2b581985",
+  "request": "One newly authorized fixed relative-leadership pair. Reuse original paired_screen. Do not repeat closed studies or evaluate the treatment on 2026 if rejected. Preserve source, tests, all six accounts, ranks, fits, attribution and failures.",
+  "source_sha256": {
+    "research/relative_rank.py": "fda698ae09215e3c727fefd1fe301b36d2a87202fd2c339c6765212d5422bcca",
+    "research/relative_leadership.py": "81032175886d1fcc6ddf3bc39496b5f35fff93372ca5d70f77570e2bc0d01a73",
+    "research/relative_leadership_study.py": "01c1c847bc6f839f0766594c29ca0df3fa94c095f8c94408ff7e5d82f2f48855",
+    "research/test_relative_rank.py": "ff168182a73757ae97cb74e93473368a787833d6914e58874fa171d65ac14104",
+    "research/test_relative_leadership.py": "152a21a1b063919cccebafeb02516f2dbc58d003f7c8335a8a31c0df244f074a",
+    ".github/workflows/nonlinear-study.yml": "83940eaec558a9494d50a06c6315aa3fde4de9cf4857c2dbc65981c1483759ba"
+  }
 }

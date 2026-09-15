@@ -40,7 +40,7 @@ jobs:
         timeout-minutes: 6
         run: |
           python - <<'PY' > "$RUNNER_TEMP/nonlinear/execution.txt" 2>&1
-          import json, os, pathlib, traceback
+          import hashlib, json, os, pathlib, traceback
           from research.hosted_study import inputs
           from research.finite_study import Study
           from research.forecast_diagnostics import retrieve_parent, diagnose
@@ -49,11 +49,17 @@ jobs:
           output = root / 'nonlinear'
           try:
               request = json.loads(pathlib.Path('research/nonlinear-request.json').read_text())
+              for path, expected_hash in request.get('source_sha256', {}).items():
+                  if hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest() != expected_hash:
+                      raise ValueError('requested source bytes differ: '+path)
               issued = None
               if request['family'] in {'coherent', 'risk_reliability'}:
                   from research.issued_forecasts import retrieve
                   issued = retrieve(root / 'issued-evidence')
-              study = Study(request['family'], issued_evidence=issued)
+              study_type = Study
+              if request['family'] == 'relative_leadership':
+                  from research.relative_leadership_study import Study as study_type
+              study = study_type(request['family'], issued_evidence=issued)
               if len(study.module.grid()) != request['candidate_count']:
                   raise ValueError('declared candidate count mismatch')
               data, supplement = inputs(root / 'frozen-input')
@@ -99,7 +105,7 @@ jobs:
                       elif request['family'] == 'protected_retention':
                           from research.retention_diagnosis import hosted as observe_reductions
                           observe_reductions(output, data, supplement)
-                      elif request['family'] in {'revocable_reentry', 'allocation_auction'}:
+                      elif request['family'] in {'revocable_reentry', 'allocation_auction', 'relative_leadership'}:
                           # Its exact parent archive and state witnesses are already preserved.
                           pass
                       elif issued is not None:
@@ -167,7 +173,7 @@ jobs:
           test ! -e "$destination"
           mkdir -p "$destination"
           cp "$RUNNER_TEMP/nonlinear-evidence.tar.gz" "$RUNNER_TEMP/nonlinear-evidence.sha256" "$destination/"
-          for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json; do
+          for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json evaluation-decision.json; do
             if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
           done
           for dir in selection evaluation parent_diagnosis projection_audit quantity_gap reentry_diagnosis suspension_diagnosis holding_diagnosis admission_diagnosis retention_diagnosis decision_review; do
