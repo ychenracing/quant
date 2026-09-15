@@ -1,0 +1,21 @@
+{
+  "status": "FROZEN_BEFORE_NEW_RUNS",
+  "experiment": "funded_probe_recovery",
+  "selection_end": "2025-12-31",
+  "evaluation_end": "2026-09-11",
+  "seed": 34,
+  "candidate_count": 16,
+  "axes": {"slow": [60,120], "max_positions": [2,3], "shock": [0.04,0.06], "drawdown": [0.08,0.12]},
+  "fixed": {"fast":20,"rebalance":20,"single_cap":0.65,"sector_cap":1.0,"trade_band":0.08,"initial_cash":2000000.0,"commission_bps":2.5,"slippage_bps":10.0,"max_adv":0.005},
+  "states": {
+    "FULL": "Begin with ordinary trend eligibility after warmup. Exit to OFF on actual account daily closing loss >= shock or drawdown from the current FULL episode NAV high >= drawdown. Episode anchors never change financial drawdown metrics, which retain the permanent account high-water mark.",
+    "OFF": "Target all holdings to zero, including repeated blocked-exit attempts. Wait at least five sessions from exit and until observed account exposure is below 1%. A new probe additionally needs at least one fresh forty-session high. After an unsuccessful funded probe, wait ten sessions and require a sixty-session high; after two or more unsuccessful probes, a 120-session high. Failed-probe count is reset only after a funded probe succeeds.",
+    "PROBE": "Allocate at most 25% of current NAV. Keep the probe's opening NAV anchor fixed, even when orders fail. A gain of at least 2% on actual account NAV, after at least three sessions and with at least 15% actual exposure and a healthy owned security, restores FULL. A loss of at least 1.5% on actual account NAV, a shock, or loss of all held trends returns to OFF and increments the failure counter. Paper profits and unfilled target weights cannot satisfy the funded-gain condition."
+  },
+  "ownership": "Use one raw log-momentum score .2/.4/.4 across 20/slow/2*slow sessions. New ordinary entries require close > EMA20, EMA20 > EMA60 and positive 20-session return. Existing holdings survive until close < EMA60*0.98 with negative 20-session return. At each twenty-session review, retain an eligible incumbent unless its score rank exceeds twice the configured position count; fill vacant slots in rank order. Between reviews only actual trend failures, vacancies or risk state changes justify targets. Intact holdings drift; deploy material idle cash; no symmetric volatility haircut or unrelated-universe veto.",
+  "execution": "Unchanged adjusted-unit cash-conserving engine, prior-only capacity and next-open fills. Add a per-run policy factory instead of process-global monkeypatches. Validate every decision as finite nonnegative cash-funded weights. No leverage, broker orders, intraday stop fills, ticker rules or known-date switches.",
+  "selection_scopes": ["union","chatgpt_5","joint_optical_leader_removal"],
+  "selection_objective": "mean(log(wealth / same_engine_buy_hold_wealth) - 0.75 * max_drawdown - 0.002 * max(0, orders_per_year - 20)); ties fewer fills then smaller candidate index",
+  "verification": "Targeted tests for funded rather than hypothetical recovery, blocked exits, independent per-run state, next-open execution, future-prefix invariance and rejection of invalid weights. All sixteen training candidates and selected historical evaluation traces are retained with source, data, runner, protocol and runtime identities.",
+  "interpretation": "Eighth authorized retrospective family. Earlier failures remain intact; this is not a new untouched holdout. Selection is confined to 2023-2025, and later comparisons retain the original economic goals. A selected candidate is not evidence of universal-subset or four-reference dominance."
+}
