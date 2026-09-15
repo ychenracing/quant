@@ -2,8 +2,8 @@
   "task": "quant original PR 1 decision-first correction requested 2026-09-15",
   "authority": "User continuation supersedes unlimited economic iteration; original economic acceptance and immutable old experiments are unchanged.",
   "maximum_structural_hypotheses": 3,
-  "consumed": 2,
-  "reserved_for_existing_parallel_work": 1,
+  "consumed": 3,
+  "reserved_for_existing_parallel_work": 0,
   "remaining_unreserved": 0,
   "reset_across_sessions_or_branches": false,
   "hypotheses": [
@@ -25,23 +25,42 @@
     {
       "name": "protected_retention",
       "registration": "1751b674a941bb334af1138c3300e826444c830f",
-      "status": "CONCURRENT_PREREGISTRATION_RESERVED_NOT_DUPLICATED",
-      "implementation_and_run": "Recheck live state; not assumed absent or complete.",
-      "direction_review": "Its preregistered 4/0/6 core-pool trigger counts contain zero common-five opportunities. It does not address that major participation deficit. Preserve existing work; registration alone does not justify mechanical execution."
+      "source": "6da9e119af256f23c2b2be45fd3d4f5efa1a8bff",
+      "source_tree": "746729880db98c03f93f40dca2d05f63b9fb4839",
+      "run": "34918924019",
+      "evidence": "nonlinear/6da9e119af256f23c2b2be45fd3d4f5efa1a8bff/34918924019/",
+      "control": {"prefer_supported_strength": false},
+      "treatment": {"prefer_supported_strength": true},
+      "selected_candidate": 0,
+      "status": "REJECTED",
+      "outcome": "Pre-2026 union wealth falls from 4.231186496672099 to 3.039362893980137; joint-leader-removal falls from 2.358205122900610 to 2.1084963540340094; common-five unchanged. No risk or wealth improvement jointly established.",
+      "archive_sha256": "1e2257add169e9599ff3ae6647d3dd02e8285431078fe357d6faf89da1396f64",
+      "manifest_members_verified": 156,
+      "accounts_verified": 21,
+      "matrix_rows_verified": 45,
+      "direction_review": "Its preregistered 4/0/6 core-pool trigger counts contain zero common-five opportunities. It does not address that major participation deficit. Preserve the now-completed treatment and control outcomes, not a stale preregistration-only queue."
     },
     {
       "name": "healthy_hold_funding",
       "registration": "080767e443b0dcfc97e531c204b6283e365e5c78",
       "contract_path": "research/healthy_hold_funding_contract.json",
       "contract_blob": "10842c1645c758287a421f3e216b3773949ec876",
-      "status": "REGISTERED_IMPLEMENTATION_UNDER_VERIFICATION_NO_ECONOMIC_RUN_YET",
+      "source": "07f4f32f2a856866bb774e128470b437ceb7f779",
+      "source_tree": "2b0e1b0e3911377c0f3232971c4e96ac007a9cd8",
+      "run": "34919407590",
+      "evidence": "nonlinear/07f4f32f2a856866bb774e128470b437ceb7f779/34919407590/",
+      "status": "REJECTED_PAIRED_SCREEN_NO_FULL_HISTORY_REPLAY",
       "control": {"continuous_held_funding": false},
       "treatment": {"continuous_held_funding": true},
       "screen": "Fixed paired pre-2026 three-core wealth/drawdown nonregression with one strict improvement; each pool must pass. Old selectors and original economic acceptance are unchanged.",
+      "outcome": "Wealth rises in all three scopes, but drawdown rises from 0.2964510683651256 to 0.3228699474798331 in union, 0.3155163499985997 to 0.3602933170990157 in common-five, and 0.3302999756539289 to 0.3702765998973925 after joint leader removal. Orders increase in all three. Pair cannot advance.",
+      "archive_sha256": "cece9c0b39620d0de7c5b396fa45f0b7449a887d1696ce7e89c6b6789695b889",
+      "manifest_members_verified": 90,
+      "accounts_verified": 6,
       "stopping_rule": "Rejected pair ends this hypothesis; no neighboring treatment, wider stops, extra capacity or automatic full-history replay."
     }
   ],
-  "current_work": "Publish verified attribution implementation and one narrow funded-holding comparison; recover its exact hosted results, then close the finite review or apply the original final matrix to the same jointly promising candidate.",
+  "current_work": "All three registered structural hypotheses have completed measurements and are rejected. Preserve their source-bound outcomes and independent verification; do not reopen stale requests, reset this cumulative budget or invent a fourth treatment. Original main delivery is not complete. No jointly promising candidate exists to advance into a new full matrix.",
   "completed_recovery": {
     "parent_source": "4d0c9ec1ada94c4e23f85a329b880adbe0bd5aa1",
     "parent_run": "34910777906",
@@ -56,13 +75,23 @@
     "fixed_scenarios": 200,
     "fixed_scenarios_below_incumbent_wealth": 85
   },
+  "independent_review": {
+    "preservation_commit": "82e62951c7ed3e37e4741189a308161936043c2f",
+    "path": "verification/6da9e119af256f23c2b2be45fd3d4f5efa1a8bff/34918924019/",
+    "new_portfolio_runs": 0,
+    "preserved_members": 12,
+    "original_observation_files_losslessly_preserved": 5,
+    "payload_blob": "5a2f4677f772bd6df74fb7f99b94de9ea527dfa6"
+  },
   "limitations": [
     "Native summary and integrity identifiers are remotely preserved, but its full native ZIP bytes were delivered only as a former conversation artifact, not in the published local-native directory.",
     "Admission's workflow success does not erase DIAGNOSTIC_RESTORE_FAILED for original observational-byte equivalence.",
     "Recorded-account PnL reconciliation passed; same-owner observation matched all target weights within 1.67e-16 and all caps but had one strict reason mismatch on leader-removal 2023-09-01. This remains NOT_EQUIVALENT, not an old guard waiver.",
-    "Log-gap attribution is between actual recorded accounts, not a feasible missed-profit sum, intervention or global bound."
+    "Log-gap attribution is between actual recorded accounts, not a feasible missed-profit sum, intervention or global bound.",
+    "Protected-retention hosted reconstruction failed four original exact observation hashes due to observed last-bit differences. Strict failure, hosted bytes and actual original bytes are separately retained. Lossless recovery of original bytes is not a numerical-equivalence waiver, and later restoration steps in that hosted run were skipped after the failure."
   ],
-  "economic_acceptance": "NOT_ESTABLISHED",
-  "research_completion": "IN_PROGRESS",
+  "economic_acceptance": "NOT_MET",
+  "research_completion": "THREE_REGISTERED_MEASUREMENTS_COMPLETE_ALL_TREATMENTS_REJECTED",
+  "original_task_completion": "NOT_COMPLETE_NO_ACCEPTED_PRODUCTION_CANDIDATE",
   "main_promotion_authorized_by_this_record": false
 }
