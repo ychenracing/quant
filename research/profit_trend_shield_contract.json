@@ -1,0 +1,60 @@
+{
+  "family": "profit_trend_shield",
+  "created": "2026-09-15",
+  "authority": "User explicitly redirected the original PR #1 continuation to alpha-first offensive optimization and requested continued implementation until the original target is met. This registration does not reopen or relabel any previously rejected experiment.",
+  "purpose": "Test whether preserving only already-held, profitable, causally strong-trend campaigns through pure portfolio market-shock reductions can recover material alpha without retaining weak or losing inventory.",
+  "premise": {
+    "source_evidence": "Exact pre-2026 control episodes from the source-bound confirmed_shock control accounts plus the frozen market input.",
+    "diagnostic_only": true,
+    "shock_reasons": ["CROSS_SECTION_SHOCK", "ACCUMULATED_MARKET_SHOCK"],
+    "strong_definition": [
+      "position was held before the current close",
+      "marked campaign gain from its actual observed entry-open is positive",
+      "current completed-session close is above EMA20 and EMA60",
+      "20-session return is positive",
+      "60-session return is positive",
+      "no pre-existing protective exit/reduction obligation",
+      "no current individual stop/exit/stale condition"
+    ],
+    "retrospective_separation": {
+      "union": {"shock_exits": 22, "strong": 12, "strong_win_rate": 0.9167, "strong_avg_episode_return": 0.386, "strong_realized_pnl_cny": 7400600, "other": 10, "other_win_rate": 0.10, "other_avg_episode_return": -0.0745, "other_realized_pnl_cny": -1107200},
+      "chatgpt_5": {"shock_exits": 18, "strong": 7, "strong_win_rate": 1.0, "strong_avg_episode_return": 0.7265, "strong_realized_pnl_cny": 8004000, "other": 11, "other_win_rate": 0.0, "other_avg_episode_return": -0.0629, "other_realized_pnl_cny": -1223700},
+      "joint_optical_leader_removal": {"shock_exits": 17, "strong": 10, "strong_win_rate": 0.80, "strong_avg_episode_return": 0.266, "strong_realized_pnl_cny": 2934900, "other": 7, "other_win_rate": 0.0, "other_avg_episode_return": -0.0534, "other_realized_pnl_cny": -394000}
+    },
+    "limitation": "These are realized-account retrospective diagnostics, not counterfactual attainable profits, causal effect estimates, or an acceptance result."
+  },
+  "treatment": {
+    "control": "current parent owner behavior unchanged",
+    "treatment": "On a pure CROSS_SECTION_SHOCK or ACCUMULATED_MARKET_SHOCK only, restore at most the actual pre-close units of positions meeting the fixed strong_definition. Never add units. Weak/losing positions follow the parent reduction.",
+    "account_drawdown_priority": "Any independently true account-drawdown shock remains immediate and cannot be shielded.",
+    "individual_protection_priority": "Individual stop, exit, stale/not-ready conditions and any pre-existing pending sale or reduction ceiling remain binding and cannot be cleared.",
+    "cash_and_execution": "Preserve actual cash, fees, liquidity, lot sizing, T+1 sellable inventory, mandatory protection obligations and non-resetting NAV risk history.",
+    "no_special_cases": true,
+    "parameter_search": false,
+    "fixed_windows": [20, 60],
+    "fixed_thresholds": {"campaign_gain": 0.0, "return_20": 0.0, "return_60": 0.0}
+  },
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "pair_members": ["control", "profit_trend_shield"],
+    "alpha_screen": "Treatment wealth must be no lower than control in all three scopes and strictly higher in at least one. MDD, fills, exposure and execution validity are recorded but are not substituted for this alpha-first screen.",
+    "alpha_screen_is_not_final_acceptance": true,
+    "failure_rule": "If the fixed alpha screen fails, reject this treatment and do not search nearby trend windows/thresholds or run its failed treatment over 2026/final matrix.",
+    "advance_rule": "Only if the fixed alpha screen passes may this same treatment proceed to the existing full original risk, bull/crash, removal, subset, cost/delay, prefix and stability acceptance requirements."
+  },
+  "frozen_inputs": {
+    "names": 34,
+    "sessions": 896,
+    "start": "2023-01-03",
+    "end": "2026-09-11",
+    "sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"
+  },
+  "prohibitions": [
+    "No per-symbol or calendar-date rule.",
+    "No trades reference implementation may be copied into production.",
+    "No modification of frozen final acceptance definitions, benchmark, data, universe, seed, costs or failed evidence.",
+    "Do not splice winners from different candidates or pools."
+  ]
+}
