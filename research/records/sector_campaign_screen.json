@@ -1,0 +1,226 @@
+{
+  "family": "sector_campaign_ownership",
+  "status": "REJECTED_PAIRED_SCREEN",
+  "advance": false,
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_sha256": {
+    "sector_campaign_ownership.py": "6d82f6fb0f733306006fb287317f6f37072469403742c16cf9a67a4871a39e62",
+    "test_sector_campaign_ownership.py": "3fdc0d7e320162e019c163ca488fffb7f65f718532739966ba94e32f0dc48929",
+    "sector_campaign_ownership_contract.json": "1ae87b41f143376141a7a4608e4f3728058caf3a10366c4aff131a9971ba3939"
+  },
+  "runner_sha256": "7922dde6fbd3cb3a6ba41e16060e0ce1be369eed61735b739902284ffb0a41db",
+  "rows": [
+    {
+      "scope": "union",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 4.74414842883842,
+        "total_return": 3.74414842883842,
+        "cagr": 0.6824926019797857,
+        "max_drawdown": 0.3055789380480397,
+        "inherited_drawdown": 0.3055789380480397,
+        "sharpe_zero_rf": 1.4281064292868777,
+        "orders": 145,
+        "orders_per_year": 48.45494053064959,
+        "gross_turnover": 39.03239690066364,
+        "fees": 90265.86628999369,
+        "slippage": 165529.21786890013,
+        "average_exposure": 0.51337827889083,
+        "blocked_attempts": 25
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 2.046088028852766,
+        "total_return": 1.046088028852766,
+        "cagr": 0.2702880165885948,
+        "max_drawdown": 0.6174790339132975,
+        "inherited_drawdown": 0.6174790339132975,
+        "sharpe_zero_rf": 0.7179343317343032,
+        "orders": 112,
+        "orders_per_year": 37.42726440988106,
+        "gross_turnover": 46.14370440941633,
+        "fees": 47363.08729541634,
+        "slippage": 87037.18211014086,
+        "average_exposure": 0.8231172269300567,
+        "blocked_attempts": 0
+      },
+      "wealth_change": -0.5687133192513245,
+      "mdd_change": 0.3119000958652578,
+      "control_ledger": {
+        "max_reconciliation_error": 2.7939677238464355e-09,
+        "episodes": 45,
+        "wins": 24,
+        "drawdown_peak": "2025-09-01",
+        "drawdown_trough": "2025-12-03",
+        "max_drawdown": 0.3055789380480397,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 1.5534169506281614e-09,
+        "episodes": 58,
+        "wins": 22,
+        "drawdown_peak": "2023-04-20",
+        "drawdown_trough": "2024-09-05",
+        "max_drawdown": 0.6174790339132975,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "hosted_control_max_error": 1.862645149230957e-09,
+      "treatment_events": {
+        "transitions": 34,
+        "targets": 148,
+        "stale_exits": 0,
+        "retained": 579
+      }
+    },
+    {
+      "scope": "chatgpt_5",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 7.904183048701599,
+        "total_return": 6.904183048701599,
+        "cagr": 0.9954399788719608,
+        "max_drawdown": 0.391356116446651,
+        "inherited_drawdown": 0.391356116446651,
+        "sharpe_zero_rf": 1.7491092776610122,
+        "orders": 164,
+        "orders_per_year": 54.80420860018298,
+        "gross_turnover": 36.222570571701624,
+        "fees": 134601.34278754212,
+        "slippage": 243133.85296790846,
+        "average_exposure": 0.48819175555248917,
+        "blocked_attempts": 46
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 2.6661142685204706,
+        "total_return": 1.6661142685204706,
+        "cagr": 0.3877676460053414,
+        "max_drawdown": 0.564519060357836,
+        "inherited_drawdown": 0.564519060357836,
+        "sharpe_zero_rf": 0.88583154186669,
+        "orders": 50,
+        "orders_per_year": 16.708600182982618,
+        "gross_turnover": 33.233723038191485,
+        "fees": 49722.25971691693,
+        "slippage": 89957.00329787108,
+        "average_exposure": 0.7680431059618773,
+        "blocked_attempts": 0
+      },
+      "wealth_change": -0.6626957837270195,
+      "mdd_change": 0.17316294391118492,
+      "control_ledger": {
+        "max_reconciliation_error": 3.725290298461914e-09,
+        "episodes": 41,
+        "wins": 20,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-26",
+        "max_drawdown": 0.391356116446651,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 1.4842953532934189e-09,
+        "episodes": 26,
+        "wins": 12,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-01-30",
+        "max_drawdown": 0.564519060357836,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "hosted_control_max_error": 1.862645149230957e-09,
+      "treatment_events": {
+        "transitions": 31,
+        "targets": 184,
+        "stale_exits": 0,
+        "retained": 543
+      }
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 1.1546791488756403,
+        "total_return": 0.15467914887564027,
+        "cagr": 0.04923513626394693,
+        "max_drawdown": 0.35331033491094144,
+        "inherited_drawdown": 0.35331033491094144,
+        "sharpe_zero_rf": 0.3169906767347706,
+        "orders": 169,
+        "orders_per_year": 56.475068618481245,
+        "gross_turnover": 47.47983940944148,
+        "fees": 53350.728517320684,
+        "slippage": 95081.69582748652,
+        "average_exposure": 0.46688897802252155,
+        "blocked_attempts": 45
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 1.2280489064340872,
+        "total_return": 0.22804890643408715,
+        "cagr": 0.07105895529628414,
+        "max_drawdown": 0.6484531389192039,
+        "inherited_drawdown": 0.6484531389192039,
+        "sharpe_zero_rf": 0.4025420629867516,
+        "orders": 108,
+        "orders_per_year": 36.09057639524245,
+        "gross_turnover": 46.76897926181942,
+        "fees": 40124.49629901389,
+        "slippage": 72975.89672903654,
+        "average_exposure": 0.828025157827561,
+        "blocked_attempts": 1
+      },
+      "wealth_change": 0.06354125094394414,
+      "mdd_change": 0.2951428040082624,
+      "control_ledger": {
+        "max_reconciliation_error": 8.076312951743603e-10,
+        "episodes": 50,
+        "wins": 23,
+        "drawdown_peak": "2023-02-15",
+        "drawdown_trough": "2024-05-24",
+        "max_drawdown": 0.35331033491094144,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 9.167706593871117e-10,
+        "episodes": 54,
+        "wins": 15,
+        "drawdown_peak": "2023-04-20",
+        "drawdown_trough": "2024-09-05",
+        "max_drawdown": 0.6484531389192039,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "hosted_control_max_error": 4.656612873077393e-10,
+      "treatment_events": {
+        "transitions": 34,
+        "targets": 148,
+        "stale_exits": 0,
+        "retained": 579
+      }
+    }
+  ],
+  "tests": {
+    "focused": "6/6",
+    "ordinary": "87/87",
+    "research": "405 passed, 9 skipped"
+  },
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "historical_exposure": "RETROSPECTIVE_NOT_UNSEEN_OUT_OF_SAMPLE"
+}

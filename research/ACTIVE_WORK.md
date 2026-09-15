@@ -11,54 +11,54 @@ parameter searches, per-pool splicing or reference-source reuse.
 - main: `966f7428658431c9da5a6fcaf7d9b9d5c446f2cd`.
 - PR #1: OPEN, Draft, unmerged; implementation head
   `efffb9a428258e921feaff125011cba46223bb18`.
-- current research source:
-  `af32b9a8c17154868e70bd3f4d65e36a81858df3`.
-- evidence handoff at takeover:
-  `research/evidence@8cfc12da75bda16e9a9e0bcf65e21d22d9a758a6`.
+- current research implementation source:
+  `8cc104a6b9610e1683885baf47159d8d8dca92f6`.
+- frozen selection data:
+  `894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157`.
 
-## Latest closure: breadth concentration ownership
+## Latest closures
 
 `breadth_concentration_ownership` is permanently
-`REJECTED_PAIRED_SCREEN`. Its preregistered fixed implementation passed focused
-6/6, ordinary 87/87 and research 399 tests with 9 skips, but wealth changed:
+`REJECTED_PAIRED_SCREEN`: wealth changed -63.54%/-14.46%/-35.61% on
+union/common-five/joint-removal and MDD worsened in every scope. Dynamic
+whole-book breadth reshaping caused structural churn. Do not tune or repackage
+its breadth, confirmation, capacity, weights or review clock.
 
-- union: `4.744148x -> 1.729762x` (-63.54%), MDD +34.40pp;
-- common-five: `7.904183x -> 6.761473x` (-14.46%), MDD +14.34pp;
-- joint leader-removal: `1.154679x -> 0.743474x` (-35.61%), MDD +38.13pp.
+`sector_campaign_ownership` is also permanently
+`REJECTED_PAIRED_SCREEN`. The registered fixed implementation passed focused
+6/6, ordinary 87/87 and research 405 tests with 9 skips, but:
 
-Gross turnover rose from 39.03/36.22/47.48 to
-221.66/98.76/228.56. Mode changes plus scheduled whole-book reshaping produced
-structural path and cost destruction. No 2026 or final matrix was run. Do not
-tune or repackage breadth thresholds, confirmation/smoothing, capacity, weights
-or review clocks. This closes dynamic whole-book breadth reshaping.
+- union: `4.744148x -> 2.046088x` (-56.87%), MDD +31.19pp;
+- common-five: `7.904183x -> 2.666114x` (-66.27%), MDD +17.32pp;
+- joint leader-removal: `1.154679x -> 1.228049x` (+6.35%), MDD +29.51pp.
+
+The policy made 31-34 sector transitions and 33.23-46.77 gross turnover. A
+sector hierarchy did not solve ownership switching; it destroyed the same
+winner compounding identified in the passive account. No 2026 or final matrix
+was run. Do not tune sector score, breadth, windows, review timing, member
+count/weights or combine its single positive removal result with another row.
+This closes sector-rotation ownership as a continuation of the old same-sector
+gate failure.
 
 Also do not repeat `campaign_payoff`, `joint_funding`,
 `confirmed_shock`, inventory/T+1 corrections, timing/fee probes,
 `profit_trend_shield`, `shock_reclaim`, `causal_theme_campaign`,
 `leader_anchor_slots`, `campaign_handover`,
-`persistent_leader_ownership` or `early_leader_ownership`.
+`persistent_leader_ownership`, `early_leader_ownership`, old passive guards,
+ownership guards, cash sleeves, participation, reversal, record-high, breakout,
+rotation or decision-path grids.
 
-## Active batch
+## Direct continuation
 
-The old passive-guard, ownership-guard, sleeves, participation, reversal,
-record-high and rotation evidence was recovered; none jointly passed and none
-may be rerun. New read-only attribution finds 29/34 single-security passive
-accounts profitable through 2025-12-31, while twenty-session equal weighting
-reduced wealth in every core scope. Winner drift, not routine rebalancing, is the
-passive alpha source. Common-five drawdown is concentrated in three optical
-winners, while union and leader-removal drawdowns are broad.
+Read-only same-engine attribution establishes that 29/34 securities were
+profitable buy-and-holds through 2025-12-31 and routine equal weighting reduced
+wealth in all three scopes. The dominant return source is one-time broad
+ownership plus unconstrained winner drift; every tested repeated switching
+layer has destroyed that source. The next work must compare the fixed passive
+account's large drawdown episodes with corrected WorkBuddy entry/half-exit/full-
+exit/reentry records and the quant account, to identify a sparse lifecycle event
+that preserves winner units between episodes. Do not implement another
+rebalance, ranking, funding, gate or broad risk wrapper without new causal
+evidence.
 
-`sector_campaign_ownership` is preregistered as one standalone price-led
-engine. It selects the strongest qualified supplied-universe sector by causal
-median momentum and sector breadth, owns all qualified members, preserves
-actual units, and changes sector only when the active campaign fails on the
-unchanged review clock. It is not the rejected same-sector admission gate and
-does not consume a parent or reference target.
-
-Implement exactly by TDD, then run focused, ordinary and research suites and
-the fixed three-scope pre-2026 paired screen. Reject without any neighbor if any
-scope loses wealth or union does not strictly improve. Only one identical
-passing source may advance.
-
-Writer state: this batch owns only the registered sector campaign implementation
-and its one fixed screen. No hosted request is pending.
+Writer state: released. No hosted request or unpublished source is pending.
