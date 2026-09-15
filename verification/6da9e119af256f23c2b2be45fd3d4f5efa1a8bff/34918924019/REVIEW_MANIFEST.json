@@ -1,0 +1,29 @@
+{
+  "format": "Strip base64 whitespace, decode, xz-decompress. The resulting UTF-8 JSON maps each filename to its exact original text; write each UTF-8 byte sequence and verify member hashes. Do not interpret this record as canonical economic acceptance.",
+  "source": "6da9e119af256f23c2b2be45fd3d4f5efa1a8bff",
+  "run": "34918924019",
+  "concurrent_source": "07f4f32f2a856866bb774e128470b437ceb7f779",
+  "concurrent_run": "34919407590",
+  "payload": "review-files.xz.b64",
+  "payload_sha256": "841564ba92824020caf73e65d66df283dff2f0e4ff4d4588d44543195f0652f8",
+  "payload_git_blob": "5a2f4677f772bd6df74fb7f99b94de9ea527dfa6",
+  "decoded_json_sha256": "857d8fc260a415d32e4453a60065929c80576df21d148f11f097fe9a08849930",
+  "members": {
+    "independent-verification.json": "9ee934e3f4800aa907c6c95a7b1c1f6728583eeb5018f990a0e89ab9375cb89f",
+    "original-observations.json": "a02415deacb45be0b124721ca5e4d969522616132b96e3d8addaffaaf43e7f11",
+    "restore_original_observations.py": "60407fc6f20498dfe6153d1ea99068d19762e06cb3f79502970b2bd5fbcb346f",
+    "restoration-check.txt": "6bc6909392fe2d7588e4f6da50b8c0f78e9e9efd73a259b81980895f07ca3f2c",
+    "audit_retention_result.py": "2e8a0d3ae6dcff560a07c336dc3579bad61edbf9f475a62472bbbd5a425c3e72",
+    "audit_retention_result_initial.py": "4527da04e6730dd00647f5311e16a324f17ec6a95c8558e8649fb1f895c78bbc",
+    "protected-retention-audit.txt": "77c87853c06afed7266354ab9762a2a11f90930328eae24847f45526b145e5f5",
+    "protected-retention-audit-final.txt": "7490fb03ba010ada91f50ecc3b46337d22d56af0c613e0385263b89e70433d29",
+    "audit_healthy_pair.py": "ab47a0b2fdf86abc2aa598bb8ec6d7958d74844c63be6ef99683b860d183bd69",
+    "healthy-pair-audit.txt": "769b467f08b672a3a80fff283a80f5f9d063ed70b8b053316a75c778e9daed23",
+    "preserve_original_observations.py": "7cda946bcef25aade315dc80f6c0c80ddd9a496990768562628fafea36317aaa",
+    "healthy-hold-funding-verification.json": "19c53b21c2a809524a807a88465b73a1a4d011fbbee750591fc2987b5d31684e"
+  },
+  "diagnostic_original_recovery": "Five original observed files are stored losslessly as byte deltas against the immutable published retention archive. The recorded original SHA256 values predate measurement. Run restore_original_observations.py using that archive to restore them separately; hosted outputs and original expectations remain untouched.",
+  "diagnostic_exact_equivalence": "FAILED: four of five hosted reconstructed observation hashes differ; strict original rejection retained.",
+  "economic_acceptance": "NOT_MET",
+  "status": "INDEPENDENT_ACCOUNT_VERIFICATION_AND_ORIGINAL_BYTE_PRESERVATION"
+}
