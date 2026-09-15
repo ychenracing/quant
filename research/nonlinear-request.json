@@ -1,12 +1,16 @@
 {
-  "family": "joint_funding",
-  "operation": "continuation_account_audit",
+  "family": "confirmed_shock",
+  "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "request": "Read-only exact recovery of both completed rejected pairs, twelve recorded accounts and close-known non-price context. ZERO new strategy accounts, fits or parameter trials. Retain source-bound results and investigate distinct next information without changing any frozen policy or screen. Correct the review namespace bug from b4a79f08/run34967198409 only: validate runtime dependencies as versions, research dependencies as exact SHA256 files. Preserve the failed audit; no economic rerun.",
+  "registration_commit": "1ce819815f7c6a5cd6e9f00e64cf972d183e1888",
+  "request": "Execute the single preregistered confirmed-market-shock control/treatment pair through 2025-12-31. Preserve account-drawdown immediate-zero priority, all raw accounts and traces. Reject on any scope wealth or drawdown regression; do not run rejected treatment in 2026 or search neighboring thresholds.",
   "source_sha256": {
-    "research/continuation_account_audit.py": "5282a07485a029ca93d52ea4c48db53b00f3c1293130b98ee2578a606610042e",
-    "research/test_continuation_account_audit.py": "586fc8fb9ff0df821155943522cdf1b5d538734520fa2c6d3a0654372af3ee3a",
+    "research/confirmed_shock.py": "412d804586a9952faaac5a994c34a5f6ad6352899d8f8102ce9f91aad4e38158",
+    "research/test_confirmed_shock.py": "ad20d7515860cb2af5aa8fdef84059669d8dee07dea31ff4d1f74aa7b4c8a1bb",
+    "research/confirmed_shock_contract.json": "bca9fd7b7a4b95e7d8c512fe093e5bfc2aed35eaa154b84ff165b359a707a699",
+    "research/finite_study/__init__.py": "65874fef525de6ec3bf4debe2dd0b64a10d783015032a2951357dfb2b5b5433a",
+    "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
     ".github/workflows/nonlinear-study.yml": "b2dd941475ae7f6c6d077cd8a8d7d42e2e61c7beb683e28bc5bc996218a5bfc9"
   }
 }
