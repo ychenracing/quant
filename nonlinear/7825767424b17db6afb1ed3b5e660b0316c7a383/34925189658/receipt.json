@@ -1,0 +1,9 @@
+{
+  "source_commit": "7825767424b17db6afb1ed3b5e660b0316c7a383",
+  "run_id": "34925189658",
+  "family": "opportunity_allocation",
+  "operation": "opportunity_allocation_pair",
+  "selection_status": "REJECTED",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
