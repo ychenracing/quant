@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "classification": "STATIC_RISK_SEMANTICS_CLASSIFICATION_NOT_ECONOMIC_ACCEPTANCE",
+  "scope": "Authenticated selected private reference sources and their native common-five metric definitions; no strategy modification or replay.",
+  "findings": {
+    "chatgpt": {
+      "decision_risk_semantics": "Contains persistent and recoverable drawdown managers; risk-control behavior can lock or rearm according to strategy policy.",
+      "reported_mdd_basis": "Marked-to-market portfolio equity cumulative maximum.",
+      "classification": "STRATEGY_POLICY_NOT_METRIC_RESET"
+    },
+    "trae": {
+      "decision_risk_semantics": "Uses recent/rolling peak windows and recovery logic for sizing/risk decisions.",
+      "reported_mdd_basis": "Full equity cumulative maximum, optionally maxed with intraday-low drawdown.",
+      "classification": "STRATEGY_POLICY_NOT_METRIC_RESET"
+    },
+    "dumate": {
+      "decision_risk_semantics": "Maintains peak_value for portfolio drawdown and derisk/reentry decisions.",
+      "reported_mdd_basis": "Daily recorded drawdown from the persistent peak_value; report takes the minimum drawdown.",
+      "classification": "STRATEGY_POLICY_NOT_METRIC_RESET"
+    },
+    "workbuddy": {
+      "decision_risk_semantics": "May rebase its internal strategy peak after a completed hard-breaker liquidation and cooldown/recovery logic.",
+      "reported_mdd_basis": "Daily equity cumulative maximum in compute_metrics, independent of the strategy's internal reset.",
+      "classification": "STRATEGY_POLICY_RESET_DOES_NOT_ERASE_REPORTED_MDD"
+    }
+  },
+  "conclusion": "The inspected risk-state differences change future strategy behavior but do not hide each reference's reported realized-equity maximum drawdown. Normalizing them would redesign the comparator strategies rather than repair an identified execution/accounting defect. No fixed risk-state replay is justified without a new concrete ledger inconsistency.",
+  "remaining_correctness_limits": [
+    "actual-share/corporate-action/tax ledger remains unverified for the shared qfq adapter and cannot be reconstructed exactly from raw/qfq mapping changes alone",
+    "native fee assumptions remain intentionally disclosed and heterogeneous after the one historical Trae stamp-duty correctness probe",
+    "any future comparator correction must begin from a specific authenticated binding defect rather than general semantic differences"
+  ],
+  "economic_acceptance": "NOT_MET",
+  "production_delivery": "NOT_COMPLETE",
+  "merge_eligible": false
+}
