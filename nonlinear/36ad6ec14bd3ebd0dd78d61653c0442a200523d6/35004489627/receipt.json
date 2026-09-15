@@ -1,0 +1,9 @@
+{
+  "source_commit": "36ad6ec14bd3ebd0dd78d61653c0442a200523d6",
+  "run_id": "35004489627",
+  "family": "shock_reclaim",
+  "operation": "measure",
+  "selection_status": "INCOMPLETE",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
