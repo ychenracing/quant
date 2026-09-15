@@ -29,39 +29,30 @@ Also do not repeat `campaign_payoff`, `joint_funding`,
 `confirmed_shock`, inventory/T+1 corrections, timing/fee probes,
 `profit_trend_shield` or `shock_reclaim`.
 
-## Active batch
+## Latest completed candidate
 
-`persistent_leader_ownership` is closed and rejected. Its actual-fill episodes
-were newly attributed over the unchanged first ten-session rebalance interval.
-The fixed existing-capacity confirmation state separated later cycle economics
-in all three core scopes: confirmed/unconfirmed median returns were
-`+6.20%/-9.99%`, `+9.01%/-10.46%`, and `+4.19%/-8.90%`, with 31/30/26
-confirmed activations. Entry momentum and acceleration did not consistently
-separate outcomes. The diagnostic is descriptive and later outcomes are never
-runtime inputs.
+`early_leader_ownership` is `REJECTED_PAIRED_SCREEN`. The fixed state was
+implemented exactly after registration and passed focused 6/6, ordinary 87/87
+and research 393 tests with 9 skips. It changed wealth by -13.18%/-28.30%/+5.57%
+on union/common-five/joint-removal; MDD changed by +0.13pp/+0.83pp/+2.49pp.
+No treatment 2026 or final matrix was run. Do not tune or repackage its ten-day
+clock, rank boundary, gain sign or retention fraction.
 
-Prospective contract `research/early_leader_ownership_contract.json` is now
-registered before implementation. Implement exactly one boolean pair:
+The result disproves the direct promotion of persistent-account outcome labels
+into a retention rule: even a prefix-causal confirmation changed later capital
+paths and destroyed wealth in the two strongest scopes. `profit_trend_shield`,
+`persistent_leader_ownership` and `early_leader_ownership` jointly close the
+family of wrappers that selectively override market exits for existing
+`trend_book` inventory.
 
-- parent is unchanged `trend_book.Owner(positions=2)`;
-- confirmation begins only after actual funding and is available only during
-  the first unchanged ten-session rebalance interval;
-- confirmation requires positive gain over weighted acquisition-open basis,
-  unchanged parent admission and unchanged score rank within capacity two;
-- a confirmed leader may survive only market-wide risk reductions and their
-  recovery wait; security brokenness, portfolio drawdown/warning and every
-  pre-existing inventory obligation remain authoritative;
-- confirmation cannot buy, enlarge or restore units, and full exit clears it;
-- no new numeric threshold, pool/ticker/date/sector branch, score/funding
-  change or reference-runtime input is allowed.
+## Direct continuation
 
-Use TDD, then ordinary and full research suites, then the fixed six-account
-pre-2026 pair. Reject without neighbors if any scope loses wealth or union does
-not strictly improve. Only the same passing source may proceed to 2026 and the
-original final matrix.
+Stop adding wrappers to `trend_book`. Reconstruct the strongest independently
+saved quant accounts and compare their complete entry/ownership engines by
+scope, symbol and campaign. Identify a standalone causal alpha source that can
+improve union without losing common-five or joint-removal; it must change the
+source of campaign ownership rather than merely defer a parent exit. Register
+at most one new structural engine only after its causal observables and minimum
+failure screen are explicit.
 
-Writer state: this batch owns the registered `early_leader_ownership`
-implementation and at most one matching hosted request until its result and
-evidence are saved. Do not start another writer on
-`research/expectation-learning`. This ownership does not reset any closed
-candidate budget.
+Writer state: released. No hosted run or unpublished source is pending.

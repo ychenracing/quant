@@ -1,0 +1,58 @@
+{
+  "family": "early_leader_ownership",
+  "status": "REJECTED_PAIRED_SCREEN",
+  "advance": false,
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_sha256": {
+    "early_leader_ownership.py": "1845a86219dd731f7b3930acfd7ce49d75583b65fd0da07eafbd9b848e54312f",
+    "test_early_leader_ownership.py": "91610be627b24685c53967252942408b7f5674aa7dbfca595aba3de55f593b7a",
+    "early_leader_ownership_contract.json": "1530d99ff8811f7865f854b1049ad31a45afc74352fac8170eec8829d1183462"
+  },
+  "rows": [
+    {
+      "scope": "union",
+      "control": {"wealth": 4.74414842883842, "max_drawdown": 0.3055789380480397, "orders": 145, "orders_per_year": 48.45494053064959, "average_exposure": 0.51337827889083},
+      "treatment": {"wealth": 4.1189037362250955, "max_drawdown": 0.30687304338454624, "orders": 136, "orders_per_year": 45.44739249771272, "average_exposure": 0.5828193999044764},
+      "wealth_change": -0.13179281845665447,
+      "mdd_change": 0.0012941053365065347,
+      "confirmations": 30,
+      "retention_events": 70,
+      "retained_symbol_events": 102,
+      "max_ledger_residual": 1.862645149230957e-9,
+      "hosted_control_max_error": 1.862645149230957e-9
+    },
+    {
+      "scope": "chatgpt_5",
+      "control": {"wealth": 7.904183048701599, "max_drawdown": 0.391356116446651, "orders": 164, "orders_per_year": 54.80420860018298, "average_exposure": 0.48819175555248917},
+      "treatment": {"wealth": 5.667640428883416, "max_drawdown": 0.39968840314961185, "orders": 159, "orders_per_year": 53.133348581884725, "average_exposure": 0.5332568823289091},
+      "wealth_change": -0.2829568351387781,
+      "mdd_change": 0.008332286702960823,
+      "confirmations": 29,
+      "retention_events": 44,
+      "retained_symbol_events": 83,
+      "max_ledger_residual": 3.92901711165905e-9,
+      "hosted_control_max_error": 1.862645149230957e-9
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "control": {"wealth": 1.1546791488756403, "max_drawdown": 0.35331033491094144, "orders": 169, "orders_per_year": 56.475068618481245, "average_exposure": 0.46688897802252155},
+      "treatment": {"wealth": 1.2189637440066752, "max_drawdown": 0.3781956638996069, "orders": 142, "orders_per_year": 47.452424519670636, "average_exposure": 0.5102993213771537},
+      "wealth_change": 0.055673123736261765,
+      "mdd_change": 0.024885328988665467,
+      "confirmations": 29,
+      "retention_events": 60,
+      "retained_symbol_events": 77,
+      "max_ledger_residual": 8.87666828930378e-10,
+      "hosted_control_max_error": 4.656612873077393e-10
+    }
+  ],
+  "tests": {
+    "focused": "6/6 passed after expected implementation-absent RED",
+    "ordinary": "87/87 passed",
+    "research": "393 passed, 9 skipped"
+  },
+  "decision": "Reject without neighboring observation windows, rank cutoffs, gain thresholds or retention fractions. Do not run treatment 2026 or final matrices.",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "historical_exposure": "RETROSPECTIVE_NOT_UNSEEN_OUT_OF_SAMPLE"
+}
