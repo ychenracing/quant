@@ -1,0 +1,19 @@
+{
+  "archive": "audit-core.tar.xz",
+  "encoding": "Concatenate raw binary part00 through part04 in that order, verify SHA256, then extract XZ tar with a safe data-only filter. Parts themselves are binary, not base64 text.",
+  "bytes": 19828,
+  "sha256": "9629c7c20365c6186f5f25d89a1d3a8ea2a1f2d817de7b19ee92e2b6a2514626",
+  "verified_members": 25,
+  "parts": [
+    {"name":"audit-core.tar.xz.part00","bytes":4000,"git_blob":"9dc37922ec5a7fb25194edf84d449a09804ae81d","sha256":"dbccfe9eb6a24ca59107e3d9cee5fab73f24c2f6d726005bd57565fac9e5e835"},
+    {"name":"audit-core.tar.xz.part01","bytes":4000,"git_blob":"089a6c4cfba8e5594cb85bba8dfa55a8f9cd0c92","sha256":"36d035425e5f2fa6d5c437c165da5a1102c416d6c45499faaaea76e2fad6718e"},
+    {"name":"audit-core.tar.xz.part02","bytes":4000,"git_blob":"9f0ede490819248b6263353e4c474fd3dcbf1f23","sha256":"0d56c0fc2faafad62a1eb624674893cf3f6abac11ca5c2c78d67d9f47a5bdc7a"},
+    {"name":"audit-core.tar.xz.part03","bytes":4000,"git_blob":"b0b2234c4fbe6296312453d84b83b8de7d5bb019","sha256":"30192f499ed385d0098c90354176011abb700b8d0864f3abc786dd522fba6738"},
+    {"name":"audit-core.tar.xz.part04","bytes":3828,"git_blob":"7e6f41e821e9bc2f56ad6782999debfafc5dbb29","sha256":"913a29706ce0bb3e7c8a4dd17be2511524edd940b85cdba983e8a6ef28ed19dd"}
+  ],
+  "contents": "Original workbuddy common-five native replay: raw equity, raw fills, summary, settings, identity and manifest; read-only inventory audit implementation and five passing tests; unchanged-account capacity/stop-source/reconstruction scripts and summaries; actual opportunity-account per-symbol PnL differences. No private reference implementation or credentials are included.",
+  "economic_raw_accounts": "The twelve new full paired accounts, intent traces, original source archives and hosted tests are separately retained under the two nonlinear/source/run paths. This transport does not replace their source identities.",
+  "derived_observation_limitation": "The larger exploratory daily observation CSVs are not in this small transport; their exact hashes, source account manifests, scripts and summary witnesses are retained inside MANIFEST.json and this archive. They remain additionally in the current local workspace. Do not claim those extra CSV bytes were remotely uploaded. They are not missing original strategy accounts or evidence of a new economic hypothesis.",
+  "rejected_transport_objects": ["d48c13a61fff47e91f9590ff837a4df40d99871d", "99a06f57c923887ada38f45fb98cbfc02b5c8337"],
+  "transport_verification": "Two truncated, unreferenced blob attempts were rejected by mismatch against locally computed Git blob hashes; neither is used in the retained parts or archive. All five retained blob hashes match exact local chunks; local concatenation and all 25 member SHA256 values were verified. Final branch-tree readback must match these blob identities."
+}

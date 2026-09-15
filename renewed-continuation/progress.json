@@ -1,47 +1,17 @@
 {
-  "updated_at": "2026-09-15T04:02:00Z",
+  "updated": "2026-09-15",
   "repository": "ychenracing/quant",
   "original_pr": 1,
-  "authority": "After the old three-hypothesis correction closed and its failures were reported, the user explicitly requested: 想尽一切办法继续优化和改造吧，不要在一个方向上无止境的调参，你应该适时调整方向",
-  "old_budget": "decision-review/budget.json remains immutable and closed, 3/3 consumed. The original unlimited-loop wording is not restored.",
-  "renewed_continuation": {
-    "self_imposed_total_limit": 2,
-    "registered": 2,
-    "not_yet_registered": 0,
-    "rule": "One fixed treatment and unchanged control per substantive hypothesis. No neighboring windows, powers, weights, capacity, risk-budget combinations or renamed extra hypotheses after rejection. Original economic and execution requirements are unchanged. Correctness-only reconciliation and recovery may proceed."
-  },
+  "authority": "After being informed that the original three-hypothesis correction had exhausted its budget without acceptance, the user explicitly requested: 想尽一切办法继续优化和改造吧，不要在一个方向上无止境的调参，你应该适时调整方向",
+  "old_budget": "decision-review/budget.json remains immutable: closed, three consumed, all three treatments rejected. No old contract or result is rewritten.",
+  "renewed_continuation": {"self_imposed_total_limit": 2, "registered": 2, "measured": 2, "rejected": 2, "pending": 0, "remaining": 0, "status": "BOUNDED_ECONOMIC_STUDY_COMPLETE_NOT_ACCEPTED"},
   "hypotheses": [
-    {
-      "name": "opportunity_allocation",
-      "contract_commit": "80c0252aa3f1bb33fb4b158209521f14aed43dcf",
-      "source": "7825767424b17db6afb1ed3b5e660b0316c7a383",
-      "source_tree": "50a423cc112e45b56d6b24a7d222d5560472137d",
-      "run": 34925189658,
-      "status": "REJECTED",
-      "evidence": "nonlinear/7825767424b17db6afb1ed3b5e660b0316c7a383/34925189658/",
-      "archive_sha256": "3c7ae6af6fd16c01840f53f16801d4d6672058e06deba15d957b1c7767a998a5",
-      "summary": "Six matched accounts through 2025-12-31. Union wealth 4.231186496672099 -> 3.7266846932076594 and common-five 5.718046146255741 -> 5.601245688579341. Removal wealth 2.35820512290061 -> 2.7225212021031777 but MDD .3302999756539289 -> .35195265698497846. No full-history treatment evaluation. No follow-up position-count grid."
-    },
-    {
-      "name": "continuity_selection",
-      "contract_commit": "5418e5f5be67d6caffa5a60581eda1730e88579f",
-      "source": "32304314270586d078d527aa2860aab78a09f613",
-      "source_tree": "253804819b1d43c17c066eb1e353f40c3eaa762a",
-      "run": 34926804636,
-      "status": "IMPLEMENTED_MEASUREMENT_QUEUED_AT_LAST_CHECK",
-      "expected_evidence": "nonlinear/32304314270586d078d527aa2860aab78a09f613/34926804636/",
-      "summary": "Changes only original qualified-opportunity funding priority using a fixed causal continuity factor over Config.slow. Original two-slot capacity, admission, cash, risk, concentration, stops and protection remain. No failed capacity treatment is retained. Eight new, 257 research and 87 offline tests passed locally; all 2181 pre-2026 recorded control closes match weights, reasons and caps under the neutral ordering hook. These are not economic acceptance. Recover the actual completed run before considering any rerun."
-    }
+    {"name":"opportunity_allocation","contract_commit":"80c0252aa3f1bb33fb4b158209521f14aed43dcf","source":"7825767424b17db6afb1ed3b5e660b0316c7a383","source_tree":"50a423cc112e45b56d6b24a7d222d5560472137d","run":34925189658,"status":"REJECTED","evidence":"nonlinear/7825767424b17db6afb1ed3b5e660b0316c7a383/34925189658/","archive_sha256":"3c7ae6af6fd16c01840f53f16801d4d6672058e06deba15d957b1c7767a998a5","verified_manifest_members":51,"new_accounts":6,"full_treatment_evaluation":"NOT_RUN_AFTER_REJECTION"},
+    {"name":"continuity_selection","contract_commit":"5418e5f5be67d6caffa5a60581eda1730e88579f","source":"32304314270586d078d527aa2860aab78a09f613","source_tree":"253804819b1d43c17c066eb1e353f40c3eaa762a","run":34926804636,"status":"REJECTED","evidence":"nonlinear/32304314270586d078d527aa2860aab78a09f613/34926804636/","zip_sha256":"f7a19e2fcb152c4aaa8ea4e68ffd58e193b0477fc52d9ec30c85733db25a4883","archive_sha256":"316471d9b036f3c4e6cfc0899a1e59858fcd8c353db8d52267f062da838170be","verified_manifest_members":63,"new_accounts":6,"full_treatment_evaluation":"NOT_RUN_AFTER_REJECTION"}
   ],
-  "native_recovery": {
-    "scope": "workbuddy/chatgpt_5",
-    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
-    "read_only_private_source_recovered_from": "trades engineering artifact 10023909983 at c3d838ce6349f8bdf0ec2988836212563aaa10bc; workbuddy quant_ai.py matches frozen Git blob e19e611cd332e7a01c0f8677e0ae60600b295c6d",
-    "original_native_wealth": 20.221072996623576,
-    "trades_sha256": "a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb",
-    "confirmed_anomaly": "2025-04-28 sz300502: sold 52100 native economic units after a same-day buy, while beginning sellable inventory was zero. Exactly one T+1 excess found in the ordered original ledger; old inventory sales after new buys are not falsely classified. Original report reproduced, not corrected.",
-    "limitation": "No corrected native wealth or full normalized-execution ranking has been established. No private source has been copied into quant. Original returns and all limitations remain."
-  },
-  "delivery": {"main": "bbc002449093e458868a8748687df023958ba283", "pr_head": "4fa306fdcde2f9a77d941200ef7ff2f988c045e5", "state": "DRAFT_UNMERGED", "economic_acceptance": "NOT_MET", "production_delivery": "NOT_COMPLETE"},
-  "next_action": "Recover continuity_selection run 34926804636 and preserve its complete outcome. If rejected, no third economic design in this bounded continuation. If genuinely jointly improved, validate the same complete candidate against all applicable original requirements; a screening pass alone cannot authorize main. Preserve observational scripts/raw audit and update this status with actual results."
+  "screen": "Unchanged decision_review.paired_screen: wealth no lower and MDD no higher in each of three scopes, at least one strict improvement. A screen rejection is not proof of global infeasibility; a screen pass would not have been original acceptance. Do not alter the old selectors or tune neighbors after seeing these results.",
+  "correctness": {"latest_source":"32304314270586d078d527aa2860aab78a09f613","new_policy_tests":17,"research_tests":257,"offline_tests":87,"local_and_hosted":"PASS","neutral_hook_recorded_control_closes":2181,"neutral_hook_result":"All three pre-2026 accounts match target weights, reasons and caps exactly","native_read_only_inventory_tests":5,"native_audit_tests":"PASS","old_full_period_removal_identity_mismatch":"Still unresolved; do not infer it is fixed from the newly recorded pre-2026 accounts"},
+  "native_recovery": {"scope":"workbuddy/chatgpt_5","reference_commit":"5575d1b1b79fab405b92cfb7d164c7054a8bd826","private_implementation_git_blob":"e19e611cd332e7a01c0f8677e0ae60600b295c6d","original_native_wealth":20.221072996623576,"trades_sha256":"a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb","confirmed_anomaly":"2025-04-28 sz300502: 52100 native economic units sold, with zero beginning sellable inventory after a same-day purchase. Original replay and read-only audit retained. Other valid sales of prior inventory after a new buy are not counted as violations.","corrected_native_wealth":"UNVERIFIED_NOT_COMPUTED","full_uniform_execution_comparison":"INCOMPLETE","private_source_published":false},
+  "delivery": {"main":"bbc002449093e458868a8748687df023958ba283","pr_head":"4fa306fdcde2f9a77d941200ef7ff2f988c045e5","pr_state":"OPEN_DRAFT_UNMERGED","latest_research_source":"32304314270586d078d527aa2860aab78a09f613","economic_acceptance":"NOT_MET","original_project_delivery":"NOT_COMPLETE"},
+  "continuation": "Do not dispatch these completed pairs again. No third new economic design under this bounded continuation and no failed-treatment final-matrix fishing. Correctness-only reference reconciliation remains independently actionable under existing authority. A genuinely new economic research direction requires new evidence and prospective boundaries rather than resetting the closed ledgers. No user economic target or threshold has been relaxed."
 }
