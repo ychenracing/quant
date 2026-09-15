@@ -1,15 +1,15 @@
 {
-  "family": "profit_trend_shield",
+  "family": "shock_reclaim",
   "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "66354029843c1704808fa8717b804c745389e302",
-  "request": "Execute the single preregistered profitable-trend market-shock shield control/treatment pair through 2025-12-31. Preserve account-drawdown and security-specific protection priority, actual inventory, cash and traces. Reject on any scope wealth regression; do not run a rejected treatment in 2026 or search neighboring trend windows or thresholds.",
+  "registration_commit": "39b7e7aa3ec63f9ba29d2cfd034facd9c35659bd",
+  "request": "Execute the single preregistered top-ranked market-shock reclaim control/treatment pair through 2025-12-31. Exit protective shocks normally first; only a flat shock-exited name may receive one-close provisional readmission release when it requalifies under the unchanged parent, is deterministic rank-1 by the unchanged positive score, and has reclaimed its saved shock-signal close. Preserve actual cash, slots, risk, T+1, fees, liquidity and all protection obligations. Reject on any scope wealth regression; do not tune rank/price/waiting thresholds or run a rejected treatment over 2026/final matrix.",
   "source_sha256": {
-    "research/profit_trend_shield.py": "043b9699a0f340ff864f8938f0a801fce331aa3a31143d5ddba11ccf3b90432e",
-    "research/test_profit_trend_shield.py": "b66a3723754302de2ee858f65a726f03132207929153d46d642d6c34b7fd6a75",
-    "research/profit_trend_shield_contract.json": "6ebd8885c935c8fede0fd841c6ff3dfb6b4e67a3baed1db20da89336baf53c9a",
-    "research/finite_study/__init__.py": "5d0011d2f066520fd205bbbaae03b83d7eb4288eb427deab22a5146868777c62",
+    "research/shock_reclaim.py": "0b82ae18fb3aa73a059b3a30715c31a5bbdd2acc97466edfecc415331e573001",
+    "research/test_shock_reclaim.py": "34c163d7cb923ac0d5d4ec34350ea173047404a8367638dc8ed73a7ab92290f9",
+    "research/shock_reclaim_contract.json": "c92412bedf4b19443440b5d44c4f5e5697ccc027cdff6b6b0acb1edad93d6f2c",
+    "research/finite_study/__init__.py": "0cb170e544406f1213150eb77a4bcaf37ee5e6c645fd3b1ecf6492d795221bde",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
     ".github/workflows/nonlinear-study.yml": "b2dd941475ae7f6c6d077cd8a8d7d42e2e61c7beb683e28bc5bc996218a5bfc9"
   }
