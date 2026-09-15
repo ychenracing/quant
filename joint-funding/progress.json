@@ -1,0 +1,23 @@
+{
+  "task":"ychenracing/quant original PR1",
+  "status":"JOINT_FUNDING_REJECTED_TASK_CONTINUES",
+  "registration":"637fdb539580c1ecddbff9958d74ba79c27ce1c1",
+  "source":"0578a23c52007bde657ed97e9ce033fa58675ce6",
+  "tree":"6f5f1f20b28938a31798287d34b52d7a4f3bda00",
+  "run":34966383125,
+  "evidence_commit":"565660bea72e1dc2783aea2fe27f8d5e747ffdaf",
+  "path":"nonlinear/0578a23c52007bde657ed97e9ce033fa58675ce6/34966383125/",
+  "archive_sha256":"abd1b3687813a9e18dc7030669991db8a272d9d4cb3ffad2f96bf0bffa1cba96",
+  "verification":"All hosted source-hash, offline/research correctness and publication/readback steps succeeded. 343 research tests ran with 334 passes and 9 skips. Full independent archive/member/account reconciliation is the next read-only action, not already claimed here.",
+  "window":{"start":"2023-01-03","end":"2025-12-31","sessions":727,"initial_cash":2000000},
+  "data_sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "rows":[
+    {"scope":"union","control_wealth":4.231186496672099,"treatment_wealth":3.899771393297535,"control_mdd":0.2964510683651256,"treatment_mdd":0.30359911240122983,"control_fills":149,"treatment_fills":149,"funding_calls":498,"held_fresh_competition":7,"multi_leg_funding":19},
+    {"scope":"chatgpt_5","control_wealth":5.718046146255741,"treatment_wealth":5.523722480975184,"control_mdd":0.3155163499985997,"treatment_mdd":0.313563627087904,"control_fills":118,"treatment_fills":114,"funding_calls":541,"held_fresh_competition":13,"multi_leg_funding":6},
+    {"scope":"joint_optical_leader_removal","control_wealth":2.35820512290061,"treatment_wealth":2.6058189427040572,"control_mdd":0.3302999756539289,"treatment_mdd":0.3348110008737897,"control_fills":161,"treatment_fills":159,"funding_calls":467,"held_fresh_competition":7,"multi_leg_funding":21}
+  ],
+  "cash_violations":0,"modeled_risk_violations":0,"advance":false,
+  "economic_acceptance":"NOT_MET","production_delivery":"NOT_COMPLETE","main_changed":false,
+  "interpretation":"The fixed geometry changes actual outcomes but does not jointly improve all scopes. Held/fresh competition is infrequent on the treatment's realized path; these counts are not a global upper bound on entry/funding redesign. This does not support neighboring score/risk weights, silently relaxed thresholds or mixing per-pool winners.",
+  "next":"Recover both new raw archives and independently reconcile all twelve source-bound accounts. Inspect actual holding-period contributions and existing frozen non-price inputs for a substantively different information source before another economic design; do not replay either rejected mechanism or claim the task is completed."
+}
