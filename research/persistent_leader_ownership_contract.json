@@ -1,0 +1,23 @@
+{
+  "family": "persistent_leader_ownership",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "parent": {
+    "implementation": "research/trend_book.py",
+    "parameters": {"positions": 2},
+    "source_boundary": "Reuse the independently written price-led actual-inventory owner; do not consume any reference strategy source or runtime decisions."
+  },
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "economic_hypothesis": "The dominant alpha gap is winner lifecycle rather than rank or funding: the strongest reference account has materially larger winning cycles and a 55-session median holding period versus 21.5 sessions for quant, while the parent often liquidates all ownership on account-level market shocks even when its highest-score holding subsequently appreciates. A single ownership state should therefore let the market regime govern new commitments while security-specific evidence governs disposal of already funded leaders.",
+  "observed_basis": {
+    "reference_gap": "Saved exact filled-account attribution assigns about CNY16.92m of the WorkBuddy advantage to larger winning cycles and about CNY3.22m to avoided losses; this is descriptive, never a runtime input.",
+    "shock_survivor_diagnosis": "At parent market-shock exits the highest-score held name had mean next-10-session price returns of about 13.1%/12.2%/9.1% in union/common-five/removal, with positive counts 7/11,7/10,8/11. This is diagnostic and does not guarantee executable treatment returns.",
+    "failed_neighbors": "profit_trend_shield selectively restored profitable 20/60-day trend holdings after parent market-shock decisions and lost 16.80% wealth in union; confirmed_shock and shock_reclaim also failed. They remain rejected. This candidate does not change shock thresholds, retain a subset after a parent decision, or tune those wrappers."
+  },
+  "ownership": "One standalone account state uses the parent's unchanged close-only price admission and security-break predicates, two-position capacity, price score, actual-filled units, cash-only funding, name/sector ceilings and inventory retry. Once a position is actually funded, cross-sectional shock, accumulated shock, account drawdown, broad-market warning or recovery state cannot itself create a sale. Existing units are sold only for the parent's unchanged security broken predicate: the observed 60-session exit, a fresh one-session return <=-8%, or missing readiness. Existing latched security exits remain mandatory until filled.",
+  "entry_regime": "New or restored units still require every unchanged parent admission predicate, including the supplied-universe broad market trend, observed rising 60-session trend, close above EMA20, positive five-session momentum, positive finite score and readmission health. Market weakness can therefore close the new-risk gate without liquidating intact ownership. No new numeric threshold, ticker, date, pool or sector branch is introduced.",
+  "execution": "Preserve frozen Config, next-session open execution, T+1 inventory, adjusted economic-unit accounting, actual cash, board lots, liquidity, fees, slippage, single-name/sector limits and no leverage/shorting. A blocked security sale remains outstanding and cannot fund a purchase. Human inspection and no automatic order submission remain unchanged.",
+  "comparison": "Exactly one boolean control/treatment pair on union, common-five and joint optical-leader removal through 2025-12-31. Control is exact trend_book.Owner(positions=2); treatment changes only account-risk liquidation authority as declared above. Record wealth, MDD, turnover, exposure, fills, costs and ledger reconciliation.",
+  "failure": "Reject without neighboring thresholds or partial variants if treatment wealth declines in any core scope, if union does not strictly improve, or if no scope strictly improves. Record all risk and turnover regressions even when the return screen passes.",
+  "advancement": "Only the same source candidate passing the fixed core screen may proceed to full history, both 2026 decline windows, native references, contributor/sector removals, subsets, costs/delay, causal-prefix, stability and engineering/repository protection checks. Core-screen success is not final economic acceptance.",
+  "forbidden": "No risk-threshold tuning, ranking/funding weight change, new gate/filter, parameter grid, per-pool logic, hard-coded winner/ticker/date/sector, reference trades at runtime, best-row splicing, or relabeling any rejected candidate."
+}
