@@ -1,0 +1,41 @@
+{
+  "diagnosis": "persistent ownership causal prefix state",
+  "status": "DIAGNOSTIC_SUPPORTS_ONE_FIXED_CANDIDATE",
+  "selection_end": "2025-12-31",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_account": "persistent_leader_ownership treatment, already REJECTED_PAIRED_SCREEN",
+  "fixed_observation_window": 10,
+  "runtime_state": "During the first parent rebalance interval after actual funding: positive gain over weighted acquisition-open basis, unchanged parent admission, unchanged score rank within unchanged two-position capacity.",
+  "scopes": [
+    {
+      "scope": "union",
+      "episodes": 47,
+      "confirmed": {"episodes": 31, "wins": 18, "win_rate": 0.5806451612903226, "median_return": 0.06202723799374129, "mean_return": 0.13231290697535852, "total_pnl": 5348149.150379724},
+      "unconfirmed": {"episodes": 16, "wins": 5, "win_rate": 0.3125, "median_return": -0.09988274237794426, "mean_return": -0.03342880319531247, "total_pnl": -1234768.2808119296},
+      "max_ledger_residual": 1.862645149230957e-9
+    },
+    {
+      "scope": "chatgpt_5",
+      "episodes": 38,
+      "confirmed": {"episodes": 30, "wins": 17, "win_rate": 0.5666666666666667, "median_return": 0.09010965823205719, "mean_return": 0.2325618737256846, "total_pnl": 19679829.245847136},
+      "unconfirmed": {"episodes": 8, "wins": 2, "win_rate": 0.25, "median_return": -0.10456853677525119, "mean_return": 0.11779914568402239, "total_pnl": 129222.21070497856},
+      "max_ledger_residual": 5.471520125865936e-9
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "episodes": 48,
+      "confirmed": {"episodes": 26, "wins": 14, "win_rate": 0.5384615384615384, "median_return": 0.041860740110752255, "mean_return": 0.0497203248105698, "total_pnl": 780309.949848686},
+      "unconfirmed": {"episodes": 22, "wins": 4, "win_rate": 0.18181818181818182, "median_return": -0.08897975003314987, "mean_return": -0.05683537335185804, "total_pnl": -1093884.2103724186},
+      "max_ledger_residual": 5.07498043589294e-10
+    }
+  ],
+  "negative_control": {
+    "union_entry_momentum5_median_loser_winner": [0.12343925475368367, 0.07244363714072022],
+    "common_five_entry_momentum5_median_loser_winner": [0.10800612295753087, 0.11163881559659927],
+    "leader_removal_entry_momentum5_median_loser_winner": [0.08521201675160672, 0.08835782344158294],
+    "conclusion": "Entry momentum and acceleration are not a stable cross-scope discriminator; do not tune them."
+  },
+  "full_diagnostic_sha256": "87f36f8211709b6d940ff40ad0fe91d21c4c7f2e6ab120d585c3bac689c218af",
+  "diagnostic_script_sha256": "9a0c9a5802173f5141c6da572960aee7eac1ff52a310ea869b0aed7cbbb56ee9",
+  "economic_acceptance": "NOT_ESTABLISHED"
+}

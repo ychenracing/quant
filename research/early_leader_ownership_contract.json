@@ -1,0 +1,29 @@
+{
+  "family": "early_leader_ownership",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "parent": {
+    "implementation": "research/trend_book.py",
+    "parameters": {"positions": 2},
+    "source_boundary": "Reuse only quant's independently written close-signal and actual-inventory owner. Reference implementations and runtime decisions remain excluded."
+  },
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "economic_hypothesis": "Persistent ownership created large common-five winners but compounded broad-universe distractors. The durable difference is not stronger entry momentum: it is early confirmation after actual ownership. Within the parent's unchanged first ten-session rebalance interval, positions that are already profitable, remain parent-admissible and remain within the parent's existing two-position capacity have materially better realized cycle economics in every core scope. A standalone entry-plus-lifecycle state can therefore preserve confirmed leaders through market-only de-risking while leaving unconfirmed inventory and account-risk protection unchanged.",
+  "observed_basis": {
+    "diagnosis_sha256": "87f36f8211709b6d940ff40ad0fe91d21c4c7f2e6ab120d585c3bac689c218af",
+    "diagnostic_script_sha256": "9a0c9a5802173f5141c6da572960aee7eac1ff52a310ea869b0aed7cbbb56ee9",
+    "union": "31 confirmed cycles: median +6.2027%, total PnL +CNY5.348m; 16 unconfirmed cycles: median -9.9883%, total PnL -CNY1.235m.",
+    "common_five": "30 confirmed cycles: median +9.0110%, total PnL +CNY19.680m; 8 unconfirmed cycles: median -10.4569%, total PnL +CNY0.129m.",
+    "leader_removal": "26 confirmed cycles: median +4.1861%, total PnL +CNY0.780m; 22 unconfirmed cycles: median -8.8980%, total PnL -CNY1.094m.",
+    "negative_control": "Entry five-session momentum and five-versus-ten-session acceleration did not consistently separate winners from losers across scopes; this contract does not change their ranking weights or thresholds.",
+    "interpretation": "Final cycle outcomes are diagnostic labels only. Runtime confirmation uses only information available after each close and can never use the later realized label."
+  },
+  "confirmation": "Start the observation clock only when a zero position is first observed as actually funded. During the first Config.rebalance=10 observed closes, latch a leader when its current close is above the weighted acquisition-open basis, the unchanged parent currently admits it, and its unchanged parent score ranks within the parent's existing two-position capacity among currently admitted names. Additional actual units update the weighted basis. A position that fails to confirm within the fixed interval is never promoted during that episode. Full liquidation clears its basis, age and latch.",
+  "ownership": "Before confirmation, the unchanged parent owns all entry, exit and risk decisions. After confirmation, unchanged security brokenness still forces exit, and portfolio drawdown shock or portfolio warning still has immediate authority. Only market-wide cross-section shock, accumulated market shock, broad trend breakdown and their recovery-wait continuation may not sell confirmed actual units. Unconfirmed holdings follow the parent market reduction. Confirmation does not create, enlarge or restore a position.",
+  "provenance": "A market-only retention may restore at most the actual confirmed units that existed before the current close decision and may not clear a pre-existing exit latch or reduction ceiling. Existing inventory obligations remain mandatory until actual fill. The returned decision records the retained symbols, actual units, acquisition basis, age, rank, parent target and retained target.",
+  "execution": "Keep frozen Config, daily after-close decisions, next-session execution, T+1 sellable inventory, adjusted economic-unit accounting, actual cash, board lots, liquidity, fees, slippage, name/sector ceilings and no leverage or shorting. Human review and no automatic broker order remain unchanged.",
+  "comparison": "Exactly one boolean control/treatment pair on union, common-five and joint optical-leader removal through 2025-12-31. Control must be byte-equivalent in equity, targets and orders to trend_book.Owner(positions=2). Record wealth, MDD, turnover, exposure, fills, costs, confirmation activations and ledger reconciliation.",
+  "failure": "Reject without neighboring windows, rank cutoffs, profit thresholds or partial-retention variants if treatment wealth declines in any core scope, if union does not strictly improve, or if no scope strictly improves. Do not run treatment 2026 or final matrices after a failed core screen.",
+  "advancement": "Only this same fixed source candidate passing the core screen may proceed to full history, both 2026 decline windows, native references, contributor/sector removals, subsets, costs/delay, causal-prefix, stability and engineering/repository-protection checks. Core-screen success is not final economic acceptance.",
+  "forbidden": "No ticker/date/pool/sector special case, reference trades at runtime, score or funding-weight change, new numerical search, gate accumulation, best-row splicing, or relabeling persistent_leader_ownership, profit_trend_shield, leader_anchor_slots or any other rejected candidate."
+}
