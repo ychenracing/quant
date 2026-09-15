@@ -1,0 +1,14 @@
+{
+  "archive": "evidence.tar.xz",
+  "bytes": 35520,
+  "sha256": "9f8dc138c6af0729606456af3aab13fa3ef056008a11898c60f0f417801f13f5",
+  "members": 42,
+  "verified_file_hashes": 41,
+  "parts": [
+    {"name":"evidence.tar.xz.part00","bytes":9000,"sha256":"e99ab3bc82068da5a6a241aab97770e77c732208ad6a7d1eba87b15681ffc9d3","git_blob":"64d3cb84ec96e0eb0d32c2992186646e1a97e930"},
+    {"name":"evidence.tar.xz.part01","bytes":9000,"sha256":"d0aa32a819ab547fef9e8515784c0c818eb5e4db635305ae0b5a796f415334f1","git_blob":"a1ea27e508e4a27bfb7e012c6239cf7c1446ebca"},
+    {"name":"evidence.tar.xz.part02","bytes":9000,"sha256":"9eaea857f3a3996dd50c1dfae840e2289b63a4e675271abe97723665846bd29f","git_blob":"3b6cbc9cd260fc39a5b0d4323187cca3482f8d11"},
+    {"name":"evidence.tar.xz.part03","bytes":8520,"sha256":"053ad2080d3704ab6c4db07ecb7f6fc0dba4737d3a0dfef40dc839c8495a76a7","git_blob":"aedcf853eedd7606b9e0c2fbb1723cdda619f87d"}
+  ],
+  "encoding": "Raw binary chunks in listed order; concatenate, verify SHA256, safely extract the XZ tar. No private source is included."
+}
