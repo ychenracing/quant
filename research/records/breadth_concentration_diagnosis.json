@@ -1,0 +1,30 @@
+{
+  "status": "DIAGNOSTIC_ONLY_NOT_ACCEPTANCE",
+  "diagnosis": "causal breadth versus ownership shape",
+  "selection_end": "2025-12-31",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "diagnostic_script_sha256": "e46e8ebeeeba615d271123c7170280bee0de004acdce78b666faa8cf48c4fe78",
+  "full_local_output_sha256": "0516d5c76e5366927d32500c12e61607f837b6bef60d9e2ea441a56ca264b5df",
+  "method": "Non-overlapping twenty-session cohorts; current breadth and current 20/60/120-session momentum only. Forward labels are diagnostic and are prohibited as runtime inputs.",
+  "scopes": [
+    {
+      "scope": "union",
+      "breadth_correlation_to_broad_minus_top2": -0.29436886386999217,
+      "below_half": {"cohorts": 13, "broad_wins": 6, "mean_broad_minus_top2": 0.011075975206731259, "median_broad_return": -0.029230682817864468, "median_top2_return": -0.02244201791944095},
+      "at_least_half": {"cohorts": 14, "broad_wins": 4, "mean_broad_minus_top2": -0.04515612089975707, "median_broad_return": 0.05028725884398949, "median_top2_return": 0.05833806132458899}
+    },
+    {
+      "scope": "chatgpt_5",
+      "breadth_correlation_to_broad_minus_top2": -0.3621566358279222,
+      "below_half": {"cohorts": 0, "broad_wins": 0, "mean_broad_minus_top2": null, "median_broad_return": null, "median_top2_return": null},
+      "at_least_half": {"cohorts": 15, "broad_wins": 8, "mean_broad_minus_top2": -0.023215436690054457, "median_broad_return": 0.05428991671940472, "median_top2_return": 0.07046454582392714}
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "breadth_correlation_to_broad_minus_top2": -0.13025515625528938,
+      "below_half": {"cohorts": 9, "broad_wins": 7, "mean_broad_minus_top2": 0.045272765160425096, "median_broad_return": -0.049368288728703504, "median_top2_return": -0.0833664170126363},
+      "at_least_half": {"cohorts": 15, "broad_wins": 7, "mean_broad_minus_top2": 0.011407455118718863, "median_broad_return": 0.02199389432128198, "median_top2_return": 0.022320025422152168}
+    }
+  ],
+  "interpretation": "The sign is sufficiently consistent to justify one fixed ownership-shape candidate. It does not justify a threshold grid, a future-return classifier or a claim of executable gains."
+}

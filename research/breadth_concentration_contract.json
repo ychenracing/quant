@@ -1,0 +1,35 @@
+{
+  "family": "breadth_concentration_ownership",
+  "status": "DECLARED_BEFORE_IMPLEMENTATION_OR_PORTFOLIO_REPLAY",
+  "purpose": "Test a standalone causal ownership-shape engine rather than another exit-retention wrapper on trend_book.",
+  "hypothesis": "The broad-universe alpha gap is not primarily missing names but owning the wrong number of names for the current technology regime. When a majority of the supplied ready universe is above its observed EMA20, leadership is coherent and the strongest two causal momentum names should own the book. When fewer than half are above EMA20, the strongest-two choice is unreliable; spreading ownership across every still-qualified positive-trend name should reduce wrong-leader concentration without abandoning technology participation.",
+  "diagnosis": {
+    "selection_end": "2025-12-31",
+    "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+    "method": "Non-overlapping twenty-session cohorts. Breadth and ranking use only information through each close. Forward returns are descriptive labels only and never enter runtime decisions.",
+    "result": "For breadth at least one half, top-two minus broad mean advantage is 4.52pp in union and 2.32pp in common-five; removal is approximately tied on the mean. Below one half, broad minus top-two mean advantage is 1.11pp in union and 4.53pp in removal; common-five has no qualifying low-breadth cohort. Both low-breadth baskets have negative median forward return, so the diagnosis supports ownership-shape reliability, not a guaranteed profitable state."
+  },
+  "causal_observables": {
+    "ready": "Current quote and volume plus at least sixty observed closes and at least sixteen fresh quotes in the trailing twenty sessions.",
+    "breadth": "Fraction of ready supplied-universe securities whose current close is above its EMA20.",
+    "qualified": "Ready, close above EMA20, EMA20 above EMA60, and positive average log momentum over observed 20/60/120-session horizons.",
+    "ranking": "The same average 20/60/120-session log momentum; deterministic symbol tie-break. No symbol, sector, date, reference result or future return is an input."
+  },
+  "ownership": {
+    "majority_breadth": "When breadth is at least one half, own at most the strongest two qualified names.",
+    "minority_breadth": "When breadth is below one half, own every currently qualified name; this is diversification, not a cash or risk gate.",
+    "transition": "Recompute the target only when the majority/minority mode changes or every unchanged Config.rebalance closes. Between those events retain actual economic units. A transition uses equal target weights across the newly selected set so the ownership shape can actually change.",
+    "broken_holding": "A currently held name with stale data, or close below EMA60 together with negative twenty-session return, exits immediately and cannot wait for a scheduled review.",
+    "execution": "Close decision and next-session execution through the unchanged engine, with actual cash, T+1, board-lot, prior-volume capacity, costs, blocked-fill retries and no anticipated proceeds. Cash long-only; no leverage or shorting."
+  },
+  "difference_from_closed_families": "This is not market_envelope_leadership or admission: minority breadth does not liquidate the book or gate new money. It changes portfolio breadth. It is not participation, leader-anchor, theme-campaign or any trend_book shield: it has one current-regime state, no sector rule, no reference-source code, and no selective override of a parent exit.",
+  "minimum_screen": {
+    "window": "2023-01-03 through 2025-12-31 only",
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "control": "Unchanged trend_book positions=2 account on the same source, data and engine.",
+    "advance": "Treatment wealth must not fall in any scope and union wealth must strictly improve. Record drawdown, orders, turnover, exposure, blocked attempts and ledger reconciliation. Only the identical passing source may proceed to 2026 and the original final matrix.",
+    "failure": "Reject without neighboring breadth thresholds, momentum windows, rebalance periods, position counts, mode confirmations or weighting variants if any scope loses wealth or union fails to improve."
+  },
+  "frozen": ["market data", "scope membership", "benchmark definitions", "seed", "initial cash", "fees", "slippage", "liquidity", "execution clock", "acceptance definitions", "evidence identity"],
+  "economic_acceptance": "UNVERIFIED"
+}

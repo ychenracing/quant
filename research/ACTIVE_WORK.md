@@ -45,14 +45,28 @@ paths and destroyed wealth in the two strongest scopes. `profit_trend_shield`,
 family of wrappers that selectively override market exits for existing
 `trend_book` inventory.
 
-## Direct continuation
+## Active batch
 
-Stop adding wrappers to `trend_book`. Reconstruct the strongest independently
-saved quant accounts and compare their complete entry/ownership engines by
-scope, symbol and campaign. Identify a standalone causal alpha source that can
-improve union without losing common-five or joint-removal; it must change the
-source of campaign ownership rather than merely defer a parent exit. Register
-at most one new structural engine only after its causal observables and minimum
-failure screen are explicit.
+The strongest independent-account reconstruction found a causal ownership-shape
+signal, not another exit exception. Across non-overlapping pre-2026 twenty-close
+cohorts, majority breadth favored the two strongest current momentum names in
+union and common-five, while minority breadth favored diversification in union
+and joint-removal. Common-five had no qualifying minority-breadth cohort. The
+forward labels are diagnostic only and may never enter the implementation.
 
-Writer state: released. No hosted run or unpublished source is pending.
+`breadth_concentration_ownership` is registered before implementation. It is a
+standalone engine: at majority supplied-universe breadth it owns the two
+strongest qualified names; below a majority it owns every qualified name. It
+does not liquidate or gate risk merely because breadth is low. It changes
+ownership shape at mode changes or the unchanged rebalance clock and preserves
+the original next-open cash-only execution.
+
+Implement exactly the registered singleton using TDD, then run ordinary and
+research suites and the fixed pre-2026 three-scope pair against unchanged
+`trend_book` positions=2. Reject without any threshold/window/position/weight
+neighbor if any scope loses wealth or union does not strictly improve. Only the
+same passing source may proceed to 2026 and final acceptance.
+
+Writer state: this batch owns only the registered
+`breadth_concentration_ownership` implementation and its one fixed screen. No
+other source or hosted request is pending.
