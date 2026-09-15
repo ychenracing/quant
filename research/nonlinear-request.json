@@ -1,10 +1,10 @@
 {
-  "family": "admission_structure",
-  "purpose": "Measure only the preregistered unchanged-control versus fresh support-structure admission comparison. Preserve exact original derived observations and both new raw account outcomes; do not relax protection or acceptance.",
+  "family": "healthy_hold_funding",
+  "operation": "decision_review_pair",
   "candidate_count": 2,
-  "selection_end": "2025-12-31",
-  "contract_commit": "b796887bbc7a7e72251da0d726a3a3867b76420e",
-  "parent_source": "4d0c9ec1ada94c4e23f85a329b880adbe0bd5aa1",
+  "contract_commit": "080767e443b0dcfc97e531c204b6283e365e5c78",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "purpose": "Recover and attribute old actual accounts, then measure only the fixed six paired pre-2026 accounts; no old grid or final-matrix rerun on failed screen.",
+  "cumulative_budget": "admission used; protected_retention concurrent reserved; healthy_hold_funding used; no unreserved fourth hypothesis",
   "economic_acceptance": "UNVERIFIED"
 }

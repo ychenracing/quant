@@ -67,6 +67,11 @@ jobs:
                       raise ValueError('projection audit requires the funded-risk family')
                   from research.funded_projection_audit import hosted
                   hosted(output, data, supplement)
+              elif operation == 'decision_review_pair':
+                  if request['family'] != 'healthy_hold_funding':
+                      raise ValueError('decision review requires its registered paired family')
+                  from research.decision_review import hosted as review_pair
+                  review_pair(output, data, supplement)
               elif operation == 'measure':
                   try:
                       if request['family'] == 'observed_readiness':
@@ -152,7 +157,7 @@ jobs:
           for file in receipt.json failure.json MANIFEST.json correctness.txt parent_diagnosis_failure.json; do
             if [ -f "$RUNNER_TEMP/nonlinear/$file" ]; then cp "$RUNNER_TEMP/nonlinear/$file" "$destination/"; fi
           done
-          for dir in selection evaluation parent_diagnosis projection_audit quantity_gap reentry_diagnosis suspension_diagnosis holding_diagnosis admission_diagnosis; do
+          for dir in selection evaluation parent_diagnosis projection_audit quantity_gap reentry_diagnosis suspension_diagnosis holding_diagnosis admission_diagnosis decision_review; do
             if [ -d "$RUNNER_TEMP/nonlinear/$dir" ]; then
               mkdir -p "$destination/$dir"
               find "$RUNNER_TEMP/nonlinear/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;
