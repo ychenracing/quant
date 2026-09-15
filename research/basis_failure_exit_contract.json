@@ -1,0 +1,31 @@
+{
+  "family": "basis_failure_exit",
+  "status": "PREREGISTERED_UNMEASURED_NOT_ACCEPTED",
+  "authority": "Alpha-first continuation approved by the user; one bounded lifecycle hypothesis after acquisition-state attribution rejected further entry gates.",
+  "control": "Unchanged research.trend_book.Owner with Parameters(2), freshly run on the same source, data, universe, costs and delay as treatment.",
+  "hypothesis": "A funded campaign that closes below its actual acquisition basis and below its causal forty-session EMA for two consecutive completed sessions has failed as owned capital. Latching the existing security exit at that point should remove a sparse set of adverse broad-scope campaigns without truncating mature compounders.",
+  "fixed_event": {
+    "basis": "Observed actual opening fills only. First fill sets basis; later filled additions update the weighted basis. Targets, unfilled orders and sales never rewrite basis. Full liquidation clears it.",
+    "trend": "close < EMA40, computed from supplied-universe adjusted closes through the current completed session",
+    "loss": "close < observed weighted acquisition basis",
+    "confirmation": "loss and trend are both true on two consecutive completed sessions while actual units remain held",
+    "action": "Latch the parent's existing full security exit for that symbol. The normal next-session execution, blocked-fill retry, sellable inventory, fees, lots and cash accounting remain unchanged.",
+    "parameters": "NONE beyond frozen Config.slow=40 and the two-close confirmation already fixed here"
+  },
+  "boundaries": [
+    "No market, account, breadth, theme, ticker or supplied-pool condition",
+    "No new entry, ranking, funding, capacity, risk cap or reentry rule",
+    "Existing parent security exits and protection remain higher/equal priority and cannot be forgiven",
+    "No future campaign payoff, reference source, 2026 result or open/censored campaign enters the rule",
+    "No neighboring EMA span, confirmation length, basis margin or partial-exit search"
+  ],
+  "preimplementation_evidence": {
+    "selection_end": "2025-12-31",
+    "event_campaigns_union_common_removal": [6, 1, 7],
+    "event_actual_cash_pnl_union_common_removal": [-995281.3849719877, -365512.9966198525, -710972.8616029923],
+    "event_positive_cash_pnl_union_common_removal": [0.0, 0.0, 5192.198370569706],
+    "limitation": "Retrospective state attribution on selected actual campaigns, not an executable counterfactual or independent acceptance result."
+  },
+  "screen": "Fresh matched control/treatment through 2025-12-31 for union, common-five and joint optical-leader removal. Every scope wealth must be nondecreasing and at least one strictly higher; record MDD, fills, turnover, exposure, event count and ledger residual. Failure ends the family without parameter search or 2026 replay.",
+  "advance": "Only a passed three-scope alpha screen may advance the same source to the original full acceptance matrix."
+}
