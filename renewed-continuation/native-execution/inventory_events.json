@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2025-04-28",
+    "symbol": "sz300502",
+    "kind": "DEFER",
+    "quantity": 52100,
+    "reason": "dd_hard_limit",
+    "remaining_sellable": 0
+  },
+  {
+    "date": "2025-04-29",
+    "symbol": "sz300502",
+    "kind": "RETRY_FILL",
+    "quantity": 52100,
+    "reason": "dd_hard_limit",
+    "remaining_sellable": 0
+  }
+]

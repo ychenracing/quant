@@ -1,0 +1,82 @@
+{
+  "control_reference": {
+    "artifact_id": 10023909983,
+    "archive_source_sha": "c3d838ce6349f8bdf0ec2988836212563aaa10bc",
+    "quant_ai_sha256": "d74e8cd6c9a68823a08c5ed5526d72e65dce7b9cdc7568eeb38d1f9d80483a29",
+    "trades_sha256": "a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb"
+  },
+  "frozen_inputs": {
+    "artifact_id": 10329173115,
+    "archive_sha256": "6f7864e8f60001790806dcedb2fb7abc5960fb992c936ee9ea2be02069f3f353"
+  },
+  "research_source": {
+    "artifact_id": 10380089653,
+    "commit": "32304314270586d078d527aa2860aab78a09f613",
+    "tree": "253804819b1d43c17c066eb1e353f40c3eaa762a"
+  },
+  "corrected_private_source": {
+    "quant_ai_sha256": "87aebf5cd021071cfc121f950d1830df8734aa8108f430e8d9c3d93d1fb0dc11",
+    "published": false
+  },
+  "measurement": {
+    "control": {
+      "wealth": 20.221072996623576,
+      "max_drawdown": 0.25331952059019447,
+      "rows": 107,
+      "t1_violations": [
+        {
+          "day": "2025-04-28",
+          "symbol": "sz300502",
+          "quantity": 52100,
+          "available": 0,
+          "excess": 52100,
+          "reason": "dd_hard_limit",
+          "price": 45.546408
+        }
+      ]
+    },
+    "corrected": {
+      "wealth": 20.81972538210324,
+      "max_drawdown": 0.2529534216033119,
+      "rows": 109,
+      "t1_violations": []
+    },
+    "delta": {
+      "wealth_multiple": 0.5986523854796637,
+      "relative_wealth": 0.02960537186031731,
+      "max_drawdown_points": -0.036609898688255704
+    },
+    "specific_case": {
+      "control_day": "2025-04-28",
+      "symbol": "sz300502",
+      "quantity": 52100,
+      "corrected_retry_day": "2025-04-29",
+      "retry_found": true
+    },
+    "unchanged_prefix": {
+      "trade_rows_before_divergence": 57,
+      "trades_exact": true,
+      "equity_through_2025_04_27_exact": true
+    },
+    "cash_reconciliation": {
+      "replayed_cash": 41639450.764206484,
+      "reported_final": 41639450.76420648,
+      "difference": 7.450580596923828e-09,
+      "ending_holdings": {},
+      "pass": true
+    },
+    "semantic_cases": {
+      "old_inventory_after_topup": "PASS",
+      "repeated_attempts": "PASS",
+      "partial_fill": "PASS",
+      "next_session_retry": "PASS",
+      "fresh_inventory_locked": "PASS"
+    },
+    "classification": "EXECUTION_CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+    "limitations": [
+      "Only workbuddy common-five inventory T+1 was corrected.",
+      "Intraday information timing, fee/liquidity semantics, risk-state resets beyond the necessary deferred breaker completion, corporate actions, and the other references remain non-normalized.",
+      "Private reference source is not published."
+    ]
+  }
+}

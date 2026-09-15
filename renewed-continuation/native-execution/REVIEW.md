@@ -1,0 +1,13 @@
+# Workbuddy common-five T+1 inventory reconciliation
+
+This is an execution-correctness comparison for quant PR #1, not a new strategy hypothesis and not economic acceptance. The closed strategy-research budgets remain closed.
+
+The frozen native control was reproduced exactly: wealth `20.221072996623576`, max drawdown `25.3319520590%`, 107 trade rows, and trade CSV SHA256 `a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb`. An independent inventory audit found exactly one T+1 violation: on 2025-04-28 `sz300502` bought 52,100 units and the same 52,100 units were sold later that session by `dd_hard_limit`, while beginning-of-session sellable inventory was zero.
+
+A private, isolated comparator copy was changed only to enforce beginning-of-session sellable inventory, prevent same-day buys/top-ups from replenishing it, carry blocked protective quantity to the next available session, and rebase the already-existing hard-breaker state only when its delayed stand-down actually completes. Terminal fresh inventory would be marked to market rather than force-liquidated. The private reference source and patch bytes are intentionally not published; provenance records their hashes.
+
+On the same unchanged frozen common-five account, the corrected run has zero T+1 violations. The 52,100-unit protective sale moves from 2025-04-28 to 2025-04-29 and retains reason `dd_hard_limit`. All 57 trade rows before the original violation and the entire equity curve through 2025-04-27 are byte-for-byte equivalent after CSV parsing. Independent cash replay matches reported final equity within floating-point tolerance and ends flat.
+
+Corrected wealth is `20.81972538210324` versus `20.221072996623576` control, a `+2.9605371860%` relative increase (`+0.5986523855x` wealth multiple). Corrected max drawdown is `25.2953421603%` versus `25.3319520590%`, an improvement of about `0.03661` percentage points. This shows the recorded native headline was not harmed by the T+1 correction; in this fixed comparison it improves slightly. It does **not** normalize intraday information timing, fees/liquidity, corporate actions, all risk-state semantics, or the other three references, and therefore does not satisfy the production acceptance contract.
+
+`verify_inventory.py` independently checks the control violation, zero corrected violations, the shifted protective fill, unchanged pre-divergence path, cash reconciliation, and generic old-inventory/top-up, repeated-attempt, partial-fill, next-session retry, and fresh-inventory-lock semantics. `result.json` is its machine-readable output. `provenance.json` binds the artifacts, source/tree identities and private corrected-source hash without publishing private source.

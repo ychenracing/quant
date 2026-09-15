@@ -1,0 +1,61 @@
+{
+  "control": {
+    "wealth": 20.221072996623576,
+    "max_drawdown": 0.25331952059019447,
+    "rows": 107,
+    "t1_violations": [
+      {
+        "day": "2025-04-28",
+        "symbol": "sz300502",
+        "quantity": 52100,
+        "available": 0,
+        "excess": 52100,
+        "reason": "dd_hard_limit",
+        "price": 45.546408
+      }
+    ]
+  },
+  "corrected": {
+    "wealth": 20.81972538210324,
+    "max_drawdown": 0.2529534216033119,
+    "rows": 109,
+    "t1_violations": []
+  },
+  "delta": {
+    "wealth_multiple": 0.5986523854796637,
+    "relative_wealth": 0.02960537186031731,
+    "max_drawdown_points": -0.036609898688255704
+  },
+  "specific_case": {
+    "control_day": "2025-04-28",
+    "symbol": "sz300502",
+    "quantity": 52100,
+    "corrected_retry_day": "2025-04-29",
+    "retry_found": true
+  },
+  "unchanged_prefix": {
+    "trade_rows_before_divergence": 57,
+    "trades_exact": true,
+    "equity_through_2025_04_27_exact": true
+  },
+  "cash_reconciliation": {
+    "replayed_cash": 41639450.764206484,
+    "reported_final": 41639450.76420648,
+    "difference": 7.450580596923828e-09,
+    "ending_holdings": {},
+    "pass": true
+  },
+  "semantic_cases": {
+    "old_inventory_after_topup": "PASS",
+    "repeated_attempts": "PASS",
+    "partial_fill": "PASS",
+    "next_session_retry": "PASS",
+    "fresh_inventory_locked": "PASS"
+  },
+  "classification": "EXECUTION_CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+  "limitations": [
+    "Only workbuddy common-five inventory T+1 was corrected.",
+    "Intraday information timing, fee/liquidity semantics, risk-state resets beyond the necessary deferred breaker completion, corporate actions, and the other references remain non-normalized.",
+    "Private reference source is not published."
+  ]
+}
