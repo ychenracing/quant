@@ -55,6 +55,18 @@ class ShockReclaimTests(unittest.TestCase):
         d=owner.decide(observe(p,41,[5000.,0.]))
         self.assertFalse(owner.reclaim_flat[0]); self.assertFalse(p.readmit[0]); self.assertGreaterEqual(d.unit_targets[0],0.)
 
+    def test_actual_zero_fill_allows_parent_to_arm_readmit_before_memory_cleanup(self):
+        owner=self.make(); p=owner.inner
+        owner.reclaim_reference[0]=9.5; owner.reclaim_pending[0]=True
+        p.previous_units[0]=10_000.; p.exit_pending[0]=True
+        first=owner.decide(observe(p,40,[0.,0.],cash=2_000_000.))
+        self.assertTrue(p.readmit[0])
+        self.assertTrue(owner.reclaim_flat[0], 'newly observed liquidation must survive until parent records its readmission veto')
+        p.features.entry[41]=[True,False]; p.features.score[41]=[3.,1.]
+        second=owner.decide(observe(p,41,[0.,0.],cash=2_000_000.))
+        self.assertGreater(second.unit_targets[0],0.)
+        self.assertIn('SHOCK_RECLAIM',second.reason)
+
     def test_natural_parent_release_expires_special_memory(self):
         owner=self.make(); p=owner.inner; self.arm_flat(owner)
         p.readmit[0]=False

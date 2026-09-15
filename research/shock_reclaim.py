@@ -79,8 +79,11 @@ class Owner(Parent):
         current_broken=(o.units>1e-10)&((price<=p.stop)|p.features.exit[i]|~p.ready[i])
         cancel=self.reclaim_pending & current_broken
         self.reclaim_pending[cancel]=False; self.reclaim_reference[cancel]=np.nan
-        acquired,_=self._observe_reclaim_inventory(o.units)
-        naturally_free=self.reclaim_flat & ~p.readmit
+        acquired,completed=self._observe_reclaim_inventory(o.units)
+        # A just-completed liquidation is recognized by the parent later in this
+        # same close; keep the memory alive until that fill reconciliation can
+        # arm the ordinary readmission veto.
+        naturally_free=self.reclaim_flat & ~p.readmit & ~completed
         self.reclaim_flat[naturally_free]=False;self.reclaim_reference[naturally_free]=np.nan
         before_readmit=p.readmit.copy()
         allowed=(p.ready[i]&p.features.entry[i]&~p.features.exit[i]

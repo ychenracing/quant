@@ -4,10 +4,10 @@
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "registration_commit": "39b7e7aa3ec63f9ba29d2cfd034facd9c35659bd",
-  "request": "Execute the single preregistered top-ranked market-shock reclaim control/treatment pair through 2025-12-31. Exit protective shocks normally first; only a flat shock-exited name may receive one-close provisional readmission release when it requalifies under the unchanged parent, is deterministic rank-1 by the unchanged positive score, and has reclaimed its saved shock-signal close. Preserve actual cash, slots, risk, T+1, fees, liquidity and all protection obligations. Reject on any scope wealth regression; do not tune rank/price/waiting thresholds or run a rejected treatment over 2026/final matrix.",
+  "request": "Execute the same single preregistered top-ranked market-shock reclaim control/treatment pair through 2025-12-31 after the implementation-order correctness repair that preserves reclaim memory until the parent observes actual zero-inventory liquidation and arms its ordinary readmission veto. Exit protective shocks normally first; only a flat shock-exited name may receive one-close provisional readmission release when it requalifies under the unchanged parent, is deterministic rank-1 by the unchanged positive score, and has reclaimed its saved shock-signal close. Preserve actual cash, slots, risk, T+1, fees, liquidity and all protection obligations. Reject on any scope wealth regression; do not tune rank/price/waiting thresholds or run a rejected treatment over 2026/final matrix.",
   "source_sha256": {
-    "research/shock_reclaim.py": "0b82ae18fb3aa73a059b3a30715c31a5bbdd2acc97466edfecc415331e573001",
-    "research/test_shock_reclaim.py": "34c163d7cb923ac0d5d4ec34350ea173047404a8367638dc8ed73a7ab92290f9",
+    "research/shock_reclaim.py": "6bc624d505ca0f9cf194c3232b3c913b8e7b0b9d2df2764b198d801ba14d96d2",
+    "research/test_shock_reclaim.py": "a65f69b266f07bb68127b9d777236965b38bbdceeca804f2fb24c1e021ae3ec4",
     "research/shock_reclaim_contract.json": "c92412bedf4b19443440b5d44c4f5e5697ccc027cdff6b6b0acb1edad93d6f2c",
     "research/finite_study/__init__.py": "0cb170e544406f1213150eb77a4bcaf37ee5e6c645fd3b1ecf6492d795221bde",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
