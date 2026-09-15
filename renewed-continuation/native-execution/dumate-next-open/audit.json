@@ -1,0 +1,13 @@
+{
+  "t1_violations": 0,
+  "max_cash_after_error": 9.313225746154785e-10,
+  "max_nav_error": 1.862645149230957e-09,
+  "max_open_fill_price_error": 1.1368683772161603e-13,
+  "min_calendar_lag_days": 1,
+  "max_calendar_lag_days": 11,
+  "execution_is_immediate_next_global_trading_session": true,
+  "final_cash": 3269080.4876780347,
+  "final_holdings": {"300394": 2200, "603986": 200},
+  "reported_final_cash": 3269080.487678035,
+  "reported_final_value": 3919656.487678035
+}
