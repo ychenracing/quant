@@ -28,7 +28,7 @@ from techquant.evidence import load_result, metrics, save_result, source_identit
 from research.expectation_study import write_json, scopes
 
 
-_PAIRED = {"confirmed_shock", "profit_trend_shield"}
+_PAIRED = {"confirmed_shock", "profit_trend_shield", "shock_reclaim"}
 
 
 class Study(_base.Study):
@@ -108,7 +108,7 @@ class Study(_base.Study):
         else:
             full_data_sha = contract["frozen_inputs"]["sha256"]
             selection_end = contract["measurement"]["window"]["end"]
-            registration_commit = "66354029843c1704808fa8717b804c745389e302"
+            registration_commit = ("39b7e7aa3ec63f9ba29d2cfd034facd9c35659bd" if self.family == "shock_reclaim" else "66354029843c1704808fa8717b804c745389e302")
         if market.fingerprint() != full_data_sha:
             raise ValueError(f"{self.family} requires the frozen full market")
         full_sha = market.fingerprint()
@@ -152,12 +152,12 @@ class Study(_base.Study):
                                 "PORTFOLIO_DRAWDOWN_SHOCK" in r.get("decision_reason", "")
                                 and r.get("after_cap") == 0 for r in state),
                         }
-                    else:
+                    elif self.family == "profit_trend_shield":
                         state = [r for r in trace if r.get("kind") == "PROFIT_TREND_SHIELD"]
-                        row["profit_trend_shield"] = {
-                            "events": len(state),
-                            "retained_symbols": sum(len(r["symbols"]) for r in state),
-                        }
+                        row["profit_trend_shield"] = {"events": len(state), "retained_symbols": sum(len(r["symbols"]) for r in state)}
+                    else:
+                        state = [r for r in trace if r.get("kind") == "SHOCK_RECLAIM_PERMISSION"]
+                        row["shock_reclaim"] = {"events": len(state), "released": sum(len(r["released"]) for r in state), "requested": sum(len(r["requested"]) for r in state)}
             rows.append(row)
             write_json(out / "paired-progress.json", rows)
             print(json.dumps(row), flush=True)
