@@ -1,16 +1,16 @@
 {
-  "family": "campaign_payoff",
+  "family": "joint_funding",
   "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "9755458a87692c490f13452f7d9173b05dc5f2c7",
-  "request": "Execute one fixed settled-campaign-payoff pair with the unchanged matched control reused for labels. Run all correctness checks before economics. No prior failed mechanism rerun or 2026 rejected treatment replay. Preserve complete labels, fits, actual accounts and failures.",
+  "registration_commit": "637fdb539580c1ecddbff9958d74ba79c27ce1c1",
+  "request": "One fixed joint-resource funding pair, no forecast imports or closed experiment retries. Correctness gates economics; preserve all actual accounts and resource traces. Rejecting the pair prohibits its 2026 evaluation, not continuation of the original user task.",
   "source_sha256": {
-    "research/campaign_payoff.py": "90a31b8602bed443da3a5d0e0f95f23a03f1b2664f919b05fcc425bb7f8007b4",
-    "research/test_campaign_payoff_policy.py": "1812810455965af41d3cce4da68cbd2944748ecad7b30fc5d8bb4e1e41ef4c4b",
-    "research/campaign_payoff_policy.py": "977da60a850b09d159198e49ff2b486f220b081ab30815b2a89a35dcdf7b07b3",
-    "research/test_campaign_payoff.py": "f2bc71d946e5cf57a95bb59ebb84887915d907100561eed59b406b3ed477a921",
-    "research/campaign_payoff_study.py": "d4a68cf45ecd77eac54e028b1487fa8cf16b68c7e1321d48a4d625aa00d5a2e8",
-    ".github/workflows/nonlinear-study.yml": "93d3f93748850bed5a12862263f5a92226e027ed5b07467d0c330634bed40b91"
+    "research/joint_resources.py": "103a684ae48d0683cb9cd4332050a4be4ea44cdeda0f9ad2296cab78a15695f8",
+    "research/joint_funding.py": "03f555a86e2303d8eecbf03aa4b80dfde3d5f32c57c8f16c9393a75400cefd42",
+    "research/joint_funding_study.py": "7f7cf5f372f82a207d0f98f662b6f9d496010f5758ccddb04332925e6e7bc691",
+    "research/test_joint_resources.py": "e590382d12ac9cb1159de8d9759a6f8d7cfa1425a431f093a38ea304b10f8d23",
+    "research/test_joint_funding.py": "edc83962f49b90d8710227440633c15730e5783b654e078803da961d79c748da",
+    ".github/workflows/nonlinear-study.yml": "223208aaaf81ff4ddf8e1a391f028e40f074ce504bff323cff0513ffa04afa9b"
   }
 }

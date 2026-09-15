@@ -1,0 +1,8 @@
+{
+  "scope":"PURE_NUMERICAL_TESTS_AND_SOURCE_COMPILATION",
+  "python":"3.13.5","numpy":"2.3.5",
+  "red":"Missing research.joint_resources import failed before implementation",
+  "green":"9 pure-resource tests passed; includes 80 deterministic random feasible-resource examples",
+  "integration":"Deferred to exact-source hosted offline/research suite before measurement; no complete local repository checkout was available",
+  "economic_acceptance":"UNVERIFIED"
+}
