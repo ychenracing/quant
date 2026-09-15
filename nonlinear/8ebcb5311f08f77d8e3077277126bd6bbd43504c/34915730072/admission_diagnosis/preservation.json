@@ -1,0 +1,28 @@
+{
+  "origin_source": "4d0c9ec1ada94c4e23f85a329b880adbe0bd5aa1",
+  "origin_run": "34910777906",
+  "expected_manifest_sha256": "bbe6b820e23cb1c18e909317bb53cc3f6b89a11a91498f63b2b60ce90e2fa96d",
+  "generator_sha256": "797f5b375250f7dece86d5cc2ce5c23bdea841830d590ea50f18da686efce7fc",
+  "new_portfolio_runs": 0,
+  "exact_observed_bytes": {
+    "auction-attribution/chatgpt_5_0_days.csv": true,
+    "auction-attribution/chatgpt_5_0_episodes.csv": true,
+    "auction-attribution/chatgpt_5_1_days.csv": true,
+    "auction-attribution/chatgpt_5_1_episodes.csv": true,
+    "auction-attribution/joint_optical_leader_removal_0_days.csv": true,
+    "auction-attribution/joint_optical_leader_removal_0_episodes.csv": true,
+    "auction-attribution/joint_optical_leader_removal_1_days.csv": true,
+    "auction-attribution/joint_optical_leader_removal_1_episodes.csv": true,
+    "auction-attribution/union_0_days.csv": true,
+    "auction-attribution/union_0_episodes.csv": true,
+    "auction-attribution/union_1_days.csv": true,
+    "auction-attribution/union_1_episodes.csv": true,
+    "admission-geometry/MANIFEST.json": false,
+    "admission-geometry/chatgpt_5_episodes.csv": true,
+    "admission-geometry/joint_optical_leader_removal_episodes.csv": true,
+    "admission-geometry/summary.json": true,
+    "admission-geometry/union_episodes.csv": true
+  },
+  "all_matched": false,
+  "economic_acceptance": "UNVERIFIED"
+}

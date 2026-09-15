@@ -1,0 +1,9 @@
+{
+  "source_commit": "8ebcb5311f08f77d8e3077277126bd6bbd43504c",
+  "run_id": "34915730072",
+  "family": "admission_structure",
+  "operation": "measure",
+  "selection_status": "CORE_NONREGRESSION_ONLY",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": true
+}

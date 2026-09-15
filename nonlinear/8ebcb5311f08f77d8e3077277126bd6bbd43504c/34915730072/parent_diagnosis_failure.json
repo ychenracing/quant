@@ -1,0 +1,4 @@
+{
+  "status": "DIAGNOSTIC_RESTORE_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 41, in <module>\n  File \"/home/runner/work/quant/quant/research/admission_geometry.py\", line 101, in hosted\n    return generate(parent,market,Path(output)/'admission_diagnosis')\n  File \"/home/runner/work/quant/quant/research/admission_geometry.py\", line 78, in generate\n    raise ValueError('derived observations differ from preserved original bytes')\nValueError: derived observations differ from preserved original bytes\n"
+}
