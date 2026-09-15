@@ -1,0 +1,25 @@
+{
+  "family": "relative_leadership",
+  "authority": "User explicitly renewed optimization on 2026-09-15 with: 继续优化改造，达到目标, after being told all prior budgets were exhausted. This prospectively bounds one new economic hypothesis; it does not reset or reopen any closed experiment.",
+  "budget": {"maximum_new_hypotheses": 1, "registered": 1, "measured": 0, "neighbor_search": false},
+  "source_parent": "89cf5c47188bde63d6c09a2c7d9207e3178b9904",
+  "control": "Unchanged observed_admission_completion owner and Config, freshly executed at the same measurement source/runtime/data as treatment.",
+  "treatment": "Replace only capital-priority ordering with prequential cross-sectional relative-leadership learning. Neither predicted sign nor magnitude changes entry eligibility, allocation amounts, existing stops, protective obligations, risk authority or accounting.",
+  "motivation": "Existing actual-account attribution shows adverse held-name mix after leader removal and material funding competition. Absolute forecast calibration and simple up-day continuity did not establish joint improvement. Learning relative cross-sectional outcomes removes each training day's common return component and tests a different objective rather than retuning either rejected mechanism. It may still fail and is not assumed to close the entire participation gap.",
+  "data": {"full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b", "start": "2023-01-03", "end": "2026-09-11", "selection_end": "2025-12-31", "names": 34, "sessions": 896, "initial_cash": 2000000},
+  "model": {
+    "features": "Three causal log-price changes at Config.fast, Config.slow and 4*Config.slow, using only each name's observed history; per-date cross-sectional centering and standardization over fresh ready names.",
+    "label": "Log return from formation+1 open to formation+Config.rebalance+1 open, demeaned across that formation cohort with both valid active endpoints. Missing endpoints are omitted, never imputed as zero returns.",
+    "maturity": "formation+Config.rebalance+1 <= decision session; no future outcomes or removed names enter training, standardization or ranking.",
+    "fit": "Equal weight per completed cross-sectional cohort; ridge penalty 1.0 on the mean cross-product, no intercept; use most recent 4*Config.slow formation sessions; refit every Config.rebalance sessions; require Config.slow usable mature cohorts with at least two names.",
+    "fallback": "Original priority before a usable fit, for unavailable features, or for a zero/nonfinite fitted coefficient vector; original score then symbol breaks prediction ties.",
+    "usage": "Priority only for the original cash-funded allocation and original fresh-admission completion, including held names only when already allowed by the original funding rule. Do not force sells or add slots because a relative prediction changes.",
+    "hyperparameter_search": "NONE; all horizons reuse unchanged Config and the sole fixed shrinkage is declared before measurement."
+  },
+  "screen": "Fresh matched control/treatment for union, common_five and without_optical_leaders through 2025-12-31. Reuse the immutable research.decision_review.paired_screen: each pool wealth nondecreasing and MDD nonincreasing, at least one strict improvement. Preserve fills, exposure and independent ledger attribution; screen success is not original acceptance.",
+  "exit": "If rejected, preserve all six accounts and ranking diagnostics; no nearby shrinkage/horizon/features or 2026 treatment replay. If screen passes, advance the same fixed treatment to full-period and both crash windows before deciding whether a final full validation matrix is justified.",
+  "unchanged": ["production entry and defaults", "Config", "original economic acceptance", "all old contracts and failures", "data, universe, seed, benchmark and costs", "T+1 and sellable inventory", "cash, fees, lots and liquidity", "protective retries and nonresettable actual NAV history", "cash long, after-close decisions, next-session manual execution"],
+  "acceptance_provenance_note": "Config.risk_drawdown=0.18 is an unchanged strategy trigger. Historical handoffs conflict over calling it an original absolute acceptance ceiling; this experiment neither removes an effective gate nor uses that ambiguity to claim acceptance. Resolve source authority explicitly before any promotion.",
+  "accounting": "Existing adjusted economic-unit engine, not a newly verified actual-share corporate-action ledger.",
+  "status": "PREREGISTERED_UNMEASURED_NOT_ACCEPTED"
+}
