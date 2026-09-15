@@ -228,6 +228,18 @@ class ProfitTrendShieldTests(unittest.TestCase):
         self.assertEqual(decision.unit_targets[0], 0.)
         self.assertEqual(owner.shield_units[0], 0.)
 
+    def test_trace_excludes_nonfinite_values_from_unrelated_symbols(self):
+        owner = self.owner()
+        session = 100
+        units = np.array([10_000., 0.])
+        self.mark_campaigns(owner, session, units, strong=(True, False))
+        owner.return60[session, 1] = np.nan
+        self.shock(owner, session)
+        owner.decide(observation(owner, session, units, cash=100_000.))
+
+        from research.quantity_obligation import trace_digest
+        self.assertEqual(len(trace_digest(owner.trace)), 64)
+
 
 if __name__ == "__main__":
     unittest.main()
