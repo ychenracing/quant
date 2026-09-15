@@ -1,0 +1,82 @@
+{
+  "task": "quant original PR 1 decision-first correction requested 2026-09-15",
+  "research_completion": "BOUNDED_STRUCTURAL_SEARCH_CLOSED_THREE_OF_THREE_REJECTED",
+  "economic_acceptance": "NOT_MET",
+  "original_production_delivery": "NOT_COMPLETE_NO_ACCEPTED_CANDIDATE",
+  "comparison_completion": "PARTIAL_NATIVE_EXECUTION_EQUIVALENCE_REMAINS_UNVERIFIED",
+  "new_economic_design_authorized": false,
+  "merge_authorized_by_this_record": false,
+  "budget": {
+    "path": "decision-review/budget.json",
+    "verified_blob": "947d84fe9261c9bc330e1557d64f64f950c609b9",
+    "maximum": 3,
+    "consumed": 3,
+    "reserved": 0,
+    "remaining": 0,
+    "reset_across_sessions_or_branches": false,
+    "measured_runs": ["34915730072", "34918924019", "34919407590"]
+  },
+  "verified_refs_before_this_evidence_write": {
+    "main": "bbc002449093e458868a8748687df023958ba283",
+    "research/expectation-learning": "07f4f32f2a856866bb774e128470b437ceb7f779",
+    "research/evidence": "4d1f718a55a2036b06138a002d25a62ed0f9215a",
+    "pr": 1,
+    "pr_head_branch": "research/independent-tech",
+    "pr_head": "4fa306fdcde2f9a77d941200ef7ff2f988c045e5",
+    "pr_state": "OPEN_DRAFT_UNMERGED",
+    "in_progress_actions": 0,
+    "queued_actions": 0,
+    "local_economic_processes": 0,
+    "external_work_session_status": "Only GitHub refs/comments and Actions were observable; no claim of global Work-container visibility."
+  },
+  "report": {
+    "path": "decision-review/REVIEW.md",
+    "creation_commit": "d292611c09d63adbb49a7a4b3c16c5311cbe3c3a",
+    "verified_blob": "c4fcb69d4e9a3a970e88cfda24b80dfbba345da1",
+    "sha256": "ee3d2dd7788233dac4f79d26d1b6c1540c4a158d406aaccb7c5854c58659be37"
+  },
+  "raw_review_preservation": {
+    "commit": "4d1f718a55a2036b06138a002d25a62ed0f9215a",
+    "manifest": "decision-review/recovery-34919407590/manifest.json",
+    "manifest_blob": "7085d39a8b5ec8f3c3625c43bcead4c7602eb1a3",
+    "part_count": 8,
+    "all_part_git_blobs_matched_on_remote_readback": true,
+    "lossless_local_roundtrip": "PASS",
+    "review_member_hashes_verified": 13,
+    "payload_sha256": "37479e5236c74db8314e45281aad2b4b44c9e4cca2d013a5dd61e512018e3351",
+    "xz_sha256": "3f2bd7beea129258001c8a42f2daea50ce3cb34ca4f011e559324fa665daaf0f",
+    "new_economic_runs": 0
+  },
+  "measured_funding_implementation": {
+    "source": "07f4f32f2a856866bb774e128470b437ceb7f779",
+    "exact_rebuilt_tree": "2b0e1b0e3911377c0f3232971c4e96ac007a9cd8",
+    "run": "34919407590",
+    "evidence": "nonlinear/07f4f32f2a856866bb774e128470b437ceb7f779/34919407590/",
+    "remote_tar_blob_verified_against_downloaded_bytes": "338252cfb80a5a7a7d164998da4510ba189c7162",
+    "tar_sha256": "cece9c0b39620d0de7c5b396fa45f0b7449a887d1696ce7e89c6b6789695b889",
+    "top_level_manifest_members_verified": 90,
+    "observation_manifest_members_verified": 39,
+    "hosted_offline_checks": {"count": 87, "status": "PASS"},
+    "hosted_research_checks": {"count": 240, "status": "PASS"},
+    "economic_screen": "REJECTED_ALL_THREE_MAX_DRAWDOWNS_WORSE",
+    "selected_candidate": 0,
+    "advance": false,
+    "full_history_evaluation_for_treatment": "NOT_RUN"
+  },
+  "withdrawn_local_reconstruction": {
+    "base": "6da9e119af256f23c2b2be45fd3d4f5efa1a8bff",
+    "staged_tree": "77ea3e04e0d44d7ba100d793478fbc84fab0df37",
+    "status": "UNMEASURED_WITHDRAWN_IN_FAVOR_OF_CONCURRENT_MEASURED_IMPLEMENTATION",
+    "new_economic_runs": 0,
+    "unstaged_changes_at_closure": false,
+    "preservation": "All 12 changed files and original verification/failure logs are losslessly embedded in the recovery payload. Do not cherry-pick or economically run them as another hypothesis. This is not a fourth design, production generation or accepted implementation."
+  },
+  "remaining_requirements": [
+    "Preserve original economic goals and all source-bound failures; do not reopen stale preregistration queues.",
+    "Native reference raw summary/identity is preserved, but full native ZIP and normalized executable four-reference comparison remain incomplete; timeout and invalid coverage are not victories.",
+    "No recovered complete candidate demonstrates original joint superiority or passes all original coverage. The frontier is limited to recovered complete candidates, not a global historical optimum.",
+    "Attribution between recorded accounts is not feasible missed profit, a causal intervention or an upper bound on all earlier allocation choices.",
+    "Any further economic design requires substantive new evidence and explicit additional budget or a user-approved return/risk tradeoff. Correctness-only reconciliation can continue without resetting this budget, but must not conceal economic rule changes.",
+    "No new dispatch, reference-data expansion, protective-rule weakening, selector rewrite, threshold change or main merge was performed during closure."
+  ]
+}
