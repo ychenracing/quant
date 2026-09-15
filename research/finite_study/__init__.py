@@ -1,11 +1,12 @@
-"""Compatibility overlay for the fixed confirmed-shock paired study.
+"""Compatibility overlay for the latest fixed paired studies.
 
 All existing families delegate byte-for-byte to the historical finite_study.py.
-Only the preregistered ``confirmed_shock`` family uses the overlay below.
+Only explicitly preregistered paired families use the overlay below.
 """
 from __future__ import annotations
 from dataclasses import asdict
 import importlib.util
+import importlib
 import json
 from pathlib import Path
 import sys
@@ -27,25 +28,27 @@ from techquant.evidence import load_result, metrics, save_result, source_identit
 from research.expectation_study import write_json, scopes
 
 
+_PAIRED = {"confirmed_shock", "profit_trend_shield"}
+
+
 class Study(_base.Study):
     def __init__(self, family: str, *, issued_evidence: Path | None = None):
-        if family != "confirmed_shock":
+        if family not in _PAIRED:
             super().__init__(family, issued_evidence=issued_evidence)
             return
         if issued_evidence is not None:
-            raise ValueError("confirmed_shock does not accept issued forecasts")
+            raise ValueError(f"{family} does not accept issued forecasts")
         self.family = family
-        import research.confirmed_shock as module
-        self.module = module
+        self.module = importlib.import_module("research." + family)
         self.issued = None
 
     def identity(self):
-        if self.family != "confirmed_shock":
+        if self.family not in _PAIRED:
             return super().identity()
         root = _here.parent.parent
         names = [
             "finite_study.py", "finite_study/__init__.py", "expectation_study.py",
-            "confirmed_shock.py", "confirmed_shock_contract.json", "leadership.py",
+            self.family + ".py", self.family + "_contract.json", "leadership.py",
             "expectation.py", "quantity_obligation.py", "quantity_obligation_contract.json",
             "support_budget.py", "support_budget_contract.json", "funded_risk.py",
             "funded_risk_contract.json", "observed_readiness.py",
@@ -60,10 +63,10 @@ class Study(_base.Study):
         }
 
     def saved(self, market, path, parameters=None, benchmark=None, costs=1., delay=1, *, configuration=None):
-        if self.family != "confirmed_shock":
+        if self.family not in _PAIRED:
             return super().saved(market, path, parameters, benchmark, costs, delay, configuration=configuration)
         if configuration is not None:
-            raise ValueError("confirmed_shock uses the unchanged production Config")
+            raise ValueError(f"{self.family} uses the unchanged production Config")
         cfg = Config()
         expected = {
             "config": asdict(cfg), "universe": list(market.symbols), "quality": market.quality,
@@ -86,34 +89,42 @@ class Study(_base.Study):
                      cost_multiplier=costs, delay=delay)
         result.metadata["study"] = self.identity()
         if result.metadata != expected:
-            raise AssertionError("unexpected confirmed-shock study identity")
+            raise AssertionError(f"unexpected {self.family} study identity")
         save_result(result, path)
         if owner is not None:
             self.module.preserve_trace(intent_path, expected, owner.trace)
         return result
 
     def select(self, market, catalog, out):
-        if self.family != "confirmed_shock":
+        if self.family not in _PAIRED:
             return super().select(market, catalog, out)
         from research.decision_review import paired_screen
         from research.ledger_attribution import attribute
-        contract = json.loads((_here.parent.parent / "confirmed_shock_contract.json").read_text())
-        if market.fingerprint() != contract["data"]["full_sha256"]:
-            raise ValueError("confirmed shock requires the frozen full market")
+        contract = json.loads((_here.parent.parent / (self.family + "_contract.json")).read_text())
+        if self.family == "confirmed_shock":
+            full_data_sha = contract["data"]["full_sha256"]
+            selection_end = contract["data"]["selection_end"]
+            registration_commit = "1ce819815f7c6a5cd6e9f00e64cf972d183e1888"
+        else:
+            full_data_sha = contract["frozen_inputs"]["sha256"]
+            selection_end = contract["measurement"]["window"]["end"]
+            registration_commit = "66354029843c1704808fa8717b804c745389e302"
+        if market.fingerprint() != full_data_sha:
+            raise ValueError(f"{self.family} requires the frozen full market")
         full_sha = market.fingerprint()
-        market = market.prefix(contract["data"]["selection_end"])
+        market = market.prefix(selection_end)
         scoped = scopes(market, catalog)
         grid = self.module.grid()
         out = Path(out)
         plan = {
             "identity": self.identity(), "full_data_sha256": full_sha,
             "data_sha256": market.fingerprint(),
-            "selection_end": contract["data"]["selection_end"],
+            "selection_end": selection_end,
             "grid": [asdict(p) for p in grid], "scopes": scoped,
-            "registration_commit": "1ce819815f7c6a5cd6e9f00e64cf972d183e1888",
+            "registration_commit": registration_commit,
         }
         if (out / "plan.json").exists() and json.loads((out / "plan.json").read_text()) != plan:
-            raise ValueError("existing confirmed-shock plan is not equivalent")
+            raise ValueError(f"existing {self.family} plan is not equivalent")
         write_json(out / "plan.json", plan)
         rows = []
         for name, names in scoped.items():
@@ -131,19 +142,41 @@ class Study(_base.Study):
                 row[label + "_ledger"] = audit
                 if enabled:
                     trace = json.loads((out / "intents" / (run_name + ".json")).read_text())["trace"]
-                    state = [r for r in trace if r.get("kind") == "CONFIRMED_MARKET_SHOCK_STATE"]
-                    row["confirmed_shock"] = {
-                        "state_records": len(state),
-                        "first_half_risk": sum(r.get("after_cap") == .5 and r.get("after_pending") for r in state),
-                        "zero_risk": sum(r.get("after_cap") == 0 for r in state),
-                        "account_drawdown_zero": sum(
-                            "PORTFOLIO_DRAWDOWN_SHOCK" in r.get("decision_reason", "")
-                            and r.get("after_cap") == 0 for r in state),
-                    }
+                    if self.family == "confirmed_shock":
+                        state = [r for r in trace if r.get("kind") == "CONFIRMED_MARKET_SHOCK_STATE"]
+                        row["confirmed_shock"] = {
+                            "state_records": len(state),
+                            "first_half_risk": sum(r.get("after_cap") == .5 and r.get("after_pending") for r in state),
+                            "zero_risk": sum(r.get("after_cap") == 0 for r in state),
+                            "account_drawdown_zero": sum(
+                                "PORTFOLIO_DRAWDOWN_SHOCK" in r.get("decision_reason", "")
+                                and r.get("after_cap") == 0 for r in state),
+                        }
+                    else:
+                        state = [r for r in trace if r.get("kind") == "PROFIT_TREND_SHIELD"]
+                        row["profit_trend_shield"] = {
+                            "events": len(state),
+                            "retained_symbols": sum(len(r["symbols"]) for r in state),
+                        }
             rows.append(row)
             write_json(out / "paired-progress.json", rows)
             print(json.dumps(row), flush=True)
-        decision = paired_screen(rows)
+        if self.family == "confirmed_shock":
+            decision = paired_screen(rows)
+        else:
+            nonregression = all(
+                row["treatment"]["wealth"] >= row["control"]["wealth"] - 1e-12
+                for row in rows
+            )
+            strict = any(
+                row["treatment"]["wealth"] > row["control"]["wealth"] + 1e-12
+                for row in rows
+            )
+            decision = {
+                "advance": nonregression and strict,
+                "wealth_nonregression_all_scopes": nonregression,
+                "strict_wealth_improvement": strict,
+            }
         decision.update(
             status="PAIRED_SCREEN_ADVANCE" if decision["advance"] else "REJECTED_PAIRED_SCREEN",
             rows=rows, identity=self.identity(), data_sha256=market.fingerprint(),
@@ -154,7 +187,7 @@ class Study(_base.Study):
         write_json(out / "selection.json", decision)
 
     def evaluate(self, market, catalog, selection, out):
-        if self.family != "confirmed_shock":
+        if self.family not in _PAIRED:
             return super().evaluate(market, catalog, selection, out)
         chosen = json.loads(selection.read_text())
         out = Path(out)
@@ -162,7 +195,7 @@ class Study(_base.Study):
                 or chosen["data_sha256"] != market.prefix("2025-12-31").fingerprint()
                 or chosen["full_data_sha256"] != market.fingerprint()
                 or chosen["plan_sha256"] != file_hash(selection.with_name("plan.json"))):
-            raise ValueError("confirmed-shock selection identity mismatch")
+            raise ValueError(f"{self.family} selection identity mismatch")
         if not chosen["advance"]:
             write_json(out.parent / "evaluation-decision.json", {
                 "status": "NOT_RUN_REJECTED_PAIR",
@@ -178,7 +211,7 @@ class Study(_base.Study):
         write_json(out / "plan.json", {
             "identity": self.identity(), "data_sha256": market.fingerprint(),
             "selection_sha256": file_hash(selection),
-            "parameters": {"confirm_market_shock": True}, "windows": windows,
+            "parameters": asdict(self.module.Parameters(True)), "windows": windows,
         })
         rows = []
         for name, names in scopes(market, catalog).items():
