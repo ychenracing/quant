@@ -1,29 +1,55 @@
 # quant current recovery entry
 
-Updated2026-09-15 after two implemented economic pairs and exact12-account recovery. Continue ychenracing/quant original PR1, not a new project. Read continuation/progress.json and continuation/REVIEW.md first, then the live research/expectation-learning:research/ACTIVE_WORK.md. Prior complete root navigation remains at8bc0dbf6fc0356b3feba8cc0ba0c71035341f1dc; original authority remains b54eaaf6487005a492b23ee5bce300f93f7e41cf:HANDOFF_PROMPT.md and docs/RESEARCH_CONTRACT.md plus later user instructions. Do not repeatedly reload unchanged historical queues.
+Updated 2026-09-15 UTC. Continue `ychenracing/quant` original PR #1, not a new project. Latest explicit authority is alpha-first: maximize return capability while preserving original effective acceptance, frozen identities and execution boundaries. Do not return to defensive patching, ranking/funding micro-tuning, extra gates or neighboring parameter searches.
 
-Latest explicit user instruction: `继续改啊，直到达到目标才能停`. This follows reports of previous failed experiments and renews ongoing original-task implementation. Do not mistake a one-hypothesis preregistration for a permanent user-imposed one-experiment approval cap, or require the user to keep sending continue. Historical closed3+2 budgets and rejected treatments remain closed; no budget reset, neighbor retries, relabeled failures or acceptance relaxation. Every genuinely different new design still needs prospective scope, evidence and applicable authority. Research documents neither grant broader permissions nor impose unsupported new user gates.
+## Live identities verified in this batch
 
-## New completed work: recover, never redispatch
+- `main@966f7428658431c9da5a6fcaf7d9b9d5c446f2cd`.
+- PR #1: OPEN, Draft, unmerged; head `research/independent-tech@efffb9a428258e921feaff125011cba46223bb18`.
+- Current measured research source: `research/expectation-learning@f02c17dbf57b02f5cac48b88e5b46ac45a7e2b30`, tree `0b52c21ea3ee6239ed50a2c616e764bdf63c6b54`.
+- Complete hosted evidence: run `34995318510`, evidence commit `8188c94221a66e6de06a19a4ad6a5e007936a1da`, original evidence tree `ef8abe282b63b1eeb7827fe6e9491922b6b0b234`.
+- Correctness run `34995318623`: success.
+- Latest detailed attribution and handoff note: `renewed-continuation/alpha-gap/f02c17d-profit-trend-shield-and-reference-gap.md`, preserved at commit `a988a2275d74fccc9cc0372b6cb7999ac84f9908`.
 
-1. campaign_payoff: registration9755458a87692c490f13452f7d9173b05dc5f2c7, sourceeddbc617787d85215124d974ea10ec8c4e89da68, run34964181664. Exact archive SHA2565881c2d6eb7efff5252baf7dce5ca0ad201021e83ba61fd19f133c6bbbec0349,20,676,286 bytes,70 manifest payloads. Evidence d5266c62a8d75c8cbd7fed3d2c8cbf8e14639738 at nonlinear/<source>/<run>/. Fixed paired screen REJECTED; do not retry nearby model features/labels/windows or run its2026 treatment.
-2. joint_funding: registration637fdb539580c1ecddbff9958d74ba79c27ce1c1, source0578a23c52007bde657ed97e9ce033fa58675ce6, run34966383125. Exact archive SHA256abd1b3687813a9e18dc7030669991db8a272d9d4cb3ffad2f96bf0bffa1cba96,20,376,744 bytes,64 manifest payloads. Evidence565660bea72e1dc2783aea2fe27f8d5e747ffdaf at nonlinear/<source>/<run>/. Fixed paired screen REJECTED; no nearby funding weights, extra slots or2026 treatment replay.
-3. Independent audit: be5257fd917b6ba812a183fdccc55e73e003ca6c/run34967775062, evidence84a34c8ceda034c42ae05bb0c352f5e43224702c at nonlinear/<source>/<run>/account_review/. Both original archives and134 payloads verified;12 actual accounts and source-bound metrics reconciled,0 new portfolios/fits/trials. Failed audit b4a79f08/run34967198409 remains FAILED; runtime-vs-file dependency namespace bug corrected and regression-tested. Newest audit source is not the producer of old economic returns.
+The source-branch `research/ACTIVE_WORK.md` is an older released-writer snapshot and is superseded for current recovery by this file and the detailed note above. Still reread it to avoid losing historical constraints. No writer currently owns unpublished source or a pending run.
 
-Paired results use2023-01-03..2025-12-31/727 sessions/CNY2M. Control wealth union4.2311865/common5.7180461/removal2.3582051. Campaign treatment4.2131418/5.6218203/2.4572455; joint funding3.8997714/5.5237225/2.6058189. Both fail jointly. Neither original goal nor production delivery is complete; no new accepted champion or full matrix exists.
+## Completed work: do not repeat
 
-The retrospective fast/slow traded-value proxy probe was weak/inconsistent across all3 pools; no volume-filter experiment was registered. Do not invent one by asserting that this probe passed. Source-bound episodes, PnL, context CSVs and limitations are in the successful audit directory.
+- `campaign_payoff`, `joint_funding`, `confirmed_shock`, inventory/T+1 corrections and native timing/fee correctness probes are complete and preserved.
+- `profit_trend_shield` was prospectively registered, implemented and verified. The first `e8ba999` hosted run failed on trace-only NaN serialization and is retained at evidence commit `cee06df17422b3292226f8ede494d4b9948cf8c1`. The fixed source adds a regression test; 87/87 ordinary tests and 363 research tests passed with 9 skips.
+- Fixed pre-2026 paired screen at `f02c17d`:
+  - union `4.2311864967x -> 3.5202595782x`, MDD `29.6451% -> 36.8051%`;
+  - common-five `5.7180461463x -> 6.1328140800x`, MDD unchanged `31.5516%`;
+  - joint optical-leader removal `2.3582051229x -> 2.4106330596x`, MDD `33.0300% -> 32.8387%`.
+- Hosted status is `REJECTED_PAIRED_SCREEN`; treatment 2026 runs = 0. Do not relabel it, tune its EMA/return neighbors, or run its final matrix.
+
+## Alpha-gap result
+
+Using only authenticated existing transaction/equity outputs, corrected WorkBuddy versus quant main closed campaigns show:
+
+- WorkBuddy: 39 campaigns, 76.92% winners, median campaign return +11.60%, median/mean hold 55/60.4 calendar days, loss PnL about -0.690m CNY.
+- quant main: 46 campaigns, 50.00% winners, median campaign return -0.33%, median/mean hold 21.5/30.9 days, loss PnL about -3.907m CNY.
+- Descriptive total campaign PnL gap is about 20.139m CNY. About 16.922m comes from larger positive campaigns and 3.217m from smaller losses. The dominant problem is profitable campaign discovery/participation/lifecycle, not defensive loss reduction.
+- Largest symbol gaps are `sz300394 +6.058m`, `sh603986 +5.973m`, `sz300502 +4.449m`, `sz300308 +2.866m`, `sh688008 +0.794m`.
+- Concrete causes include 63-day late entry in a major `sz300394` campaign, 29-day late entry in a major `sz300308` campaign, a 49-day premature `sh603986` exit, and one entirely missed `sz300502` 2026 campaign.
+- Reference trade-price campaign PnL is gross while quant is net, so terminal wealth is the normalized authority. The entry/exit/lifecycle conclusions are not sensitive to that small accounting difference. No private reference source was read or copied and no historical comparator was rerun.
+
+Most important reusable fact: the existing independent coherent account reaches full-history `22.7716733036x` on common-five and `2.9915298718x` after joint optical-leader removal, but only `1.7481913470x` on union versus incumbent `5.6247932765x`. One lifecycle is therefore capable of clearing the strongest common-five reference and improving removal; isolated broad-universe distractor admission destroys union. Never splice per-pool winners.
 
 ## Direct continuation
 
-Use saved actual-control episodes/intents to identify the first executable divergence behind recurring large-payoff campaigns lost by candidates. Stop refining local ranking learners or funding weights. Address the structural discovery/holding/exit/recovery interaction with an evidence-supported prospective design of adequate scope. Distinguish original immutable user constraints from parameter choices frozen only in a completed experiment; resolve true ambiguity from original authority, never by relaxing an effective gate. No pending result from this writer needs redispatch. Do not stop at this navigation, a diagnosis, plan or local tests.
+The next distinct alpha direction is one unified causal strong-theme/co-leader campaign architecture:
 
-Reread live refs, PR/comments, active owner and Actions before writing. Preserve other writers and use existing request/single-writer mechanisms. Prefer affected tests and informative fixed economic comparisons; full original validation only for a stable final candidate. Save exact source/results/failures and readback SHA/hash. Do not wait on Actions>10minutes per invocation; queued/running is neither fail nor pass. Reuse available GitHub plugin/API/Git channels within real permissions without force updates or bypassing protection.
+1. Before implementation, preregister one fixed rule using only supplied-universe causal price/volume/breadth plus generic sector metadata. No ticker/date keys, reference transactions at runtime, per-pool branches, forecast refit, parameter grid or risk-threshold change.
+2. The economic hypothesis is that coherent-style lifecycle works after genuine synchronized theme leadership is established, while broad-universe isolated positive ranks are distractors. The mechanism must form and persist a theme cohort before admitting capital, not merely reorder the same list.
+3. Use one unchanged control and one candidate on union/common-five/joint-removal through 2025-12-31. Record wealth, MDD, turnover, exposure, lifecycle events, fills and ledger reconciliation.
+4. Reject without neighbors if any core scope loses wealth, or if union is not materially repaired while the common-five/removal advantage is retained. A failed core screen gets no 2026/final matrix.
+5. If the fixed core screen passes, then and only then expand the same source candidate to original native-reference, pool/removal/subset, bull/two-2026-window, cost/delay, stability and causal-prefix obligations.
 
-## Immutable scope and acceptance
+This direction is different from failed generic shadow-path routing, unconditional price-trend books, winner top-ups, risk-shock retention, generic re-entry and allocation/ranking refinements. Reuse old evidence; do not rerun those families.
 
-Independent quant A-share AI/tech daily cash-long decision support; after-close information, next-session execution, human checking, no broker auto-orders, leverage or shorting. Never copy the private four reference implementations into production. Frozen data34names/896sessions/2023-01-03..2026-09-11/CNY2M/SHA256d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b, no pre2023 warmup or newly appended data. No hidden removed symbols. Preserve actual cash, fees/liquidity/lot/T+1/sellable inventory, mandatory protective obligations and nonresettable actual NAV history. Adjusted economic units are not a verified actual-share/corporate-action ledger.
+## Immutable boundaries and completion
 
-Original economic acceptance remains NOT_MET. Preserve all reference/pool/removal/subset/bull/both2026crash/cost/delay/neighborhood/prefix requirements and source/data/runtime equivalence. Keep native/corrected/normalized references distinct. No uquant/trade15x/40orders/10percent waivers. Conflicting historic descriptions of Config.risk_drawdown0.18 must be resolved from source authority before promotion, not silently discarded or invented as a new threshold.
+A-share AI/technology, daily cash long-only, after-close decision and next-session execution, human verification, no broker auto-order, leverage or shorting. Frozen 34-name/896-session data, benchmark, universe, seed, costs, liquidity, evidence identity and metrics remain unchanged. Do not use the four private implementations as production foundations. Preserve every failure and never combine best rows from different candidates.
 
-Latest observed mainbbc002449093e458868a8748687df023958ba283, PR1 head4fa306fdcde2f9a77d941200ef7ff2f988c045e5, OPEN/Draft/unmerged. PR API base metadata can be stale; read live main. Only the same final production tree meeting all effective economics/engineering/live protection may normally merge original PR1. Verify expectedHEAD/base/checks/reviews/mergeability and resulting merge commit/main inclusion; do not force-push or directly push main. Only after verified real completion disable existing quant PR1 hourly automation, or honor a later explicit user stop/closure. Never touch other tasks. Future scheduling is not proof that future work or acceptance has happened.
+Original economic acceptance remains `NOT_MET`; no accepted final production tree exists. Keep PR #1 Draft/unmerged. Merge only when the same candidate satisfies all effective economic, engineering and repository-protection requirements, then verify the merge and main inclusion. Keep the existing continuation active until that real completion or a later explicit user stop.
