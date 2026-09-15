@@ -1,0 +1,16 @@
+# WorkBuddy execution-timing correctness comparison
+
+Continue original quant PR #1. This is a fixed execution-correctness comparison of the already authenticated strongest native reference, not a new quant strategy hypothesis and not a reset of either closed economic research budget.
+
+Authenticated reference remains `ychenracing/trades@5575d1b1b79fab405b92cfb7d164c7054a8bd826`, WorkBuddy subtree `3c29e60758e0a6538a81ea8144a144d6faf966c4`, `quant_ai.py` Git blob `e19e611cd332e7a01c0f8677e0ae60600b295c6d`, native common-five trades SHA256 `a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb`, frozen 34-name/896-session input fingerprint `d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b`.
+
+The already completed inventory-only comparison is preserved separately and must not be rerun as a new hypothesis. Its correction prevents same-day buys from becoming same-day sellable inventory and quantity-bounds deferred protective retries.
+
+This fixed comparison addresses only two additional timing inconsistencies visible in the authenticated WorkBuddy implementation:
+
+1. Intraday stop levels are evaluated against the current session's low while using the current session's ATR (whose true range includes that same session's high/low/close). For an executable intraday stop, the stop level must be known before the session. Replace only the stop-level ATR/volatility inputs with their latest fully completed prior-session values; preserve the current session open/low only as execution observations. Preserve the already known prior-close gate state and prior-close `high_close` state.
+2. The close-derived hard drawdown breaker currently can call `exec_close_sell` at the same close that establishes the drawdown. A decision requiring the completed close cannot also receive that same close as an executable fill under quant's after-close/next-session contract. Convert only that close-derived hard-breaker liquidation into a pending sell executed at the next available open, with state reset only after actual clearance. The independent open-derived breaker remains unchanged because it is based on information known at the open.
+
+Do not change selection, eligibility, ranking, position sizing, capital allocation, stop multipliers, drawdown thresholds, risk-gate thresholds, fees, slippage, input prices, universe, dates, or original native reports. Preserve the original native account, the prior inventory-only corrected account, and this timing-corrected diagnostic as distinct identities.
+
+Required checks before interpreting economics: reproduce the original native common-five account exactly; prove a neutral adapter leaves the original four economic output files byte-identical; retain RED evidence for current-session ATR use and same-close hard-breaker execution; verify GREEN semantics for prior-session stop inputs and next-open close-breaker execution; enforce T+1/sellable inventory from the existing correction; reconcile cash/positions/NAV; and report any terminal deferred obligation separately. Measure this fixed common-five account once only. Do not fan out to other pools or use the result to merge PR #1. Economic acceptance remains `NOT_MET` unless the same quant production candidate separately satisfies the full original contract.
