@@ -1,0 +1,48 @@
+{
+  "format": "Read parts in order. Verify transport_sha256, apply each explicitly declared literal replacement exactly once, then verify sha256 of normalized UTF-8 bytes. Strip whitespace, concatenate, base64-decode, gunzip tar, and verify archive_sha256 plus every original member hash. The rejected transport bytes remain retained; no original observation or test output is inferred or edited.",
+  "status": "ENGINEERING_AND_RECOVERY_NOT_ECONOMIC_ACCEPTANCE",
+  "parent_source": "4d0c9ec1ada94c4e23f85a329b880adbe0bd5aa1",
+  "registration": "b796887bbc7a7e72251da0d726a3a3867b76420e",
+  "archive_sha256": "d6045dcdc245646055c2b1a1041d28006d2496e7ff5a1ae09fedd891fd73751e",
+  "members": {
+    "admission-structure-final-targeted.txt": "52d99c759fd49e60fe593b611031b2f77df9ad6942d9cf22c583abcffa106a72",
+    "admission-structure-first-green.txt": "20d188fad004d2295531a91e05b0bfa49e27961d435568dd3e30cdf084d23ebe",
+    "admission-structure-green.txt": "c836fb14dfd4f66d8b0113184ea97ae278a13a87b1c789ffebebe49c0e358297",
+    "admission-structure-offline.txt": "6777c635a7a3f4c3bbd5f6a552ead47a871730d6d1a8c76e88c787be86d3e1f0",
+    "admission-structure-red.txt": "8d1b431a06af2a5ddd3e2519552bd6b9dde6d9e219b9011c48d09d4e927249dc",
+    "admission-structure-research-interrupted.txt": "285c02fd4a40d56944a73766221f9c9b8bf231c17f8269bbe702b4b39b93a2d0",
+    "admission-structure-research-rest.txt": "34e54aba7c757bcaf932c25cd780fbd316ad3b239f48adf43f570cfdd5157ab5",
+    "admission-structure-research.txt": "b226e1d5a5419b565d2fc24d136d6f1431ccfd467e905db55fc7766ad3146d52",
+    "research-check-coverage.json": "01c5aa98c9e12bb13724cdf79c7f3c1084709493d07ea262a1d1644be63fec09",
+    "recovery.json": "8fa40da359b8bf6aea14ecec295a776ac72020aa3234a199c3e45d98774a9417",
+    "admission_geometry.py": "b7dd179ea0a0984ace993a243267a94816df1f60e4e763253164795199cccd8f",
+    "finish_research_checks.py": "162266ac1fd37600a356d8e919d364e5396b4179caf75d62fd4949173fe3513a"
+  },
+  "parts": [
+    {
+      "path": "admission_structure_verification.part00.b64",
+      "sha256": "f0fecf398af16fe68cc6f55f936fc2088b95fa6f6d77adbeb17853ff9b1b3ec2",
+      "transport_sha256": "e8ebd09ab94a93b59c70b2f49c4873f423fd7e5e2fbfb75df4a3fa1fd8ad08d0",
+      "replacements": [
+        {
+          "find": "U+XSdSm",
+          "replace": "U+TdSm",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "path": "admission_structure_verification.part01.b64",
+      "sha256": "73c5f9a24b54bbe84fb4f19194c7ddcd4d9fa38443be7712aea7ace632433c8a",
+      "transport_sha256": "edb7d4ff417a3d645e4850b6d993124d4fd78eaf9c99efdff56a8a1208272fad",
+      "replacements": [
+        {
+          "find": "F1+8svn3y+f0",
+          "replace": "F1+8/O7tyy+f0",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "transport_status": "Two changed base64 substrings have explicit lossless normalization verified against the original part, archive and all 12 original member hashes. Unnormalized transport is not canonical evidence."
+}

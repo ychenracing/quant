@@ -1,0 +1,24 @@
+{
+  "source": "4d0c9ec1ada94c4e23f85a329b880adbe0bd5aa1",
+  "run": "34910777906",
+  "notice": "Original computed observations. Reconstruct only from pinned raw accounts and verify every original byte hash; no new portfolio simulation and no economic acceptance.",
+  "files": {
+    "auction-attribution/chatgpt_5_0_days.csv": "5b87753103b692392c2eeb24cb3c0ff4c722c128230c40f8cb6116978abae1f7",
+    "auction-attribution/chatgpt_5_0_episodes.csv": "10f85b3b5057f024ea4d3abc889ea80a4f5813f448052568cb3f40032a3a7847",
+    "auction-attribution/chatgpt_5_1_days.csv": "05b439cbcbce072b18137599a3be7b8cbf1dd44388151660ae1d449488eaffa7",
+    "auction-attribution/chatgpt_5_1_episodes.csv": "62d1534dcd320e7e8cb4586b8b3423d54a0d47ecdebbdcc535483a8423290dbf",
+    "auction-attribution/joint_optical_leader_removal_0_days.csv": "789945e0279b92ed97f2234a3f8f3a509f81875fca14cd77f0d783b9145b17dd",
+    "auction-attribution/joint_optical_leader_removal_0_episodes.csv": "1b77cb6a438bdc928b4ee1ff46018128c8402712d90943249f354b2d1e44f7de",
+    "auction-attribution/joint_optical_leader_removal_1_days.csv": "a255c06b235e4cdb096aeadcad0e6b1a150cb8f8d1087a39f562bccd7c498a19",
+    "auction-attribution/joint_optical_leader_removal_1_episodes.csv": "f8166fe98060da0789b68671bfd23aab1e6fe0dbe0e27824c36ef71b28766cfd",
+    "auction-attribution/union_0_days.csv": "9e75aabbe44a117fa2982d768126acd185514b54c73d3257cc0711feb968b52d",
+    "auction-attribution/union_0_episodes.csv": "11d85b45c793787ee522234f2424df02255ce36630ab69cd69760c61aaa76e11",
+    "auction-attribution/union_1_days.csv": "7cd820e3bfc841c50803b1b502b93272f203d73aa8cafbb945d2d4a9b901d88c",
+    "auction-attribution/union_1_episodes.csv": "a9feeeb26ea97cc1bb6a46849c99cadce130ab2da7f8eed9ff9e4799eff845c7",
+    "admission-geometry/MANIFEST.json": "f72d734f63af3be37f2596e4d4db2fe37427b0fa4595d63eea2fd8d39c6e9de4",
+    "admission-geometry/chatgpt_5_episodes.csv": "f4c81e65ad5f13c5ab2b412990c9a6060135231af76790c0e8c1b35c1275407a",
+    "admission-geometry/joint_optical_leader_removal_episodes.csv": "acd26d345dc54357bdd52b633392cc410190c18b426d938b95ff8111a59c8419",
+    "admission-geometry/summary.json": "883e0ce3959d0df95a78627b7fe98e0ccedbbcdebf068e5dc4557b75d830812d",
+    "admission-geometry/union_episodes.csv": "8397c620f90713999cdcdf10ecc128b4c33f81808d00186e42a85784ce1b032a"
+  }
+}
