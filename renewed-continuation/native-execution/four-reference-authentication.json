@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "classification": "CORRECTNESS_AUTHENTICATION_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+  "economic_candidate_budget_consumed": 0,
+  "source_repository": "ychenracing/trades",
+  "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+  "reference_commit_tree": "cb6a0f7fdff64c0987189d1e359385a6d80a25f0",
+  "reference_archive_commit": "c3d838ce6349f8bdf0ec2988836212563aaa10bc",
+  "archive_commit_tree": "e8a082473e7006b52a5e74cece03de688dfc2ef4",
+  "selected_reference_trees": {
+    "chatgpt/turtle_dual": "c06585d7837d32905ef4b954b8b2c22f4f3f51f9",
+    "trae/glmcsm": "0ba9d9b776d1b01712e0086af12dfa81d9589b56",
+    "dumate/momentum_rotation": "5b8f1863def6fd784284f9b7a782be28caa3f009",
+    "workbuddy/track_trend": "3c29e60758e0a6538a81ea8144a144d6faf966c4"
+  },
+  "source_authentication": {
+    "status": "EXACT_REMOTE_SOURCE_RECOVERABLE",
+    "basis": "All four selected subtree object IDs at the frozen reference commit are identical to the archived source commit tree IDs recorded for the native run. No private source bytes are copied into quant evidence.",
+    "workbuddy_entrypoint_blob": "e19e611cd332e7a01c0f8677e0ae60600b295c6d"
+  },
+  "producer": {
+    "quant_source_commit": "bbc002449093e458868a8748687df023958ba283",
+    "package_sha256": "bdff426581e521713f28939e79f5aaa967273d9521bb881f0d5b64a2e121ca9f",
+    "native_harness_sha256": "32f310eac06c0c7c684c409d29028ea18312c4bd1400c132f2a50dd9b6ecb64e",
+    "orchestrator_sha256": "1605dc68292c90b6f5bd534728ffe1966dbf3516782d2051655570ccf05160c2",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "recovered_native_archive": {
+    "filename": "quant-main-bbc0024-native-evidence.zip",
+    "size_bytes": 1220461,
+    "sha256": "0a03c52f24dd08c2488b897b6e0a3f3d7211c467c49300645e1d722894ee620f",
+    "root_manifest_sha256": "56018946a68ae499b04ef5cefc1f5480c7aa0fd082d0e7c12d15d8a8d2499216",
+    "outcomes_sha256": "312a4d07fc2add9c3893ddd176525b10437ac4ea46c61680245acb27501481aa",
+    "manifest_entries": 267,
+    "manifest_mismatches": 0,
+    "status": "EXACT_BYTES_RECOVERED_AND_VERIFIED"
+  },
+  "common_five": {
+    "period": ["2023-01-03", "2026-09-11"],
+    "sessions": 896,
+    "initial_cash": 2000000.0,
+    "execution_classification": "NATIVE_SEMANTICS_NOT_NORMALIZED_EXECUTION",
+    "references": {
+      "chatgpt": {
+        "wealth": 1.778233112870138,
+        "max_drawdown": 0.298051526553913,
+        "orders_native_rows": 178,
+        "equity_sha256": "c3e52663b3dbb91a934f20e3bc4377a5661ec53c39175822bc57b1012ac76a3c",
+        "trades_sha256": "9ef8bb544efd5eb6c2f6447ea7b2b94d66b9fbe13916b96179d332fb3fa15a89",
+        "settings_sha256": "b5f58e76bc55e41a1f555438374c0a229a88cbddfcf1d93da0a524da8b36cb03",
+        "identity_sha256": "229f58860060e8a0de656f9be73284f30cb2f1e2bb52694a0d6caeb203ce06e4"
+      },
+      "trae": {
+        "wealth": 10.674861915266794,
+        "max_drawdown": 0.3310775282947074,
+        "orders_native_rows": 800,
+        "equity_sha256": "6ecfeeb4e2466d59e272a4e4326db001c6e892b9d71ba855e37563549ca784be",
+        "trades_sha256": "ff5323c9ee0e8d6a3ee0808bd88698549d00163af4cc3773642063ffcf82c15e",
+        "settings_sha256": "42f8ea91c48a479e307ef0f11a9f1c39bb8f9eebdf844a8de8473c6791a6f24f",
+        "identity_sha256": "2d18a261f7562a8c63e703435beb7c43f5d4e8940ceafdbf98458657e7b7ecfd"
+      },
+      "dumate": {
+        "wealth": 1.465009570726167,
+        "max_drawdown": 0.20686106331849607,
+        "orders_native_rows": 237,
+        "equity_sha256": "5b77144bc978b99b879c7613fb09fcaf989374eba004b41074309c40f3adbe4c",
+        "trades_sha256": "14459891c5bf4ea23729528747f0c7a1d3b4273a05ca9fd8020b8b93255b3f54",
+        "settings_sha256": "235f7b54b9b0d24f7c7b860a6dc6c642be242213217481cf3e063432319e7da3",
+        "identity_sha256": "e5a14cad2aa2752667d51a544c29ce21aa299b63c9230c5d68870d7fcd2c4bac"
+      },
+      "workbuddy_original": {
+        "wealth": 20.221072996623576,
+        "max_drawdown": 0.25331952059019447,
+        "orders_native_rows": 107,
+        "equity_sha256": "afd8192ccb57a21f69312890faa9dd1445db0b4e10c4ec63d4a582f835b80672",
+        "trades_sha256": "a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb",
+        "settings_sha256": "867d2d353bb6558453d763d1c09c025251052e8c58f7225d1a7d37fb645b55ea",
+        "identity_sha256": "4ebfdc73d27232ddf87a5c9b85df09dadea3988feb866d08877ea2fc298f63fb",
+        "known_same_day_inventory_violation": true
+      },
+      "workbuddy_t1_corrected": {
+        "wealth": 20.81972538210324,
+        "max_drawdown": 0.2529534216033119,
+        "orders_native_rows": 109,
+        "trades_sha256": "7befacaa4c82792aa6d380c1412fdce812830e1d126ee15ba895e1721a668db0",
+        "same_day_inventory_violations": 0,
+        "status": "CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE"
+      }
+    }
+  },
+  "conclusions": [
+    "The previously conversation-only native archive is no longer missing: its exact bytes were recovered and its archive hash, 267-entry root manifest, and all per-run manifests were verified with zero mismatches.",
+    "All four frozen comparator source subtrees are currently recoverable from the authorized GitHub connector at the frozen reference commit, and their subtree object IDs match the archived source commit.",
+    "The four historical common-five raw native output streams are now authenticated by exact archive bytes and per-file hashes. Re-running identical historical native cases would add little information and is not required merely to recover missing evidence.",
+    "Only WorkBuddy has a separately verified T+1/sellable-inventory correction. The other three native semantics have not been normalized or correctness-adjusted, so their native returns remain read-only contextual comparisons rather than economic acceptance gates.",
+    "No economic candidate budget is reopened or consumed by this authentication work. Economic acceptance remains NOT_MET and PR #1 must remain unmerged."
+  ],
+  "next_action": "Do not duplicate the authenticated historical native replay. Use the authenticated streams to audit material execution-validity differences for chatgpt, trae, and dumate only where existing evidence identifies a correctness issue; preserve native results separately from any corrected/normalized diagnostic. Continue no new economic strategy candidate unless separately authorized under the exhausted budget contract."
+}
