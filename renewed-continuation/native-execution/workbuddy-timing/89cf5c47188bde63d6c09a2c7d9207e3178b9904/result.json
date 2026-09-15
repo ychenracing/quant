@@ -1,0 +1,30 @@
+{
+  "classification": "EXECUTION_CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+  "source_commit": "89cf5c47188bde63d6c09a2c7d9207e3178b9904",
+  "source_tree": "b930077f108423039b9e29197278d0fb38efee52",
+  "reference": "workbuddy_common_five",
+  "period": ["2023-01-03", "2026-09-11"],
+  "sessions": 896,
+  "initial_cash": 2000000.0,
+  "original_native": {"wealth": 20.221072996623576, "max_drawdown": 0.25331952059019447, "fill_rows": 107, "t1_violations": 1},
+  "inventory_only_corrected": {"wealth": 20.81972538210324, "max_drawdown": 0.2529534216033119, "fill_rows": 109, "t1_violations": 0},
+  "timing_inventory_corrected": {"wealth": 17.827945716714925, "max_drawdown": 0.23670313327015946, "fill_rows": 108, "t1_violations": 0, "outstanding_protection": {}, "terminal_positions": {}},
+  "delta_vs_original": {"relative_terminal_wealth": -0.118348184605, "max_drawdown_percentage_points": -1.661638732},
+  "delta_vs_inventory_only": {"relative_terminal_wealth": -0.143699285676, "max_drawdown_percentage_points": -1.6250288333},
+  "decline_windows": {
+    "2026-06-22..2026-08-31": {"return": -0.12059847, "local_mdd": 0.14326132},
+    "2026-07-01..2026-08-31": {"return": -0.14326132, "local_mdd": 0.14326132}
+  },
+  "first_equity_divergence_vs_inventory_only": "2023-08-08",
+  "verification": {"targeted_tests": 26, "offline_tests": 87, "offline_correctness_run": 34936260906, "max_nav_abs_error": 7.450580596923828e-09, "cash_mismatch": 0.0, "holding_mismatches": []},
+  "hashes": {
+    "equity_csv": "fdcaae2a1cf172d413aef483832a288605c40fcf00b98ee14bb9fa51bf25f890",
+    "trades_csv": "f84102a7913db604be75eb63c4ec5b6959a8510bc021c061911fcb60f555b16c",
+    "settings_json": "867d2d353bb6558453d763d1c09c025251052e8c58f7225d1a7d37fb645b55ea",
+    "inventory_adapter": "f0611e4536853adc3197fb0a5d354d66f11494d7280a1bf19d7024bf5dbcdc3f",
+    "timing_adapter": "083ddc09fd6743b41d788246762db4314733b80032a732c0eebc6f078cc4c737",
+    "transformed_ast": "481d866208e2ae604a44a3872e64b2baec799eee13a330917d98a798000e7815"
+  },
+  "economic_acceptance": "NOT_MET",
+  "production_delivery": "NOT_COMPLETE"
+}

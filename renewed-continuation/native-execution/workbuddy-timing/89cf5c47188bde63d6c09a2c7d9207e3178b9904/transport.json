@@ -1,0 +1,62 @@
+{
+  "archive": "workbuddy-timing-89cf5c4.tar.xz",
+  "encoding": "Concatenate UTF-8 base64 text parts in order, remove ASCII whitespace, base64-decode to XZ tar; verify decoded archive SHA256; extract safely and verify MANIFEST.json.",
+  "bytes": 27296,
+  "sha256": "c51eaa314711df3c309b5c48ca1b250e4e00a0216df3628fce07147962df47bf",
+  "members": 18,
+  "hashed_files": 17,
+  "source_commit": "89cf5c47188bde63d6c09a2c7d9207e3178b9904",
+  "source_tree": "b930077f108423039b9e29197278d0fb38efee52",
+  "scope_commit": "b9a1bb04eaf8c880ee455bdea9f78a9fbd1d8381",
+  "private_source_included": false,
+  "parts": [
+    {
+      "name": "evidence.tar.xz.b64.part00",
+      "bytes": 5001,
+      "sha256": "d54281a74007260fc818c7e032cbd6f435cc3722e768bc1fa4a98c17aedcd18f",
+      "git_blob": "e2a7ba3208345a9a87060a02e034a5b0572e306b"
+    },
+    {
+      "name": "evidence.tar.xz.b64.part01",
+      "bytes": 5001,
+      "sha256": "033e7df3c1da306bede3c3b649aade26eca4d3d736c2805f169767d3c7fab48a",
+      "git_blob": "debfe561794bbd2035e5645090ee3f00f8f03bde"
+    },
+    {
+      "name": "evidence.tar.xz.b64.part02",
+      "bytes": 5001,
+      "sha256": "2dc4d8889c1d806140774c62ac0bdf792914dd64cb073a44dbca6385e4fe3cd7",
+      "git_blob": "721b34d3a75db0e475ff21d85e85a3148c6c30c4"
+    },
+    {
+      "name": "evidence.tar.xz.b64.part03",
+      "bytes": 5001,
+      "sha256": "88fe306d218f3eeacf30c32f12b6f0ddf6445f966c7642fd2564a59348e4bec3",
+      "git_blob": "cb6f266dc53c7db721a20e5e4924b93e019509d9"
+    },
+    {
+      "name": "evidence.tar.xz.b64.part04",
+      "bytes": 5001,
+      "sha256": "323e0fa20137697f1d740b3320cfdccf9c627d15eae10d2d32d07961ea4210a6",
+      "git_blob": "cc55d561f12b63249194bae246ad0012222ca53b"
+    },
+    {
+      "name": "evidence.tar.xz.b64.part05",
+      "bytes": 5001,
+      "sha256": "89da6391b98e21bc188fe6ed8e54d95d8cff7f132dccb9d0a8473410db4d1195",
+      "git_blob": "7fcba6171eff9761511a112ee1c61be981c877a7"
+    },
+    {
+      "name": "evidence.tar.xz.b64.part06",
+      "bytes": 5001,
+      "sha256": "66490fafbacb60a4c652d6552a16b6c11a9f32583a09e358a4f9bec858598af3",
+      "git_blob": "7d1ff3db2e454bb45ae5f48b93730f1c9c7af233"
+    },
+    {
+      "name": "evidence.tar.xz.b64.part07",
+      "bytes": 1396,
+      "sha256": "3a1279211a4201ebd9cd2343f868ab6beee264ddcbe0aff26caa8b2cfe358762",
+      "git_blob": "fd49b404950a960d6b648feaa90afba0abae2332"
+    }
+  ]
+}
