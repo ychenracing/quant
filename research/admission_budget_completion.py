@@ -55,8 +55,7 @@ class Owner(Parent):
         desired = original.copy()
         symbol_cap = max(p.config.single_cap, 1/len(held))
         sector_cap = p.config.sector_cap if len(set(p.features.sectors)) > 1 else 1.
-        candidates = sorted(np.flatnonzero(fresh),
-            key=lambda j: (-p.features.score[i,j], self.market.symbols[j]))
+        candidates = p._allocation_order(i, np.flatnonzero(fresh))
         for j in candidates:
             sector = np.array([s == p.features.sectors[j] for s in p.features.sectors])
             value = min(cash, risk*price[j]/distance[j],

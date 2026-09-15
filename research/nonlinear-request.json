@@ -1,10 +1,10 @@
 {
-  "family": "opportunity_allocation",
-  "operation": "opportunity_allocation_pair",
+  "family": "continuity_selection",
+  "operation": "continuity_selection_pair",
   "candidate_count": 2,
-  "contract_commit": "80c0252aa3f1bb33fb4b158209521f14aed43dcf",
+  "contract_commit": "5418e5f5be67d6caffa5a60581eda1730e88579f",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "purpose": "Exactly six fixed paired pre-2026 accounts under renewed user authority; no nearby capacity search and no rejected-treatment full-history replay.",
-  "cumulative_budget": "prior correction 3/3 closed; renewed continuation at most 2, opportunity_allocation is the first registered hypothesis",
+  "purpose": "One fixed causal information-continuity comparison, exactly six pre-2026 paired accounts. Keep original eligibility, capacity, funding and risk protection; no neighboring rank or capacity search.",
+  "cumulative_budget": "prior correction 3/3 closed; renewed continuation 2/2 registered, opportunity_allocation REJECTED and continuity_selection pending",
   "economic_acceptance": "UNVERIFIED"
 }

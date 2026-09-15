@@ -10,20 +10,24 @@ from research.decision_review import paired_screen
 from research.ledger_attribution import attribute
 
 
-def paired(output, data, supplement):
+def paired(output, data, supplement, *, family="opportunity_allocation"):
+    contracts={"opportunity_allocation":"80c0252aa3f1bb33fb4b158209521f14aed43dcf",
+               "continuity_selection":"5418e5f5be67d6caffa5a60581eda1730e88579f"}
+    if family not in contracts:
+        raise ValueError("only the two independently registered paired families are supported")
     output=Path(output);root=Path(__file__).parent
     catalog=json.loads((root/'catalog.json').read_text())
-    contract=json.loads((root/'opportunity_allocation_contract.json').read_text())
+    contract=json.loads((root/(family+'_contract.json')).read_text())
     market=load_market(data,supplement=supplement,sectors=catalog['sectors'])
     if market.fingerprint()!=contract['data']['full_sha256']:
         raise ValueError('only the original frozen market is admissible')
     market=market.prefix(contract['data']['selection_end'])
-    study=Study('opportunity_allocation');scoped=scopes(market,catalog)
+    study=Study(family);scoped=scopes(market,catalog)
     path=output/'selection';path.mkdir(parents=True,exist_ok=True)
     plan=dict(identity=study.identity(),data_sha256=market.fingerprint(),scopes=scoped,
               parameters=[asdict(p) for p in study.module.grid()],
-              contract_commit='80c0252aa3f1bb33fb4b158209521f14aed43dcf',
-              contract_sha256=file_hash(root/'opportunity_allocation_contract.json'))
+              contract_commit=contracts[family],
+              contract_sha256=file_hash(root/(family+'_contract.json')))
     if (path/'plan.json').exists() and json.loads((path/'plan.json').read_text())!=plan:
         raise ValueError('existing paired plan is not identity-equivalent')
     write_json(path/'plan.json',plan)
@@ -45,7 +49,7 @@ def paired(output, data, supplement):
                     candidate=1 if decision['advance'] else 0,new_accounts=6,
                     full_evaluation='NOT_RUN: original final validation requires a justified complete candidate',
                     historical_exposure='RETROSPECTIVE_NOT_UNSEEN_OUT_OF_SAMPLE',
-                    research_budget='renewed continuation: hypothesis opportunity_allocation; no neighboring retries')
+                    research_budget=f'renewed continuation: hypothesis {family}; no neighboring retries')
     write_json(path/'selection.json',decision)
     return decision
 

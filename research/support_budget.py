@@ -178,6 +178,9 @@ class Owner:
     def _funding_eligible(self, o, held, allowed, price, stops):
         return allowed & (price > stops) & (~held | self.breakout[o.session])
 
+    def _allocation_order(self, i, indices):
+        return sorted(indices, key=lambda j: (-self.features.score[i,j], self.market.symbols[j]))
+
     def _allocate(self, o, desired, price, initial, allowed, cap):
         held = o.units > 1e-10
         capacity = min(self.params.positions, len(held))
@@ -190,7 +193,7 @@ class Owner:
         symbol_cap = max(self.config.single_cap, 1/len(held))
         sector_cap = self.config.sector_cap if len(set(self.features.sectors)) > 1 else 1.
         candidates = np.flatnonzero(self._funding_eligible(o, held, allowed, price, stops))
-        candidates = sorted(candidates, key=lambda j: (-self.features.score[o.session,j], self.market.symbols[j]))
+        candidates = self._allocation_order(o.session, candidates)
         for j in candidates:
             if not held[j] and occupied >= capacity:
                 continue

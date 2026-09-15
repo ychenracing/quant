@@ -77,6 +77,11 @@ jobs:
                       raise ValueError('opportunity allocation requires its registered paired family')
                   from research.opportunity_allocation_study import paired
                   paired(output, data, supplement)
+              elif operation == 'continuity_selection_pair':
+                  if request['family'] != 'continuity_selection':
+                      raise ValueError('continuity selection requires its registered paired family')
+                  from research.opportunity_allocation_study import paired
+                  paired(output, data, supplement, family='continuity_selection')
               elif operation == 'measure':
                   try:
                       if request['family'] == 'observed_readiness':
