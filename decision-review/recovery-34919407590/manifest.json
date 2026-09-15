@@ -1,0 +1,36 @@
+{
+  "format": "Concatenate listed ASCII base64 parts in order, strip whitespace, base64-decode then xz-decompress; result is UTF-8 JSON. File contents and all original hashes are inside.",
+  "payload_sha256": "37479e5236c74db8314e45281aad2b4b44c9e4cca2d013a5dd61e512018e3351",
+  "xz_sha256": "3f2bd7beea129258001c8a42f2daea50ce3cb34ca4f011e559324fa665daaf0f",
+  "parts": [
+    {"path":"part-00.b64","sha256":"f9051eb8c2196b39c386f6ecddfcd531344226a42501969b4593bae1280291c4","git_blob_sha1":"b178c1dcc47d7169d37bd8b67bc3cffef2d37740","bytes":8001},
+    {"path":"part-01.b64","sha256":"39d2c2717109e6386ec21f73a2affc6a6651e8889fe3a7e85eb5c95fafea6969","git_blob_sha1":"7a05fe8f498886edc520636fc4f01fd44bbd97b5","bytes":8001},
+    {"path":"part-02.b64","sha256":"a9ff562e9099f8b9df2384015951948173346c053af442f3b03d0f043a8ec99a","git_blob_sha1":"800ef035fc8e828bb23090752b89ffd393dc6286","bytes":8001},
+    {"path":"part-03.b64","sha256":"b595c4f9c6896361e460b78e978463309bb11371ed3b09af467d13ee9dc46e7e","git_blob_sha1":"5d988e4a2b6e9e1b14cf0727764f9519462b9705","bytes":8001},
+    {"path":"part-04.b64","sha256":"3dba68ff0de15658bf552f763787a7937deb8573fbed17ac5e643ef5cf33a7c7","git_blob_sha1":"5a29b64341d87bcd1f1707efeb4b3ae1c5b5977c","bytes":8001},
+    {"path":"part-05.b64","sha256":"844c89aadb79224318561e1a47db05820e5b9ef17a84c5d48ff959bbfe13a29b","git_blob_sha1":"1052f0c578c0d6f18d7f5872a78292e6e2749933","bytes":8001},
+    {"path":"part-06.b64","sha256":"ad8c46fec5edbd55677a9d2a2130dcc5a7fe0f0b84fbd55d1b8d591dd5defbfa","git_blob_sha1":"246d35c6510047ce46b0b27f1aec8544c535497a","bytes":8001},
+    {"path":"part-07.b64","sha256":"04b0205600f739ff664e6215c6865d99b15d7f68323c85e7ccf5601ac3abcc01","git_blob_sha1":"07dec40571f3ffe522e112701ebf0ba09b35e9a6","bytes":2481}
+  ],
+  "measured_source": "nonlinear/07f4f32f2a856866bb774e128470b437ceb7f779/34919407590/",
+  "economic_runs": 0,
+  "local_snapshot": "77ea3e04e0d44d7ba100d793478fbc84fab0df37",
+  "local_base": "6da9e119af256f23c2b2be45fd3d4f5efa1a8bff",
+  "local_status": "UNMEASURED_LOCAL_RECONSTRUCTION_WITHDRAWN_IN_FAVOR_OF_CONCURRENT_07f4f32",
+  "review_files": ["REVIEW.md","cross_source_account_checks.json","funding_pair.csv","reentry_costs.json","blocked_orders.json","generator_path_correction.txt","generation.txt","risk_events.json","generator.py","complete_candidates.csv","verification.json","candidate_frontier.json","MANIFEST.json"],
+  "review_file_sha256": {
+    "REVIEW.md":"ee3d2dd7788233dac4f79d26d1b6c1540c4a158d406aaccb7c5854c58659be37",
+    "cross_source_account_checks.json":"5924b232675dcbe9459e902f8892a30f6edd20f2a98e4e72c4568986b0cd3fc7",
+    "funding_pair.csv":"41eef09305681d076aabd61bdfb58b0165db574c994813f88f73dad76524ff65",
+    "reentry_costs.json":"0bce337b0e9ab4dab328f734d9060f17f9818a2745e76f2b60948bc6afe8654c",
+    "blocked_orders.json":"58e1861b370cff072c51b7acf1f77ab9f14b9a9c634fa14a3fa79a103628d66e",
+    "generator_path_correction.txt":"95f694c1f26dd99a1b61585431f88ac0a6af36e7fb8424523f136ad4d5bcbda7",
+    "generation.txt":"03cbbde06527c6cedcf04bfa6ca0a3563be8a7e6963ac44c79afe8e91a23f909",
+    "risk_events.json":"315a3c6a22fcdd60ef958059f08d62f487ca660e83ef44e1aac37b7fa01fc8a1",
+    "generator.py":"f427ecaedf13ac349d5cc5cd46984fedb2fe6ae6ab7aa77364289d32d0afd5df",
+    "complete_candidates.csv":"7f01049cfb716aec2946e370fd484933fe9826c72dab87801fe95cf12d064914",
+    "verification.json":"ace9acf296f196289be20f8400f315a6418fb2bf2e6ae1fbba276bb5e11d3fc0",
+    "candidate_frontier.json":"fe8ea2da7c59f15f18de37fc310221dee687b8c87e22f5f43dbc9f2b84238be4",
+    "MANIFEST.json":"96e1f443ce30d3d716a9344a451165aa36773ff4ed9b0b6847be4bdfec40428a"
+  }
+}
