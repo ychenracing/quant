@@ -1,16 +1,19 @@
 {
-  "family": "shock_reclaim",
+  "family": "theme_campaign",
   "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "39b7e7aa3ec63f9ba29d2cfd034facd9c35659bd",
-  "request": "Execute the same single preregistered top-ranked market-shock reclaim control/treatment pair through 2025-12-31 after the implementation-order correctness repair that preserves reclaim memory until the parent observes actual zero-inventory liquidation and arms its ordinary readmission veto. Exit protective shocks normally first; only a flat shock-exited name may receive one-close provisional readmission release when it requalifies under the unchanged parent, is deterministic rank-1 by the unchanged positive score, and has reclaimed its saved shock-signal close. Preserve actual cash, slots, risk, T+1, fees, liquidity and all protection obligations. Reject on any scope wealth regression; do not tune rank/price/waiting thresholds or run a rejected treatment over 2026/final matrix.",
+  "registration_commit": "38136909efb4124ec3ca02822e26c012debced59",
+  "request": "Execute the single preregistered causal same-sector theme-campaign control/treatment pair through 2025-12-31. The unchanged two-position price-led actual-inventory owner is the control. Treatment forms a theme only when its top two already-admissible causal price leaders share a generic sector, persists that state on the existing ten-session review clock, and permits only increases inside the active theme. Preserve every existing holding exit, account-risk cut, actual-fill obligation, cash/slot/name limit, T+1 rule, fee, slippage and liquidity assumption. Reject without neighbors if any scope wealth declines or union does not strictly improve; do not run a rejected treatment over 2026/final coverage.",
   "source_sha256": {
-    "research/shock_reclaim.py": "6bc624d505ca0f9cf194c3232b3c913b8e7b0b9d2df2764b198d801ba14d96d2",
-    "research/test_shock_reclaim.py": "a65f69b266f07bb68127b9d777236965b38bbdceeca804f2fb24c1e021ae3ec4",
-    "research/shock_reclaim_contract.json": "c92412bedf4b19443440b5d44c4f5e5697ccc027cdff6b6b0acb1edad93d6f2c",
-    "research/finite_study/__init__.py": "0cb170e544406f1213150eb77a4bcaf37ee5e6c645fd3b1ecf6492d795221bde",
+    "research/theme_campaign.py": "d9fb42dc4d65aabd8c37af04c35432c1d2d55d42e445bc27552a3d96d4e8f26d",
+    "research/test_theme_campaign.py": "8978fd8e6799d0d3fb07736b0fad09aee179e9cfdf16ff48fa10985a42160454",
+    "research/theme_campaign_contract.json": "c7f477798c2dd4f120e56507214b001a257db65c1b57ec46a18fd83edf4fac72",
+    "research/finite_study/__init__.py": "2545a0815f599ebdf003e79825c53f277a528b2174622d585789cfd6bbe566ca",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
-    ".github/workflows/nonlinear-study.yml": "b2dd941475ae7f6c6d077cd8a8d7d42e2e61c7beb683e28bc5bc996218a5bfc9"
+    "research/trend_book.py": "56eec9dd7b1554405d99f1b2359c043e75ed91ae4f6a6c1d05d099947771ee25",
+    "research/coherent.py": "0d86a3904813af1ecad8fdb7bec4dc529caf546c3e6efd8a8d78afe80b9f7485",
+    "research/observed_trend.py": "9801ca612e53e07836712c6823646138da37d289b8b0698406d94feff6e1fff8",
+    ".github/workflows/nonlinear-study.yml": "94a12e3d7524644ff2f6be7ce25d215be65c9d948eb48fe39f747ef6c5beb727"
   }
 }
