@@ -1,18 +1,56 @@
 # Current quant continuation
 
-Original task and PR1 remain NOT_COMPLETE/NOT_MET. Latest user authority: `继续改啊，直到达到目标才能停`. Continue substantive implementation without treating a fixed hypothesis as a permanent one-trial approval cap. Preserve old frozen budgets, rejected mechanisms and acceptance constraints; no neighbor grids, per-pool winner splicing or false success.
+Original task and PR #1 remain `NOT_COMPLETE / NOT_MET`. Latest authority is
+alpha-first: maximize return capability while preserving original acceptance,
+frozen identities, execution constraints and all failed evidence. No defensive
+patching, score/funding micro-tuning, new gate accumulation, neighboring
+parameter searches, per-pool splicing or reference-source reuse.
 
-Latest completed economic implementations:
-- campaign_payoff: eddbc617787d85215124d974ea10ec8c4e89da68/run34964181664, REJECTED.
-- joint_funding: 0578a23c52007bde657ed97e9ce033fa58675ce6/run34966383125, REJECTED.
-Both six-account pairs are measured through2025-12-31; no rejected treatment2026 run or final matrix.
+## Live state at takeover
 
-Independent audit be5257fd917b6ba812a183fdccc55e73e003ca6c/run34967775062 is COMPLETE: exact two archives,134 payloads and12 original accounts verified,0 new strategies/refits. Evidence84a34c8ceda034c42ae05bb0c352f5e43224702c under nonlinear/<audit-source>/<run>/account_review/. It supersedes the failed audit b4a79f08/run34967198409 only as a new corrected run; the old failure is retained. Research tests349 run/340 pass/9 skip; offline suite passed in the same workflow. Full traded-value context was weak/inconsistent; no volume-filter candidate registered.
+- main: `966f7428658431c9da5a6fcaf7d9b9d5c446f2cd`.
+- PR #1: OPEN, Draft, unmerged; implementation head
+  `efffb9a428258e921feaff125011cba46223bb18`.
+- last completed research source:
+  `69e56f375763ab78a94097ad05608ba03ece0ec1`.
+- authoritative evidence handoff:
+  `research/evidence@96cb087a5f63133f8ebf881b41a0ae870827c3eb`.
 
-Current recovery entry is research/evidence@d71af36ab92dea39c6ed9715e40d0c846bff1582:HANDOFF_PROMPT.md, continuation/progress.json and continuation/REVIEW.md. Follow their source identities; do not attribute old economics to this documentation-only navigation commit.
+## Latest completed candidate
 
-Next action: use already-saved campaign/intention and actual account evidence to trace the first executable divergence behind recurring missed large-payoff campaigns, distinguishing qualification/entry, holding/exit, capital and recovery causes. Stop local ranking/funding-weight refinement. Resolve any experiment-only-versus-user-level constraint ambiguity from original authority without changing true frozen gates. Then prospectively define and implement a genuinely different structural mechanism of enough scope to address the original gap. Do not redispatch the currently committed audit request; it has finished.
+`causal_theme_campaign@69e56f3` is permanently
+`REJECTED_PAIRED_SCREEN`. Hosted runs 35004916170 and 35004916094
+succeeded, but treatment wealth fell 58.20%/32.01%/29.79% on
+union/common-five/joint-removal and every MDD worsened. No treatment 2026 run
+was made. Hard same-sector admission wrongly suppressed major isolated-leader
+alpha; do not tune or repackage it.
 
-Writer state: this batch's implementation and recovery are remotely preserved; no pending economic/audit run or unpushed local source is owned by this writer. Single-writer ownership is released for the next authorized continuation; this is not a user stop, budget reset or task completion. Reread live refs, PR/comments, active work and Actions before taking over; do not infer visibility into other unpublished Work containers.
+Also do not repeat `campaign_payoff`, `joint_funding`,
+`confirmed_shock`, inventory/T+1 corrections, timing/fee probes,
+`profit_trend_shield` or `shock_reclaim`.
 
-main remains bbc002449093e458868a8748687df023958ba283; original Draft PR head4fa306fdcde2f9a77d941200ef7ff2f988c045e5. No accepted final production tree exists and no merge is authorized by a partial PASS. Keep original hourly quant continuation active under latest user instructions; stop it only after properly verified accepted normal PR1/main completion or a later explicit user stop/closure, never modify other projects/tasks.
+## Active batch
+
+Prospective contract `research/leader_anchor_slots_contract.json` was
+registered at `fbab56360b555bc69c9a771b4b27c5db1d603c61` before implementation.
+
+Implement one fixed structural pair:
+
+- parent is unchanged `trend_book.Owner(positions=2)`;
+- slot 1 preserves the parent's strongest currently admissible individual;
+- slot 2 prefers the strongest admissible generic-sector co-leader of slot 1,
+  falling back to the unchanged parent second candidate;
+- existing holdings/exits, risk, actual fills, T+1, cash, costs, liquidity and
+  next-session execution remain unchanged;
+- no score/weight modification, new numeric threshold, pool/ticker/date/sector
+  branch or reference-runtime input.
+
+Use TDD, then run ordinary and full research suites. If correct, run the fixed
+six-account pre-2026 pair. Reject without neighbors if any scope loses wealth,
+if union does not strictly improve, or if no scope strictly improves. Only a
+passing fixed pair may proceed to 2026 and the original final matrix.
+
+Writer state: this batch owns the above registered implementation and any
+single matching hosted request until its result and evidence are saved. Do not
+start a parallel writer on `research/expectation-learning`. This ownership is
+not a task stop or budget reset.
