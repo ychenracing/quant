@@ -1,0 +1,9 @@
+{
+  "source_commit": "eddbc617787d85215124d974ea10ec8c4e89da68",
+  "run_id": "34964181664",
+  "family": "campaign_payoff",
+  "operation": "measure",
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
