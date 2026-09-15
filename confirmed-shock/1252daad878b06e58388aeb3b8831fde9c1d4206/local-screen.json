@@ -1,0 +1,33 @@
+{
+  "repository": "ychenracing/quant",
+  "original_pr": 1,
+  "family": "confirmed_shock",
+  "registration_commit": "1ce819815f7c6a5cd6e9f00e64cf972d183e1888",
+  "source_commit": "1252daad878b06e58388aeb3b8831fde9c1d4206",
+  "source_tree_before_request_only_commit": "a794f12b3f3740679b3cfc0966aa070d6e178aca",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_end": "2025-12-31",
+  "sessions": 727,
+  "initial_cash": 2000000,
+  "local_runtime": {"python": "3.12.14", "numpy": "2.3.5", "pandas": "2.2.3"},
+  "screen": "REJECTED_PAIRED_SCREEN",
+  "advance": false,
+  "treatment_2026_runs": 0,
+  "results": {
+    "union": {"control_wealth": 4.231186496672099, "treatment_wealth": 4.326295563973108, "control_mdd": 0.2964510683651256, "treatment_mdd": 0.2872889215087592},
+    "chatgpt_5": {"control_wealth": 5.718046146255741, "treatment_wealth": 5.618539379186954, "control_mdd": 0.3155163499985997, "treatment_mdd": 0.3487442448787209},
+    "joint_optical_leader_removal": {"control_wealth": 2.35820512290061, "treatment_wealth": 2.7989734559659682, "control_mdd": 0.3302999756539289, "treatment_mdd": 0.3543017930736939}
+  },
+  "selection_sha256": "d02e5a2ef03c1d187ad71aea5d8a7b3916f25ac720347ea22fabd42aeba03330",
+  "evaluation_decision_sha256": "09fb34ee973f5a226a3313b289710ac2822695d851f3709bd8319f8a9c06e92c",
+  "engineering": {"offline": "87 passed", "research": "346 passed, 9 skipped", "confirmed_shock_red_green": "6 failed before module; 6 passed after implementation"},
+  "hosted_run": 34987601234,
+  "hosted_status_at_record": "QUEUED",
+  "original_results": "LOCAL_TRANSIENT_AWAITING_HOSTED_PRESERVATION",
+  "local_original_directory": "/workspace/scratch/aa2938fbd3d7/confirmed-shock-run/selection",
+  "local_original_bytes_approx": 4194304,
+  "reproduction": "At source_commit, set QUANT_SOURCE_COMMIT to source_commit, restore frozen input with research.hosted_study.inputs, then run Study('confirmed_shock').select and evaluate.",
+  "economic_acceptance": "NOT_MET",
+  "production_delivery": "NOT_COMPLETE",
+  "main_merge": "NOT_ATTEMPTED"
+}
