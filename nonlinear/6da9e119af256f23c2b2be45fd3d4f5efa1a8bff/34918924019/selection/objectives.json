@@ -1,0 +1,20 @@
+[
+  {
+    "candidate": 0,
+    "parameters": {
+      "prefer_supported_strength": false
+    },
+    "worst_deficit": 0.0,
+    "objective": -0.8559598360483281,
+    "fills": 428
+  },
+  {
+    "candidate": 1,
+    "parameters": {
+      "prefer_supported_strength": true
+    },
+    "worst_deficit": 0.2800150675182325,
+    "objective": -1.0273257694218758,
+    "fills": 424
+  }
+]

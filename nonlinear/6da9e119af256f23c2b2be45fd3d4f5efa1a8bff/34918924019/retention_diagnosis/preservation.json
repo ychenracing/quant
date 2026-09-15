@@ -1,0 +1,14 @@
+{
+  "origin_source": "8ebcb5311f08f77d8e3077277126bd6bbd43504c",
+  "origin_run": "34915730072",
+  "generator_sha256": "83c1da6adc2a6ded09fd5605b9671f612d008e0de631696bb6b7d2220e0d2790",
+  "new_portfolio_runs": 0,
+  "exact_observed_bytes": {
+    "opening-risk/chatgpt_5.csv": false,
+    "opening-risk/joint_optical_leader_removal.csv": false,
+    "opening-risk/summary.json": false,
+    "opening-risk/union.csv": true,
+    "reduction-opportunity/observations.json": false
+  },
+  "all_matched": false
+}

@@ -1,0 +1,4 @@
+{
+  "status": "DIAGNOSTIC_RESTORE_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 44, in <module>\n  File \"/home/runner/work/quant/quant/research/retention_diagnosis.py\", line 133, in hosted\n    destination=Path(output)/'retention_diagnosis';diagnose(parent,m,destination)\n                                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/quant/quant/research/retention_diagnosis.py\", line 93, in diagnose\n    if not all(checks.values()):raise ValueError('recorded-control observations differ from original bytes')\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: recorded-control observations differ from original bytes\n"
+}

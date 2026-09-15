@@ -1,0 +1,9 @@
+{
+  "source_commit": "6da9e119af256f23c2b2be45fd3d4f5efa1a8bff",
+  "run_id": "34918924019",
+  "family": "protected_retention",
+  "operation": "measure",
+  "selection_status": "CORE_NONREGRESSION_ONLY",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": true
+}
