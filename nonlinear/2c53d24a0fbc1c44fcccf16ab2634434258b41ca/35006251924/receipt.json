@@ -1,0 +1,9 @@
+{
+  "source_commit": "2c53d24a0fbc1c44fcccf16ab2634434258b41ca",
+  "run_id": "35006251924",
+  "family": "leader_anchor_slots",
+  "operation": "measure",
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
