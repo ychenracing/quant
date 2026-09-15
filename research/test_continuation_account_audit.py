@@ -39,5 +39,38 @@ class AuditContextTests(unittest.TestCase):
         self.assertEqual(len(out),0);self.assertEqual(summary['unavailable_context'],1)
         self.assertIsNone(summary['payoff_rank_correlation'])
 
+class DependencyAuditTests(unittest.TestCase):
+    def test_runtime_versions_and_source_files_have_separate_namespaces(self):
+        import hashlib,tempfile
+        from pathlib import Path
+        from research.continuation_account_audit import check_dependencies
+        runtime={'python':'3.13.5','dependencies':{'numpy':'2.3.5','pandas':'2.2.3'}}
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'module.py').write_text('source')
+            identity={'source':dict(runtime,commit='old-sha'),
+                      'parent_study':{'source':dict(runtime,commit='old-sha')},
+                      'dependencies':{'module.py':hashlib.sha256(b'source').hexdigest()}}
+            check_dependencies(identity,root,runtime)
+            identity['source']['dependencies']={'numpy':'0.0','pandas':'2.2.3'}
+            with self.assertRaisesRegex(ValueError,'runtime'):check_dependencies(identity,root,runtime)
+
+    def test_changed_source_dependency_is_rejected(self):
+        import hashlib,tempfile
+        from pathlib import Path
+        from research.continuation_account_audit import check_dependencies
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'module.py').write_text('changed')
+            with self.assertRaisesRegex(ValueError,'measurement dependency'):
+                check_dependencies({'dependencies':{'module.py':hashlib.sha256(b'source').hexdigest()}},root,{})
+
+    def test_dependency_path_escape_and_unknown_hash_are_rejected(self):
+        import tempfile
+        from pathlib import Path
+        from research.continuation_account_audit import check_dependencies
+        with tempfile.TemporaryDirectory() as tmp:
+            for path,value in (('../outside','0'*64),('module.py','2.3.5')):
+                with self.subTest(path=path),self.assertRaises(ValueError):
+                    check_dependencies({'dependencies':{path:value}},Path(tmp),{})
+
 
 if __name__=='__main__':unittest.main()

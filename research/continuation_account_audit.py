@@ -1,6 +1,6 @@
 """Read-only recovery of two completed pairs; no new portfolio replay or fitting."""
 from __future__ import annotations
-import json
+import hashlib,json
 from pathlib import Path
 import urllib.request
 import numpy as np
@@ -39,6 +39,32 @@ def volume_context(market,episodes,cfg):
     return frame,summary
 
 
+def check_dependencies(node, research, runtime):
+    """File hashes and runtime version maps are different provenance namespaces."""
+    if not isinstance(node,dict):
+        return
+    root=Path(research).resolve()
+    for key,value in node.items():
+        if key == 'source' and isinstance(value,dict):
+            if (value.get('python')!=runtime.get('python')
+                    or value.get('dependencies')!=runtime.get('dependencies')):
+                raise ValueError('recorded numerical runtime differs')
+        elif key.endswith('dependencies') and isinstance(value,dict):
+            for name,expected in value.items():
+                path=Path(name)
+                if (path.is_absolute() or '..' in path.parts
+                        or not isinstance(expected,str) or len(expected)!=64
+                        or any(c not in '0123456789abcdef' for c in expected)):
+                    raise ValueError('invalid source dependency path or digest')
+                target=(root/path).resolve()
+                if not target.is_relative_to(root) or not target.is_file():
+                    raise ValueError('missing or unsafe measurement dependency: '+name)
+                if hashlib.sha256(target.read_bytes()).hexdigest()!=expected:
+                    raise ValueError('changed measurement dependency: '+name)
+        elif isinstance(value,dict):
+            check_dependencies(value,root,runtime)
+
+
 def review(output,data,supplement):
     from techquant.config import Config
     from techquant.data import file_hash,load_market
@@ -65,14 +91,7 @@ def review(output,data,supplement):
                 or (root/'source-commit.txt').read_text().strip()!=source
                 or identity['source']['files']!=current['files']):
             raise ValueError('recorded source, rejected pair or accounting identity mismatch')
-        def check_dependencies(node):
-            if not isinstance(node,dict):return
-            for key,value in node.items():
-                if key.endswith('dependencies') and isinstance(value,dict):
-                    for name,expected in value.items():
-                        if file_hash(research/name)!=expected:raise ValueError('changed measurement dependency: '+name)
-                elif isinstance(value,dict):check_dependencies(value)
-        check_dependencies(identity);scoped=[]
+        check_dependencies(identity,research,current);scoped=[]
         for scope,names in scopes(market,catalog).items():
             accounts={label:recorded_account(market,root/'selection/runs'/(scope+'_'+label))
                       for label in ('control','treatment')}

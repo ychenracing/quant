@@ -3,10 +3,10 @@
   "operation": "continuation_account_audit",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "request": "Read-only exact recovery of both completed rejected pairs, twelve recorded accounts and close-known non-price context. ZERO new strategy accounts, fits or parameter trials. Retain source-bound results and investigate distinct next information without changing any frozen policy or screen.",
+  "request": "Read-only exact recovery of both completed rejected pairs, twelve recorded accounts and close-known non-price context. ZERO new strategy accounts, fits or parameter trials. Retain source-bound results and investigate distinct next information without changing any frozen policy or screen. Correct the review namespace bug from b4a79f08/run34967198409 only: validate runtime dependencies as versions, research dependencies as exact SHA256 files. Preserve the failed audit; no economic rerun.",
   "source_sha256": {
-    "research/continuation_account_audit.py": "32aed74da4f85ee8e8af5f77144f623a7b25a521056e2807e6164ecc8a80f555",
-    "research/test_continuation_account_audit.py": "d1592caec14ef321d42bb0e1b5f7b33e4a98a983783213bbbf1478733a84ce58",
+    "research/continuation_account_audit.py": "5282a07485a029ca93d52ea4c48db53b00f3c1293130b98ee2578a606610042e",
+    "research/test_continuation_account_audit.py": "586fc8fb9ff0df821155943522cdf1b5d538734520fa2c6d3a0654372af3ee3a",
     ".github/workflows/nonlinear-study.yml": "b2dd941475ae7f6c6d077cd8a8d7d42e2e61c7beb683e28bc5bc996218a5bfc9"
   }
 }
