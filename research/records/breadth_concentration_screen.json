@@ -1,0 +1,225 @@
+{
+  "family": "breadth_concentration_ownership",
+  "status": "REJECTED_PAIRED_SCREEN",
+  "advance": false,
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_sha256": {
+    "breadth_concentration.py": "aa3f7e78a99872d1869c84f5a20d05040003b0f793fd375555273c48220f668a",
+    "test_breadth_concentration.py": "6a44c3090dc678d7dfdd9f94954392984eec1372fd6af51e41aa987602051d5a",
+    "breadth_concentration_contract.json": "edb646df53dd6c8172cf2e591e800e10bfa0335baa522fec3ec64ae13ff15e47"
+  },
+  "rows": [
+    {
+      "scope": "union",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 4.74414842883842,
+        "total_return": 3.74414842883842,
+        "cagr": 0.6824926019797857,
+        "max_drawdown": 0.3055789380480397,
+        "inherited_drawdown": 0.3055789380480397,
+        "sharpe_zero_rf": 1.4281064292868777,
+        "orders": 145,
+        "orders_per_year": 48.45494053064959,
+        "gross_turnover": 39.03239690066364,
+        "fees": 90265.86628999369,
+        "slippage": 165529.21786890013,
+        "average_exposure": 0.51337827889083,
+        "blocked_attempts": 25
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 1.7297615082044648,
+        "total_return": 0.7297615082044648,
+        "cagr": 0.20095942521787769,
+        "max_drawdown": 0.6495842870349178,
+        "inherited_drawdown": 0.6495842870349178,
+        "sharpe_zero_rf": 0.6114117573520103,
+        "orders": 1167,
+        "orders_per_year": 389.9787282708143,
+        "gross_turnover": 221.66184098120036,
+        "fees": 268497.74211906025,
+        "slippage": 487478.9559058405,
+        "average_exposure": 0.8232617078308346,
+        "blocked_attempts": 50
+      },
+      "wealth_change": -0.6353905165172102,
+      "mdd_change": 0.34400534898687807,
+      "control_ledger": {
+        "max_reconciliation_error": 2.7939677238464355e-09,
+        "episodes": 45,
+        "wins": 24,
+        "drawdown_peak": "2025-09-01",
+        "drawdown_trough": "2025-12-03",
+        "max_drawdown": 0.3055789380480397,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 1.3897079043090343e-09,
+        "episodes": 439,
+        "wins": 198,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-09-25",
+        "max_drawdown": 0.6495842870349178,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "hosted_control_max_error": 1.862645149230957e-09,
+      "treatment_events": {
+        "reviews": 193,
+        "concentrated_targets": 80,
+        "diversified_targets": 115,
+        "broken_exits": 44
+      }
+    },
+    {
+      "scope": "chatgpt_5",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 7.904183048701599,
+        "total_return": 6.904183048701599,
+        "cagr": 0.9954399788719608,
+        "max_drawdown": 0.391356116446651,
+        "inherited_drawdown": 0.391356116446651,
+        "sharpe_zero_rf": 1.7491092776610122,
+        "orders": 164,
+        "orders_per_year": 54.80420860018298,
+        "gross_turnover": 36.222570571701624,
+        "fees": 134601.34278754212,
+        "slippage": 243133.85296790846,
+        "average_exposure": 0.48819175555248917,
+        "blocked_attempts": 46
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 6.761472848817959,
+        "total_return": 5.761472848817959,
+        "cagr": 0.893985139588634,
+        "max_drawdown": 0.5347231421172504,
+        "inherited_drawdown": 0.5347231421172504,
+        "sharpe_zero_rf": 1.3805494958342446,
+        "orders": 228,
+        "orders_per_year": 76.19121683440073,
+        "gross_turnover": 98.7599804976918,
+        "fees": 195885.98579070097,
+        "slippage": 363114.5836796336,
+        "average_exposure": 0.6919570100934894,
+        "blocked_attempts": 7
+      },
+      "wealth_change": -0.14457031078896254,
+      "mdd_change": 0.14336702567059934,
+      "control_ledger": {
+        "max_reconciliation_error": 3.725290298461914e-09,
+        "episodes": 41,
+        "wins": 20,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-26",
+        "max_drawdown": 0.391356116446651,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 2.9103830456733704e-09,
+        "episodes": 75,
+        "wins": 31,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-08",
+        "max_drawdown": 0.5347231421172504,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "hosted_control_max_error": 1.862645149230957e-09,
+      "treatment_events": {
+        "reviews": 153,
+        "concentrated_targets": 77,
+        "diversified_targets": 76,
+        "broken_exits": 13
+      }
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 1.1546791488756403,
+        "total_return": 0.15467914887564027,
+        "cagr": 0.04923513626394693,
+        "max_drawdown": 0.35331033491094144,
+        "inherited_drawdown": 0.35331033491094144,
+        "sharpe_zero_rf": 0.3169906767347706,
+        "orders": 169,
+        "orders_per_year": 56.475068618481245,
+        "gross_turnover": 47.47983940944148,
+        "fees": 53350.728517320684,
+        "slippage": 95081.69582748652,
+        "average_exposure": 0.46688897802252155,
+        "blocked_attempts": 45
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 0.7434744011554405,
+        "total_return": -0.2565255988445595,
+        "cagr": -0.09430763242485918,
+        "max_drawdown": 0.734628085548563,
+        "inherited_drawdown": 0.734628085548563,
+        "sharpe_zero_rf": 0.07533064462344762,
+        "orders": 1118,
+        "orders_per_year": 373.6043000914913,
+        "gross_turnover": 228.55923111509443,
+        "fees": 183539.27004186757,
+        "slippage": 326988.89693561115,
+        "average_exposure": 0.815833092357241,
+        "blocked_attempts": 57
+      },
+      "wealth_change": -0.3561203544037381,
+      "mdd_change": 0.3813177506376215,
+      "control_ledger": {
+        "max_reconciliation_error": 8.076312951743603e-10,
+        "episodes": 50,
+        "wins": 23,
+        "drawdown_peak": "2023-02-15",
+        "drawdown_trough": "2024-05-24",
+        "max_drawdown": 0.35331033491094144,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 6.230038707144558e-10,
+        "episodes": 428,
+        "wins": 184,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-09-18",
+        "max_drawdown": 0.734628085548563,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "hosted_control_max_error": 4.656612873077393e-10,
+      "treatment_events": {
+        "reviews": 195,
+        "concentrated_targets": 77,
+        "diversified_targets": 121,
+        "broken_exits": 45
+      }
+    }
+  ],
+  "tests": {
+    "focused": "6/6",
+    "ordinary": "87/87",
+    "research": "399 passed, 9 skipped"
+  },
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "historical_exposure": "RETROSPECTIVE_NOT_UNSEEN_OUT_OF_SAMPLE"
+}
