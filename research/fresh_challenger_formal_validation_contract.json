@@ -1,0 +1,68 @@
+{
+  "family": "offensive_fresh_challenger_authority",
+  "operation": "fixed_formal_generalization_matrix",
+  "status": "PREREGISTERED_BEFORE_FORMAL_MATRIX_ACCOUNT_MEASUREMENT",
+  "candidate": {
+    "source_commit": "92ca587f4b8c9f64841260810216f1586ea6ef38",
+    "canonical_run": 35089690752,
+    "source_git_blob": "cadf4685b8106fda45986ee7c76aabddbc7d57b7",
+    "selection": {"union": 6.094402615566887, "chatgpt_5": 13.374238388312474, "joint_optical_leader_removal": 1.5949459430753048, "mean_log": 1.6225136461073524, "minimum": 1.5949459430753048},
+    "full_896": {"union": 10.391757, "chatgpt_5": 26.389965, "joint_optical_leader_removal": 2.458484},
+    "reselection": false
+  },
+  "frozen_inputs": {
+    "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "start": "2023-01-03",
+    "end": "2026-09-11",
+    "names": 34,
+    "sessions": 896,
+    "seed": 34,
+    "catalog": "research/catalog.json",
+    "protocol": "research/protocol.json"
+  },
+  "case_plan": {
+    "original_pools": "Every pool in research/catalog.json, with union explicitly equal to the full 34-name frozen universe.",
+    "joint_optical_leader_removal": "Full frozen universe excluding sz300308, sz300502, sz300394.",
+    "single_name_only": "One case for each of the 34 frozen symbols, diagnostic concentration evidence.",
+    "leave_one_out": "One case for each of the 34 frozen symbols removed from the full universe.",
+    "sector_removal": "One case for each sector in the frozen catalog.",
+    "deterministic_subsets": "Using numpy default_rng(seed=34), six fixed samples for each size 2,3,5,8,13,22,26,33, exactly matching the historical formal case generator.",
+    "common_five_exhaustive": "All 31 nonempty subsets of the frozen common-five pool.",
+    "cardinality_coverage": "Using default_rng(seed=35), one fixed sample for every size 2..33 not already in the deterministic-subset size set, exactly matching the historical formal generator.",
+    "execution_stress": ["union with cost multiplier 2", "union with cost multiplier 3", "union with delay=2"],
+    "prefix": "Exact candidate and control equality between the full frozen snapshot and a prefix cut at the original historical index 500 for union.",
+    "candidate_parameter_stability": "NOT_APPLICABLE_NUMERIC_GRID: the promoted candidate has no tunable numeric candidate parameter. Stability is assessed by fixed universe removals/subsets, execution stresses and prefix causality rather than inventing a post-selection parameter neighborhood."
+  },
+  "policies": {
+    "control": "Exact candidate Parameters(False), already tested equivalent to trend_book.",
+    "treatment": "Exact source-bound candidate Parameters(True) at canonical source identity; no parameter mutation.",
+    "buy_hold": "Same data/universe/cost/delay benchmark where applicable.",
+    "equal_weight": "Additional benchmark for every original catalog pool."
+  },
+  "time_windows": {
+    "full": ["2023-01-03", "2026-09-11"],
+    "bull": ["2023-01-03", "2026-06-30"],
+    "late_june_august": ["2026-06-22", "2026-08-31"],
+    "july_august": ["2026-07-01", "2026-08-31"],
+    "recovery": ["2026-09-01", "2026-09-11"]
+  },
+  "record": ["terminal wealth", "CAGR", "max drawdown", "orders", "gross turnover", "fees", "slippage", "average exposure"],
+  "interpretation": {
+    "alpha_priority": "Do not reject solely for MDD/orders/turnover during this expanded alpha/generalization diagnostic.",
+    "generalization": "Report the full distribution versus exact control and buy-hold. No failed case may be deleted or hidden.",
+    "final_acceptance": "This matrix does not by itself waive the original final production risk/execution/reference-comparison contract."
+  },
+  "execution": {
+    "shards": 4,
+    "assignment": "Stable case index modulo 4 after the complete deterministic plan is generated before the first account run.",
+    "raw_evidence": "Each shard preserves source-bound raw account results and metrics. Aggregation must retain all shards and verify hashes before producing summary evidence."
+  },
+  "prohibitions": [
+    "No reselection",
+    "No candidate parameter search",
+    "No case deletion after seeing results",
+    "No per-symbol/date/pool strategy branches",
+    "No future information",
+    "No reuse of evidence from a non-equivalent source/data/runtime identity as proof of this candidate"
+  ]
+}
