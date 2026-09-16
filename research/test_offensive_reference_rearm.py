@@ -82,5 +82,17 @@ class OffensiveReferenceRearmTests(unittest.TestCase):
         force(owner,101,entries=entries,scores=scores)
         d=owner.decide(obs(owner,101,np.zeros(n),2_000_000.0)); self.assertGreater(d.unit_targets[1],0.)
 
+    def test_source_bound_study_registration(self):
+        self.assertIsNotNone(importlib.util.find_spec('research.offensive_reference_rearm_study'),
+                             'reference rearm source-bound study is absent')
+        from research.offensive_reference_rearm_study import Study
+        study=Study('offensive_reference_rearm')
+        self.assertEqual(study.family,'offensive_reference_rearm')
+        self.assertEqual(study.REGISTRATION_COMMIT,'f63c1d52939eaa08b31553b646035278392f7cfe')
+        self.assertEqual(len(study.module.grid()),2)
+        dependencies=study.identity()['dependencies']
+        self.assertIn('offensive_reference_rearm.py',dependencies)
+        self.assertIn('offensive_alpha_decay_displacement.py',dependencies)
+
 
 if __name__=='__main__': unittest.main()
