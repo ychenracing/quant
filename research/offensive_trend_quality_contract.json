@@ -1,0 +1,70 @@
+{
+  "family": "offensive_trend_quality",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha/terminal-wealth-first continuation. User explicitly authorizes rewriting opportunity discovery and ownership while preserving causal next-session execution, frozen inputs, costs and execution constraints.",
+  "evidence": {
+    "committed_offensive_attribution": {
+      "commit": "102cb5192aac55471c1bc107e2418697b5fc5128",
+      "finding": "Broad-scope losses were dominated by opportunity cost, and the existing score sometimes identified later winners before committed ownership could act."
+    },
+    "alpha_decay_leader": {
+      "source_commit": "407756076b1d116f636d8796e4b66dba0934842c",
+      "hosted_run": 35068327902,
+      "finding": "Campaign-specific displacement materially improves full-history wealth in all three scopes, but its 2023-2025 union wealth remains below control and its drawdown is materially worse."
+    },
+    "native_full_cap_failure": {
+      "source_commit": "3c5bc78fe59fdfcca23c19fb7cf7ef8414386751",
+      "finding": "Keeping native ownership while removing account de-risking damages broad-universe capital before the decisive 2025 handoff. The later winners are still captured at similar campaign percentage returns, implying entry/opportunity quality is the next bottleneck."
+    }
+  },
+  "economic_hypothesis": "The old scalar score admits too many choppy broad-universe trends when exposure is high. A deterministic causal trend-quality score that requires directional efficiency, follow-through near/new highs and multi-session persistence should concentrate capital in cleaner leadership trends while preserving the high-exposure campaign lifecycle that already improved full-history alpha.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "ownership_base": "Use the already tested offensive_alpha_decay_displacement lifecycle unchanged except that every admission, incumbent-decay comparison and challenger comparison consumes trend_quality instead of techquant.features.score. Do not change its two-position capacity, observed-cash vacancy funding, security exits, one-way retirement, blocked-sale retry or no-same-close-sale-proceeds semantics.",
+    "trend_quality_components": {
+      "directional_efficiency": "For session D and each symbol, using adjusted closes through D only, compute positive 40-session log price progress divided by the sum of absolute one-session log moves over the same 40-session path. Require the full Config.slow=40 observations; nonpositive progress or invalid denominator yields zero/nonfinite quality component.",
+      "follow_through": "Current close divided by the highest close observed in the preceding Config.slow=40 sessions excluding D. This directly rewards causal proximity to or extension above the prior 40-session high.",
+      "persistence": "Fraction of the latest Config.fast=10 sessions, including D, whose close is above the existing causal EMA20 from trend_book.price_signals."
+    },
+    "cross_sectional_transform": "On each session D, among causally ready symbols with finite component values, convert each of the three components independently to deterministic ordinal percentiles in (0,1], breaking exact ties by symbol identifier. No future observations, labels, fitted coefficients or whole-sample ranks are used.",
+    "quality_score": "Geometric mean of the three current-session component percentiles: (efficiency_pct * follow_through_pct * persistence_pct) ** (1/3). All three components participate symmetrically; there are no fitted or searched weights.",
+    "eligibility": "Keep the candidate1 causal price/trend admission gate: fresh/ready quote, observed_trend entry, close above EMA20, positive 5-session momentum, broad market admission open, no security break, not already held and not retired. Replace only the old score-positive/ranking input with finite positive trend_quality.",
+    "campaign_reference": "Freeze the selected symbol's trend_quality at the close that requests its vacancy fill and bind it to the campaign only once actual inventory is observed.",
+    "displacement": "With a full intact book, an incumbent is eligible for one-way displacement only after its current trend_quality falls below its own frozen admission trend_quality and the strongest currently eligible challenger has trend_quality strictly above that same frozen incumbent reference. No new threshold, ratio, confirmation day or review clock is introduced.",
+    "execution": "Unchanged close decision / next-session execution, sells before buys, cash-only long-only, no leverage or shorting, prior-volume liquidity, board lots, T+1, fees, slippage and price-limit handling."
+  },
+  "structural_difference_from_rejected_work": [
+    "Not the old ranking learner: no labels, ridge/ML fit, expanding-window model, future target or learned weight exists.",
+    "Not a reweighting of the old techquant score: the treatment constructs a new deterministic path-quality signal from price geometry and cross-sectional percentiles.",
+    "Not nearby EMA/lookback tuning: all horizons are existing Config.fast=10, Config.slow=40 and existing EMA20; this contract freezes one formula and runs no horizon grid.",
+    "Not a new ownership threshold search: it reuses candidate1's already tested campaign-reference lifecycle and changes only the alpha discovery signal source."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "record_only_during_alpha_discovery": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure"],
+    "promotion_rule": "Advance only if the fixed selector improves mean-log wealth and minimum wealth, improves at least one broad scope, and joint optical-leader removal terminal wealth remains above 1.0. Improvement must be economically material before full formal validation.",
+    "failure_rule": "If rejected, preserve the failure and move to a substantively different discovery architecture. Do not search component weights, horizons, percentile cutoffs, displacement margins or position counts."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No per-symbol/date/pool branch",
+    "No future label/high/return in a decision",
+    "No reference-strategy source reuse",
+    "No frozen data/cost/benchmark/acceptance manipulation",
+    "No neighboring parameter or weight grid",
+    "No winner splicing"
+  ]
+}
