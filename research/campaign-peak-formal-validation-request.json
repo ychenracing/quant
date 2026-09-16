@@ -1,0 +1,24 @@
+{
+  "family": "offensive_campaign_peak_authority",
+  "operation": "fixed_formal_generalization_matrix",
+  "case_count": 199,
+  "shards": 4,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "candidate_source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+  "candidate_canonical_run": 35121169501,
+  "formal_registration_commit": "f55a3cd34f77b1d5c15fb5e14eb1626e09f8e3e8",
+  "source_git_blob": {
+    "research/campaign_peak_formal_validation.py": "dd94f3e4f7123aa444d356e3097ff275697cada0",
+    "research/test_campaign_peak_formal_validation.py": "3332c78aa4c52861429cc8376ce431bed49ce930",
+    "research/campaign_peak_formal_validation_contract.json": "244e7861c3d14850c5d768206468f47c3415b793",
+    ".github/workflows/campaign-peak-formal-validation.yml": "cc1d0e5eaf346138ff9a063faeedddd2a3cac9f1",
+    "research/fresh_challenger_formal_validation.py": "b193b0fbe39e6e667fa72da56b97ca786cc95cd7",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213",
+    "research/offensive_fresh_challenger_authority.py": "cadf4685b8106fda45986ee7c76aabddbc7d57b7",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b"
+  },
+  "case_plan": "exact reuse of fresh_challenger_formal_validation build_case_plan/shard_plan/aggregate",
+  "reselection": false,
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_FORMAL_MATRIX"
+}
