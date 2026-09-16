@@ -1,0 +1,24 @@
+{
+  "family": "offensive_settled_reference_rearm",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "bce12d4edb27025537ec08b098901fd6f91073c7",
+  "request": "Execute the single preregistered settled-reference-rearm control/treatment pair through 2025-12-31 using the fixed three-scope alpha-discovery selector. If and only if the fixed screen advances, evaluate the same source-bound candidate on the complete frozen 896-session history and fixed 2026 windows. Preserve MDD, orders, turnover, fees, slippage and exposure as diagnostics. Do not search wait lengths, score multipliers, shock percentages, trend spans, price buffers, position counts or pool-specific variants.",
+  "source_git_blob": {
+    "research/offensive_settled_reference_rearm.py": "5be81ce1f98e5409c9064145891358f70db49bd3",
+    "research/test_offensive_settled_reference_rearm.py": "5373478f79986fea3b94bb6089cd8fcdeafe9003",
+    "research/offensive_settled_reference_rearm_study.py": "040fbc87bc70efdd771ca27c2b2590a7eac3a4b0",
+    "research/offensive_settled_reference_rearm_contract.json": "939d8f0db91424d98a7daf135517ffbdfb3fdd60",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b",
+    "research/finite_study/__init__.py": "90da4250e6b56d1c9936da3f1e0d13f142fe82fb",
+    ".github/workflows/settled-reference-rearm-study.yml": "036b00c92637d93d70dad0781455355579ff5ee4"
+  },
+  "alpha_objective": {
+    "primary": "mean(log(terminal wealth)) across union, common-five and joint optical-leader removal",
+    "secondary": "minimum terminal wealth across the same three scopes",
+    "mdd_orders_turnover": "record_only_during_alpha_discovery"
+  },
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
