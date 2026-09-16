@@ -1,0 +1,29 @@
+{
+  "family": "offensive_deployable_vacancy_displacement",
+  "status": "REJECTED_AS_ALPHA_LEADER_DESPITE_BASELINE_ADVANCE",
+  "registration_commit": "69be2569e9898d82479c1c12adf9ec3fb790130e",
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_sha256": "a3d473bbb351c57c38d71525dd1cff6eb9c2fc88d5c3e324b637298b82b6c034",
+  "tests": {"focused": 4, "passed": 4},
+  "objective": {
+    "control_mean_log": 1.2560421934258852,
+    "treatment_mean_log": 1.4912608330215056,
+    "control_min": 1.1546791488756403,
+    "treatment_min": 1.2571461082082163,
+    "baseline_advance": true,
+    "current_alpha_leader_mean_log": 1.6067936266079303,
+    "current_alpha_leader_min": 1.5710237463450074,
+    "leader_regression": true
+  },
+  "scopes": {
+    "union": {"control_wealth": 4.74414842883842, "treatment_wealth": 5.215359346117924, "mdd": 0.3330097168622361, "orders": 131, "gross_turnover": 61.093557932482874, "fees": 230921.26277085755, "slippage": 427154.5513272628, "average_exposure": 0.6810822846373767, "capital_full_displacements": 1},
+    "chatgpt_5": {"control_wealth": 7.904183048701599, "treatment_wealth": 13.374238388312474, "mdd": 0.43604406446289934, "orders": 77, "gross_turnover": 41.024195100955914, "fees": 164064.72208619377, "slippage": 295042.80345724826, "average_exposure": 0.6918978415398808, "capital_full_displacements": 1},
+    "joint_optical_leader_removal": {"control_wealth": 1.1546791488756403, "treatment_wealth": 1.2571461082082163, "mdd": 0.6509911316885435, "orders": 136, "gross_turnover": 65.34551005600761, "fees": 78771.23647006553, "slippage": 134712.6445783601, "average_exposure": 0.6737769708089186, "capital_full_displacements": 1}
+  },
+  "trigger_events": {
+    "union": {"date": "2023-05-09", "incumbent": "sz002409", "challenger": "sz300308", "observed_cash": 18639.62683250755, "observed_nav": 3952287.3736297945},
+    "chatgpt_5": {"date": "2024-12-17", "incumbent": "sh688008", "challenger": "sz300502", "observed_cash": 27946.471125547774, "observed_nav": 6039874.61493185},
+    "joint_optical_leader_removal": {"date": "2025-09-10", "incumbent": "sh603986", "challenger": "sh688008", "observed_cash": 6624.223479617387, "observed_nav": 2248513.8287656326}
+  },
+  "diagnosis": "The mechanism correctly identifies nominal vacancies with undeployable cash, but acting on the first such close is too eager. Common-five improves, while union/removal path-dependently regress versus the settled-reference-rearm alpha leader. The next structurally distinct test must require actual prior vacancy-fill failure observed in the ledger before capital-full displacement; do not tune the 1% execution floor or add a score margin."
+}
