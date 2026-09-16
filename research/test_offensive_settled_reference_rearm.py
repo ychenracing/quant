@@ -56,14 +56,11 @@ class SettledReferenceRearmTests(unittest.TestCase):
         self.assertAlmostEqual(owner.base.owned_alpha_reference[0],5.)
         force(owner,102,entries=entries,acute=[0],scores=np.array([4.,1.,1.,1.,1.,1.]))
         exited=owner.decide(obs(owner,102,units,0.0)); self.assertEqual(exited.unit_targets[0],0.)
-        # Session 103 is the first close observing that the sell filled. Even a
-        # score above the failed reference cannot make that same close a new campaign.
         force(owner,103,entries=entries,scores=np.array([6.,1.,1.,1.,1.,1.]))
         settlement=owner.decide(obs(owner,103,np.zeros(n),2_000_000.0))
         self.assertEqual(settlement.unit_targets[0],0.)
         self.assertTrue(owner.invalidated[0])
         self.assertTrue(any(r.get('action')=='SETTLEMENT_REARM_BLOCKED' for r in owner.trace))
-        # The next close starts with already-settled flat state and may rearm immediately.
         force(owner,104,entries=entries,scores=np.array([6.,1.,1.,1.,1.,1.]))
         rearmed=owner.decide(obs(owner,104,np.zeros(n),2_000_000.0))
         self.assertGreater(rearmed.unit_targets[0],0.)
@@ -85,8 +82,12 @@ class SettledReferenceRearmTests(unittest.TestCase):
         m=self.module(); owner=m.Owner(sample_market(6,145),m.Parameters(True)); n=6
         entries=np.zeros(n,bool); entries[1]=True; scores=np.arange(n,dtype=float)+1
         force(owner,100,entries=entries,acute=[1],scores=scores)
-        decision=owner.decide(obs(owner,100,np.zeros(n),2_000_000.0))
-        self.assertGreater(decision.unit_targets[1],0.)
+        acute_close=owner.decide(obs(owner,100,np.zeros(n),2_000_000.0))
+        self.assertEqual(acute_close.unit_targets[1],0.)
+        self.assertFalse(owner.invalidated[1])
+        force(owner,101,entries=entries,scores=scores)
+        next_close=owner.decide(obs(owner,101,np.zeros(n),2_000_000.0))
+        self.assertGreater(next_close.unit_targets[1],0.)
         self.assertFalse(owner.invalidated[1])
 
 
