@@ -1,0 +1,14 @@
+{
+  "family": "offensive_portfolio_hurdle_authority",
+  "source_commit": "a03a5c86d0b8cd291316d8aead2037898bc0c246",
+  "hosted_run": 35106548492,
+  "status": "REJECTED_VS_CURRENT_ALPHA_LEADER",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "baseline_objective": {"mean_log": 1.2560421934258852, "minimum": 1.1546791488756403, "wealth": {"union": 4.74414842883842, "chatgpt_5": 7.904183048701599, "joint_optical_leader_removal": 1.1546791488756403}},
+  "current_leader_objective": {"family": "offensive_fresh_challenger_authority", "mean_log": 1.6225136461073524, "minimum": 1.5949459430753048, "wealth": {"union": 6.094402615566887, "chatgpt_5": 13.374238388312474, "joint_optical_leader_removal": 1.5949459430753048}},
+  "treatment_objective": {"mean_log": 1.3139773709903595, "minimum": 0.6581565481095911, "wealth": {"union": 5.852600549569134, "chatgpt_5": 13.374614541120321, "joint_optical_leader_removal": 0.6581565481095911}},
+  "decision": "The strongest-funded-campaign hurdle is too protective. It barely changes common-five, slightly reduces union and collapses leader-removal below 1.0. Do not search max-reference multipliers, margins or neighboring thresholds.",
+  "evidence_readback": "Hosted workflow completed focused tests, source-bound measurement, artifact upload, research/evidence append and remote SHA read-back successfully.",
+  "next_question": "Identify an endogenous structural state that distinguishes marginal ordinary full-book churn from necessary leadership handoff without delaying all challengers or requiring them to clear the strongest historical admission reference."
+}
