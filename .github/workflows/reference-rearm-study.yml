@@ -63,8 +63,8 @@ jobs:
           root=pathlib.Path(os.environ['RUNNER_TEMP']); out=root/'reference-rearm'; out.mkdir(exist_ok=True)
           log=root/'reference-rearm-execution.txt'
           if log.exists(): (out/'execution.txt').write_bytes(log.read_bytes())
-          for source,name in [(pathlib.Path('research/reference-rearm-request.json'),'request.json')]:
-              if source.exists(): (out/name).write_bytes(source.read_bytes())
+          request=pathlib.Path('research/reference-rearm-request.json')
+          if request.exists(): (out/'request.json').write_bytes(request.read_bytes())
           manifest={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file() and p.name!='MANIFEST.json'}
           (out/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
           archive=root/'reference-rearm-evidence.tar.gz'
@@ -80,3 +80,42 @@ jobs:
             ${{ runner.temp }}/reference-rearm-evidence.sha256
           retention-days: 90
           if-no-files-found: error
+      - name: Append and read back immutable evidence
+        if: always() && hashFiles('research/reference-rearm-request.json') != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -s "$RUNNER_TEMP/reference-rearm-evidence.tar.gz"
+          gh auth setup-git
+          git clone --depth=1 --branch research/evidence "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/reference-rearm-store"
+          cd "$RUNNER_TEMP/reference-rearm-store"
+          destination="reference-rearm/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"
+          mkdir -p "$destination"
+          cp "$RUNNER_TEMP/reference-rearm-evidence.tar.gz" "$RUNNER_TEMP/reference-rearm-evidence.sha256" "$destination/"
+          for file in receipt.json MANIFEST.json execution.txt request.json; do
+            if [ -f "$RUNNER_TEMP/reference-rearm/$file" ]; then cp "$RUNNER_TEMP/reference-rearm/$file" "$destination/"; fi
+          done
+          for dir in selection evaluation; do
+            if [ -d "$RUNNER_TEMP/reference-rearm/$dir" ]; then
+              mkdir -p "$destination/$dir"
+              find "$RUNNER_TEMP/reference-rearm/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;
+            fi
+          done
+          git config user.name 'quant research publisher'
+          git config user.email 'quant-research@users.noreply.github.com'
+          git add -- "$destination"
+          git commit -m 'research: retain reference rearm alpha evidence'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/evidence; then
+              git fetch origin research/evidence
+              expected=$(cut -d' ' -f1 "$RUNNER_TEMP/reference-rearm-evidence.sha256")
+              actual=$(git show "FETCH_HEAD:$destination/reference-rearm-evidence.tar.gz" | sha256sum | cut -d' ' -f1)
+              test "$actual" = "$expected"
+              exit 0
+            fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1
