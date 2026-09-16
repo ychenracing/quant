@@ -1,0 +1,117 @@
+{
+  "correctness_fix_record": "research/records/offensive_quality_admission_prefixed_invalid.json",
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "family": "offensive_quality_admission",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "objective": {
+    "advance": false,
+    "broad_scope_improvement": true,
+    "control_mean_log_wealth": 1.2560421934258852,
+    "control_min_wealth": 1.1546791488756403,
+    "leader_removal_positive_wealth": true,
+    "mean_log_wealth_improved": false,
+    "minimum_wealth_improved": true,
+    "treatment_mean_log_wealth": 1.1848909335673585,
+    "treatment_min_wealth": 1.1846751325069032
+  },
+  "plan_sha256": "68592b949a93d008158fd6bc9fed0e1328646863650d8aa3c0f7c035f5028249",
+  "preregistration_commit": "bbe9426be11a0ab837a71ab035a2de9e97061337",
+  "scopes": {
+    "chatgpt_5": {
+      "control": {
+        "average_exposure": 0.48819175555248917,
+        "cagr": 0.9954399788719608,
+        "fees": 134601.34278754212,
+        "gross_turnover": 36.222570571701624,
+        "max_drawdown": 0.391356116446651,
+        "orders": 164,
+        "slippage": 243133.85296790846,
+        "wealth": 7.904183048701599
+      },
+      "events": {
+        "displacements": 6,
+        "records": 145,
+        "retirement_releases": 6,
+        "security_exits": 26,
+        "vacancy_fills": 107
+      },
+      "treatment": {
+        "average_exposure": 0.6618476915494275,
+        "cagr": 1.1295540692497288,
+        "fees": 119363.13910036323,
+        "gross_turnover": 40.106850196547875,
+        "max_drawdown": 0.5270821960884824,
+        "orders": 71,
+        "slippage": 216970.8980473076,
+        "wealth": 9.6027207346587
+      }
+    },
+    "joint_optical_leader_removal": {
+      "control": {
+        "average_exposure": 0.46688897802252155,
+        "cagr": 0.04923513626394693,
+        "fees": 53350.728517320684,
+        "gross_turnover": 47.47983940944148,
+        "max_drawdown": 0.35331033491094144,
+        "orders": 169,
+        "slippage": 95081.69582748652,
+        "wealth": 1.1546791488756403
+      },
+      "events": {
+        "displacements": 53,
+        "records": 221,
+        "retirement_releases": 43,
+        "security_exits": 42,
+        "vacancy_fills": 82
+      },
+      "treatment": {
+        "average_exposure": 0.6423890122904851,
+        "cagr": 0.05826593411518255,
+        "fees": 102207.23151293157,
+        "gross_turnover": 81.2460260243646,
+        "max_drawdown": 0.562925798502277,
+        "orders": 173,
+        "slippage": 181846.14544748448,
+        "wealth": 1.1846751325069032
+      }
+    },
+    "union": {
+      "control": {
+        "average_exposure": 0.51337827889083,
+        "cagr": 0.6824926019797857,
+        "fees": 90265.86628999369,
+        "gross_turnover": 39.03239690066364,
+        "max_drawdown": 0.3055789380480397,
+        "orders": 145,
+        "slippage": 165529.21786890013,
+        "wealth": 4.74414842883842
+      },
+      "events": {
+        "displacements": 51,
+        "records": 237,
+        "retirement_releases": 38,
+        "security_exits": 31,
+        "vacancy_fills": 114
+      },
+      "treatment": {
+        "average_exposure": 0.6435385578534657,
+        "cagr": 0.4554685469415185,
+        "fees": 138328.276336777,
+        "gross_turnover": 77.51804200869933,
+        "max_drawdown": 0.6304378764162246,
+        "orders": 172,
+        "slippage": 235117.8658174538,
+        "wealth": 3.074547528729704
+      }
+    }
+  },
+  "selection_sha256": "1293f1c417bad4b8ece3fd6d4c3ce80ac6c9041113191e142bdca7bbaeef86cb",
+  "selection_use": "REJECTED_DO_NOT_PROMOTE",
+  "status": "REJECTED_PAIRED_SCREEN",
+  "structural_failure": {
+    "classification": "admission_composition_induced_ownership_churn",
+    "finding": "Using cross-sectional trend quality only for vacancy ranking while retaining absolute-score campaign references still materially regresses union. It changes the owned campaign set enough that broad-scope absolute-score displacements rise to 51/53 events, versus 22/31 in the current alpha leader offensive_alpha_decay_displacement.",
+    "implication": "Do not tune trend-quality weights or displacement margins. The next discovery signal must itself be absolute/time-comparable and should improve entry selectivity without cross-sectional campaign-composition churn."
+  }
+}
