@@ -75,9 +75,15 @@ class Owner:
         for j in chosen:
             if marks[j]>0: units[j]=spend/marks[j]
         weights=np.divide(units*marks,o.nav,out=np.zeros_like(units),where=o.nav>0)
-        # Floating arithmetic may put the sum a few ulps above one.
-        total=float(weights.sum())
-        if total>1. and total<=1.+1e-12: weights/=total; units=weights*o.nav/marks
+        # Floating arithmetic may put a cash-only fill a few ulps above NAV.
+        # Repair only the last newly requested unit amount; never rescale owned
+        # inventory and never divide through zero marks of unrelated securities.
+        total_value=float((units*marks).sum())
+        if total_value>o.nav and total_value<=o.nav*(1.+1e-12):
+            j=chosen[-1]
+            if marks[j]<=0: raise AssertionError('chosen vacancy fill requires a valid close mark')
+            units[j]=max(0.,units[j]-(total_value-o.nav)/marks[j])
+            weights=np.divide(units*marks,o.nav,out=np.zeros_like(units),where=o.nav>0)
         self.trace.append({'kind':'COMMITTED_OFFENSIVE_EVENT','date':o.date,'session':int(i),
                            'action':'VACANCY_FILL','symbols':[self.market.symbols[j] for j in chosen],
                            'observed_cash':float(o.cash)})
