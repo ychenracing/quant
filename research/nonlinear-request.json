@@ -1,15 +1,16 @@
 {
-  "family": "offensive_native_ownership",
+  "family": "offensive_trend_quality",
   "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "89b7a4f963d5dd6bf9b0cd37bc839949ec45bb56",
-  "request": "Execute the single preregistered offensive-native-ownership control/treatment pair through 2025-12-31 using the fixed three-scope alpha-discovery selector. Control is the exact two-position trend_book owner. Treatment preserves the native trend_book/coherent security eligibility, causal ranking replacement, exit/readmit lifecycle, actual-fill accounting and observed-cash funding, but replaces only account RiskState with a permanent full-cap authority at 1.0. Keep all security-specific trend/stale/-8% exits, market admission, fill retry, price-limit/T+1/liquidity/lot/cost/slippage execution unchanged. Discovery selection is terminal-wealth first: mean(log terminal wealth) primary and minimum terminal wealth secondary; MDD/orders/turnover are diagnostics only. This is a fixed structural test, not a search over risk caps, replacement multiples, review cadence or position count. If rejected, retain complete failure evidence and do not promote.",
+  "registration_commit": "937825546ad587f19bc3446bad4687fd7b89fde5",
+  "request": "Execute the single preregistered offensive-trend-quality control/treatment pair through 2025-12-31 using the fixed three-scope alpha-discovery selector. Control is the exact two-position trend_book owner. Treatment reuses the offensive-alpha-decay campaign lifecycle but replaces the old alpha score with the frozen deterministic causal trend-quality engine: 40-session directional efficiency, prior-40-session-high follow-through and 10-session persistence above existing EMA20, each converted to current-session ordinal cross-sectional percentiles and combined by geometric mean. No fitted labels or weights, no future observations, no parameter grid. Keep the campaign-reference displacement lifecycle, observed-cash funding, security exits, cash-only long-only next-session execution and all execution frictions unchanged. MDD/orders/turnover are diagnostics only during discovery. If rejected, preserve complete failure evidence and do not promote.",
   "source_sha256": {
-    "research/offensive_native_ownership.py": "06dc5b22461d914a7c5d8897b32c85402a5d8be2221163d412963d390c89eeb9",
-    "research/test_offensive_native_ownership.py": "ca9f83606502a15c381a47ec1b6341b42175a535f042b3befe2762e3e1ad8295",
-    "research/offensive_native_ownership_contract.json": "26dbfba98ada635864ca7fc14ed2105296a9847f90875a4918800ea8d3f29703",
-    "research/finite_study/__init__.py": "63f85de26de02b128b0469134e6a5b251aea12d6a5de636f981d7cebb11971e0",
+    "research/offensive_trend_quality.py": "e9f9ed8db9c7eabe353acc05799f823ef761c348a5c3f20c5649185757202243",
+    "research/test_offensive_trend_quality.py": "6421d528fcb3bc1fef15cf02f184ab29e8dd225874ae0d7e5109cecf1ac6a4d3",
+    "research/offensive_trend_quality_contract.json": "c9af74b71c11d0df2266bceee19533b1ea4733f953b6efa2fac550a149a356a5",
+    "research/offensive_alpha_decay_displacement.py": "13282356a085898418b15bb77fddfe05adf655bb129dc29ad67c2d7059a99641",
+    "research/finite_study/__init__.py": "489300fe4519f090a8d034662525457d6660c93fdbfa6fffdf1c4807a87c8886",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
     ".github/workflows/nonlinear-study.yml": "e9e2219c70b7beecafff0a1e83a360fa6ed9b36f8adea2f2333272bbe133cb89"
   }
