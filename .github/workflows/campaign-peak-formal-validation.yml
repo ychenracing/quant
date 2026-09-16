@@ -1,0 +1,183 @@
+name: Campaign peak formal generalization
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/campaign-peak-formal-validation.yml
+      - research/campaign_peak_formal_validation.py
+      - research/test_campaign_peak_formal_validation.py
+      - research/campaign_peak_formal_validation_contract.json
+      - research/campaign-peak-formal-validation-request.json
+permissions:
+  contents: write
+concurrency:
+  group: campaign-peak-formal-generalization
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      requested: ${{ steps.request.outputs.requested }}
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Focused formal contracts
+        run: python -m unittest research.test_campaign_peak_formal_validation research.test_offensive_campaign_peak_authority -v
+      - id: request
+        shell: bash
+        run: |
+          if test -f research/campaign-peak-formal-validation-request.json; then echo 'requested=true' >> "$GITHUB_OUTPUT"; else echo 'requested=false' >> "$GITHUB_OUTPUT"; fi
+
+  shard:
+    needs: verify
+    if: needs.verify.outputs.requested == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Verify source-bound request
+        run: |
+          python - <<'PY'
+          import json,pathlib,subprocess
+          request=json.loads(pathlib.Path('research/campaign-peak-formal-validation-request.json').read_text())
+          for path,expected in request['source_git_blob'].items():
+              actual=subprocess.check_output(['git','hash-object',path],text=True).strip()
+              if actual!=expected: raise SystemExit(f'git blob mismatch {path}: {actual} != {expected}')
+          PY
+      - name: Run fixed formal shard
+        timeout-minutes: 6
+        env:
+          MATRIX_SHARD: ${{ matrix.shard }}
+        run: |
+          python - <<'PY'
+          import os,pathlib,subprocess,sys
+          from research.hosted_study import inputs
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])
+          data,supplement=inputs(root/f'frozen-input-{os.environ["MATRIX_SHARD"]}')
+          out=root/f'campaign-peak-formal-shard-{os.environ["MATRIX_SHARD"]}'
+          subprocess.run([sys.executable,'-m','research.campaign_peak_formal_validation','shard',
+                          '--data',str(data),'--supplement',str(supplement),'--output',str(out),
+                          '--shard-index',os.environ['MATRIX_SHARD'],'--shard-count','4'],check=True)
+          PY
+      - name: Package complete raw shard
+        run: |
+          cd "$RUNNER_TEMP"
+          tar -czf "campaign-peak-formal-shard-${{ matrix.shard }}.tar.gz" "campaign-peak-formal-shard-${{ matrix.shard }}"
+          sha256sum "campaign-peak-formal-shard-${{ matrix.shard }}.tar.gz" > "campaign-peak-formal-shard-${{ matrix.shard }}.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: campaign-peak-formal-shard-${{ matrix.shard }}-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/campaign-peak-formal-shard-${{ matrix.shard }}.tar.gz
+            ${{ runner.temp }}/campaign-peak-formal-shard-${{ matrix.shard }}.sha256
+          retention-days: 90
+          if-no-files-found: error
+
+  aggregate:
+    needs: [verify, shard]
+    if: needs.verify.outputs.requested == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: campaign-peak-formal-shard-*-${{ github.sha }}
+          path: ${{ runner.temp }}/campaign-peak-formal-downloads
+      - name: Verify and extract all four raw shards
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/campaign-peak-formal-inputs"
+          count=0
+          for archive in "$RUNNER_TEMP"/campaign-peak-formal-downloads/*/campaign-peak-formal-shard-*.tar.gz; do
+            sha_file="${archive%.tar.gz}.sha256"
+            (cd "$(dirname "$archive")"; sha256sum -c "$(basename "$sha_file")")
+            tar -xzf "$archive" -C "$RUNNER_TEMP/campaign-peak-formal-inputs"
+            count=$((count+1))
+          done
+          test "$count" = 4
+      - name: Aggregate complete fixed matrix
+        run: python -m research.campaign_peak_formal_validation aggregate --inputs "$RUNNER_TEMP/campaign-peak-formal-inputs" --output "$RUNNER_TEMP/campaign-peak-formal-summary"
+      - name: Package aggregate summary
+        run: |
+          cd "$RUNNER_TEMP"
+          tar -czf campaign-peak-formal-summary.tar.gz campaign-peak-formal-summary
+          sha256sum campaign-peak-formal-summary.tar.gz > campaign-peak-formal-summary.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: campaign-peak-formal-summary-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/campaign-peak-formal-summary.tar.gz
+            ${{ runner.temp }}/campaign-peak-formal-summary.sha256
+          retention-days: 90
+          if-no-files-found: error
+      - name: Append raw shards and summary to evidence and verify hashes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          git clone --depth=1 --branch research/evidence "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/campaign-peak-formal-evidence-store"
+          cd "$RUNNER_TEMP/campaign-peak-formal-evidence-store"
+          destination="campaign-peak-formal/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"
+          mkdir -p "$destination/shards" "$destination/summary"
+          cp "$RUNNER_TEMP"/campaign-peak-formal-summary/* "$destination/summary/"
+          cp "$RUNNER_TEMP/campaign-peak-formal-summary.sha256" "$destination/summary/"
+          cp "$RUNNER_TEMP/campaign-peak-formal-summary.tar.gz" "$destination/summary/"
+          for archive in "$RUNNER_TEMP"/campaign-peak-formal-downloads/*/campaign-peak-formal-shard-*.tar.gz; do
+            base=$(basename "$archive")
+            sha_file="${archive%.tar.gz}.sha256"
+            cp "$sha_file" "$destination/shards/"
+            if [ "$(stat -c%s "$archive")" -gt 40000000 ]; then
+              split -b 40000000 -d -a 3 "$archive" "$destination/shards/$base.part-"
+            else
+              cp "$archive" "$destination/shards/$base"
+            fi
+          done
+          git config user.name 'quant research publisher'
+          git config user.email 'quant-research@users.noreply.github.com'
+          git add -- "$destination"
+          git commit -m 'research: retain campaign peak formal generalization matrix'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/evidence; then
+              git fetch origin research/evidence
+              expected=$(cut -d' ' -f1 "$RUNNER_TEMP/campaign-peak-formal-summary.sha256")
+              actual=$(git show "FETCH_HEAD:$destination/summary/campaign-peak-formal-summary.tar.gz" | sha256sum | cut -d' ' -f1)
+              test "$actual" = "$expected"
+              exit 0
+            fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1
