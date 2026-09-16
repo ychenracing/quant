@@ -1,0 +1,218 @@
+{
+  "family": "offensive_native_ownership",
+  "status": "LOCAL_PAIRED_SCREEN_REJECTED_PENDING_HOSTED_CANONICAL",
+  "preregistration_commit": "89b7a4f963d5dd6bf9b0cd37bc839949ec45bb56",
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_sha256": "9333bd0059537a58672fd32dcfb06cf224a50a02acd432adfb6f28a763ed8c64",
+  "plan_sha256": "8b6e5a37c55cf92549334e63391f3b27eead78735580bae8e404ab2148e9a184",
+  "objective": {
+    "control_mean_log_wealth": 1.2560421934258852,
+    "treatment_mean_log_wealth": 1.0806776391870017,
+    "control_min_wealth": 1.1546791488756403,
+    "treatment_min_wealth": 0.798982548903486,
+    "mean_log_wealth_improved": false,
+    "minimum_wealth_improved": false,
+    "broad_scope_improvement": false,
+    "leader_removal_positive_wealth": false
+  },
+  "scopes": {
+    "union": {
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 4.74414842883842,
+        "total_return": 3.74414842883842,
+        "cagr": 0.6824926019797857,
+        "max_drawdown": 0.3055789380480397,
+        "inherited_drawdown": 0.3055789380480397,
+        "sharpe_zero_rf": 1.4281064292868777,
+        "orders": 145,
+        "orders_per_year": 48.45494053064959,
+        "gross_turnover": 39.03239690066364,
+        "fees": 90265.86628999369,
+        "slippage": 165529.21786890013,
+        "average_exposure": 0.51337827889083,
+        "blocked_attempts": 25
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 2.9881240103991136,
+        "total_return": 1.9881240103991136,
+        "cagr": 0.441666837190148,
+        "max_drawdown": 0.4892643691237091,
+        "inherited_drawdown": 0.4892643691237091,
+        "sharpe_zero_rf": 0.9884000297667928,
+        "orders": 92,
+        "orders_per_year": 30.743824336688014,
+        "gross_turnover": 44.065684226068974,
+        "fees": 91622.6699672488,
+        "slippage": 162923.4656393206,
+        "average_exposure": 0.7268387170633621,
+        "blocked_attempts": 1
+      },
+      "events": {
+        "records": 727,
+        "native_replacements": 8,
+        "security_or_inventory_reductions": 34,
+        "full_cap_records": 727
+      }
+    },
+    "chatgpt_5": {
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 7.904183048701599,
+        "total_return": 6.904183048701599,
+        "cagr": 0.9954399788719608,
+        "max_drawdown": 0.391356116446651,
+        "inherited_drawdown": 0.391356116446651,
+        "sharpe_zero_rf": 1.7491092776610122,
+        "orders": 164,
+        "orders_per_year": 54.80420860018298,
+        "gross_turnover": 36.222570571701624,
+        "fees": 134601.34278754212,
+        "slippage": 243133.85296790846,
+        "average_exposure": 0.48819175555248917,
+        "blocked_attempts": 46
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 10.716700541585677,
+        "total_return": 9.716700541585677,
+        "cagr": 1.2091112133241118,
+        "max_drawdown": 0.44604530629554884,
+        "inherited_drawdown": 0.44604530629554884,
+        "sharpe_zero_rf": 1.7336687748720632,
+        "orders": 75,
+        "orders_per_year": 25.062900274473925,
+        "gross_turnover": 35.79060325114682,
+        "fees": 188810.68234938895,
+        "slippage": 342489.73596505035,
+        "average_exposure": 0.6721094437114893,
+        "blocked_attempts": 0
+      },
+      "events": {
+        "records": 727,
+        "native_replacements": 3,
+        "security_or_inventory_reductions": 30,
+        "full_cap_records": 727
+      }
+    },
+    "joint_optical_leader_removal": {
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 1.1546791488756403,
+        "total_return": 0.15467914887564027,
+        "cagr": 0.04923513626394693,
+        "max_drawdown": 0.35331033491094144,
+        "inherited_drawdown": 0.35331033491094144,
+        "sharpe_zero_rf": 0.3169906767347706,
+        "orders": 169,
+        "orders_per_year": 56.475068618481245,
+        "gross_turnover": 47.47983940944148,
+        "fees": 53350.728517320684,
+        "slippage": 95081.69582748652,
+        "average_exposure": 0.46688897802252155,
+        "blocked_attempts": 45
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 0.798982548903486,
+        "total_return": -0.20101745109651403,
+        "cagr": -0.07225057862556294,
+        "max_drawdown": 0.6619879792068872,
+        "inherited_drawdown": 0.6619879792068872,
+        "sharpe_zero_rf": 0.046093415716296327,
+        "orders": 95,
+        "orders_per_year": 31.746340347666973,
+        "gross_turnover": 47.42147417677898,
+        "fees": 38856.859033947585,
+        "slippage": 67101.0634963117,
+        "average_exposure": 0.6879240396596586,
+        "blocked_attempts": 2
+      },
+      "events": {
+        "records": 727,
+        "native_replacements": 8,
+        "security_or_inventory_reductions": 37,
+        "full_cap_records": 727
+      }
+    }
+  },
+  "wealth_path": {
+    "union": {
+      "control": {
+        "2023-12-29": 1.5369350834723288,
+        "2024-12-31": 2.1147872330642157,
+        "2025-06-30": 2.3221478117134193,
+        "2025-12-31": 4.74414842883842
+      },
+      "treatment": {
+        "2023-12-29": 1.4853299386676007,
+        "2024-12-31": 1.7745039858219014,
+        "2025-06-30": 1.337145830856834,
+        "2025-12-31": 2.9881240103991136
+      }
+    },
+    "chatgpt_5": {
+      "control": {
+        "2023-12-29": 2.4176911326604773,
+        "2024-12-31": 3.018227771021925,
+        "2025-06-30": 3.7369026505389793,
+        "2025-12-31": 7.904183048701599
+      },
+      "treatment": {
+        "2023-12-29": 3.8496790901108486,
+        "2024-12-31": 3.7750930065082144,
+        "2025-06-30": 3.8204751290633574,
+        "2025-12-31": 10.716700541585679
+      }
+    },
+    "joint_optical_leader_removal": {
+      "control": {
+        "2023-12-29": 0.9544496954548299,
+        "2024-12-31": 0.9866379289341984,
+        "2025-06-30": 0.9256371337488833,
+        "2025-12-31": 1.1546791488756403
+      },
+      "treatment": {
+        "2023-12-29": 0.6159361816244129,
+        "2024-12-31": 0.668559126673478,
+        "2025-06-30": 0.4973502249554308,
+        "2025-12-31": 0.798982548903486
+      }
+    }
+  },
+  "structural_failure": {
+    "classification": "opportunity_discovery_entry_quality",
+    "finding": "Removing account de-risking while preserving native ownership raises exposure but damages broad-scope capital before the 2025 leadership handoff. The treatment still captures the later union/removal winners at similar campaign percentage returns, but with materially smaller notional because capital was already impaired.",
+    "union_wealth_2025_06_30": {
+      "control": 2.3221478117134193,
+      "treatment": 1.337145830856834
+    },
+    "leader_removal_wealth_2025_06_30": {
+      "control": 0.9256371337488833,
+      "treatment": 0.4973502249554308
+    },
+    "implication": "Ownership/replacement is necessary but insufficient. The next structurally distinct direction should improve causal opportunity discovery/entry quality rather than tune account risk or native replacement thresholds."
+  },
+  "caveat": "Local frozen-input screen. Preserve as failed diagnostic and obtain hosted source-bound receipt; do not promote or relabel.",
+  "economic_acceptance": "NOT_ESTABLISHED"
+}

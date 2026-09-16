@@ -32,7 +32,7 @@ from research.expectation_study import write_json, scopes
 _PAIRED = {
     "confirmed_shock", "profit_trend_shield", "shock_reclaim",
     "theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core",
-    "offensive_alpha_decay_displacement",
+    "offensive_alpha_decay_displacement", "offensive_native_ownership",
 }
 
 
@@ -96,7 +96,7 @@ class Study(_base.Study):
             "observed_admission_completion_contract.json", "decision_review.py",
             "ledger_attribution.py",
         ]
-        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core", "offensive_alpha_decay_displacement"}:
+        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core", "offensive_alpha_decay_displacement", "offensive_native_ownership"}:
             names += [
                 "trend_book.py", "trend_book_contract.json", "coherent.py",
                 "coherent_contract.json", "observed_trend.py",
@@ -163,6 +163,10 @@ class Study(_base.Study):
             full_data_sha = contract["frozen_inputs"]["full_sha256"]
             selection_end = contract["measurement"]["window"]["end"]
             registration_commit = "d749786da34b4b26f5e1ecaec3b84e6d80718d6c"
+        elif self.family == "offensive_native_ownership":
+            full_data_sha = contract["frozen_inputs"]["full_sha256"]
+            selection_end = contract["measurement"]["window"]["end"]
+            registration_commit = "89b7a4f963d5dd6bf9b0cd37bc839949ec45bb56"
         elif self.family in {"theme_campaign", "leader_anchor_slots"}:
             full_data_sha = contract["data_sha256"]
             selection_end = "2025-12-31"
@@ -267,6 +271,16 @@ class Study(_base.Study):
                             "displacements": sum(r.get("action") == "ALPHA_DECAY_DISPLACEMENT" for r in state),
                             "retirement_releases": sum(r.get("action") == "RETIREMENT_RELEASE" for r in state),
                         }
+                    elif self.family == "offensive_native_ownership":
+                        state = [r for r in trace if r.get("kind") == "OFFENSIVE_NATIVE_OWNERSHIP_EVENT"]
+                        row["offensive_native_ownership"] = {
+                            "records": len(state),
+                            "native_replacements": sum(r.get("action") == "NATIVE_REPLACEMENT" for r in state),
+                            "security_or_inventory_reductions": sum(
+                                r.get("action") == "SECURITY_OR_INVENTORY_REDUCTION" for r in state
+                            ),
+                            "full_cap_records": sum(r.get("account_cap") == 1.0 for r in state),
+                        }
                     else:
                         state = [r for r in trace if r.get("kind") == "SHOCK_RECLAIM_PERMISSION"]
                         row["shock_reclaim"] = {"events": len(state), "released": sum(len(r["released"]) for r in state), "requested": sum(len(r["requested"]) for r in state)}
@@ -275,7 +289,7 @@ class Study(_base.Study):
             print(json.dumps(row), flush=True)
         if self.family == "confirmed_shock":
             decision = paired_screen(rows)
-        elif self.family == "offensive_alpha_decay_displacement":
+        elif self.family in {"offensive_alpha_decay_displacement", "offensive_native_ownership"}:
             decision = alpha_discovery_screen(rows)
         else:
             nonregression = all(
