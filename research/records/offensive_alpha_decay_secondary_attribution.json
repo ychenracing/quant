@@ -1,0 +1,62 @@
+{
+  "actionable_state_invariant": "An existing held or retired campaign hit by the already-authoritative one-session <= -8% security break has ended its current campaign epoch. That same symbol should not be considered a new campaign merely because observed_trend.entry remains continuously true. A future fresh campaign must be edge-triggered after a later observed non-entry state and then a subsequent entry state. Fresh symbols without an existing campaign identity remain eligible normally.",
+  "evidence_limitation": "Retrospective attribution on executed candidate1 accounts. PnL magnitudes explain failure concentration but do not enter treatment decisions or promise recoverable profit.",
+  "family": "offensive_alpha_decay_displacement",
+  "hosted_run": 35068327902,
+  "next_session_same_symbol_reentry_after_existing_acute_exit": {
+    "chatgpt_5": {"aggregate_pnl_cny": -736103.2684392232, "events": 3},
+    "definition": "Previous actual campaign security exit signal had p.ret1 <= -0.08, observed_trend.exit was false, quote remained ready, and the same symbol was selected again on the immediately following market session.",
+    "joint_optical_leader_removal": {"aggregate_pnl_cny": -752540.3733369814, "events": 5},
+    "union": {"aggregate_pnl_cny": -236323.19005510074, "events": 4}
+  },
+  "rejected_interpretations": [
+    "Do not impose a market-wide post-shock cash cooldown: profitable fresh opportunities existed immediately after the same broad shock.",
+    "Do not cap refills to one slot: in common-five/removal the second contemporaneous fresh campaign sh603986 was the profitable leg.",
+    "Do not tune a waiting-day count or price-recovery percentage.",
+    "Do not reinterpret these realized PnLs as additive counterfactual profit."
+  ],
+  "root_cause": "acute_security_break_does_not_end_campaign_admission_epoch",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "september_2025_witness": {
+    "chatgpt_5": {
+      "held_campaigns_exited": ["sz300308", "sz300502"],
+      "next_close_refill": ["sz300308", "sh603986"],
+      "note": "Fresh sh603986 was not an existing campaign identity and later earned strongly; therefore a market-wide post-shock ban is not supported.",
+      "refill_realized_pnl_cny": 1589602.0,
+      "retired_campaign_released": ["sh688008"]
+    },
+    "joint_optical_leader_removal": {
+      "held_campaigns_exited": ["sh688256", "sh688498"],
+      "next_close_refill": ["sh688498", "sh603986"],
+      "note": "The immediate same-campaign sh688498 leg lost while fresh sh603986 earned; supports campaign-specific rather than market-wide reset.",
+      "refill_realized_pnl_cny": 175962.938064
+    },
+    "observation": "The -8% security-break predicate was true for 13 union names, all five common-five names and 10 leader-removal names while observed_trend.entry remained true for every listed shocked name. Thus security-break and admission-level state overlapped causally.",
+    "shock_close": "2025-09-04",
+    "union": {
+      "held_campaigns_exited": ["sz300308", "sz300502"],
+      "next_close_refill": ["sz300308", "sh688498"],
+      "refill_realized_pnl_cny": -869834.8915363313,
+      "retired_campaign_released": ["sh688498"]
+    }
+  },
+  "source_commit": "407756076b1d116f636d8796e4b66dba0934842c",
+  "status": "READ_ONLY_SECONDARY_ATTRIBUTION_COMPLETE",
+  "wealth_path": {
+    "chatgpt_5": {
+      "2023-12-29": [2.417691, 2.933637], "2024-12-31": [3.018228, 2.948432],
+      "2025-06-30": [3.736903, 3.274538], "2025-09-30": [7.564765, 9.812671],
+      "2025-12-31": [7.904183048701599, 11.158843878078542]
+    },
+    "joint_optical_leader_removal": {
+      "2023-12-29": [0.95445, 1.107344], "2024-12-31": [0.986638, 0.851582],
+      "2025-06-30": [0.925637, 0.768471], "2025-09-30": [1.327206, 1.365723],
+      "2025-12-31": [1.1546791488756403, 1.273905728775179]
+    },
+    "union": {
+      "2023-12-29": [1.5369350834723288, 1.586395], "2024-12-31": [2.1147872330642157, 2.391304],
+      "2025-03-31": [2.204846, 1.90321], "2025-06-30": [2.3221478117134193, 1.888777],
+      "2025-09-30": [5.083105, 4.043437], "2025-12-31": [4.74414842883842, 3.481266563129915]
+    }
+  }
+}
