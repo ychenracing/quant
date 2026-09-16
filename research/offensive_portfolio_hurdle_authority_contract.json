@@ -1,0 +1,41 @@
+{
+  "family": "offensive_portfolio_hurdle_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. Terminal wealth and cross-scope alpha remain the discovery priority; MDD/orders/turnover are recorded diagnostics at this stage.",
+  "evidence": {
+    "current_alpha_leader": "offensive_fresh_challenger_authority",
+    "current_leader_selection": {"union": 6.094402615566887, "chatgpt_5": 13.374238388312474, "joint_optical_leader_removal": 1.5949459430753048, "mean_log": 1.6225136461073524},
+    "formal_run": 35090852356,
+    "formal_tail": "199-case formal matrix: treatment/control minimum 0.220985 with early ordinary full-book displacement driving severe path divergence in cardinality_16 and other tail cases.",
+    "shadow_counterfactual_run": 35105061048,
+    "shadow_finding": "Universal one-step challenger shadow confirmation raised leader-removal wealth to 1.890058 but collapsed union/common-five to 4.668940/7.078675. Delaying every displacement is therefore too broad. Current-leader trace shows marginal crossings such as union 2023-02-07 challenger 1.650218 versus displaced campaign reference 1.643112, while valuable handoffs can be much stronger (e.g. common-five 2023-04-19 challenger 2.549696 versus displaced reference 0.960532). No numerical gap threshold will be searched."
+  },
+  "economic_hypothesis": "A funded two-position book has two causally observed campaign admission standards. A new challenger should obtain same-close liquidation authority only when its current causal score clears the strongest admission reference of the funded book, not merely the weakest incumbent's reference. This creates a parameter-free portfolio opportunity-cost hurdle: marginal challengers cannot churn a healthy high-standard book, while genuinely dominant opportunities can still replace the weakest decayed campaign immediately.",
+  "control": "Exact current offensive_fresh_challenger_authority treatment, plus an unchanged trend_book baseline recorded by the study runner.",
+  "treatment": {
+    "base": "Reuse offensive_fresh_challenger_authority unchanged for acute invalidation, settled reference rearm, campaign provenance, failed-fill continuity, vacancy funding, exits and execution.",
+    "full_book_hurdle": "Only for the existing ordinary full-book ALPHA_DECAY_DISPLACEMENT path: determine the finite owned admission references of all actually held campaigns (using a finite pending admission reference for newly observed held inventory exactly as the base owner does). The deterministic challenger may displace the deterministic weakest decayed incumbent only if challenger_score is strictly greater than the maximum finite admission reference among all actually held campaigns. If the challenger does not clear that book-level hurdle, hold the funded book for this close. No waiting state is created.",
+    "other_paths": "Security exits, retired-exit retries, acute/reference rearm, failed-fill fresh-authority displacement, ordinary vacancy fills, actual inventory reconciliation and all unrelated symbols remain exactly parent-authoritative.",
+    "execution": "No forecast sale proceeds; unchanged next-session execution, T+1, price limits, prior-volume capacity, board lots, commission and slippage."
+  },
+  "structural_difference": [
+    "Not shadow-opportunity authority: no nomination state, no later-close confirmation and no score-appreciation requirement.",
+    "Not leadership_handover: no score multiplier, confirmation count or cooldown.",
+    "Not old theme/leader slots: no sector identity, designated leader slot or reserved capacity.",
+    "Not relative_campaign_owner: no maturity window or benchmark-relative campaign review.",
+    "Not a score-margin parameter: the hurdle is the strongest already-owned causal admission reference, an endogenous state value with no tunable constant."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "mean(log(terminal wealth))",
+    "secondary_objective": "minimum terminal wealth",
+    "promotion_rule": "Beat the current offensive_fresh_challenger_authority mean-log objective and do not reduce its minimum wealth. Baseline-only improvement is insufficient. If promoted, evaluate full 896-session history before any formal matrix.",
+    "record_only": ["max_drawdown", "orders", "turnover", "fees", "slippage", "exposure", "book_hurdle_blocks", "authorized_displacements"],
+    "failure_rule": "If rejected, preserve the failure and do not search multipliers, margins, confirmation days, lookbacks, position counts or pool-specific variants."
+  },
+  "frozen_inputs": {"names": 34, "sessions": 896, "start": "2023-01-03", "end": "2026-09-11", "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b", "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"},
+  "prohibitions": ["No future data or labels", "No per-symbol/date/pool rule", "No reference-strategy source reuse", "No score-margin/grid search", "No frozen data/cost/benchmark manipulation"]
+}
