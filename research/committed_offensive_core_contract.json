@@ -1,0 +1,40 @@
+{
+  "family": "committed_offensive_core",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_ACCOUNT_MEASUREMENT",
+  "authority": "The user explicitly redirected PR #1 to alpha-first offensive optimization and requested continued implementation prioritizing maximum return. This mechanism is structurally distinct from the rejected offensive_core: it removes periodic cross-sectional displacement rather than tuning a rebalance interval.",
+  "evidence": {
+    "parent_candidate": "offensive_core",
+    "parent_source": "b611f0b5dcc494a8ba74621dd000c9053c01b783",
+    "local_source_bound_parent_screen": {
+      "union_wealth_control_treatment": [4.74414842883842, 4.145370349999958],
+      "common_five_wealth_control_treatment": [7.904183048701599, 9.648308764962588],
+      "leader_removal_wealth_control_treatment": [1.1546791488756403, 1.2521035465686108],
+      "orders_control_treatment": [[145,219],[164,161],[169,213]],
+      "average_exposure_control_treatment": [[0.51337827889083,0.7796748195594861],[0.48819175555248917,0.7511719677546767],[0.46688897802252155,0.7415553782976244]],
+      "status": "PARENT_REJECTED_PENDING_HOSTED_CONFIRMATION"
+    },
+    "interpretation": "High exposure improved common-five and leader-removal while union regressed together with a large rise in ownership turnover. Test whether persistent ownership rather than periodic cross-sectional displacement preserves offensive exposure without recurring rotation feedback."
+  },
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "entry_and_score": "Reuse the same causal completed-session eligibility and score used by offensive_core for initial ownership and real vacancy filling.",
+    "ownership": "An actually held security cannot be displaced by a higher-ranked intact competitor. It remains owned until its own observed security break or actual position disappearance. Ranking is consulted only for empty slots.",
+    "security_exit": "Immediate on the unchanged observed sixty-session security break, a fresh single-session return at or below -8 percent, or missing readiness. A broken symbol cannot re-enter on the same close.",
+    "market_gate": "Broad market trend gates only new commitments. It never liquidates an intact owned security.",
+    "vacancy_funding": "Never anticipate proceeds from a security being sold. Existing intact units are not trimmed to fund a replacement. New vacancy purchases use only currently observed cash; after sale proceeds actually settle into cash, later closes may fill the vacancy.",
+    "portfolio_defense": "No account/market shock liquidation, drawdown exposure cap, volatility target, recovery wait, sector budget or scheduled ranking displacement.",
+    "execution": "Unchanged cash-only, long-only next-session engine with sells before buys, prior-volume capacity, board lots, fees, slippage and no leverage/shorting."
+  },
+  "new_numeric_parameters": 0,
+  "parameter_search": false,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "alpha_screen": "Treatment wealth must be no lower than control in all three scopes and strictly higher in at least one. Record MDD, turnover, orders, exposure, costs and ledger reconciliation but do not substitute them for the alpha-first screen.",
+    "failure_rule": "Any scope wealth regression rejects this family. No nearby score, holding, exit, exposure, capacity, market-gate or vacancy-funding search and no rejected-treatment 2026 replay.",
+    "advance_rule": "Only a passed fixed three-scope alpha screen may advance the identical source to the original full acceptance matrix."
+  },
+  "frozen_inputs": {"names":34,"sessions":896,"start":"2023-01-03","end":"2026-09-11","sha256":"d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"},
+  "prohibitions": ["No per-symbol/date/pool branch","No reference strategy code in production","No acceptance/data/cost/benchmark relaxation","No winner splicing"]
+}
