@@ -1,0 +1,72 @@
+{
+  "name": "relative_campaign_owner",
+  "status": "PREREGISTERED_NOT_MEASURED",
+  "economic_hypothesis": "A funded campaign that remains positive and beats the frozen CSI 300 at both its fifth and tenth owned-session reviews is a compoundable ownership state; after maturity this state should replace generic slow-trend exit decisions without changing opportunity ranking, capacity or funding.",
+  "control": {
+    "policy": "research.trend_book.Owner",
+    "parameters": {
+      "positions": 2
+    }
+  },
+  "treatment": {
+    "parameters": {
+      "enabled": true
+    },
+    "initial_admission": "unchanged two-position observed price book",
+    "campaign_origin": "first actual funded open after a flat inventory state",
+    "fast_review_owned_sessions": 5,
+    "full_review_owned_sessions": 10,
+    "benchmark": "sh000300",
+    "quality_at_full_review": "stock excess log return over benchmark is positive at owned sessions 5 and 10, and stock absolute return from the actual campaign opening session is positive at session 10",
+    "mature_ownership": "after session 10, a quality campaign ignores the generic slow-trend exit while cumulative absolute and benchmark-relative return from the actual opening session remain positive; loss of either condition closes the campaign",
+    "discovery_ownership": "before session 10, unchanged price-book exits remain authoritative",
+    "always_authoritative": [
+      "missing or unready quote",
+      "single-session loss of at least 8 percent",
+      "account-level risk reduction",
+      "existing inventory and protective obligations",
+      "next-session execution, limit, capacity, board-lot, fee and cash constraints"
+    ],
+    "unchanged": [
+      "opportunity score and tie-break",
+      "entry predicates",
+      "two-position capacity",
+      "equal cash funding",
+      "risk thresholds",
+      "universe, data, seed and costs"
+    ]
+  },
+  "fixed_screen": {
+    "scopes": [
+      "union",
+      "chatgpt_5",
+      "joint_optical_leader_removal"
+    ],
+    "selection_end": "2025-12-31",
+    "pass": "treatment wealth is no lower than paired control in every scope and strictly higher in at least one scope",
+    "record_only": [
+      "maximum drawdown",
+      "orders and turnover",
+      "average exposure",
+      "campaign-quality transitions",
+      "ledger reconciliation",
+      "prefix causality",
+      "repeat-run identity"
+    ],
+    "failure": "any scope wealth regression rejects the candidate; do not search review windows, benchmark, sign thresholds, confirmation days, hold fractions or capacity"
+  },
+  "evidence_identity": {
+    "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+    "benchmark_csv_sha256": "455fc880a16556400a5e2f6c5098cc16829e0ee420d01b69e975cce8d5d242a3",
+    "attribution_source_sha256": "b761729b9d2f5c60739e4bfc28a7f0a384dd3447dde1c43f88ea9f7a398b6d7b",
+    "attribution_result_sha256": "1069c361c6529163d1a004f2dad49b0c9a93ba83ddf222316d0f1435660175a5"
+  },
+  "prohibitions": [
+    "no reference-strategy source consumption",
+    "no pool-specific behavior",
+    "no ranking or funding-weight change",
+    "no new entry gate or cash sleeve",
+    "no composition with rejected candidates",
+    "no neighboring parameter search"
+  ]
+}
