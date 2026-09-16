@@ -1,0 +1,72 @@
+{
+  "family": "offensive_absolute_leadership",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha/terminal-wealth-first continuation. The user authorizes a structurally new opportunity-discovery engine while preserving causal next-session execution, frozen data, costs and execution constraints.",
+  "evidence": {
+    "current_alpha_leader": {
+      "family": "offensive_alpha_decay_displacement",
+      "hosted_run": 35068327902,
+      "finding": "Sparse campaign-specific displacement substantially improves full-history wealth across all three core scopes, but the 2023-2025 union screen remains below control."
+    },
+    "quality_admission_rejection": {
+      "source_commit": "aefa37539ad6aa898b10356a459ec7a8530f5006",
+      "finding": "Cross-sectional trend-quality admission plus absolute-score ownership still regresses union and changes campaign composition enough to create 51/53 broad-scope displacements."
+    },
+    "explosive_accelerator_boundary": {
+      "record": "research/records/explosive_campaign_accelerator_screen.json",
+      "finding": "Prior top-decile/new-high/volume/capacity expansion was already rejected, including union 4.744148x to 1.549907x. The new family therefore does not use volume confirmation, decile selection, extra slots or idle-cash acceleration."
+    }
+  },
+  "economic_hypothesis": "High exposure needs an alpha score whose numeric meaning is comparable across time, not a session percentile. A causal absolute leadership strength built from multi-scale excess trend magnitude, directional efficiency, persistence and follow-through should reject choppy broad-pool entries while allowing the same campaign score to decay coherently over time.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "ownership_base": "Reuse offensive_alpha_decay_displacement unchanged except that its admission ranking, frozen campaign reference, incumbent decay and challenger comparison all consume absolute_leadership_strength instead of techquant.features.score.",
+    "absolute_leadership_strength": {
+      "short_progress": "At close D use log(close_D / close_{D-Config.fast}) with Config.fast=10; require it to be positive.",
+      "slow_excess": "At close D use 40-session log progress minus the current-session median 40-session log progress among causally ready names. This remains in log-return units rather than a percentile; require the excess to be positive.",
+      "multi_scale_core": "sqrt(short_progress * slow_excess). Both inputs must be positive, so no signed or fitted weighting is introduced.",
+      "directional_efficiency": "Positive 40-session log progress divided by the sum of absolute one-session log moves over the same 40-session path, using only closes through D.",
+      "persistence": "Fraction of the latest Config.fast=10 sessions, including D, whose close is above the existing causal EMA20.",
+      "follow_through": "Current close divided by the highest close in the preceding Config.slow=40 sessions excluding D. This is a continuous causal factor, not a breakout threshold.",
+      "formula": "multi_scale_core * directional_efficiency * persistence * follow_through. Invalid/not-ready/nonpositive short_progress or slow_excess produces no positive leadership strength. No coefficients are learned or searched."
+    },
+    "eligibility": "Keep the offensive alpha-decay price/trend admission gate: fresh/ready quote, observed_trend entry, close above EMA20, positive 5-session momentum, broad market admission open, no security break, not held and not retired. Replace the old score-positive/ranking input only with finite positive absolute_leadership_strength.",
+    "campaign_reference": "Freeze the chosen symbol's absolute_leadership_strength at the close that requests a vacancy fill and bind it only after actual inventory is observed.",
+    "displacement": "With a full intact book, an incumbent becomes displacement-eligible only after current absolute_leadership_strength falls below its own frozen admission strength and the strongest currently eligible challenger has strength strictly above that frozen incumbent reference. Reuse one-way retirement, blocked-sale retry and no-same-close-sale-proceeds semantics unchanged.",
+    "capacity_and_execution": "Exactly two positions as in the preregistered campaign owner. No accelerator capacity, no volume rule, no leverage/shorting. Preserve observed-cash funding, close decision / next-session execution, sells before buys, prior-volume liquidity, board lots, T+1, fees, slippage and price limits."
+  },
+  "structural_difference_from_prior_work": [
+    "Unlike offensive_trend_quality and offensive_quality_admission, no cross-sectional percentile is ever frozen or compared across time; the score remains in an absolute trend-strength scale.",
+    "Unlike explosive_campaign_accelerator, there is no top-decile rule, volume confirmation, sector-peer trigger, extra capacity or idle-cash sleeve.",
+    "Unlike the old ranking learner, no model, future label, fitted coefficient or expanding-window training exists.",
+    "Unlike neighboring EMA/lookback searches, only existing Config.fast=10, Config.slow=40 and the existing EMA20 are used; this contract freezes one formula and permits no horizon/weight grid."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "record_only_during_alpha_discovery": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure"],
+    "promotion_rule": "Advance only if mean-log wealth and minimum wealth improve, at least one broad scope improves, and joint optical-leader removal remains above 1.0. Later formal promotion still requires an economically material improvement, not 1-2% noise.",
+    "failure_rule": "If rejected, preserve the complete result and move to a substantively different alpha structure. Do not tune component weights, horizons, excess cutoffs, displacement margins, capacity or position count."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No per-symbol/date/pool rule",
+    "No future label/high/return in decisions",
+    "No reference-strategy source reuse",
+    "No frozen data/cost/benchmark/acceptance manipulation",
+    "No neighboring parameter/weight/horizon grid",
+    "No winner splicing"
+  ]
+}
