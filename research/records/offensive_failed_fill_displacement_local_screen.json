@@ -1,0 +1,45 @@
+{
+  "family": "offensive_failed_fill_displacement",
+  "status": "REJECTED_AS_ALPHA_LEADER_DESPITE_BASELINE_ADVANCE",
+  "registration_commit": "aecf335cb0e10934742ea1b4e127f1b2ba33fe91",
+  "source_sha256": "f5bc4436ae16201dab7a96059a8e448d08bbb278773fe825fb0c1575e526155d",
+  "test_sha256": "77c9da69c8923cb6af9c695acfc10f8baae5dcd5db1d2a9714f65ed11b95bd01",
+  "control_mean_log": 1.2560421934258852,
+  "treatment_mean_log": 1.5777398166859704,
+  "control_min": 1.1546791488756403,
+  "treatment_min": 1.401916031237358,
+  "leader": {
+    "wealth": [6.094402615566887, 12.952420207759628, 1.5710237463450074],
+    "mean_log": 1.6067936266079303,
+    "min": 1.5710237463450074
+  },
+  "beats_current_leader_mean": false,
+  "beats_current_leader_min": false,
+  "scopes": {
+    "union": {
+      "control_wealth": 4.74414842883842,
+      "treatment": {"wealth": 6.062057155836895, "cagr": 0.8261216376892968, "max_drawdown": 0.4219468578819584, "orders": 126, "gross_turnover": 60.26941920844766, "fees": 148853.75720024316, "slippage": 263361.1709114562, "average_exposure": 0.727760216776531},
+      "attempts": 41,
+      "confirmed_no_displacement": 40,
+      "displacements": 1,
+      "displacement": {"date": "2023-05-16", "symbol": "sz002409", "challenger": "sh688120", "owned_alpha_reference": 1.0718386567530078, "incumbent_score": 0.9013294942687352, "challenger_score": 1.5387806951148348}
+    },
+    "chatgpt_5": {
+      "control_wealth": 7.904183048701599,
+      "treatment": {"wealth": 13.374238388312474, "cagr": 1.3788529045517057, "max_drawdown": 0.43604406446289934, "orders": 77, "gross_turnover": 41.024195100955914, "fees": 164064.72208619377, "slippage": 295042.80345724826, "average_exposure": 0.6918978415398808},
+      "attempts": 110,
+      "confirmed_no_displacement": 109,
+      "displacements": 1,
+      "displacement": {"date": "2024-12-17", "symbol": "sh688008", "challenger": "sz300502", "owned_alpha_reference": 1.3753299993651429, "incumbent_score": 1.2901411341725024, "challenger_score": 2.212494992778376}
+    },
+    "joint_optical_leader_removal": {
+      "control_wealth": 1.1546791488756403,
+      "treatment": {"wealth": 1.401916031237358, "cagr": 0.11951620764331938, "max_drawdown": 0.6509911316885435, "orders": 130, "gross_turnover": 64.3886970951376, "fees": 78183.12893248005, "slippage": 133559.63659284363, "average_exposure": 0.6720003462406366},
+      "attempts": 42,
+      "confirmed_no_displacement": 41,
+      "displacements": 1,
+      "displacement": {"date": "2025-11-20", "symbol": "sz002371", "challenger": "sh688498", "owned_alpha_reference": 1.221264202469118, "incumbent_score": 0.8875042253588192, "challenger_score": 5.048027928168776}
+    }
+  },
+  "diagnosis": "Execution feedback correctly delays deadlock handling and fixes the target 2025-11-20 removal event, but the single displacement in each scope still changes paths enough that mean-log/min wealth remain below the settled-reference-rearm alpha leader. Do not tune the 1% materiality or score margin."
+}
