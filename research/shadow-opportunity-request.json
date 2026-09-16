@@ -1,0 +1,24 @@
+{
+  "family": "offensive_shadow_opportunity_authority",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "c7ecdc0e00acaaf93dd06d3d07eacf1fc9b99ed4",
+  "request": "Execute the single preregistered shadow-opportunity treatment against both the exact trend-book baseline and the current fresh-challenger alpha leader through 2025-12-31. Promote only if mean log terminal wealth strictly exceeds the current leader while minimum wealth does not regress. If promoted, evaluate the same source-bound candidate on the complete frozen 896-session history and fixed 2026 windows. Do not search confirmation days, score margins, windows, position counts, shock thresholds or pool-specific variants.",
+  "source_git_blob": {
+    "research/offensive_shadow_opportunity_authority.py": "7c0ce94412b05294534e5caa275b2bda75908e56",
+    "research/test_offensive_shadow_opportunity_authority.py": "dbd5ebe9be878da5cbd21422b836dfa67db1480e",
+    "research/offensive_shadow_opportunity_authority_study.py": "ad2ff80ab53755c1fefbd9a53bd73095dc4919bf",
+    "research/offensive_shadow_opportunity_authority_contract.json": "ceea519526e783e455045b5728cfa5033e899116",
+    "research/offensive_fresh_challenger_authority.py": "cadf4685b8106fda45986ee7c76aabddbc7d57b7",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b",
+    ".github/workflows/shadow-opportunity-study.yml": "e2185a22f4ad73c01e6d46cb122eff12dc79985f"
+  },
+  "alpha_objective": {
+    "primary": "maximize mean(log(terminal wealth)) across union, common-five and joint optical-leader removal",
+    "secondary": "do not reduce minimum terminal wealth versus current alpha leader",
+    "mdd_orders_turnover": "record_only_during_alpha_discovery"
+  },
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
