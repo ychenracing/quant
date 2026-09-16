@@ -10,54 +10,61 @@ micro-tuning, neighboring searches, per-pool splicing or reference-source reuse.
 - main: `966f7428658431c9da5a6fcaf7d9b9d5c446f2cd`;
 - PR #1: OPEN, Draft, unmerged; implementation head
   `efffb9a428258e921feaff125011cba46223bb18`;
-- previous research status: `984f46f29e3bf691bc75d3d8a1092b765c64a886`;
+- previous research status: `1fc45028ae9890cce86eebad97ce820e88b866bf`;
 - frozen pre-2026 data:
   `894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157`.
 
 ## Latest alpha closure
 
-`basis_failure_exit` is permanently `REJECTED_PAIRED_SCREEN`. The contract was
-saved before implementation and fixed one event: actual held units closed below
-their observed weighted acquisition basis and EMA40 on two consecutive sessions,
-then used the parent's existing latched full exit. It changed no entry, ranking,
-funding, market/account risk or execution rule.
+The read-only `non_recycled_campaign_capital` bound is
+`REJECTED_BEFORE_IMPLEMENTATION`. It observed the unchanged control and, at the
+first registered basis/EMA40 failure in each funded campaign, compared its
+actual future cash flow with next-open liquidation whose proceeds remained idle
+until the same unchanged campaign's actual exit. It changed no portfolio
+decision and excluded censored campaigns.
 
-The static attribution looked high-purity, but the executable account changed
-cash and future admissions. Event counts expanded from 6/1/7 control campaigns
-to 17/8/20 treatment events. Fixed results were:
+Despite forbidding all cross-security recycling, net cash preserved at the
+original campaign exits was negative in every scope:
 
-- union: `4.744148x -> 1.948528x` (-58.93%), MDD -0.10pp;
-- common-five: `7.904183x -> 7.185036x` (-9.10%), MDD +5.32pp;
-- leader removal: `1.154679x -> 0.838853x` (-27.35%), MDD +12.96pp.
+- union: 15 settled events, CNY -1.082m; executable subset CNY -0.619m;
+- common-five: 8 settled events, CNY -0.914m; executable subset CNY -0.905m;
+- leader removal: 16 settled events, CNY -0.633m; executable subset CNY -0.657m.
 
-Turnover increased in every scope. Do not tune or repackage EMA span,
-confirmation length, basis margin, exit fraction, cooldown, released-cash use,
-the union MDD row or any event subset. No 2026/final matrix was run.
+Next-open full liquidity was available for 13/15, 7/8 and 15/16 events. The
+largest sacrificed continuation profits were CNY 0.529m in union (`sh688041`),
+CNY 0.958m in common-five (`sh688008`) and CNY 0.211m in removal (`sh688072`).
+Thus cash recycling was not the only failure: the underlying local exit also
+cuts large recoveries and compounders.
 
-Verification: focused 4/4, ordinary 87/87, research 414 passed/9 skipped;
-deterministic compact result SHA256
-`dcb7fa47fc4280ed7201fe7f9c464549c6224640f0b299ab57ceae226b896020`.
+Exact result SHA256:
+`d42525833392a05cc37d1e067487776de555e78bf691ba32484422f7bbcf7779`;
+diagnostic source SHA256:
+`f6dc3e35e5e5ab619a4fbdf34a235af499d909871e0f37a6cbedb0e92125e10f`.
+Repeated output was byte-identical. Verification remains ordinary 87/87 and
+research 414 passed/9 skipped.
 
-The preceding acquisition-state audit also remains rejected. Its fixed
-accelerating-persistence state had negative median PnL and no win-rate advantage
-in every scope; fresh-start and loss-memory gates would remove major winners.
+`basis_failure_exit` remains permanently `REJECTED_PAIRED_SCREEN` with wealth
+changes -58.93%/-9.10%/-27.35%. Do not tune or repackage its EMA, confirmation,
+basis, fraction, cooldown, cash quarantine, same-security reserve or any event
+subset. No 2026/final matrix was run.
 
 Do not repeat `campaign_payoff`, `joint_funding`, `confirmed_shock`, inventory
 corrections, profit shields, theme/leader slots, handover/reentry,
 persistent/early ownership, breadth/sector ownership, accelerator, campaign
 epoch, participation, reversal, record-high, breakout, rotation, acquisition
-gates, basis-failure exits or decision-path grids.
+gates, basis-failure exits, cash sleeves/quarantines or decision-path grids.
 
 ## Direct continuation
 
-The joint evidence now rejects both adding entry gates and recycling cash from
-sparse early exits. The next independent alpha work must analyze an ownership
-architecture that keeps campaign capital attached to the same security (or
-explicitly idle) after a failure event, so a correct local exit cannot trigger
-new broad-scope churn. Before implementation, quantify whether such
-non-recycled campaign capital preserves the large common-five compounders and
-improves union/removal opportunity cost under one cross-scope rule. This is not
-authorization to retry old cash sleeves, funding weights, cooldowns or exit
+Exit wrappers and their cash handling are now jointly closed. The next
+independent alpha work must return to a complete ownership engine and establish
+a pool-independent campaign-quality state before implementation. Use only
+causally observed frozen price/volume/index information and actual funded
+campaigns; first test whether benchmark-relative or cross-horizon persistence
+separates broad-pool distractors from common-five compounders across all three
+scopes. It must not be another entry gate, retained-exit wrapper, ranking-weight
+tweak, sleeve, neighbor search or composition of rejected candidates. If no
+state has cross-scope evidence, record that negative result rather than fitting
 thresholds.
 
 Writer state: released after additive preservation. No accepted production tree
