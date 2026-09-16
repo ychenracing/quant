@@ -1,0 +1,54 @@
+{
+  "family": "offensive_deployable_vacancy_displacement",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. Terminal wealth and cross-scope alpha remain the discovery priority; MDD, orders and turnover are recorded but are not discovery gates.",
+  "parent": {
+    "family": "offensive_settled_reference_rearm",
+    "source_commit": "6026a7c87f403b73327b80880e5439396baaa754",
+    "hosted_run": 35083444553
+  },
+  "root_cause": "The settled-reference-rearm candidate can hold one dominant actual position while the second nominal slot exists only on paper. In joint optical-leader removal on 2025-11-20, about 99.3% of target capital remains in sz002371 while the second-slot attempt is about 0.7%. Candidate1's displacement branch is gated by vacancy == 0, so the nominal vacancy suppresses replacement even though observed cash is below the engine's existing 1%-NAV ordinary-order materiality and cannot deploy a normal new position. The weak incumbent can therefore monopolize capital while repeated tiny vacancy fills are blocked or immaterial.",
+  "economic_hypothesis": "A slot is economically vacant only when observed capital can fund an executable ordinary admission. When nominal position count says vacancy but actual cash is below the unchanged execution engine's 1%-NAV ordinary-order floor, the portfolio is effectively capital-full. In that state, a decayed incumbent should remain eligible for the same campaign-reference displacement used by candidate1, so a materially stronger causal challenger can cause a sale and release real capital. This should preserve settled-reference rearm's shock/campaign improvements while removing capital starvation caused by nominal empty slots.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Reuse offensive_settled_reference_rearm unchanged for acute invalidation, settlement-aware reference rearm, trend-edge fallback, actual-inventory reconciliation and every ordinary candidate1 ownership rule.",
+    "deployable_vacancy": "Use the execution engine's already-existing ordinary-order materiality, 0.01 * observed NAV. A nominal vacancy is considered deployable only when observed cash is at least that amount. No new percentage or tuned threshold is introduced.",
+    "capital_full_displacement": "After settled-reference state transitions and mandatory exit retries are resolved, if actual held count is below Config.max_positions but observed cash is below 0.01 * observed NAV, evaluate the exact candidate1 displacement predicate instead of treating the nominal vacancy as protection for incumbents: current market trend must be open; an actually held incumbent must have finite owned admission reference and current causal score below that reference; an ordinary currently eligible unheld challenger must have current causal score above that same incumbent reference. Sell only the weakest decayed incumbent using the same deterministic tie-break. Do not buy the challenger on the sale close.",
+    "funding": "No forecast sale proceeds are spent. The sale executes under unchanged next-session price-limit, liquidity, T+1, lot, fee and slippage constraints. Only a later close with actual observed cash can fill a vacancy under the unchanged base owner.",
+    "ordinary_vacancy": "If observed cash is at least 0.01 * observed NAV, retain settled-reference-rearm exactly: use the existing vacancy path and do not force a displacement merely because a stronger challenger exists.",
+    "execution": "Unchanged cash-only long-only close decision / next-session execution, no leverage or shorting, sells before buys, prior-volume capacity, board lots, 1%-NAV ordinary order materiality, fees, slippage and price limits."
+  },
+  "structural_difference_from_prior_failures": [
+    "Not joint_funding/allocation_auction: no risk/cash allocation weights, simultaneous funding geometry or resource sharing is changed.",
+    "Not opportunity_reassignment: that candidate acts only on a full two-slot book at scheduled reviews with a 1.25 leadership margin. This candidate addresses the opposite state: fewer actual names than max_positions but a vacancy that is provably undeployable under the existing execution minimum. There is no scheduled review or new score multiplier.",
+    "Not generic handover/reentry: no wait days, price recovery, confirmation count or reentry threshold is added; settled-reference rearm remains unchanged.",
+    "Not a risk patch: no account exposure cap, market shock gate, cooldown or defensive state is added. The mechanism only removes an opportunity-cost deadlock."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "selection_window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "record_only_during_alpha_discovery": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure", "capital_full_displacements"],
+    "promotion_rule": "Advance only if mean-log wealth and minimum wealth improve versus exact trend_book control, at least one broad scope improves, and joint optical-leader removal remains above 1.0. If it advances, evaluate the same source-bound candidate over the full frozen 896 sessions and fixed 2026 windows before deciding whether it becomes the alpha leader.",
+    "failure_rule": "If rejected, preserve the exact failure and do not search materiality percentages, score margins, review cadences, position counts, shock thresholds or wait lengths."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"
+  },
+  "prohibitions": [
+    "No per-symbol/date/pool rule",
+    "No future label/high/return in decisions",
+    "No reference-strategy source reuse",
+    "No same-close forecast sale proceeds",
+    "No frozen data/cost/benchmark manipulation",
+    "No neighboring parameter search or winner splicing"
+  ]
+}
