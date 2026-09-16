@@ -1,0 +1,25 @@
+{
+  "family": "offensive_fresh_challenger_authority",
+  "operation": "fixed_formal_generalization_matrix",
+  "candidate_source_commit": "92ca587f4b8c9f64841260810216f1586ea6ef38",
+  "candidate_canonical_run": 35089690752,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "seed": 34,
+  "case_count": 199,
+  "account_count": 614,
+  "shard_count": 4,
+  "reselection": false,
+  "source_git_blob": {
+    "research/offensive_fresh_challenger_authority.py": "cadf4685b8106fda45986ee7c76aabddbc7d57b7",
+    "research/offensive_fresh_challenger_authority_contract.json": "3f4371e2a436e4097bbe49c62bc1e6d1ff35609c",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b",
+    "research/fresh_challenger_formal_validation.py": "b193b0fbe39e6e667fa72da56b97ca786cc95cd7",
+    "research/test_fresh_challenger_formal_validation.py": "af3d0cf39638d4aeac58994116fccbaf122e305b",
+    "research/fresh_challenger_formal_validation_contract.json": "23ffd0544ab49b9f44eff86dd224249566797e0e",
+    "research/catalog.json": "c4c94bffc7bac823f83a51761ab90720bfe28ab1",
+    "research/protocol.json": "17156b7949a62c14871149fc33c73111cd6867a8",
+    ".github/workflows/fresh-challenger-formal-validation.yml": "3a42d10637bccbcf9e57264d030286430e99c010"
+  },
+  "request": "Run every preregistered formal generalization case without deletion or reselection. Preserve raw source-bound accounts for control, treatment and buy-hold, plus equal-weight on original pools. Measure full/bull/two 2026 drawdown windows/recovery, 34 single-only diagnostics, 34 leave-one-out, joint optical-leader removal, sector removals, seeded deterministic subsets, common-five exhaustive subsets, cardinality coverage, cost x2/x3, delay=2 and prefix causality. The candidate has no tunable numeric candidate parameter; do not invent a post-selection parameter neighborhood. MDD/orders/turnover remain recorded diagnostics here and do not retroactively change alpha selection.",
+  "status": "REQUESTED_SOURCE_BOUND_FORMAL_MATRIX"
+}
