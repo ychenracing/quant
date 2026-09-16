@@ -1,0 +1,64 @@
+{
+  "family": "offensive_fresh_edge_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "parent_family": "offensive_fresh_challenger_authority",
+  "parent_source_observed": "8ffce01959f6b43e44e5d09a1b6a5f5f33114aac",
+  "economic_hypothesis": "The current alpha leader lets an unheld challenger at the exact first close of a new trend-entry edge immediately acquire ordinary full-book liquidation authority. Read-only source-bound state attribution found that the causal state challenger_fresh_entry_edge=true and incumbent_score_falling=false preceded negative aggregate funded-campaign PnL in each of the three fixed selection scopes. The hypothesis is that a fresh edge is discovery evidence but, on that same close, is insufficient evidence to liquidate an incumbent whose score has not continued to deteriorate. This changes only same-close displacement authority; it does not add a confirmation-day count, score multiplier, cooldown, or entry filter.",
+  "treatment": {
+    "unchanged": [
+      "all causal scores and ranking values",
+      "ordinary cash-funded vacancy admission",
+      "fresh-challenger failed-fill authority",
+      "reference rearm and recovered campaign provenance",
+      "acute security exits and account risk authority",
+      "actual inventory reconciliation",
+      "two-position capacity, fees, slippage, liquidity, T+1 and next-session execution"
+    ],
+    "authority_rule": "At an ordinary full-book displacement decision, identify the same incumbent/challenger pair that the current alpha leader would use. If the challenger is on a fresh trend-entry edge on session D (entry[D] is true and entry[D-1] is false) while the incumbent causal alpha score has not fallen versus session D-1, that challenger alone is temporarily withheld from ordinary liquidation authority on D. It remains eligible for cash-funded admission whenever actual capacity/cash exists. The unchanged parent may still select another eligible established challenger on D. From D+1 onward no memory or cooldown is carried by this rule; authority is recomputed from then-current causal state.",
+    "parameters": "none"
+  },
+  "causality": "Fresh-edge and incumbent-score-direction state use session D and D-1 observations only. Retrospective downstream PnL in the attribution is evidence for the hypothesis and never enters treatment decisions.",
+  "structural_difference_from_old_work": {
+    "leadership_handover": "No recovery-consecutive-close confirmation, no two-times score preference, no rebalance cooldown, and no persistent pair state.",
+    "shadow_opportunity_authority": "No challenger nomination reference and no requirement that challenger score subsequently exceed its nomination score.",
+    "recovered_provenance_authority": "No blanket restriction based on recovered campaign provenance; only the current fresh-edge/current incumbent-score-direction state changes same-close ordinary displacement authority."
+  },
+  "fixed_screen": {
+    "window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "current_leader": {
+      "family": "offensive_fresh_challenger_authority",
+      "wealth": {
+        "union": 6.094402615566887,
+        "chatgpt_5": 13.374238388312474,
+        "joint_optical_leader_removal": 1.5949459430753048
+      },
+      "mean_log": 1.6225136461073524,
+      "minimum": 1.5949459430753048
+    },
+    "promotion": "Treatment mean(log terminal wealth) must exceed the source-bound current leader and treatment minimum terminal wealth must be no lower than the current leader. MDD, orders, turnover, fees, slippage and exposure are diagnostics only during this alpha-discovery screen.",
+    "no_reselection": true
+  },
+  "evidence_basis": {
+    "source_commit": "8ffce01959f6b43e44e5d09a1b6a5f5f33114aac",
+    "workflow_run": 35117989798,
+    "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+    "core_scope_attribution": {
+      "union": {"events": 7, "funded": 4, "retrospective_funded_campaign_pnl_cny": -129899.0},
+      "chatgpt_5": {"events": 4, "funded": 3, "retrospective_funded_campaign_pnl_cny": -612303.0},
+      "joint_optical_leader_removal": {"events": 10, "funded": 6, "retrospective_funded_campaign_pnl_cny": -92182.0}
+    },
+    "attribution_status": "READ_ONLY_STATE_ATTRIBUTION_NOT_CANDIDATE"
+  },
+  "prohibitions": [
+    "no confirmation-day search",
+    "no score margin or multiplier",
+    "no EMA/lookback search",
+    "no pool-specific behavior",
+    "no waiting-period or cooldown parameter",
+    "no future-label decision input",
+    "no modification or deletion of failed evidence"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
