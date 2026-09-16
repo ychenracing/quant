@@ -40,7 +40,7 @@ class PortfolioHurdleAuthorityTests(unittest.TestCase):
 
     def prepared(self, challenger_score=3.0):
         m=self.module(); owner=m.Owner(sample_market(6,145),m.Parameters(True)); units=np.zeros(6)
-        force(owner,100,[1.0,challenger_score,1.5,.8,.3,.2],[True,True,True,False,False,False])
+        force(owner,100,[1.0,challenger_score,1.5,3.4,.3,.2],[True,True,True,False,False,False])
         units[0]=1000.; units[3]=1000.
         b=owner.parent.base; b.was_held[[0,3]]=True
         b.owned_alpha_reference[0]=2.0; b.owned_alpha_reference[3]=3.5; b.last_session=99
