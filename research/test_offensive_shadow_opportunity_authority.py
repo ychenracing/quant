@@ -58,7 +58,7 @@ class ShadowOpportunityAuthorityTests(unittest.TestCase):
         units[3] = 1000.0
         owner.parent.base.was_held[[0, 3]] = True
         owner.parent.base.owned_alpha_reference[0] = 2.0
-        owner.parent.base.owned_alpha_reference[3] = 1.5
+        owner.parent.base.owned_alpha_reference[3] = .5
         owner.parent.base.last_session = 99
         return owner, units
 
