@@ -1,0 +1,49 @@
+{
+  "family": "offensive_recovered_provenance_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "parent_family": "offensive_fresh_challenger_authority",
+  "parent_source_observed": "840b58497a302fa103f1e9dabaab0ebffe9cbc30",
+  "economic_hypothesis": "The current alpha leader correctly restricts liquidation authority for a reference-rearmed challenger after a failed nondeployable fill, but its ordinary full-book displacement path can still let the same recovered-without-fresh-epoch opportunity liquidate a funded incumbent. Read-only provenance attribution over union, common-five, joint leader removal and three formal lower-tail cases found 91 fresh-challenger ordinary displacement observations versus 38 recovered-without-fresh-epoch observations; funded fresh campaigns contributed about CNY 6.539m in aggregate while funded recovered campaigns contributed only about CNY 0.057m, with materially worse median funded-campaign PnL for the recovered class. This supports changing authority provenance, not score weights or confirmation timing.",
+  "treatment": {
+    "unchanged": [
+      "all causal scores and entry predicates",
+      "ordinary cash-funded vacancy admission",
+      "fresh-challenger failed-fill authority",
+      "acute security exits and reference rearm",
+      "actual inventory reconciliation",
+      "two-position capacity, allocation, fees, slippage, liquidity and next-session execution"
+    ],
+    "authority_rule": "When the actual book is full, an unheld challenger whose current campaign provenance is reference-rearmed-without-fresh-epoch may not use the ordinary alpha-decay displacement path to liquidate a funded incumbent. It remains eligible for ordinary admission whenever actual deployable cash/capacity exists. Full-book displacement authority is restored automatically when the existing fresh-challenger provenance state is cleared by actual establishment of new inventory or by a later observed fresh trend epoch. Fresh challengers retain current leader authority unchanged.",
+    "parameters": "none"
+  },
+  "causality": "All authority state is derived from existing causal campaign trace/inventory/trend state observable by the decision close. No future campaign PnL from the attribution enters treatment decisions.",
+  "fixed_screen": {
+    "window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "current_leader": {
+      "family": "offensive_fresh_challenger_authority",
+      "wealth": {"union": 6.094402615566887, "chatgpt_5": 13.374238388312474, "joint_optical_leader_removal": 1.5949459430753048},
+      "mean_log": 1.6225136461073524,
+      "minimum": 1.5949459430753048
+    },
+    "promotion": "treatment mean(log terminal wealth) must exceed the source-bound current leader and treatment minimum terminal wealth must be no lower than the current leader; MDD/orders/turnover/fees/slippage/exposure remain recorded diagnostics",
+    "no_reselection": true
+  },
+  "evidence_basis": {
+    "source_commit": "840b58497a302fa103f1e9dabaab0ebffe9cbc30",
+    "workflow_run": 35107523240,
+    "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+    "attribution_status": "READ_ONLY_RECOVERED_PROVENANCE_ATTRIBUTION_NOT_CANDIDATE"
+  },
+  "prohibitions": [
+    "no confirmation-day search",
+    "no score margin or multiplier",
+    "no EMA/lookback search",
+    "no pool-specific behavior",
+    "no market-wide cash gate",
+    "no future-label decision input",
+    "no modification of failed evidence"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
