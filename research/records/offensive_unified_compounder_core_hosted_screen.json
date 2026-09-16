@@ -1,0 +1,26 @@
+{
+  "family": "offensive_unified_compounder_core",
+  "source_commit": "9a2cbd618a2fedfaf7421779a805d88372239c8b",
+  "hosted_run": 35164520001,
+  "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "current_champion": {
+    "mean_log": 1.6493183795493607,
+    "minimum": 1.5949459430753048,
+    "wealth": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048}
+  },
+  "treatment": {
+    "mean_log": 1.2618143477604302,
+    "minimum": 0.7521722243851083,
+    "wealth": {"union": 4.116550362583752, "chatgpt_5": 14.228080056305624, "joint_optical_leader_removal": 0.7521722243851083},
+    "event_counts": {
+      "union": {"proven": 38, "ignored_slow_exits": 88, "security_exits": 33, "displacements": 23},
+      "common_five": {"proven": 17, "ignored_slow_exits": 107, "security_exits": 15, "displacements": 5},
+      "joint_optical_leader_removal": {"proven": 39, "ignored_slow_exits": 110, "security_exits": 34, "displacements": 24}
+    }
+  },
+  "decision": "The standalone state machine validates that long-lived proven ownership can improve the concentrated common-five scope, but its self-improvement proof over-promotes campaigns in broad universes and destroys union/removal wealth. Do not tune price or alpha margins around the proof rule.",
+  "next_root_cause": "Compounder proof needs a cross-sectional leadership property, not merely own-price and own-alpha improvement. The broad scopes prove roughly twice as many campaigns as common-five, consistent with over-promotion rather than insufficient holding.",
+  "evidence_readback": "Dedicated hosted workflow completed TDD, source-bound measurement, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
