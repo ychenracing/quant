@@ -1,0 +1,24 @@
+{
+  "family": "offensive_portfolio_hurdle_authority",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "c4cdea7bfb13507ba9db44f47c6a4fb927472aec",
+  "request": "Execute the single preregistered portfolio-hurdle treatment against both the exact trend-book baseline and the current fresh-challenger alpha leader through 2025-12-31. Promote only if mean log terminal wealth strictly exceeds the current leader while minimum terminal wealth does not regress. If promoted, evaluate the same source-bound candidate on the complete frozen 896-session history and fixed 2026 windows. Do not search score margins, multipliers, confirmation days, lookbacks, position counts, shock thresholds or pool-specific variants.",
+  "source_git_blob": {
+    "research/offensive_portfolio_hurdle_authority.py": "a67e25aef55f2e784e53a365301d1dc0586b6645",
+    "research/test_offensive_portfolio_hurdle_authority.py": "563a66e9c366d93cc4adbb057fae7f6d8dabd19c",
+    "research/offensive_portfolio_hurdle_authority_study.py": "1a4ed61e3e36bd926ece28d6f127f7978760278e",
+    "research/offensive_portfolio_hurdle_authority_contract.json": "23e1911251804b7e3f4e82ef88b867a9db7765ad",
+    "research/offensive_fresh_challenger_authority.py": "cadf4685b8106fda45986ee7c76aabddbc7d57b7",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b",
+    ".github/workflows/portfolio-hurdle-study.yml": "a51daf30bf2e8dc8ea9a490d30c54f476c8474fa"
+  },
+  "alpha_objective": {
+    "primary": "maximize mean(log(terminal wealth)) across union, common-five and joint optical-leader removal versus current fresh-challenger champion",
+    "secondary": "do not reduce minimum terminal wealth versus current champion",
+    "mdd_orders_turnover": "record_only_during_alpha_discovery"
+  },
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
