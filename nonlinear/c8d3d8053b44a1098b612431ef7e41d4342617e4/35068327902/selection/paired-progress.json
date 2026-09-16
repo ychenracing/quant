@@ -1,0 +1,200 @@
+[
+  {
+    "scope": "union",
+    "control": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 4.74414842883842,
+      "total_return": 3.74414842883842,
+      "cagr": 0.6824926019797857,
+      "max_drawdown": 0.3055789380480397,
+      "inherited_drawdown": 0.3055789380480397,
+      "sharpe_zero_rf": 1.4281064292868777,
+      "orders": 145,
+      "orders_per_year": 48.45494053064959,
+      "gross_turnover": 39.03239690066364,
+      "fees": 90265.86628999369,
+      "slippage": 165529.21786890013,
+      "average_exposure": 0.51337827889083,
+      "blocked_attempts": 25
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 2.7939677238464355e-09,
+      "episodes": 45,
+      "wins": 24,
+      "drawdown_peak": "2025-09-01",
+      "drawdown_trough": "2025-12-03",
+      "max_drawdown": 0.3055789380480397,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 3.481266563129915,
+      "total_return": 2.481266563129915,
+      "cagr": 0.5171671542326379,
+      "max_drawdown": 0.42573381634360596,
+      "inherited_drawdown": 0.42573381634360596,
+      "sharpe_zero_rf": 1.0568762823866182,
+      "orders": 119,
+      "orders_per_year": 39.76646843549863,
+      "gross_turnover": 57.44707599965423,
+      "fees": 130537.54427425965,
+      "slippage": 236739.24141559913,
+      "average_exposure": 0.7344155836306835,
+      "blocked_attempts": 2
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 1.6589183360338211e-09,
+      "episodes": 59,
+      "wins": 25,
+      "drawdown_peak": "2023-07-14",
+      "drawdown_trough": "2024-02-28",
+      "max_drawdown": 0.42573381634360596,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "offensive_alpha_decay_displacement": {
+      "records": 212,
+      "security_exits": 33,
+      "vacancy_fills": 135,
+      "displacements": 22,
+      "retirement_releases": 21
+    }
+  },
+  {
+    "scope": "chatgpt_5",
+    "control": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 7.904183048701599,
+      "total_return": 6.904183048701599,
+      "cagr": 0.9954399788719608,
+      "max_drawdown": 0.391356116446651,
+      "inherited_drawdown": 0.391356116446651,
+      "sharpe_zero_rf": 1.7491092776610122,
+      "orders": 164,
+      "orders_per_year": 54.80420860018298,
+      "gross_turnover": 36.222570571701624,
+      "fees": 134601.34278754212,
+      "slippage": 243133.85296790846,
+      "average_exposure": 0.48819175555248917,
+      "blocked_attempts": 46
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 3.725290298461914e-09,
+      "episodes": 41,
+      "wins": 20,
+      "drawdown_peak": "2023-06-20",
+      "drawdown_trough": "2024-02-26",
+      "max_drawdown": 0.391356116446651,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 11.158843878078542,
+      "total_return": 10.158843878078542,
+      "cagr": 1.239159382674531,
+      "max_drawdown": 0.43445870201225467,
+      "inherited_drawdown": 0.43445870201225467,
+      "sharpe_zero_rf": 1.675040125608652,
+      "orders": 78,
+      "orders_per_year": 26.065416285452883,
+      "gross_turnover": 41.04997357276293,
+      "fees": 156745.13951203856,
+      "slippage": 278857.9766582858,
+      "average_exposure": 0.6759340964973093,
+      "blocked_attempts": 2
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 7.07223080098629e-09,
+      "episodes": 40,
+      "wins": 18,
+      "drawdown_peak": "2023-06-20",
+      "drawdown_trough": "2024-01-30",
+      "max_drawdown": 0.43445870201225467,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "offensive_alpha_decay_displacement": {
+      "records": 180,
+      "security_exits": 29,
+      "vacancy_fills": 137,
+      "displacements": 7,
+      "retirement_releases": 7
+    }
+  },
+  {
+    "scope": "joint_optical_leader_removal",
+    "control": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 1.1546791488756403,
+      "total_return": 0.15467914887564027,
+      "cagr": 0.04923513626394693,
+      "max_drawdown": 0.35331033491094144,
+      "inherited_drawdown": 0.35331033491094144,
+      "sharpe_zero_rf": 0.3169906767347706,
+      "orders": 169,
+      "orders_per_year": 56.475068618481245,
+      "gross_turnover": 47.47983940944148,
+      "fees": 53350.728517320684,
+      "slippage": 95081.69582748652,
+      "average_exposure": 0.46688897802252155,
+      "blocked_attempts": 45
+    },
+    "control_ledger": {
+      "max_reconciliation_error": 8.076312951743603e-10,
+      "episodes": 50,
+      "wins": 23,
+      "drawdown_peak": "2023-02-15",
+      "drawdown_trough": "2024-05-24",
+      "max_drawdown": 0.35331033491094144,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 1.273905728775179,
+      "total_return": 0.27390572877517894,
+      "cagr": 0.08426125526534212,
+      "max_drawdown": 0.634558095621108,
+      "inherited_drawdown": 0.634558095621108,
+      "sharpe_zero_rf": 0.41178057047752664,
+      "orders": 144,
+      "orders_per_year": 48.12076852698994,
+      "gross_turnover": 67.28536770506496,
+      "fees": 88359.00407830642,
+      "slippage": 151555.41909637532,
+      "average_exposure": 0.6553716280308934,
+      "blocked_attempts": 4
+    },
+    "treatment_ledger": {
+      "max_reconciliation_error": 7.530616130679846e-10,
+      "episodes": 72,
+      "wins": 27,
+      "drawdown_peak": "2023-04-04",
+      "drawdown_trough": "2025-05-23",
+      "max_drawdown": 0.634558095621108,
+      "episode_return_basis": "cash PnL divided by actual buy notional"
+    },
+    "offensive_alpha_decay_displacement": {
+      "records": 156,
+      "security_exits": 37,
+      "vacancy_fills": 62,
+      "displacements": 31,
+      "retirement_releases": 25
+    }
+  }
+]
