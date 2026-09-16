@@ -1,0 +1,29 @@
+name: Portfolio hurdle alpha evidence
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/portfolio-hurdle-study.yml
+      - research/test_offensive_portfolio_hurdle_authority.py
+      - research/offensive_portfolio_hurdle_authority.py
+      - research/offensive_portfolio_hurdle_authority_contract.json
+      - research/offensive_portfolio_hurdle_authority_study.py
+      - research/portfolio-hurdle-request.json
+permissions:
+  contents: read
+jobs:
+  research-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Candidate TDD contract
+        run: python -m unittest research.test_offensive_portfolio_hurdle_authority -v
