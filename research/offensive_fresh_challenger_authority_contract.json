@@ -1,0 +1,36 @@
+{
+  "family": "offensive_fresh_challenger_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. Terminal wealth and cross-scope alpha are the discovery priority; MDD/orders/turnover remain diagnostics only.",
+  "parent": {"family": "offensive_challenger_fill_continuity", "registration_commit": "14070559c31b7e0d71bb9cace1cbe2cc140495cb", "near_miss_record": "research/records/offensive_challenger_fill_continuity_local_screen.json"},
+  "current_alpha_leader": {"family": "offensive_settled_reference_rearm", "source_commit": "6026a7c87f403b73327b80880e5439396baaa754", "hosted_run": 35083444553, "selection_mean_log": 1.6067936266079303, "selection_min": 1.5710237463450074},
+  "root_cause": "Identity-continuous failed-fill displacement reduces path drift and improves minimum wealth, but the remaining harmful union event on 2023-05-18 uses sz300308 as challenger only days after that same security suffered an acute campaign break on 2023-05-05 and regained eligibility through REFERENCE_ALPHA_REARM on 2023-05-09 without first creating a fresh trend epoch or establishing actual inventory. The beneficial common-five challenger sz300502 and leader-removal challenger sh688256 do not carry this failed-campaign provenance at their displacement events. A recovered old campaign may be eligible to receive spare cash, but that is weaker evidence than being allowed to terminate another funded campaign.",
+  "economic_hypothesis": "Separate admission eligibility from displacement authority. A symbol restored from an acute failed campaign by reference-alpha recovery may still receive actual spare cash under the unchanged base rules, but until it either establishes actual held inventory or completes a later observed trend-entry false-to-true epoch, it cannot be the challenger that forces a funded incumbent sale. This removes the union near-miss event without reinstating the original campaign-epoch global reentry lock.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Reuse challenger-fill-continuity and settled-reference semantics unchanged, including exact failed-fill identity, next-session execution feedback, reference rearm, trend-edge fallback, and no forecast proceeds.",
+    "recovered_campaign_provenance": "When an invalidated symbol is cleared specifically by REFERENCE_ALPHA_REARM, mark it as reference-rearmed-without-fresh-epoch. This mark does not remove it from ordinary eligibility and does not block a cash-funded vacancy fill.",
+    "freshness_release": "Clear the provenance mark without a numeric timer when either actual inventory for that symbol is observed, or after the mark a close with trend.entry false is observed and a later close has trend.entry true. A TREND_EDGE_REARM directly clears the mark. No price, day-count, score-margin or market-breadth parameter is added.",
+    "displacement_authority": "The exact challenger-fill-continuity displacement rule additionally requires that the persistent failed-fill challenger not carry the reference-rearmed-without-fresh-epoch mark. If it does, preserve the incumbent and continue the unchanged base owner's ordinary vacancy behavior.",
+    "execution": "Unchanged cash-only long-only close decision / next-session execution, sells before buys, T+1, prior-volume capacity, board lots, existing 1%-NAV ordinary-order materiality, fees, slippage and price limits."
+  },
+  "structural_difference": [
+    "Not campaign_epoch_reset: that candidate blocks the failed symbol from all admissions until a fresh trend epoch. This candidate leaves ordinary cash-funded admission untouched and restricts only the much stronger authority to liquidate another incumbent.",
+    "Not old handover/reassignment: no scheduled review, holding-age requirement, score multiplier or generic rank confirmation is added; it acts only inside execution-confirmed exact-challenger displacement.",
+    "Not a risk patch: no market exposure cap, cooldown or defensive state.",
+    "Not a tunable confirmation window: provenance is released by actual inventory or the already-existing logical trend false-to-true edge."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "selection_window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the same scopes",
+    "promotion_rule": "Mean-log wealth must exceed the current settled-reference leader while minimum wealth is not worse; only then run source-bound hosted full-history evaluation.",
+    "record_only": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure", "provenance_blocks", "identity_continuous_displacements"],
+    "failure_rule": "If rejected, preserve exact evidence and do not search provenance durations, score multipliers, materiality levels, position counts, trend spans or shock thresholds."
+  },
+  "frozen_inputs": {"names": 34, "sessions": 896, "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"},
+  "prohibitions": ["No per-symbol/date/pool rule", "No future information", "No same-close forecast sale proceeds", "No copied reference-strategy source", "No parameter grid or winner splicing"]
+}
