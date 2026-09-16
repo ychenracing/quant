@@ -1,0 +1,43 @@
+{
+  "family": "offensive_trend_quality",
+  "status": "LOCAL_PAIRED_SCREEN_REJECTED_PENDING_HOSTED_CANONICAL",
+  "preregistration_commit": "937825546ad587f19bc3446bad4687fd7b89fde5",
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_sha256": "7c1a385d652f5fcb7cac54cf5d042b30b3b255dbb7afdbfad4a7c15a1c4d9dc1",
+  "plan_sha256": "08b94c78ab4e2d174d1415a43319f66b768aad9a364d9fe94172f0f2d47f309e",
+  "objective": {
+    "control_mean_log_wealth": 1.2560421934258852,
+    "treatment_mean_log_wealth": 1.129890368738237,
+    "mean_log_wealth_improved": false,
+    "control_min_wealth": 1.1546791488756403,
+    "treatment_min_wealth": 1.006822399689015,
+    "minimum_wealth_improved": false,
+    "broad_scope_improvement": false,
+    "leader_removal_positive_wealth": true
+  },
+  "scopes": {
+    "union": {
+      "control": {"wealth": 4.74414842883842, "cagr": 0.6824926019797857, "max_drawdown": 0.3055789380480397, "orders": 145, "gross_turnover": 39.03239690066364, "fees": 90265.86628999369, "slippage": 165529.21786890013, "average_exposure": 0.51337827889083},
+      "treatment": {"wealth": 2.708599285337667, "cagr": 0.39511877512211324, "max_drawdown": 0.5684627657907335, "orders": 156, "gross_turnover": 63.79298950660782, "fees": 145909.88814779124, "slippage": 262976.7132146673, "average_exposure": 0.6309425818103079},
+      "events": {"records": 215, "security_exits": 29, "vacancy_fills": 105, "displacements": 44, "retirement_releases": 34}
+    },
+    "chatgpt_5": {
+      "control": {"wealth": 7.904183048701599, "cagr": 0.9954399788719608, "max_drawdown": 0.391356116446651, "orders": 164, "gross_turnover": 36.222570571701624, "fees": 134601.34278754212, "slippage": 243133.85296790846, "average_exposure": 0.48819175555248917},
+      "treatment": {"wealth": 10.87471360432545, "cagr": 1.2199429937877406, "max_drawdown": 0.5043601508397276, "orders": 68, "gross_turnover": 37.74631405777362, "fees": 146066.47323149387, "slippage": 269319.56207901565, "average_exposure": 0.6614815638012682},
+      "events": {"records": 141, "security_exits": 27, "vacancy_fills": 105, "displacements": 5, "retirement_releases": 4}
+    },
+    "joint_optical_leader_removal": {
+      "control": {"wealth": 1.1546791488756403, "cagr": 0.04923513626394693, "max_drawdown": 0.35331033491094144, "orders": 169, "gross_turnover": 47.47983940944148, "fees": 53350.728517320684, "slippage": 95081.69582748652, "average_exposure": 0.46688897802252155},
+      "treatment": {"wealth": 1.006822399689015, "cagr": 0.00227469633005839, "max_drawdown": 0.6113435674965583, "orders": 154, "gross_turnover": 68.22626478606173, "fees": 81420.76081718055, "slippage": 138864.61078170076, "average_exposure": 0.6196760499941143},
+      "events": {"records": 181, "security_exits": 26, "vacancy_fills": 69, "displacements": 46, "retirement_releases": 38}
+    }
+  },
+  "structural_failure": {
+    "classification": "cross_sectional_reference_nonstationarity",
+    "finding": "The quality engine improves common-five but materially regresses both broad scopes. Displacement frequency rises to 44 in union and 46 in leader-removal versus 5 in common-five, showing that a current cross-sectional percentile is useful only as a contemporaneous comparison and is not stable enough to freeze as a campaign reference across changing universes/regimes.",
+    "implication": "Decouple discovery from ownership: use causal trend quality only to rank new admissions, while use the existing absolute causal score for campaign reference/decay and challenger displacement. Do not tune percentile weights, horizons or displacement margins."
+  },
+  "caveat": "Local frozen-input screen; do not promote. Hosted source-bound receipt still required.",
+  "economic_acceptance": "NOT_ESTABLISHED"
+}

@@ -32,7 +32,7 @@ from research.expectation_study import write_json, scopes
 _PAIRED = {
     "confirmed_shock", "profit_trend_shield", "shock_reclaim",
     "theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core",
-    "offensive_alpha_decay_displacement", "offensive_native_ownership",
+    "offensive_alpha_decay_displacement", "offensive_native_ownership", "offensive_trend_quality",
 }
 
 
@@ -96,12 +96,17 @@ class Study(_base.Study):
             "observed_admission_completion_contract.json", "decision_review.py",
             "ledger_attribution.py",
         ]
-        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core", "offensive_alpha_decay_displacement", "offensive_native_ownership"}:
+        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core", "offensive_alpha_decay_displacement", "offensive_native_ownership", "offensive_trend_quality"}:
             names += [
                 "trend_book.py", "trend_book_contract.json", "coherent.py",
                 "coherent_contract.json", "observed_trend.py",
                 "observed_trend_contract.json", "nonlinear.py",
                 "nonlinear_contract.json", "pathwise.py", "pathwise_contract.json",
+            ]
+        if self.family == "offensive_trend_quality":
+            names += [
+                "offensive_alpha_decay_displacement.py",
+                "offensive_alpha_decay_displacement_contract.json",
             ]
         return {
             "source": source_identity(), "family": self.family,
@@ -167,6 +172,10 @@ class Study(_base.Study):
             full_data_sha = contract["frozen_inputs"]["full_sha256"]
             selection_end = contract["measurement"]["window"]["end"]
             registration_commit = "89b7a4f963d5dd6bf9b0cd37bc839949ec45bb56"
+        elif self.family == "offensive_trend_quality":
+            full_data_sha = contract["frozen_inputs"]["full_sha256"]
+            selection_end = contract["measurement"]["window"]["end"]
+            registration_commit = "937825546ad587f19bc3446bad4687fd7b89fde5"
         elif self.family in {"theme_campaign", "leader_anchor_slots"}:
             full_data_sha = contract["data_sha256"]
             selection_end = "2025-12-31"
@@ -281,6 +290,15 @@ class Study(_base.Study):
                             ),
                             "full_cap_records": sum(r.get("account_cap") == 1.0 for r in state),
                         }
+                    elif self.family == "offensive_trend_quality":
+                        state = [r for r in trace if r.get("kind") == "ALPHA_DECAY_DISPLACEMENT_EVENT"]
+                        row["offensive_trend_quality"] = {
+                            "records": len(state),
+                            "security_exits": sum(r.get("action") == "SECURITY_EXIT" for r in state),
+                            "vacancy_fills": sum(r.get("action") == "VACANCY_FILL" for r in state),
+                            "displacements": sum(r.get("action") == "ALPHA_DECAY_DISPLACEMENT" for r in state),
+                            "retirement_releases": sum(r.get("action") == "RETIREMENT_RELEASE" for r in state),
+                        }
                     else:
                         state = [r for r in trace if r.get("kind") == "SHOCK_RECLAIM_PERMISSION"]
                         row["shock_reclaim"] = {"events": len(state), "released": sum(len(r["released"]) for r in state), "requested": sum(len(r["requested"]) for r in state)}
@@ -289,7 +307,7 @@ class Study(_base.Study):
             print(json.dumps(row), flush=True)
         if self.family == "confirmed_shock":
             decision = paired_screen(rows)
-        elif self.family in {"offensive_alpha_decay_displacement", "offensive_native_ownership"}:
+        elif self.family in {"offensive_alpha_decay_displacement", "offensive_native_ownership", "offensive_trend_quality"}:
             decision = alpha_discovery_screen(rows)
         else:
             nonregression = all(
