@@ -1,0 +1,18 @@
+{
+  "family": "offensive_positive_alpha_compounder",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "a5c41101bbcc1dfead12eff17d3da7033fc9f5bd",
+  "source_git_blob": {
+    "research/offensive_positive_alpha_compounder.py": "64265b6b63467e1056cb7d64a3be237805c0e868",
+    "research/test_offensive_positive_alpha_compounder.py": "6fb3def8ad099e3d6ce4c9251e45b4501491c38a",
+    "research/offensive_positive_alpha_compounder_study.py": "b2aed0fa0f26ea69fe8c8787b49e4de3ab1b950a",
+    "research/offensive_positive_alpha_compounder_contract.json": "45743df4e33937ecdfd45975286b4bc13f107276",
+    ".github/workflows/positive-alpha-compounder-study.yml": "40692f7a96c774d10314e6a440d91af1b5b44b91",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213"
+  },
+  "request": "Run the single preregistered current-champion versus positive-alpha-compounder pair through 2025-12-31 on union, common-five and joint optical-leader removal. Select only if mean(log terminal wealth) exceeds the campaign-peak champion and minimum terminal wealth does not decrease. If selected, evaluate the same source-bound candidate through the complete frozen 896 sessions. Record MDD/orders/turnover/cost/exposure but do not use them as alpha-discovery rejection gates. Do not search score thresholds, trend spans, confirmation days, position counts or pool-specific behavior.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
