@@ -1,0 +1,55 @@
+{
+  "family": "offensive_campaign_peak_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "parent_family": "offensive_fresh_challenger_authority",
+  "parent_source_observed": "477b51fdd7b94590cbce023bcf690b6555d19b88",
+  "economic_hypothesis": "The current alpha leader can grant same-close ordinary full-book liquidation authority to a challenger on its first trend-entry edge. The preceding fresh-edge candidate proved that blocking all such cases improves union/common but harms leader-removal. Exact-source read-only campaign-state attribution isolates the difference: the beneficially blocked union/common incumbents were at the highest observed closing price of their actual funded campaign, while the harmful leader-removal block was already below its campaign closing peak. Across six diagnostic scopes, fresh-edge challenger campaigns observed while the incumbent was at its campaign closing high had materially worse retrospective funded-campaign PnL than the below-peak group. The candidate therefore uses actual funded campaign price state, not a new score threshold, to decide same-close liquidation authority.",
+  "treatment": {
+    "unchanged": [
+      "all causal alpha scores, trend signals and ranking",
+      "ordinary cash-funded vacancy admission",
+      "fresh-challenger failed-fill authority",
+      "reference rearm and recovered provenance",
+      "acute/security/account exits",
+      "two-position capital budget, fees, slippage, liquidity, T+1 and next-session execution"
+    ],
+    "campaign_state": "Track each symbol's actual-funded campaign from observed inventory fills. The campaign closing peak is the maximum adjusted close observed from the first actual fill through the current decision close, reset only after actual inventory becomes flat.",
+    "authority_rule": "At an ordinary full-book displacement decision, if the selected challenger is on its first trend-entry edge on session D and the selected funded incumbent's session-D close equals that incumbent campaign's observed closing peak, withhold only that challenger from same-close ordinary liquidation authority. It remains eligible for cash-funded admission whenever actual cash/capacity exists and the unchanged parent may choose another eligible challenger. If the incumbent is below its observed campaign closing peak, the current alpha leader's displacement authority is unchanged. No memory or cooldown is carried beyond the existing campaign-peak state.",
+    "parameters": "none"
+  },
+  "causality": "Campaign entry, actual held/flat state and closing prices through D are already observed by D close. Later campaign PnL used in research attribution is never a decision input.",
+  "structural_difference_from_old_work": {
+    "profit_trend_shield": "This is not a market-shock retention wrapper and does not use 20/60-day trend or profit thresholds.",
+    "relative_campaign_owner": "No fifth/tenth-session benchmark review or mature-ownership override.",
+    "shadow_opportunity_authority": "No persistent challenger nomination, score-appreciation hurdle or confirmation memory.",
+    "fresh_edge_authority": "The rejected predecessor used incumbent one-day score direction. This candidate replaces that rejected condition with actual funded-campaign closing-peak state; it is not a neighboring score threshold."
+  },
+  "fixed_screen": {
+    "window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "current_leader": {
+      "family": "offensive_fresh_challenger_authority",
+      "wealth": {"union": 6.094402615566887, "chatgpt_5": 13.374238388312474, "joint_optical_leader_removal": 1.5949459430753048},
+      "mean_log": 1.6225136461073524,
+      "minimum": 1.5949459430753048
+    },
+    "promotion": "Treatment mean(log terminal wealth) must exceed the source-bound current leader and treatment minimum terminal wealth must be no lower than the source-bound current leader. MDD/orders/turnover/fees/slippage/exposure remain diagnostics during alpha discovery.",
+    "no_reselection": true
+  },
+  "evidence_basis": {
+    "record": "research/records/ordinary_displacement_campaign_peak_local_attribution.json",
+    "record_commit": "c1ab1c08c270efaa7657b5977164a5d87f44655c",
+    "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "no price-buffer or drawdown threshold",
+    "no confirmation-day search",
+    "no score multiplier/margin",
+    "no EMA/lookback search",
+    "no pool/ticker/date-specific behavior",
+    "no future-label decision input",
+    "no modification/deletion of rejected evidence"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
