@@ -69,7 +69,6 @@ class OffensiveReferenceRearmTests(unittest.TestCase):
         first=owner.decide(obs(owner,100,np.zeros(n),2_000_000.0)); units=first.unit_targets.copy()
         self.assertAlmostEqual(owner.base.pending_alpha_reference[0],5.)
         self.assertTrue(np.isnan(owner.base.owned_alpha_reference[0]))
-        # The first close at which filled inventory is observable is already acute.
         force(owner,101,entries=entries,acute=[0],scores=np.array([4.,1.,1.,1.,1.,1.]))
         exited=owner.decide(obs(owner,101,units,0.0)); self.assertEqual(exited.unit_targets[0],0.)
         self.assertTrue(owner.invalidated[0])
@@ -103,6 +102,7 @@ class OffensiveReferenceRearmTests(unittest.TestCase):
         dependencies=study.identity()['dependencies']
         self.assertIn('offensive_reference_rearm.py',dependencies)
         self.assertIn('offensive_alpha_decay_displacement.py',dependencies)
+        self.assertIn('finite_study/__init__.py',dependencies)
 
 
 if __name__=='__main__': unittest.main()
