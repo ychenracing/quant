@@ -1,0 +1,51 @@
+{
+  "family": "offensive_shadow_opportunity_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. Terminal wealth and cross-scope alpha remain the discovery priority; MDD/orders/turnover are diagnostics only at this stage.",
+  "evidence": {
+    "formal_source_commit": "a4ce8ebefab50c64519ec8a8a0dc4c49178833d2",
+    "formal_run": 35090852356,
+    "current_alpha_leader": "offensive_fresh_challenger_authority",
+    "finding": "The fixed formal matrix improves union/common-five strongly but has severe lower-tail regressions: treatment/control minimum 0.220985 across 199 cases. Account attribution on cardinality_16 shows an early ordinary ALPHA_DECAY_DISPLACEMENT path divergence while fully funded, independent of the later failed-fill repair. Existing challenger_fill_continuity only governs nondeployable-vacancy attempts; it does not constrain ordinary full-book displacement."
+  },
+  "economic_hypothesis": "A challenger that becomes top-ranked for one close should not obtain immediate liquidation authority over a funded incumbent merely from a transient score crossing. When the book is full, the first executable challenger/incumbent pair establishes a causal shadow opportunity reference. Replacement authority is granted only if the same pair remains executable and the challenger's later causal score exceeds its own shadow reference while the incumbent remains below its owned admission reference. An eligibility break or pair change discards the old shadow reference. This preserves fast replacement for strengthening leaders while rejecting one-close path drift.",
+  "control": "Exact trend_book parent through the disabled research family.",
+  "treatment": {
+    "base": "Reuse offensive_fresh_challenger_authority unchanged for acute campaign invalidation, settled reference rearm, failed-fill identity continuity, fresh-campaign provenance, cash funding and execution.",
+    "shadow_nomination": "Only when both actual slots are occupied, market authority is active, no higher-priority exit/retry is pending, at least one incumbent has current score below its owned admission reference, and an ordinarily eligible unheld challenger currently exceeds that incumbent admission reference: capture the deterministic incumbent/challenger identity and the challenger's current causal score as a shadow reference. Do not sell on that nomination close.",
+    "authority": "On a later close, the same deterministic pair may use the base displacement path only if it remains otherwise executable and challenger_score is strictly greater than the captured shadow score. No percentage margin is added. If the pair changes, either member becomes ineligible, the incumbent is no longer decayed, market authority is absent, or the challenger no longer exceeds the incumbent admission reference, clear the prior shadow and treat any new pair as a fresh nomination.",
+    "execution": "No forecast sale proceeds. Existing next-session execution, T+1, price limits, liquidity, board lots, commissions, slippage and actual-cash constraints remain unchanged."
+  },
+  "structural_difference": [
+    "Not leadership_handover: no 2x score ratio, no three-close counter, no rebalance cooldown, and no reused confirmation-day parameter.",
+    "Not challenger_fill_continuity/fresh_challenger_authority: those govern a prior failed vacancy-fill attempt; this governs the ordinary full-book displacement authority before any sale intent exists.",
+    "Not relative_campaign_owner: no maturity window, benchmark-relative hold rule or generic exit override.",
+    "Not a score-weight/window search: all existing scores and entry predicates are unchanged; only the lifecycle by which a new opportunity obtains liquidation authority changes."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "mean(log(terminal wealth))",
+    "secondary_objective": "minimum terminal wealth",
+    "record_only": ["max_drawdown", "orders", "turnover", "fees", "slippage", "exposure", "shadow_nominations", "shadow_resets", "authorized_displacements"],
+    "promotion_rule": "Must beat the current fresh-challenger alpha leader on the primary objective without reducing the secondary objective, or produce a materially better minimum wealth with no material primary-objective loss. Baseline-only improvement is insufficient.",
+    "failure_rule": "If rejected, preserve it and do not search confirmation counts, score margins, lookbacks, position counts or pool-specific variants."
+  },
+  "frozen_inputs": {
+    "names": 34,
+    "sessions": 896,
+    "start": "2023-01-03",
+    "end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No future data or labels",
+    "No per-symbol/date/pool rule",
+    "No reference-strategy source reuse",
+    "No neighboring confirmation-day or score-margin search",
+    "No frozen data/cost/benchmark manipulation"
+  ]
+}
