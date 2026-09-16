@@ -1,0 +1,9 @@
+{
+  "source_commit": "497b9918465fb4fc426e5d601a87649e72ed6cab",
+  "run_id": "35070192910",
+  "family": "offensive_trend_quality",
+  "operation": "measure",
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "economic_acceptance": "UNVERIFIED",
+  "evaluation_present": false
+}
