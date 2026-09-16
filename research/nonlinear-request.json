@@ -6,8 +6,8 @@
   "registration_commit": "df9b79a18d99cd5ab2ee31560eb29b3c4474137d",
   "request": "Execute the single preregistered committed-offensive control/treatment pair through 2025-12-31 through the existing paired-study overlay. Control is the exact two-position trend_book owner. Treatment keeps intact actual holdings until their own security break, consults ranking only for real empty slots, never anticipates sale proceeds, uses only observed cash for vacancy fills, and removes portfolio/account market de-risking, recovery waits, volatility targeting, sector budgeting and periodic ranking displacement. Preserve unchanged cash-only long-only next-session execution, prior-volume capacity, board lots, fees and slippage. Reject without neighboring search if any core scope wealth declines; only a fixed three-scope alpha pass may advance to the original full acceptance matrix.",
   "source_sha256": {
-    "research/committed_offensive_core.py": "99f2d4c379a28ede9ba87afe4e483b30c0655c756421e781ee9e2fe1bdbb996c",
-    "research/test_committed_offensive_core.py": "f945ae8328f5b719d59d113fafe45029fe43203b1e220c4e517750eea018ef26",
+    "research/committed_offensive_core.py": "b05d881aae187eb3370602c359689a679794e67773730a07e14f8f6dfbd0358c",
+    "research/test_committed_offensive_core.py": "40dcae0459c4eac5197dd6f71d34c47d3b430c183d8ef5dbca3be95054f67c8b",
     "research/committed_offensive_core_contract.json": "774dfd7fd4bfe7b8912aeb05a162b8173e194de373c272220e33d1681e44c16b",
     "research/finite_study/__init__.py": "23706003ad3d011d76f82b09287426d2de432c2714a8c34c44ec955c52e2653c",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
