@@ -1,0 +1,24 @@
+{
+  "family": "offensive_quality_admission",
+  "status": "INVALID_IMPLEMENTATION_PRE_FIX",
+  "preregistration_commit": "bbe9426be11a0ab837a71ab035a2de9e97061337",
+  "failure": {
+    "type": "correctness_invariant",
+    "scope_reached": "joint_optical_leader_removal before treatment completion",
+    "exception": "admitted symbol requires finite ownership score",
+    "root_cause": "trend_quality can be finite before the raw absolute ownership score is finite; such a symbol cannot legally establish the preregistered absolute-score campaign reference",
+    "fix_rule": "A fresh campaign may be admitted only if both its discovery score and ownership reference are causally finite. This is a definitional/correctness requirement of the preregistered split-score lifecycle, not an economic threshold or post-hoc parameter choice."
+  },
+  "partial_results_not_valid_for_selection": {
+    "union": {
+      "control_wealth": 4.74414842883842,
+      "treatment_wealth": 3.074547528729704
+    },
+    "chatgpt_5": {
+      "control_wealth": 7.904183048701599,
+      "treatment_wealth": 9.6027207346587
+    }
+  },
+  "selection_use": "FORBIDDEN",
+  "next_action": "Add a test requiring a finite causal ownership reference before vacancy admission, implement only that invariant, then discard this partial run and rerun all three fixed scopes from scratch."
+}
