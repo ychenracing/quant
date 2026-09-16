@@ -1,0 +1,26 @@
+{
+  "family": "offensive_fresh_challenger_authority",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "ef6b96b722f410e81ac5ddf9869c6c85d2e7d668",
+  "request": "Execute the single preregistered fresh-challenger-authority control/treatment pair through 2025-12-31 on union, common-five and joint optical-leader removal. If the fixed alpha screen advances, evaluate the same source-bound candidate on the complete frozen 896-session history and the fixed 2026 windows. Do not reselect or search provenance duration, score margins, execution materiality, shock thresholds, trend spans, position counts, pool-specific rules or neighboring parameters. Record MDD, orders, turnover, fees, slippage and exposure without using them as alpha-discovery rejection gates.",
+  "source_git_blob": {
+    "research/offensive_fresh_challenger_authority.py": "cadf4685b8106fda45986ee7c76aabddbc7d57b7",
+    "research/test_offensive_fresh_challenger_authority.py": "a9d668928de56bd806634a74b4f2804d618812fe",
+    "research/offensive_fresh_challenger_authority_study.py": "1645b92e33b6afe0c714c548fb4c92b51ef87fd4",
+    "research/offensive_fresh_challenger_authority_contract.json": "3f4371e2a436e4097bbe49c62bc1e6d1ff35609c",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b",
+    "research/finite_study/__init__.py": "90da4250e6b56d1c9936da3f1e0d13f142fe82fb",
+    ".github/workflows/fresh-challenger-authority-study.yml": "cc8cefd8f4fb82d9dbff493a7993a56b8af71c62"
+  },
+  "alpha_objective": {
+    "primary": "mean(log(terminal wealth)) across union, common-five and joint optical-leader removal",
+    "secondary": "minimum terminal wealth across the same three scopes",
+    "current_selection_leader_mean_log": 1.6067936266079303,
+    "current_selection_leader_minimum": 1.5710237463450074,
+    "mdd_orders_turnover": "record_only_during_alpha_discovery"
+  },
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
