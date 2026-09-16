@@ -1,0 +1,21 @@
+{
+  "family": "offensive_challenger_fill_continuity",
+  "status": "REJECTED_AS_ALPHA_LEADER_NEAR_MISS",
+  "registration_commit": "14070559c31b7e0d71bb9cace1cbe2cc140495cb",
+  "remote_source_git_blob": "ce72415abfe9df1e369558719d4854556bb5419e",
+  "remote_test_git_blob": "c7684af25d6aa20b4da80cb4b1289b6cea2e93ae",
+  "local_diagnostic_source_sha256": "baae3804cec995c3f7d43001c25a37ac983308b90c075f7ea3e6df58e0e955b5",
+  "local_diagnostic_test_sha256": "172a717e6f2b568d8cc0cfa53b21bf6122c75080a2cc445984be99826874d4ea",
+  "control_mean_log": 1.2560421934258852,
+  "treatment_mean_log": 1.6023950762411356,
+  "control_min": 1.1546791488756403,
+  "treatment_min": 1.5949459430753048,
+  "current_leader": {"union": 6.094402615566887, "chatgpt_5": 12.952420207759628, "joint_optical_leader_removal": 1.5710237463450074, "mean_log": 1.6067936266079303, "min": 1.5710237463450074},
+  "scopes": {
+    "union": {"control_wealth": 4.74414842883842, "treatment_wealth": 5.737451007307963, "mdd": 0.4306095067834079, "orders": 127, "turnover": 60.665447558646235, "attempts": 43, "identity_changes": 29, "displacements": 1, "displacement": {"date": "2023-05-18", "symbol": "sz002409", "challenger": "sz300308", "owned_alpha_reference": 1.0718386567530078, "incumbent_score": 0.9850259211863281, "challenger_score": 3.461829013868634}},
+    "chatgpt_5": {"control_wealth": 7.904183048701599, "treatment_wealth": 13.374238388312474, "mdd": 0.43604406446289934, "orders": 77, "turnover": 41.024195100955914, "attempts": 110, "identity_changes": 31, "displacements": 1, "displacement": {"date": "2024-12-17", "symbol": "sh688008", "challenger": "sz300502", "owned_alpha_reference": 1.3753299993651429, "incumbent_score": 1.2901411341725024, "challenger_score": 2.212494992778376}},
+    "joint_optical_leader_removal": {"control_wealth": 1.1546791488756403, "treatment_wealth": 1.5949459430753048, "mdd": 0.6509911316885435, "orders": 132, "turnover": 64.54014004527811, "attempts": 47, "identity_changes": 20, "displacements": 1, "displacement": {"date": "2025-12-01", "symbol": "sz002371", "challenger": "sh688256", "owned_alpha_reference": 1.221264202469118, "incumbent_score": 0.9695157236960202, "challenger_score": 2.9163112334307497}}
+  },
+  "diagnosis": "Exact challenger identity continuity removes one-close path drift and improves minimum wealth, but mean-log remains slightly below the settled-reference-rearm leader. The only harmful union displacement uses sz300308 after its 2023-05-05 acute campaign break and 2023-05-09 REFERENCE_ALPHA_REARM without a fresh trend epoch. Common-five sz300502 and removal sh688256 do not have that failed-campaign provenance at their beneficial displacement events. Next test restricts displacement authority of reference-rearmed-not-fresh challengers without blocking ordinary cash-funded admission.",
+  "caveat": "The local diagnostic source is semantically equivalent but not byte-identical to the compact remote preservation; no hosted canonical claim is made for this rejected candidate."
+}
