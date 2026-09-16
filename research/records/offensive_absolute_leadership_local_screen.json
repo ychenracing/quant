@@ -1,0 +1,116 @@
+{
+  "caveat": "Local frozen-input screen. Preserve as rejected evidence; no promotion or hosted acceptance claim.",
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "family": "offensive_absolute_leadership",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "objective": {
+    "broad_scope_improvement": false,
+    "control_mean_log_wealth": 1.2560421934258852,
+    "control_min_wealth": 1.1546791488756403,
+    "leader_removal_positive_wealth": false,
+    "mean_log_wealth_improved": false,
+    "minimum_wealth_improved": false,
+    "treatment_mean_log_wealth": 0.6484218954947806,
+    "treatment_min_wealth": 0.44493885878530154
+  },
+  "plan_sha256": "06887be477c6153d65d80a55c45ef1853e86973cfcaf2f1f54e67de455cde534",
+  "preregistration_commit": "7d149235ca05b3ed5c58cd7837a6674b3412b430",
+  "scopes": {
+    "chatgpt_5": {
+      "control": {
+        "average_exposure": 0.48819175555248917,
+        "cagr": 0.9954399788719608,
+        "fees": 134601.34278754212,
+        "gross_turnover": 36.222570571701624,
+        "max_drawdown": 0.391356116446651,
+        "orders": 164,
+        "slippage": 243133.85296790846,
+        "wealth": 7.904183048701599
+      },
+      "events": {
+        "displacements": 4,
+        "records": 202,
+        "retirement_releases": 4,
+        "security_exits": 26,
+        "vacancy_fills": 168
+      },
+      "treatment": {
+        "average_exposure": 0.6357956537106941,
+        "cagr": 0.8470615850672181,
+        "fees": 116244.14400439362,
+        "gross_turnover": 40.557516264269466,
+        "max_drawdown": 0.538509643531993,
+        "orders": 65,
+        "slippage": 211947.14741089204,
+        "wealth": 6.272458055805009
+      }
+    },
+    "joint_optical_leader_removal": {
+      "control": {
+        "average_exposure": 0.46688897802252155,
+        "cagr": 0.04923513626394693,
+        "fees": 53350.728517320684,
+        "gross_turnover": 47.47983940944148,
+        "max_drawdown": 0.35331033491094144,
+        "orders": 169,
+        "slippage": 95081.69582748652,
+        "wealth": 1.1546791488756403
+      },
+      "events": {
+        "displacements": 39,
+        "records": 173,
+        "retirement_releases": 33,
+        "security_exits": 34,
+        "vacancy_fills": 67
+      },
+      "treatment": {
+        "average_exposure": 0.6459904764598117,
+        "cagr": -0.23709261523894465,
+        "fees": 65979.03981426543,
+        "gross_turnover": 74.44593687477025,
+        "max_drawdown": 0.7765175387270884,
+        "orders": 151,
+        "slippage": 108748.75655956949,
+        "wealth": 0.44493885878530154
+      }
+    },
+    "union": {
+      "control": {
+        "average_exposure": 0.51337827889083,
+        "cagr": 0.6824926019797857,
+        "fees": 90265.86628999369,
+        "gross_turnover": 39.03239690066364,
+        "max_drawdown": 0.3055789380480397,
+        "orders": 145,
+        "slippage": 165529.21786890013,
+        "wealth": 4.74414842883842
+      },
+      "events": {
+        "displacements": 30,
+        "records": 164,
+        "retirement_releases": 24,
+        "security_exits": 31,
+        "vacancy_fills": 78
+      },
+      "treatment": {
+        "average_exposure": 0.6474253616043988,
+        "cagr": 0.35944418161722114,
+        "fees": 149660.7025059644,
+        "gross_turnover": 58.269437496137236,
+        "max_drawdown": 0.5450749848389314,
+        "orders": 125,
+        "slippage": 271868.8358474222,
+        "wealth": 2.506571232655465
+      }
+    }
+  },
+  "selection_sha256": "b11567daac2e242c0633474c597889d2035f126ec8ea93c36e57ead5152621f4",
+  "selection_use": "REJECTED_DO_NOT_PROMOTE",
+  "status": "REJECTED_PAIRED_SCREEN",
+  "structural_failure": {
+    "classification": "generic_absolute_score_replacement_destroys_existing_alpha",
+    "finding": "A time-comparable absolute leadership score regresses all three fixed scopes, including common-five. The loss is not isolated to cross-sectional percentile nonstationarity; replacing the existing causal score wholesale removes information that the current alpha leader needs.",
+    "implication": "Do not tune the absolute-leadership formula, horizons, component weights, displacement margins, or position count. Return to attribution of the current alpha leader and target its remaining structural capital-recycling failure instead of inventing another generic score."
+  }
+}
