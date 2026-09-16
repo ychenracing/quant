@@ -1,0 +1,33 @@
+name: Positive alpha compounder evidence
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/positive-alpha-compounder-study.yml
+      - research/offensive_positive_alpha_compounder.py
+      - research/test_offensive_positive_alpha_compounder.py
+      - research/offensive_positive_alpha_compounder_contract.json
+      - research/offensive_positive_alpha_compounder_study.py
+      - research/positive-alpha-compounder-request.json
+permissions:
+  contents: write
+concurrency:
+  group: positive-alpha-compounder-alpha
+  cancel-in-progress: false
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Candidate TDD contract
+        run: python -m unittest research.test_offensive_positive_alpha_compounder -v
