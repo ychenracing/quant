@@ -1,0 +1,64 @@
+{
+  "family": "offensive_settled_reference_rearm",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. This candidate is justified by source-bound candidate7 settlement attribution and preserves the user's no-neighbor-search requirement.",
+  "evidence": {
+    "parent_family": "offensive_reference_rearm",
+    "parent_source_commit": "363773d66e562c73c21cfb373304119bedb4985e",
+    "parent_run": 35081472029,
+    "parent_selection_status": "REJECTED_PAIRED_SCREEN",
+    "parent_selection_wealth": {
+      "union": 6.316704347504254,
+      "chatgpt_5": 13.319317036950144,
+      "joint_optical_leader_removal": 1.060615185087682
+    },
+    "settlement_attribution_commit": "691a370163e7d526b2ba543e670586a9345fe922",
+    "settlement_attribution_path": "research/records/reference_rearm_settlement_attribution.json",
+    "settlement_finding": "Every reference rearm that occurred on the same close as the failed campaign's actual exit settlement and immediately created a new same-symbol campaign lost money in all three core scopes: union -CNY305,241 (0/1 wins), common-five -CNY184,023 (0/2), leader-removal -CNY664,469 (0/4). The common-five rearm that later earned about CNY2.451m happened only after the failed campaign had already been observed flat on a prior close."
+  },
+  "economic_hypothesis": "Score recovery is not sufficient to define a new campaign on the exact close that first reconciles yesterday's failed-campaign sell into flat inventory. The old campaign must first be observably settled. A score-reference rearm is eligible only after at least one prior close has already observed the symbol flat. This is an execution/inventory lifecycle boundary, not an N-day cooldown. It should retain candidate7's large union/common alpha while removing the most direct same-campaign whipsaw that damaged leader-removal.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Reuse offensive_reference_rearm campaign-reference invalidation, causal score hurdle, trend-edge fallback, candidate1 ownership/displacement, actual-cash funding and unchanged execution.",
+    "settled_flat_rule": "REFERENCE_ALPHA_REARM may clear an acute invalidation only when the symbol is flat in the current CloseObservation AND the underlying candidate1 owner also observed it flat at the immediately preceding close (base.was_held is already false before current-close reconciliation). A close on which the failed campaign's sell has just become flat does not satisfy this rule.",
+    "no_clock": "The treatment does not count sessions, days, bars, confirmations or recovery percentages. If an exit is blocked or partial, the symbol remains held and cannot satisfy settled-flat. Once one completed close has reconciled flat inventory, the next and every later close may rearm immediately whenever the existing candidate7 causal reference condition is true.",
+    "trend_edge_fallback": "Candidate7's parameter-free false-then-true observed_trend epoch reset remains available after settlement; it is not replaced by a cooldown.",
+    "fresh_symbols_unchanged": "Symbols without a failed campaign remain immediately eligible. Cash is never quarantined and unrelated fresh opportunities remain fundable.",
+    "execution": "Unchanged close decision / next-session execution, cash-only long-only, no leverage/shorting, sells before buys, prior-volume capacity, board lots, T+1, fees, slippage and price limits."
+  },
+  "structural_difference_from_closed_families": [
+    "Not generic reentry timing: no fixed wait length exists. Eligibility is based on whether inventory settlement was already observable before the current close.",
+    "Not funded_reentry/revocable_reentry: no health counter or relaxed veto is introduced.",
+    "Not shock_reclaim/suspended_campaign: no old holdings, account-risk exits or privileged capital are restored.",
+    "Not non_recycled_campaign_capital: observed cash is not reserved or quarantined.",
+    "Not candidate7 threshold tuning: the same failed-campaign reference and strict score comparison are reused unchanged; only the ownership lifecycle boundary is corrected."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "selection_window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "promotion_rule": "Advance only if mean-log wealth and minimum wealth improve versus exact trend_book control, at least one broad scope improves, and joint optical-leader removal remains above 1.0. If advanced, immediately evaluate the same source on the full 896 sessions and fixed 2026 windows.",
+    "record_only_alpha_phase": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure", "invalidations", "reference_rearms", "settlement_blocks", "trend_edge_rearms"],
+    "failure_rule": "If rejected, preserve exact evidence and do not search wait lengths, score multipliers, shock percentages, trend spans, price buffers, position counts or pool variants."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No future labels, future returns or future highs",
+    "No named-symbol/date/pool rule",
+    "No reference strategy source reuse",
+    "No market-wide cooldown or cash quarantine",
+    "No frozen data/cost/acceptance manipulation",
+    "No neighboring parameter search"
+  ]
+}
