@@ -1,0 +1,21 @@
+{
+  "family": "offensive_positive_alpha_compounder",
+  "source_commit": "0d280ce26f39a9cf87f4cb8ea47293f3d1e359a8",
+  "hosted_run": 35163068647,
+  "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "current_champion": {
+    "mean_log": 1.6493183795493607,
+    "minimum": 1.5949459430753048,
+    "wealth": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048}
+  },
+  "treatment": {
+    "mean_log": 1.0470105470993034,
+    "minimum": 0.6450965531846466,
+    "wealth": {"union": 3.838854100330239, "chatgpt_5": 9.339129149981588, "joint_optical_leader_removal": 0.6450965531846466}
+  },
+  "decision": "Forgiving generic slow-trend exits whenever the causal score remains positive materially increases exposure but traps capital in stale campaigns and collapses wealth in all three fixed scopes. Do not search a neighboring score threshold.",
+  "next_root_cause": "Single-stock winner gaps show some slow-trend exits still truncate major compounders, but score positivity is not sufficient proof that an owned campaign deserves continuation. Test actual funded campaign profitability as the endogenous ownership state instead.",
+  "evidence_readback": "Dedicated hosted workflow completed candidate TDD, source-bound measurement, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
