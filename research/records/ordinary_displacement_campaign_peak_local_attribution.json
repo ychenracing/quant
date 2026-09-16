@@ -1,0 +1,31 @@
+{
+  "status": "LOCAL_SOURCE_BOUND_READ_ONLY_ATTRIBUTION_NOT_CANDIDATE",
+  "source_commit": "477b51fdd7b94590cbce023bcf690b6555d19b88",
+  "source_snapshot": "GitHub Actions Offline correctness source artifact 10455942326",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "selection_end": "2025-12-31",
+  "parent_family": "offensive_fresh_challenger_authority",
+  "cases": ["union", "chatgpt_5", "joint_optical_leader_removal", "cardinality_16", "cardinality_14", "sample_8_4"],
+  "method": "Replay the exact source-bound parent on the frozen snapshot. For each ordinary ALPHA_DECAY_DISPLACEMENT event, reconstruct the incumbent's currently funded campaign from actual filled orders up to the decision close. incumbent_at_campaign_closing_high is true iff the decision-close adjusted close equals the maximum adjusted close observed from the first actual fill through that decision close. Later challenger funded-campaign PnL is retrospective attribution only and never a runtime feature.",
+  "fresh_edge_events": {
+    "core_scopes": {
+      "incumbent_at_campaign_closing_high": {"events": 3, "funded_challenger_campaigns": 2, "funded_challenger_pnl_cny": -741768.8853742415, "wins": 0},
+      "incumbent_below_campaign_closing_high": {"events": 6, "funded_challenger_campaigns": 2, "funded_challenger_pnl_cny": -114030.73230898404, "wins": 0}
+    },
+    "all_six_diagnostic_cases": {
+      "incumbent_at_campaign_closing_high": {"events": 8, "funded_challenger_campaigns": 6, "funded_challenger_pnl_cny": -987127.4273232564, "wins": 1},
+      "incumbent_below_campaign_closing_high": {"events": 11, "funded_challenger_campaigns": 4, "funded_challenger_pnl_cny": 121498.43853191577, "wins": 2}
+    }
+  },
+  "core_decision_examples": [
+    {"scope": "union", "date": "2023-11-10", "incumbent": "sh688041", "challenger": "sh688498", "incumbent_at_campaign_closing_high": true, "incumbent_mark_return_from_actual_average_cost": -0.04645745732423845, "challenger_later_funded_pnl_cny": -129638.457842},
+    {"scope": "chatgpt_5", "date": "2023-12-08", "incumbent": "sz300502", "challenger": "sz300308", "incumbent_at_campaign_closing_high": true, "incumbent_mark_return_from_actual_average_cost": 0.21124840518225607, "challenger_later_funded_pnl_cny": -612130.427532},
+    {"scope": "joint_optical_leader_removal", "date": "2023-11-10", "incumbent": "sh688012", "challenger": "sh688498", "incumbent_at_campaign_closing_high": false, "incumbent_drawdown_from_campaign_closing_high": -0.011353437834917712, "challenger_later_funded_pnl_cny": -92359.479253}
+  ],
+  "limitations": [
+    "This diagnostic is exact-source and exact-data but locally executed; it is not a hosted canonical economic candidate measurement.",
+    "Retrospective challenger PnL is explanatory evidence only.",
+    "The state itself is causal because campaign fill history and closes through the decision close are already observed."
+  ]
+}
