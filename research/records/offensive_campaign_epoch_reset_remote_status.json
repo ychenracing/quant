@@ -1,0 +1,9 @@
+{
+  "family": "offensive_campaign_epoch_reset",
+  "status": "LOCAL_SCREEN_ADVANCE_PENDING_HOSTED_CANONICAL",
+  "registration_commit": "825b0f9134f87403cde971ccfe5e3977f7007183",
+  "source_blob": "6cd206c19941b78e652262e3e5b64df783aa2497",
+  "test_blob": "944bf14d5bab763fb422656483c722da8c5fcce2",
+  "study_blob": "f2f2487722d81e21eeafe825c67a7324209c6f71",
+  "local_screen_blob": "7fa75ad7f157be78f5276c01eb88adc909b443a4"
+}

@@ -1,0 +1,125 @@
+name: Campaign epoch alpha evidence
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/campaign-epoch-study.yml
+      - research/campaign-epoch-request.json
+permissions:
+  contents: write
+concurrency:
+  group: campaign-epoch-alpha-study
+  cancel-in-progress: false
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONPATH: src:tests:.
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install frozen research runtime
+        run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Verify source identity and tests
+        run: |
+          python - <<'PY'
+          import json, pathlib, subprocess
+          request=json.loads(pathlib.Path('research/campaign-epoch-request.json').read_text())
+          for path, expected in request['source_git_blob'].items():
+              actual=subprocess.check_output(['git','hash-object',path],text=True).strip()
+              if actual != expected:
+                  raise SystemExit(f'git blob mismatch {path}: {actual} != {expected}')
+          PY
+          python -m unittest discover -s tests -q > "$RUNNER_TEMP/campaign-epoch-correctness.txt" 2>&1
+          python -m unittest discover -s research -p 'test_*.py' -v >> "$RUNNER_TEMP/campaign-epoch-correctness.txt" 2>&1
+      - name: Measure fixed alpha candidate
+        timeout-minutes: 6
+        run: |
+          python - <<'PY' > "$RUNNER_TEMP/campaign-epoch-execution.txt" 2>&1
+          import json, os, pathlib
+          from research.hosted_study import inputs
+          from research.offensive_campaign_epoch_reset_study import Study
+          from techquant.data import load_market
+          root=pathlib.Path(os.environ['RUNNER_TEMP']); out=root/'campaign-epoch'; out.mkdir(parents=True,exist_ok=True)
+          request=json.loads(pathlib.Path('research/campaign-epoch-request.json').read_text())
+          data,supplement=inputs(root/'frozen-input')
+          catalog=json.loads(pathlib.Path('research/catalog.json').read_text())
+          market=load_market(data,supplement=supplement,sectors=catalog['sectors'])
+          if market.fingerprint() != request['data_sha256']: raise ValueError('frozen market identity mismatch')
+          study=Study(request['family'])
+          if len(study.module.grid()) != request['candidate_count']: raise ValueError('declared candidate count mismatch')
+          study.select(market,catalog,out/'selection')
+          study.evaluate(market,catalog,out/'selection/selection.json',out/'evaluation')
+          selection=json.loads((out/'selection/selection.json').read_text())
+          receipt={'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'family':request['family'],
+                   'selection_status':selection.get('status','INCOMPLETE'),'economic_acceptance':'NOT_ESTABLISHED',
+                   'evaluation_present':(out/'evaluation/status.json').exists()}
+          (out/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          PY
+      - name: Package every outcome
+        if: always()
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, tarfile
+          root=pathlib.Path(os.environ['RUNNER_TEMP']); out=root/'campaign-epoch'; out.mkdir(exist_ok=True)
+          for src,dst in [(root/'campaign-epoch-correctness.txt',out/'correctness.txt'),(root/'campaign-epoch-execution.txt',out/'execution.txt')]:
+              if src.exists(): dst.write_bytes(src.read_bytes())
+          request=pathlib.Path('research/campaign-epoch-request.json')
+          if request.exists(): (out/'request.json').write_bytes(request.read_bytes())
+          record=pathlib.Path('research/records/offensive_campaign_epoch_reset_local_screen.json')
+          if record.exists(): (out/'local-screen.json').write_bytes(record.read_bytes())
+          manifest={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file() and p.name!='MANIFEST.json'}
+          (out/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          archive=root/'campaign-epoch-evidence.tar.gz'
+          with tarfile.open(archive,'w:gz') as bundle: bundle.add(out,arcname='campaign-epoch')
+          (root/'campaign-epoch-evidence.sha256').write_text(hashlib.sha256(archive.read_bytes()).hexdigest()+'  campaign-epoch-evidence.tar.gz\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: campaign-epoch-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/campaign-epoch-evidence.tar.gz
+            ${{ runner.temp }}/campaign-epoch-evidence.sha256
+          retention-days: 90
+          if-no-files-found: error
+      - name: Append and read back immutable evidence
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -s "$RUNNER_TEMP/campaign-epoch-evidence.tar.gz"
+          gh auth setup-git
+          git clone --depth=1 --branch research/evidence "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/evidence-store"
+          cd "$RUNNER_TEMP/evidence-store"
+          destination="campaign-epoch/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"; mkdir -p "$destination"
+          cp "$RUNNER_TEMP/campaign-epoch-evidence.tar.gz" "$RUNNER_TEMP/campaign-epoch-evidence.sha256" "$destination/"
+          for file in receipt.json MANIFEST.json correctness.txt execution.txt request.json local-screen.json; do
+            if [ -f "$RUNNER_TEMP/campaign-epoch/$file" ]; then cp "$RUNNER_TEMP/campaign-epoch/$file" "$destination/"; fi
+          done
+          for dir in selection evaluation; do
+            if [ -d "$RUNNER_TEMP/campaign-epoch/$dir" ]; then
+              mkdir -p "$destination/$dir"
+              find "$RUNNER_TEMP/campaign-epoch/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;
+            fi
+          done
+          git config user.name 'quant research publisher'; git config user.email 'quant-research@users.noreply.github.com'
+          git add -- "$destination"; git commit -m 'research: retain campaign epoch alpha evidence'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/evidence; then
+              git fetch origin research/evidence
+              expected=$(cut -d' ' -f1 "$RUNNER_TEMP/campaign-epoch-evidence.sha256")
+              actual=$(git show "FETCH_HEAD:$destination/campaign-epoch-evidence.tar.gz" | sha256sum | cut -d' ' -f1)
+              test "$actual" = "$expected"; exit 0
+            fi
+            git fetch origin research/evidence; git rebase FETCH_HEAD
+          done
+          exit 1

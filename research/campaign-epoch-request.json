@@ -1,0 +1,17 @@
+{
+  "family": "offensive_campaign_epoch_reset",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "825b0f9134f87403cde971ccfe5e3977f7007183",
+  "request": "Run the single preregistered campaign-epoch-reset control/treatment pair on the fixed 2023-01-03..2025-12-31 alpha screen and, because the preregistered local screen advanced, evaluate the same source-bound candidate on the complete 896-session frozen history and fixed 2026 windows. Preserve all MDD/orders/turnover/cost diagnostics but do not use them to rewrite the alpha-discovery decision. Do not search acute thresholds, waiting days, price recovery levels, score margins, capacity, per-pool variants or named-security rules.",
+  "source_git_blob": {
+    "research/offensive_campaign_epoch_reset.py": "6cd206c19941b78e652262e3e5b64df783aa2497",
+    "research/test_offensive_campaign_epoch_reset.py": "944bf14d5bab763fb422656483c722da8c5fcce2",
+    "research/offensive_campaign_epoch_reset_study.py": "f2f2487722d81e21eeafe825c67a7324209c6f71",
+    "research/offensive_campaign_epoch_reset_contract.json": "6ac1f0d284d3c5ad5b0a1b2194f3bc022b8f831a",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b"
+  },
+  "local_screen_record_git_blob": "7fa75ad7f157be78f5276c01eb88adc909b443a4",
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}

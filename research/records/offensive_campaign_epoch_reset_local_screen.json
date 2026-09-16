@@ -1,0 +1,118 @@
+{
+  "caveat": "Local source-bound frozen-input diagnostic only. Hosted source-bound canonical measurement and broader formal validation remain pending.",
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "family": "offensive_campaign_epoch_reset",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "objective": {
+    "advance": true,
+    "broad_scope_improvement": true,
+    "control_mean_log_wealth": 1.2560421934258852,
+    "control_min_wealth": 1.1546791488756403,
+    "leader_removal_positive_wealth": true,
+    "mean_log_wealth_improved": true,
+    "minimum_wealth_improved": true,
+    "treatment_mean_log_wealth": 1.4327522657201994,
+    "treatment_min_wealth": 1.225231707143041
+  },
+  "plan_sha256": "11f2ef7a176b44ada18aa0965bc417a45af2320ca171df42c73caa9f1be11d71",
+  "preregistration_commit": "825b0f9134f87403cde971ccfe5e3977f7007183",
+  "runner": "research/offensive_campaign_epoch_reset_study.py",
+  "scopes": {
+    "chatgpt_5": {
+      "control": {
+        "average_exposure": 0.48819175555248917,
+        "cagr": 0.9954399788719608,
+        "fees": 134601.34278754212,
+        "gross_turnover": 36.222570571701624,
+        "max_drawdown": 0.391356116446651,
+        "orders": 164,
+        "slippage": 243133.85296790846,
+        "wealth": 7.904183048701599
+      },
+      "events": {
+        "base_records": 152,
+        "displacements": 6,
+        "exit_retries": 0,
+        "invalidations": 11,
+        "rearms": 11,
+        "security_exits": 23,
+        "vacancy_fills": 117
+      },
+      "treatment": {
+        "average_exposure": 0.6285405865451519,
+        "cagr": 1.2076844818529229,
+        "fees": 119796.21192333885,
+        "gross_turnover": 33.89574417787671,
+        "max_drawdown": 0.4034318081257836,
+        "orders": 65,
+        "slippage": 219997.61644795883,
+        "wealth": 10.696002167355052
+      }
+    },
+    "joint_optical_leader_removal": {
+      "control": {
+        "average_exposure": 0.46688897802252155,
+        "cagr": 0.04923513626394693,
+        "fees": 53350.728517320684,
+        "gross_turnover": 47.47983940944148,
+        "max_drawdown": 0.35331033491094144,
+        "orders": 169,
+        "slippage": 95081.69582748652,
+        "wealth": 1.1546791488756403
+      },
+      "events": {
+        "base_records": 199,
+        "displacements": 26,
+        "exit_retries": 0,
+        "invalidations": 21,
+        "rearms": 21,
+        "security_exits": 30,
+        "vacancy_fills": 117
+      },
+      "treatment": {
+        "average_exposure": 0.6721300683129899,
+        "cagr": 0.07023724766069384,
+        "fees": 61311.11719230812,
+        "gross_turnover": 59.85196547122751,
+        "max_drawdown": 0.6504032824683784,
+        "orders": 118,
+        "slippage": 105032.60195062438,
+        "wealth": 1.225231707143041
+      }
+    },
+    "union": {
+      "control": {
+        "average_exposure": 0.51337827889083,
+        "cagr": 0.6824926019797857,
+        "fees": 90265.86628999369,
+        "gross_turnover": 39.03239690066364,
+        "max_drawdown": 0.3055789380480397,
+        "orders": 145,
+        "slippage": 165529.21786890013,
+        "wealth": 4.74414842883842
+      },
+      "events": {
+        "base_records": 200,
+        "displacements": 28,
+        "exit_retries": 0,
+        "invalidations": 23,
+        "rearms": 20,
+        "security_exits": 27,
+        "vacancy_fills": 119
+      },
+      "treatment": {
+        "average_exposure": 0.7324258091808319,
+        "cagr": 0.7798560940147719,
+        "fees": 121140.44763764605,
+        "gross_turnover": 56.184414939513815,
+        "max_drawdown": 0.3340029529599612,
+        "orders": 120,
+        "slippage": 212501.06387210538,
+        "wealth": 5.613962397500369
+      }
+    }
+  },
+  "selection_sha256": "d6c723f4e390825881ac81669d02b93dd58ad8c106f2dfea0233d706661d0299",
+  "status": "LOCAL_PAIRED_SCREEN_ADVANCE_PENDING_HOSTED_CANONICAL"
+}
