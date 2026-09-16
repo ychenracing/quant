@@ -1,0 +1,27 @@
+{
+  "family": "offensive_shadow_opportunity_authority",
+  "source_commit": "79ec9971135404421cd8f9aaaedfd0e58e58f7f3",
+  "hosted_run": 35105061048,
+  "status": "REJECTED_VS_CURRENT_ALPHA_LEADER",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "baseline_objective": {
+    "mean_log": 1.2560421934258852,
+    "minimum": 1.1546791488756403,
+    "wealth": {"union": 4.74414842883842, "chatgpt_5": 7.904183048701599, "joint_optical_leader_removal": 1.1546791488756403}
+  },
+  "current_leader_objective": {
+    "family": "offensive_fresh_challenger_authority",
+    "mean_log": 1.6225136461073524,
+    "minimum": 1.5949459430753048,
+    "wealth": {"union": 6.094402615566887, "chatgpt_5": 13.374238388312474, "joint_optical_leader_removal": 1.5949459430753048}
+  },
+  "treatment_objective": {
+    "mean_log": 1.3782087847721265,
+    "minimum": 1.8900581048684526,
+    "wealth": {"union": 4.6689397576788725, "chatgpt_5": 7.078675182728133, "joint_optical_leader_removal": 1.8900581048684526}
+  },
+  "decision": "The universal shadow nomination materially improves the leader-removal minimum but suppresses too many valuable ordinary replacements in union and common-five. It is rejected and must not be tuned by confirmation days or score margins.",
+  "next_root_cause": "The current leader grants liquidation authority when a challenger merely exceeds the weakest incumbent admission reference. Formal lower-tail evidence and the shadow counterfactual together support testing a portfolio-level campaign hurdle rather than a time confirmation: a challenger must exceed the strongest currently funded campaign admission reference before it may immediately displace the weakest incumbent.",
+  "evidence_readback": "Hosted workflow completed tests, measurement, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
