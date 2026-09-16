@@ -1,15 +1,17 @@
 {
   "family": "offensive_core",
-  "operation": "offensive_core_pair",
+  "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "registration_commit": "d8f34acb66313023a1166fa6e0f283bf4580e7d0",
-  "request": "Execute the single preregistered offensive-core control/treatment pair through 2025-12-31. Control is the exact two-position trend_book owner. Treatment keeps the same causal entry/score and security-specific break logic while removing portfolio/account market de-risking, recovery waits, volatility targeting and sector budgeting. Preserve unchanged cash-only long-only next-session execution, liquidity, board lots, fees and slippage. Reject without neighboring search if any core scope wealth declines; only a fixed three-scope alpha pass may advance to the original full acceptance matrix.",
+  "request": "Execute the single preregistered offensive-core control/treatment pair through 2025-12-31 through the existing paired-study overlay. Control is the exact two-position trend_book owner. Treatment keeps the same causal entry/score and security-specific break logic while removing portfolio/account market de-risking, recovery waits, volatility targeting and sector budgeting. Preserve unchanged cash-only long-only next-session execution, liquidity, board lots, fees and slippage. Reject without neighboring search if any core scope wealth declines; only a fixed three-scope alpha pass may advance to the original full acceptance matrix.",
   "source_sha256": {
-    "research/offensive_core.py": "f2e444423ef50f8481c9f09f1b58cc4414fd1da88e2c5da30d92d4999bd5a939",
-    "research/test_offensive_core.py": "f3cf7e5db6c54f949ae7efc94fcc661b17a6843ae75d1e0cb6e24e30d193c890",
+    "research/offensive_core.py": "dcd1204ae4109aced134e277c52bce0fe2b054f4b8f2a9c06784dd777d3bc8b1",
+    "research/test_offensive_core.py": "21df29174c3a7c0ef67cd49e43f80939a8c6f316d888469b577e418d8f7bcbdd",
     "research/offensive_core_contract.json": "d4207ed7794a19d3fb4413e5547ef2330c7d1e517b939599b2ef0f6262238bde",
     "research/offensive_core_screen.py": "3ae6e357bf3eeb52a6b97aa2bfa80d54ae3fa11bb56897edc1f099d2ae75edb1",
-    ".github/workflows/nonlinear-study.yml": "d6e48cc47430ad7632beb0bd553a3e5a576bf4f8a5e5527896664f150b9108ce"
+    "research/finite_study/__init__.py": "a8e9c7cb5b48d192e393a46b72b8fbb0f18dbf1c0db90b3c1f93c6fcc04d9568",
+    "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
+    ".github/workflows/nonlinear-study.yml": "e9e2219c70b7beecafff0a1e83a360fa6ed9b36f8adea2f2333272bbe133cb89"
   }
 }
