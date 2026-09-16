@@ -1,0 +1,64 @@
+{
+  "family": "offensive_quality_admission",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-discovery continuation under the user's terminal-wealth-first authorization.",
+  "evidence": {
+    "current_alpha_leader": {
+      "family": "offensive_alpha_decay_displacement",
+      "hosted_run": 35068327902,
+      "finding": "High-exposure campaign ownership with sparse absolute-score displacement materially improves full-history wealth in all three scopes, but 2023-2025 union still regresses."
+    },
+    "trend_quality_failure": {
+      "source_commit": "9cc5eb3389b7f01ff9c8b0d8df52a69077e5be95",
+      "finding": "Using cross-sectional trend-quality percentiles for both admission and campaign-reference displacement causes 44/46 broad-scope displacements and regresses broad wealth. Percentiles are contemporaneously comparable but not stable campaign references."
+    },
+    "native_full_cap_failure": {
+      "source_commit": "3c5bc78fe59fdfcca23c19fb7cf7ef8414386751",
+      "finding": "Old-score admission under permanently high exposure damages broad capital before later leadership handoffs, so admission quality remains a live bottleneck."
+    }
+  },
+  "economic_hypothesis": "Opportunity discovery and ownership require different score semantics. Cross-sectional trend quality can rank which fresh opportunity deserves a newly available slot, while the original absolute causal score is better suited to time-series campaign decay and challenger displacement. Decoupling these roles should improve broad-pool entry quality without the percentile-reference churn seen in offensive_trend_quality.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "discovery_score": "Use offensive_trend_quality.trend_quality unchanged. It is the frozen geometric mean of current-session percentiles for 40-session directional efficiency, prior-40-session-high follow-through and 10-session persistence above existing EMA20.",
+    "ownership_score": "Use the unchanged techquant.features.score from build_features(Config()) for campaign references, decay and challenger displacement. No weight, horizon or threshold is changed.",
+    "vacancy_admission": "Keep the offensive alpha-decay eligibility gate and observed-cash funding semantics. When a real vacancy exists, rank currently eligible unheld/nonretired names only by discovery_score and choose the highest discovery-quality names. At the same close, record the chosen names' ownership_score as pending campaign references; bind those references only once actual inventory is observed.",
+    "full_book_displacement": "When the book is full and intact, ignore discovery_score. Reuse the offensive-alpha-decay absolute-score ownership rule unchanged: a held incumbent must have current ownership_score below its own frozen admission ownership_score, and the strongest currently eligible challenger by ownership_score must exceed that frozen reference. Then request only that incumbent exit; do not spend expected sale proceeds on the same close.",
+    "retirement": "A voluntarily displaced symbol remains retired until a later security-specific trend campaign break; blocked sale attempts retry without creating a new displacement epoch.",
+    "security_and_execution": "Unchanged security exits, broad market admission, close-decision/next-session execution, sells before buys, cash-only long-only, no leverage/shorting, prior-volume capacity, board lots, T+1, fees, slippage and price limits."
+  },
+  "structural_difference_from_prior_failures": [
+    "Unlike offensive_trend_quality, cross-sectional percentiles are never compared to a historical percentile reference; they are used only to rank simultaneous vacancy candidates.",
+    "Unlike offensive_native_ownership, fresh admissions no longer use the old scalar score ranking under full exposure.",
+    "Unlike the old ranking learner, nothing is fitted and no future label or coefficient exists.",
+    "Unlike adjacent parameter searches, the exact previously preregistered quality formula and existing absolute-score ownership rule are reused without a new numeric threshold."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "record_only_during_alpha_discovery": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure"],
+    "promotion_rule": "Advance only if mean-log wealth and minimum wealth improve, at least one broad scope improves, and joint optical-leader removal remains above 1.0; a tiny 1-2% change is not enough for later formal promotion.",
+    "failure_rule": "Preserve any rejection and change architecture rather than tuning quality component weights, horizons, displacement thresholds or position count."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No per-symbol/date/pool rule",
+    "No future label/high/return in decisions",
+    "No reference-strategy source reuse",
+    "No frozen data/cost/benchmark/acceptance manipulation",
+    "No neighboring parameter or weight grid",
+    "No winner splicing"
+  ]
+}
