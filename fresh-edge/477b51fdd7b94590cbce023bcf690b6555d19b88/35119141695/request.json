@@ -1,0 +1,25 @@
+{
+  "family": "offensive_fresh_edge_authority",
+  "operation": "measure_and_evaluate_if_promoted",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "c7b85df7458f9427d35ca7831d345744f3922ad5",
+  "source_git_blob": {
+    "research/offensive_fresh_edge_authority.py": "02ed81ad1d733bb3e32cad0c1265173ab39579ad",
+    "research/test_offensive_fresh_edge_authority.py": "d9d27875bb23e73059c443d199873f7c7ea077d8",
+    "research/offensive_fresh_edge_authority_study.py": "0b485c55cd3cf0565805064c738b62a2a0707531",
+    "research/offensive_fresh_edge_authority_contract.json": "65ba684fd36b695f993dfe0d39e6e19973bd9b04",
+    ".github/workflows/fresh-edge-authority-study.yml": "71ae03d35290857f5421f304306fabbd3c1db104",
+    "research/offensive_fresh_challenger_authority.py": "cadf4685b8106fda45986ee7c76aabddbc7d57b7",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b"
+  },
+  "selection": {
+    "window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "must_beat": "source-bound offensive_fresh_challenger_authority mean-log objective",
+    "minimum_wealth": "must not regress versus source-bound current leader",
+    "mdd_orders_turnover": "record_only"
+  },
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
