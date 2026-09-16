@@ -1,0 +1,39 @@
+{
+  "family": "offensive_core",
+  "status": "PREREGISTERED_BEFORE_ACCOUNT_MEASUREMENT",
+  "authority": "User explicitly redirected original PR #1 to alpha-first offensive optimization, told the assistant to abandon defensive optimization, prioritize maximum return and continue implementation. This bounded candidate changes no frozen data, costs, benchmark, universe, execution clock or final acceptance definition.",
+  "economic_hypothesis": "The current two-position causal price book loses too much alpha through account/market de-risking, recovery waits, volatility targeting and sector-budget compression. Keeping the same causal entry and score while allowing intact funded leaders to remain fully invested should recover a material part of the return gap without relying on reference-strategy source code or fitted future labels.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "entry_and_score": "Reuse the control's completed-session price readiness, rising sixty-session trend, close above EMA20, positive five-session momentum, positive finite techquant Features.score and broad-market admission gate. No new entry feature or score transformation.",
+    "capacity": "At most Config.max_positions=2 names, using the existing deterministic score then symbol ordering.",
+    "ownership": "Between reviews, retain actual intact membership and drift. Review on the existing Config.rebalance=10 schedule, immediately after a security-specific break, or when an actual vacancy can be filled. If membership changes, target equal cash-funded weights across selected names; if only one name is selected it may use the available long-only book up to 100 percent.",
+    "security_exit": "Exit immediately on the unchanged observed sixty-session security break, a fresh single-session return of at most -8 percent, or missing readiness.",
+    "removed_portfolio_defense": [
+      "cross-sectional and accumulated market-shock liquidation",
+      "account-drawdown and portfolio-warning exposure caps",
+      "broad-breakdown risk caps and recovery waits",
+      "portfolio volatility targeting",
+      "sector exposure budgeting"
+    ],
+    "execution": "Use the unchanged engine: close decision, next-session open, actual cash, sells before buys, no anticipated blocked proceeds, prior-volume capacity, board lots, fees, slippage, long-only and no leverage/shorting."
+  },
+  "new_numeric_parameters": 0,
+  "parameter_search": false,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "pair_members": ["control", "offensive_core"],
+    "alpha_screen": "Treatment wealth must be no lower than control in all three scopes and strictly higher in at least one scope. Record MDD, fills, turnover, exposure, costs, blocked attempts and ledger reconciliation, but do not substitute defensive metrics for this alpha-first screen.",
+    "failure_rule": "Any scope wealth regression rejects this candidate. Do not search risk thresholds, exposure fractions, position counts, rebalance periods, score weights, sector caps, volatility targets or per-pool variants after observing the result.",
+    "advance_rule": "Only a fixed alpha-screen pass may advance the same source to the original full reference, 2026 risk-window, removal, subset, cost/delay, prefix, stability and repository-protection acceptance matrix."
+  },
+  "frozen_inputs": {"names": 34, "sessions": 896, "start": "2023-01-03", "end": "2026-09-11", "sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"},
+  "prohibitions": [
+    "No per-symbol, calendar-date, sector or pool branch.",
+    "No trades/reference strategy source enters the implementation.",
+    "No frozen benchmark, data, universe, seed, costs or acceptance change.",
+    "No winner splicing or relabeling of rejected candidates."
+  ]
+}
