@@ -1,0 +1,54 @@
+{
+  "family": "offensive_campaign_epoch_reset",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. User authorizes structural ownership changes when tied to newly established root cause, while forbidding generic reentry, old risk-patch repetition, future information and parameter search.",
+  "evidence": {
+    "alpha_leader": {"family": "offensive_alpha_decay_displacement", "source_commit": "407756076b1d116f636d8796e4b66dba0934842c", "hosted_run": 35068327902},
+    "secondary_attribution": {"commit": "ea5f5a28bbe7de2f0a29ac9b6608526961271b99", "path": "research/records/offensive_alpha_decay_secondary_attribution.json", "finding": "The existing <=-8% security break can terminate a held/retired campaign while observed_trend.entry stays continuously true. Candidate1 can then reacquire the same campaign on the immediately following decision. Such next-session same-symbol acute-shock reentries have aggregate realized PnL -236k/-736k/-753k in union/common-five/leader-removal. The September 2025 shock also shows profitable fresh names may exist immediately, so a market-wide cooldown or one-slot refill is not supported."}
+  },
+  "economic_hypothesis": "A security break is already an authoritative declaration that the current owned campaign has failed. Reacquiring that same campaign while its entry state never reset conflates continuation with a genuinely new opportunity. Make campaign admission edge-triggered after an acute break only for symbols that already have a campaign identity, while leaving unrelated fresh opportunities fully available. This should remove same-campaign whipsaw without lowering global exposure when another strong fresh name exists.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Reuse offensive_alpha_decay_displacement unchanged for score, two-position ownership, displacement, actual-cash vacancy funding, one-way displacement retirement, blocked-sale retry and execution.",
+    "acute_campaign_invalidation": "On close D, if the already-existing candidate1 security predicate p.ret1[D] <= -0.08 is true for a symbol that currently has an existing campaign identity (actual held inventory OR candidate1 retired/displaced campaign state), mark that symbol's current campaign epoch invalid. Do not create an extra sale: held inventory is already subject to candidate1 SECURITY_EXIT, and a retired symbol simply retains a separate invalidated-epoch state.",
+    "fresh_epoch_rearm": "The invalidated symbol is excluded from every vacancy admission and challenger displacement while its observed_trend.entry state remains continuously true. Starting only on a later close after D, first observe at least one close with observed_trend.entry false. After that false state has occurred, a still-later close with observed_trend.entry true and all normal candidate1 eligibility conditions clears the invalidation and may start a genuinely fresh campaign. The acute-shock close itself cannot count as the false observation. There is no waiting-day count, recovery percentage, score buffer or price-reclaim threshold.",
+    "fresh_symbols_unchanged": "A symbol without actual held or retired campaign state when the acute shock occurs is not invalidated by this mechanism. It remains eligible on the next close under the exact candidate1 entry rules. Thus the mechanism is campaign-specific, not a market-shock gate or cash cooldown.",
+    "state_interaction": "Candidate1 retirement/release, security exits and actual-inventory reconciliation remain authoritative. An invalidated symbol may leave ordinary retired state when candidate1 would release it, but remains excluded until the false-then-true entry edge establishes a new epoch. A blocked/partial sale cannot be treated as flat or rearmed.",
+    "execution": "Unchanged close decision / next-session execution, cash-only long-only, no leverage/shorting, sells before buys, prior-volume capacity, board lots, T+1, fees, slippage and price limits."
+  },
+  "structural_difference_from_old_reentry_and_risk_work": [
+    "Not funded_reentry/revocable_reentry: those candidates relaxed a flat-campaign readmission veto after consecutive health observations; this candidate adds no health counter and never accelerates reentry.",
+    "Not suspended_campaign/shock_reclaim: those restore or accelerate campaigns liquidated by portfolio/market risk. This candidate does not restore old units or create privileged rights and does not act on account/market risk exits.",
+    "Not confirmed_shock/risk patch: no market-wide exposure cap, cooldown, liquidation, breadth condition or defensive risk state is added; unrelated fresh opportunities remain immediately fundable.",
+    "Not non_recycled_campaign_capital: no proceeds are quarantined and no cash is tied to an old campaign; any eligible fresh symbol can use observed cash immediately.",
+    "Not generic reentry timing: no N-day delay, price percentage, confirmation count or neighboring parameter is introduced. The only state transition is the logical false-to-true edge of the already-existing observed trend admission after an authoritative acute security break."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "record_only_during_alpha_discovery": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure", "invalidations", "rearms"],
+    "promotion_rule": "Advance only if mean-log wealth and minimum wealth improve, at least one broad scope improves, and joint optical-leader removal remains above 1.0. Formal promotion later still requires economically material improvement and the complete unchanged production contract.",
+    "failure_rule": "If rejected, preserve it and do not search shock percentages, false-state counts, waiting days, price-recovery buffers, score margins or position counts."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No per-symbol/date/pool rule",
+    "No future label/high/return in decisions",
+    "No reference-strategy source reuse",
+    "No market-wide post-shock cash cooldown",
+    "No frozen data/cost/benchmark/acceptance manipulation",
+    "No neighboring parameter search or winner splicing"
+  ]
+}
