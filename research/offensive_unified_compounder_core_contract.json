@@ -1,0 +1,62 @@
+{
+  "family": "offensive_unified_compounder_core",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Replace the layered ownership wrappers with one offensive lifecycle engine that maximizes terminal wealth by distinguishing discovery campaigns from causally proven compounders while preserving active capital replacement.",
+  "control": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "failed_lifecycle_evidence": {
+    "positive_alpha_compounder": {"hosted_run": 35163068647, "wealth": [3.838854100330239, 9.339129149981588, 0.6450965531846466], "lesson": "score sign alone is too permissive"},
+    "profitable_campaign_compounder": {"hosted_run": 35163857131, "wealth": [5.0297451779392155, 11.123624983022218, 1.5724959196468975], "lesson": "actual price-above-basis alone is still too permissive"},
+    "single_stock_gap": "Major removal-universe winners retain far less wealth under the current strategy than under same-symbol buy-and-hold, proving that ownership lifecycle can destroy alpha even without cross-sectional competition."
+  },
+  "architecture": {
+    "implementation": "A standalone treatment owner. It may reuse immutable feature/signal builders and execution interfaces but must not call the campaign-peak, fresh-challenger, alpha-decay or trend-book owner decision methods when enabled.",
+    "capacity": "Use the existing Config.max_positions value; this experiment does not search position count.",
+    "discovery": "Use the existing causal feature score and existing observed-trend entry predicates as the initial opportunity signal. Discovery is not re-fit in this experiment.",
+    "actual_funding_state": "Admission alpha, weighted acquisition basis, closing peak and ownership state are created only from observed actual inventory after next-session execution. No target or forecast fill creates ownership state.",
+    "states": ["flat", "discovery", "proven_compounder", "retired_or_invalidated"],
+    "prove_compounder": "Latch proven_compounder only when an actually funded discovery campaign has both current completed-session close strictly above its actual weighted acquisition basis and current causal alpha score strictly above the causal score captured when the funded campaign was requested. No margin, day count or future label.",
+    "discovery_self_exit": "An unproven funded campaign keeps the existing generic slow-trend exit authority plus acute one-session loss <= -8% and missing/unready quote.",
+    "proven_self_exit": "A proven compounder ignores generic slow-trend exit. Acute one-session loss <= -8% and missing/unready quote remain authoritative. It otherwise yields capital through active opportunity displacement rather than a generic trend-clock exit.",
+    "active_displacement": "When the book is full and market trend allows offense, a held campaign whose current score has decayed below its funded admission alpha may be displaced by the highest eligible fresh challenger whose score exceeds that admission alpha. An incumbent at its actual funded closing peak cannot be displaced on that close. A reference-rearmed failed campaign may use real vacancy cash but cannot force an incumbent liquidation until it has either formed actual new inventory or observed a fresh trend false-to-true epoch.",
+    "acute_reentry": "An acute failed campaign preserves its funded admission alpha as a causal recovery hurdle. After actual flat settlement, it may rearm if its score later exceeds that failed reference, or after a genuine trend false-to-true epoch. The same close that first observes flat settlement cannot also grant a new campaign.",
+    "retirement": "A voluntary displaced incumbent remains retired until its old campaign has actually broken; blocked/partial exits remain zero-inventory obligations and cannot fund purchases from expected proceeds.",
+    "vacancy_funding": "Only observed cash funds actual vacancies; equal cash is split across chosen vacancies exactly as in the existing offensive research accounting. No sale proceeds are anticipated."
+  },
+  "always_preserved": [
+    "after-close information only and next-session execution",
+    "cash long only, no leverage or short",
+    "fees, slippage, ADV/liquidity, limit, T+1 and lot constraints in the unchanged engine",
+    "frozen data, universe, seed and statistics",
+    "causal feature construction and deterministic symbol tie-breaks"
+  ],
+  "structural_difference": {
+    "committed_offensive_core": "That failed family retained generic slow-trend security exits and did not have the later validated active displacement/rearm semantics. This core gives proven campaigns a distinct lifecycle while actively replacing decayed ownership.",
+    "profit_trend_shield": "That family was a shock/recovery wrapper around the parent exit state machine. This core is a standalone ownership state machine independent of market-shock shielding.",
+    "recent_compounder_wrappers": "Those changed one exit predicate on top of the layered champion. This core jointly owns funding provenance, compounder proof, self-exit, acute rearm and displacement in one state machine."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Treatment must strictly exceed the campaign-peak champion mean-log objective and must not reduce the campaign-peak minimum terminal wealth.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "average exposure"],
+    "if_promoted": "Immediately measure the identical source-bound treatment over all 896 frozen sessions before formal-matrix expansion."
+  },
+  "prohibitions": [
+    "no position-count search in this family",
+    "no EMA/lookback/confirmation-day search",
+    "no score multiplier or margin search",
+    "no pool/ticker-specific rules",
+    "no future returns, future highs or labels in decisions",
+    "no copying reference strategy source",
+    "no post-result edits to this preregistered family"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
