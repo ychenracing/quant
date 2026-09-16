@@ -22,6 +22,7 @@ from research.trend_book import (
     Parameters as ParentParameters,
     price_signals,
 )
+from research.quantity_obligation import preserve_trace, verify_trace
 
 
 @dataclass(frozen=True)
@@ -145,4 +146,4 @@ class Owner:
         }
 
 
-__all__ = ["Owner", "Parameters", "grid"]
+__all__ = ["Owner", "Parameters", "grid", "preserve_trace", "verify_trace"]
