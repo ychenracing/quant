@@ -79,6 +79,9 @@ class Owner:
             # Broad weakness gates only new commitments; it never liquidates an
             # intact funded security by itself.
             allowed[:] = False
+        # A security-specific break is authoritative for this close.  A symbol
+        # cannot be sold and immediately re-admitted by a still-true entry bit.
+        allowed &= ~broken
 
         candidate = allowed | (survivors & np.isfinite(score) & (score > 0))
         ranked = sorted(
