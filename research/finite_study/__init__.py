@@ -8,6 +8,7 @@ from dataclasses import asdict
 import importlib.util
 import importlib
 import json
+import math
 from pathlib import Path
 import sys
 import pandas as pd
@@ -31,7 +32,42 @@ from research.expectation_study import write_json, scopes
 _PAIRED = {
     "confirmed_shock", "profit_trend_shield", "shock_reclaim",
     "theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core",
+    "offensive_alpha_decay_displacement",
 }
+
+
+def alpha_discovery_screen(rows):
+    if {row["scope"] for row in rows} != {
+        "union", "chatgpt_5", "joint_optical_leader_removal"
+    }:
+        raise ValueError("alpha discovery requires the three fixed scopes")
+    control = [float(row["control"]["wealth"]) for row in rows]
+    treatment = [float(row["treatment"]["wealth"]) for row in rows]
+    if any(value <= 0 for value in control + treatment):
+        raise ValueError("terminal wealth must stay positive for log objective")
+    control_mean_log = math.fsum(math.log(value) for value in control) / len(control)
+    treatment_mean_log = math.fsum(math.log(value) for value in treatment) / len(treatment)
+    control_min = min(control)
+    treatment_min = min(treatment)
+    removal = next(row for row in rows if row["scope"] == "joint_optical_leader_removal")
+    broad_improvement = any(
+        row["treatment"]["wealth"] > row["control"]["wealth"] + 1e-12
+        for row in rows if row["scope"] in {"union", "joint_optical_leader_removal"}
+    )
+    mean_improvement = treatment_mean_log > control_mean_log + 1e-12
+    minimum_improvement = treatment_min > control_min + 1e-12
+    removal_positive = float(removal["treatment"]["wealth"]) > 1.0
+    return {
+        "advance": mean_improvement and minimum_improvement and broad_improvement and removal_positive,
+        "control_mean_log_wealth": control_mean_log,
+        "treatment_mean_log_wealth": treatment_mean_log,
+        "mean_log_wealth_improved": mean_improvement,
+        "control_min_wealth": control_min,
+        "treatment_min_wealth": treatment_min,
+        "minimum_wealth_improved": minimum_improvement,
+        "broad_scope_improvement": broad_improvement,
+        "leader_removal_positive_wealth": removal_positive,
+    }
 
 
 class Study(_base.Study):
@@ -60,7 +96,7 @@ class Study(_base.Study):
             "observed_admission_completion_contract.json", "decision_review.py",
             "ledger_attribution.py",
         ]
-        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core"}:
+        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core", "offensive_alpha_decay_displacement"}:
             names += [
                 "trend_book.py", "trend_book_contract.json", "coherent.py",
                 "coherent_contract.json", "observed_trend.py",
@@ -123,6 +159,10 @@ class Study(_base.Study):
             full_data_sha = contract["frozen_inputs"]["sha256"]
             selection_end = contract["measurement"]["window"]["end"]
             registration_commit = "df9b79a18d99cd5ab2ee31560eb29b3c4474137d"
+        elif self.family == "offensive_alpha_decay_displacement":
+            full_data_sha = contract["frozen_inputs"]["full_sha256"]
+            selection_end = contract["measurement"]["window"]["end"]
+            registration_commit = "d749786da34b4b26f5e1ecaec3b84e6d80718d6c"
         elif self.family in {"theme_campaign", "leader_anchor_slots"}:
             full_data_sha = contract["data_sha256"]
             selection_end = "2025-12-31"
@@ -218,6 +258,15 @@ class Study(_base.Study):
                             "security_exits": sum(r.get("action") == "SECURITY_EXIT" for r in state),
                             "vacancy_fills": sum(r.get("action") == "VACANCY_FILL" for r in state),
                         }
+                    elif self.family == "offensive_alpha_decay_displacement":
+                        state = [r for r in trace if r.get("kind") == "ALPHA_DECAY_DISPLACEMENT_EVENT"]
+                        row["offensive_alpha_decay_displacement"] = {
+                            "records": len(state),
+                            "security_exits": sum(r.get("action") == "SECURITY_EXIT" for r in state),
+                            "vacancy_fills": sum(r.get("action") == "VACANCY_FILL" for r in state),
+                            "displacements": sum(r.get("action") == "ALPHA_DECAY_DISPLACEMENT" for r in state),
+                            "retirement_releases": sum(r.get("action") == "RETIREMENT_RELEASE" for r in state),
+                        }
                     else:
                         state = [r for r in trace if r.get("kind") == "SHOCK_RECLAIM_PERMISSION"]
                         row["shock_reclaim"] = {"events": len(state), "released": sum(len(r["released"]) for r in state), "requested": sum(len(r["requested"]) for r in state)}
@@ -226,6 +275,8 @@ class Study(_base.Study):
             print(json.dumps(row), flush=True)
         if self.family == "confirmed_shock":
             decision = paired_screen(rows)
+        elif self.family == "offensive_alpha_decay_displacement":
+            decision = alpha_discovery_screen(rows)
         else:
             nonregression = all(
                 row["treatment"]["wealth"] >= row["control"]["wealth"] - 1e-12
@@ -301,4 +352,4 @@ class Study(_base.Study):
         })
 
 
-__all__ = ["Study"]
+__all__ = ["Study", "alpha_discovery_screen"]
