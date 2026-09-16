@@ -1,0 +1,38 @@
+{
+  "family": "offensive_challenger_fill_continuity",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. Terminal wealth and cross-scope alpha remain the discovery priority; MDD/orders/turnover remain diagnostics only during discovery.",
+  "parent": {"family": "offensive_settled_reference_rearm", "source_commit": "6026a7c87f403b73327b80880e5439396baaa754", "hosted_run": 35083444553},
+  "failed_predecessor": {"family": "offensive_failed_fill_displacement", "registration_commit": "aecf335cb0e10934742ea1b4e127f1b2ba33fe91", "record": "research/records/offensive_failed_fill_displacement_local_screen.json"},
+  "root_cause": "The failed-fill predecessor correctly waits for actual execution feedback, but it confirms only that some vacancy fill failed. It then allows a different current challenger to justify selling the incumbent. In union the failed request was sz300308 but the displacement reason became sh688120; in joint leader removal the failed request was sz300054 but the next-close reason became sh688498. Common-five is the contrasting positive case: the repeatedly failed requested challenger and the eventual displacement challenger were both sz300502, and that scope improved materially. A failed execution of one opportunity is not causal evidence that capital should be released for a different opportunity.",
+  "economic_hypothesis": "Bind the execution failure to the exact challenger identity. Let settled-reference-rearm make the normal vacancy-fill request. If the next trading session shows that exact requested challenger still has no actual inventory, observed cash remains below the unchanged 1%-NAV ordinary-order materiality, that same challenger is still the strongest ordinary eligible unheld candidate and still exceeds a decayed incumbent's admission reference, only then sell the incumbent. This preserves persistent opportunity evidence while rejecting path changes caused by a one-close challenger switch.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Reuse offensive_settled_reference_rearm semantics exactly for acute invalidation, settlement-aware reference rearm, trend-edge fallback, exits and ordinary candidate1 ownership.",
+    "attempt_identity": "When the unchanged base owner requests an ordinary vacancy fill with actual held count below max_positions and observed cash below 0.01 * observed NAV, record the exact requested challenger symbol(s) from the causal VACANCY_FILL trace. No candidate is inferred from future fills or returns.",
+    "next_session_confirmation": "On the next trading session only, confirmation exists if actual held count did not increase and the previously requested challenger remains unheld. Recompute the ordinary eligibility set using only the current close. The prior requested challenger must still be the deterministic highest-score eligible challenger on this close; otherwise discard the failed-fill evidence and do not displace.",
+    "identity_continuous_displacement": "If the same prior challenger remains highest eligible and its current score exceeds a currently held decayed incumbent's finite owned admission reference, request sale of only the weakest decayed incumbent using the same candidate1 deterministic tie-break. Never buy the challenger on the sale close and never spend forecast proceeds.",
+    "successful_or_changed_opportunity": "If the prior challenger was actually filled, became ineligible, ceased to be highest eligible, or no incumbent satisfies the campaign-reference decay predicate, clear the attempt and continue exact settled-reference-rearm behavior.",
+    "execution": "Unchanged cash-only long-only close decision / next-session execution, sells before buys, T+1, prior-volume capacity, board lots, the existing 1%-NAV ordinary-order materiality, fees, slippage and price limits."
+  },
+  "structural_difference": [
+    "Not old leadership_handover/opportunity_reassignment: those voluntarily sell from a full book based on scheduled or multi-close ranking conditions and explicitly do not bind the later fill to an execution-failed challenger. This candidate acts only after the engine actually attempted the exact challenger and the ledger showed no new holding.",
+    "Not generic confirmation-day tuning: there is no configurable N-day persistence. The single next-session observation is the settlement feedback required to know whether the prior order established inventory.",
+    "Not joint_funding/allocation: no sizing weights, risk authority, sale-proceeds forecasting or simultaneous funding geometry changes.",
+    "Not reentry/risk control: no market gate, cooldown, price recovery, shock breadth or exposure cap is added."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "selection_window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the same scopes",
+    "current_alpha_leader": {"family": "offensive_settled_reference_rearm", "wealth": {"union": 6.094402615566887, "chatgpt_5": 12.952420207759628, "joint_optical_leader_removal": 1.5710237463450074}, "mean_log": 1.6067936266079303, "minimum": 1.5710237463450074},
+    "promotion_rule": "Primary mean-log wealth must improve over the current alpha leader and minimum wealth must not deteriorate materially; only then run source-bound hosted full-history evaluation. MDD/orders/turnover do not reject discovery alpha.",
+    "failure_rule": "If rejected, preserve exact evidence and do not search persistence days, materiality percentages, score multipliers, review cadences, position counts or shock thresholds."
+  },
+  "frozen_inputs": {"names": 34, "sessions": 896, "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"},
+  "prohibitions": ["No per-symbol/date/pool rule", "No future information", "No same-close forecast sale proceeds", "No copied reference strategy source", "No neighboring parameter search or winner splicing"]
+}
