@@ -1,0 +1,14 @@
+[
+  {
+    "status": "PASS",
+    "policy": "control",
+    "cut": "2025-01-24",
+    "sessions": 501
+  },
+  {
+    "status": "PASS",
+    "policy": "treatment",
+    "cut": "2025-01-24",
+    "sessions": 501
+  }
+]

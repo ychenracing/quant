@@ -1,0 +1,5714 @@
+[
+  {
+    "index": 0,
+    "name": "chatgpt_1",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 1,
+    "name": "chatgpt_3",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 2,
+    "name": "chatgpt_5",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 3,
+    "name": "chatgpt_13",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986",
+      "sz002409",
+      "sh688072",
+      "sh688300",
+      "sz300054",
+      "sh688205",
+      "bj920045",
+      "sz300776",
+      "sh688535"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 4,
+    "name": "chatgpt_22",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986",
+      "sz002409",
+      "sh688072",
+      "sh688300",
+      "sz300054",
+      "sh688205",
+      "bj920045",
+      "sz300776",
+      "sh688535",
+      "sh688249",
+      "sh688347",
+      "sz300666",
+      "sh600206",
+      "sh688409",
+      "sh688361",
+      "sz300604",
+      "sh688120",
+      "sh688082"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 5,
+    "name": "trae_6",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sz002409",
+      "sh688072"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 6,
+    "name": "trae_8",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sz002409",
+      "sh688256",
+      "sz300054",
+      "sh688300"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 7,
+    "name": "trae_10",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sz002409",
+      "sh688072",
+      "sh688300",
+      "sz300054",
+      "sh688120",
+      "sh688361"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 8,
+    "name": "trae_15",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986",
+      "sh688256",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688361",
+      "sz300604",
+      "sz300054",
+      "sz002409",
+      "sz300666",
+      "sh688300"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 9,
+    "name": "trae_24",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688498",
+      "sz002281",
+      "sh601869",
+      "sh688008",
+      "sh603986",
+      "sz300223",
+      "sh688825",
+      "sh688256",
+      "sh688041",
+      "sz002371",
+      "sh688012",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688037",
+      "sh688361",
+      "sz300604",
+      "sh688019",
+      "sz300054",
+      "sz002409",
+      "sz300666",
+      "sh688268",
+      "sh688300"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 10,
+    "name": "workbuddy_a",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 11,
+    "name": "workbuddy_b",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 12,
+    "name": "workbuddy_c",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986",
+      "sh688347",
+      "sh688256",
+      "sh688072"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 13,
+    "name": "workbuddy_d",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986",
+      "sz002409",
+      "sh688072",
+      "sh688300",
+      "sz300054",
+      "sh688120",
+      "sh688361",
+      "sz300604",
+      "sh688347"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 14,
+    "name": "workbuddy_e",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688498",
+      "sz002281",
+      "sh601869",
+      "sh688008",
+      "sh603986",
+      "sz300223",
+      "sh688256",
+      "sh688041",
+      "sz002371",
+      "sh688012",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688037",
+      "sh688361",
+      "sz300604",
+      "sh688019",
+      "sz300054",
+      "sz002409",
+      "sz300666",
+      "sh688268",
+      "sh688300",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 15,
+    "name": "dumate_18",
+    "group": "original_pool",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688498",
+      "sh601869",
+      "sh688008",
+      "sh603986",
+      "sh688256",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688361",
+      "sz300604",
+      "sh688019",
+      "sz300054",
+      "sz002409",
+      "sh688300"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 16,
+    "name": "union",
+    "group": "original_pool",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold",
+      "equal_weight"
+    ]
+  },
+  {
+    "index": 17,
+    "name": "remove_optical_leaders",
+    "group": "joint_removal",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 18,
+    "name": "single_bj920045",
+    "group": "single",
+    "symbols": [
+      "bj920045"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 19,
+    "name": "remove_bj920045",
+    "group": "leave_one_out",
+    "symbols": [
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 20,
+    "name": "single_sh600206",
+    "group": "single",
+    "symbols": [
+      "sh600206"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 21,
+    "name": "remove_sh600206",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 22,
+    "name": "single_sh601869",
+    "group": "single",
+    "symbols": [
+      "sh601869"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 23,
+    "name": "remove_sh601869",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 24,
+    "name": "single_sh603986",
+    "group": "single",
+    "symbols": [
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 25,
+    "name": "remove_sh603986",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 26,
+    "name": "single_sh688008",
+    "group": "single",
+    "symbols": [
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 27,
+    "name": "remove_sh688008",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 28,
+    "name": "single_sh688012",
+    "group": "single",
+    "symbols": [
+      "sh688012"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 29,
+    "name": "remove_sh688012",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 30,
+    "name": "single_sh688019",
+    "group": "single",
+    "symbols": [
+      "sh688019"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 31,
+    "name": "remove_sh688019",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 32,
+    "name": "single_sh688037",
+    "group": "single",
+    "symbols": [
+      "sh688037"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 33,
+    "name": "remove_sh688037",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 34,
+    "name": "single_sh688041",
+    "group": "single",
+    "symbols": [
+      "sh688041"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 35,
+    "name": "remove_sh688041",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 36,
+    "name": "single_sh688072",
+    "group": "single",
+    "symbols": [
+      "sh688072"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 37,
+    "name": "remove_sh688072",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 38,
+    "name": "single_sh688082",
+    "group": "single",
+    "symbols": [
+      "sh688082"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 39,
+    "name": "remove_sh688082",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 40,
+    "name": "single_sh688120",
+    "group": "single",
+    "symbols": [
+      "sh688120"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 41,
+    "name": "remove_sh688120",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 42,
+    "name": "single_sh688205",
+    "group": "single",
+    "symbols": [
+      "sh688205"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 43,
+    "name": "remove_sh688205",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 44,
+    "name": "single_sh688249",
+    "group": "single",
+    "symbols": [
+      "sh688249"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 45,
+    "name": "remove_sh688249",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 46,
+    "name": "single_sh688256",
+    "group": "single",
+    "symbols": [
+      "sh688256"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 47,
+    "name": "remove_sh688256",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 48,
+    "name": "single_sh688268",
+    "group": "single",
+    "symbols": [
+      "sh688268"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 49,
+    "name": "remove_sh688268",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 50,
+    "name": "single_sh688300",
+    "group": "single",
+    "symbols": [
+      "sh688300"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 51,
+    "name": "remove_sh688300",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 52,
+    "name": "single_sh688347",
+    "group": "single",
+    "symbols": [
+      "sh688347"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 53,
+    "name": "remove_sh688347",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 54,
+    "name": "single_sh688361",
+    "group": "single",
+    "symbols": [
+      "sh688361"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 55,
+    "name": "remove_sh688361",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 56,
+    "name": "single_sh688409",
+    "group": "single",
+    "symbols": [
+      "sh688409"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 57,
+    "name": "remove_sh688409",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 58,
+    "name": "single_sh688498",
+    "group": "single",
+    "symbols": [
+      "sh688498"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 59,
+    "name": "remove_sh688498",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 60,
+    "name": "single_sh688535",
+    "group": "single",
+    "symbols": [
+      "sh688535"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 61,
+    "name": "remove_sh688535",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 62,
+    "name": "single_sh688825",
+    "group": "single",
+    "symbols": [
+      "sh688825"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 63,
+    "name": "remove_sh688825",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 64,
+    "name": "single_sz002281",
+    "group": "single",
+    "symbols": [
+      "sz002281"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 65,
+    "name": "remove_sz002281",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 66,
+    "name": "single_sz002371",
+    "group": "single",
+    "symbols": [
+      "sz002371"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 67,
+    "name": "remove_sz002371",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 68,
+    "name": "single_sz002409",
+    "group": "single",
+    "symbols": [
+      "sz002409"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 69,
+    "name": "remove_sz002409",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 70,
+    "name": "single_sz300054",
+    "group": "single",
+    "symbols": [
+      "sz300054"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 71,
+    "name": "remove_sz300054",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 72,
+    "name": "single_sz300223",
+    "group": "single",
+    "symbols": [
+      "sz300223"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 73,
+    "name": "remove_sz300223",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 74,
+    "name": "single_sz300308",
+    "group": "single",
+    "symbols": [
+      "sz300308"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 75,
+    "name": "remove_sz300308",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 76,
+    "name": "single_sz300394",
+    "group": "single",
+    "symbols": [
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 77,
+    "name": "remove_sz300394",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 78,
+    "name": "single_sz300502",
+    "group": "single",
+    "symbols": [
+      "sz300502"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 79,
+    "name": "remove_sz300502",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 80,
+    "name": "single_sz300604",
+    "group": "single",
+    "symbols": [
+      "sz300604"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 81,
+    "name": "remove_sz300604",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 82,
+    "name": "single_sz300666",
+    "group": "single",
+    "symbols": [
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 83,
+    "name": "remove_sz300666",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 84,
+    "name": "single_sz300776",
+    "group": "single",
+    "symbols": [
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 85,
+    "name": "remove_sz300776",
+    "group": "leave_one_out",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 86,
+    "name": "remove_sector_0",
+    "group": "sector_removal",
+    "symbols": [
+      "sh600206",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688535",
+      "sh688825",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 87,
+    "name": "remove_sector_1",
+    "group": "sector_removal",
+    "symbols": [
+      "bj920045",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 88,
+    "name": "remove_sector_2",
+    "group": "sector_removal",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688019",
+      "sh688041",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 89,
+    "name": "remove_sector_3",
+    "group": "sector_removal",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 90,
+    "name": "remove_sector_4",
+    "group": "sector_removal",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 91,
+    "name": "remove_sector_5",
+    "group": "sector_removal",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 92,
+    "name": "remove_sector_6",
+    "group": "sector_removal",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 93,
+    "name": "sample_2_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh601869"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 94,
+    "name": "sample_2_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh603986",
+      "sz300308"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 95,
+    "name": "sample_2_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh688825"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 96,
+    "name": "sample_2_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688041",
+      "sh688268"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 97,
+    "name": "sample_2_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh603986",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 98,
+    "name": "sample_2_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688300",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 99,
+    "name": "sample_3_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688012",
+      "sh688498",
+      "sz300604"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 100,
+    "name": "sample_3_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688205",
+      "sh688535",
+      "sz002409"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 101,
+    "name": "sample_3_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688008",
+      "sz300308",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 102,
+    "name": "sample_3_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh603986",
+      "sh688498",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 103,
+    "name": "sample_3_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "sz002281",
+      "sz300502",
+      "sz300604"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 104,
+    "name": "sample_3_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688008",
+      "sh688072",
+      "sh688825"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 105,
+    "name": "sample_5_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh688008",
+      "sh688041",
+      "sz002281",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 106,
+    "name": "sample_5_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh688012",
+      "sh688347",
+      "sh688825",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 107,
+    "name": "sample_5_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh603986",
+      "sh688072",
+      "sh688256",
+      "sz002371",
+      "sz300604"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 108,
+    "name": "sample_5_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh603986",
+      "sh688008",
+      "sh688268",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 109,
+    "name": "sample_5_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688072",
+      "sh688249",
+      "sh688498",
+      "sh688825",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 110,
+    "name": "sample_5_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh600206",
+      "sh688008",
+      "sh688205",
+      "sz300223",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 111,
+    "name": "sample_8_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688012",
+      "sh688037",
+      "sh688072",
+      "sh688082",
+      "sh688361",
+      "sh688409",
+      "sz002281",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 112,
+    "name": "sample_8_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688120",
+      "sh688256",
+      "sz002371",
+      "sz300308"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 113,
+    "name": "sample_8_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh603986",
+      "sh688008",
+      "sh688019",
+      "sh688300",
+      "sh688535",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 114,
+    "name": "sample_8_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688008",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sz002281",
+      "sz002409",
+      "sz300054",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 115,
+    "name": "sample_8_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688268",
+      "sh688825",
+      "sz002371",
+      "sz300502"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 116,
+    "name": "sample_8_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh601869",
+      "sh603986",
+      "sh688019",
+      "sh688205",
+      "sh688347",
+      "sh688409",
+      "sz300054",
+      "sz300308"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 117,
+    "name": "sample_13_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh603986",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688535",
+      "sz300502",
+      "sz300604"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 118,
+    "name": "sample_13_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688008",
+      "sh688012",
+      "sh688205",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688498",
+      "sh688535",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 119,
+    "name": "sample_13_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh601869",
+      "sh688008",
+      "sh688019",
+      "sh688037",
+      "sh688347",
+      "sh688361",
+      "sh688825",
+      "sz002371",
+      "sz300308",
+      "sz300394",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 120,
+    "name": "sample_13_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh603986",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688205",
+      "sh688300",
+      "sh688361",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz300308",
+      "sz300604"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 121,
+    "name": "sample_13_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh688008",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688498",
+      "sz002371",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 122,
+    "name": "sample_13_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh601869",
+      "sh688012",
+      "sh688037",
+      "sh688120",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 123,
+    "name": "sample_22_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh603986",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688082",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz300054",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 124,
+    "name": "sample_22_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sz002281",
+      "sz300054",
+      "sz300223",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 125,
+    "name": "sample_22_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688041",
+      "sh688072",
+      "sh688120",
+      "sh688256",
+      "sh688347",
+      "sh688498",
+      "sh688535",
+      "sz002371",
+      "sz002409",
+      "sz300223",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 126,
+    "name": "sample_22_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688205",
+      "sh688300",
+      "sh688347",
+      "sh688498",
+      "sz002281",
+      "sz002371",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 127,
+    "name": "sample_22_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688037",
+      "sh688072",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688268",
+      "sh688300",
+      "sh688409",
+      "sh688498",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 128,
+    "name": "sample_22_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh600206",
+      "sh603986",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002371",
+      "sz002409",
+      "sz300308",
+      "sz300394",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 129,
+    "name": "sample_26_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688205",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002371",
+      "sz002409",
+      "sz300223",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 130,
+    "name": "sample_26_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 131,
+    "name": "sample_26_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688041",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300394",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 132,
+    "name": "sample_26_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 133,
+    "name": "sample_26_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688037",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 134,
+    "name": "sample_26_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300308",
+      "sz300394",
+      "sz300502"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 135,
+    "name": "sample_33_0",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 136,
+    "name": "sample_33_1",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 137,
+    "name": "sample_33_2",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 138,
+    "name": "sample_33_3",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 139,
+    "name": "sample_33_4",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 140,
+    "name": "sample_33_5",
+    "group": "sampled_subset",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 141,
+    "name": "common_exhaustive_1_0",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 142,
+    "name": "common_exhaustive_1_1",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 143,
+    "name": "common_exhaustive_1_2",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 144,
+    "name": "common_exhaustive_1_3",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 145,
+    "name": "common_exhaustive_1_4",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 146,
+    "name": "common_exhaustive_2_0",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 147,
+    "name": "common_exhaustive_2_1",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 148,
+    "name": "common_exhaustive_2_2",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 149,
+    "name": "common_exhaustive_2_3",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 150,
+    "name": "common_exhaustive_2_4",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 151,
+    "name": "common_exhaustive_2_5",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502",
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 152,
+    "name": "common_exhaustive_2_6",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 153,
+    "name": "common_exhaustive_2_7",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300394",
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 154,
+    "name": "common_exhaustive_2_8",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300394",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 155,
+    "name": "common_exhaustive_2_9",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 156,
+    "name": "common_exhaustive_3_0",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 157,
+    "name": "common_exhaustive_3_1",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 158,
+    "name": "common_exhaustive_3_2",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 159,
+    "name": "common_exhaustive_3_3",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300394",
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 160,
+    "name": "common_exhaustive_3_4",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300394",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 161,
+    "name": "common_exhaustive_3_5",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 162,
+    "name": "common_exhaustive_3_6",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502",
+      "sz300394",
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 163,
+    "name": "common_exhaustive_3_7",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502",
+      "sz300394",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 164,
+    "name": "common_exhaustive_3_8",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 165,
+    "name": "common_exhaustive_3_9",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300394",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 166,
+    "name": "common_exhaustive_4_0",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 167,
+    "name": "common_exhaustive_4_1",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 168,
+    "name": "common_exhaustive_4_2",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 169,
+    "name": "common_exhaustive_4_3",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300394",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 170,
+    "name": "common_exhaustive_4_4",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 171,
+    "name": "common_exhaustive_5_0",
+    "group": "common_five_exhaustive",
+    "symbols": [
+      "sz300308",
+      "sz300502",
+      "sz300394",
+      "sh688008",
+      "sh603986"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 172,
+    "name": "cardinality_4",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh603986",
+      "sh688082",
+      "sh688268",
+      "sz300223"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 173,
+    "name": "cardinality_6",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh603986",
+      "sh688120",
+      "sh688300",
+      "sz300223",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 174,
+    "name": "cardinality_7",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh688012",
+      "sh688300",
+      "sh688498",
+      "sz002409",
+      "sz300054",
+      "sz300394",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 175,
+    "name": "cardinality_9",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh603986",
+      "sh688205",
+      "sh688256",
+      "sh688347",
+      "sh688361",
+      "sh688825",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 176,
+    "name": "cardinality_10",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh688008",
+      "sh688037",
+      "sh688300",
+      "sh688361",
+      "sh688498",
+      "sh688825",
+      "sz002371",
+      "sz300308",
+      "sz300502",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 177,
+    "name": "cardinality_11",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688041",
+      "sh688082",
+      "sh688268",
+      "sh688361",
+      "sh688498",
+      "sz002371",
+      "sz300223",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 178,
+    "name": "cardinality_12",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh600206",
+      "sh603986",
+      "sh688012",
+      "sh688019",
+      "sh688205",
+      "sh688249",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sz002371",
+      "sz300223",
+      "sz300502"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 179,
+    "name": "cardinality_14",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh600206",
+      "sh603986",
+      "sh688008",
+      "sh688041",
+      "sh688256",
+      "sh688268",
+      "sh688409",
+      "sh688498",
+      "sh688825",
+      "sz002281",
+      "sz300223",
+      "sz300308",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 180,
+    "name": "cardinality_15",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh600206",
+      "sh603986",
+      "sh688008",
+      "sh688019",
+      "sh688037",
+      "sh688082",
+      "sh688249",
+      "sh688361",
+      "sh688825",
+      "sz002371",
+      "sz300223",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 181,
+    "name": "cardinality_16",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh600206",
+      "sh603986",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688120",
+      "sh688205",
+      "sh688300",
+      "sh688347",
+      "sh688409",
+      "sh688498",
+      "sz002409",
+      "sz300054",
+      "sz300394",
+      "sz300502",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 182,
+    "name": "cardinality_17",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688019",
+      "sh688082",
+      "sh688205",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688535",
+      "sh688825",
+      "sz002371",
+      "sz300308",
+      "sz300502",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 183,
+    "name": "cardinality_18",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688082",
+      "sh688249",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002371",
+      "sz300394",
+      "sz300502",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 184,
+    "name": "cardinality_19",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688041",
+      "sh688082",
+      "sh688120",
+      "sh688256",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sh688535",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 185,
+    "name": "cardinality_20",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688041",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688300",
+      "sh688361",
+      "sh688498",
+      "sh688535",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300308",
+      "sz300394",
+      "sz300604"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 186,
+    "name": "cardinality_21",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh601869",
+      "sh603986",
+      "sh688012",
+      "sh688037",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688249",
+      "sh688256",
+      "sh688300",
+      "sh688347",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002409",
+      "sz300223",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 187,
+    "name": "cardinality_23",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688256",
+      "sh688268",
+      "sh688347",
+      "sh688361",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300308",
+      "sz300394",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 188,
+    "name": "cardinality_24",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh688008",
+      "sh688012",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688205",
+      "sh688256",
+      "sh688268",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 189,
+    "name": "cardinality_25",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300502",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 190,
+    "name": "cardinality_27",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "sh601869",
+      "sh603986",
+      "sh688012",
+      "sh688019",
+      "sh688072",
+      "sh688082",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 191,
+    "name": "cardinality_28",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 192,
+    "name": "cardinality_29",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 193,
+    "name": "cardinality_30",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688037",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 194,
+    "name": "cardinality_31",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 195,
+    "name": "cardinality_32",
+    "group": "cardinality_coverage",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688268",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 196,
+    "name": "double_cost",
+    "group": "stress",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 2.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 197,
+    "name": "triple_cost",
+    "group": "stress",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 3.0,
+    "delay": 1,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  },
+  {
+    "index": 198,
+    "name": "delayed_open",
+    "group": "stress",
+    "symbols": [
+      "bj920045",
+      "sh600206",
+      "sh601869",
+      "sh603986",
+      "sh688008",
+      "sh688012",
+      "sh688019",
+      "sh688037",
+      "sh688041",
+      "sh688072",
+      "sh688082",
+      "sh688120",
+      "sh688205",
+      "sh688249",
+      "sh688256",
+      "sh688268",
+      "sh688300",
+      "sh688347",
+      "sh688361",
+      "sh688409",
+      "sh688498",
+      "sh688535",
+      "sh688825",
+      "sz002281",
+      "sz002371",
+      "sz002409",
+      "sz300054",
+      "sz300223",
+      "sz300308",
+      "sz300394",
+      "sz300502",
+      "sz300604",
+      "sz300666",
+      "sz300776"
+    ],
+    "cost_multiplier": 1.0,
+    "delay": 2,
+    "policies": [
+      "control",
+      "treatment",
+      "buy_hold"
+    ]
+  }
+]
