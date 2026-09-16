@@ -30,7 +30,7 @@ from research.expectation_study import write_json, scopes
 
 _PAIRED = {
     "confirmed_shock", "profit_trend_shield", "shock_reclaim",
-    "theme_campaign", "leader_anchor_slots",
+    "theme_campaign", "leader_anchor_slots", "offensive_core",
 }
 
 
@@ -60,7 +60,7 @@ class Study(_base.Study):
             "observed_admission_completion_contract.json", "decision_review.py",
             "ledger_attribution.py",
         ]
-        if self.family in {"theme_campaign", "leader_anchor_slots"}:
+        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core"}:
             names += [
                 "trend_book.py", "trend_book_contract.json", "coherent.py",
                 "coherent_contract.json", "observed_trend.py",
@@ -115,6 +115,10 @@ class Study(_base.Study):
             full_data_sha = contract["data"]["full_sha256"]
             selection_end = contract["data"]["selection_end"]
             registration_commit = "1ce819815f7c6a5cd6e9f00e64cf972d183e1888"
+        elif self.family == "offensive_core":
+            full_data_sha = contract["frozen_inputs"]["sha256"]
+            selection_end = contract["measurement"]["window"]["end"]
+            registration_commit = "d8f34acb66313023a1166fa6e0f283bf4580e7d0"
         elif self.family in {"theme_campaign", "leader_anchor_slots"}:
             full_data_sha = contract["data_sha256"]
             selection_end = "2025-12-31"
@@ -191,6 +195,17 @@ class Study(_base.Study):
                                 r.get("mode") == "PARENT_FALLBACK" for r in state
                             ),
                             "suppressed": sum(len(r.get("suppressed", [])) for r in state),
+                        }
+                    elif self.family == "offensive_core":
+                        state = [r for r in trace if r.get("kind") == "OFFENSIVE_CORE_REVIEW"]
+                        row["offensive_core"] = {
+                            "records": len(state),
+                            "full_exposure_selections": sum(
+                                r.get("action") == "FULL_EXPOSURE_SELECTION" for r in state
+                            ),
+                            "cash_no_eligible": sum(
+                                r.get("action") == "CASH_NO_ELIGIBLE_NAME" for r in state
+                            ),
                         }
                     else:
                         state = [r for r in trace if r.get("kind") == "SHOCK_RECLAIM_PERMISSION"]
