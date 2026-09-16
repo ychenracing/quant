@@ -1,0 +1,75 @@
+{
+  "family": "offensive_positive_alpha_compounder",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Maximize cross-scope terminal wealth by allowing already-funded AI trend campaigns to compound through generic slow-trend wobble while retaining acute failure and active opportunity displacement.",
+  "parent": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {
+      "union": 6.343988713554001,
+      "common_five": 13.923911154976224,
+      "joint_optical_leader_removal": 1.5949459430753048
+    },
+    "full_896": {
+      "union": 10.76844874803993,
+      "common_five": 27.48320735083209,
+      "joint_optical_leader_removal": 2.4584839
+    }
+  },
+  "evidence": {
+    "formal_run": 35122063992,
+    "single_stock_full_wealth_examples": {
+      "sh688256": {"strategy": 7.024558, "buy_hold": 27.886722},
+      "sh688498": {"strategy": 5.299220, "buy_hold": 27.187894},
+      "sh601869": {"strategy": 6.352099, "buy_hold": 14.546626},
+      "sz002281": {"strategy": 2.368723, "buy_hold": 11.348767}
+    },
+    "account_diagnosis": "In the joint optical-leader-removal account, most completed exits of these major winners are SECURITY_EXIT decisions rather than opportunity displacements. The gap therefore exists even without cross-sectional competition and is an ownership-lifecycle problem.",
+    "structural_gap": "The parent base currently defines broken = slow trend.exit OR ret1 <= -8% OR quote not ready. This gives a generic 60-session trend edge the same liquidation authority as an acute security failure."
+  },
+  "treatment": {
+    "funded_campaign_exit": "For an actually held symbol, a generic slow trend.exit is forgiven when the current causal alpha score remains strictly positive. The campaign becomes self-failed when the same already-observed causal score is <= 0.",
+    "always_authoritative": [
+      "single-session return <= -8%",
+      "missing/unready quote",
+      "existing blocked/partial sale obligations",
+      "campaign-peak displacement authority",
+      "fresh-challenger provenance authority",
+      "alpha-decay challenger displacement",
+      "actual inventory reconciliation and next-session execution"
+    ],
+    "unchanged": [
+      "entry eligibility",
+      "cross-sectional score formula",
+      "two-position capacity",
+      "cash-only funding",
+      "fees/slippage/liquidity/lot/T+1/limit execution",
+      "market trend required for new vacancy fills",
+      "retirement and readmission semantics except insofar as the current held campaign is no longer declared broken solely by slow trend.exit"
+    ]
+  },
+  "structural_difference_from_old_failures": {
+    "committed_offensive_core": "That family still used the same slow trend.exit as a forced security break and had no active incumbent displacement. This treatment does the opposite combination: suppresses slow-trend liquidation for positive-alpha funded campaigns while retaining the later validated active replacement stack.",
+    "profit_trend_shield": "That family only shielded profitable holdings during market-shock/recovery states and retained the parent security exit semantics. This treatment is security-campaign lifecycle logic independent of market shock and explicitly changes slow trend.exit authority.",
+    "basis_failure_exit": "That family added an extra loss/EMA exit while explicitly preserving all parent security exits. This treatment removes one parent exit authority and substitutes existing causal alpha self-failure."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "control": "Exact source-bound offensive_campaign_peak_authority enabled policy",
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth across the same scopes",
+    "promotion": "Treatment must exceed the current campaign-peak mean-log objective without reducing the current minimum wealth; MDD/orders/turnover are diagnostics only during alpha discovery.",
+    "if_promoted": "Run the same source-bound treatment on the full 896-session frozen history before any further structural composition."
+  },
+  "prohibitions": [
+    "no score threshold search around zero",
+    "no EMA/lookback/confirmation search",
+    "no ticker/pool-specific behavior",
+    "no future return or future high in decisions",
+    "no change to frozen data or statistics",
+    "no copying reference strategy source"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
