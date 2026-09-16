@@ -1,0 +1,54 @@
+{
+  "status": "SOURCE_AND_DATA_BOUND_NATIVE_COMMON_FIVE_COMPARISON_NOT_EQUIVALENT_EXECUTION",
+  "quant_candidate": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "pool": "chatgpt_5",
+    "window": ["2023-01-03", "2026-09-11"],
+    "sessions": 896,
+    "initial_cash": 2000000.0,
+    "terminal_wealth": 27.483207,
+    "max_drawdown": 0.411981075823155
+  },
+  "reference_identity": {
+    "pinned_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+    "artifact_source_commit": "c3d838ce6349f8bdf0ec2988836212563aaa10bc",
+    "actions_run": 34135770719,
+    "engineering_artifact": 10023909983,
+    "engineering_artifact_zip_sha256": "514c79ece6f74d56e0a461376d52a490103d58883fbdef233fdbb372a6552064",
+    "source_zip_sha256": "dabe267e9d4800691d3121ec133c668e1797ee81dba20b811a838cbe5c52f63f",
+    "source_tree": "e8a082473e7006b52a5e74cece03de688dfc2ef4",
+    "four_reference_directories_unchanged_between_artifact_and_pinned_commit": true,
+    "private_source_committed_to_quant": false
+  },
+  "input_identity": {
+    "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "catalog_sha256": "ff6845fbf1b744f411251da310dc6e085ffec6f44062d2761161914d8feb8d98",
+    "native_harness_git_blob": "c0f43db003d60e9e781c9be84dd9260aec58a92b",
+    "native_harness_sha256": "32f310eac06c0c7c684c409d29028ea18312c4bd1400c132f2a50dd9b6ecb64e",
+    "indices": {
+      "sh000300.csv": "33dbdce932e935b7ea2978945c745a7b4a2f4eb36fd8f0e8c1bf6efbd1bf965b",
+      "sh000682.csv": "c1a3ab44e20363944e4010d4e6e606d9f41c4849ff77078c5c6bf9d798bd93e5",
+      "sz399808.csv": "f40752b86c66fb1170a14dc8167ffccd39a2bb8cba5b1a5e3492e79cfa31e5e4"
+    },
+    "universe": ["sz300308", "sz300502", "sz300394", "sh688008", "sh603986"]
+  },
+  "native_results": {
+    "chatgpt": {"wealth": 1.778233112870138, "max_drawdown": 0.298051526553913, "orders_native_rows": 178, "summary_sha256": "b4002fd7145b3974aa1a0f4aaed1de68be6b2f1ad9adb76ef5de90ad2734a08d"},
+    "trae": {"wealth": 10.674861915266794, "max_drawdown": 0.3310775282947074, "orders_native_rows": 800, "summary_sha256": "e03ca16b7afe9964bc6e90ac5d0d074ab56c2861abe639fbdc3d5025e9161e37"},
+    "dumate": {"wealth": 1.465009570726167, "max_drawdown": 0.20686106331849607, "orders_native_rows": 237, "summary_sha256": "68f384087ca87d5e4e15c0da1429105eedeed699683bdb2e2fdab9df1986c9d2"},
+    "workbuddy": {"wealth": 20.221072996623576, "max_drawdown": 0.25331952059019447, "orders_native_rows": 107, "summary_sha256": "dab99910fb07b74ae4aba25681cef04ba50d73339a4298c175d7490acc55b58a"}
+  },
+  "wealth_comparison": {
+    "quant_exceeds_all_four_native_common_five_terminal_wealth": true,
+    "quant_divided_by_best_native_reference": 1.3591389063,
+    "best_native_reference": "workbuddy"
+  },
+  "limitations": [
+    "Each reference retains its native policy, execution and fee semantics; this comparison is explicitly NOT_EQUIVALENT_EXECUTION.",
+    "This establishes terminal-wealth superiority over all four native references on the fixed common-five pool under the same data window and initial capital, not final normalized/equivalent-execution superiority.",
+    "Private reference source remained isolated outside quant; only hashes and derived results are recorded here."
+  ],
+  "economic_acceptance": "PARTIAL_REFERENCE_EVIDENCE_NOT_FINAL_ACCEPTANCE"
+}
