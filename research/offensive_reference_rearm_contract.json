@@ -1,0 +1,67 @@
+{
+  "family": "offensive_reference_rearm",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. This candidate addresses the source-bound 2026 failure of offensive_campaign_epoch_reset without changing frozen inputs, costs, execution, or alpha-discovery objectives.",
+  "evidence": {
+    "base_alpha_leader": {
+      "family": "offensive_alpha_decay_displacement",
+      "source_commit": "407756076b1d116f636d8796e4b66dba0934842c",
+      "hosted_run": 35068327902,
+      "full_wealth": {"union": 7.38109736573055, "chatgpt_5": 19.44495273585489, "joint_optical_leader_removal": 2.9668776471302727}
+    },
+    "epoch_reset": {
+      "family": "offensive_campaign_epoch_reset",
+      "source_commit": "77454d52ab2ec78705883f78c59b285851b82cd5",
+      "hosted_run": 35079303596,
+      "selection_status": "PAIRED_SCREEN_ADVANCE",
+      "selection_wealth": {"union": 5.613962397500369, "chatgpt_5": 10.69600216735505, "joint_optical_leader_removal": 1.225231707143041},
+      "full_wealth": {"union": 7.886330439830814, "chatgpt_5": 17.67927555490636, "joint_optical_leader_removal": 1.2879119993839903}
+    },
+    "failure_attribution": "The strict trend-entry false-then-true rearm repairs immediate same-campaign acute-shock whipsaw in 2023-2025 but can retain invalidation for months while the same symbol's causal alpha becomes materially stronger. Example: joint-leader-removal invalidated sh688498 on 2025-09-04 and did not rearm until 2026-07-21, missing candidate1 campaigns that realized about CNY 1.78m before July 2026. This is a campaign-quality/rearm problem, not support for a shorter fixed cooldown."
+  },
+  "economic_hypothesis": "An acute security break should preserve the failed campaign's original causal admission-quality reference instead of either forgetting it immediately or requiring the long trend state to cycle False then True. A same-symbol opportunity is economically new when its currently observed causal alpha score has recovered above the frozen reference that justified the failed campaign. This blocks weak immediate reentry while allowing genuinely stronger continuation without a timing parameter.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Reuse offensive_alpha_decay_displacement ownership, displacement, actual-cash vacancy funding, security exits, retirement, execution, and unchanged causal score.",
+    "acute_reference_capture": "When the existing p.ret1 <= -0.08 security break hits a held or retired campaign, capture the campaign's finite owned admission alpha reference before candidate1 inventory reconciliation can clear it. Mark only that symbol/campaign invalidated. No extra liquidation is introduced.",
+    "reference_rearm": "While invalidated and flat, exclude the same symbol from admission and challenger roles unless its current finite causal score is strictly greater than the captured failed-campaign reference and all ordinary candidate1 eligibility predicates are simultaneously true. On the first such close after the break, clear invalidation and permit normal candidate1 admission/displacement. The acute-break close itself cannot rearm.",
+    "trend_edge_fallback": "If the existing observed_trend.entry first becomes false on a later close and then becomes true on a still-later close, clear the stale reference and permit normal candidate1 admission exactly as a genuinely new trend epoch. This preserves the logical epoch-reset path without forcing every strong continuing leader to wait for it.",
+    "fresh_symbols_unchanged": "Symbols without an existing held/retired campaign when an acute print occurs are never invalidated. Observed cash is never quarantined and remains available to unrelated fresh opportunities.",
+    "execution": "Unchanged close decision / next-session execution, cash-only long-only, no leverage/shorting, sells before buys, prior-volume capacity, board lots, T+1, fees, slippage and price limits."
+  },
+  "structural_difference_from_closed_reentry_families": [
+    "No fixed cooldown, confirmation count, recovery percentage, price reclaim, EMA/lookback, or neighboring search.",
+    "Not funded_reentry/revocable_reentry: this does not relax a readmission veto using health observations; it preserves the failed campaign's own causal admission alpha as the hurdle for proving a stronger opportunity.",
+    "Not shock_reclaim/suspended_campaign: no old holdings or privileged capital rights are restored after market/account risk exits.",
+    "Not non_recycled_campaign_capital: cash is not quarantined or tied to the old name.",
+    "Not campaign-quality threshold tuning: the hurdle is each campaign's already-existing frozen admission score, not a new learned or searched numeric threshold."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "selection_window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "promotion_rule": "Advance only if mean-log wealth and minimum wealth improve versus exact trend_book control, at least one broad scope improves, and joint optical-leader removal remains above 1.0. If advanced, immediately measure the same source on the complete 896-session history and fixed 2026 windows.",
+    "record_only_alpha_phase": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure", "invalidations", "reference_rearms", "trend_edge_rearms"],
+    "failure_rule": "If rejected, preserve exact evidence and do not search score multipliers, waiting days, shock percentages, trend spans, price buffers, position counts or pool-specific variants."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No future labels, final returns, future highs or named-symbol/date rules",
+    "No per-pool splice",
+    "No reference-strategy source reuse",
+    "No market-wide cooldown or cash quarantine",
+    "No frozen data/cost/acceptance manipulation",
+    "No neighboring parameter search"
+  ]
+}
