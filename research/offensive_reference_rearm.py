@@ -1,8 +1,8 @@
 """Rearm an acutely failed campaign only after causal alpha recovers its old quality.
 
 The owner keeps the failed campaign's already-observed admission score as a
-hurdle.  It does not add a cooldown, price-recovery threshold, or market-wide
-cash gate.  A genuinely new trend epoch remains a parameter-free fallback.
+hurdle. It does not add a cooldown, price-recovery threshold, or market-wide
+cash gate. A genuinely new trend epoch remains a parameter-free fallback.
 """
 from __future__ import annotations
 
@@ -87,12 +87,20 @@ class Owner:
         score = self.base.features.score[i]
 
         # Capture the current campaign's causal admission quality before the base
-        # owner's inventory reconciliation can clear it after a filled sale.
+        # owner's inventory reconciliation can clear it after a filled sale. On
+        # the first close after an entry fill the same reference can still be in
+        # pending_alpha_reference, so actual held inventory may consume it here.
         acute = p.ret1[i] <= -0.08
         existing = held | self.base.retired
         newly_invalidated = acute & existing & ~self.invalidated
         if np.any(newly_invalidated):
-            references = self.base.owned_alpha_reference
+            references = self.base.owned_alpha_reference.copy()
+            pending_held = (
+                held
+                & ~np.isfinite(references)
+                & np.isfinite(self.base.pending_alpha_reference)
+            )
+            references[pending_held] = self.base.pending_alpha_reference[pending_held]
             finite = newly_invalidated & np.isfinite(references)
             self.failed_reference[finite] = references[finite]
             self.invalidated[newly_invalidated] = True
@@ -127,8 +135,6 @@ class Owner:
         )
         self._clear(observation, "REFERENCE_ALPHA_REARM", reference_rearm)
 
-        # A real trend-state reset is still a valid new epoch.  Exclude names
-        # already cleared above so one close cannot create two rearm events.
         edge_rearm = (
             self.invalidated
             & ~held
@@ -139,7 +145,7 @@ class Owner:
         self._clear(observation, "TREND_EDGE_REARM", edge_rearm)
 
         # If an acute sale was blocked or only partially filled, remain an exit
-        # owner.  No phantom flat state or sale proceeds may fund a new entry.
+        # owner. No phantom flat state or sale proceeds may fund a new entry.
         retry = self.invalidated & held & (i > self.invalidated_since)
         if np.any(retry):
             if i <= self.base.last_session:
