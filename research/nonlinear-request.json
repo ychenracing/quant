@@ -1,16 +1,15 @@
 {
-  "family": "offensive_core",
+  "family": "committed_offensive_core",
   "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "d8f34acb66313023a1166fa6e0f283bf4580e7d0",
-  "request": "Execute the single preregistered offensive-core control/treatment pair through 2025-12-31 through the existing paired-study overlay. Control is the exact two-position trend_book owner. Treatment keeps the same causal entry/score and security-specific break logic while removing portfolio/account market de-risking, recovery waits, volatility targeting and sector budgeting. Preserve unchanged cash-only long-only next-session execution, liquidity, board lots, fees and slippage. Reject without neighboring search if any core scope wealth declines; only a fixed three-scope alpha pass may advance to the original full acceptance matrix.",
+  "registration_commit": "df9b79a18d99cd5ab2ee31560eb29b3c4474137d",
+  "request": "Execute the single preregistered committed-offensive control/treatment pair through 2025-12-31 through the existing paired-study overlay. Control is the exact two-position trend_book owner. Treatment keeps intact actual holdings until their own security break, consults ranking only for real empty slots, never anticipates sale proceeds, uses only observed cash for vacancy fills, and removes portfolio/account market de-risking, recovery waits, volatility targeting, sector budgeting and periodic ranking displacement. Preserve unchanged cash-only long-only next-session execution, prior-volume capacity, board lots, fees and slippage. Reject without neighboring search if any core scope wealth declines; only a fixed three-scope alpha pass may advance to the original full acceptance matrix.",
   "source_sha256": {
-    "research/offensive_core.py": "acec5cb92c19886605e30a1c943506cf2c5f50a8f3ece65d72b2a862fe063626",
-    "research/test_offensive_core.py": "0bb7c863ba62af876bd792afab94f2fcd04349937f2392a3672a4134fe95cddb",
-    "research/offensive_core_contract.json": "d4207ed7794a19d3fb4413e5547ef2330c7d1e517b939599b2ef0f6262238bde",
-    "research/offensive_core_screen.py": "3ae6e357bf3eeb52a6b97aa2bfa80d54ae3fa11bb56897edc1f099d2ae75edb1",
-    "research/finite_study/__init__.py": "a8e9c7cb5b48d192e393a46b72b8fbb0f18dbf1c0db90b3c1f93c6fcc04d9568",
+    "research/committed_offensive_core.py": "99f2d4c379a28ede9ba87afe4e483b30c0655c756421e781ee9e2fe1bdbb996c",
+    "research/test_committed_offensive_core.py": "f945ae8328f5b719d59d113fafe45029fe43203b1e220c4e517750eea018ef26",
+    "research/committed_offensive_core_contract.json": "774dfd7fd4bfe7b8912aeb05a162b8173e194de373c272220e33d1681e44c16b",
+    "research/finite_study/__init__.py": "23706003ad3d011d76f82b09287426d2de432c2714a8c34c44ec955c52e2653c",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
     ".github/workflows/nonlinear-study.yml": "e9e2219c70b7beecafff0a1e83a360fa6ed9b36f8adea2f2333272bbe133cb89"
   }
