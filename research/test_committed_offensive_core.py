@@ -73,6 +73,22 @@ class CommittedOffensiveCoreTests(unittest.TestCase):
         self.assertLessEqual(float(d.weights.sum()),1.0+1e-12)
         self.assertIn('COMMITTED_OFFENSIVE_FILL',d.reason)
 
+    def test_vacancy_fill_with_zero_marks_keeps_unit_targets_finite(self):
+        m=self.module(); owner=m.Owner(sample_market(3,145),m.Parameters(True)); session=101
+        price=owner.price_signals.price.copy(); ready=owner.price_signals.ready.copy()
+        ema20=owner.price_signals.ema20.copy(); mom=owner.price_signals.momentum5.copy()
+        price[session]=np.array([592.1984985685666,638.0019293754939,0.0])
+        ready[session]=np.array([True,True,False]); ema20[session]=np.array([500.,500.,0.]); mom[session]=np.array([.1,.1,0.])
+        owner.price_signals=replace(owner.price_signals,price=price,ready=ready,ema20=ema20,momentum5=mom)
+        entry=owner.trend.entry.copy(); exit_=owner.trend.exit.copy(); market=owner.trend.market.copy()
+        entry[session]=np.array([True,True,False]); exit_[session]=False; market[session]=True
+        owner.trend=replace(owner.trend,entry=entry,exit=exit_,market=market)
+        score=owner.features.score.copy(); score[session]=np.array([1.,2.,np.nan]); owner.features=replace(owner.features,score=score)
+        units=np.array([30851.32349796713,0.,0.]); current=obs(owner,session,units,1330820.257558683)
+        d=owner.decide(current)
+        self.assertTrue(np.isfinite(d.unit_targets).all())
+        d.validated_unit_targets(owner.price_signals.price[session],current.nav)
+
     def test_weak_market_gates_new_cash_but_not_intact_inventory(self):
         m=self.module(); owner=m.Owner(sample_market(2,145),m.Parameters(True)); session=101
         units=np.array([10_000.,0.]); current=obs(owner,session,units,900_000.)
