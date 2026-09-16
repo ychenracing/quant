@@ -1,0 +1,50 @@
+{
+  "status": "FORMAL_GENERALIZATION_MEASURED_NOT_FINAL_ACCEPTANCE",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "case_count": 199,
+  "account_count": 614,
+  "matrix_rows": 3070,
+  "plan_sha256": "5e13cbd7936409a630a1fb05a1986ef41a21289642cfe8e174fb44beed41cfc3",
+  "treatment_vs_control": {
+    "count": 199,
+    "at_least_one": 144,
+    "fraction_at_least_one": 0.7236180904522613,
+    "minimum": 0.22098528739855294,
+    "median": 1.3024242868513893,
+    "maximum": 6.212608955420785
+  },
+  "treatment_vs_buy_hold": {
+    "count": 199,
+    "at_least_one": 34,
+    "fraction_at_least_one": 0.1708542713567839,
+    "minimum": 0.057223495947928645,
+    "median": 0.5548109961144156,
+    "maximum": 1.696560935338763
+  },
+  "worst_control_case": "cardinality_16",
+  "worst_buy_hold_case": "sample_2_5",
+  "prefix_checks": [
+    {
+      "status": "PASS",
+      "policy": "control",
+      "cut": "2025-01-24",
+      "sessions": 501
+    },
+    {
+      "status": "PASS",
+      "policy": "treatment",
+      "cut": "2025-01-24",
+      "sessions": 501
+    }
+  ],
+  "candidate_numeric_parameter_stability": "NOT_APPLICABLE_NO_TUNABLE_NUMERIC_CANDIDATE_PARAMETER",
+  "mdd_diagnostic": {
+    "not_worse_than_control": 32,
+    "cases": 199
+  },
+  "limitations": [
+    "Retrospective fixed-snapshot validation is not a future return guarantee.",
+    "No post-selection numeric candidate neighborhood exists because the promoted candidate adds no tunable numeric strategy parameter.",
+    "Reference-strategy native/corrected/normalized comparison is a separate final acceptance step and is not inferred from this matrix."
+  ]
+}
