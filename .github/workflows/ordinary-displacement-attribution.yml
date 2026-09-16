@@ -5,6 +5,7 @@ on:
     paths:
       - .github/workflows/ordinary-displacement-attribution.yml
       - research/ordinary_displacement_state_attribution.py
+  workflow_dispatch:
 permissions:
   contents: write
 concurrency:
@@ -46,7 +47,8 @@ jobs:
           receipt={'source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],
                    'status':'READ_ONLY_ATTRIBUTION','economic_acceptance':'NOT_APPLICABLE'}
           (out/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
-          manifest={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file() and p.name!='MANIFEST.json'}
+          manifest={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest()
+                    for p in sorted(out.rglob('*')) if p.is_file() and p.name!='MANIFEST.json'}
           (out/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
           archive=root/'displacement-attribution.tar.gz'
           with tarfile.open(archive,'w:gz') as bundle: bundle.add(out,arcname='displacement-attribution')
