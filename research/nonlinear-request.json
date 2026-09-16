@@ -1,19 +1,3 @@
 {
-  "family": "leader_anchor_slots",
-  "operation": "measure",
-  "candidate_count": 2,
-  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "fbab56360b555bc69c9a771b4b27c5db1d603c61",
-  "request": "Execute the single preregistered leader-anchor slot control/treatment pair through 2025-12-31. The unchanged two-position price-led actual-inventory owner is the control. Treatment always preserves the strongest parent-admissible individual as slot-one anchor; slot two prefers its highest-ranked generic-sector peer and otherwise falls back to the unchanged parent second candidate. Preserve existing holdings and every exit, risk, actual-fill, cash/capacity/name/sector, T+1, fee, slippage, liquidity and next-session rule. Reject without neighbors if any core scope wealth declines, union does not strictly improve, or no scope strictly improves; do not run a rejected treatment over 2026/final coverage.",
-  "source_sha256": {
-    "research/leader_anchor_slots.py": "9163dd349042a372f0a736baeb117a1dbc325ed8c61e5a749b24ac2732aa3b9e",
-    "research/test_leader_anchor_slots.py": "f899ea7ad946035b94b0e717ac3addb59665b781b845d4f2ab778231b2b0d279",
-    "research/leader_anchor_slots_contract.json": "4eb550bb0bfdcfd99f3c418e367283a3bb43374cba00080a51d0d8f01280de7e",
-    "research/finite_study/__init__.py": "4bbb1e35ec9d2d8f2b5f5fea9f4b6e284011c871efac910c004651341f44c70e",
-    "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
-    "research/trend_book.py": "56eec9dd7b1554405d99f1b2359c043e75ed91ae4f6a6c1d05d099947771ee25",
-    "research/coherent.py": "0d86a3904813af1ecad8fdb7bec4dc529caf546c3e6efd8a8d78afe80b9f7485",
-    "research/observed_trend.py": "9801ca612e53e07836712c6823646138da37d289b8b0698406d94feff6e1fff8",
-    ".github/workflows/nonlinear-study.yml": "e9e2219c70b7beecafff0a1e83a360fa6ed9b36f8adea2f2333272bbe133cb89"
-  }
-}
+  "family": "offensive_core",
+  "operation": "offensive_core_paiq!DD
