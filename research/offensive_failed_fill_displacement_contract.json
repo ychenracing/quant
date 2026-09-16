@@ -1,0 +1,50 @@
+{
+  "family": "offensive_failed_fill_displacement",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-first continuation. Terminal wealth and cross-scope alpha remain the discovery priority; MDD/orders/turnover remain recorded diagnostics.",
+  "parent": {
+    "family": "offensive_settled_reference_rearm",
+    "source_commit": "6026a7c87f403b73327b80880e5439396baaa754",
+    "hosted_run": 35083444553
+  },
+  "failed_predecessor": {
+    "family": "offensive_deployable_vacancy_displacement",
+    "registration_commit": "69be2569e9898d82479c1c12adf9ec3fb790130e",
+    "record": "research/records/offensive_deployable_vacancy_displacement_local_screen.json",
+    "finding": "The first-close capital-full displacement improves common-five but changes union/removal paths too early. A nominal nondeployable vacancy alone is insufficient evidence to sell an incumbent."
+  },
+  "root_cause": "The settled-reference-rearm account can repeatedly request a second-slot vacancy fill with observed cash below the unchanged 1%-NAV ordinary-order floor while one incumbent holds almost all capital. Because candidate1 only considers displacement when vacancy == 0, actual execution failure leaves the weak incumbent protected indefinitely. The predecessor showed that preemptively treating the first such close as capital-full is too eager.",
+  "economic_hypothesis": "Use actual inventory feedback as the confirmation. Let the unchanged settled-reference owner make the first nominal vacancy-fill request. If on the immediately following trading session the requested vacancy still did not create an additional actual holding, observed cash remains below the unchanged 1%-NAV ordinary-order materiality, and a held incumbent has decayed below its own admission reference while a currently eligible challenger exceeds that reference, then the vacancy is execution-confirmed dead capital. Sell only that incumbent to release capital; never buy from forecast sale proceeds.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Reuse offensive_settled_reference_rearm semantics exactly for acute invalidation, settlement-aware reference rearm, trend-edge fallback, exits and ordinary candidate1 ownership.",
+    "confirmation": "Record a close only when the unchanged owner requests an ordinary vacancy fill while actual held count is below Config.max_positions and observed cash is below 0.01 * observed NAV. On the next trading session, confirmation exists only if actual held count did not increase. This is fill feedback, not a tunable waiting period.",
+    "confirmed_displacement": "With a confirmed failed vacancy, current cash still below 0.01 * NAV and market trend open, apply the exact campaign-reference displacement predicate: weakest held incumbent with current score below finite owned admission reference; strongest ordinary eligible unheld challenger with score above that same reference. Request sale of only the incumbent. No same-close challenger purchase.",
+    "successful_or_stale_attempt": "If prior vacancy fill produced an additional actual holding, or the previous close did not contain a qualifying nondeployable vacancy-fill request, do not use this mechanism. Continue exact settled-reference-rearm behavior.",
+    "execution": "Unchanged cash-only long-only close decision / next-session execution, T+1, sells before buys, prior-volume capacity, board lots, the original 1%-NAV ordinary-order materiality, fees, slippage and price limits."
+  },
+  "structural_difference": [
+    "Not the rejected deployable-vacancy predecessor: this candidate requires observed failed execution before displacement and therefore does not act on the first nondeployable-vacancy close.",
+    "Not opportunity_reassignment: no scheduled review, mature-hold age or 1.25 score multiplier; it acts only after an actual failed vacancy fill.",
+    "Not joint_funding/allocation auction: no sizing/resource-sharing geometry changes and no sale proceeds are allocated before settlement.",
+    "Not generic reentry/risk control: no waiting-day count, shock breadth, exposure cap or price recovery gate is added."
+  ],
+  "parameter_search": false,
+  "new_tunable_numeric_parameters": 0,
+  "measurement": {
+    "selection_window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the same scopes",
+    "record_only": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure", "confirmed_failed_fills", "confirmed_displacements"],
+    "promotion_rule": "Must improve the alpha objective versus the current settled-reference-rearm leader, not merely baseline control, before hosted full-history expansion.",
+    "failure_rule": "If it fails, preserve exact evidence and do not search confirmation counts, materiality percentages, score margins, review cadences, position counts or rearm thresholds."
+  },
+  "frozen_inputs": {
+    "names": 34,
+    "sessions": 896,
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b"
+  },
+  "prohibitions": ["No per-symbol/date/pool rule", "No future information", "No same-close forecast sale proceeds", "No reference strategy source reuse", "No neighboring parameter search or winner splicing"]
+}
