@@ -1,0 +1,74 @@
+{
+  "family": "offensive_alpha_decay_displacement",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "User explicitly redirected original PR #1 to alpha/terminal-wealth-first research and authorized structural changes to opportunity discovery, ownership, replacement and core alpha logic while preserving causal next-session execution and frozen evidence identities.",
+  "evidence": {
+    "source_commit": "8508a88d43f49fd6185da9e4947d5b0651ccc4b2",
+    "source_run": 35054688623,
+    "diagnosis": "committed_offensive_core raises exposure and captures common-five leaders, but broad scopes collapse primarily because two intact incumbents cannot be displaced when stronger causal opportunities emerge. Decisive union/removal missed-winner windows were ~100% invested, so idle cash is not the main cause.",
+    "score_actionability": "The unchanged control emitted causal LATCHED_LEADER_REPLACEMENT witnesses on 2025-06-30 and 2025-07-28 before subsequent high-PnL entrants in both broad scopes. This proves the existing score sometimes knows a stronger challenger before the committed owner can act.",
+    "attribution_ref": {
+      "commit": "102cb5192aac55471c1bc107e2418697b5fc5128",
+      "path": "research/records/committed_offensive_core_attribution.json",
+      "git_blob_sha": "e7da159a5277a040c28b34dff79c69953a25b7b1"
+    }
+  },
+  "economic_hypothesis": "Keep the high-exposure, long-hold behavior that helped common-five, but permit a sparse one-way ownership handoff only after an incumbent's own causal alpha has decayed below the alpha level that justified its campaign and a currently eligible challenger exceeds that frozen campaign reference. This should release capital from stale incumbents without restoring periodic rotation.",
+  "control": "Exact research.trend_book.Owner with Parameters(2).",
+  "treatment": {
+    "base": "Independent high-exposure cash-long core using the committed-offensive causal entry, security-break and vacancy-funding semantics; no account/market risk liquidation, volatility target, sector budget or recovery wait.",
+    "owned_alpha_reference": "When a vacancy-fill decision first requests a symbol, record that close's causal Features.score. Bind that score to the campaign when actual inventory is first observed. This is an alpha reference, not price/cost basis and not a future label.",
+    "displacement": "Only with a full intact book, broad market admission open, no security-specific break, and at least one currently eligible unheld challenger. Find the held name with the largest deterioration from its own owned_alpha_reference. It is displacement-eligible only when current score is below that own reference. The strongest eligible challenger must have current score strictly above that incumbent's frozen reference. Then request a full exit of only that incumbent.",
+    "one_way_campaign_rule": "A voluntarily displaced symbol is retired from vacancy admission until its own security-specific trend campaign has broken. This prevents repeated same-campaign exit/re-entry feedback. A later fresh trend campaign may be admitted normally.",
+    "funding": "Never spend expected sale proceeds. The exit close requests no replacement. Later closes may fill an actual vacancy using only observed cash and then-current eligibility/ranking; no challenger reservation survives the sale.",
+    "no_top_up_change": "Do not fix the separate partial-fill/top-up attribution in this candidate; existing intact units remain unchanged so the screen isolates displacement.",
+    "execution": "Unchanged close decision / next-session open, sells before buys, cash-only, long-only, no leverage or shorting, prior-volume liquidity, board lots, T+1, fees, slippage and price-limit handling."
+  },
+  "structural_difference_from_rejected_work": [
+    "Not leadership_handover/opportunity_reassignment: no scheduled review, score multiple, rank cutoff, confirmation-day threshold or risk-parent wrapper.",
+    "Not relative_campaign_owner or basis_failure_exit: no benchmark-relative lifecycle label, PnL/cost basis, future outcome, EMA threshold or campaign-quality gate.",
+    "Not offensive_core: no periodic full top-N reselection or equal-weight rebalance of intact winners.",
+    "Not committed_offensive_core: a full intact book can now release exactly one stale incumbent when a fresh challenger crosses its campaign-specific alpha reference."
+  ],
+  "parameter_search": false,
+  "new_numeric_parameters": 0,
+  "measurement": {
+    "window": {
+      "start": "2023-01-03",
+      "end": "2025-12-31"
+    },
+    "initial_cash": 2000000,
+    "scopes": [
+      "union",
+      "chatgpt_5",
+      "joint_optical_leader_removal"
+    ],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "record_only_during_alpha_discovery": [
+      "max_drawdown",
+      "orders",
+      "gross_turnover",
+      "fees",
+      "slippage",
+      "average_exposure"
+    ],
+    "promotion_rule": "Advance only if cross-scope wealth improvement is economically material, not common-five-only, and joint optical-leader removal retains actual alpha. Do not reject solely for MDD/order/turnover deterioration during discovery.",
+    "failure_rule": "If the fixed three-scope wealth result does not materially improve the cross-scope objective, preserve it as failed and move to a substantively different alpha structure; do not search score multiples, decay margins, confirmation days, position counts or pool variants."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No per-symbol/date/pool branch",
+    "No reference strategy source reuse",
+    "No future labels or future highs in decisions",
+    "No frozen data/cost/benchmark/acceptance manipulation",
+    "No winner splicing"
+  ]
+}
