@@ -36,6 +36,7 @@ class Study:
             "offensive_reference_rearm_contract.json",
             "offensive_alpha_decay_displacement.py",
             "offensive_alpha_decay_displacement_contract.json",
+            "finite_study/__init__.py",
             "trend_book.py", "trend_book_contract.json", "coherent.py", "coherent_contract.json",
             "observed_trend.py", "observed_trend_contract.json", "nonlinear.py", "nonlinear_contract.json",
             "pathwise.py", "pathwise_contract.json", "expectation_study.py", "leadership.py", "expectation.py",
