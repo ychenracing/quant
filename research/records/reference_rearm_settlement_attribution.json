@@ -1,0 +1,55 @@
+{
+  "status": "READ_ONLY_ATTRIBUTION_COMPLETE",
+  "source_commit": "363773d66e562c73c21cfb373304119bedb4985e",
+  "run_id": 35081472029,
+  "family": "offensive_reference_rearm",
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "selection": {
+    "union": {"control_wealth": 4.74414842883842, "treatment_wealth": 6.316704347504254},
+    "chatgpt_5": {"control_wealth": 7.904183048701599, "treatment_wealth": 13.319317036950144},
+    "joint_optical_leader_removal": {"control_wealth": 1.1546791488756403, "treatment_wealth": 1.060615185087682},
+    "control_mean_log_wealth": 1.2560421934258852,
+    "treatment_mean_log_wealth": 1.4970873671702354,
+    "control_min_wealth": 1.1546791488756403,
+    "treatment_min_wealth": 1.060615185087682
+  },
+  "finding": "The score-reference rearm itself is not enough. A distinct execution-state failure occurs when REFERENCE_ALPHA_REARM is declared on the same close at which the failed campaign's sell actually settles into flat inventory. In every core scope, every such rearm that immediately created a new same-symbol campaign had negative realized PnL. The strongest profitable common-five rearm did not occur on the exit-settlement close; the failed campaign had already been observed flat on the prior close.",
+  "same_exit_close_rearm_immediate_campaigns": {
+    "union": {
+      "count": 1,
+      "wins": 0,
+      "losses": 1,
+      "realized_pnl_cny": -305240.78847923875,
+      "examples": [
+        {"symbol": "sz300308", "acute_signal": "2025-09-04", "actual_exit": "2025-09-05", "rearm_close": "2025-09-05", "new_campaign_pnl_cny": -305240.78847923875}
+      ]
+    },
+    "chatgpt_5": {
+      "count": 2,
+      "wins": 0,
+      "losses": 2,
+      "realized_pnl_cny": -184023.40257668937,
+      "examples": [
+        {"symbol": "sz300394", "acute_signal": "2023-04-10", "actual_exit": "2023-04-11", "rearm_close": "2023-04-11", "new_campaign_pnl_cny": -73035.53345406963},
+        {"symbol": "sz300308", "acute_signal": "2024-10-09", "actual_exit": "2024-10-10", "rearm_close": "2024-10-10", "new_campaign_pnl_cny": -110987.86912261974}
+      ],
+      "counterexample_that_supports_settlement_boundary": {"symbol": "sz300308", "acute_signal": "2023-05-05", "actual_exit": "2023-05-08", "rearm_close": "2023-05-09", "new_campaign_pnl_cny": 2451441.6519692447}
+    },
+    "joint_optical_leader_removal": {
+      "count": 4,
+      "wins": 0,
+      "losses": 4,
+      "realized_pnl_cny": -664469.4767523188,
+      "examples": [
+        {"symbol": "sh688535", "acute_signal": "2023-11-21", "actual_exit": "2023-11-22", "rearm_close": "2023-11-22", "new_campaign_pnl_cny": -439610.668262746},
+        {"symbol": "sh600206", "acute_signal": "2024-11-19", "actual_exit": "2024-11-20", "rearm_close": "2024-11-20", "new_campaign_pnl_cny": -38680.1980913236},
+        {"symbol": "sh688498", "acute_signal": "2025-09-04", "actual_exit": "2025-09-05", "rearm_close": "2025-09-05", "new_campaign_pnl_cny": -148017.28501533018},
+        {"symbol": "sh688205", "acute_signal": "2025-11-28", "actual_exit": "2025-12-01", "rearm_close": "2025-12-01", "new_campaign_pnl_cny": -38161.32538291905}
+      ]
+    }
+  },
+  "causal_interpretation": "A campaign cannot be economically new merely because the same close observes that yesterday's exit order filled. That close is the first reconciliation of flat inventory after the failed campaign. Using it simultaneously to declare reference recovery conflates settlement of the old campaign with admission of a new one. The next structural test should require the symbol to have already been observed flat at a prior close before score-reference rearm can create a new campaign. This is an inventory lifecycle condition, not a fixed N-day cooldown.",
+  "not_counterfactual_profit": true,
+  "parameter_search": false,
+  "artifact_sha256": "8f99017dae66162f4f79e2dff9c2ac1f8a247d582de65d42ffc92a13e3e5fb8b"
+}
