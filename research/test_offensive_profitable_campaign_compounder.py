@@ -32,7 +32,7 @@ def observe(owner, session, units, cash=0.0):
     )
 
 
-def force(owner, session, *, exits=None, ret1=None, ready=None):
+def force(owner, session, *, exits=None, ret1=None, ready=None, entries=None):
     b = base(owner)
     p = b.price_signals
     ready_values = p.ready.copy()
@@ -41,8 +41,11 @@ def force(owner, session, *, exits=None, ret1=None, ready=None):
     b.price_signals = replace(p, ready=ready_values, ret1=one_day)
     trend = b.trend
     exit_ = trend.exit.copy(); exit_[session] = False if exits is None else np.asarray(exits, dtype=bool)
+    entry = trend.entry.copy()
+    if entries is not None:
+        entry[session] = np.asarray(entries, dtype=bool)
     market = trend.market.copy(); market[session] = True
-    b.trend = replace(trend, exit=exit_, market=market)
+    b.trend = replace(trend, entry=entry, exit=exit_, market=market)
 
 
 class ProfitableCampaignCompounderTests(unittest.TestCase):
@@ -83,7 +86,12 @@ class ProfitableCampaignCompounderTests(unittest.TestCase):
         close = base(owner).price_signals.price[100, 0]
         owner.acquisition_basis[0] = close * .8
         owner.acquisition_basis[3] = base(owner).price_signals.price[100, 3] * .8
-        force(owner, 100, exits=[True, False, False, False, False, False])
+        force(
+            owner,
+            100,
+            exits=[True, False, False, False, False, False],
+            entries=[True, False, False, True, False, False],
+        )
         decision = owner.decide(observe(owner, 100, units))
         self.assertGreater(decision.unit_targets[0], 0.0)
         self.assertTrue(any(row.get('action') == 'PROFITABLE_CAMPAIGN_TREND_EXIT_FORGIVEN' for row in owner.trace))
@@ -93,7 +101,12 @@ class ProfitableCampaignCompounderTests(unittest.TestCase):
         close = base(owner).price_signals.price[100, 0]
         owner.acquisition_basis[0] = close * 1.01
         owner.acquisition_basis[3] = base(owner).price_signals.price[100, 3] * .8
-        force(owner, 100, exits=[True, False, False, False, False, False])
+        force(
+            owner,
+            100,
+            exits=[True, False, False, False, False, False],
+            entries=[True, False, False, True, False, False],
+        )
         decision = owner.decide(observe(owner, 100, units))
         self.assertEqual(decision.unit_targets[0], 0.0)
         self.assertFalse(any(row.get('action') == 'PROFITABLE_CAMPAIGN_TREND_EXIT_FORGIVEN' and owner.market.symbols[0] in row.get('symbols', []) for row in owner.trace))
@@ -103,7 +116,13 @@ class ProfitableCampaignCompounderTests(unittest.TestCase):
         close = base(owner).price_signals.price[100, 0]
         owner.acquisition_basis[0] = close * .8
         owner.acquisition_basis[3] = base(owner).price_signals.price[100, 3] * .8
-        force(owner, 100, exits=[False, False, False, False, False, False], ret1=[-.09, 0, 0, 0, 0, 0])
+        force(
+            owner,
+            100,
+            exits=[False, False, False, False, False, False],
+            ret1=[-.09, 0, 0, 0, 0, 0],
+            entries=[True, False, False, True, False, False],
+        )
         decision = owner.decide(observe(owner, 100, units))
         self.assertEqual(decision.unit_targets[0], 0.0)
 
