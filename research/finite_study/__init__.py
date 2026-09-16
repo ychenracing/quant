@@ -30,7 +30,7 @@ from research.expectation_study import write_json, scopes
 
 _PAIRED = {
     "confirmed_shock", "profit_trend_shield", "shock_reclaim",
-    "theme_campaign", "leader_anchor_slots", "offensive_core",
+    "theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core",
 }
 
 
@@ -60,7 +60,7 @@ class Study(_base.Study):
             "observed_admission_completion_contract.json", "decision_review.py",
             "ledger_attribution.py",
         ]
-        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core"}:
+        if self.family in {"theme_campaign", "leader_anchor_slots", "offensive_core", "committed_offensive_core"}:
             names += [
                 "trend_book.py", "trend_book_contract.json", "coherent.py",
                 "coherent_contract.json", "observed_trend.py",
@@ -119,6 +119,10 @@ class Study(_base.Study):
             full_data_sha = contract["frozen_inputs"]["sha256"]
             selection_end = contract["measurement"]["window"]["end"]
             registration_commit = "d8f34acb66313023a1166fa6e0f283bf4580e7d0"
+        elif self.family == "committed_offensive_core":
+            full_data_sha = contract["frozen_inputs"]["sha256"]
+            selection_end = contract["measurement"]["window"]["end"]
+            registration_commit = "df9b79a18d99cd5ab2ee31560eb29b3c4474137d"
         elif self.family in {"theme_campaign", "leader_anchor_slots"}:
             full_data_sha = contract["data_sha256"]
             selection_end = "2025-12-31"
@@ -206,6 +210,13 @@ class Study(_base.Study):
                             "cash_no_eligible": sum(
                                 r.get("action") == "CASH_NO_ELIGIBLE_NAME" for r in state
                             ),
+                        }
+                    elif self.family == "committed_offensive_core":
+                        state = [r for r in trace if r.get("kind") == "COMMITTED_OFFENSIVE_EVENT"]
+                        row["committed_offensive_core"] = {
+                            "records": len(state),
+                            "security_exits": sum(r.get("action") == "SECURITY_EXIT" for r in state),
+                            "vacancy_fills": sum(r.get("action") == "VACANCY_FILL" for r in state),
                         }
                     else:
                         state = [r for r in trace if r.get("kind") == "SHOCK_RECLAIM_PERMISSION"]
