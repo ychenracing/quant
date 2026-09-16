@@ -1,0 +1,243 @@
+{
+  "causal_score_witnesses": [
+    {
+      "episode_pnl": 3596105.0,
+      "scope": "union",
+      "signal_date": "2025-06-30",
+      "control_exit": "sh688019",
+      "subsequent_entry": "sz300502",
+      "why_score_knew": "Control emits LATCHED_LEADER_REPLACEMENT only if an eligible entrant score exceeds 1.25x weakest held score and weakest held rank is worse than 2*capacity."
+    },
+    {
+      "episode_pnl": 1951632.0,
+      "scope": "union",
+      "signal_date": "2025-07-28",
+      "control_exit": "sh600206",
+      "subsequent_entry": "sz300308",
+      "why_score_knew": "Same causal control predicate."
+    },
+    {
+      "episode_pnl": 356713.49,
+      "scope": "joint_optical_leader_removal",
+      "signal_date": "2025-06-30",
+      "control_exit": "sh688019",
+      "subsequent_entry": "sh601869",
+      "why_score_knew": "Same causal control predicate."
+    },
+    {
+      "episode_pnl": 592610.16,
+      "scope": "joint_optical_leader_removal",
+      "signal_date": "2025-07-28",
+      "control_exit": "sh600206",
+      "subsequent_entry": "sh688498",
+      "why_score_knew": "Same causal control predicate."
+    }
+  ],
+  "decisive_windows": {
+    "leader_removal_2025_07_02_to_09_05": {
+      "control_pnl": 888002.8479011524,
+      "control_winners": {
+        "sh601869": 356713.49,
+        "sh688498": 592610.16
+      },
+      "note": "Observed path PnL attribution, not recoverable counterfactual profit.",
+      "treatment_average_exposure": 0.9995287115073991,
+      "treatment_incumbents": [
+        "sh600206",
+        "sh688019"
+      ],
+      "treatment_pnl": 160767.99536363248
+    },
+    "union_2023_05_22_to_06_26": {
+      "control_pnl": 1330620.4042368734,
+      "control_winners": {
+        "sz300308": 1058227.0,
+        "sz300502": 272393.5
+      },
+      "note": "Observed path PnL attribution, not recoverable counterfactual profit.",
+      "treatment_average_exposure": 0.9936516036966049,
+      "treatment_incumbents": [
+        "sh688072",
+        "sz002409"
+      ],
+      "treatment_pnl": -30244.825352687026
+    },
+    "union_2025_07_03_to_09_05": {
+      "control_pnl": 5698376.275101411,
+      "control_winners": {
+        "sz300308": 1951632.0,
+        "sz300502": 3596105.0
+      },
+      "note": "Observed path PnL attribution, not recoverable counterfactual profit.",
+      "treatment_average_exposure": 0.9999513229186245,
+      "treatment_incumbents": [
+        "sh600206",
+        "sh688019"
+      ],
+      "treatment_pnl": 406025.80974142975
+    }
+  },
+  "evidence_tar_sha256": "498bc4e9df5b3073e41ef65a008df214b50d01ebfdce423f3e01addda7c3ff10",
+  "root_causes": [
+    {
+      "classification": "ownership",
+      "evidence": "During decisive broad-scope winner windows treatment was ~100% invested in two incumbents, not idle. Control's causal score explicitly fired LATCHED_LEADER_REPLACEMENT before later high-PnL entrants; committed treatment refused any displacement while full.",
+      "name": "full_book_opportunity_displacement_absent",
+      "rank": 1
+    },
+    {
+      "classification": "ownership_funding",
+      "evidence": "Earliest target divergence in all scopes occurs 2023-02-07 after identical initial fills: control spends remaining observed cash to top up, while treatment treats both symbols as occupied and holds.",
+      "name": "fixed_units_do_not_top_up_after_partial_capacity_fill",
+      "rank": 2
+    },
+    {
+      "classification": "interaction",
+      "evidence": "Common-five succeeds because persistent leaders occupy the slots; union/removal fail when slower incumbents remain owned through superior challenger emergence. High exposure itself is not the failing mechanism.",
+      "name": "high_commitment_is_conditional_on_incumbent_quality",
+      "rank": 3
+    }
+  ],
+  "run_id": 35054688623,
+  "scopes": {
+    "chatgpt_5": {
+      "cagr": {
+        "control": 0.9954400604684106,
+        "treatment": 1.2813861013116537
+      },
+      "exposure": {
+        "control": 0.48819175555248917,
+        "treatment": 0.689562529561865
+      },
+      "fees": {
+        "control": 134601.34022692704,
+        "treatment": 154351.48316212147
+      },
+      "first_membership_divergence": "2023-04-24",
+      "first_target_divergence": "2023-02-07",
+      "mdd": {
+        "control": 0.3913564597604614,
+        "treatment": 0.45515740616874423
+      },
+      "orders": {
+        "control": 164,
+        "treatment": 59
+      },
+      "slippage": {
+        "control": 243133.84864498008,
+        "treatment": 273411.24117036286
+      },
+      "terminal_nav_delta_treatment_minus_control": 7792564.188152231,
+      "terminal_wealth": {
+        "control": 7.904183048701599,
+        "treatment": 11.800465142777714
+      },
+      "treatment_trace": {
+        "security_exits": 27,
+        "vacancy_fills": 126,
+        "refill_delay_sessions": {
+          "max": 62,
+          "median": 6.0
+        }
+      },
+      "turnover": {
+        "control": 36.22262571959817,
+        "treatment": 33.34888781730753
+      }
+    },
+    "joint_optical_leader_removal": {
+      "cagr": {
+        "control": 0.04923493945562463,
+        "treatment": -0.09300843908775457
+      },
+      "exposure": {
+        "control": 0.46688897802252155,
+        "treatment": 0.7157793565019276
+      },
+      "fees": {
+        "control": 53350.73152619798,
+        "treatment": 32637.034650741512
+      },
+      "first_membership_divergence": "2023-03-07",
+      "first_target_divergence": "2023-02-07",
+      "mdd": {
+        "control": 0.3533101222424627,
+        "treatment": 0.6316918355787879
+      },
+      "orders": {
+        "control": 169,
+        "treatment": 70
+      },
+      "slippage": {
+        "control": 95081.69940847602,
+        "treatment": 56866.01128231956
+      },
+      "terminal_nav_delta_treatment_minus_control": -816013.045387876,
+      "terminal_wealth": {
+        "control": 1.1546791488756403,
+        "treatment": 0.7466726261817023
+      },
+      "treatment_trace": {
+        "security_exits": 32,
+        "vacancy_fills": 30,
+        "refill_delay_sessions": {
+          "max": 50,
+          "median": 1.5
+        }
+      },
+      "turnover": {
+        "control": 47.47977753267244,
+        "treatment": 35.22809705316427
+      }
+    },
+    "union": {
+      "cagr": {
+        "control": 0.6824926019797857,
+        "treatment": 0.2340566351600577
+      },
+      "exposure": {
+        "control": 0.51337827889083,
+        "treatment": 0.7563501819420838
+      },
+      "fees": {
+        "control": 90265.86628999369,
+        "treatment": 59443.34867427061
+      },
+      "first_membership_divergence": "2023-03-07",
+      "first_target_divergence": "2023-02-07",
+      "mdd": {
+        "control": 0.3055789380480397,
+        "treatment": 0.5456979983508251
+      },
+      "orders": {
+        "control": 145,
+        "treatment": 68
+      },
+      "slippage": {
+        "control": 165529.21786890013,
+        "treatment": 99664.82369877148
+      },
+      "terminal_nav_delta_treatment_minus_control": -5735564.58156926,
+      "terminal_wealth": {
+        "control": 4.74414842883842,
+        "treatment": 1.87636613805379
+      },
+      "treatment_trace": {
+        "security_exits": 30,
+        "vacancy_fills": 28,
+        "refill_delay_sessions": {
+          "max": 54,
+          "median": 1.0
+        }
+      },
+      "turnover": {
+        "control": 39.03239690066364,
+        "treatment": 32.884769842796886
+      }
+    }
+  },
+  "selection_status": "REJECTED_PAIRED_SCREEN",
+  "source_commit": "8508a88d43f49fd6185da9e4947d5b0651ccc4b2",
+  "source_tree": "3106320650de59d51d4635ee61989da8a8fe5074",
+  "status": "READ_ONLY_ATTRIBUTION_COMPLETE"
+}
