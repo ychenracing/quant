@@ -1,0 +1,65 @@
+{
+  "family": "offensive_profitable_campaign_compounder",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Maximize cross-scope terminal wealth by granting slow-trend continuation only to campaigns that have already earned positive actual funded PnL.",
+  "parent": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "failed_predecessor": {
+    "family": "offensive_positive_alpha_compounder",
+    "source_commit": "0d280ce26f39a9cf87f4cb8ea47293f3d1e359a8",
+    "hosted_run": 35163068647,
+    "wealth": {"union": 3.838854100330239, "chatgpt_5": 9.339129149981588, "joint_optical_leader_removal": 0.6450965531846466},
+    "lesson": "Causal score > 0 is too permissive as an ownership continuation state; it raises exposure but preserves stale campaigns."
+  },
+  "economic_hypothesis": "A funded campaign that is still above its actual weighted acquisition basis has demonstrated realized ownership quality. A generic slow-trend exit may be a temporary trend wobble for such a winner, whereas a campaign at or below basis has not earned continuation. Active opportunity displacement remains available to release capital when a better opportunity appears.",
+  "treatment": {
+    "actual_basis": "Observed next-session fills only. The first observed funded inventory uses that session's execution-open price as basis. Later observed additions update the weighted basis using actual prior units plus the new unit delta. Reductions do not improve basis. Full flat inventory clears basis.",
+    "slow_trend_authority": "For an actually held symbol, suppress generic slow trend.exit only when current completed-session close is strictly greater than its finite actual weighted acquisition basis.",
+    "unprofitable_campaign": "At or below acquisition basis, the campaign follows the parent champion's unchanged slow-trend exit semantics; no extra exit is introduced.",
+    "always_authoritative": [
+      "single-session return <= -8%",
+      "missing/unready quote",
+      "existing pending/blocked/partial sale obligations",
+      "campaign-peak ordinary displacement authority",
+      "fresh-challenger provenance authority",
+      "alpha-decay challenger displacement",
+      "actual inventory reconciliation and next-session execution"
+    ],
+    "unchanged": [
+      "entry eligibility and score formula",
+      "two-position capacity and cash-only funding",
+      "market trend requirement for new entries",
+      "fees/slippage/liquidity/lot/T+1/limit rules",
+      "all cross-sectional opportunity replacement logic"
+    ]
+  },
+  "structural_difference": {
+    "positive_alpha_compounder": "Uses actual funded PnL rather than score sign; it does not create a new score-based self-failure exit.",
+    "profit_trend_shield": "The old shield only acted during market-shock/recovery states and required EMA20/EMA60 plus 20/60-day positive returns. This candidate is a global security-campaign lifecycle rule based only on actual funded basis, while retaining the later active displacement stack.",
+    "committed_offensive_core": "Committed core kept the slow trend exit and disabled active displacement. This candidate selectively forgives only profitable campaigns and keeps active displacement."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "control": "Exact source-bound offensive_campaign_peak_authority enabled policy",
+    "primary": "mean(log(terminal wealth)) across the three scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Mean-log must strictly exceed the current campaign-peak champion and minimum terminal wealth must not decrease.",
+    "if_promoted": "Evaluate the exact same source through all 896 frozen sessions before any further composition."
+  },
+  "prohibitions": [
+    "no profit-margin threshold search above basis",
+    "no holding-day or confirmation-day requirement",
+    "no EMA/lookback parameter change",
+    "no pool/ticker-specific behavior",
+    "no future return/high/label in decisions",
+    "no frozen-data/statistics change",
+    "no reference-strategy source consumption"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
