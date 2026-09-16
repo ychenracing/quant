@@ -101,6 +101,24 @@ class OffensiveCoreTests(unittest.TestCase):
         np.testing.assert_allclose(d.weights, current.weights, rtol=0, atol=1e-12)
         self.assertNotIn("PORTFOLIO", d.reason)
 
+    def test_security_break_cannot_reenter_on_same_close_even_if_entry_stays_true(self):
+        module = self.module()
+        market = sample_market(3, 145)
+        owner = module.Owner(market, module.Parameters(True))
+        units = np.array([10_000.0, 10_000.0, 0.0])
+        session = 101
+        exit_state = owner.trend.exit.copy()
+        entry_state = owner.trend.entry.copy()
+        exit_state[session, 0] = True
+        entry_state[session, 0] = True
+        owner.trend = replace(owner.trend, exit=exit_state, entry=entry_state)
+        score = owner.features.score.copy()
+        score[session] = np.array([100.0, 2.0, 4.0])
+        owner.features = replace(owner.features, score=score)
+        d = owner.decide(observation(owner, session, units, 500_000.0))
+        self.assertEqual(float(d.weights[0]), 0.0)
+        self.assertIn("SECURITY_EXIT", d.reason)
+
     def test_security_break_exits_immediately_and_can_fill_vacancy(self):
         module = self.module()
         market = sample_market(3, 145)
