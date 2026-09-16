@@ -1,0 +1,18 @@
+{
+  "family": "offensive_unified_compounder_core",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "455f2c3f4e91d6596db1fe6494c69bd5d58af978",
+  "source_git_blob": {
+    "research/offensive_unified_compounder_core.py": "8c34deed2e0490b39eb6993a4c7f615f2bc5d901",
+    "research/test_offensive_unified_compounder_core.py": "a6a949fb2589df1e36b16d544b7ea38f90ee32e7",
+    "research/offensive_unified_compounder_core_study.py": "9f43259b733562bf157ecf34670755ccf2b0b16c",
+    "research/offensive_unified_compounder_core_contract.json": "4aa47e12bd0552a9f5f04d2dc01dddf78908e82c",
+    ".github/workflows/unified-compounder-core-study.yml": "9c09d9788470983c861837682ef6dbce3f7ddd18",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213"
+  },
+  "request": "Run the preregistered current campaign-peak champion versus the standalone unified offensive compounder core through 2025-12-31 on union, common-five and joint optical-leader removal. Select only if mean(log terminal wealth) strictly exceeds the current champion and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound treatment through all 896 frozen sessions. Record MDD, orders, turnover, fees, slippage and exposure but do not use them as alpha-discovery rejection gates. Do not search position count, score margins, confirmation days, EMA/lookback values or pool-specific behavior.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
