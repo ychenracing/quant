@@ -53,6 +53,16 @@ class OffensiveCoreTests(unittest.TestCase):
         pd.testing.assert_frame_equal(parent.targets, control.targets)
         self.assertEqual(parent.orders, control.orders)
 
+    def test_registered_with_existing_paired_study_overlay(self):
+        self.module()
+        from research.finite_study import Study
+        study = Study("offensive_core")
+        self.assertEqual(study.family, "offensive_core")
+        self.assertEqual(len(study.module.grid()), 2)
+        identity = study.identity()
+        self.assertIn("offensive_core.py", identity["dependencies"])
+        self.assertIn("offensive_core_contract.json", identity["dependencies"])
+
     def test_treatment_targets_full_exposure_without_portfolio_risk_cap(self):
         module = self.module()
         market = sample_market(5, 145)
