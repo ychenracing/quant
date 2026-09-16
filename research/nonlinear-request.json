@@ -1,15 +1,15 @@
 {
-  "family": "committed_offensive_core",
+  "family": "offensive_alpha_decay_displacement",
   "operation": "measure",
   "candidate_count": 2,
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
-  "registration_commit": "df9b79a18d99cd5ab2ee31560eb29b3c4474137d",
-  "request": "Execute the single preregistered committed-offensive control/treatment pair through 2025-12-31 through the existing paired-study overlay. Control is the exact two-position trend_book owner. Treatment keeps intact actual holdings until their own security break, consults ranking only for real empty slots, never anticipates sale proceeds, uses only observed cash for vacancy fills, and removes portfolio/account market de-risking, recovery waits, volatility targeting, sector budgeting and periodic ranking displacement. Preserve unchanged cash-only long-only next-session execution, prior-volume capacity, board lots, fees and slippage. Reject without neighboring search if any core scope wealth declines; only a fixed three-scope alpha pass may advance to the original full acceptance matrix.",
+  "registration_commit": "d749786da34b4b26f5e1ecaec3b84e6d80718d6c",
+  "request": "Execute the single preregistered offensive alpha-decay displacement control/treatment pair through 2025-12-31 using the fixed three-scope alpha-discovery selector. Control is the exact two-position trend_book owner. Treatment keeps high exposure and long holds but allows one-way campaign-specific displacement only when an incumbent's causal current score has decayed below its frozen admission score and a currently eligible challenger exceeds that same frozen reference; blocked exits retry without a new handoff, retired symbols remain excluded until the prior security campaign breaks, and no same-close sale proceeds are spent. Do not change the separately diagnosed top-up behavior in this candidate. Preserve cash-only long-only close-decision/next-session execution, prior-volume capacity, board lots, T+1, fees, slippage and price-limit handling. Discovery selection is terminal-wealth first: mean(log terminal wealth) primary, minimum terminal wealth secondary, broad/removal alpha required; MDD/orders/turnover remain recorded diagnostics only. No neighboring threshold/window/position-count search.",
   "source_sha256": {
-    "research/committed_offensive_core.py": "b05d881aae187eb3370602c359689a679794e67773730a07e14f8f6dfbd0358c",
-    "research/test_committed_offensive_core.py": "40dcae0459c4eac5197dd6f71d34c47d3b430c183d8ef5dbca3be95054f67c8b",
-    "research/committed_offensive_core_contract.json": "774dfd7fd4bfe7b8912aeb05a162b8173e194de373c272220e33d1681e44c16b",
-    "research/finite_study/__init__.py": "23706003ad3d011d76f82b09287426d2de432c2714a8c34c44ec955c52e2653c",
+    "research/offensive_alpha_decay_displacement.py": "13282356a085898418b15bb77fddfe05adf655bb129dc29ad67c2d7059a99641",
+    "research/test_offensive_alpha_decay_displacement.py": "701e35a355f4a0ec70739a2458c3465253223ec660c0b63423fe6c2479685cdc",
+    "research/offensive_alpha_decay_displacement_contract.json": "c5375f577d341a4881927b58ed11d0d430292afad272283f501d13c3eda042b8",
+    "research/finite_study/__init__.py": "1545621398a6317f4a2030b4e43d331ec14b0957f631431a9d56ee9ff77d58a6",
     "research/finite_study.py": "3c5ca2f40f7f5c9ea59ff0b8b2731bb861a182f71e1afeb5c0342bce2ba27f32",
     ".github/workflows/nonlinear-study.yml": "e9e2219c70b7beecafff0a1e83a360fa6ed9b36f8adea2f2333272bbe133cb89"
   }
