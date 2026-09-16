@@ -1,0 +1,24 @@
+{
+  "family": "offensive_reference_rearm",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "f63c1d52939eaa08b31553b646035278392f7cfe",
+  "request": "Execute the single preregistered reference-rearm control/treatment pair through 2025-12-31 using the fixed three-scope alpha-discovery selector. If and only if that fixed screen advances, evaluate the same source-bound candidate on the complete frozen 896-session history and fixed 2026 windows. Preserve MDD, orders, turnover, costs and exposure as diagnostics; do not search score multipliers, waiting days, shock percentages, trend spans, price-recovery buffers, position counts or pool-specific variants.",
+  "source_git_blob": {
+    "research/offensive_reference_rearm.py": "a799337d47abf66846f9114a0f8a247dfb589bed",
+    "research/test_offensive_reference_rearm.py": "5aedde27c85e87ac5015692c7598430e8434c8b9",
+    "research/offensive_reference_rearm_study.py": "6b6139c484942db32f01821dd59f6901ee554afa",
+    "research/offensive_reference_rearm_contract.json": "80997da8df1f6eae620a3cccc19b5a8ef67e144d",
+    "research/offensive_alpha_decay_displacement.py": "9da005c52b8403701db31c135326fcaf44e36d3b",
+    "research/finite_study/__init__.py": "90da4250e6b56d1c9936da3f1e0d13f142fe82fb",
+    ".github/workflows/reference-rearm-study.yml": "711958ab49ebb047146f484660563c310fae1203"
+  },
+  "alpha_objective": {
+    "primary": "mean(log(terminal wealth)) across union, common-five and joint optical-leader removal",
+    "secondary": "minimum terminal wealth across the same three scopes",
+    "mdd_orders_turnover": "record_only_during_alpha_discovery"
+  },
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
