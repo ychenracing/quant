@@ -53,16 +53,27 @@ class OffensiveReferenceRearmTests(unittest.TestCase):
         first=owner.decide(obs(owner,100,np.zeros(n),2_000_000.0)); units=first.unit_targets.copy()
         owner.decide(obs(owner,101,units,0.0))
         self.assertAlmostEqual(owner.base.owned_alpha_reference[0],5.)
-        # Existing campaign breaks acutely. Reference must survive the sale decision.
         force(owner,102,entries=entries,acute=[0],scores=np.array([4.,1.,1.,1.,1.,1.]))
         exited=owner.decide(obs(owner,102,units,0.0)); self.assertEqual(exited.unit_targets[0],0.)
         self.assertTrue(owner.invalidated[0]); self.assertAlmostEqual(owner.failed_reference[0],5.)
-        # Continuous trend True plus weaker score is not a new campaign.
         force(owner,103,entries=entries,scores=np.array([4.9,1.,1.,1.,1.,1.]))
         weak=owner.decide(obs(owner,103,np.zeros(n),2_000_000.0)); self.assertEqual(weak.unit_targets[0],0.); self.assertTrue(owner.invalidated[0])
-        # No False trend edge is required once causal alpha itself exceeds the failed campaign reference.
         force(owner,104,entries=entries,scores=np.array([5.1,1.,1.,1.,1.,1.]))
         strong=owner.decide(obs(owner,104,np.zeros(n),2_000_000.0)); self.assertGreater(strong.unit_targets[0],0.); self.assertFalse(owner.invalidated[0])
+
+    def test_first_held_close_acute_break_captures_pending_admission_reference(self):
+        m=self.module(); owner=m.Owner(sample_market(6,145),m.Parameters(True)); n=6
+        entries=np.zeros(n,bool); entries[0]=True
+        admission=np.array([5.,1.,1.,1.,1.,1.])
+        force(owner,100,entries=entries,scores=admission)
+        first=owner.decide(obs(owner,100,np.zeros(n),2_000_000.0)); units=first.unit_targets.copy()
+        self.assertAlmostEqual(owner.base.pending_alpha_reference[0],5.)
+        self.assertTrue(np.isnan(owner.base.owned_alpha_reference[0]))
+        # The first close at which filled inventory is observable is already acute.
+        force(owner,101,entries=entries,acute=[0],scores=np.array([4.,1.,1.,1.,1.,1.]))
+        exited=owner.decide(obs(owner,101,units,0.0)); self.assertEqual(exited.unit_targets[0],0.)
+        self.assertTrue(owner.invalidated[0])
+        self.assertAlmostEqual(owner.failed_reference[0],5.)
 
     def test_false_then_true_trend_edge_remains_parameter_free_fallback(self):
         m=self.module(); owner=m.Owner(sample_market(6,145),m.Parameters(True)); n=6
@@ -70,7 +81,6 @@ class OffensiveReferenceRearmTests(unittest.TestCase):
         force(owner,100,entries=entries,scores=admission); first=owner.decide(obs(owner,100,np.zeros(n),2_000_000.0)); units=first.unit_targets.copy(); owner.decide(obs(owner,101,units,0.0))
         force(owner,102,entries=entries,acute=[0],scores=np.array([4.,1.,1.,1.,1.,1.])); owner.decide(obs(owner,102,units,0.0))
         false_entries=np.zeros(n,bool); force(owner,103,entries=false_entries,scores=np.array([4.,1.,1.,1.,1.,1.])); owner.decide(obs(owner,103,np.zeros(n),2_000_000.0)); self.assertTrue(owner.saw_nonentry[0])
-        # Trend edge can establish a genuinely fresh epoch even when score is below the old reference.
         force(owner,104,entries=entries,scores=np.array([4.5,1.,1.,1.,1.,1.])); fresh=owner.decide(obs(owner,104,np.zeros(n),2_000_000.0)); self.assertGreater(fresh.unit_targets[0],0.); self.assertFalse(owner.invalidated[0])
 
     def test_fresh_symbol_hit_by_same_acute_print_is_not_quarantined(self):
