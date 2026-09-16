@@ -52,21 +52,40 @@ Exact attribution result SHA256:
 source SHA256:
 `b761729b9d2f5c60739e4bfc28a7f0a384dd3447dde1c43f88ea9f7a398b6d7b`.
 
-## Active implementation
+## Latest alpha closure
 
-`relative_campaign_owner` is preregistered, not measured. It is a complete
-campaign-lifecycle signal authority on the unchanged filled-account/risk
-substrate, not a retained-exit wrapper: initial price-book discovery remains
-unchanged; actual funded inventory establishes the campaign clock; generic
-price-book exits remain authoritative before session 10; after maturity the
-fixed benchmark-relative state owns continuation and exit. Hard single-session
-loss, missing data, account risk and all inventory/execution obligations remain
-authoritative. Ranking, entry predicates, capacity and funding are unchanged.
+`relative_campaign_owner` is `REJECTED_PAIRED_SCREEN`. It was preregistered at
+`5675004346ce448acd517d0cdf3f6208e8931bb1` before implementation. The fixed
+paired wealth changes were -8.33%/+2.59%/-42.00% on union/common-five/leader
+removal; MDD changed +1.34pp/+0.47pp/+16.68pp and gross turnover rose in every
+scope. The common-five gain cannot be spliced into another candidate.
 
-The fixed paired screen requires no wealth regression in any of the three
-scopes and a strict wealth gain in at least one. Any scope regression rejects
-the candidate, with no search over review windows, benchmark, signs,
-confirmation, fractions or capacity.
+The implementation produced 22/24/6, 17/17/5 and 19/26/10
+quality-activated/rejected/revoked transitions. This establishes that the
+cross-scope state is descriptively predictive in the unchanged account but not
+causally actionable as a dynamic lifecycle authority: exits and revocations
+alter future cash, admissions and cost bases, recreating rotation feedback.
 
-Writer state: active on the preregistered `relative_campaign_owner` batch. No
+Do not tune or repackage the fifth/tenth review sessions, CSI 300 benchmark,
+sign conditions, confirmation days, fractions, capacity or pool variants. Do
+not convert the state into an entry gate, retained-exit wrapper, funding tilt,
+latch, sleeve or composition with another rejected candidate. No 2026 or final
+matrix was run.
+
+Repeated screen output was byte-identical, SHA256
+`1952e8849495510affb3dc9212d64b44635f21057097afbe0ecf4e7908c6b60e`.
+Verification is focused 6/6, ordinary 87/87 and research 420 passed/9 skipped;
+maximum ledger error is below `6.0e-9` CNY.
+
+## Direct continuation
+
+The next independent alpha direction must be a sparse decision whose treatment
+does not create repeated exit/re-entry feedback. First use actual intent and
+funded-campaign records to locate decisions that change ownership once without
+freeing a recurring rotation budget. It must not be another campaign-quality
+threshold, entry gate, retention latch, funding/allocation adjustment, cash
+sleeve, rebalance rule or pool-specific splice. If no such event exists with
+cross-scope evidence, preserve that negative result before implementing.
+
+Writer state: released after fixed rejection and additive preservation. No
 hosted run is pending. PR #1 remains Draft/unmerged.

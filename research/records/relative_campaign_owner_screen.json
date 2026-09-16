@@ -1,0 +1,1399 @@
+{
+  "family": "relative_campaign_owner",
+  "status": "REJECTED_PAIRED_SCREEN",
+  "advance": false,
+  "fixed_failure_rule": "any scope wealth regression rejects; no window, benchmark, sign, confirmation, fraction or capacity search",
+  "benchmark": {
+    "symbol": "sh000300",
+    "name": "\u6caa\u6df1300",
+    "csv_sha256": "455fc880a16556400a5e2f6c5098cc16829e0ee420d01b69e975cce8d5d242a3",
+    "manifest_sha256": "5775aa8cd7968705ec4d1a33cf616d2088400c7d48071979435c5fa3216a53b1"
+  },
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "selection_data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "source_sha256": {
+    "relative_campaign_owner.py": "8691f639ef42dd81ee888e170b42d2fb15f93142eff3b47889c4d4717f0419c2",
+    "test_relative_campaign_owner.py": "c7428af2c4fde484c3b07cfefc00081702a9f5fed67d9f8f9b467059ea5a9c75",
+    "relative_campaign_owner_contract.json": "05d81d66426bc6edc33b49cce4841cdae24cbff31e9e2a8d8274b6553a22d782"
+  },
+  "runner_sha256": "e497c72b34b11ab54e1797eb8e3dd9e355a0201fce9e4ea322bfd91bb28777c0",
+  "rows": [
+    {
+      "scope": "union",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 4.74414842883842,
+        "total_return": 3.74414842883842,
+        "cagr": 0.6824926019797857,
+        "max_drawdown": 0.3055789380480397,
+        "inherited_drawdown": 0.3055789380480397,
+        "sharpe_zero_rf": 1.4281064292868777,
+        "orders": 145,
+        "orders_per_year": 48.45494053064959,
+        "gross_turnover": 39.03239690066364,
+        "fees": 90265.86628999369,
+        "slippage": 165529.21786890013,
+        "average_exposure": 0.51337827889083,
+        "blocked_attempts": 25
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 4.349090573655471,
+        "total_return": 3.349090573655471,
+        "cagr": 0.6343117004705174,
+        "max_drawdown": 0.3190179671430512,
+        "inherited_drawdown": 0.3190179671430512,
+        "sharpe_zero_rf": 1.3258215421781578,
+        "orders": 159,
+        "orders_per_year": 53.133348581884725,
+        "gross_turnover": 53.89760926022829,
+        "fees": 114591.88328675705,
+        "slippage": 210214.28684837546,
+        "average_exposure": 0.49518547498547955,
+        "blocked_attempts": 8
+      },
+      "wealth_change": -0.08327265917345605,
+      "mdd_change": 0.01343902909501149,
+      "orders_change": 14,
+      "turnover_change": 14.865212359564651,
+      "control_ledger": {
+        "max_reconciliation_error": 2.7939677238464355e-09,
+        "episodes": 45,
+        "wins": 24,
+        "drawdown_peak": "2025-09-01",
+        "drawdown_trough": "2025-12-03",
+        "max_drawdown": 0.3055789380480397,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 2.0372681319713593e-09,
+        "episodes": 64,
+        "wins": 30,
+        "drawdown_peak": "2025-09-01",
+        "drawdown_trough": "2025-12-03",
+        "max_drawdown": 0.3190179671430512,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "quality_transitions": 52,
+      "quality_activated": 22,
+      "quality_rejected": 24,
+      "quality_revoked": 6,
+      "trace": [
+        {
+          "date": "2023-02-20",
+          "session": 29,
+          "symbol": "sz002281",
+          "campaign_entry_session": 20,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-02-20",
+          "session": 29,
+          "symbol": "sz300394",
+          "campaign_entry_session": 20,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-03-24",
+          "session": 53,
+          "symbol": "sh688037",
+          "campaign_entry_session": 44,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-03-24",
+          "session": 53,
+          "symbol": "sh688072",
+          "campaign_entry_session": 44,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-04-11",
+          "session": 64,
+          "symbol": "sh688256",
+          "campaign_entry_session": 55,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-04-11",
+          "session": 64,
+          "symbol": "sz300308",
+          "campaign_entry_session": 55,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-05-22",
+          "session": 90,
+          "symbol": "sh688072",
+          "campaign_entry_session": 81,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-05-22",
+          "session": 90,
+          "symbol": "sz002409",
+          "campaign_entry_session": 81,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-05-23",
+          "session": 91,
+          "symbol": "sh688072",
+          "campaign_entry_session": 81,
+          "campaign_age": 10,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2023-06-07",
+          "session": 102,
+          "symbol": "sz300308",
+          "campaign_entry_session": 93,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-06-20",
+          "session": 111,
+          "symbol": "sz300502",
+          "campaign_entry_session": 102,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-10-26",
+          "session": 195,
+          "symbol": "sh688012",
+          "campaign_entry_session": 186,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-10-26",
+          "session": 195,
+          "symbol": "sh688072",
+          "campaign_entry_session": 186,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-11-22",
+          "session": 214,
+          "symbol": "sh688012",
+          "campaign_entry_session": 186,
+          "campaign_age": 28,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2023-11-22",
+          "session": 214,
+          "symbol": "sh688041",
+          "campaign_entry_session": 205,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-12-07",
+          "session": 225,
+          "symbol": "sh688535",
+          "campaign_entry_session": 216,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-12-15",
+          "session": 231,
+          "symbol": "sh688072",
+          "campaign_entry_session": 222,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-12-22",
+          "session": 236,
+          "symbol": "sz300308",
+          "campaign_entry_session": 227,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-03-12",
+          "session": 286,
+          "symbol": "sh688041",
+          "campaign_entry_session": 277,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-03-12",
+          "session": 286,
+          "symbol": "sz300394",
+          "campaign_entry_session": 277,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-05-16",
+          "session": 328,
+          "symbol": "sz300502",
+          "campaign_entry_session": 319,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-05-27",
+          "session": 335,
+          "symbol": "sh688256",
+          "campaign_entry_session": 326,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-05-31",
+          "session": 339,
+          "symbol": "sh688300",
+          "campaign_entry_session": 330,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-06-18",
+          "session": 350,
+          "symbol": "sz300502",
+          "campaign_entry_session": 341,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-10-21",
+          "session": 432,
+          "symbol": "sz300502",
+          "campaign_entry_session": 423,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-10-22",
+          "session": 433,
+          "symbol": "sh688256",
+          "campaign_entry_session": 424,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-10-23",
+          "session": 434,
+          "symbol": "sz300502",
+          "campaign_entry_session": 423,
+          "campaign_age": 11,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-11-07",
+          "session": 445,
+          "symbol": "sz300604",
+          "campaign_entry_session": 436,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-11-18",
+          "session": 452,
+          "symbol": "sh688041",
+          "campaign_entry_session": 443,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-12-03",
+          "session": 463,
+          "symbol": "sh688256",
+          "campaign_entry_session": 454,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-12-13",
+          "session": 471,
+          "symbol": "sh688072",
+          "campaign_entry_session": 462,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-12-30",
+          "session": 482,
+          "symbol": "sh688205",
+          "campaign_entry_session": 473,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-02-24",
+          "session": 515,
+          "symbol": "sh688041",
+          "campaign_entry_session": 506,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-02-24",
+          "session": 515,
+          "symbol": "sh688256",
+          "campaign_entry_session": 506,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-03-11",
+          "session": 526,
+          "symbol": "sh688361",
+          "campaign_entry_session": 517,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-03-25",
+          "session": 536,
+          "symbol": "sh688256",
+          "campaign_entry_session": 506,
+          "campaign_age": 30,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2025-05-22",
+          "session": 574,
+          "symbol": "sh600206",
+          "campaign_entry_session": 565,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-05-22",
+          "session": 574,
+          "symbol": "sh688019",
+          "campaign_entry_session": 565,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-06-20",
+          "session": 594,
+          "symbol": "sh601869",
+          "campaign_entry_session": 585,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-06-20",
+          "session": 594,
+          "symbol": "sh688205",
+          "campaign_entry_session": 585,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-07-07",
+          "session": 605,
+          "symbol": "sh600206",
+          "campaign_entry_session": 596,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-07-07",
+          "session": 605,
+          "symbol": "sz300502",
+          "campaign_entry_session": 596,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-07-08",
+          "session": 606,
+          "symbol": "sh600206",
+          "campaign_entry_session": 596,
+          "campaign_age": 10,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2025-07-23",
+          "session": 617,
+          "symbol": "sh688498",
+          "campaign_entry_session": 608,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-08-07",
+          "session": 628,
+          "symbol": "sz300308",
+          "campaign_entry_session": 619,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-09-29",
+          "session": 665,
+          "symbol": "sh601869",
+          "campaign_entry_session": 656,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-09-29",
+          "session": 665,
+          "symbol": "sz300502",
+          "campaign_entry_session": 656,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-10-13",
+          "session": 669,
+          "symbol": "sh601869",
+          "campaign_entry_session": 656,
+          "campaign_age": 13,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2025-11-11",
+          "session": 690,
+          "symbol": "sz300502",
+          "campaign_entry_session": 681,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-11-17",
+          "session": 694,
+          "symbol": "sh688498",
+          "campaign_entry_session": 685,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-12-16",
+          "session": 715,
+          "symbol": "sz300308",
+          "campaign_entry_session": 706,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-12-16",
+          "session": 715,
+          "symbol": "sz300502",
+          "campaign_entry_session": 706,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        }
+      ]
+    },
+    {
+      "scope": "chatgpt_5",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 7.904183048701599,
+        "total_return": 6.904183048701599,
+        "cagr": 0.9954399788719608,
+        "max_drawdown": 0.391356116446651,
+        "inherited_drawdown": 0.391356116446651,
+        "sharpe_zero_rf": 1.7491092776610122,
+        "orders": 164,
+        "orders_per_year": 54.80420860018298,
+        "gross_turnover": 36.222570571701624,
+        "fees": 134601.34278754212,
+        "slippage": 243133.85296790846,
+        "average_exposure": 0.48819175555248917,
+        "blocked_attempts": 46
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 8.109176687961236,
+        "total_return": 7.109176687961236,
+        "cagr": 1.0125866438099735,
+        "max_drawdown": 0.3960102678471079,
+        "inherited_drawdown": 0.3960102678471079,
+        "sharpe_zero_rf": 1.7230707632906286,
+        "orders": 172,
+        "orders_per_year": 57.4775846294602,
+        "gross_turnover": 50.11857756614102,
+        "fees": 156546.81355323322,
+        "slippage": 286771.895766735,
+        "average_exposure": 0.4593865799791325,
+        "blocked_attempts": 38
+      },
+      "wealth_change": 0.025934829443671648,
+      "mdd_change": 0.004654151400456885,
+      "orders_change": 8,
+      "turnover_change": 13.896006994439396,
+      "control_ledger": {
+        "max_reconciliation_error": 3.725290298461914e-09,
+        "episodes": 41,
+        "wins": 20,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-26",
+        "max_drawdown": 0.391356116446651,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 5.995389074087143e-09,
+        "episodes": 56,
+        "wins": 23,
+        "drawdown_peak": "2023-06-20",
+        "drawdown_trough": "2024-02-26",
+        "max_drawdown": 0.3960102678471079,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "quality_transitions": 39,
+      "quality_activated": 17,
+      "quality_rejected": 17,
+      "quality_revoked": 5,
+      "trace": [
+        {
+          "date": "2023-02-20",
+          "session": 29,
+          "symbol": "sz300308",
+          "campaign_entry_session": 20,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-02-20",
+          "session": 29,
+          "symbol": "sz300394",
+          "campaign_entry_session": 20,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-03-20",
+          "session": 49,
+          "symbol": "sz300502",
+          "campaign_entry_session": 40,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-06-02",
+          "session": 99,
+          "symbol": "sz300308",
+          "campaign_entry_session": 90,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-06-02",
+          "session": 99,
+          "symbol": "sz300394",
+          "campaign_entry_session": 90,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-06-19",
+          "session": 110,
+          "symbol": "sz300502",
+          "campaign_entry_session": 101,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-07-10",
+          "session": 123,
+          "symbol": "sz300308",
+          "campaign_entry_session": 114,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-11-27",
+          "session": 217,
+          "symbol": "sh688008",
+          "campaign_entry_session": 208,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-11-28",
+          "session": 218,
+          "symbol": "sz300502",
+          "campaign_entry_session": 209,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-12-18",
+          "session": 232,
+          "symbol": "sz300502",
+          "campaign_entry_session": 223,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-12-21",
+          "session": 235,
+          "symbol": "sz300394",
+          "campaign_entry_session": 226,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-12-26",
+          "session": 238,
+          "symbol": "sz300502",
+          "campaign_entry_session": 223,
+          "campaign_age": 15,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-01-08",
+          "session": 246,
+          "symbol": "sz300394",
+          "campaign_entry_session": 226,
+          "campaign_age": 20,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-03-01",
+          "session": 279,
+          "symbol": "sz300394",
+          "campaign_entry_session": 270,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-03-06",
+          "session": 282,
+          "symbol": "sz300308",
+          "campaign_entry_session": 273,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-03-21",
+          "session": 293,
+          "symbol": "sz300502",
+          "campaign_entry_session": 284,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-04-30",
+          "session": 319,
+          "symbol": "sz300308",
+          "campaign_entry_session": 310,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-04-30",
+          "session": 319,
+          "symbol": "sz300394",
+          "campaign_entry_session": 310,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-05-20",
+          "session": 330,
+          "symbol": "sz300502",
+          "campaign_entry_session": 321,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-05-21",
+          "session": 331,
+          "symbol": "sh603986",
+          "campaign_entry_session": 322,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-06-20",
+          "session": 352,
+          "symbol": "sz300502",
+          "campaign_entry_session": 343,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-06-27",
+          "session": 357,
+          "symbol": "sz300308",
+          "campaign_entry_session": 348,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-07-25",
+          "session": 377,
+          "symbol": "sz300308",
+          "campaign_entry_session": 348,
+          "campaign_age": 29,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-07-25",
+          "session": 377,
+          "symbol": "sz300502",
+          "campaign_entry_session": 343,
+          "campaign_age": 34,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-10-18",
+          "session": 431,
+          "symbol": "sz300502",
+          "campaign_entry_session": 422,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-10-24",
+          "session": 435,
+          "symbol": "sh688008",
+          "campaign_entry_session": 426,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-12-19",
+          "session": 475,
+          "symbol": "sh688008",
+          "campaign_entry_session": 466,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-02-11",
+          "session": 506,
+          "symbol": "sh603986",
+          "campaign_entry_session": 497,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-02-26",
+          "session": 517,
+          "symbol": "sh688008",
+          "campaign_entry_session": 508,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-05-23",
+          "session": 575,
+          "symbol": "sh688008",
+          "campaign_entry_session": 566,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-05-23",
+          "session": 575,
+          "symbol": "sz300502",
+          "campaign_entry_session": 566,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-05-27",
+          "session": 577,
+          "symbol": "sz300502",
+          "campaign_entry_session": 566,
+          "campaign_age": 11,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2025-06-16",
+          "session": 590,
+          "symbol": "sz300502",
+          "campaign_entry_session": 581,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-06-19",
+          "session": 593,
+          "symbol": "sh688008",
+          "campaign_entry_session": 584,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-07-04",
+          "session": 604,
+          "symbol": "sz300308",
+          "campaign_entry_session": 595,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-11-06",
+          "session": 687,
+          "symbol": "sz300502",
+          "campaign_entry_session": 678,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-11-21",
+          "session": 698,
+          "symbol": "sz300308",
+          "campaign_entry_session": 689,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-12-12",
+          "session": 713,
+          "symbol": "sz300308",
+          "campaign_entry_session": 704,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-12-12",
+          "session": 713,
+          "symbol": "sz300502",
+          "campaign_entry_session": 704,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        }
+      ]
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "control": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 1.1546791488756403,
+        "total_return": 0.15467914887564027,
+        "cagr": 0.04923513626394693,
+        "max_drawdown": 0.35331033491094144,
+        "inherited_drawdown": 0.35331033491094144,
+        "sharpe_zero_rf": 0.3169906767347706,
+        "orders": 169,
+        "orders_per_year": 56.475068618481245,
+        "gross_turnover": 47.47983940944148,
+        "fees": 53350.728517320684,
+        "slippage": 95081.69582748652,
+        "average_exposure": 0.46688897802252155,
+        "blocked_attempts": 45
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 0.6697266545575296,
+        "total_return": -0.33027334544247045,
+        "cagr": -0.12537910868958313,
+        "max_drawdown": 0.5201194862238563,
+        "inherited_drawdown": 0.5201194862238563,
+        "sharpe_zero_rf": -0.22462704545771028,
+        "orders": 197,
+        "orders_per_year": 65.8318847209515,
+        "gross_turnover": 68.18983121500881,
+        "fees": 60931.37305280571,
+        "slippage": 108323.91579360134,
+        "average_exposure": 0.4512815542065183,
+        "blocked_attempts": 27
+      },
+      "wealth_change": -0.41998895952207105,
+      "mdd_change": 0.16680915131291485,
+      "orders_change": 28,
+      "turnover_change": 20.709991805567327,
+      "control_ledger": {
+        "max_reconciliation_error": 8.076312951743603e-10,
+        "episodes": 50,
+        "wins": 23,
+        "drawdown_peak": "2023-02-15",
+        "drawdown_trough": "2024-05-24",
+        "max_drawdown": 0.35331033491094144,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "treatment_ledger": {
+        "max_reconciliation_error": 4.874891601502895e-10,
+        "episodes": 74,
+        "wins": 26,
+        "drawdown_peak": "2023-02-15",
+        "drawdown_trough": "2024-10-16",
+        "max_drawdown": 0.5201194862238563,
+        "episode_return_basis": "cash PnL divided by actual buy notional"
+      },
+      "quality_transitions": 55,
+      "quality_activated": 19,
+      "quality_rejected": 26,
+      "quality_revoked": 10,
+      "trace": [
+        {
+          "date": "2023-02-20",
+          "session": 29,
+          "symbol": "sz002281",
+          "campaign_entry_session": 20,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-03-03",
+          "session": 38,
+          "symbol": "sh688037",
+          "campaign_entry_session": 29,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-03-24",
+          "session": 53,
+          "symbol": "sh688037",
+          "campaign_entry_session": 44,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-03-24",
+          "session": 53,
+          "symbol": "sh688072",
+          "campaign_entry_session": 44,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-04-11",
+          "session": 64,
+          "symbol": "sh688256",
+          "campaign_entry_session": 55,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-04-11",
+          "session": 64,
+          "symbol": "sz002281",
+          "campaign_entry_session": 55,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-04-28",
+          "session": 77,
+          "symbol": "sh688012",
+          "campaign_entry_session": 68,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-06-02",
+          "session": 99,
+          "symbol": "sh688037",
+          "campaign_entry_session": 90,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-06-02",
+          "session": 99,
+          "symbol": "sh688072",
+          "campaign_entry_session": 90,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-06-20",
+          "session": 111,
+          "symbol": "sh688037",
+          "campaign_entry_session": 90,
+          "campaign_age": 21,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2023-06-21",
+          "session": 112,
+          "symbol": "sh688072",
+          "campaign_entry_session": 90,
+          "campaign_age": 22,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2023-10-26",
+          "session": 195,
+          "symbol": "sh688012",
+          "campaign_entry_session": 186,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-10-26",
+          "session": 195,
+          "symbol": "sh688072",
+          "campaign_entry_session": 186,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-11-17",
+          "session": 211,
+          "symbol": "sh688041",
+          "campaign_entry_session": 202,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-11-22",
+          "session": 214,
+          "symbol": "sh688012",
+          "campaign_entry_session": 186,
+          "campaign_age": 28,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2023-12-07",
+          "session": 225,
+          "symbol": "sh688120",
+          "campaign_entry_session": 216,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2023-12-07",
+          "session": 225,
+          "symbol": "sh688300",
+          "campaign_entry_session": 216,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2023-12-14",
+          "session": 230,
+          "symbol": "sh688120",
+          "campaign_entry_session": 216,
+          "campaign_age": 14,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-03-15",
+          "session": 289,
+          "symbol": "sh688041",
+          "campaign_entry_session": 280,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-03-15",
+          "session": 289,
+          "symbol": "sz002371",
+          "campaign_entry_session": 280,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-06-03",
+          "session": 340,
+          "symbol": "sh688256",
+          "campaign_entry_session": 331,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-06-03",
+          "session": 340,
+          "symbol": "sh688300",
+          "campaign_entry_session": 331,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-06-07",
+          "session": 344,
+          "symbol": "sh688300",
+          "campaign_entry_session": 331,
+          "campaign_age": 13,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-10-22",
+          "session": 433,
+          "symbol": "sh688041",
+          "campaign_entry_session": 424,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-10-22",
+          "session": 433,
+          "symbol": "sh688256",
+          "campaign_entry_session": 424,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-11-18",
+          "session": 452,
+          "symbol": "sh688205",
+          "campaign_entry_session": 443,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2024-11-25",
+          "session": 457,
+          "symbol": "sh688041",
+          "campaign_entry_session": 424,
+          "campaign_age": 33,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-12-10",
+          "session": 468,
+          "symbol": "sh688256",
+          "campaign_entry_session": 459,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-12-12",
+          "session": 470,
+          "symbol": "sh688249",
+          "campaign_entry_session": 461,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2024-12-16",
+          "session": 472,
+          "symbol": "sh688249",
+          "campaign_entry_session": 461,
+          "campaign_age": 11,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2024-12-31",
+          "session": 483,
+          "symbol": "sh688205",
+          "campaign_entry_session": 474,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-02-06",
+          "session": 503,
+          "symbol": "sh603986",
+          "campaign_entry_session": 494,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-02-10",
+          "session": 505,
+          "symbol": "sh603986",
+          "campaign_entry_session": 494,
+          "campaign_age": 11,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2025-02-20",
+          "session": 513,
+          "symbol": "sh688041",
+          "campaign_entry_session": 504,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-02-25",
+          "session": 516,
+          "symbol": "sh688256",
+          "campaign_entry_session": 507,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-03-12",
+          "session": 527,
+          "symbol": "sh600206",
+          "campaign_entry_session": 518,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-03-12",
+          "session": 527,
+          "symbol": "sh688041",
+          "campaign_entry_session": 518,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-03-13",
+          "session": 528,
+          "symbol": "sh600206",
+          "campaign_entry_session": 518,
+          "campaign_age": 10,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2025-03-28",
+          "session": 539,
+          "symbol": "sh688409",
+          "campaign_entry_session": 530,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-05-21",
+          "session": 573,
+          "symbol": "sh688256",
+          "campaign_entry_session": 564,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-06-23",
+          "session": 595,
+          "symbol": "sh688019",
+          "campaign_entry_session": 586,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-07-08",
+          "session": 606,
+          "symbol": "sh600206",
+          "campaign_entry_session": 597,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-07-15",
+          "session": 611,
+          "symbol": "sh601869",
+          "campaign_entry_session": 602,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-07-23",
+          "session": 617,
+          "symbol": "sh688498",
+          "campaign_entry_session": 608,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-07-30",
+          "session": 622,
+          "symbol": "sh688008",
+          "campaign_entry_session": 613,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-08-07",
+          "session": 628,
+          "symbol": "sh688019",
+          "campaign_entry_session": 619,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-08-14",
+          "session": 633,
+          "symbol": "sh601869",
+          "campaign_entry_session": 624,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-08-22",
+          "session": 639,
+          "symbol": "sh688498",
+          "campaign_entry_session": 630,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-09-29",
+          "session": 665,
+          "symbol": "sh601869",
+          "campaign_entry_session": 656,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        },
+        {
+          "date": "2025-09-29",
+          "session": 665,
+          "symbol": "sh688256",
+          "campaign_entry_session": 656,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-10-13",
+          "session": 669,
+          "symbol": "sh601869",
+          "campaign_entry_session": 656,
+          "campaign_age": 13,
+          "kind": "QUALITY_REVOKED"
+        },
+        {
+          "date": "2025-11-11",
+          "session": 690,
+          "symbol": "sh688498",
+          "campaign_entry_session": 681,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-11-11",
+          "session": 690,
+          "symbol": "sz300604",
+          "campaign_entry_session": 681,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-12-16",
+          "session": 715,
+          "symbol": "sh603986",
+          "campaign_entry_session": 706,
+          "campaign_age": 9,
+          "kind": "QUALITY_REJECTED"
+        },
+        {
+          "date": "2025-12-31",
+          "session": 726,
+          "symbol": "sh688361",
+          "campaign_entry_session": 717,
+          "campaign_age": 9,
+          "kind": "QUALITY_ACTIVATED"
+        }
+      ]
+    }
+  ],
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "historical_exposure": "RETROSPECTIVE_FIXED_PAIRED_SCREEN"
+}
