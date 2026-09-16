@@ -78,6 +78,7 @@ class RecoveredProvenanceAuthorityTests(unittest.TestCase):
 
     def test_recovered_challenger_cannot_force_ordinary_full_book_displacement(self):
         owner, units = self.prepared()
+        force(owner, 100, [1.0, 3.0, 2.5, .4, .3, .2], [True, True, False, False, False, False])
         owner.parent.reference_rearmed_without_fresh_epoch[1] = True
         decision = owner.decide(observe(owner, 100, units, 0.0))
         self.assertGreater(decision.unit_targets[0], 0.0)
