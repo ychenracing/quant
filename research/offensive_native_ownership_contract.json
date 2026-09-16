@@ -1,0 +1,60 @@
+{
+  "family": "offensive_native_ownership",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_ACCOUNT_MEASUREMENT",
+  "authority": "Original PR #1 alpha-discovery continuation. The user explicitly prioritizes terminal wealth and allows replacement of the existing risk/ownership architecture during discovery while preserving causal next-session execution and frozen data/evidence identities.",
+  "evidence": {
+    "committed_offensive_attribution": {
+      "commit": "102cb5192aac55471c1bc107e2418697b5fc5128",
+      "path": "research/records/committed_offensive_core_attribution.json",
+      "finding": "The broad-pool 2025 failure was predominantly ownership opportunity cost at near-full exposure. The unchanged native trend_book owner emitted causal LATCHED_LEADER_REPLACEMENT signals before the later high-PnL entrants."
+    },
+    "alpha_decay_local_diagnostic": {
+      "commit": "407756076b1d116f636d8796e4b66dba0934842c",
+      "path": "research/records/offensive_alpha_decay_displacement_local_screen.json",
+      "status": "LOCAL_ONLY_PENDING_HOSTED_CANONICAL",
+      "finding": "A custom admission-reference displacement improved common-five and leader-removal but materially regressed union. This supports preserving the native ownership lifecycle instead of inventing another challenger threshold."
+    }
+  },
+  "economic_hypothesis": "The baseline trend_book already contains the sparse causal replacement, readmission and actual-cash funding behavior that identified decisive broad-universe winners, but its account RiskState repeatedly cuts or delays gross exposure. Retain the native security/ownership lifecycle exactly and remove only account-level de-risking so the same causal owner can remain offensively funded through large AI trends.",
+  "control": "Exact research.trend_book.Owner with Parameters(2), including its existing RiskState.",
+  "treatment": {
+    "ownership": "Exact trend_book/coherent security eligibility, score ranking, native 20-session LATCHED_LEADER_REPLACEMENT predicate, exit_pending/readmit lifecycle, actual-fill accounting, quantity ceilings, observed-cash funding, restoration bookkeeping and per-name ceilings. Do not introduce a new replacement threshold or review clock.",
+    "account_risk": "Replace only the account RiskState authority with a stateless offensive authority whose cap is 1.0 from the first decision and remains 1.0. It records OFFENSIVE_FULL_CAP and never issues account/market de-risking, recovery waits or restoration transitions.",
+    "security_risk": "Unchanged signal-specific security breaks, stale-quote exits, -8% one-session break, market admission gate, pending protective security exits, price-limit handling and fill retries remain authoritative.",
+    "execution": "Unchanged close decision / next-session execution, sells before buys, cash-only long-only, no leverage, no shorting, prior-volume liquidity, board lots, T+1, real fees/slippage and limit handling."
+  },
+  "structural_difference_from_rejected_work": [
+    "Not old handover/generic reentry/relative_campaign_owner: adds no new handoff rule, score multiple, rank cutoff, confirmation interval or campaign label; it reuses the native owner unchanged.",
+    "Not committed_offensive_core: does not freeze occupied slots; the native owner keeps its causal replacement and real-cash funding lifecycle.",
+    "Not an old risk patch: it adds no defensive filter and does not optimize drawdown. It removes account-level de-risking entirely for the offensive alpha experiment while leaving security execution protections intact.",
+    "Not a funding/allocation-weight search: no new weight, cap, position-count or cash-allocation parameter is introduced."
+  ],
+  "parameter_search": false,
+  "new_numeric_parameters": 0,
+  "measurement": {
+    "window": {"start": "2023-01-03", "end": "2025-12-31"},
+    "initial_cash": 2000000,
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary_objective": "maximize mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary_objective": "maximize minimum terminal wealth across the three fixed scopes",
+    "record_only_during_alpha_discovery": ["max_drawdown", "orders", "gross_turnover", "fees", "slippage", "average_exposure"],
+    "promotion_rule": "Advance only if cross-scope compound wealth and the minimum wealth improve, at least one broad scope improves, and joint optical-leader removal remains above 1.0. MDD/orders/turnover are diagnostics only at this stage.",
+    "failure_rule": "If the fixed three-scope wealth result is not materially better, preserve the failure and move to a substantively different alpha architecture. Do not tune RiskState levels, replacement multiples, review cadence, position count or score weights."
+  },
+  "frozen_inputs": {
+    "full_names": 34,
+    "full_sessions": 896,
+    "full_start": "2023-01-03",
+    "full_end": "2026-09-11",
+    "full_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "selection_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157"
+  },
+  "prohibitions": [
+    "No per-symbol/date/pool branch",
+    "No future labels or future highs in decisions",
+    "No reference strategy source reuse",
+    "No frozen data/cost/benchmark/acceptance manipulation",
+    "No neighboring parameter search",
+    "No winner splicing"
+  ]
+}
