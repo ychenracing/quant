@@ -1,0 +1,18 @@
+{
+  "family": "offensive_portfolio_leader_peak_authority",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "512997c846d7fe7798e2c599604de928c07a2579",
+  "source_git_blob": {
+    "research/offensive_portfolio_leader_peak_authority.py": "8c0ff9c2eccd932e944596622b048f3565bf1b32",
+    "research/test_offensive_portfolio_leader_peak_authority.py": "43e505b8a892ed1e5b4f94fadfa730eda4fd9634",
+    "research/offensive_portfolio_leader_peak_authority_study.py": "e92d255fb491c4d54acbe534fafae175c2fed1ea",
+    "research/offensive_portfolio_leader_peak_authority_contract.json": "9f33dce4ada5b28e0b9ca05edad858400ab6dd11",
+    ".github/workflows/portfolio-leader-peak-authority-study.yml": "f7c45f597dcf83986597f8ff2285a80051306496",
+    "research/offensive_dominant_peak_authority.py": "1c1e98c7bad8e1a3e6c49382bf7c5d17287209c2"
+  },
+  "request": "Run the preregistered dominant-peak alpha leader versus portfolio-leader-peak-authority treatment through 2025-12-31 on union, common-five and joint optical-leader removal. The treatment changes only the sparse weaker-peak release boundary: a fresh challenger may release a weaker secondary peak campaign only when its current causal score is strictly greater than every actually held campaign. Otherwise block only that challenger for the current close. Select only if mean(log terminal wealth) strictly exceeds the dominant-peak leader and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound treatment through all 896 frozen sessions. Record MDD, orders, turnover, fees, slippage, exposure, portfolio-leader releases and nonleader peak blocks. Do not add score margins, ratios, confirmation days, cooldowns, capacity changes, funding changes or pool-specific behavior.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
