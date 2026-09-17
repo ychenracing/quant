@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "purpose": "Pre-registered bounded selection-window screen for the risk-aware ownership structure; not the dynamic four-reference acceptance gate.",
+  "selection_window": {
+    "start": "2023-01-03",
+    "end": "2025-12-31"
+  },
+  "final_evaluation_window": {
+    "start": "2026-01-01",
+    "end": "2026-09-11",
+    "used_for_selection": false
+  },
+  "evidence_layer": "SAME_ENGINE_INTERNAL_PASSIVE_SCREEN",
+  "cases": [
+    {
+      "case_id": "common_five",
+      "catalog_pool": "chatgpt_5"
+    },
+    {
+      "case_id": "union_34",
+      "catalog_pool": "union"
+    },
+    {
+      "case_id": "remove_optical_leaders",
+      "derived_from": "union",
+      "remove": [
+        "sz300308",
+        "sz300502",
+        "sz300394"
+      ]
+    },
+    {
+      "case_id": "chatgpt_original",
+      "catalog_pool": "chatgpt_22"
+    },
+    {
+      "case_id": "trae_original",
+      "catalog_pool": "trae_24"
+    },
+    {
+      "case_id": "dumate_original",
+      "catalog_pool": "dumate_18"
+    },
+    {
+      "case_id": "workbuddy_original",
+      "catalog_pool": "workbuddy_e"
+    }
+  ],
+  "parameters": {
+    "core_fraction": [
+      0.5,
+      0.6,
+      0.7
+    ],
+    "risk_confirmation": 2,
+    "recovery_confirmation": 2
+  },
+  "selection_objective": [
+    "maximize the minimum candidate wealth divided by same-engine passive wealth",
+    "then maximize the minimum passive drawdown minus candidate drawdown",
+    "then maximize the median passive drawdown minus candidate drawdown",
+    "then maximize median wealth retention",
+    "prefer the larger core fraction only as an exact deterministic tie-break"
+  ],
+  "limitations": [
+    "This screen cannot pass the dynamic relative contract because exact four-reference results are incomplete.",
+    "The passive baseline is a same-engine diagnostic, not a substitute for the four read-only reference strategies.",
+    "The 2026 final-evaluation window is not read or used to choose the structure.",
+    "A selected structure remains research-only until every mandatory exact case is complete and passes.",
+    "Backtest results do not guarantee future returns."
+  ],
+  "production_default_changed": false
+}
