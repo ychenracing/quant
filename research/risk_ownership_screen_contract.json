@@ -50,6 +50,19 @@
     "ideal_drawdown_target": "strictly below the worst maximum drawdown among the four references in the same exact case",
     "drawdown_target_is_merge_blocking": false
   },
+  "implementation_identity": {
+    "source_commit": "4a7e0a3156ac45459b0c0e339ae8e499839deb5a",
+    "source_tree": "8d45ee7bc7188cd65067eef288ea6f03a715cf3b",
+    "integration_workflow_run": 35262186614,
+    "verification": {
+      "unittest_cases": 106,
+      "unittest_result": "PASS",
+      "compileall": "PASS",
+      "installed_cli": "PASS",
+      "transport_sha256_verified": true,
+      "transient_transport_files_removed": true
+    }
+  },
   "limitations": [
     "This internal screen cannot pass the dynamic relative contract because exact four-reference results remain incomplete.",
     "The passive baseline is a same-engine diagnostic, not a substitute for the four read-only reference strategies.",
