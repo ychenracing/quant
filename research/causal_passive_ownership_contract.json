@@ -1,0 +1,73 @@
+{
+  "family": "causal_passive_ownership",
+  "status": "PREREGISTERED_BEFORE_PRODUCTION_IMPLEMENTATION_AND_POLICY_MEASUREMENT",
+  "purpose": "Convert the already measured same-engine buy_hold benchmark semantics into a named production-capable cash-long ownership mode because the fixed 199-case campaign-peak matrix shows that, under the user's current return-first priority, active turnover destroys more secular compounding than it creates across the three frozen core scopes.",
+  "known_retrospective_basis": {
+    "campaign_peak_source": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "campaign_peak_canonical_run": 35121169501,
+    "campaign_peak_formal_run": 35122063992,
+    "formal_cases": 199,
+    "full_896_core": {
+      "campaign_peak": {"union": 10.768448748039928, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.458483855998304},
+      "same_engine_buy_hold": {"union": 9.102309, "chatgpt_5": 29.062957, "joint_optical_leader_removal": 5.716080}
+    },
+    "selection_2023_2025_core": {
+      "campaign_peak": {"union": 6.343988713554002, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048, "mean_log": 1.6493183795493607, "minimum": 1.5949459430753048},
+      "same_engine_buy_hold": {"union": 5.35974311438996, "chatgpt_5": 19.02756176483687, "joint_optical_leader_removal": 3.0475364255241244, "mean_log": 1.91304604321501, "minimum": 3.0475364255241244}
+    },
+    "formal_buy_hold_nonregression_rate": 0.1708542713567839,
+    "formal_median_treatment_to_buy_hold_wealth_ratio": 0.5548109961144156,
+    "interpretation": "These economics are already observed and motivate implementation. The new production-mode replay is not an unseen experiment; it must reproduce the existing benchmark exactly before any promotion claim."
+  },
+  "production_semantics": {
+    "mode": "strategy='passive_ownership'",
+    "capital": "Split original initial cash equally across the supplied universe once. Each security owns its original sleeve budget; unused budget is not reassigned to another name.",
+    "admission": "For each supplied symbol, spend its remaining original sleeve at the earliest next-open execution opportunity allowed by the existing engine. Missing/pre-IPO quotes, opening limits, insufficient prior-only capacity, board-lot constraints and affordability may delay or partially fill ownership; residual sleeve budget remains available for later retries.",
+    "holding": "After actual purchase, never voluntarily sell, trim, rebalance or restore equal weights. Capital gains compound in place. No score, trend, sector, risk-state or future outcome controls membership.",
+    "execution": "Use the unchanged engine next-session clock, cash conservation, commission, slippage, board-lot, raw-price equivalent, opening-limit, prior-volume capacity and ordinary 1%-NAV executable materiality rules.",
+    "causality": "No pre-2023 observations, future prices, future availability or terminal membership outcomes are inputs. Prefix replays must match the full snapshot exactly through the cut date.",
+    "removal": "Removing a supplied security removes both its signals and its original capital sleeve; no historical PnL or unused budget is transferred into remaining names."
+  },
+  "implementation": {
+    "reuse": "Do not approximate benchmark behavior in an external Owner. Refactor the existing engine buy_hold state machine only enough that research benchmark='buy_hold' and production strategy='passive_ownership' execute the same shared path byte-for-behavior.",
+    "conflicts": "strategy='passive_ownership' is mutually exclusive with benchmark, external targets and policy_factory.",
+    "metadata": "Research buy_hold keeps benchmark='buy_hold'. Production passive ownership records strategy='passive_ownership' and benchmark=null without changing accounting or execution semantics."
+  },
+  "tdd": [
+    "production passive ownership and research buy_hold have identical daily equity, targets and complete order ledger on the same market/config/cost/delay",
+    "prefix replay is exactly equal through the cut date",
+    "late-listed security retains its own original cash sleeve and does not cause earlier purchases or capital transfer",
+    "blocked or partial initial purchase retries without selling existing inventory",
+    "passive ownership rejects conflicting benchmark, external target or policy_factory inputs"
+  ],
+  "economic_screen": {
+    "selection_end": "2025-12-31",
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "control": "Exact canonical offensive_campaign_peak_authority Parameters(True)",
+    "treatment": "Exact production strategy='passive_ownership' mode",
+    "benchmark_equivalence": "Treatment must exactly equal benchmark='buy_hold' account outputs on every measured scope before economics are interpreted.",
+    "advance": "Under the user's return-first authorization, require treatment mean(log terminal wealth) to exceed campaign-peak control and treatment minimum terminal wealth to be no lower. No MDD/order gate is used for this alpha-first promotion screen, but all risk and turnover metrics remain reported.",
+    "full_history": "If the fixed screen advances, measure the same source through all 896 frozen sessions and the frozen bull/late-June-August/July-August/recovery windows without reselection."
+  },
+  "final_validation": {
+    "formal": "Prove production passive ownership equals the already measured same-engine buy_hold comparator across the fixed 199-case formal plan or rerun only where exact evidence equivalence cannot be established.",
+    "references": "Native-reference common-five comparison remains native/not-equivalent-execution. Normalized/equivalent-execution reference superiority remains separately required if the original final contract demands it.",
+    "risk": "Return-first promotion does not imply superior risk control. Drawdown, stress, timing and execution limitations must remain explicit."
+  },
+  "frozen": {
+    "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "seed": 34,
+    "selection_end": "2025-12-31",
+    "evaluation_end": "2026-09-11",
+    "initial_cash": 2000000.0
+  },
+  "prohibitions": [
+    "No ticker/date/pool special cases",
+    "No passive/active mixture weight search",
+    "No stop/reentry rule in this family",
+    "No changing costs, delays, data, universe or metric definitions to improve the result",
+    "No claiming the already observed benchmark economics are prospective or unseen",
+    "No deleting failed active research or invalid provenance evidence"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
