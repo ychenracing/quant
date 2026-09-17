@@ -1,0 +1,102 @@
+name: Apply executable recovery completion
+
+on:
+  push:
+    branches: [feat/dynamic-relative-risk-ownership]
+    paths: [.github/workflows/apply-executable-recovery.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      PYTHONPATH: src:tests:.
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install exact candidate source
+        run: python -m pip install -e .
+
+      - name: Share execution materiality with recovery completion
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          execution = Path("src/techquant/execution.py")
+          text = execution.read_text(encoding="utf-8")
+          old = """import math\n\n\ndef stamp_rate(date: str) -> float:\n"""
+          new = """import math\n\n\nMIN_ORDER_NAV_FRACTION = 0.01\n\n\ndef is_material_order(notional: float, nav: float) -> bool:\n    \"\"\"Return whether an ordinary order reaches the shared NAV floor.\"\"\"\n\n    if (\n        not math.isfinite(notional)\n        or notional < 0\n        or not math.isfinite(nav)\n        or nav <= 0\n    ):\n        raise ValueError(\"order notional and NAV must be finite and valid\")\n    return notional + 1e-8 >= nav * MIN_ORDER_NAV_FRACTION\n\n\ndef stamp_rate(date: str) -> float:\n"""
+          if text.count(old) != 1:
+              raise SystemExit("execution helper anchor mismatch")
+          execution.write_text(text.replace(old, new), encoding="utf-8")
+
+          engine = Path("src/techquant/engine.py")
+          text = engine.read_text(encoding="utf-8")
+          replacements = {
+              """from .execution import daily_limit, fee, round_quantity\n""":
+              """from .execution import daily_limit, fee, is_material_order, round_quantity\n""",
+              """                    if not protective and abs(delta) < opening_nav * .01:\n""":
+              """                    if not protective and not is_material_order(\n                        abs(delta), opening_nav\n                    ):\n""",
+              """                    if not protective and quantity * op[i, j] < opening_nav * .01:\n""":
+              """                    if not protective and not is_material_order(\n                        float(quantity * op[i, j]), opening_nav\n                    ):\n""",
+          }
+          for old_text, new_text in replacements.items():
+              if text.count(old_text) != 1:
+                  raise SystemExit("engine materiality anchor mismatch")
+              text = text.replace(old_text, new_text)
+          engine.write_text(text, encoding="utf-8")
+
+          policy = Path("src/techquant/risk_ownership.py")
+          text = policy.read_text(encoding="utf-8")
+          old_import = """from .execution import round_quantity\n"""
+          new_import = """from .execution import is_material_order, round_quantity\n"""
+          if text.count(old_import) != 1:
+              raise SystemExit("risk ownership import anchor mismatch")
+          text = text.replace(old_import, new_import)
+          old_method = """    def _episode_complete(self, close: CloseObservation) -> bool:\n        if self._episode_level == 0 or self._recovery_stage < 2:\n            return False\n        affordable = self._cash_funded_desired(\n            close, self._episode_base_units\n        )\n        return self._executable_goal_reached(\n            close.units, affordable, close.session\n        )\n"""
+          new_method = """    def _episode_complete(self, close: CloseObservation) -> bool:\n        if self._episode_level == 0 or self._recovery_stage < 2:\n            return False\n        affordable = self._cash_funded_desired(\n            close, self._episode_base_units\n        )\n        executable = self._quantize_toward(\n            close.units, affordable, close.session\n        )\n        delta = executable - close.units\n        # Recovery sells remain urgent and must finish even below the ordinary\n        # floor. Residual buys that the shared engine would reject as immaterial\n        # cannot keep an episode open forever.\n        if (delta < -1e-8).any():\n            return False\n        marks = np.where(\n            np.isfinite(self.price[close.session]),\n            self.price[close.session],\n            0.0,\n        )\n        buy_notionals = np.maximum(delta, 0.0) * marks\n        return not any(\n            is_material_order(float(notional), close.nav)\n            for notional in buy_notionals\n            if notional > 1e-8\n        )\n"""
+          if text.count(old_method) != 1:
+              raise SystemExit("episode completion anchor mismatch")
+          policy.write_text(text.replace(old_method, new_method), encoding="utf-8")
+
+          tests = Path("tests/test_risk_ownership.py")
+          text = tests.read_text(encoding="utf-8")
+          anchor = """    def test_sub_lot_partial_reduction_is_not_retried_forever(self):\n"""
+          addition = """    def test_below_material_recovery_residual_completes_episode(self):\n        market = sample_market(1, 20)\n        policy = RiskAwareOwnershipPolicy(market, Config())\n        policy.trend_damage[:] = False\n        policy.breadth_damage[:] = False\n        policy.volatility_damage[:] = False\n        policy.market_shock[:] = False\n        owned = np.array([2_000.0])\n        units = np.array([1_900.0])\n        policy._episode_level = 2\n        policy._recovery_stage = 2\n        policy._episode_base_units = owned.copy()\n        policy._protection_goal = np.array([1_200.0])\n\n        completed = policy.decide(\n            direct_observation(\n                policy,\n                10,\n                units,\n                owned,\n                nav=1_000_000.0,\n            )\n        )\n\n        self.assertEqual(policy.state, \"OPEN\")\n        self.assertIn(\"FUNDED_RECOVERY_COMPLETE\", completed.reason)\n        np.testing.assert_allclose(completed.unit_targets, owned)\n\n    def test_sub_lot_partial_reduction_is_not_retried_forever(self):\n"""
+          if text.count(anchor) != 1:
+              raise SystemExit("recovery regression test anchor mismatch")
+          tests.write_text(text.replace(anchor, addition), encoding="utf-8")
+          PY
+
+          git diff --check
+          python -m py_compile \
+            src/techquant/execution.py \
+            src/techquant/engine.py \
+            src/techquant/risk_ownership.py \
+            tests/test_risk_ownership.py
+          python -m unittest discover -s tests -v
+          python -m compileall -q src research
+          python -m techquant --help >/dev/null
+
+      - name: Commit verified execution-aligned recovery
+        run: |
+          set -euo pipefail
+          git config user.name "quant structural research"
+          git config user.email "quant-research@users.noreply.github.com"
+          git add -- \
+            src/techquant/execution.py \
+            src/techquant/engine.py \
+            src/techquant/risk_ownership.py \
+            tests/test_risk_ownership.py
+          git commit -m "Align recovery completion with execution materiality"
+          git push origin HEAD:feat/dynamic-relative-risk-ownership
