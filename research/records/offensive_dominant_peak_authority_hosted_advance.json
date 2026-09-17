@@ -1,0 +1,23 @@
+{
+  "family": "offensive_dominant_peak_authority",
+  "source_commit": "6a8b45e8ce0f4e47ac8457937e92853b1be66430",
+  "hosted_run": 35168514636,
+  "status": "ALPHA_LEADER_ADVANCE_NOT_FINAL_ACCEPTANCE",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_2023_2025": {
+    "control": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048, "mean_log": 1.6493183795493607, "minimum": 1.5949459430753048},
+    "treatment": {"union": 6.343988713554001, "chatgpt_5": 14.462335025996677, "joint_optical_leader_removal": 1.6022420613728365, "mean_log": 1.6635360523236968, "minimum": 1.6022420613728365}
+  },
+  "full_896": {
+    "control": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584838994273947, "mean_log": 2.1943369213596284, "minimum": 2.4584838994273947},
+    "treatment": {"union": 10.76844874803993, "chatgpt_5": 31.664294877012213, "joint_optical_leader_removal": 2.454083745276431, "mean_log": 2.2461304490122744, "minimum": 2.454083745276431}
+  },
+  "selection_events": {
+    "union": {"dominant_blocks": 3, "weaker_peak_releases": 0},
+    "chatgpt_5": {"dominant_blocks": 1, "weaker_peak_releases": 1},
+    "joint_optical_leader_removal": {"dominant_blocks": 1, "weaker_peak_releases": 2}
+  },
+  "decision": "Promote as the current alpha-stage leader because it strictly improves the preregistered mean-log and minimum objectives, preserves union, materially improves common-five, and improves the selection-window removal scope. Full-history removal is only 0.18% below control while full mean-log is materially higher; final acceptance remains unestablished.",
+  "next_step": "Attribute the very small set of weaker-peak releases source-bound before refining authority further; do not search score ratios, margins, confirmation days, capacity or funding weights.",
+  "evidence_readback": "Dedicated hosted workflow completed TDD, source-bound selection/evaluation, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
