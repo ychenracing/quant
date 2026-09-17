@@ -57,14 +57,6 @@ jobs:
                   raise SystemExit("risk ownership test anchor mismatch")
               test_text = test_text.replace(old_test, new_test)
           tests.write_text(test_text, encoding="utf-8")
-
-          check = Path(".github/workflows/check.yml")
-          check_text = check.read_text(encoding="utf-8")
-          old_check = """      - name: Offline tests\n        run: python -m unittest discover -s tests -v 2>&1 | tee verification/tests.txt\n"""
-          new_check = """      - name: Offline tests\n        shell: bash\n        run: |\n          set -o pipefail\n          python -m unittest discover -s tests -v 2>&1 | tee verification/tests.txt\n"""
-          if check_text.count(old_check) != 1:
-              raise SystemExit("offline correctness anchor mismatch")
-          check.write_text(check_text.replace(old_check, new_check), encoding="utf-8")
           PY
 
           git diff --check
@@ -78,9 +70,6 @@ jobs:
           set -euo pipefail
           git config user.name "quant structural research"
           git config user.email "quant-research@users.noreply.github.com"
-          git add -- \
-            src/techquant/risk_ownership.py \
-            tests/test_risk_ownership.py \
-            .github/workflows/check.yml
+          git add -- src/techquant/risk_ownership.py tests/test_risk_ownership.py
           git commit -m "Complete staged ownership recovery"
           git push origin HEAD:feat/dynamic-relative-risk-ownership
