@@ -1,11 +1,11 @@
 """Return-first systemic protection over engine-owned passive ownership.
 
 The policy preserves a 90% ownership core and reduces only the weakest observed
-holdings after independently confirmed market damage.  A protection request is
-fixed for the event.  Once that risk clears and the protective fill is complete,
-the policy restores the remembered ownership immediately instead of waiting for
-a late rebound confirmation.  Fresh risk pauses restoration at actual inventory;
-shared execution remains the sole owner of cash, fills, costs and constraints.
+holdings after independently confirmed crisis risk. Non-crisis damage freezes new
+ownership but does not sell. A positive next-session opening rebound defers the
+stale protective leg, and sub-material partial trims are ignored. Once risk clears,
+the remembered ownership is restored immediately. Shared execution remains the
+sole owner of cash, fills, costs and constraints.
 """
 from __future__ import annotations
 
@@ -28,14 +28,10 @@ class RiskOwnershipParameters:
     """Pre-registered coarse structure; no per-case or date-specific controls."""
 
     core_fraction: float = 0.90
-    risk_confirmation: int = 2
 
     def __post_init__(self) -> None:
-        if self.core_fraction not in (0.70, 0.80, 0.90):
-            raise ValueError("core_fraction must be one of 0.70, 0.80 or 0.90")
-        value = self.risk_confirmation
-        if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 5:
-            raise ValueError("risk_confirmation must be an integer from one to five")
+        if self.core_fraction != 0.90:
+            raise ValueError("core_fraction is frozen at 0.90")
 
 
 class RiskAwareOwnershipPolicy:
@@ -55,9 +51,7 @@ class RiskAwareOwnershipPolicy:
         size = len(market.symbols)
         self.state = "OPEN"
         self._last_session = -1
-        self._risk_streak = 0
-        self._crisis_active_last = False
-        self._episode_level = 0
+        self._episode_active = False
         self._recovery_active = False
         self._recovery_paused = False
         self._episode_base_units = np.zeros(size)
@@ -141,11 +135,7 @@ class RiskAwareOwnershipPolicy:
         ).to_numpy(dtype=bool)
 
     def _nominal_cap(self) -> float:
-        if self._episode_level >= 2:
-            return self.parameters.core_fraction
-        if self._episode_level == 1:
-            return (1.0 + self.parameters.core_fraction) / 2.0
-        return 1.0
+        return self.parameters.core_fraction if self._episode_active else 1.0
 
     def _account_acceleration(self, close: CloseObservation) -> tuple[bool, float]:
         self._peak_nav = max(self._peak_nav, close.nav)
@@ -221,10 +211,23 @@ class RiskAwareOwnershipPolicy:
         return result
 
     def _executable_goal_reached(
-        self, current: np.ndarray, desired: np.ndarray, session: int
+        self, current: np.ndarray, desired: np.ndarray, session: int, nav: float
     ) -> bool:
         quantized = self._quantize_toward(current, desired, session)
-        return bool(np.allclose(quantized, current, rtol=0.0, atol=1e-8))
+        delta = quantized - current
+        if (delta > 1e-8).any():
+            return False
+        marks = np.where(
+            np.isfinite(self.price[session]), self.price[session], 0.0
+        )
+        for j in np.flatnonzero(delta < -1e-8):
+            # Full exits remain urgent. A partial reduction below the shared
+            # order floor is economically complete and must not trap the event.
+            if desired[j] <= 1e-10:
+                return False
+            if is_material_order(float(-delta[j] * marks[j]), nav):
+                return False
+        return True
 
     def _cash_funded_desired(
         self, close: CloseObservation, desired: np.ndarray
@@ -291,19 +294,16 @@ class RiskAwareOwnershipPolicy:
         return self._quantize_toward(close.units, desired, close.session)
 
     def _start_episode(
-        self,
-        close: CloseObservation,
-        level: int,
-        reasons: list[str],
+        self, close: CloseObservation, reasons: list[str]
     ) -> None:
-        self._episode_level = level
+        self._episode_active = True
         self._recovery_active = False
         self._recovery_paused = False
         self._episode_base_units = close.units.copy()
         self._protection_goal = self._protection_target(
             close, self._nominal_cap()
         )
-        self.state = "CRISIS" if level >= 2 else "DEFENSIVE"
+        self.state = "CRISIS"
         reduced = self._protection_goal < close.units - 1e-10
         reasons.append(
             "SELECTIVE_SYSTEMIC_PROTECTION:"
@@ -316,21 +316,8 @@ class RiskAwareOwnershipPolicy:
             )
         )
 
-    def _escalate_episode(
-        self, close: CloseObservation, reasons: list[str]
-    ) -> None:
-        if self._episode_level >= 2:
-            return
-        self._episode_level = 2
-        proposed = self._protection_target(close, self._nominal_cap())
-        self._protection_goal = np.minimum(self._protection_goal, proposed)
-        self._recovery_active = False
-        self._recovery_paused = False
-        self.state = "CRISIS"
-        reasons.append("SYSTEMIC_PROTECTION_ESCALATION")
-
     def _episode_complete(self, close: CloseObservation) -> bool:
-        if self._episode_level == 0 or not self._recovery_active:
+        if not self._episode_active or not self._recovery_active:
             return False
         affordable = self._cash_funded_desired(
             close, self._episode_base_units
@@ -357,10 +344,9 @@ class RiskAwareOwnershipPolicy:
         )
 
     def _clear_episode(self, reasons: list[str]) -> None:
-        self._episode_level = 0
+        self._episode_active = False
         self._recovery_active = False
         self._recovery_paused = False
-        self._risk_streak = 0
         self._episode_base_units.fill(0.0)
         self._protection_goal.fill(0.0)
         self.state = "OPEN"
@@ -373,38 +359,22 @@ class RiskAwareOwnershipPolicy:
         crisis: bool,
         reasons: list[str],
     ) -> None:
-        crisis_edge = crisis and not self._crisis_active_last
-        if (
-            crisis_edge
-            and self._episode_level == 1
-            and not self._recovery_active
-        ):
-            self._escalate_episode(close, reasons)
-
         protection_reached = self._executable_goal_reached(
-            close.units, self._protection_goal, close.session
+            close.units, self._protection_goal, close.session, close.nav
         )
         risk_active = defensive or crisis
         waiting_for_protection_fill = (
             not self._recovery_active and not protection_reached
         )
         if waiting_for_protection_fill or risk_active:
-            self._recovery_paused = bool(risk_active and self._recovery_active)
-            if not self._recovery_active:
-                self.state = (
-                    "CRISIS" if self._episode_level >= 2 else "DEFENSIVE"
-                )
-            else:
-                # Never resell already restored units for a repeated warning in
-                # the same event.  Hold actual inventory until fresh risk clears.
-                self.state = "RECOVERY"
+            self._recovery_paused = bool(
+                risk_active and self._recovery_active
+            )
+            self.state = "CRISIS" if not self._recovery_active else "RECOVERY"
             return
 
         self._recovery_paused = False
         if not self._recovery_active:
-            # The selected return-first structure treats protection as one
-            # bounded event. Waiting for a later rebound confirmation lost the
-            # first recovery leg across the frozen selection cases.
             self._recovery_active = True
             self.state = "RECOVERY"
             reasons.append("RECOVERY_FULL_ON_RISK_CLEAR")
@@ -415,7 +385,7 @@ class RiskAwareOwnershipPolicy:
         ownership = close.ownership
         if ownership is None:
             raise ValueError("risk-aware ownership requires engine-owned intent")
-        if self._episode_level == 0:
+        if not self._episode_active:
             desired = ownership.units
         elif self._recovery_active and self._recovery_paused:
             desired = close.units
@@ -448,22 +418,12 @@ class RiskAwareOwnershipPolicy:
         if self._episode_complete(close):
             self._clear_episode(reasons)
 
-        if self._episode_level == 0:
+        if not self._episode_active:
             if crisis:
-                self._risk_streak = 0
-                self._start_episode(close, 2, reasons)
-            elif defensive:
-                self._risk_streak += 1
-                if self._risk_streak >= self.parameters.risk_confirmation:
-                    self._risk_streak = 0
-                    self._start_episode(close, 1, reasons)
-                else:
-                    self.state = "CAUTION"
-            elif active or self.market_shock[close.session]:
-                self._risk_streak = 0
+                self._start_episode(close, reasons)
+            elif defensive or active or self.market_shock[close.session]:
                 self.state = "CAUTION"
             else:
-                self._risk_streak = 0
                 self.state = "OPEN"
         else:
             self._advance_episode(close, defensive, crisis, reasons)
@@ -478,7 +438,7 @@ class RiskAwareOwnershipPolicy:
         if weights.sum() > 1 + 1e-10:
             raise ValueError("risk-aware target exceeds the observed account")
 
-        allow_new = bool(self._episode_level == 0 and self.state == "OPEN")
+        allow_new = bool(not self._episode_active and self.state == "OPEN")
         nominal_cap = self._nominal_cap()
         decision_cap = 1.0 if allow_new else max(nominal_cap, float(weights.sum()))
         channel_text = ",".join(
@@ -490,26 +450,27 @@ class RiskAwareOwnershipPolicy:
         reasons.append(f"ACCOUNT_DRAWDOWN_CONTEXT:{drawdown:.6f}")
         if self.state == "CAUTION":
             reasons.append("CAUTION_FREEZE_NEW_OWNERSHIP")
-        if self._episode_level:
+        if self._episode_active:
             reasons.append(
-                "RISK_EPISODE:"
-                f"LEVEL_{self._episode_level}:"
+                "RISK_EPISODE:CRISIS:"
                 + ("RECOVERING" if self._recovery_active else "PROTECTING")
             )
 
-        self._crisis_active_last = crisis
         return CloseDecision(
             weights=weights,
             reason="|".join(reasons),
             cap=min(1.0, decision_cap),
             unit_targets=target,
             allow_new_ownership=allow_new,
+            defer_protective_sell_on_open_rebound=bool(
+                self._episode_active and not self._recovery_active
+            ),
         )
 
     def identity(self) -> dict[str, Any]:
         return {
             "name": "risk_aware_ownership",
-            "mechanism": "return_first_event_scoped_full_restore",
+            "mechanism": "crisis_only_rebound_confirmed_material_protection",
             "parameters": asdict(self.parameters),
             "implementation_sha256": file_hash(Path(__file__)),
             "data_sha256": self.market.fingerprint(),

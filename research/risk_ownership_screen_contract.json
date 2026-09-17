@@ -1,6 +1,6 @@
 {
-  "schema_version": 3,
-  "purpose": "Pre-registered bounded selection-window screen for the risk-aware ownership structure; not the dynamic four-reference acceptance gate.",
+  "schema_version": 4,
+  "purpose": "Pre-registered return-first verification of the selected risk-aware ownership mechanism; not the dynamic four-reference acceptance gate.",
   "selection_window": {
     "start": "2023-01-03",
     "end": "2025-12-31"
@@ -12,78 +12,37 @@
   },
   "evidence_layer": "SAME_ENGINE_INTERNAL_PASSIVE_SCREEN",
   "cases": [
-    {
-      "case_id": "common_five",
-      "catalog_pool": "chatgpt_5"
-    },
-    {
-      "case_id": "union_34",
-      "catalog_pool": "union"
-    },
+    {"case_id": "common_five", "catalog_pool": "chatgpt_5"},
+    {"case_id": "union_34", "catalog_pool": "union"},
     {
       "case_id": "remove_optical_leaders",
       "derived_from": "union",
-      "remove": [
-        "sz300308",
-        "sz300502",
-        "sz300394"
-      ]
+      "remove": ["sz300308", "sz300502", "sz300394"]
     },
-    {
-      "case_id": "chatgpt_original",
-      "catalog_pool": "chatgpt_22"
-    },
-    {
-      "case_id": "trae_original",
-      "catalog_pool": "trae_24"
-    },
-    {
-      "case_id": "dumate_original",
-      "catalog_pool": "dumate_18"
-    },
-    {
-      "case_id": "workbuddy_original",
-      "catalog_pool": "workbuddy_e"
-    }
+    {"case_id": "chatgpt_original", "catalog_pool": "chatgpt_22"},
+    {"case_id": "trae_original", "catalog_pool": "trae_24"},
+    {"case_id": "dumate_original", "catalog_pool": "dumate_18"},
+    {"case_id": "workbuddy_original", "catalog_pool": "workbuddy_e"}
   ],
   "parameters": {
-    "core_fraction": [
-      0.7,
-      0.8,
-      0.9
-    ],
-    "risk_confirmation": 2,
-    "recovery": "FULL_OWNERSHIP_ON_CONFIRMED_RISK_CLEAR"
+    "core_fraction": [0.9]
   },
-  "protection_allocation": {
-    "portfolio_cap": "unchanged from the coarse core_fraction structure",
-    "cross_section": "retain holdings by descending close-time causal trend strength and reduce the weakest holdings first",
-    "strength_inputs": [
-      "price relative to 60-session exponential trend",
-      "20-session relative trend structure",
-      "20-session return",
-      "20-session observed volatility"
-    ],
+  "risk_mechanism": {
+    "non_crisis_damage": "freeze new ownership without selling",
+    "protection_trigger": "at least two independent market-damage channels plus shock or account-loss acceleration",
+    "allocation": "retain holdings by descending causal trend strength and reduce the weakest holdings first",
+    "open_revalidation": "defer an individual protective sell when its next-session opening gap is positive; reassess at the next close",
+    "partial_trim_materiality": "ownership-mode partial reductions use the shared one-percent-of-NAV order floor; full exits remain urgent",
+    "recovery": "restore remembered ownership immediately after confirmed risk clears and executable protection is complete",
     "future_data_used": false,
     "case_identity_used": false
   },
-  "recovery_invariants": {
-    "protection_fill_required_before_recovery_starts": true,
-    "confirmed_risk_clear_starts_full_restoration": true,
-    "fresh_risk_pauses_restoration_at_actual_inventory": true,
-    "fresh_risk_does_not_resell_restored_units": true,
-    "ownership_intent_remains_the_recovery_upper_bound": true,
-    "ordinary_recovery_buy_materiality": "shared with the execution engine's one-percent-of-NAV order floor",
-    "below_material_residual_buy_keeps_episode_open": false,
-    "protective_recovery_sell_remains_urgent": true
-  },
   "selection_objective": [
-    "maximize the minimum candidate wealth divided by same-engine passive wealth",
-    "treat return preservation as the primary objective",
-    "only after return qualification, maximize the minimum passive drawdown minus candidate drawdown",
-    "then maximize the median passive drawdown minus candidate drawdown",
+    "until the four-reference return gate can be computed, maximize the minimum candidate wealth divided by same-engine passive wealth",
+    "require drawdown improvement in all seven internal screen cases",
+    "after formal return qualification, optimize dynamic four-reference drawdown margin",
     "then compare turnover, costs and stability",
-    "prefer the larger core fraction only as an exact deterministic tie-break"
+    "do not use the final-evaluation window for mechanism selection"
   ],
   "acceptance_relationship": {
     "formal_return_hard_gate": "quant terminal wealth must reach the highest of the four references in every mandatory exact case",
@@ -92,27 +51,13 @@
     "drawdown_target_is_merge_blocking": false
   },
   "limitations": [
-    "This screen cannot pass the dynamic relative contract because exact four-reference results are incomplete.",
+    "This internal screen cannot pass the dynamic relative contract because exact four-reference results remain incomplete.",
     "The passive baseline is a same-engine diagnostic, not a substitute for the four read-only reference strategies.",
-    "The 2026 final-evaluation window is not read or used to choose the structure.",
-    "A selected structure remains research-only until every mandatory exact case has complete references and meets the return hard gate.",
+    "The 2026 final-evaluation window is not read or used to choose this mechanism.",
+    "The selected mechanism remains research-only until every mandatory exact case has complete references and meets the return hard gate.",
     "Drawdown remains mandatory to measure and optimize even though its ideal target is not the economic hard gate.",
     "Backtest results do not guarantee future returns."
   ],
   "production_default_changed": false,
-  "selected_structure": {
-    "core_fraction": 0.9,
-    "basis": "highest minimum return retention among the frozen 0.7/0.8/0.9 structures while improving drawdown in all seven selection cases",
-    "selection_metrics": {
-      "minimum_wealth_ratio_to_passive": 0.9776634304135595,
-      "median_wealth_ratio_to_passive": 0.9817125446781708,
-      "minimum_drawdown_margin_to_passive": 9.350904461769005e-05,
-      "median_drawdown_margin_to_passive": 0.0027255890547475126,
-      "drawdown_improved_cases": 7,
-      "case_count": 7
-    },
-    "final_evaluation_used_for_selection": false,
-    "implementation_commit": "aadd4396fe307d6279f65db02da53a0287c4eb4f",
-    "implementation_tree": "09f0cc9bd7b83ca126048663d93039b4383af789"
-  }
+  "measurement_status": "PENDING_EXACT_SOURCE_REMEASUREMENT"
 }

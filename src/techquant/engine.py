@@ -90,6 +90,7 @@ def run(market: Market, config: Config | None = None, *,
     buy_hold_budget = np.full(len(names), cfg.initial_cash / len(names))
     ownership_units = np.zeros(len(names))
     ownership_acquisition = np.zeros(n, dtype=bool)
+    ownership_rebound_defer = np.zeros(n, dtype=bool)
     rows, orders, history = [], [], []
     risk = RiskState()
     last_cap = 0.
@@ -127,9 +128,14 @@ def run(market: Market, config: Config | None = None, *,
                     protective = side == 'SELL' and (pending[j] == 0 or urgent[signal_i, j]) and units[j] > 1e-10
                     if (side == 'SELL' and delta >= -1e-7) or (side == 'BUY' and delta <= 1e-7):
                         continue
-                    # The signal generator handles bands; executable materiality is
-                    # only 1% NAV. A zero-target protective exit is never filtered.
-                    if not protective and not is_material_order(
+                    # Full protective exits remain urgent. Ownership-mode
+                    # partial trims use the ordinary 1% NAV floor so small
+                    # event noise cannot create disproportionate turnover.
+                    full_protective_exit = protective and pending[j] == 0
+                    materiality_exempt = protective and (
+                        not ownership_mode or full_protective_exit
+                    )
+                    if not materiality_exempt and not is_material_order(
                         abs(delta), opening_nav
                     ):
                         continue
@@ -142,6 +148,17 @@ def run(market: Market, config: Config | None = None, *,
                         orders.append(order)
                         continue
                     gap = op[i, j] / prev_close[i, j] - 1 if np.isfinite(prev_close[i, j]) else 0.
+                    if (
+                        protective
+                        and ownership_rebound_defer[signal_i]
+                        and gap > 0
+                    ):
+                        # A positive next-session opening gap is new causal
+                        # information contradicting the stale protective sale.
+                        # Defer this leg; persistent close-time damage is retried.
+                        order['reason'] = 'OPEN_REBOUND_DEFER'
+                        orders.append(order)
+                        continue
                     limit = daily_limit(symbol) - .002
                     if (side == 'BUY' and gap >= limit) or (side == 'SELL' and gap <= -limit):
                         order['reason'] = 'OPEN_LIMIT'
@@ -172,10 +189,9 @@ def run(market: Market, config: Config | None = None, *,
                         orders.append(order)
                         continue
                     # Capacity, board lots and remaining cash can shrink a large
-                    # request below the ordinary floor. Check the executable
-                    # opening notional, on the same pre-cost NAV basis as above.
-                    # Deliberate protective reductions keep their existing exemption.
-                    if not protective and not is_material_order(
+                    # request below the ordinary floor. Recheck the executable
+                    # opening notional using the same exemption decision.
+                    if not materiality_exempt and not is_material_order(
                         float(quantity * op[i, j]), opening_nav
                     ):
                         order['reason'] = 'BELOW_MINIMUM_NOTIONAL'
@@ -251,6 +267,9 @@ def run(market: Market, config: Config | None = None, *,
                 if (requested_units > ownership_units + 1e-8).any():
                     raise ValueError('policy target exceeds engine-owned ownership units')
                 allow_acquisition = decision.validated_ownership_control()
+                ownership_rebound_defer[i] = (
+                    decision.validated_open_rebound_control()
+                )
                 if allow_acquisition and abs(float(decision.cap) - 1.) > 1e-10:
                     raise ValueError('new ownership funding requires the full OPEN cap')
                 if allow_acquisition and (requested_units < units - 1e-10).any():

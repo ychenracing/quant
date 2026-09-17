@@ -181,6 +181,86 @@ class OwnershipIntentTests(unittest.TestCase):
         self.assertGreater(recovered.units[0], protected.units[0])
         self.assertLessEqual(recovered.units[0], recovered.ownership.units[0])
 
+    def test_positive_open_rebound_defers_protective_sell_then_retries(self):
+        dates = pd.bdate_range("2023-01-03", periods=8)
+        frame = pd.DataFrame(
+            {
+                "open": 20.0,
+                "high": 20.0,
+                "low": 20.0,
+                "close": 20.0,
+                "raw_open": 20.0,
+                "raw_close": 20.0,
+                "volume": 20_000_000.0,
+            },
+            index=dates,
+        )
+        frame.loc[dates[3], ["open", "raw_open", "high"]] = 21.0
+        market = Market.from_frames(
+            {"sz300100": frame}, dates, quality="synthetic"
+        )
+        prices = market.panel("close").to_numpy()
+
+        class RevalidateAtOpen:
+            def __init__(self, market, config):
+                pass
+
+            def decide(self, observation):
+                ownership = observation.ownership
+                if observation.session == 0:
+                    units = ownership.units
+                    allow_new = True
+                    defer = False
+                elif observation.session >= 2:
+                    units = ownership.units * 0.5
+                    allow_new = False
+                    defer = True
+                else:
+                    units = observation.units
+                    allow_new = False
+                    defer = False
+                weights = units * prices[observation.session] / observation.nav
+                return CloseDecision(
+                    weights,
+                    "REVALIDATE_AT_OPEN",
+                    unit_targets=units,
+                    allow_new_ownership=allow_new,
+                    defer_protective_sell_on_open_rebound=defer,
+                )
+
+            def identity(self):
+                return {"name": "revalidate_at_open"}
+
+        result = run(
+            market,
+            policy_factory=RevalidateAtOpen,
+            ownership_mode=True,
+            cost_multiplier=0.0,
+        )
+        deferred = [
+            order
+            for order in result.orders
+            if order["reason"] == "OPEN_REBOUND_DEFER"
+        ]
+        sells = [
+            order
+            for order in result.orders
+            if order["side"] == "SELL" and order["status"] == "FILLED"
+        ]
+        self.assertEqual(len(deferred), 1)
+        self.assertEqual(deferred[0]["date"], str(dates[3].date()))
+        self.assertTrue(sells)
+        self.assertGreater(sells[0]["date"], deferred[0]["date"])
+
+    def test_rebound_control_must_be_boolean(self):
+        decision = CloseDecision(
+            np.array([0.0]),
+            "BAD_REBOUND_CONTROL",
+            defer_protective_sell_on_open_rebound="yes",
+        )
+        with self.assertRaisesRegex(ValueError, "must be boolean"):
+            decision.validated_open_rebound_control()
+
     def test_ownership_mode_requires_explicit_fixed_unit_intent(self):
         market = sample_market(1, 20)
 

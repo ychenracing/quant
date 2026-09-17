@@ -21,6 +21,7 @@ _BLOCK_REASON_TEXT = {
     "NO_PRIOR_CAPACITY": "信号日前成交额不足以支持容量估计",
     "MINIMUM_LOT_OR_CASH": "整手或剩余现金不足",
     "BELOW_MINIMUM_NOTIONAL": "容量/整手/现金裁剪后低于普通最小成交金额",
+    "OPEN_REBOUND_DEFER": "下一交易日高开，暂缓保护性卖出并等待收盘后重新判断",
 }
 
 

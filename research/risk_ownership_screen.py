@@ -172,11 +172,8 @@ def main() -> int:
         raise ValueError("final evaluation data cannot be used during selection")
 
     fractions = contract["parameters"]["core_fraction"]
-    if fractions != [0.7, 0.8, 0.9]:
-        raise ValueError("core-retention structures differ from the frozen contract")
-    risk_confirmation = contract["parameters"]["risk_confirmation"]
-    if risk_confirmation != 2:
-        raise ValueError("risk-confirmation structure differs from the frozen contract")
+    if fractions != [0.9]:
+        raise ValueError("core-retention structure differs from the frozen contract")
 
     market = load_market(
         args.data,
@@ -206,10 +203,7 @@ def main() -> int:
         passive_by_case[case_id] = passive_metrics
 
         for fraction in fractions:
-            parameters = RiskOwnershipParameters(
-                core_fraction=fraction,
-                risk_confirmation=risk_confirmation,
-            )
+            parameters = RiskOwnershipParameters(core_fraction=fraction)
             candidate = run_risk_aware_ownership(
                 scoped,
                 parameters=parameters,
@@ -284,7 +278,9 @@ def main() -> int:
         "status": "STRUCTURE_SELECTED_FOR_FINAL_EVALUATION_NOT_ACCEPTED",
         "selected_parameters": {
             "core_fraction": selected["core_fraction"],
-            "risk_confirmation": risk_confirmation,
+            "protection_trigger": "INDEPENDENTLY_CONFIRMED_CRISIS_ONLY",
+            "open_execution": "DEFER_POSITIVE_GAP_PROTECTIVE_SELL",
+            "partial_trim_floor": "ONE_PERCENT_OF_NAV",
             "recovery": "FULL_OWNERSHIP_ON_CONFIRMED_RISK_CLEAR",
         },
         "lexicographic_result": selected,

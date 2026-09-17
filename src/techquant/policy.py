@@ -78,6 +78,7 @@ class CloseDecision:
     cap: float = 1.
     unit_targets: np.ndarray | None = None
     allow_new_ownership: bool = False
+    defer_protective_sell_on_open_rebound: bool = False
 
     def validated_weights(self, size: int) -> np.ndarray:
         result = np.asarray(self.weights, dtype=float)
@@ -94,6 +95,14 @@ class CloseDecision:
         if type(self.allow_new_ownership) is not bool:
             raise ValueError('allow_new_ownership must be boolean')
         return self.allow_new_ownership
+
+    def validated_open_rebound_control(self) -> bool:
+        value = self.defer_protective_sell_on_open_rebound
+        if type(value) is not bool:
+            raise ValueError(
+                'defer_protective_sell_on_open_rebound must be boolean'
+            )
+        return value
 
     def validated_unit_targets(self, prices: np.ndarray, nav: float) -> np.ndarray | None:
         """Validate optional fixed inventory against the same close allocation.
