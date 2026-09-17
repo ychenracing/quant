@@ -71,7 +71,10 @@
     "protection_fill_required_only_before_recovery_starts": true,
     "recovered_units_may_exceed_the_protection_goal": true,
     "fresh_risk_pauses_staged_recovery": true,
-    "ownership_intent_remains_the_recovery_upper_bound": true
+    "ownership_intent_remains_the_recovery_upper_bound": true,
+    "ordinary_recovery_buy_materiality": "shared with the execution engine's one-percent-of-NAV order floor",
+    "below_material_residual_buy_keeps_episode_open": false,
+    "protective_recovery_sell_remains_urgent": true
   },
   "selection_objective": [
     "maximize the minimum candidate wealth divided by same-engine passive wealth",
