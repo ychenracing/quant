@@ -1,0 +1,10 @@
+usage: __main__.py [-h] {verify,audit,backtest,inspect} ...
+
+Offline research commands. No brokerage connection or executable order export.
+
+positional arguments:
+  {verify,audit,backtest,inspect}
+    verify              verify an immutable evidence directory
+
+options:
+  -h, --help            show this help message and exit

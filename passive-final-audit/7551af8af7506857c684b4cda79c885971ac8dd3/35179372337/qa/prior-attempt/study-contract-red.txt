@@ -1,0 +1,25 @@
+test_control_is_the_registered_campaign_peak_candidate (research.test_passive_study_contract.PassiveStudyContractTests.test_control_is_the_registered_campaign_peak_candidate) ... FAIL
+test_windows_are_the_frozen_formal_windows_including_recovery (research.test_passive_study_contract.PassiveStudyContractTests.test_windows_are_the_frozen_formal_windows_including_recovery) ... ERROR
+
+======================================================================
+ERROR: test_windows_are_the_frozen_formal_windows_including_recovery (research.test_passive_study_contract.PassiveStudyContractTests.test_windows_are_the_frozen_formal_windows_including_recovery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/quant/quant/research/test_passive_study_contract.py", line 13, in test_windows_are_the_frozen_formal_windows_including_recovery
+    self.assertEqual(study.evaluation_windows(), contract['time_windows'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'research.causal_passive_ownership_study' has no attribute 'evaluation_windows'
+
+======================================================================
+FAIL: test_control_is_the_registered_campaign_peak_candidate (research.test_passive_study_contract.PassiveStudyContractTests.test_control_is_the_registered_campaign_peak_candidate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/quant/quant/research/test_passive_study_contract.py", line 9, in test_control_is_the_registered_campaign_peak_candidate
+    self.assertIs(study.ActiveOwner, Owner)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <class 'research.offensive_dominant_peak_authority.Owner'> is not <class 'research.offensive_campaign_peak_authority.Owner'>
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=1, errors=1)

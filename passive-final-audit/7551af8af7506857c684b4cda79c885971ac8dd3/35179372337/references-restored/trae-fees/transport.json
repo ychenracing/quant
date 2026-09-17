@@ -1,0 +1,37 @@
+{
+  "encoding": "concatenate decoded base64 parts in numeric order to reconstruct trae-stamp-evidence.tar.xz",
+  "archive_bytes": 35064,
+  "archive_sha256": "fb563bd6a5e013fc59b7fc397470888e6a927975a91183bc44aca2a39036f1d1",
+  "tar_members": 24,
+  "parts": [
+    {
+      "file": "evidence.tar.xz.part00.b64",
+      "base64_bytes": 12000,
+      "raw_bytes": 9000,
+      "raw_sha256": "18b97d133957d7a5f2665188dac6278df1d7dfcfd636ba7ab5c80d7ca76609c5",
+      "git_blob_expected": "bfa79d0d4483158cd9bbf65d6800836842fc243d"
+    },
+    {
+      "file": "evidence.tar.xz.part01.b64",
+      "base64_bytes": 12000,
+      "raw_bytes": 9000,
+      "raw_sha256": "90fe4deaed6e94045ff7602b667cb6e27ade25acbf7efbf2779712423a8d582d",
+      "git_blob_expected": "e16ebdb507cebdb7325bbd16af8f276ed5bf3609"
+    },
+    {
+      "file": "evidence.tar.xz.part02.b64",
+      "base64_bytes": 12000,
+      "raw_bytes": 9000,
+      "raw_sha256": "b649436e949fda40da4dbf745e5d8cd05f88a090debaa709792b3c065d595d58",
+      "git_blob_expected": "6358f5f09fd787c27d38b7046c6c4a8d0a4da155"
+    },
+    {
+      "file": "evidence.tar.xz.part03.b64",
+      "base64_bytes": 10752,
+      "raw_bytes": 8064,
+      "raw_sha256": "65cf2420387a9b82bb5ac89079deb3cbc6c3952b1d8ca589b411405d496fb05f",
+      "git_blob_expected": "b8be4aae8da3aa0869a42f9b0599c218c0af0a77"
+    }
+  ],
+  "private_source_included": false
+}

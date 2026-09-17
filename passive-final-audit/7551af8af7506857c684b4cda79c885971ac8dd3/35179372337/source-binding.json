@@ -1,0 +1,26 @@
+{
+  "workflow_head": "7551af8af7506857c684b4cda79c885971ac8dd3",
+  "verified_source": "7551af8af7506857c684b4cda79c885971ac8dd3",
+  "verified_tree": "cd93c1b7b411cba37ea2ab93e5f92e84184d2f69",
+  "research_fixes_commit": "1c41d0822ffe14b5fbf60e38e6c6183af371c4ee",
+  "run_id": "35179372337",
+  "attempt": "1",
+  "refs": {
+    "main": "966f7428658431c9da5a6fcaf7d9b9d5c446f2cd",
+    "research/expectation-learning": "7551af8af7506857c684b4cda79c885971ac8dd3",
+    "research/independent-tech": "efffb9a428258e921feaff125011cba46223bb18"
+  },
+  "pr": {
+    "number": 1,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "mergeable": false,
+    "mergeable_state": "dirty"
+  },
+  "pr_head": "efffb9a428258e921feaff125011cba46223bb18",
+  "reported_pr_base": "234cc5729455ce5440b0a5307aadbcb9c1c0bbc4",
+  "production_package_changed": false,
+  "economic_acceptance": "NOT_MET",
+  "merge_eligible": false
+}

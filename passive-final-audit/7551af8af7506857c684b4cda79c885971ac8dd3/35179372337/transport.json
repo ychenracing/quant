@@ -1,0 +1,130 @@
+[
+  {
+    "label": "passive",
+    "artifact_id": 10478206884,
+    "zip_sha256": "f97eec483bff22ef1cdfd212869b60d1a0ad6e0f4130aaec6e271185442f8b61",
+    "bytes": 2747715,
+    "generation": {
+      "id": 35174627146,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "4335d3d7e57585a6b80f024f7f60e9b1b41fc10f"
+    },
+    "archive_sha256": "11561c2530ec464349c0eb05eb167c1d31c1759df10de937ae2f8c2a4e818a18",
+    "archive_git_blob": "aef70f886d452e1ec73e7c42091af751fc7bf078",
+    "durable_path": "causal-passive-ownership/4335d3d7e57585a6b80f024f7f60e9b1b41fc10f/35174627146/causal-passive-ownership-evidence.tar.gz",
+    "evidence_ref": "3aecdca64395b01204b36933180c2a10e504e4f6"
+  },
+  {
+    "label": "formal0",
+    "artifact_id": 10457422522,
+    "zip_sha256": "54e6c7acca643782e25a656d73187513f62a5c4459d5f3a724b5aa307bb37356",
+    "bytes": 11171675,
+    "generation": {
+      "id": 35122063992,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "a0705156e82c083f580aa4ebfe52383f5dffdb8d"
+    },
+    "archive_sha256": "51880c2ad4130b82cd8a0f1b7c8c27a1838dd8810fca22a0f03b9ec9372375ee",
+    "archive_git_blob": "3f04777d3fd66c64a17aad57d5e4885a08bfa536",
+    "durable_path": "campaign-peak-formal/a0705156e82c083f580aa4ebfe52383f5dffdb8d/35122063992/shards/campaign-peak-formal-shard-0.tar.gz",
+    "evidence_ref": "3aecdca64395b01204b36933180c2a10e504e4f6"
+  },
+  {
+    "label": "formal1",
+    "artifact_id": 10457697335,
+    "zip_sha256": "a1ef59fa90deaba4bfc29a86e9509098be00df108a7c441ebe9d0a890140f1c1",
+    "bytes": 16048726,
+    "generation": {
+      "id": 35122063992,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "a0705156e82c083f580aa4ebfe52383f5dffdb8d"
+    },
+    "archive_sha256": "c9e30e7f99f345f0b75f1f03f1eb7865083c6af8a3da8efe70943654928fea12",
+    "archive_git_blob": "58394afc2c19fe8c0bec6e848e3e2aec6541f311",
+    "durable_path": "campaign-peak-formal/a0705156e82c083f580aa4ebfe52383f5dffdb8d/35122063992/shards/campaign-peak-formal-shard-1.tar.gz",
+    "evidence_ref": "3aecdca64395b01204b36933180c2a10e504e4f6"
+  },
+  {
+    "label": "formal2",
+    "artifact_id": 10458466238,
+    "zip_sha256": "a2465f301a6894b515627924e6993216e811d9213967ceb51c3434437a10324f",
+    "bytes": 10609910,
+    "generation": {
+      "id": 35122063992,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "a0705156e82c083f580aa4ebfe52383f5dffdb8d"
+    },
+    "archive_sha256": "f161137e8aa480a433ad8744fda64b5de3175c08af8ebe76f3a3893c22c570a0",
+    "archive_git_blob": "6339121d22db8d1b373176c083794dbbc470164a",
+    "durable_path": "campaign-peak-formal/a0705156e82c083f580aa4ebfe52383f5dffdb8d/35122063992/shards/campaign-peak-formal-shard-2.tar.gz",
+    "evidence_ref": "3aecdca64395b01204b36933180c2a10e504e4f6"
+  },
+  {
+    "label": "formal3",
+    "artifact_id": 10457832437,
+    "zip_sha256": "b464f59e513faca0dbcbdf1e2c3885c791218922b73020dbf35685df78ff0384",
+    "bytes": 15858408,
+    "generation": {
+      "id": 35122063992,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "a0705156e82c083f580aa4ebfe52383f5dffdb8d"
+    },
+    "archive_sha256": "8b46087d445bdd6ebf741a4f008f55295d5b533e7066498d84293ce86d6cd4e6",
+    "archive_git_blob": "a9a7ac96467ba48e90e12d6afc0b938e612d3a6b",
+    "durable_path": "campaign-peak-formal/a0705156e82c083f580aa4ebfe52383f5dffdb8d/35122063992/shards/campaign-peak-formal-shard-3.tar.gz",
+    "evidence_ref": "3aecdca64395b01204b36933180c2a10e504e4f6"
+  },
+  {
+    "label": "canonical",
+    "artifact_id": 10457895503,
+    "zip_sha256": "f61d83c1623c34c831cbf2c6d35cd4ec92e0bb1ef2e0a4af9907855eced8119e",
+    "bytes": 827473,
+    "generation": {
+      "id": 35121169501,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765"
+    },
+    "archive_sha256": "ed59093a01d8b150f77483777b9ec21c41f69cf2fbcfa2a85c246d53ec06c07f",
+    "archive_git_blob": "df8a4a8ef899ce90689ab270d5fc8bf1a5737d97",
+    "durable_path": "campaign-peak/e1b0d8c0473c5f3c365d29de9a95fe8280d96765/35121169501/campaign-peak-evidence.tar.gz",
+    "evidence_ref": "3aecdca64395b01204b36933180c2a10e504e4f6"
+  },
+  {
+    "label": "references",
+    "artifact_id": 10479512221,
+    "zip_sha256": "3427b79bae73a7b03a1a560aa8edfd7ccc49b31dc911439d078ebe335848cc9f",
+    "bytes": 245505,
+    "generation": {
+      "id": 35178033028,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "0073b0c6ff3272eedaf5d63c7c691caa4d9e0904"
+    }
+  },
+  {
+    "label": "prior-check",
+    "artifact_id": 10479875211,
+    "zip_sha256": "6ec28e6532b558a93f8a0d04e0d2f8e694c96bbdb5af45ec601f21f6ec789438",
+    "bytes": 3027,
+    "generation": {
+      "id": 35178954344,
+      "repository_id": 1368435253,
+      "head_repository_id": 1368435253,
+      "head_branch": "research/expectation-learning",
+      "head_sha": "1db8a841bb4d5bf84397c4513b47d4ad7ad22f5d"
+    }
+  }
+]

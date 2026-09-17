@@ -1,0 +1,465 @@
+{
+  "classification": "NATIVE_AND_CORRECTED_NOT_EQUIVALENT_EXECUTION",
+  "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+  "authentication": {
+    "schema_version": 1,
+    "classification": "CORRECTNESS_AUTHENTICATION_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+    "economic_candidate_budget_consumed": 0,
+    "source_repository": "ychenracing/trades",
+    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+    "reference_commit_tree": "cb6a0f7fdff64c0987189d1e359385a6d80a25f0",
+    "reference_archive_commit": "c3d838ce6349f8bdf0ec2988836212563aaa10bc",
+    "archive_commit_tree": "e8a082473e7006b52a5e74cece03de688dfc2ef4",
+    "selected_reference_trees": {
+      "chatgpt/turtle_dual": "c06585d7837d32905ef4b954b8b2c22f4f3f51f9",
+      "trae/glmcsm": "0ba9d9b776d1b01712e0086af12dfa81d9589b56",
+      "dumate/momentum_rotation": "5b8f1863def6fd784284f9b7a782be28caa3f009",
+      "workbuddy/track_trend": "3c29e60758e0a6538a81ea8144a144d6faf966c4"
+    },
+    "source_authentication": {
+      "status": "EXACT_REMOTE_SOURCE_RECOVERABLE",
+      "basis": "All four selected subtree object IDs at the frozen reference commit are identical to the archived source commit tree IDs recorded for the native run. No private source bytes are copied into quant evidence.",
+      "workbuddy_entrypoint_blob": "e19e611cd332e7a01c0f8677e0ae60600b295c6d"
+    },
+    "producer": {
+      "quant_source_commit": "bbc002449093e458868a8748687df023958ba283",
+      "package_sha256": "bdff426581e521713f28939e79f5aaa967273d9521bb881f0d5b64a2e121ca9f",
+      "native_harness_sha256": "32f310eac06c0c7c684c409d29028ea18312c4bd1400c132f2a50dd9b6ecb64e",
+      "orchestrator_sha256": "1605dc68292c90b6f5bd534728ffe1966dbf3516782d2051655570ccf05160c2",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3"
+    },
+    "recovered_native_archive": {
+      "filename": "quant-main-bbc0024-native-evidence.zip",
+      "size_bytes": 1220461,
+      "sha256": "0a03c52f24dd08c2488b897b6e0a3f3d7211c467c49300645e1d722894ee620f",
+      "root_manifest_sha256": "56018946a68ae499b04ef5cefc1f5480c7aa0fd082d0e7c12d15d8a8d2499216",
+      "outcomes_sha256": "312a4d07fc2add9c3893ddd176525b10437ac4ea46c61680245acb27501481aa",
+      "manifest_entries": 267,
+      "manifest_mismatches": 0,
+      "status": "EXACT_BYTES_RECOVERED_AND_VERIFIED"
+    },
+    "common_five": {
+      "period": [
+        "2023-01-03",
+        "2026-09-11"
+      ],
+      "sessions": 896,
+      "initial_cash": 2000000.0,
+      "execution_classification": "NATIVE_SEMANTICS_NOT_NORMALIZED_EXECUTION",
+      "references": {
+        "chatgpt": {
+          "wealth": 1.778233112870138,
+          "max_drawdown": 0.298051526553913,
+          "orders_native_rows": 178,
+          "equity_sha256": "c3e52663b3dbb91a934f20e3bc4377a5661ec53c39175822bc57b1012ac76a3c",
+          "trades_sha256": "9ef8bb544efd5eb6c2f6447ea7b2b94d66b9fbe13916b96179d332fb3fa15a89",
+          "settings_sha256": "b5f58e76bc55e41a1f555438374c0a229a88cbddfcf1d93da0a524da8b36cb03",
+          "identity_sha256": "229f58860060e8a0de656f9be73284f30cb2f1e2bb52694a0d6caeb203ce06e4"
+        },
+        "trae": {
+          "wealth": 10.674861915266794,
+          "max_drawdown": 0.3310775282947074,
+          "orders_native_rows": 800,
+          "equity_sha256": "6ecfeeb4e2466d59e272a4e4326db001c6e892b9d71ba855e37563549ca784be",
+          "trades_sha256": "ff5323c9ee0e8d6a3ee0808bd88698549d00163af4cc3773642063ffcf82c15e",
+          "settings_sha256": "42f8ea91c48a479e307ef0f11a9f1c39bb8f9eebdf844a8de8473c6791a6f24f",
+          "identity_sha256": "2d18a261f7562a8c63e703435beb7c43f5d4e8940ceafdbf98458657e7b7ecfd"
+        },
+        "dumate": {
+          "wealth": 1.465009570726167,
+          "max_drawdown": 0.20686106331849607,
+          "orders_native_rows": 237,
+          "equity_sha256": "5b77144bc978b99b879c7613fb09fcaf989374eba004b41074309c40f3adbe4c",
+          "trades_sha256": "14459891c5bf4ea23729528747f0c7a1d3b4273a05ca9fd8020b8b93255b3f54",
+          "settings_sha256": "235f7b54b9b0d24f7c7b860a6dc6c642be242213217481cf3e063432319e7da3",
+          "identity_sha256": "e5a14cad2aa2752667d51a544c29ce21aa299b63c9230c5d68870d7fcd2c4bac"
+        },
+        "workbuddy_original": {
+          "wealth": 20.221072996623576,
+          "max_drawdown": 0.25331952059019447,
+          "orders_native_rows": 107,
+          "equity_sha256": "afd8192ccb57a21f69312890faa9dd1445db0b4e10c4ec63d4a582f835b80672",
+          "trades_sha256": "a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb",
+          "settings_sha256": "867d2d353bb6558453d763d1c09c025251052e8c58f7225d1a7d37fb645b55ea",
+          "identity_sha256": "4ebfdc73d27232ddf87a5c9b85df09dadea3988feb866d08877ea2fc298f63fb",
+          "known_same_day_inventory_violation": true
+        },
+        "workbuddy_t1_corrected": {
+          "wealth": 20.81972538210324,
+          "max_drawdown": 0.2529534216033119,
+          "orders_native_rows": 109,
+          "trades_sha256": "7befacaa4c82792aa6d380c1412fdce812830e1d126ee15ba895e1721a668db0",
+          "same_day_inventory_violations": 0,
+          "status": "CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE"
+        }
+      }
+    },
+    "conclusions": [
+      "The previously conversation-only native archive is no longer missing: its exact bytes were recovered and its archive hash, 267-entry root manifest, and all per-run manifests were verified with zero mismatches.",
+      "All four frozen comparator source subtrees are currently recoverable from the authorized GitHub connector at the frozen reference commit, and their subtree object IDs match the archived source commit.",
+      "The four historical common-five raw native output streams are now authenticated by exact archive bytes and per-file hashes. Re-running identical historical native cases would add little information and is not required merely to recover missing evidence.",
+      "Only WorkBuddy has a separately verified T+1/sellable-inventory correction. The other three native semantics have not been normalized or correctness-adjusted, so their native returns remain read-only contextual comparisons rather than economic acceptance gates.",
+      "No economic candidate budget is reopened or consumed by this authentication work. Economic acceptance remains NOT_MET and PR #1 must remain unmerged."
+    ],
+    "next_action": "Do not duplicate the authenticated historical native replay. Use the authenticated streams to audit material execution-validity differences for chatgpt, trae, and dumate only where existing evidence identifies a correctness issue; preserve native results separately from any corrected/normalized diagnostic. Continue no new economic strategy candidate unless separately authorized under the exhausted budget contract."
+  },
+  "workbuddy_corrected": {
+    "classification": "EXECUTION_CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+    "source_commit": "89cf5c47188bde63d6c09a2c7d9207e3178b9904",
+    "source_tree": "b930077f108423039b9e29197278d0fb38efee52",
+    "reference": "workbuddy_common_five",
+    "period": [
+      "2023-01-03",
+      "2026-09-11"
+    ],
+    "sessions": 896,
+    "initial_cash": 2000000.0,
+    "original_native": {
+      "wealth": 20.221072996623576,
+      "max_drawdown": 0.25331952059019447,
+      "fill_rows": 107,
+      "t1_violations": 1
+    },
+    "inventory_only_corrected": {
+      "wealth": 20.81972538210324,
+      "max_drawdown": 0.2529534216033119,
+      "fill_rows": 109,
+      "t1_violations": 0
+    },
+    "timing_inventory_corrected": {
+      "wealth": 17.827945716714925,
+      "max_drawdown": 0.23670313327015946,
+      "fill_rows": 108,
+      "t1_violations": 0,
+      "outstanding_protection": {},
+      "terminal_positions": {}
+    },
+    "delta_vs_original": {
+      "relative_terminal_wealth": -0.118348184605,
+      "max_drawdown_percentage_points": -1.661638732
+    },
+    "delta_vs_inventory_only": {
+      "relative_terminal_wealth": -0.143699285676,
+      "max_drawdown_percentage_points": -1.6250288333
+    },
+    "decline_windows": {
+      "2026-06-22..2026-08-31": {
+        "return": -0.12059847,
+        "local_mdd": 0.14326132
+      },
+      "2026-07-01..2026-08-31": {
+        "return": -0.14326132,
+        "local_mdd": 0.14326132
+      }
+    },
+    "first_equity_divergence_vs_inventory_only": "2023-08-08",
+    "verification": {
+      "targeted_tests": 26,
+      "offline_tests": 87,
+      "offline_correctness_run": 34936260906,
+      "max_nav_abs_error": 7.450580596923828e-09,
+      "cash_mismatch": 0.0,
+      "holding_mismatches": []
+    },
+    "hashes": {
+      "equity_csv": "fdcaae2a1cf172d413aef483832a288605c40fcf00b98ee14bb9fa51bf25f890",
+      "trades_csv": "f84102a7913db604be75eb63c4ec5b6959a8510bc021c061911fcb60f555b16c",
+      "settings_json": "867d2d353bb6558453d763d1c09c025251052e8c58f7225d1a7d37fb645b55ea",
+      "inventory_adapter": "f0611e4536853adc3197fb0a5d354d66f11494d7280a1bf19d7024bf5dbcdc3f",
+      "timing_adapter": "083ddc09fd6743b41d788246762db4314733b80032a732c0eebc6f078cc4c737",
+      "transformed_ast": "481d866208e2ae604a44a3872e64b2baec799eee13a330917d98a798000e7815"
+    },
+    "economic_acceptance": "NOT_MET",
+    "production_delivery": "NOT_COMPLETE"
+  },
+  "trae_corrected": {
+    "schema_version": 1,
+    "classification": "EXECUTION_COST_CORRECTNESS_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+    "scope": "Trae/common-five only; fixed historical sell-stamp schedule correction; no strategy budget consumed",
+    "source": {
+      "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+      "original_backtest_sha256": "9760501990174143759e74d28530530cb35d30a8cdb9ac15d34d227a19cc1937",
+      "local_corrected_backtest_sha256": "266b8c83b3a42cdb5de5228c46bf6af6b87c2b1b605d7694876f4d5382056cb4",
+      "private_corrected_source_published": false,
+      "change": "sell stamp duty only: 10bp before 2023-08-28, native configured 5bp thereafter; all other execution/policy settings unchanged"
+    },
+    "native": {
+      "wealth": 10.674861915266794,
+      "max_drawdown": 0.3310775282947074,
+      "trade_rows": 800,
+      "trades_sha256": "ff5323c9ee0e8d6a3ee0808bd88698549d00163af4cc3773642063ffcf82c15e",
+      "equity_sha256": "6ecfeeb4e2466d59e272a4e4326db001c6e892b9d71ba855e37563549ca784be",
+      "matches_authenticated_trades": true,
+      "matches_authenticated_equity": true
+    },
+    "binding_probe": {
+      "pre_2023_08_28_sell_rows": 52,
+      "pre_2023_08_28_sell_notional": 32863762.6986,
+      "missing_extra_5bp_on_unchanged_native_path_cny": 16431.8813493,
+      "first_affected_sell_date": "2023-02-20",
+      "first_affected_sell_notional": 1049015.23,
+      "first_day_extra_stamp_cny": 524.507615,
+      "result": "BINDING"
+    },
+    "corrected": {
+      "wealth": 10.63897454010233,
+      "max_drawdown": 0.3311714174562034,
+      "trade_rows": 798,
+      "trades_sha256": "3883335e946624ba07ab41779a841b6336d9b6e468a894f55f8cc90e0325526b",
+      "equity_sha256": "ff54c25fbf7d2dc2937606b87a981eca08b2eeeedf2228c94471f7b6c638aad5",
+      "pre_2023_08_28_sell_rows": 52,
+      "pre_2023_08_28_sell_notional": 32672162.7465,
+      "extra_5bp_paid_on_corrected_path_cny": 16336.081373250001
+    },
+    "delta": {
+      "wealth_multiple": -0.03588737516446372,
+      "relative_wealth": -0.003361858490472769,
+      "max_drawdown_percentage_points": 0.009388916149599691,
+      "trade_rows": -2
+    },
+    "verification": {
+      "corrected_repeat_equity_byte_identical": true,
+      "corrected_repeat_trades_byte_identical": true,
+      "corrected_repeat_native_frame_byte_identical": true,
+      "corrected_repeat_settings_byte_identical": true,
+      "first_equity_divergence_date": "2023-02-20",
+      "first_equity_difference_cny": 524.507615,
+      "first_equity_difference_equals_first_day_extra_stamp": true
+    },
+    "interpretation": [
+      "The native constant-5bp historical stamp assumption is a real binding correctness difference, but its measured effect on this authenticated account is small relative to the original project gap.",
+      "The fixed correction lowers terminal wealth by about 0.3362% relative and worsens MDD by about 0.00939 percentage points; it does not change the dominant benchmark or justify lowering the original target.",
+      "Do not expand into a fee parameter grid. Native and corrected comparator results remain separate, and quant economic acceptance remains NOT_MET."
+    ]
+  },
+  "dumate_corrected": {
+    "schema_version": 1,
+    "classification": "CORRECTNESS_EXECUTION_TIMING_DIAGNOSTIC_NOT_ECONOMIC_ACCEPTANCE",
+    "scope": "authenticated Dumate common-five native account; fixed same-session-close -> immediate next global trading-session open execution only",
+    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+    "reference_subtree": "5b8f1863def6fd784284f9b7a782be28caa3f009",
+    "source_hashes": {
+      "backtest_engine.py": "43a478789fdfbd75a1dd4b05e39b7d1d28357172b4e5ab98618ccf5739d36d22",
+      "ai_sector_momentum_strategy.py": "6c4dd5d930bffaac3393cc3eda92b8e449862a75d76786461001b8b2645eb7fa",
+      "config.yaml": "b66c9525907ec7e383989df5bcf65e453d2ff0c0d6798c7f85df0c994934fa38",
+      "monte_carlo_test.py": "2090c0da78716cb673b7dbb99f0df0426dd2bd4cb4afec64e4898abd051764dd"
+    },
+    "frozen_input_fingerprint": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "period": [
+      "2023-01-03",
+      "2026-09-11"
+    ],
+    "sessions": 896,
+    "initial_cash": 2000000.0,
+    "native": {
+      "wealth": 1.465009570726167,
+      "max_drawdown": 0.20686106331849596,
+      "rows": 237,
+      "equity_sha256": "5b77144bc978b99b879c7613fb09fcaf989374eba004b41074309c40f3adbe4c",
+      "trades_sha256": "14459891c5bf4ea23729528747f0c7a1d3b4273a05ca9fd8020b8b93255b3f54",
+      "settings_sha256": "235f7b54b9b0d24f7c7b860a6dc6c642be242213217481cf3e063432319e7da3",
+      "economic_outputs_exactly_reproduced": true,
+      "identity_json_byte_equivalence": false,
+      "identity_note": "current producer/runtime metadata differs; economic outputs and settings match authenticated archive anchors"
+    },
+    "next_open": {
+      "wealth": 1.9598282438390175,
+      "max_drawdown": 0.19151523283301186,
+      "rows": 243,
+      "terminal_positions": {
+        "300394": 2200,
+        "603986": 200
+      },
+      "first_equity_divergence_vs_native": "2023-02-09",
+      "output_sha256": {
+        "equity.csv": "adf2f191742be0fa83f6cb5190bfcc88f3eeb0eb7c11c2c66fa9caa6e0815f72",
+        "trades.csv": "fe616159f915003fcf21afe180011bd912165ad7c1f2b62e35c87274d08ffd87",
+        "native_frame.csv": "ee70365a1470584b9eb10759f3b4364224e3ece4673dad8c898b83cb014e822e",
+        "settings.json": "235f7b54b9b0d24f7c7b860a6dc6c642be242213217481cf3e063432319e7da3"
+      }
+    },
+    "delta": {
+      "wealth_multiple": 0.49481867311285055,
+      "relative_terminal_wealth": 0.3377579798796686,
+      "max_drawdown_percentage_points": -1.5345830485484102
+    },
+    "crash_windows": {
+      "2026-06-22": {
+        "native": {
+          "return": -0.022010987627130385,
+          "mdd": 0.030345718498920426,
+          "start_value": 2999615.644284834,
+          "end_value": 2933591.141452334
+        },
+        "next_open": {
+          "return": -0.029082743997538518,
+          "mdd": 0.042243762179328126,
+          "start_value": 4053568.010149834,
+          "end_value": 3935679.129434035
+        }
+      },
+      "2026-07-01": {
+        "native": {
+          "return": -0.021579642952635036,
+          "mdd": 0.02351337791563035,
+          "start_value": 2998293.239017634,
+          "end_value": 2933591.141452334
+        },
+        "next_open": {
+          "return": -0.025152711302469433,
+          "mdd": 0.031507223260080375,
+          "start_value": 4037226.3174598343,
+          "end_value": 3935679.129434035
+        }
+      }
+    },
+    "independent_audit": {
+      "t1_violations": 0,
+      "max_cash_after_error": 9.313225746154785e-10,
+      "max_nav_error": 1.862645149230957e-09,
+      "max_open_fill_price_error": 1.1368683772161603e-13,
+      "min_calendar_lag_days": 1,
+      "max_calendar_lag_days": 11,
+      "execution_is_immediate_next_global_trading_session": true,
+      "final_cash": 3269080.4876780347,
+      "final_holdings": {
+        "300394": 2200,
+        "603986": 200
+      },
+      "reported_final_cash": 3269080.487678035,
+      "reported_final_value": 3919656.487678035
+    },
+    "determinism": {
+      "second_run_byte_identical": true,
+      "files": [
+        "equity.csv",
+        "trades.csv",
+        "native_frame.csv",
+        "settings.json",
+        "result.json"
+      ]
+    },
+    "probe_sha256": "36d061f98927d22e4ccd08ce290dd9d75d371063649d5d3e1d00d611ee0fcbfd",
+    "method": [
+      "Strategy decision cycle is evaluated for completed session D using the authenticated native source and frozen inputs.",
+      "Each buy/sell generated by that native control flow is filled no earlier than the immediate next global trading session D+1 open, using the native configured slippage, commission and stamp-duty semantics.",
+      "Portfolio/cash state mutates sequentially at those next-open fills so later operations in the same native decision batch retain native call ordering; this is a fixed timing diagnostic, not an asynchronous order-book rewrite.",
+      "The last completed-session decision is not force-filled outside the frozen sample; terminal holdings are marked to the final close."
+    ],
+    "limitations": [
+      "This isolates same-session-close fill timing. It does not normalize all four references to identical order-batching semantics.",
+      "Native fee/liquidity/corporate-action/actual-share accounting remains reference-specific.",
+      "Private reference source is not published. Only source identities/hashes and derived evidence are retained.",
+      "Correctness-adjusted comparator results do not change quant economic thresholds or reopen strategy research budgets."
+    ],
+    "economic_acceptance": "NOT_MET",
+    "production_delivery": "NOT_COMPLETE"
+  },
+  "execution_audit": {
+    "schema_version": 1,
+    "classification": "CORRECTNESS_EXECUTION_VALIDITY_ONLY_NOT_ECONOMIC_ACCEPTANCE",
+    "scope": "authenticated common-five native streams only; no quant economic candidate and no budget reset",
+    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+    "archive": "quant-main-bbc0024-native-evidence.zip",
+    "archive_sha256": "0a03c52f24dd08c2488b897b6e0a3f3d7211c467c49300645e1d722894ee620f",
+    "references": {
+      "chatgpt": {
+        "subtree": "c06585d7837d32905ef4b954b8b2c22f4f3f51f9",
+        "entry_sha256": "00d23e36c9f02a719c798412a43c58ec8c8ca2e6147ddaaaf538c6e31e2bd1ec",
+        "native_wealth": 1.778233112870138,
+        "native_mdd": 0.298051526553913,
+        "native_rows": 178,
+        "static_classification": "CLOSE_SIGNAL_PENDING_LATER_OPEN",
+        "ledger_check": {
+          "all_signal_dates_strictly_before_fill_dates": true,
+          "same_day_signal_fill_rows": 0,
+          "max_calendar_wait_days": 6
+        },
+        "finding": "The authenticated implementation explicitly represents close-generated signals as pending T+1 instructions and executes pending signals at a later tradable open. No same-close timing correction is warranted from the inspected common-five ledger.",
+        "remaining_limits": [
+          "native cost/liquidity semantics and corporate-action economic units remain non-normalized"
+        ]
+      },
+      "trae": {
+        "subtree": "0ba9d9b776d1b01712e0086af12dfa81d9589b56",
+        "backtest_sha256": "9760501990174143759e74d28530530cb35d30a8cdb9ac15d34d227a19cc1937",
+        "native_wealth": 10.674861915266794,
+        "native_mdd": 0.3310775282947074,
+        "native_rows": 800,
+        "static_classification": "SHIFTED_TARGET_NEXT_OPEN_WITH_CURRENT_SESSION_AMOUNT_CAPACITY",
+        "issue": "Targets are shifted one session and filled at the current open, but liquidity capacity reads amount_df for that same session; complete daily amount is not known at the open.",
+        "binding_probe": {
+          "method": "exact authenticated common-five inputs/source; compare native against amount_df shifted one session and against disabled volume capacities",
+          "probe_script_sha256": "5a3e7134ccf682822cf53f19d23a80b6bf52e9046f1493d94b1bb6e836ad3f38",
+          "native_vs_archived_trades_all_six_columns_equal": true,
+          "native_vs_archived_equity_max_abs_diff": 0.0,
+          "prior_session_amount_vs_native_trades_equal": true,
+          "prior_session_amount_vs_native_equity_max_abs_diff": 0.0,
+          "no_liquidity_cap_vs_native_trades_equal": true,
+          "no_liquidity_cap_vs_native_equity_max_abs_diff": 0.0,
+          "result": "NONBINDING_IN_AUTHENTICATED_COMMON_FIVE"
+        },
+        "finding": "The amount-cap timing issue exists in source but has zero economic or trade-path effect in this authenticated common-five account, so no corrected return should be manufactured for this case."
+      },
+      "dumate": {
+        "subtree": "5b8f1863def6fd784284f9b7a782be28caa3f009",
+        "backtest_sha256": "43a478789fdfbd75a1dd4b05e39b7d1d28357172b4e5ab98618ccf5739d36d22",
+        "native_wealth": 1.465009570726167,
+        "native_mdd": 0.20686106331849607,
+        "native_rows": 237,
+        "static_classification": "SAME_SESSION_CLOSE_FILL",
+        "ledger_check": {
+          "all_fill_prices_equal_same_session_close_with_configured_slippage": true,
+          "matching_rows": 237,
+          "rows": 237,
+          "max_price_error": 2.2737367544323206e-13
+        },
+        "source_finding": "buy/sell use get_price(code,date), which returns the same-date close; run_day calculates current-close NAV/risk and may stop/derisk/rebalance before those same-date close fills. Selection factors mostly use history strictly before date, but current-date tradeability and risk state can also consume same-date observations.",
+        "result": "BINDING_EXECUTION_TIMING_CLASS_DIFFERENCE_REQUIRES_FIXED_NEXT_SESSION_DIAGNOSTIC_IF_QUANTIFICATION_NEEDED"
+      },
+      "workbuddy": {
+        "status": "separately corrected and measured",
+        "source": "89cf5c47188bde63d6c09a2c7d9207e3178b9904",
+        "timing_inventory_corrected_wealth": 17.827945716714925,
+        "timing_inventory_corrected_mdd": 0.23670313327015946,
+        "evidence_commit_before_this_audit": "053bf28fd5290a58f6c4b92eafc67e73c25d6d23"
+      }
+    },
+    "decision": "Do not rerun ChatGPT or Trae common-five for the identified timing questions. If further comparator normalization is needed, the next fixed correctness experiment should target Dumate same-session-close execution only, preserving its native result separately. No new quant strategy hypothesis is authorized.",
+    "economic_acceptance": "NOT_MET",
+    "production_delivery": "NOT_COMPLETE"
+  },
+  "verified_existing_reference_record_files": 64,
+  "normalized_final_comparison": "NOT_COMPLETE",
+  "equivalent_execution_final_comparison": "NOT_COMPLETE",
+  "native_full_archive": "Historically authenticated; full267-file native archive not independently recovered in this closure.",
+  "merge_eligible": false,
+  "archive_recovery": [
+    {
+      "name": "workbuddy-inventory",
+      "status": "ORIGINAL_BYTES_VERIFIED",
+      "sha256": "9f8dc138c6af0729606456af3aab13fa3ef056008a11898c60f0f417801f13f5",
+      "manifest_files": 41
+    },
+    {
+      "name": "workbuddy-timing",
+      "status": "ORIGINAL_BYTES_VERIFIED",
+      "sha256": "c51eaa314711df3c309b5c48ca1b250e4e00a0216df3628fce07147962df47bf",
+      "manifest_files": 17
+    },
+    {
+      "name": "trae-fees",
+      "status": "ORIGINAL_BYTES_VERIFIED",
+      "sha256": "fb563bd6a5e013fc59b7fc397470888e6a927975a91183bc44aca2a39036f1d1",
+      "manifest_files": 20
+    },
+    {
+      "name": "dumate-next-open",
+      "status": "ORIGINAL_BYTES_VERIFIED",
+      "sha256": "04bc43cfd91d05d1c9dc36db43f3724d8a8bdcbb5930871f30588b16bb6fb73c",
+      "manifest_files": 6
+    }
+  ]
+}

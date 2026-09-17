@@ -1,0 +1,16 @@
+Processing ./.
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: techquant
+  Building wheel for techquant (pyproject.toml): started
+  Building wheel for techquant (pyproject.toml): finished with status 'done'
+  Created wheel for techquant: filename=techquant-1.0.0-py3-none-any.whl size=28026 sha256=e7c6ea611f2f789cd42e58c79fd851af5567f949e0328032e90fd84c4f65292f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-3v6qb2bx/wheels/73/b7/86/ea47e033851ab6b8a8bc76a72a7046b9daa32e82ba85c26e54
+Successfully built techquant
+Processing /home/runner/work/_temp/wheels/techquant-1.0.0-py3-none-any.whl
+Installing collected packages: techquant
+Successfully installed techquant-1.0.0

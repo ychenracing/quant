@@ -1,0 +1,12 @@
+commit 1c41d0822ffe14b5fbf60e38e6c6183af371c4ee
+Author:     quant evidence maintainer <quant-research@users.noreply.github.com>
+AuthorDate: Thu Sep 17 03:39:36 2026 +0000
+Commit:     quant evidence maintainer <quant-research@users.noreply.github.com>
+CommitDate: Thu Sep 17 03:39:36 2026 +0000
+
+    research: bind passive control and recovery windows to the frozen contract
+
+ research/ACTIVE_WORK.md                    | 92 +++---------------------------
+ research/causal_passive_ownership_study.py | 16 +++---
+ research/test_passive_study_contract.py    | 14 +++++
+ 3 files changed, 31 insertions(+), 91 deletions(-)

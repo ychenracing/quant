@@ -1,0 +1,10 @@
+{
+  "source_commit": "7551af8af7506857c684b4cda79c885971ac8dd3",
+  "run_id": "35179372337",
+  "attempt": "1",
+  "entry": "passive-final-audit/7551af8af7506857c684b4cda79c885971ac8dd3/35179372337",
+  "report": "passive-final-audit/7551af8af7506857c684b4cda79c885971ac8dd3/35179372337/REPORT.md",
+  "manifest_sha256": "ae2b5b93d612f234a955a091fe3b9c084885a611815ede04548ad2053bc7bf37",
+  "economic_acceptance": "NOT_MET",
+  "merge_eligible": false
+}

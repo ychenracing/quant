@@ -1,0 +1,59 @@
+{
+  "authorization": "用户2026-09-17原PR#1续接Prompt，不修改经济目标或豁免风险",
+  "retained_sources": [
+    "b54eaaf6487005a492b23ee5bce300f93f7e41cf:HANDOFF_PROMPT.md",
+    "docs/RESEARCH_CONTRACT.md",
+    "research/causal_passive_ownership_contract.json",
+    "research/causal_passive_ownership_api_amendment.json"
+  ],
+  "absolute_18pct_ceiling": "NOT_AUTHENTICATED_DO_NOT_IMPORT_FROM_OLD_REVIEW_OR_OTHER_PROJECT",
+  "requirements": [
+    {
+      "requirement": "冻结数据/窗口/seed/资金",
+      "status": "VERIFIED",
+      "evidence_or_gap": "既有原件与固定199案例身份已核验；不追加行情。"
+    },
+    {
+      "requirement": "199-case共享执行等价",
+      "status": "VERIFIED",
+      "evidence_or_gap": "199个buy_hold账户；6个核心配对逐字节相同，其中3个跨历史run相同。"
+    },
+    {
+      "requirement": "收益晋级",
+      "status": "VERIFIED_SCREEN_ONLY",
+      "evidence_or_gap": "指定campaign-peak对照下平均log财富1.913046>1.649318，最小财富3.047536>1.594946；不是最终验收。"
+    },
+    {
+      "requirement": "最终主动风险/恢复/主线切换",
+      "status": "FAILED",
+      "evidence_or_gap": "被动路径不主动卖出或调仓，不能交付保留的主动风险能力。"
+    },
+    {
+      "requirement": "严格含成本原始预算隔离",
+      "status": "FAILED",
+      "evidence_or_gap": "148个案例有证券支出超过原始份额，单证券最多1226.817907元；账户现金安全不等于份额隔离。"
+    },
+    {
+      "requirement": "四套最终统一执行比较",
+      "status": "BLOCKED",
+      "evidence_or_gap": "已有native与固定corrected原件/诊断；Normalized和Equivalent-execution全scope仍未完成。"
+    },
+    {
+      "requirement": "全面泛化和实际股份执行",
+      "status": "NOT_VERIFIED",
+      "evidence_or_gap": "199个历史场景不是未见样本外；复权经济单位不是实际股份/公司行动账本。"
+    },
+    {
+      "requirement": "定向工程检查与安装入口",
+      "status": "VERIFIED",
+      "evidence_or_gap": "2项新回归加4项已有passive测试通过；标准wheel构建、安装后CLI和passive导入通过。"
+    },
+    {
+      "requirement": "默认生产整合/原PR合并",
+      "status": "NOT_PERFORMED_INELIGIBLE",
+      "evidence_or_gap": "不将未达标被动候选改成默认生产路径，原PR保持Draft。"
+    }
+  ],
+  "economic_acceptance": "NOT_MET",
+  "merge_eligible": false
+}

@@ -1,0 +1,11 @@
+test_control_is_the_registered_campaign_peak_candidate (research.test_passive_study_contract.PassiveStudyContractTests.test_control_is_the_registered_campaign_peak_candidate) ... ok
+test_windows_are_the_frozen_formal_windows_including_recovery (research.test_passive_study_contract.PassiveStudyContractTests.test_windows_are_the_frozen_formal_windows_including_recovery) ... ok
+test_adapter_signature_has_no_conflicting_decision_source_inputs (tests.test_passive_ownership.PassiveOwnershipTests.test_adapter_signature_has_no_conflicting_decision_source_inputs) ... ok
+test_late_listing_keeps_its_original_sleeve_until_executable (tests.test_passive_ownership.PassiveOwnershipTests.test_late_listing_keeps_its_original_sleeve_until_executable) ... ok
+test_prefix_replay_is_exactly_causal (tests.test_passive_ownership.PassiveOwnershipTests.test_prefix_replay_is_exactly_causal) ... ok
+test_production_adapter_exactly_matches_buy_hold_research_account (tests.test_passive_ownership.PassiveOwnershipTests.test_production_adapter_exactly_matches_buy_hold_research_account) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.457s
+
+OK

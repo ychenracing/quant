@@ -1,0 +1,48 @@
+{
+  "archive": "evidence.tar.xz",
+  "encoding": "concatenate raw binary part00 through part05 in order; verify archive SHA256; extract XZ tar with a safe data-only filter",
+  "bytes": 31160,
+  "sha256": "04bc43cfd91d05d1c9dc36db43f3724d8a8bdcbb5930871f30588b16bb6fb73c",
+  "manifest_entries": 6,
+  "archive_members_including_manifest": 7,
+  "private_reference_source_included": false,
+  "contents": "corrected equity/trades/full daily frame, result, independent audit, REVIEW and MANIFEST; no private strategy source",
+  "parts": [
+    {
+      "name": "evidence.tar.xz.part00",
+      "bytes": 6000,
+      "sha256": "da347902362c000c88ee3d3184d208cd591c9620c7c59ce238597e8b888fb365",
+      "git_blob": "596723031457d7854127c21f269a45f006282a55"
+    },
+    {
+      "name": "evidence.tar.xz.part01",
+      "bytes": 6000,
+      "sha256": "5997dd070a3a019a1b9688fdec7ac7211be39f16d7d42467549f7986d665c9c3",
+      "git_blob": "d5ae78863d1de97d1afea2193bc0487a3006efbd"
+    },
+    {
+      "name": "evidence.tar.xz.part02",
+      "bytes": 6000,
+      "sha256": "6fec109f573d4dea9e735690238e150c27953de236fa54382b3d94cab147fd4f",
+      "git_blob": "228d04fe437deb8049e48f0da3e254e9b1341206"
+    },
+    {
+      "name": "evidence.tar.xz.part03",
+      "bytes": 6000,
+      "sha256": "c348fe0c154b4afbe5b0c275bb06d839f487cc400a437451545a75b1345d509f",
+      "git_blob": "404441ea1f2147bb5a80201adb2cb64648893138"
+    },
+    {
+      "name": "evidence.tar.xz.part04",
+      "bytes": 6000,
+      "sha256": "9fafbb32cc1de8108032abf63dc81e78992ee53408b46593bb0e71501f767cd9",
+      "git_blob": "622e081e416e75eaa32823538953bd068c5aed4f"
+    },
+    {
+      "name": "evidence.tar.xz.part05",
+      "bytes": 1160,
+      "sha256": "704b8ff0abec5646e6f4e93f0afa13484d127c76b71aa91ed402e75daf84ae20",
+      "git_blob": "9e4fd42f5093678b4ee022ddcf05b692c47fc324"
+    }
+  ]
+}
