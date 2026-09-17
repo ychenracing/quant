@@ -14,253 +14,211 @@ jobs:
       PYTHONPATH: src:tests:.
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13.5'
-      - name: Install existing pinned runtime
+      - name: Install existing pinned economic runtime
         run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
-      - name: Integrate the two verified research corrections
+      - name: Verify focused fixes and installed package
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/passive-closure/qa"
-          python - <<'PY'
-          import os, pathlib, subprocess
-          p = pathlib.Path('research/causal_passive_ownership_study.py')
-          assert subprocess.check_output(['git','hash-object',str(p)],text=True).strip() == 'e4c831aa9ec272e6d0d7706237c8973c5d053867'
-          assert subprocess.check_output(['git','hash-object','research/passive_evidence_audit.py'],text=True).strip() == '1dfa4b9e14a8979f5d682bddee3b1c141d3aee70'
-          test = pathlib.Path('research/test_passive_study_contract.py')
-          assert not test.exists()
-          test.write_text('''"""Regression tests for the registered comparator and evaluation windows."""
-          import json
-          from pathlib import Path
-          import unittest
-          from research import causal_passive_ownership_study as study
-          from research.offensive_campaign_peak_authority import Owner, Parameters
-          class PassiveStudyContractTests(unittest.TestCase):
-              def test_control_is_the_registered_campaign_peak_candidate(self):
-                  self.assertIs(study.ActiveOwner, Owner)
-                  self.assertIs(study.ActiveParameters, Parameters)
-              def test_windows_are_the_frozen_formal_windows_including_recovery(self):
-                  contract = json.loads(Path(study.__file__).with_name('campaign_peak_formal_validation_contract.json').read_text())
-                  self.assertEqual(study.evaluation_windows(), contract['time_windows'])
-                  self.assertEqual(study.evaluation_windows()['recovery'], ['2026-09-01', '2026-09-11'])
-          ''')
-          qa = pathlib.Path(os.environ['RUNNER_TEMP'])/'passive-closure/qa'
-          with (qa/'study-contract-red.txt').open('w') as log:
-              result = subprocess.run(['python','-m','unittest','research.test_passive_study_contract','-v'],stdout=log,stderr=subprocess.STDOUT)
-          assert result.returncode != 0
-          text = p.read_text().replace('from research.offensive_dominant_peak_authority import (','from research.offensive_campaign_peak_authority import (')
-          start = text.index('    windows = {',text.index('def evaluate(')); end = text.index('    rows = []',start)
-          text = text[:start]+'    windows = evaluation_windows()\n'+text[end:]
-          position = text.index('def evaluate(')
-          helper = 'def evaluation_windows() -> dict[str, list[str]]:\n    """Use the frozen formal plan rather than a second, drifting window list."""\n    contract = Path(__file__).with_name("campaign_peak_formal_validation_contract.json")\n    return json.loads(contract.read_text())["time_windows"]\n\n\n'
-          p.write_text(text[:position]+helper+text[position:])
-          assert subprocess.check_output(['git','hash-object',str(p)],text=True).strip() == 'e91c9bd8dc46e683df130c572faf8dbac34e2d05'
-          pathlib.Path('research/ACTIVE_WORK.md').write_text('''# Passive evidence closure — original PR #1
-
-          Current instruction: user continuation dated 2026-09-17. No new strategy research, parameter search, stop/timing/mix candidate, replacement PR, other-repository write or scheduler change is authorized by this closure.
-
-          The fixed passive candidate is NOT_MET and is not eligible for production integration or merge. It has no active selling, theme switching or protective risk recovery. Return-first promotion is not final acceptance. Do not treat old audit references to an 18% ceiling as user authorization: the original b54eaaf HANDOFF explicitly says no universal absolute drawdown/order threshold was authenticated.
-
-          Read research/evidence:passive-final-audit/LATEST.json and its report, summary, 199-case map, canonical-screen correction, reference comparison, budget violations, QA and transport receipt. The audit is an exact source-bound reuse verification, not 199 new economic replays. Historical accounts retain their original producing SHAs.
-
-          Historical passive run35174627146/source4335d3d7 is complete. Its active control was the wrong dominant-peak policy; passive account bytes remain valid. The runner now uses the registered campaign-peak control and the frozen formal windows including recovery. Original request/receipt bytes are retained and must not be relabelled as a new measurement request.
-
-          Historical formal run35122063992/sourcea0705156 contains199 buy_hold accounts. All shared economic package files match the passive source, and the adapter only changes identity metadata. Subwindows inherit the full account; each universe case starts with CNY2m divided over that supplied universe, not permanently retained34-name sleeves.
-
-          Strict all-in sleeve-budget interpretation fails in148 cases because costs can exceed a nominal slice. The original engine is unchanged; do not silently repair this and reuse old economics. General account cash solvency is distinct from per-sleeve budget isolation.
-
-          Four frozen references remain native/corrected diagnostics, not a completed normalized/equivalent-execution final comparison. Common-five returns cannot certify all pools. Private reference source is never a quant production dependency.
-
-          Preserve original PR#1 and main. Do not restart closed active-neighbor research or add hybrid rescue rules. A passive-only product would require an explicit change of the retained active-risk objective and budget semantics; otherwise this candidate remains research evidence only. Prior research and handoffs remain recoverable in Git history and existing immutable evidence paths.
-          ''')
-          PY
+          test "$(git hash-object research/causal_passive_ownership_study.py)" = e91c9bd8dc46e683df130c572faf8dbac34e2d05
+          test "$(git hash-object research/passive_evidence_audit.py)" = 1dfa4b9e14a8979f5d682bddee3b1c141d3aee70
           python -m unittest research.test_passive_study_contract tests.test_passive_ownership -v > "$RUNNER_TEMP/passive-closure/qa/focused-tests.txt" 2>&1
-          git diff --quiet -- src
-          test "$(git ls-remote origin refs/heads/research/expectation-learning | cut -f1)" = "$GITHUB_SHA"
-          git config user.name 'quant evidence maintainer'
-          git config user.email 'quant-research@users.noreply.github.com'
-          git add research/causal_passive_ownership_study.py research/test_passive_study_contract.py research/ACTIVE_WORK.md
-          git commit -m 'research: bind passive control and recovery windows to the frozen contract'
-          git push origin HEAD:refs/heads/research/expectation-learning
-          source=$(git rev-parse HEAD)
-          test "$(git ls-remote origin refs/heads/research/expectation-learning | cut -f1)" = "$source"
-          echo "QUANT_SOURCE_COMMIT=$source" >> "$GITHUB_ENV"
-          git show --format=fuller --stat HEAD > "$RUNNER_TEMP/passive-closure/qa/source-commit.txt"
-      - name: Check installed package without research imports
-        run: |
-          set -euo pipefail
-          python -m pip wheel --no-deps --no-build-isolation . -w "$RUNNER_TEMP/wheels" > "$RUNNER_TEMP/passive-closure/qa/wheel-build.txt" 2>&1
+          python -m pip wheel --no-deps . -w "$RUNNER_TEMP/wheels" > "$RUNNER_TEMP/passive-closure/qa/wheel-build.txt" 2>&1
           python -m pip install --no-deps --target "$RUNNER_TEMP/installed" "$RUNNER_TEMP"/wheels/*.whl >> "$RUNNER_TEMP/passive-closure/qa/wheel-build.txt" 2>&1
+          git status --porcelain > "$RUNNER_TEMP/passive-closure/qa/worktree.txt"
           cd "$RUNNER_TEMP"
           PYTHONPATH="$RUNNER_TEMP/installed" python -m techquant --help > "$RUNNER_TEMP/passive-closure/qa/installed-cli.txt"
           PYTHONPATH="$RUNNER_TEMP/installed" python -c 'import sys; from techquant.passive import run_passive_ownership; assert not any(n == "research" or n.startswith("research.") for n in sys.modules); print(run_passive_ownership.__module__)' > "$RUNNER_TEMP/passive-closure/qa/installed-passive.txt"
-      - name: Verify existing immutable evidence and reaggregate only
+      - name: Audit existing originals without economic replays
         run: |
           python - <<'PY'
-          import base64, hashlib, json, os, pathlib, subprocess, tarfile, zipfile
+          import base64, hashlib, io, json, os, pathlib, shutil, subprocess, tarfile, zipfile
           from research.passive_evidence_audit import audit
-          repo = os.environ['GITHUB_REPOSITORY']; temp = pathlib.Path(os.environ['RUNNER_TEMP'])
-          cache = temp/'audit-inputs'; cache.mkdir()
-          out = temp/'passive-closure'
+          repo=os.environ['GITHUB_REPOSITORY']; temp=pathlib.Path(os.environ['RUNNER_TEMP'])
+          cache=temp/'audit-inputs'; cache.mkdir(); out=temp/'passive-closure'
           def api(path):
               return json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/'+path]))
-          expected = [
+          def digest(raw):return hashlib.sha256(raw).hexdigest()
+          def read(path):return json.loads(path.read_text())
+          def write(path,obj):path.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
+          expected=[
             ('passive',10478206884,'f97eec483bff22ef1cdfd212869b60d1a0ad6e0f4130aaec6e271185442f8b61'),
             ('formal0',10457422522,'54e6c7acca643782e25a656d73187513f62a5c4459d5f3a724b5aa307bb37356'),
             ('formal1',10457697335,'a1ef59fa90deaba4bfc29a86e9509098be00df108a7c441ebe9d0a890140f1c1'),
             ('formal2',10458466238,'a2465f301a6894b515627924e6993216e811d9213967ceb51c3434437a10324f'),
             ('formal3',10457832437,'b464f59e513faca0dbcbdf1e2c3885c791218922b73020dbf35685df78ff0384'),
             ('canonical',10457895503,'f61d83c1623c34c831cbf2c6d35cd4ec92e0bb1ef2e0a4af9907855eced8119e'),
-            ('references',10479512221,'3427b79bae73a7b03a1a560aa8edfd7ccc49b31dc911439d078ebe335848cc9f')]
-          evidence_ref = api('git/ref/heads/research/evidence')['object']['sha']
-          tree = api('git/trees/'+evidence_ref+'?recursive=1'); assert not tree['truncated']
-          blobs = {e['sha']:e['path'] for e in tree['tree'] if e['type']=='blob'}
-          ledger = []
-          for label, artifact, expected_sha in expected:
-              metadata = api('actions/artifacts/'+str(artifact))
-              assert not metadata['expired'] and metadata['size_in_bytes'] < 21000000
-              assert metadata['digest'] == 'sha256:'+expected_sha
-              file = cache/(label+'.zip')
+            ('references',10479512221,'3427b79bae73a7b03a1a560aa8edfd7ccc49b31dc911439d078ebe335848cc9f'),
+            ('prior-check',10479875211,'6ec28e6532b558a93f8a0d04e0d2f8e694c96bbdb5af45ec601f21f6ec789438')]
+          eref=api('git/ref/heads/research/evidence')['object']['sha']
+          tree=api('git/trees/'+eref+'?recursive=1'); assert not tree['truncated']
+          blobs={e['sha']:e['path'] for e in tree['tree'] if e['type']=='blob'}
+          ledger=[]
+          for label,aid,sha in expected:
+              meta=api('actions/artifacts/'+str(aid))
+              assert not meta['expired'] and meta['size_in_bytes']<21000000 and meta['digest']=='sha256:'+sha
+              file=cache/(label+'.zip')
               with file.open('wb') as handle:
-                  subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(artifact)+'/zip'],stdout=handle,check=True)
-              assert hashlib.sha256(file.read_bytes()).hexdigest() == expected_sha
-              dest = cache/label
-              with zipfile.ZipFile(file) as z: z.extractall(dest)
-              entry = dict(label=label,artifact_id=artifact,zip_sha256=expected_sha,bytes=file.stat().st_size,generation=metadata['workflow_run'])
+                  subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(aid)+'/zip'],stdout=handle,check=True)
+              assert digest(file.read_bytes())==sha
+              dest=cache/label
+              with zipfile.ZipFile(file) as z:z.extractall(dest)
+              item=dict(label=label,artifact_id=aid,zip_sha256=sha,bytes=file.stat().st_size,generation=meta['workflow_run'])
               for archive in dest.glob('*.tar.gz'):
-                  raw = archive.read_bytes(); sha = hashlib.sha256(raw).hexdigest()
-                  checksum = archive.with_name(archive.name.removesuffix('.tar.gz')+'.sha256')
-                  assert checksum.read_text().split()[0] == sha
-                  blob = hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
-                  assert blob in blobs, 'required original archive lacks durable Git object'
-                  entry.update(archive_sha256=sha,archive_git_blob=blob,durable_path=blobs[blob],evidence_ref=evidence_ref)
+                  raw=archive.read_bytes(); checksum=archive.with_name(archive.name.removesuffix('.tar.gz')+'.sha256')
+                  assert checksum.read_text().split()[0]==digest(raw)
+                  blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+                  assert blob in blobs,'original archive not in durable Git tree'
+                  item.update(archive_sha256=digest(raw),archive_git_blob=blob,durable_path=blobs[blob],evidence_ref=eref)
                   with tarfile.open(archive) as t:t.extractall(dest/'raw',filter='data')
-              ledger.append(entry)
-          (out/'transport.json').write_text(json.dumps(ledger,indent=2)+'\n')
+              ledger.append(item)
+          shutil.copytree(cache/'prior-check/passive-closure/qa',out/'qa/prior-attempt')
+          write(out/'transport.json',ledger)
           audit(cache/'passive/raw/causal-passive-ownership',
                 [cache/f'formal{i}/raw/campaign-peak-formal-shard-{i}' for i in range(4)],
                 cache/'canonical/raw/campaign-peak',out/'proof')
-          refs = cache/'references/renewed-continuation/native-execution'
-          receipt = json.loads((cache/'references/receipt.json').read_text())
-          for f in receipt['files']:
-              assert hashlib.sha256((cache/'references'/f['path']).read_bytes()).hexdigest() == f['sha256']
-          comparison = {'classification':'NATIVE_AND_CORRECTED_NOT_EQUIVALENT_EXECUTION',
+          receipt=read(cache/'references/receipt.json')
+          for f in receipt['files']:assert digest((cache/'references'/f['path']).read_bytes())==f['sha256']
+          refs=cache/'references/renewed-continuation/native-execution'
+          comparison={'classification':'NATIVE_AND_CORRECTED_NOT_EQUIVALENT_EXECUTION',
             'reference_commit':'5575d1b1b79fab405b92cfb7d164c7054a8bd826',
-            'authentication':json.loads((refs/'four-reference-authentication.json').read_text()),
-            'workbuddy_corrected':json.loads((refs/'workbuddy-timing/89cf5c47188bde63d6c09a2c7d9207e3178b9904/result.json').read_text()),
-            'trae_corrected':json.loads((refs/'fee-schedule/trae-common-five/result.json').read_text()),
-            'dumate_corrected':json.loads((refs/'dumate-next-open/result.json').read_text()),
-            'execution_audit':json.loads((refs/'other-reference-audit/common-five-execution-validity.json').read_text()),
+            'authentication':read(refs/'four-reference-authentication.json'),
+            'workbuddy_corrected':read(refs/'workbuddy-timing/89cf5c47188bde63d6c09a2c7d9207e3178b9904/result.json'),
+            'trae_corrected':read(refs/'fee-schedule/trae-common-five/result.json'),
+            'dumate_corrected':read(refs/'dumate-next-open/result.json'),
+            'execution_audit':read(refs/'other-reference-audit/common-five-execution-validity.json'),
             'verified_existing_reference_record_files':len(receipt['files']),
-            'normalized_final_comparison':'NOT_COMPLETE', 'equivalent_execution_final_comparison':'NOT_COMPLETE',
-            'native_raw_full_archive':'Historically authenticated; full 267-file native archive not independently recovered in this job.',
-            'merge_eligible':False}
-          # Preserve existing Dumate original blob objects even where their named
-          # transport paths were not attached to the evidence tree.
-          d = json.loads((refs/'dumate-next-open/transport.json').read_text())
-          recovered = out/'references-restored/dumate-next-open'; recovered.mkdir(parents=True)
-          chunks=[]; errors=[]
-          for part in d['parts']:
-              try:
-                  obj=api('git/blobs/'+part['git_blob']); raw=base64.b64decode(obj['content'])
-                  assert len(raw)==part['bytes'] and hashlib.sha256(raw).hexdigest()==part['sha256']
-                  (recovered/part['name']).write_bytes(raw); chunks.append(raw)
-              except Exception as error: errors.append(dict(part=part['name'],error=type(error).__name__))
-          if not errors:
-              assert hashlib.sha256(b''.join(chunks)).hexdigest()==d['sha256']
-          (recovered/'transport.json').write_text(json.dumps(d,indent=2)+'\n')
-          comparison['dumate_original_recovery']={'status':'ORIGINAL_BYTES_RESTORED' if not errors else 'BLOCKED','errors':errors}
-          (out/'reference-comparison.json').write_text(json.dumps(comparison,indent=2)+'\n')
-          print('Verified original inputs,199 comparator accounts and64 reference records; no economic reruns')
+            'normalized_final_comparison':'NOT_COMPLETE','equivalent_execution_final_comparison':'NOT_COMPLETE',
+            'native_full_archive':'Historically authenticated; full267-file native archive not independently recovered in this closure.',
+            'merge_eligible':False,'archive_recovery':[]}
+          # Reconstruct existing corrected raw records, not new reference runs.
+          for label,directory,encoding in [
+            ('workbuddy-inventory',refs/'source-6c25731','raw'),
+            ('workbuddy-timing',refs/'workbuddy-timing/89cf5c47188bde63d6c09a2c7d9207e3178b9904','joined_base64'),
+            ('trae-fees',refs/'fee-schedule/trae-common-five','part_base64'),
+            ('dumate-next-open',refs/'dumate-next-open','raw')]:
+              spec=read(directory/'transport.json'); chunks=[]; errors=[]
+              dest=out/'references-restored'/label; dest.mkdir(parents=True)
+              for part in spec['parts']:
+                  name=part.get('name',part.get('file')); original=directory/name
+                  try:
+                      if original.exists():raw=original.read_bytes()
+                      else:
+                          obj=api('git/blobs/'+part['git_blob']); raw=base64.b64decode(obj['content'])
+                      if encoding=='part_base64':
+                          assert len(raw)==part['base64_bytes']; raw=base64.b64decode(raw)
+                          assert len(raw)==part['raw_bytes'] and digest(raw)==part['raw_sha256']
+                      else:assert len(raw)==part['bytes'] and digest(raw)==part['sha256']
+                      chunks.append(raw)
+                  except Exception as error:errors.append(dict(part=name,error=type(error).__name__))
+              if errors:
+                  comparison['archive_recovery'].append(dict(name=label,status='BLOCKED',errors=errors));continue
+              archive=b''.join(chunks)
+              if encoding=='joined_base64':archive=base64.b64decode(archive)
+              assert len(archive)==spec.get('bytes',spec.get('archive_bytes'))
+              assert digest(archive)==spec.get('sha256',spec.get('archive_sha256'))
+              (dest/'original.tar.xz').write_bytes(archive)
+              with tarfile.open(fileobj=io.BytesIO(archive),mode='r:xz') as t:t.extractall(dest/'raw',filter='data')
+              manifest=read(dest/'raw/MANIFEST.json'); files=manifest.get('files',manifest)
+              for name,entry in files.items():
+                  raw=(dest/'raw'/name).read_bytes()
+                  assert digest(raw)==(entry['sha256'] if isinstance(entry,dict) else entry)
+                  if isinstance(entry,dict) and 'bytes' in entry:assert len(raw)==entry['bytes']
+              # Archive plus manifest preserve the originals without duplicate expanded uploads.
+              shutil.rmtree(dest/'raw'); write(dest/'transport.json',spec)
+              comparison['archive_recovery'].append(dict(name=label,status='ORIGINAL_BYTES_VERIFIED',sha256=digest(archive),manifest_files=len(files)))
+          write(out/'reference-comparison.json',comparison)
+          print('Verified199 historical comparator accounts; zero economic replays; reference archive statuses retained.')
           PY
-      - name: Register acceptance and publish bounded files with non-force updates
+      - name: Preserve source-bound acceptance and read back Git objects
         run: |
           python - <<'PY'
           import base64, hashlib, json, os, pathlib, subprocess
           repo=os.environ['GITHUB_REPOSITORY']; out=pathlib.Path(os.environ['RUNNER_TEMP'])/'passive-closure'
-          source=os.environ['QUANT_SOURCE_COMMIT']; run=os.environ['GITHUB_RUN_ID']
+          source=os.environ['GITHUB_SHA']; run=os.environ['GITHUB_RUN_ID']
           def api(path,payload=None,method=None):
               args=['gh','api','repos/'+repo+'/'+path]
               if payload is not None:args+=['--method',method or 'POST','--input','-']
               return json.loads(subprocess.check_output(args,input=None if payload is None else json.dumps(payload).encode()))
+          def write(path,value):path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
           refs={name:api('git/ref/heads/'+name)['object']['sha'] for name in ['main','research/expectation-learning','research/independent-tech']}
           assert refs['research/expectation-learning']==source
           pr=api('pulls/1')
-          binding={'workflow_head':os.environ['GITHUB_SHA'],'verified_source':source,
+          binding={'workflow_head':source,'verified_source':source,
             'verified_tree':subprocess.check_output(['git','rev-parse','HEAD^{tree}'],text=True).strip(),
+            'research_fixes_commit':'1c41d0822ffe14b5fbf60e38e6c6183af371c4ee',
             'run_id':run,'attempt':os.environ['GITHUB_RUN_ATTEMPT'],'refs':refs,
             'pr':{k:pr.get(k) for k in ['number','state','draft','merged','mergeable','mergeable_state']},
             'pr_head':pr['head']['sha'],'reported_pr_base':pr['base']['sha'],
             'production_package_changed':False,'economic_acceptance':'NOT_MET','merge_eligible':False}
-          (out/'source-binding.json').write_text(json.dumps(binding,indent=2)+'\n')
+          write(out/'source-binding.json',binding)
           requirements=[
             ('冻结数据/窗口/seed/资金','VERIFIED','既有原件与固定199案例身份已核验；不追加行情。'),
-            ('199-case共享执行等价','VERIFIED','199个buy_hold账户、995个原始文件；6个核心配对逐字节相同，其中3个跨历史run相同。'),
+            ('199-case共享执行等价','VERIFIED','199个buy_hold账户；6个核心配对逐字节相同，其中3个跨历史run相同。'),
             ('收益晋级','VERIFIED_SCREEN_ONLY','指定campaign-peak对照下平均log财富1.913046>1.649318，最小财富3.047536>1.594946；不是最终验收。'),
-            ('最终主动风险/恢复/主线切换','FAILED','被动路径不主动卖出或调仓，不能证明或交付保留的主动风险能力。'),
-            ('严格含成本原始预算隔离','FAILED','148个案例有证券支出超过原始份额，单证券最多1226.817907元；账户总现金安全不等于份额隔离。'),
-            ('四套最终统一执行比较','BLOCKED','已有native与固定corrected诊断；Normalized和Equivalent-execution全scope仍未完成。'),
-            ('全面泛化和实际股份执行','NOT_VERIFIED','199个既有历史场景不是未见样本外；复权经济单位不是实际股份/公司行动账本。'),
-            ('定向工程检查与安装入口','VERIFIED','2项新回归加4项已有passive测试通过，wheel构建、安装后CLI和passive导入通过；日志随附。'),
+            ('最终主动风险/恢复/主线切换','FAILED','被动路径不主动卖出或调仓，不能交付保留的主动风险能力。'),
+            ('严格含成本原始预算隔离','FAILED','148个案例有证券支出超过原始份额，单证券最多1226.817907元；账户现金安全不等于份额隔离。'),
+            ('四套最终统一执行比较','BLOCKED','已有native与固定corrected原件/诊断；Normalized和Equivalent-execution全scope仍未完成。'),
+            ('全面泛化和实际股份执行','NOT_VERIFIED','199个历史场景不是未见样本外；复权经济单位不是实际股份/公司行动账本。'),
+            ('定向工程检查与安装入口','VERIFIED','2项新回归加4项已有passive测试通过；标准wheel构建、安装后CLI和passive导入通过。'),
             ('默认生产整合/原PR合并','NOT_PERFORMED_INELIGIBLE','不将未达标被动候选改成默认生产路径，原PR保持Draft。')]
-          mapping={'authorization':'用户2026-09-17原PR#1续接Prompt；不修改经济目标或豁免风险',
+          mapping={'authorization':'用户2026-09-17原PR#1续接Prompt，不修改经济目标或豁免风险',
             'retained_sources':['b54eaaf6487005a492b23ee5bce300f93f7e41cf:HANDOFF_PROMPT.md','docs/RESEARCH_CONTRACT.md','research/causal_passive_ownership_contract.json','research/causal_passive_ownership_api_amendment.json'],
             'absolute_18pct_ceiling':'NOT_AUTHENTICATED_DO_NOT_IMPORT_FROM_OLD_REVIEW_OR_OTHER_PROJECT',
             'requirements':[dict(requirement=a,status=b,evidence_or_gap=c) for a,b,c in requirements],
             'economic_acceptance':'NOT_MET','merge_eligible':False}
-          (out/'acceptance-map.json').write_text(json.dumps(mapping,ensure_ascii=False,indent=2)+'\n')
+          write(out/'acceptance-map.json',mapping)
           summary=json.loads((out/'proof/summary.json').read_text())
           rows=['# Quant 原 PR #1 验收核验\n',f'源码 `{source}`；run `{run}`。经济验收 **NOT_MET**，不合并 main。\n',
-            '## 实际完成\n','修复研究runner错误主动对照及缺失recovery窗口；保留历史原件。199-case共享调用链和逐案输入/账户绑定通过，0次新增经济回放；995个窗口指标由原始账户重算。生产引擎与买卖行为未改。\n',
+            '## 实际完成\n','修复研究runner错误主动对照及缺失recovery窗口，保留历史原件。199-case共享调用链和逐案输入/账户绑定通过，0次新增经济回放；995个窗口指标由原始账户重算。生产引擎与买卖行为未改。\n',
             '## 验收映射\n','|要求|状态|依据或缺口|','|---|---|---|']
           rows += [f'|{a}|{b}|{c}|' for a,b,c in requirements]
           rows += ['\n## 核心被动账户\n','冻结期2023-01-03至2026-09-11，初始200万元；财富含本金，成交数为成交记录，不等于调仓日。\n','|范围|财富倍数|最大回撤|成交记录|','|---|---:|---:|---:|']
           for scope,values in summary['core_passive_metrics'].items():
               m=values['full']; rows.append(f"|{scope}|{m['wealth']:.6f}|{m['max_drawdown']:.4%}|{m['orders']}|")
-          rows += ['\n## 复用边界\n','每个证券集合独立从200万元空仓启动；子窗口均为完整账户切片并继承持仓/历史现金，不是区间起日重新空仓。移除证券的案例仍使用200万元并按给定集合分配；不能改说成永远固定34份。仅复用buy_hold comparator，不继承旧active验收或旧active prefix结果。\n',
-            '只排除明确的身份差异；逐日净值、目标、订单、费用与指标均未删除或放宽。现金对账使用引擎既有1e-6容差；源码绑定是精确文件指纹，不是“只改接口”的声明。\n',
-            '## 四套参考比较\n','四个参考目录仍冻结于trades@5575d1b1，归档c3d838ce对应目录相同。共同五股native财富：ChatGPT1.778233、Trae10.674862、Dumate1.465010、WorkBuddy20.221073。已存在的固定corrected诊断：Trae历史印花税10.638975、Dumate下一开盘1.959828、WorkBuddy库存加时钟17.827946。Native与Corrected不可混成一个排名，费用、流动性、股份/公司行动和执行语义尚未全面统一。私有策略源码未纳入quant。详见reference-comparison.json及原证据身份。\n',
-            '## 最小下一步决策\n','保持原主动风险目标时，本固定被动候选不具备合并资格；无需为它再跑大矩阵或开启混合权重研究。若要交付被动持有工具，必须明确改变交付目标、风险承诺和预算语义，再限定修复与验收范围。本次没有获得或推定这种授权。18%统一硬上限未找到可信授权，因此没有拿它作为失败判据。\n',
-            '原始证据没有删除，历史SHA没有改名，失败没有改为通过。普通CI通过、工程验证通过和收益筛选通过均不代表最终经济验收通过。']
+          rows += ['\n## 复用边界\n','每个证券集合独立从200万元空仓启动；子窗口为完整账户切片并继承持仓/历史现金，不是区间起日重新空仓。移除证券案例仍使用200万元并按给定集合分配，不能改说成永远固定34份。仅复用buy_hold comparator，不继承旧active验收或旧active prefix结果。\n',
+            '仅排除明确的身份差异；逐日净值、目标、订单、费用与指标未删除或放宽。现金对账使用引擎既有1e-6容差，源码绑定依靠逐文件指纹。账户最大现金重建误差约8.15e-10元。\n',
+            '## 四套参考比较\n','四个参考目录冻结于trades@5575d1b1，归档c3d838ce对应目录相同。共同五股native财富：ChatGPT1.778233、Trae10.674862、Dumate1.465010、WorkBuddy20.221073。固定corrected诊断：Trae历史印花税10.638975、Dumate下一开盘1.959828、WorkBuddy库存加时钟17.827946。Native与Corrected不可混成一个排名；费用、流动性、股份/公司行动和执行语义未全面统一。私有策略源码未纳入quant。原始修正账本的本次恢复状态详见reference-comparison.json，不以摘要取代缺失原件。\n',
+            '## 验证与失败保留\n','本次6项定向测试和安装验证通过。之前run35178954344的两项修正已提交，但错误关闭构建隔离导致setuptools后端缺失，证据发布未执行；本次使用pyproject声明的标准构建依赖，无生产代码修补。该次红/绿测试和失败日志完整保留在qa/prior-attempt。最初仅恢复源码的run35177287196触及4分钟超时，随后切换有界API读取成功；未重复策略研究。\n',
+            '## 最小下一步决策\n','保持原主动风险目标时，本固定被动候选没有合并资格；无需为它再跑大矩阵或开启混合权重研究。交付被动持有工具需要明确改变交付目标、风险承诺和预算语义，再限定修复与验收范围；本次没有获得或推定这种授权。18%统一硬上限未找到可信授权，因此没有拿它作为失败判据。\n',
+            '原始证据没有删除，历史SHA没有改名，失败没有改为通过。工程验证通过和收益筛选通过不等于最终经济验收通过。']
           (out/'REPORT.md').write_text('\n'.join(rows)+'\n')
-          files={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()}
-          (out/'MANIFEST.json').write_text(json.dumps(files,indent=2)+'\n')
-          prefix=f'passive-final-audit/{source}/{run}'
-          elements=[]
+          write(out/'MANIFEST.json',{str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file()})
+          prefix=f'passive-final-audit/{source}/{run}'; elements=[]
           for p in sorted(out.rglob('*')):
               if not p.is_file():continue
               raw=p.read_bytes(); assert len(raw)<2000000
               expected=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
-              blob=api('git/blobs',{'content':base64.b64encode(raw).decode(),'encoding':'base64'})['sha']
-              assert blob==expected
+              blob=api('git/blobs',{'content':base64.b64encode(raw).decode(),'encoding':'base64'})['sha']; assert blob==expected
               elements.append({'path':prefix+'/'+str(p.relative_to(out)),'mode':'100644','type':'blob','sha':blob})
-          latest={'source_commit':source,'run_id':run,'attempt':os.environ['GITHUB_RUN_ATTEMPT'],
-            'entry':prefix,'report':prefix+'/REPORT.md','manifest_sha256':hashlib.sha256((out/'MANIFEST.json').read_bytes()).hexdigest(),
+          latest={'source_commit':source,'run_id':run,'attempt':os.environ['GITHUB_RUN_ATTEMPT'],'entry':prefix,
+            'report':prefix+'/REPORT.md','manifest_sha256':hashlib.sha256((out/'MANIFEST.json').read_bytes()).hexdigest(),
             'economic_acceptance':'NOT_MET','merge_eligible':False}
           elements.append({'path':'passive-final-audit/LATEST.json','mode':'100644','type':'blob','content':json.dumps(latest,indent=2)+'\n'})
-          elements.append({'path':'HANDOFF_PROMPT.md','mode':'100644','type':'blob','content':'# Quant 原 PR #1 当前恢复入口\n\n读取 passive-final-audit/LATEST.json 指向的 REPORT.md、acceptance-map.json、proof/summary.json、proof/case-map.json、reference-comparison.json 与 source-binding.json。2026-09-17授权是证据闭环，不是无限研究。199-case源码绑定已验证，0次新增经济回放；固定被动候选仍NOT_MET，不合并。两个研究runner缺陷已修复，生产包未改。原始主动风险目标、冻结数据和四套比较要求未被豁免。不得把旧审计提及18%当成已认证用户阈值。\n\n保留用户2026-09-17Prompt、研究源码research/ACTIVE_WORK.md及原合同。原完整目标仍可查b54eaaf6487005a492b23ee5bce300f93f7e41cf:HANDOFF_PROMPT.md；旧文件的无限继续文字已被后续有限预算与本次指令替代。历史原件保留原SHA；不得重跑已完成研究或将当前候选改称合格。只处理quant，不写其他仓库，不改定时任务。\n'})
+          elements.append({'path':'HANDOFF_PROMPT.md','mode':'100644','type':'blob','content':'# Quant 原 PR #1 当前恢复入口\n\n读取 passive-final-audit/LATEST.json 指向的REPORT.md、acceptance-map.json、proof/summary.json、proof/case-map.json、reference-comparison.json和source-binding.json。2026-09-17授权是证据闭环，不是无限研究。199-case源码绑定已验证，0次新增经济回放；固定被动候选仍NOT_MET，不合并。两个研究runner缺陷已修复，生产包未改。原主动风险目标、冻结数据、四套比较要求未被豁免。不得把旧审计提及18%当作已认证用户阈值。\n\n按用户2026-09-17Prompt与research/ACTIVE_WORK.md继续核验状态。原完整目标仍可查b54eaaf6487005a492b23ee5bce300f93f7e41cf:HANDOFF_PROMPT.md；其中无限继续文字已被后续有限预算与本次指令替代。原件保留原SHA，不能重跑已完成研究或将当前候选改称合格。仅处理quant，不写其他仓库，不改定时任务。\n'})
           committed=None
           for attempt in range(3):
-              head=api('git/ref/heads/research/evidence')['object']['sha']
-              base=api('git/commits/'+head)['tree']['sha']
+              head=api('git/ref/heads/research/evidence')['object']['sha']; base=api('git/commits/'+head)['tree']['sha']
               tree=api('git/trees',{'base_tree':base,'tree':elements})['sha']
               commit=api('git/commits',{'message':'research: preserve final passive source-bound audit and unmet acceptance','tree':tree,'parents':[head]})['sha']
-              try:
-                  api('git/refs/heads/research/evidence',{'sha':commit,'force':False},'PATCH'); committed=commit; break
+              try:api('git/refs/heads/research/evidence',{'sha':commit,'force':False},'PATCH');committed=commit;break
               except subprocess.CalledProcessError:
                   if api('git/ref/heads/research/evidence')['object']['sha']==commit:committed=commit;break
-          assert committed, 'concurrent evidence update not resolved; no force update attempted'
+          assert committed,'concurrent evidence update not resolved; no force attempted'
           check=api('git/trees/'+committed+'?recursive=1'); assert not check['truncated']
           written={e['path']:e['sha'] for e in check['tree'] if e['type']=='blob'}
           for entry in elements:
               if 'sha' in entry:assert written[entry['path']]==entry['sha']
-          published={'evidence_commit':committed,'evidence_tree':tree,'source_commit':source,'entry':prefix,'verified_files':len(elements),'economic_acceptance':'NOT_MET','merge_eligible':False}
-          (pathlib.Path(os.environ['RUNNER_TEMP'])/'publication.json').write_text(json.dumps(published,indent=2)+'\n')
-          print(json.dumps(published))
+          published={'evidence_commit':committed,'evidence_tree':tree,'source_commit':source,'entry':prefix,
+            'verified_files':len(elements),'economic_acceptance':'NOT_MET','merge_eligible':False}
+          write(pathlib.Path(os.environ['RUNNER_TEMP'])/'publication.json',published); print(json.dumps(published))
           PY
       - uses: actions/upload-artifact@v4
         if: always()
