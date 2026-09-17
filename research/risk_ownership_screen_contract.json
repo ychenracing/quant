@@ -111,6 +111,8 @@
       "drawdown_improved_cases": 7,
       "case_count": 7
     },
-    "final_evaluation_used_for_selection": false
+    "final_evaluation_used_for_selection": false,
+    "implementation_commit": "aadd4396fe307d6279f65db02da53a0287c4eb4f",
+    "implementation_tree": "09f0cc9bd7b83ca126048663d93039b4383af789"
   }
 }
