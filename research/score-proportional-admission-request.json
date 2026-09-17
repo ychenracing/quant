@@ -1,0 +1,18 @@
+{
+  "family": "offensive_score_proportional_admission",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "51b43854ede28467cd07e7854aa4893a95025217",
+  "source_git_blob": {
+    "research/offensive_score_proportional_admission.py": "55a6a174997e1dd7e824a3709a1a64ac841408c7",
+    "research/test_offensive_score_proportional_admission.py": "1cbf9a4e547dfc91bc649860133f7466b32934b9",
+    "research/offensive_score_proportional_admission_study.py": "407fc0e0de4f484db6ebe24a3e062d7df43a08e5",
+    "research/offensive_score_proportional_admission_contract.json": "5d420bafa1a563dfd11277b49287a1ee00a905fc",
+    ".github/workflows/score-proportional-admission-study.yml": "0340b894796e380ca50d11ddfa7236446f8508ec",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213"
+  },
+  "request": "Run the preregistered campaign-peak champion versus score-proportional-admission treatment through 2025-12-31 on union, common-five and joint optical-leader removal. The treatment retains two campaign slots and every selection/lifecycle/execution rule; only simultaneous multi-vacancy observed cash is split in direct proportion to the already-positive causal scores instead of equally. One-vacancy fills and funded inventory must remain economically unchanged. Select only if mean(log terminal wealth) strictly exceeds the campaign-peak champion and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound treatment through all 896 frozen sessions. Record MDD, orders, turnover, fees, slippage, exposure and multi-fill allocation events but do not use them as alpha-discovery rejection gates. Do not search score exponents, temperatures, fixed weight ratios, capacity or post-admission rebalancing.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
