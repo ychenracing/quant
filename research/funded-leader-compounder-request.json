@@ -1,0 +1,18 @@
+{
+  "family": "offensive_funded_leader_compounder",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "7f52a0e1c11e691224b67f053214cf0b8ef49ea8",
+  "source_git_blob": {
+    "research/offensive_funded_leader_compounder.py": "fc77e75996cfd2c3235c64e65aa82d1435fa6b46",
+    "research/test_offensive_funded_leader_compounder.py": "effc7d163de7a7bd41ba8dbbfa0b94935834ebc4",
+    "research/offensive_funded_leader_compounder_study.py": "c698959f44f8faa8e2daff62f23c08eb2f446992",
+    "research/offensive_funded_leader_compounder_contract.json": "37afbc838bc0a8751dc906fc4879ed2cd284d4b9",
+    ".github/workflows/funded-leader-compounder-study.yml": "ea790fc47923749102a9b9694d4e54bc66cf4c55",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213"
+  },
+  "request": "Run the preregistered campaign-peak champion versus funded-leader-compounder pair through 2025-12-31 on union, common-five and joint optical-leader removal. Select only if mean(log terminal wealth) strictly exceeds the current champion and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound treatment through all 896 frozen sessions. Record MDD, orders, turnover, fees, slippage, exposure and proof counts but do not use them as alpha-discovery rejection gates. Do not search top-k, score margins, confirmation days, position count, EMA/lookback values or pool-specific behavior.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
