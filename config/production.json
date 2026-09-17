@@ -1,0 +1,6 @@
+{
+  "initial_cash": 2000000.0,
+  "commission_bps": 2.5,
+  "slippage_bps": 10.0,
+  "max_adv": 0.005
+}

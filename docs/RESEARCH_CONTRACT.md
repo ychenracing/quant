@@ -1,26 +1,25 @@
 # Independent A-share technology research contract
 
-The implementation in this repository is newly written. The four projects in `ychenracing/trades` are read-only references and external comparators, not a source-code base. No reference strategy modules, copied functions, inherited engine classes, or stock-specific tuning tables may enter the production package.
+The production implementation is independently written. The four projects in `ychenracing/trades` are read-only references and never production dependencies. No copied reference strategy module, inherited reference engine, per-symbol strategy branch, leverage, shorting or broker order submission is allowed.
 
-## Scope
+## Scope and timing
 
-Cash-only, long-only A-share technology decision support. Signals use completed sessions and are actionable no earlier than the following session. No broker connection, leverage, shorting, automatic orders, or reliance on consumption/pharmaceutical themes. Requested measurement: 2023-01-03 through the latest verified completed session available on 2026-09-13. Earlier history must not be used for training or warm-up.
+Cash-only A-share technology decision support, using observations from 2023 onward. Decisions are based on completed sessions and simulated execution is no earlier than the following session. Frozen historical reproduction keeps its recorded source, data, universe, costs, seed, capital and metric identities.
 
-## Independent design
+## Current production acceptance
 
-Separate causal trend selection, portfolio risk budgeting, realistic execution/accounting, and evidence production. Prefer one documented global parameter set and no per-symbol or calendar-date strategy branches. Trading frequency is constrained by holding hysteresis and order materiality, not by suppressing protective exits. Recovery must use fresh observable evidence, not knowledge of the end of a historical crash.
+The latest user authorization makes historical return the highest production-selection priority. The default candidate may advance and be delivered when it has sufficient source-bound evidence of stronger net terminal wealth across the frozen core scopes while preserving execution/accounting correctness. Maximum drawdown, stress-window loss, active market timing and recovery quality remain mandatory disclosures but are not current promotion or merge blockers.
+
+This priority change does not relax cash conservation, long-only accounting, next-session execution, no-future-information rules, T+1/sellable-inventory correctness where applicable, transaction costs, liquidity constraints, input validation, evidence identity or repository protection. Failed and rejected historical evidence remains preserved.
+
+## Default candidate
+
+`passive_ownership` is the selected return-first production path. It reuses the engine's existing `buy_hold` execution state machine rather than approximating it in a second engine. It buys each supplied universe's initial allocation when executable and does not voluntarily sell or rebalance afterward. Research `buy_hold` remains separately identified as a benchmark.
+
+Frozen removal cases start a full CNY 2,000,000 account on the supplied remaining universe. Subwindows of a full account inherit the account state; they are not independently restarted at the subwindow boundary.
 
 ## Evidence
 
-Freeze source, configuration, datasets, universe, initial capital, costs, metric definitions, random seed, and runtime before final measurement. Separate engineering correctness, data validity, native reference results, normalized comparisons, and economic acceptance. Retain failures. Never present a proxy comparator as an exact replay of an original implementation. Never turn incomplete date or universe coverage into a pass.
+The production adapter must remain economically equivalent to the fixed historical same-engine `buy_hold` comparator across the registered 199-case plan, subject only to the repository's established numerical tolerance. Orders, fees, quantities, dates, cash and NAV may not be ignored to manufacture equivalence.
 
-Measure full-period and requested bull/crash subperiods, buy-and-hold and equal-weight baselines, original pools, single-name removal, joint leader removal, sector removal, deterministic size-stratified subsets, cost/execution stress, prefix invariance, and stability around the selected parameter setting. Finite sampled tests are not a proof of all possible subsets or future optimality. Universal superiority remains unverified unless actually established.
-
-## Delivery
-
-Implement and validate without further approval requests within this scope. Publish independently written code, useful comments, operating documentation, reproducible research entry points, and an explicit verified/failed/blocked status to main. Do not label unproven economics accepted. Keep ordinary CI short, offline, and limited to critical correctness checks. Large historical research is not a required CI matrix.
-
-## Reference identity
-
-trades main read on 2026-09-13: `5575d1b1b79fab405b92cfb7d164c7054a8bd826`.
-A downloaded source artifact from `c3d838ce6349f8bdf0ec2988836212563aaa10bc` contains the four reference projects. GitHub's complete comparison between these commits shows no changes under their four directories. Its additional removed projects are not implementation sources.
+Reference comparisons distinguish Native, Corrected and any genuinely normalized evidence. Missing/invalid reference coverage stays unverified rather than counted as a victory. Historical backtests are not future-return guarantees.
