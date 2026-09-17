@@ -140,6 +140,31 @@ class RiskAwareOwnershipTests(unittest.TestCase):
                 np.testing.assert_allclose(decision.unit_targets, first_goal)
         self.assertIsNotNone(first_goal)
 
+    def test_same_cap_retains_stronger_holdings_before_weak_ones(self):
+        market = sample_market(3, 40)
+        policy = RiskAwareOwnershipPolicy(
+            market,
+            Config(),
+            RiskOwnershipParameters(core_fraction=0.70),
+        )
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        policy.market_shock[10] = True
+        policy.trend_damage[10] = True
+        policy.strength[10] = np.array([3.0, 2.0, -3.0])
+        units = np.full(3, 10_000.0)
+
+        decision = policy.decide(
+            direct_observation(policy, 10, units, units)
+        )
+
+        np.testing.assert_allclose(decision.unit_targets[:2], units[:2])
+        self.assertLess(decision.unit_targets[2], units[2] * 0.20)
+        self.assertLessEqual(float(decision.weights.sum()), 0.70 + 1e-10)
+        self.assertIn("SELECTIVE_SYSTEMIC_PROTECTION", decision.reason)
+
     def test_recovery_requires_new_evidence_and_completes_in_two_stages(self):
         market = sample_market(2, 40)
         policy = RiskAwareOwnershipPolicy(market, Config())

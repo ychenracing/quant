@@ -110,9 +110,22 @@ class RiskAwareOwnershipPolicy:
         index_ret5 = index.pct_change(5, fill_method=None).fillna(0.0)
         index_ret10 = index.pct_change(10, fill_method=None).fillna(0.0)
         breadth_change5 = breadth20 - breadth20.shift(5).fillna(breadth20)
+        ret20 = price.pct_change(20, fill_method=None)
+        symbol_volatility = returns.rolling(20, min_periods=10).std()
+        strength = (
+            price.div(ema60).sub(1.0)
+            + 0.5 * ema20.div(ema60).sub(1.0)
+            + 0.25 * ret20
+            - 0.5 * symbol_volatility
+        )
 
         self.price = price.to_numpy(dtype=float)
         self.raw_close = raw.to_numpy(dtype=float)
+        self.strength = (
+            strength.replace([np.inf, -np.inf], np.nan)
+            .fillna(-np.inf)
+            .to_numpy(dtype=float)
+        )
         self.trend_damage = (
             index.lt(index_ema60)
             & index_ema20.lt(index_ema60)
@@ -249,6 +262,14 @@ class RiskAwareOwnershipPolicy:
     def _protection_target(
         self, close: CloseObservation, nominal_cap: float
     ) -> np.ndarray:
+        """Keep causally strong holdings first at the same total risk cap.
+
+        The event-level cap is identical to proportional protection.  Only the
+        cross-sectional allocation changes: intact leadership is retained while
+        the weakest observed holdings fund protection.  No future return, known
+        date or case identity participates in this ordering.
+        """
+
         marks = np.where(
             np.isfinite(self.price[close.session]),
             self.price[close.session],
@@ -258,7 +279,27 @@ class RiskAwareOwnershipPolicy:
         target_value = min(current_value, nominal_cap * close.nav)
         if current_value <= target_value + 1e-8 or current_value <= 0:
             return close.units.copy()
-        desired = close.units * (target_value / current_value)
+
+        desired = np.zeros_like(close.units)
+        remaining = target_value
+        held = np.flatnonzero(close.units > 1e-10)
+        order = sorted(
+            held,
+            key=lambda j: (
+                -self.strength[close.session, j],
+                self.market.symbols[j],
+            ),
+        )
+        for j in order:
+            if not np.isfinite(marks[j]) or marks[j] <= 0:
+                desired[j] = close.units[j]
+                continue
+            holding_value = float(close.units[j] * marks[j])
+            keep_value = min(remaining, holding_value)
+            desired[j] = keep_value / marks[j]
+            remaining -= keep_value
+            if remaining <= 1e-8:
+                break
         return self._quantize_toward(close.units, desired, close.session)
 
     def _start_episode(
@@ -279,7 +320,7 @@ class RiskAwareOwnershipPolicy:
         self.state = "CRISIS" if level >= 2 else "DEFENSIVE"
         reduced = self._protection_goal < close.units - 1e-10
         reasons.append(
-            "SYSTEMIC_PROTECTION:"
+            "SELECTIVE_SYSTEMIC_PROTECTION:"
             + (
                 ",".join(
                     self.market.symbols[j] for j in np.flatnonzero(reduced)
@@ -475,7 +516,7 @@ class RiskAwareOwnershipPolicy:
     def identity(self) -> dict[str, Any]:
         return {
             "name": "risk_aware_ownership",
-            "mechanism": "event_scoped_systemic_partial_protection",
+            "mechanism": "event_scoped_selective_systemic_protection",
             "parameters": asdict(self.parameters),
             "implementation_sha256": file_hash(Path(__file__)),
             "data_sha256": self.market.fingerprint(),
