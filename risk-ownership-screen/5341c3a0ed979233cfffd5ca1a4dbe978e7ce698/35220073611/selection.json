@@ -1,0 +1,62 @@
+{
+  "status": "STRUCTURE_SELECTED_FOR_FINAL_EVALUATION_NOT_ACCEPTED",
+  "selected_parameters": {
+    "core_fraction": 0.7,
+    "risk_confirmation": 2,
+    "recovery_confirmation": 2
+  },
+  "lexicographic_result": {
+    "core_fraction": 0.7,
+    "case_count": 7,
+    "minimum_wealth_ratio_to_passive": 0.6023929974290743,
+    "median_wealth_ratio_to_passive": 0.7726868207682802,
+    "minimum_drawdown_margin_to_passive": -0.025983220940459018,
+    "median_drawdown_margin_to_passive": 0.019087063021886452,
+    "drawdown_improved_cases": 6,
+    "wealth_not_below_passive_cases": 0
+  },
+  "all_structures": [
+    {
+      "core_fraction": 0.5,
+      "case_count": 7,
+      "minimum_wealth_ratio_to_passive": 0.46379803469869935,
+      "median_wealth_ratio_to_passive": 0.6286817251162344,
+      "minimum_drawdown_margin_to_passive": 0.013021314397716033,
+      "median_drawdown_margin_to_passive": 0.028476200986070288,
+      "drawdown_improved_cases": 7,
+      "wealth_not_below_passive_cases": 0
+    },
+    {
+      "core_fraction": 0.6,
+      "case_count": 7,
+      "minimum_wealth_ratio_to_passive": 0.5027652079063034,
+      "median_wealth_ratio_to_passive": 0.7206940766172005,
+      "minimum_drawdown_margin_to_passive": -0.022783989694135975,
+      "median_drawdown_margin_to_passive": 0.01659701869798136,
+      "drawdown_improved_cases": 6,
+      "wealth_not_below_passive_cases": 0
+    },
+    {
+      "core_fraction": 0.7,
+      "case_count": 7,
+      "minimum_wealth_ratio_to_passive": 0.6023929974290743,
+      "median_wealth_ratio_to_passive": 0.7726868207682802,
+      "minimum_drawdown_margin_to_passive": -0.025983220940459018,
+      "median_drawdown_margin_to_passive": 0.019087063021886452,
+      "drawdown_improved_cases": 6,
+      "wealth_not_below_passive_cases": 0
+    }
+  ],
+  "objective": [
+    "maximize the minimum candidate wealth divided by same-engine passive wealth",
+    "then maximize the minimum passive drawdown minus candidate drawdown",
+    "then maximize the median passive drawdown minus candidate drawdown",
+    "then maximize median wealth retention",
+    "prefer the larger core fraction only as an exact deterministic tie-break"
+  ],
+  "case_count": 7,
+  "candidate_run_count": 21,
+  "final_evaluation_used": false,
+  "dynamic_reference_acceptance": "NOT_EVALUATED",
+  "production_default_changed": false
+}
