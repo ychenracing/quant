@@ -1,0 +1,55 @@
+{
+  "family": "offensive_matured_displacement_memory",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Maximize terminal wealth by learning only whether ordinary full-book capital replacement has historically paid off in the current supplied universe, rather than fitting another whole-universe return/ranking model.",
+  "control": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "root_evidence": {
+    "relative_rank": "The prior mature-cohort relative regression improved joint-removal pair accuracy from 47.35% to 51.67% while worsening actual wealth by 16.65%; whole-universe short-horizon rank accuracy is therefore not the target.",
+    "expectation": "The prior adaptive absolute return/downside family produced negative prequential skill and low wealth; do not reweight or retune it.",
+    "ownership_boundary": "Multiple hosted compounder/hold-protection families failed to beat campaign-peak. The remaining high-leverage choice is whether a concrete challenger should displace a concrete incumbent."
+  },
+  "treatment": {
+    "parent_state": "Maintain the current fresh-challenger / alpha-decay campaign lifecycle and actual-inventory state. The experiment changes only ordinary full-book displacement authority.",
+    "opportunity_event": "Whenever the unchanged alpha-decay logic observes a full, unbroken offensive book with a decayed incumbent and a highest eligible challenger whose causal score exceeds that incumbent's funded admission alpha, register the incumbent/challenger pair and the decision session before taking the ordinary displacement action.",
+    "maturity_horizon": "Use Config.rebalance sessions (=10 in the frozen configuration), not a new optimized horizon. A registered event becomes learnable only when next-session execution open and the open exactly Config.rebalance sessions later are both already historical at the current signal close.",
+    "matured_label": "log(challenger_open[end]/challenger_open[start]) - log(incumbent_open[end]/incumbent_open[start]), using start=origin+1 and end=start+Config.rebalance. Missing/inactive endpoints discard that event; no incomplete label enters memory.",
+    "memory": "At each signal close compute the arithmetic mean of all matured valid labels registered strictly before the current decision. All events have equal weight. There is no fit, coefficient, symbol feature, date feature, shrinkage, rolling window or hyperparameter.",
+    "authority": "If no event has matured, use the exact current campaign-peak champion decision. Once at least one event has matured: positive mean relative advantage grants ordinary alpha-decay displacement authority; zero or negative mean blocks ordinary full-book displacement for that close. Acute exits, missing/unready exits, failed-fill authority, reference rearm, vacancy funding and all non-ordinary decisions remain unchanged.",
+    "execution": "The memory never spends expected proceeds. A permitted displacement issues only the existing incumbent exit; the unchanged next-session engine and later observed cash fund any replacement."
+  },
+  "causality": {
+    "no_future_access": "Runtime decisions may index outcome opens only for prior registered events whose end session is <= current signal session. Prefix replay must produce identical event registrations, matured-memory values, targets and orders.",
+    "scope_adaptation": "Memory is learned independently from the supplied universe's own matured opportunity history; no pool name, ticker-specific exception or ex-post winner identity is an input.",
+    "fallback": "Before the first valid matured event, behavior is exactly the source-bound campaign-peak champion."
+  },
+  "structural_difference": {
+    "relative_rank": "This is not a cross-sectional ranking learner. It never reorders all eligible names or fits momentum coefficients; it estimates the realized historical value of the exact capital-replacement action class.",
+    "leadership_handover": "There is no three-close confirmation, 2x score rule or cooldown. The only learned quantity is the fully matured historical relative payoff of prior replacement opportunities.",
+    "allocation_families": "Position count, funding weights, risk budget and slot count are unchanged."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Treatment must strictly exceed campaign-peak mean-log and must not reduce campaign-peak minimum terminal wealth.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "average exposure", "registered events", "matured events", "memory sign changes"],
+    "if_promoted": "Evaluate the exact same source-bound treatment over all 896 frozen sessions before any formal-matrix expansion."
+  },
+  "prohibitions": [
+    "no horizon search; horizon is frozen Config.rebalance",
+    "no rolling-window or weighting search",
+    "no score margin/multiplier",
+    "no pool/ticker-specific behavior",
+    "no future or immature label access",
+    "no reference-strategy source consumption",
+    "no post-result rule edits to this family"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
