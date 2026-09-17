@@ -1,0 +1,45 @@
+name: Passive evidence audit inputs
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths: [.github/workflows/passive-evidence-audit.yml]
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover exact source and bounded provenance metadata
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/passive-audit-inputs"
+          mkdir -p "$out"
+          source=4335d3d7e57585a6b80f024f7f60e9b1b41fc10f
+          formal=a0705156e82c083f580aa4ebfe52383f5dffdb8d
+          canonical=e1b0d8c0473c5f3c365d29de9a95fe8280d96765
+          git fetch --depth=1 --filter=blob:none origin "$source" "$formal" "$canonical" main research/evidence research/independent-tech
+          git archive --format=tar.gz "$source" > "$out/source.tar.gz"
+          git ls-tree -r -l "$source" > "$out/source-tree.txt"
+          git cat-file commit "$source" > "$out/source-commit.txt"
+          git diff "$formal" "$source" -- src pyproject.toml research/requirements.txt research/catalog.json research/protocol.json research/fresh_challenger_formal_validation.py > "$out/formal-to-passive.diff"
+          git diff "$canonical" "$source" -- research/offensive_campaign_peak_authority.py research/offensive_dominant_peak_authority.py > "$out/control-source.diff"
+          git ls-remote origin refs/heads/main refs/heads/research/evidence refs/heads/research/expectation-learning refs/heads/research/independent-tech > "$out/refs.txt"
+          evidence=$(git ls-remote origin refs/heads/research/evidence | cut -f1)
+          git fetch --depth=1 --filter=blob:none origin "$evidence"
+          git ls-tree -r -l "$evidence" > "$out/evidence-tree.txt"
+          gh api --paginate "repos/$GITHUB_REPOSITORY/issues/1/comments?per_page=100" --jq '.[] | {id,created_at,updated_at,body}' > "$out/pr-comments.jsonl"
+          gh api "repos/$GITHUB_REPOSITORY/pulls/1" --jq '{number,state,draft,merged,mergeable,mergeable_state,head:.head.sha,base:.base.sha}' > "$out/pr.json"
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?status=in_progress&per_page=30" --jq '[.workflow_runs[] | {id,name,head_sha,status,run_attempt}]' > "$out/running.json"
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?status=queued&per_page=30" --jq '[.workflow_runs[] | {id,name,head_sha,status,run_attempt}]' > "$out/queued.json"
+          cd "$out"
+          sha256sum source.tar.gz source-tree.txt source-commit.txt formal-to-passive.diff control-source.diff refs.txt evidence-tree.txt pr-comments.jsonl pr.json running.json queued.json > SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: passive-audit-inputs-${{ github.sha }}
+          path: ${{ runner.temp }}/passive-audit-inputs/
+          retention-days: 90
+          if-no-files-found: error
