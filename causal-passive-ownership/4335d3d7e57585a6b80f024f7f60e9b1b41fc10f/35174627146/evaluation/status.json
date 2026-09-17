@@ -1,0 +1,19 @@
+{
+  "status": "MEASURED_NOT_FINAL_ACCEPTANCE",
+  "runs": 9,
+  "rows": 45,
+  "full_active_wealth": {
+    "union": 10.391757415410929,
+    "chatgpt_5": 26.38996492023518,
+    "joint_optical_leader_removal": 2.458483855998305
+  },
+  "full_passive_wealth": {
+    "union": 9.102309123301799,
+    "chatgpt_5": 29.06295703478858,
+    "joint_optical_leader_removal": 5.716080460478996
+  },
+  "full_active_mean_log": 2.171180532723979,
+  "full_passive_mean_log": 2.4404252922095835,
+  "equivalence": "PRODUCTION_PASSIVE_EXACTLY_EQUALS_SAME_ENGINE_BUY_HOLD",
+  "formal_199_case": "REUSE_REQUIRES_EQUIVALENCE_RECEIPT"
+}

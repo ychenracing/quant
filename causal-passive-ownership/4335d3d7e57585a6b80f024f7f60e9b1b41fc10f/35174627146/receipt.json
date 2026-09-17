@@ -1,0 +1,10 @@
+{
+  "source_commit": "4335d3d7e57585a6b80f024f7f60e9b1b41fc10f",
+  "run_id": "35174627146",
+  "family": "causal_passive_ownership",
+  "selection_status": "BEATS_CURRENT_ACTIVE_ALPHA_LEADER",
+  "selection_advance": true,
+  "evaluation_status": "MEASURED_NOT_FINAL_ACCEPTANCE",
+  "equivalence": "PRODUCTION_PASSIVE_EXACTLY_EQUALS_SAME_ENGINE_BUY_HOLD",
+  "economic_acceptance": "NOT_FINAL"
+}

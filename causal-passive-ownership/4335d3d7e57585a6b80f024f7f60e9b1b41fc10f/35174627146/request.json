@@ -1,0 +1,18 @@
+{
+  "family": "causal_passive_ownership",
+  "purpose": "Source-bound production passive ownership equivalence and return-first economic measurement",
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "source_base": "324e4c158d8baaffa9ab13a07ea579b9f33fd896",
+  "source_git_blob": {
+    "src/techquant/passive.py": "4210fdff734a22d50d2b1633205bae06583779d0",
+    "tests/test_passive_ownership.py": "07add19268c12526773d8a692258581d7ce392ad",
+    "research/causal_passive_ownership_study.py": "e4c831aa9ec272e6d0d7706237c8973c5d053867",
+    "research/causal_passive_ownership_contract.json": "55eb00e3029775f12f61e764a19007a4f37badb3",
+    "research/causal_passive_ownership_api_amendment.json": "0872496a1dbb2392907ad573928852da3efca7b2",
+    ".github/workflows/causal-passive-ownership-study.yml": "527b1b79b8890dad6ef3475a973de41d95b05531",
+    "research/offensive_dominant_peak_authority.py": "1c1e98c7bad8e1a3e6c49382bf7c5d17287209c2"
+  },
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "evaluation_end": "2026-09-11",
+  "economic_acceptance": "NOT_ESTABLISHED_BEFORE_MEASUREMENT"
+}
