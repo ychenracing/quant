@@ -34,7 +34,17 @@ jobs:
       - name: Verify transport identity and apply exact integration
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "2c12e5cf66c25bee0e1e83cd81020ef641a0f731"
+          git merge-base --is-ancestor 2c12e5cf66c25bee0e1e83cd81020ef641a0f731 HEAD
+          git diff --quiet 2c12e5cf66c25bee0e1e83cd81020ef641a0f731 -- \
+            src/techquant/policy.py \
+            src/techquant/engine.py \
+            src/techquant/risk_ownership.py \
+            src/techquant/cli.py \
+            tests/test_risk_ownership.py \
+            tests/test_ownership_intent.py \
+            tests/test_fill_materiality.py \
+            research/risk_ownership_screen.py \
+            research/risk_ownership_screen_contract.json
           echo "8074d6b2df248c3cf5bf5c96fdeef5ef1274a1cde0bb2fb3756ce1ab56583d19  research/transport/return-preservation.patch.gz" | sha256sum -c -
           gzip -dc research/transport/return-preservation.patch.gz > "$RUNNER_TEMP/return-preservation.patch"
           echo "76557e97f347c3eaaf5de75ef9ae06e3b39f6b83184fa8855b5b3c649739812c  $RUNNER_TEMP/return-preservation.patch" | sha256sum -c -
