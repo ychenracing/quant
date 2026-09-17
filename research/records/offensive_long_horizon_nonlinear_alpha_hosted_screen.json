@@ -1,0 +1,27 @@
+{
+  "family": "offensive_long_horizon_nonlinear_alpha",
+  "source_commit": "8a528e98a4d1ed709666007eea5de7897f9a1251",
+  "hosted_run": 35166711423,
+  "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "current_champion": {
+    "mean_log": 1.6493183795493607,
+    "minimum": 1.5949459430753048,
+    "wealth": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048}
+  },
+  "treatment": {
+    "mean_log": 1.07233289991715,
+    "minimum": 1.1742717324965173,
+    "wealth": {"union": 1.1742717324965173, "chatgpt_5": 17.727789881907928, "joint_optical_leader_removal": 1.1986753694210088},
+    "learning": {
+      "union": {"fit_count": 65, "training_samples": 2032, "last_rank_correlation": 0.9064423191445139, "median_rank_correlation": 0.9298510171366904},
+      "common_five": {"fit_count": 65, "training_samples": 325, "last_rank_correlation": 0.9511758857398186, "median_rank_correlation": 0.926511391647153},
+      "joint_optical_leader_removal": {"fit_count": 65, "training_samples": 1837, "last_rank_correlation": 0.9293958314125956, "median_rank_correlation": 0.9528271315927088}
+    }
+  },
+  "decision": "The frozen nonlinear learner materially improves common-five but collapses union and leader-removal despite very high in-training rank correlations. Direct replacement of the time-comparable campaign ownership score with learned 60-session predictions is economically harmful in broad universes. Do not tune HGB defaults, horizon, feature subsets or score transforms.",
+  "research_boundary": "Short-horizon linear expectation/rank learners and this long-horizon nonlinear score replacement have all failed to beat the campaign-peak champion. Further learner tuning is not the next direction.",
+  "next_direction": "Preserve the campaign-peak discovery/ownership path and test a structurally different portfolio-construction rule that changes capital concentration among already-selected opportunities rather than changing alpha identity or lifecycle.",
+  "evidence_readback": "Dedicated hosted workflow completed causal tests, source-bound measurement, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
