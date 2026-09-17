@@ -1,0 +1,56 @@
+{
+  "family": "offensive_single_dominant_campaign",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Maximize alpha-stage terminal wealth by eliminating two-slot dilution and concentrating actual cash in the single highest-conviction causal campaign while preserving the current best campaign lifecycle.",
+  "control": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "root_evidence": {
+    "native_common_five": "The current two-slot campaign-peak champion already reaches 27.483x on full common-five and exceeds all four native reference runs there, proving that the existing causal discovery/ownership stack can capture very large leader trends.",
+    "single_stock_gap": "In the formal matrix, individual removal-universe winners have very large full-period buy-and-hold wealth (e.g. sh688256 ~27.89x, sh688498 ~27.19x, sh601869 ~14.55x, sz002281 ~11.35x). The existing strategy captures only a fraction of those trends.",
+    "failed_alpha_rewrites": "Linear expectation, relative-rank, nonlinear 60-session prediction and replacement-memory families all failed to beat campaign-peak, so changing alpha identity is no longer the immediate hypothesis.",
+    "economic_hypothesis": "If the existing causal score is already strong, equal division across two initial vacancies may dilute the rare dominant winner. A one-campaign portfolio tests concentration directly without changing the signal or lifecycle model."
+  },
+  "treatment": {
+    "capacity": "Exactly one actual campaign slot. Set only the enabled offensive alpha-decay owner's Config.max_positions from 2 to 1 before any decision. This is a structural winner-take-most architecture, not a 1/2/3/4 grid.",
+    "funding": "When flat and an eligible opportunity exists, the unchanged vacancy allocator selects the highest causal score and allocates all observed cash to that one target. Execution constraints may make actual fills partial; no expected fill or leverage is assumed.",
+    "replacement": "When the slot is funded, the unchanged alpha-decay/fresh-challenger/campaign-peak stack decides acute exits, retirement, rearm and active challenger displacement using the same score and causal references.",
+    "unchanged": [
+      "causal score and tie-break",
+      "observed-trend entry/exit predicates",
+      "campaign-peak displacement block",
+      "fresh-challenger provenance authority",
+      "acute <= -8% security exit",
+      "actual-cash-only funding",
+      "fees/slippage/ADV/liquidity/limit/T+1/lot execution",
+      "all Config values other than max_positions"
+    ]
+  },
+  "structural_difference": {
+    "old_theme_or_leader_slots": "No theme or ticker label reserves a slot. There is simply one generic causal portfolio slot available to whichever symbol currently wins the unchanged score/lifecycle process.",
+    "breadth_concentration": "That rejected family dynamically expanded capacity in low-breadth regimes and created massive churn. This family fixes capacity at one everywhere and never branches on breadth.",
+    "allocation_auction": "That historical family solved a constrained two-leg resource auction on a different support parent. This family does not optimize weights or risk polygons; it removes the second campaign slot entirely on the current offensive champion."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Treatment must strictly exceed campaign-peak mean-log and must not reduce campaign-peak minimum terminal wealth.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "average exposure", "single-slot occupancy"],
+    "if_promoted": "Immediately evaluate the exact same source-bound treatment over all 896 frozen sessions before formal-matrix expansion."
+  },
+  "prohibitions": [
+    "no capacity grid or retry at 2/3/4 slots",
+    "no score, EMA, lookback or confirmation parameter change",
+    "no ticker/pool-specific behavior",
+    "no future labels",
+    "no reference-strategy source consumption",
+    "no post-result edit of this preregistered family"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
