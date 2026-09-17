@@ -67,6 +67,12 @@
     "future_data_used": false,
     "case_identity_used": false
   },
+  "recovery_invariants": {
+    "protection_fill_required_only_before_recovery_starts": true,
+    "recovered_units_may_exceed_the_protection_goal": true,
+    "fresh_risk_pauses_staged_recovery": true,
+    "ownership_intent_remains_the_recovery_upper_bound": true
+  },
   "selection_objective": [
     "maximize the minimum candidate wealth divided by same-engine passive wealth",
     "then maximize the minimum passive drawdown minus candidate drawdown",
