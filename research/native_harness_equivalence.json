@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-17",
+  "purpose": "Prove native-reference harness-only changes preserve frozen economic outputs while removing redundant pure computation and restoring WorkBuddy requested-calendar coverage.",
+  "reference_repository": "ychenracing/trades",
+  "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
+  "reference_subtree_ids": {
+    "chatgpt": "c06585d7837d32905ef4b954b8b2c22f4f3f51f9",
+    "trae": "0ba9d9b776d1b01712e0086af12dfa81d9589b56",
+    "dumate": "5b8f1863def6fd784284f9b7a782be28caa3f009",
+    "workbuddy": "3c29e60758e0a6538a81ea8144a144d6faf966c4"
+  },
+  "market_fingerprint": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "harness_sha256": "938c4360b70bbd16260c360a26fc279b82e11f076c72ac09b23707e58fc04853",
+  "targeted_test_sha256": "24afc13f3f5be9a0dde866cc1767540210484dc9b3659a63d4bf755ac6ba741b",
+  "chatgpt_semantic_noop_optimization": {
+    "changes": [
+      "cache the pure allocation-score mapping only for the same sleeve data-map object and session",
+      "skip allocation-score construction for an empty pending queue",
+      "reproduce the original empty-rank admission branch without constructing unused scores when no new symbol is eligible"
+    ],
+    "common_five": {
+      "baseline_elapsed_seconds": 134.88847475400053,
+      "optimized_elapsed_seconds": 13.090142431999993,
+      "summary_without_elapsed": {
+        "status": "NATIVE_REPLAY_MEASURED",
+        "first": "2023-01-03",
+        "last": "2026-09-11",
+        "sessions": 896,
+        "expected_sessions": 896,
+        "wealth": 1.778233112870138,
+        "max_drawdown": 0.298051526553913,
+        "orders_native_rows": 178,
+        "acceptance": "NOT_EQUIVALENT_EXECUTION"
+      },
+      "economic_file_sha256": {
+        "equity.csv": "c3e52663b3dbb91a934f20e3bc4377a5661ec53c39175822bc57b1012ac76a3c",
+        "native_frame.csv": "19f4c7860c1d091e7e5c81b9ce15899fc0593cd495debfd05c56a783a4c56550",
+        "trades.csv": "9ef8bb544efd5eb6c2f6447ea7b2b94d66b9fbe13916b96179d332fb3fa15a89",
+        "settings.json": "b5f58e76bc55e41a1f555438374c0a229a88cbddfcf1d93da0a524da8b36cb03",
+        "native.log": "ea1698f7596ed906f064eef7b8b29e2b40adfe70a7a3fc51cffb885cbadcf1c3"
+      },
+      "all_economic_files_byte_identical": true
+    },
+    "union_34": {
+      "baseline_elapsed_seconds": 268.90103679999993,
+      "optimized_elapsed_seconds": 36.432984622999356,
+      "summary_without_elapsed": {
+        "status": "NATIVE_REPLAY_MEASURED",
+        "first": "2023-01-03",
+        "last": "2026-09-11",
+        "sessions": 896,
+        "expected_sessions": 896,
+        "wealth": 1.6325977431263006,
+        "max_drawdown": 0.28453406255168245,
+        "orders_native_rows": 232,
+        "acceptance": "NOT_EQUIVALENT_EXECUTION"
+      },
+      "economic_file_sha256": {
+        "equity.csv": "265f089f7d0f584d9e5fc8be5d93f7256277badf812fda08aafc2de1d0b41b17",
+        "native_frame.csv": "a31049715afab5c94dce55c5d29247078a3eb4b3a0db8126fd1b140094a4527a",
+        "trades.csv": "42207f58056f5df8837c7c1f13fed5a30a48919736f2bd6e866ed09d82bccb14",
+        "settings.json": "d0d3dc17ece6f4a05b5e2696d9452252b496ebe40b232c31711fa99393f69a7f",
+        "native.log": "6e6f843755fd01f711782bc518c6c4cbbccbd88edb3eb8e591e05f40fdfbbd40"
+      },
+      "all_economic_files_byte_identical": true
+    }
+  },
+  "workbuddy_calendar_adapter": {
+    "semantics": "Reindex input labels to the frozen requested calendar with NaN bars outside observed history; the unchanged native engine treats NaN as unavailable and remains in cash.",
+    "common_five_regression": {
+      "historical_expected_wealth": 20.221072996623576,
+      "historical_expected_max_drawdown": 0.25331952059019447,
+      "measured": {
+        "status": "NATIVE_REPLAY_MEASURED",
+        "first": "2023-01-03",
+        "last": "2026-09-11",
+        "sessions": 896,
+        "expected_sessions": 896,
+        "wealth": 20.221072996623576,
+        "max_drawdown": 0.25331952059019447,
+        "orders_native_rows": 107,
+        "acceptance": "NOT_EQUIVALENT_EXECUTION"
+      },
+      "economic_file_sha256": {
+        "equity.csv": "afd8192ccb57a21f69312890faa9dd1445db0b4e10c4ec63d4a582f835b80672",
+        "native_frame.csv": "11893e481351fb1601851e09ec707723900f6309f98f9f987343f6362feeb3f8",
+        "trades.csv": "a9620cef60d7f18623af3d676ac7aaaa29d7de9613712812764998eecb406adb",
+        "settings.json": "867d2d353bb6558453d763d1c09c025251052e8c58f7225d1a7d37fb645b55ea",
+        "native.log": "b61fc66c9e07eb969397938fcf0d7a20b4409405959ec443785b5c087a15a262"
+      },
+      "historical_metrics_unchanged": true
+    },
+    "union_34_coverage_repair": {
+      "historical_status": "INVALID_REQUESTED_COVERAGE",
+      "historical_first": "2026-07-27",
+      "historical_sessions": 35,
+      "measured": {
+        "status": "NATIVE_REPLAY_MEASURED",
+        "first": "2023-01-03",
+        "last": "2026-09-11",
+        "sessions": 896,
+        "expected_sessions": 896,
+        "wealth": 4.982007487582545,
+        "max_drawdown": 0.29799445326191554,
+        "orders_native_rows": 420,
+        "acceptance": "NOT_EQUIVALENT_EXECUTION"
+      },
+      "economic_file_sha256": {
+        "equity.csv": "2333c5936a0d631ed664bd9f2e58922fd58f391d787b0c91e42467bd4a8a9a31",
+        "native_frame.csv": "88cbbd1ac6dc2a874f620ff2c66e1667fe05f5f240c339a81b8eff5e59ea0af7",
+        "trades.csv": "22649fecdbf4e59a65c0bcaa26f45f194893b77c290075aec564874ab029b281",
+        "settings.json": "6e04ec340fd5b4f82cd49bda1c8ed92eee52c9f1770aa043a57631336d6b6a58",
+        "native.log": "c52174f7d714f12fa4d2a269d97d0f24d6033d9b30c3407c6fbbb88def8bae59"
+      },
+      "full_requested_calendar_restored": true
+    }
+  },
+  "verification": {
+    "targeted_native_harness_tests": 6,
+    "full_offline_tests": 88,
+    "compileall": "PASS",
+    "cli_help": "PASS"
+  }
+}
