@@ -6,41 +6,49 @@ on:
 permissions:
   contents: read
   actions: read
-  issues: read
-  pull-requests: read
 jobs:
   recover:
     runs-on: ubuntu-latest
     timeout-minutes: 4
     steps:
       - uses: actions/checkout@v4
-      - name: Recover source without fetching evidence blobs
+      - name: Recover existing reference evidence with object checks
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -euo pipefail
-          out="$RUNNER_TEMP/passive-audit-inputs"
-          mkdir -p "$out"
-          source=4335d3d7e57585a6b80f024f7f60e9b1b41fc10f
-          formal=a0705156e82c083f580aa4ebfe52383f5dffdb8d
-          git archive --format=tar.gz HEAD > "$out/source.tar.gz"
-          git ls-tree -r -l HEAD > "$out/source-tree.txt"
-          git cat-file commit HEAD > "$out/source-commit.txt"
-          gh api "repos/$GITHUB_REPOSITORY/git/trees/$source?recursive=1" > "$out/frozen-source-tree.json"
-          gh api "repos/$GITHUB_REPOSITORY/compare/$formal...$source" --jq '{status,files:[.files[]|select(.filename|test("^(src/|pyproject|research/(requirements|catalog|protocol|fresh_challenger_formal))"))]}' > "$out/formal-to-passive.json"
-          gh api "repos/$GITHUB_REPOSITORY/branches?per_page=100" --jq '[.[]|{name,sha:.commit.sha,protected}]' > "$out/refs.json"
-          evidence=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/research/evidence" --jq .object.sha)
-          gh api "repos/$GITHUB_REPOSITORY/git/trees/$evidence?recursive=1" > "$out/evidence-tree.json"
-          gh api --paginate "repos/$GITHUB_REPOSITORY/issues/1/comments?per_page=100" --jq '.[] | {id,created_at,updated_at,body}' > "$out/pr-comments.jsonl"
-          gh api "repos/$GITHUB_REPOSITORY/pulls/1" --jq '{number,state,draft,merged,mergeable,mergeable_state,head:.head.sha,base:.base.sha}' > "$out/pr.json"
-          gh api "repos/$GITHUB_REPOSITORY/actions/runs?status=in_progress&per_page=30" --jq '[.workflow_runs[] | {id,name,head_sha,status,run_attempt}]' > "$out/running.json"
-          gh api "repos/$GITHUB_REPOSITORY/actions/runs?status=queued&per_page=30" --jq '[.workflow_runs[] | {id,name,head_sha,status,run_attempt}]' > "$out/queued.json"
-          cd "$out"
-          sha256sum source.tar.gz source-tree.txt source-commit.txt frozen-source-tree.json formal-to-passive.json refs.json evidence-tree.json pr-comments.jsonl pr.json running.json queued.json > SHA256SUMS
+          python - <<'PY'
+          import base64, hashlib, json, os, pathlib, subprocess
+          root = pathlib.Path(os.environ['RUNNER_TEMP']) / 'reference-audit-inputs'
+          root.mkdir()
+          repo = os.environ['GITHUB_REPOSITORY']
+          ref = '3aecdca64395b01204b36933180c2a10e504e4f6'
+          def api(path):
+              return json.loads(subprocess.check_output(['gh', 'api', 'repos/' + repo + '/' + path]))
+          tree = api('git/trees/' + ref + '?recursive=1')
+          assert not tree['truncated']
+          selected = [x for x in tree['tree'] if x['type'] == 'blob' and (
+              x['path'].startswith('renewed-continuation/native-execution/') or
+              x['path'] in ['renewed-continuation/progress.json', 'renewed-continuation/PRIOR_HANDOFF.md',
+                  'published/bbc002449093e458868a8748687df023958ba283/local-native/verification.json'])]
+          assert sum(x['size'] for x in selected) < 1000000
+          ledger = []
+          for entry in selected:
+              assert entry['size'] < 100000
+              obj = api('git/blobs/' + entry['sha'])
+              assert obj['encoding'] == 'base64'
+              raw = base64.b64decode(obj['content'])
+              assert len(raw) == entry['size']
+              actual = hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
+              assert actual == entry['sha']
+              dest = root / entry['path']; dest.parent.mkdir(parents=True, exist_ok=True); dest.write_bytes(raw)
+              ledger.append(dict(path=entry['path'], git_blob=actual, bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest()))
+          (root / 'receipt.json').write_text(json.dumps(dict(evidence_commit=ref, files=ledger), indent=2) + '\n')
+          print('Recovered and verified', len(ledger), 'bounded reference evidence files')
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: passive-audit-inputs-${{ github.sha }}
-          path: ${{ runner.temp }}/passive-audit-inputs/
+          name: reference-audit-inputs-${{ github.sha }}
+          path: ${{ runner.temp }}/reference-audit-inputs/
           retention-days: 90
           if-no-files-found: error
