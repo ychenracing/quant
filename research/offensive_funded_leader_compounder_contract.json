@@ -1,0 +1,57 @@
+{
+  "family": "offensive_funded_leader_compounder",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Maximize terminal wealth by granting persistent slow-trend continuation only to an actually funded campaign that has become the current cross-sectional causal leader, avoiding the broad-universe over-promotion seen in prior compounder designs.",
+  "parent": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "root_cause_evidence": {
+    "positive_alpha_compounder_run": 35163068647,
+    "profitable_campaign_compounder_run": 35163857131,
+    "unified_compounder_core_run": 35164520001,
+    "unified_event_counts": {
+      "union_proven": 38,
+      "common_five_proven": 17,
+      "joint_removal_proven": 39
+    },
+    "diagnosis": "Self-improvement proof helps the concentrated common-five scope but over-promotes campaigns in broad universes. A persistent owner therefore needs a cross-sectional leadership property, not merely score sign, profitability, or own-alpha improvement."
+  },
+  "treatment": {
+    "actual_basis": "Maintain actual weighted acquisition basis from observed next-session inventory exactly as an accounting state; targets or forecast fills do not create proof.",
+    "admission_alpha": "Use the already-existing funded campaign owned_alpha_reference from the campaign-peak champion's causal ownership stack; do not recalculate a post-entry label.",
+    "leader_universe": "At each completed close, among securities that are ready, in current observed-trend entry state, above EMA20, have positive momentum5, finite positive causal score, are not retired and are not currently invalidated, select exactly the highest causal score with symbol-order tie break. Market offensive state must be true.",
+    "prove_funded_leader": "Latch a held campaign as funded_leader_compounder only when it is that unique current leader, current close is strictly above its actual weighted acquisition basis, and current causal score is strictly above its funded admission alpha. No margin or confirmation day.",
+    "leader_lifecycle": "Once latched, generic slow trend.exit alone cannot liquidate that campaign. Acute one-session loss <= -8%, missing/unready quote, pending exit obligations and all parent opportunity-displacement authority remain unchanged. The latch clears only after actual flat inventory.",
+    "nonleader_lifecycle": "All campaigns that have not earned the latch follow the unchanged campaign-peak champion behavior, including generic slow-trend security exit.",
+    "implementation_boundary": "This family may wrap the current campaign-peak champion because the experiment isolates leadership qualification, but it must not alter discovery score, entry predicates, rearm, displacement, capacity, funding or execution semantics."
+  },
+  "structural_difference": {
+    "unified_compounder_core": "The rejected core promoted any funded campaign whose own price and alpha improved. This family promotes only the single current cross-sectional causal leader, directly addressing broad-universe over-promotion.",
+    "old_theme_or_leader_slots": "Those historical mechanisms reserved or allocated slots based on theme/leader labels. This family does not reserve capacity or change selection; it changes only the self-exit authority of an already funded campaign after it causally proves cross-sectional leadership.",
+    "leadership_handover": "That old family controlled challenger replacement with fixed confirmation and score multiples. This family does not change replacement authority at all."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "control": "Exact source-bound campaign-peak champion",
+    "primary": "mean(log(terminal wealth)) across the three scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Mean-log must strictly exceed current campaign-peak champion and minimum terminal wealth must not decrease.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "average exposure", "leader proof count"],
+    "if_promoted": "Evaluate identical source-bound treatment on all 896 frozen sessions before any formal-matrix expansion."
+  },
+  "prohibitions": [
+    "no top-k search; leadership is exactly top-1 for this family",
+    "no score margin or multiplier",
+    "no confirmation-day or hold-day search",
+    "no position-count or EMA/lookback search",
+    "no pool/ticker-specific behavior",
+    "no future labels or returns",
+    "no reference-strategy source consumption"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
