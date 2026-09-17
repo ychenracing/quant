@@ -1,0 +1,67 @@
+name: Apply return-first ownership candidate
+
+on:
+  push:
+    branches: [feat/dynamic-relative-risk-ownership]
+    paths:
+      - .github/workflows/apply-return-first-ownership.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-return-first-ownership
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: src:tests:.
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Verify transport parent and apply exact patches
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = "da4035eca3fb3cdb12af7bdf5531ef4d7446a7d5"
+          for patch in \
+            .github/transport/return-first/risk_ownership.patch \
+            .github/transport/return-first/risk_screen.patch \
+            .github/transport/return-first/risk_contract.patch \
+            .github/transport/return-first/risk_tests.patch
+          do
+            git apply --check "$patch"
+            git apply "$patch"
+          done
+          git diff --check
+
+      - name: Verify candidate behavior
+        run: |
+          set -euo pipefail
+          python -m pip install -e .
+          python -m unittest tests.test_risk_ownership -v
+          python -m unittest discover -s tests -v
+          python -m compileall -q src research tests
+          python -m techquant --help >/dev/null
+          python -m json.tool research/risk_ownership_screen_contract.json >/dev/null
+          python -m json.tool research/relative_reference_acceptance_contract.json >/dev/null
+
+      - name: Publish clean integrated source
+        run: |
+          set -euo pipefail
+          rm -rf .github/transport/return-first
+          rm .github/workflows/apply-return-first-ownership.yml
+          git diff --check
+          git config user.name "quant structural research"
+          git config user.email "quant-research@users.noreply.github.com"
+          git add -A
+          git commit -m "Restore returns after bounded risk protection"
+          git push origin HEAD:feat/dynamic-relative-risk-ownership

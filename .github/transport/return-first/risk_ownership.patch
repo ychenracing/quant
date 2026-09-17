@@ -1,0 +1,226 @@
+--- a/src/techquant/risk_ownership.py
++++ b/src/techquant/risk_ownership.py
+@@ -1,11 +1,11 @@
+-"""Event-scoped systemic protection over engine-owned passive ownership.
++"""Return-first systemic protection over engine-owned passive ownership.
+ 
+-The policy preserves the passive return source until a *new* systemic risk event
+-is confirmed.  One event requests one fixed, executable unit reduction.  A
+-historical account drawdown can strengthen a fresh loss signal, but can never
+-keep the account defensive by itself.  Recovery uses new market evidence in two
+-stages and never sells a restored unit again merely because the same episode
+-remains below its old account peak.
++The policy preserves a 90% ownership core and reduces only the weakest observed
++holdings after independently confirmed market damage.  A protection request is
++fixed for the event.  Once that risk clears and the protective fill is complete,
++the policy restores the remembered ownership immediately instead of waiting for
++a late rebound confirmation.  Fresh risk pauses restoration at actual inventory;
++shared execution remains the sole owner of cash, fills, costs and constraints.
+ """
+ from __future__ import annotations
+ 
+@@ -27,17 +27,15 @@
+ class RiskOwnershipParameters:
+     """Pre-registered coarse structure; no per-case or date-specific controls."""
+ 
+-    core_fraction: float = 0.60
++    core_fraction: float = 0.90
+     risk_confirmation: int = 2
+-    recovery_confirmation: int = 2
+ 
+     def __post_init__(self) -> None:
+-        if self.core_fraction not in (0.50, 0.60, 0.70):
+-            raise ValueError("core_fraction must be one of 0.50, 0.60 or 0.70")
+-        for name in ("risk_confirmation", "recovery_confirmation"):
+-            value = getattr(self, name)
+-            if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 5:
+-                raise ValueError(f"{name} must be an integer from one to five")
++        if self.core_fraction not in (0.70, 0.80, 0.90):
++            raise ValueError("core_fraction must be one of 0.70, 0.80 or 0.90")
++        value = self.risk_confirmation
++        if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 5:
++            raise ValueError("risk_confirmation must be an integer from one to five")
+ 
+ 
+ class RiskAwareOwnershipPolicy:
+@@ -58,11 +56,9 @@
+         self.state = "OPEN"
+         self._last_session = -1
+         self._risk_streak = 0
+-        self._early_recovery_streak = 0
+-        self._full_recovery_streak = 0
+         self._crisis_active_last = False
+         self._episode_level = 0
+-        self._recovery_stage = 0
++        self._recovery_active = False
+         self._recovery_paused = False
+         self._episode_base_units = np.zeros(size)
+         self._protection_goal = np.zeros(size)
+@@ -143,19 +139,6 @@
+             | index_ret10.le(-0.15)
+             | (loss_fraction.ge(0.55) & market_return.le(-0.025))
+         ).to_numpy(dtype=bool)
+-        self.recovery_early = (
+-            index.gt(index_ema20)
+-            & breadth20.ge(0.45)
+-            & breadth_change5.gt(0.0)
+-            & index_ret5.gt(0.0)
+-            & loss_fraction.lt(0.30)
+-        ).to_numpy(dtype=bool)
+-        self.recovery_full = (
+-            index.gt(index_ema20)
+-            & breadth20.ge(0.55)
+-            & index_ret10.gt(0.0)
+-            & loss_fraction.lt(0.20)
+-        ).to_numpy(dtype=bool)
+ 
+     def _nominal_cap(self) -> float:
+         if self._episode_level >= 2:
+@@ -314,10 +297,8 @@
+         reasons: list[str],
+     ) -> None:
+         self._episode_level = level
+-        self._recovery_stage = 0
++        self._recovery_active = False
+         self._recovery_paused = False
+-        self._early_recovery_streak = 0
+-        self._full_recovery_streak = 0
+         self._episode_base_units = close.units.copy()
+         self._protection_goal = self._protection_target(
+             close, self._nominal_cap()
+@@ -343,15 +324,13 @@
+         self._episode_level = 2
+         proposed = self._protection_target(close, self._nominal_cap())
+         self._protection_goal = np.minimum(self._protection_goal, proposed)
+-        self._recovery_stage = 0
++        self._recovery_active = False
+         self._recovery_paused = False
+-        self._early_recovery_streak = 0
+-        self._full_recovery_streak = 0
+         self.state = "CRISIS"
+         reasons.append("SYSTEMIC_PROTECTION_ESCALATION")
+ 
+     def _episode_complete(self, close: CloseObservation) -> bool:
+-        if self._episode_level == 0 or self._recovery_stage < 2:
++        if self._episode_level == 0 or not self._recovery_active:
+             return False
+         affordable = self._cash_funded_desired(
+             close, self._episode_base_units
+@@ -379,11 +358,9 @@
+ 
+     def _clear_episode(self, reasons: list[str]) -> None:
+         self._episode_level = 0
+-        self._recovery_stage = 0
++        self._recovery_active = False
+         self._recovery_paused = False
+         self._risk_streak = 0
+-        self._early_recovery_streak = 0
+-        self._full_recovery_streak = 0
+         self._episode_base_units.fill(0.0)
+         self._protection_goal.fill(0.0)
+         self.state = "OPEN"
+@@ -397,7 +374,11 @@
+         reasons: list[str],
+     ) -> None:
+         crisis_edge = crisis and not self._crisis_active_last
+-        if crisis_edge and self._episode_level == 1:
++        if (
++            crisis_edge
++            and self._episode_level == 1
++            and not self._recovery_active
++        ):
+             self._escalate_episode(close, reasons)
+ 
+         protection_reached = self._executable_goal_reached(
+@@ -405,39 +386,28 @@
+         )
+         risk_active = defensive or crisis
+         waiting_for_protection_fill = (
+-            self._recovery_stage == 0 and not protection_reached
++            not self._recovery_active and not protection_reached
+         )
+         if waiting_for_protection_fill or risk_active:
+-            self._early_recovery_streak = 0
+-            self._full_recovery_streak = 0
+-            self._recovery_paused = bool(risk_active and self._recovery_stage > 0)
+-            if self._recovery_stage == 0:
+-                self.state = "CRISIS" if self._episode_level >= 2 else "DEFENSIVE"
++            self._recovery_paused = bool(risk_active and self._recovery_active)
++            if not self._recovery_active:
++                self.state = (
++                    "CRISIS" if self._episode_level >= 2 else "DEFENSIVE"
++                )
+             else:
+-                # Do not resell recovered units or keep buying while a fresh
+-                # risk edge is active. Resume the same stage after it clears.
++                # Never resell already restored units for a repeated warning in
++                # the same event.  Hold actual inventory until fresh risk clears.
+                 self.state = "RECOVERY"
+             return
+ 
+         self._recovery_paused = False
+-        i = close.session
+-        if self._recovery_stage == 0:
+-            self._early_recovery_streak = (
+-                self._early_recovery_streak + 1 if self.recovery_early[i] else 0
+-            )
+-            if self._early_recovery_streak >= self.parameters.recovery_confirmation:
+-                self._recovery_stage = 1
+-                self._full_recovery_streak = 0
+-                self.state = "RECOVERY"
+-                reasons.append("RECOVERY_STAGE:HALF")
+-        elif self._recovery_stage == 1:
+-            self._full_recovery_streak = (
+-                self._full_recovery_streak + 1 if self.recovery_full[i] else 0
+-            )
+-            if self._full_recovery_streak >= self.parameters.recovery_confirmation:
+-                self._recovery_stage = 2
+-                self.state = "RECOVERY"
+-                reasons.append("RECOVERY_STAGE:FULL")
++        if not self._recovery_active:
++            # The selected return-first structure treats protection as one
++            # bounded event. Waiting for a later rebound confirmation lost the
++            # first recovery leg across the frozen selection cases.
++            self._recovery_active = True
++            self.state = "RECOVERY"
++            reasons.append("RECOVERY_FULL_ON_RISK_CLEAR")
+         else:
+             self.state = "RECOVERY"
+ 
+@@ -447,14 +417,10 @@
+             raise ValueError("risk-aware ownership requires engine-owned intent")
+         if self._episode_level == 0:
+             desired = ownership.units
+-        elif self._recovery_stage > 0 and self._recovery_paused:
++        elif self._recovery_active and self._recovery_paused:
+             desired = close.units
+-        elif self._recovery_stage == 0:
++        elif not self._recovery_active:
+             desired = self._protection_goal
+-        elif self._recovery_stage == 1:
+-            desired = self._protection_goal + 0.5 * (
+-                self._episode_base_units - self._protection_goal
+-            )
+         else:
+             desired = self._episode_base_units
+         affordable = self._cash_funded_desired(close, desired)
+@@ -526,7 +492,9 @@
+             reasons.append("CAUTION_FREEZE_NEW_OWNERSHIP")
+         if self._episode_level:
+             reasons.append(
+-                f"RISK_EPISODE:LEVEL_{self._episode_level}:RECOVERY_{self._recovery_stage}"
++                "RISK_EPISODE:"
++                f"LEVEL_{self._episode_level}:"
++                + ("RECOVERING" if self._recovery_active else "PROTECTING")
+             )
+ 
+         self._crisis_active_last = crisis
+@@ -541,7 +509,7 @@
+     def identity(self) -> dict[str, Any]:
+         return {
+             "name": "risk_aware_ownership",
+-            "mechanism": "event_scoped_selective_systemic_protection",
++            "mechanism": "return_first_event_scoped_full_restore",
+             "parameters": asdict(self.parameters),
+             "implementation_sha256": file_hash(Path(__file__)),
+             "data_sha256": self.market.fingerprint(),
