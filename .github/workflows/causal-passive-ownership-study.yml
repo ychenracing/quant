@@ -1,0 +1,145 @@
+name: Causal passive ownership evidence
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/causal-passive-ownership-study.yml
+      - research/causal_passive_ownership_study.py
+      - research/causal_passive_ownership_contract.json
+      - research/causal_passive_ownership_api_amendment.json
+      - research/causal-passive-ownership-request.json
+      - src/techquant/passive.py
+      - tests/test_passive_ownership.py
+permissions:
+  contents: write
+concurrency:
+  group: causal-passive-ownership-alpha
+  cancel-in-progress: false
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install frozen research runtime
+        run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Passive ownership TDD contract
+        run: python -m unittest tests.test_passive_ownership -v
+      - name: Measure only when source-bound request exists
+        if: hashFiles('research/causal-passive-ownership-request.json') != ''
+        timeout-minutes: 7
+        run: |
+          python - <<'PY' > "$RUNNER_TEMP/causal-passive-ownership-execution.txt" 2>&1
+          import json, os, pathlib, subprocess
+          from research.hosted_study import inputs
+          from research.causal_passive_ownership_study import main
+          from techquant.data import load_market
+
+          request = json.loads(pathlib.Path('research/causal-passive-ownership-request.json').read_text())
+          for path, expected in request['source_git_blob'].items():
+              actual = subprocess.check_output(['git', 'hash-object', path], text=True).strip()
+              if actual != expected:
+                  raise SystemExit(f'git blob mismatch {path}: {actual} != {expected}')
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          data, supplement = inputs(root / 'frozen-input')
+          catalog = json.loads(pathlib.Path('research/catalog.json').read_text())
+          market = load_market(data, supplement=supplement, sectors=catalog['sectors'])
+          if market.fingerprint() != request['data_sha256']:
+              raise ValueError('frozen market identity mismatch')
+          out = root / 'causal-passive-ownership'
+          out.mkdir(parents=True, exist_ok=True)
+          main(market, catalog, out)
+          selection = json.loads((out / 'selection' / 'selection.json').read_text())
+          evaluation_status = json.loads((out / 'evaluation' / 'status.json').read_text())
+          (out / 'receipt.json').write_text(json.dumps({
+              'source_commit': os.environ['GITHUB_SHA'],
+              'run_id': os.environ['GITHUB_RUN_ID'],
+              'family': request['family'],
+              'selection_status': selection['status'],
+              'selection_advance': selection['advance'],
+              'evaluation_status': evaluation_status['status'],
+              'equivalence': selection['equivalence'],
+              'economic_acceptance': 'NOT_FINAL',
+          }, indent=2) + '\n')
+          PY
+      - name: Package source-bound outcome
+        if: always() && hashFiles('research/causal-passive-ownership-request.json') != ''
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, tarfile
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          out = root / 'causal-passive-ownership'
+          out.mkdir(exist_ok=True)
+          log = root / 'causal-passive-ownership-execution.txt'
+          if log.exists():
+              (out / 'execution.txt').write_bytes(log.read_bytes())
+          request = pathlib.Path('research/causal-passive-ownership-request.json')
+          if request.exists():
+              (out / 'request.json').write_bytes(request.read_bytes())
+          manifest = {
+              str(p.relative_to(out)): hashlib.sha256(p.read_bytes()).hexdigest()
+              for p in sorted(out.rglob('*')) if p.is_file() and p.name != 'MANIFEST.json'
+          }
+          (out / 'MANIFEST.json').write_text(json.dumps(manifest, indent=2) + '\n')
+          archive = root / 'causal-passive-ownership-evidence.tar.gz'
+          with tarfile.open(archive, 'w:gz') as bundle:
+              bundle.add(out, arcname='causal-passive-ownership')
+          (root / 'causal-passive-ownership-evidence.sha256').write_text(
+              hashlib.sha256(archive.read_bytes()).hexdigest() + '  causal-passive-ownership-evidence.tar.gz\n'
+          )
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always() && hashFiles('research/causal-passive-ownership-request.json') != ''
+        with:
+          name: causal-passive-ownership-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/causal-passive-ownership-evidence.tar.gz
+            ${{ runner.temp }}/causal-passive-ownership-evidence.sha256
+          retention-days: 90
+          if-no-files-found: error
+      - name: Append and read back immutable evidence
+        if: always() && hashFiles('research/causal-passive-ownership-request.json') != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          git clone --depth=1 --branch research/evidence "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/causal-passive-ownership-store"
+          cd "$RUNNER_TEMP/causal-passive-ownership-store"
+          destination="causal-passive-ownership/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"
+          mkdir -p "$destination"
+          cp "$RUNNER_TEMP/causal-passive-ownership-evidence.tar.gz" "$RUNNER_TEMP/causal-passive-ownership-evidence.sha256" "$destination/"
+          for file in receipt.json MANIFEST.json execution.txt request.json; do
+            if [ -f "$RUNNER_TEMP/causal-passive-ownership/$file" ]; then cp "$RUNNER_TEMP/causal-passive-ownership/$file" "$destination/"; fi
+          done
+          for dir in selection evaluation; do
+            if [ -d "$RUNNER_TEMP/causal-passive-ownership/$dir" ]; then
+              mkdir -p "$destination/$dir"
+              find "$RUNNER_TEMP/causal-passive-ownership/$dir" -maxdepth 1 -type f -exec cp {} "$destination/$dir/" \;
+            fi
+          done
+          git config user.name 'quant research publisher'
+          git config user.email 'quant-research@users.noreply.github.com'
+          git add -- "$destination"
+          git commit -m 'research: retain causal passive ownership evidence'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/evidence; then
+              git fetch origin research/evidence
+              expected=$(cut -d' ' -f1 "$RUNNER_TEMP/causal-passive-ownership-evidence.sha256")
+              actual=$(git show "FETCH_HEAD:$destination/causal-passive-ownership-evidence.tar.gz" | sha256sum | cut -d' ' -f1)
+              test "$actual" = "$expected"
+              exit 0
+            fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1
