@@ -1,0 +1,33 @@
+name: Single dominant campaign evidence
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/single-dominant-campaign-study.yml
+      - research/offensive_single_dominant_campaign.py
+      - research/test_offensive_single_dominant_campaign.py
+      - research/offensive_single_dominant_campaign_contract.json
+      - research/offensive_single_dominant_campaign_study.py
+      - research/single-dominant-campaign-request.json
+permissions:
+  contents: write
+concurrency:
+  group: single-dominant-campaign-alpha
+  cancel-in-progress: false
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Candidate TDD contract
+        run: python -m unittest research.test_offensive_single_dominant_campaign -v
