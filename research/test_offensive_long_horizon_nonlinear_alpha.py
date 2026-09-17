@@ -1,6 +1,6 @@
-from dataclasses import replace
 import importlib
 import importlib.util
+import json
 import unittest
 
 import numpy as np
@@ -11,6 +11,10 @@ from techquant.config import Config
 from techquant.engine import run
 from techquant.features import build_features
 from research.offensive_campaign_peak_authority import Owner as ChampionOwner, Parameters as ChampionParameters
+
+
+def audit_json(value):
+    return json.dumps(value, sort_keys=True, allow_nan=True, separators=(',', ':'))
 
 
 class LongHorizonNonlinearAlphaTests(unittest.TestCase):
@@ -39,7 +43,7 @@ class LongHorizonNonlinearAlphaTests(unittest.TestCase):
         first, first_audit = module.walk_forward_scores(market)
         second, second_audit = module.walk_forward_scores(market)
         np.testing.assert_array_equal(first, second)
-        self.assertEqual(first_audit, second_audit)
+        self.assertEqual(audit_json(first_audit), audit_json(second_audit))
         self.assertGreater(first_audit['fit_count'], 0)
         self.assertGreater(first_audit['training_samples'], 0)
 
@@ -51,10 +55,8 @@ class LongHorizonNonlinearAlphaTests(unittest.TestCase):
         full_scores, full_audit = module.walk_forward_scores(market)
         prefix_scores, prefix_audit = module.walk_forward_scores(market.prefix(cut))
         np.testing.assert_array_equal(full_scores[: cut_index + 1], prefix_scores)
-        self.assertEqual(
-            [r for r in full_audit['refits'] if r['refit_session'] <= cut_index],
-            prefix_audit['refits'],
-        )
+        expected = [r for r in full_audit['refits'] if r['refit_session'] <= cut_index]
+        self.assertEqual(audit_json(expected), audit_json(prefix_audit['refits']))
 
     def test_every_training_label_is_fully_matured_before_refit(self):
         module = self.module()
@@ -87,7 +89,7 @@ class LongHorizonNonlinearAlphaTests(unittest.TestCase):
         champion = ChampionOwner(market, ChampionParameters(True))
         learned, audit = module.walk_forward_scores(market)
         np.testing.assert_array_equal(owner.learned_score, learned)
-        self.assertEqual(owner.audit, audit)
+        self.assertEqual(audit_json(owner.audit), audit_json(audit))
         np.testing.assert_array_equal(owner.parent.parent.base.features.score, learned)
         np.testing.assert_array_equal(owner.parent.parent.base.trend.entry, champion.parent.base.trend.entry)
         np.testing.assert_array_equal(owner.parent.parent.base.trend.exit, champion.parent.base.trend.exit)
