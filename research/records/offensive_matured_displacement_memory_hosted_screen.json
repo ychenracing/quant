@@ -1,0 +1,18 @@
+{
+  "family": "offensive_matured_displacement_memory",
+  "source_commit": "89e4cac81985b563db2b2ddf85577962c713bc8b",
+  "hosted_run": 35165906791,
+  "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "current_champion": {"mean_log": 1.6493183795493607, "minimum": 1.5949459430753048, "wealth": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048}},
+  "treatment": {"mean_log": 1.2500668439607634, "minimum": 0.9609866399676734, "wealth": {"union": 3.508929348369777, "chatgpt_5": 12.612449001931124, "joint_optical_leader_removal": 0.9609866399676734}},
+  "memory": {
+    "union": {"registered": 101, "matured": 100, "final_mean": 0.026904558897345, "allow": 10, "block": 89},
+    "chatgpt_5": {"registered": 38, "matured": 38, "final_mean": 0.016170351475607515, "allow": 1, "block": 36},
+    "joint_optical_leader_removal": {"registered": 123, "matured": 123, "final_mean": 0.010159313407904779, "allow": 11, "block": 111}
+  },
+  "decision": "The matured replacement labels are positive on average by the end of all three scopes, yet early memory blocks suppress many profitable replacements and materially reduce wealth. Do not search horizon, rolling window, weighting or sign margins.",
+  "research_boundary": "Whole-universe short-horizon ranking, absolute expectation, ownership-protection rules and non-contextual matured replacement memory have all failed to beat campaign-peak. The next research direction changes alpha discovery itself to a fixed nonlinear long-horizon walk-forward predictor.",
+  "evidence_readback": "Dedicated hosted workflow completed TDD, source-bound measurement, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
