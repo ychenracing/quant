@@ -1,0 +1,39 @@
+name: Dominant peak release attribution
+on:
+  push:
+    branches: [research/expectation-learning]
+    paths:
+      - .github/workflows/dominant-peak-release-attribution.yml
+      - research/dominant_peak_release_attribution.py
+permissions:
+  contents: read
+jobs:
+  attribute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONPATH: src:tests:.
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - run: python -m pip install numpy==2.3.5 pandas==2.2.3 -r research/requirements.txt
+      - name: Run read-only attribution
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          from research.hosted_study import inputs
+          from research.dominant_peak_release_attribution import attribute
+          from techquant.data import load_market
+          root=pathlib.Path(os.environ['RUNNER_TEMP']); data,supplement=inputs(root/'frozen-input'); catalog=json.loads(pathlib.Path('research/catalog.json').read_text()); market=load_market(data,supplement=supplement,sectors=catalog['sectors']); attribute(market,catalog,root/'dominant-peak-release-attribution')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dominant-peak-release-attribution-${{ github.sha }}
+          path: ${{ runner.temp }}/dominant-peak-release-attribution/
+          retention-days: 90
+          if-no-files-found: error
