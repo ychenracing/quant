@@ -1,0 +1,230 @@
+{
+  "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+  "advance": false,
+  "rows": [
+    {
+      "scope": "union",
+      "current_champion": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 6.343988713554001,
+        "total_return": 5.343988713554001,
+        "cagr": 0.8540739473352084,
+        "max_drawdown": 0.3430563651537788,
+        "inherited_drawdown": 0.3430563651537788,
+        "sharpe_zero_rf": 1.435736188165369,
+        "orders": 115,
+        "orders_per_year": 38.42978042086002,
+        "gross_turnover": 55.770228577145005,
+        "fees": 140637.80781032005,
+        "slippage": 256546.93069418467,
+        "average_exposure": 0.7316139167979497,
+        "blocked_attempts": 1
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 3.4448718088047126,
+        "total_return": 2.4448718088047126,
+        "cagr": 0.5118482432389144,
+        "max_drawdown": 0.44101719368187375,
+        "inherited_drawdown": 0.44101719368187375,
+        "sharpe_zero_rf": 0.9909844383695835,
+        "orders": 87,
+        "orders_per_year": 29.072964318389754,
+        "gross_turnover": 71.57090979465303,
+        "fees": 188637.50239246103,
+        "slippage": 338640.35033131996,
+        "average_exposure": 0.6759332461841844,
+        "blocked_attempts": 0
+      },
+      "architecture": {
+        "max_positions": 1,
+        "sessions": 727
+      }
+    },
+    {
+      "scope": "chatgpt_5",
+      "current_champion": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 13.923911154976224,
+        "total_return": 12.923911154976224,
+        "cagr": 1.4110875829572787,
+        "max_drawdown": 0.411981075823155,
+        "inherited_drawdown": 0.411981075823155,
+        "sharpe_zero_rf": 1.7850446422658879,
+        "orders": 77,
+        "orders_per_year": 25.73124428179323,
+        "gross_turnover": 41.04975207639402,
+        "fees": 169007.4932909581,
+        "slippage": 304731.7021347766,
+        "average_exposure": 0.6917650618699137,
+        "blocked_attempts": 2
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 7.063128059994218,
+        "total_return": 6.063128059994218,
+        "cagr": 0.9218126842477086,
+        "max_drawdown": 0.5123068522644256,
+        "inherited_drawdown": 0.5123068522644256,
+        "sharpe_zero_rf": 1.3824055296125126,
+        "orders": 50,
+        "orders_per_year": 16.708600182982618,
+        "gross_turnover": 46.291913855245106,
+        "fees": 157365.8217855242,
+        "slippage": 282872.35746462777,
+        "average_exposure": 0.6648188461533093,
+        "blocked_attempts": 0
+      },
+      "architecture": {
+        "max_positions": 1,
+        "sessions": 727
+      }
+    },
+    {
+      "scope": "joint_optical_leader_removal",
+      "current_champion": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 1.5949459430753048,
+        "total_return": 0.5949459430753048,
+        "cagr": 0.1688318206172934,
+        "max_drawdown": 0.6509911316885435,
+        "inherited_drawdown": 0.6509911316885435,
+        "sharpe_zero_rf": 0.5747299896346779,
+        "orders": 132,
+        "orders_per_year": 44.11070448307411,
+        "gross_turnover": 64.54014004527811,
+        "fees": 79987.02201810305,
+        "slippage": 137096.01737679116,
+        "average_exposure": 0.6746783151458137,
+        "blocked_attempts": 3
+      },
+      "treatment": {
+        "status": "MEASURED",
+        "start": "2023-01-03",
+        "end": "2025-12-31",
+        "sessions": 727,
+        "wealth": 0.8503679169799856,
+        "total_return": -0.1496320830200144,
+        "cagr": -0.052723888061999014,
+        "max_drawdown": 0.8148955671585965,
+        "inherited_drawdown": 0.8148955671585965,
+        "sharpe_zero_rf": 0.18609848207300317,
+        "orders": 94,
+        "orders_per_year": 31.41216834400732,
+        "gross_turnover": 80.44165352344847,
+        "fees": 96023.9014558191,
+        "slippage": 158273.6073427484,
+        "average_exposure": 0.6376058622326842,
+        "blocked_attempts": 2
+      },
+      "architecture": {
+        "max_positions": 1,
+        "sessions": 727
+      }
+    }
+  ],
+  "current_champion_objective": {
+    "mean_log": 1.6493183795493607,
+    "minimum": 1.5949459430753048,
+    "wealth": {
+      "union": 6.343988713554001,
+      "chatgpt_5": 13.923911154976224,
+      "joint_optical_leader_removal": 1.5949459430753048
+    }
+  },
+  "treatment_objective": {
+    "mean_log": 1.0098961782340394,
+    "minimum": 0.8503679169799856,
+    "wealth": {
+      "union": 3.4448718088047126,
+      "chatgpt_5": 7.063128059994218,
+      "joint_optical_leader_removal": 0.8503679169799856
+    }
+  },
+  "identity": {
+    "source": {
+      "commit": "988e3e21e2eadcfe1a25a9c7cefba93287379972",
+      "package_sha256": "077e833265807e1fcc3d12d0a047fae343bd18d4508b572d0956a6683dfa4960",
+      "files": {
+        "__init__.py": "f611d8ad0cfa7bcd1ddaf9e5be88db8e7bfa808d99edce14ebf3e2a55596c241",
+        "__main__.py": "7220695c919671bb015702dbd7624ac3fedcf115695ec8553615c3bb19711967",
+        "cli.py": "eae65f3d3fec09afec78ae494b900d9e8aed50c61bc1a329f821c8f13db0d877",
+        "config.py": "2d4f8a3f396a5e790c9098ba99851439fcd504e79dbec57009d8190487391e75",
+        "data.py": "b8580ccda8bf04cb6c4e8c4d985538946b51638d1c78086c1049bd64239cfa1b",
+        "engine.py": "822bf6d0afd8ea377e74d0811b00e8389daa40b1bbac774ff19b1e915bcc18bc",
+        "evidence.py": "30e8b29fca3a3be039778791a60cd48332d9d34dbdb79c4afd988fd3d3e41b2f",
+        "execution.py": "4f513ce5b16d243fd0a555c7aae463de6511b50cb3d37a70199cb0a0ce439ab6",
+        "features.py": "95f5e0b68b6fff43f34c6a248ab17146cb2054f39a5d6242a55d236f3cef87c6",
+        "policy.py": "8092fded68aac6722d2a923fec1b03a99244b4cc919eccf76c218a27532f7a37",
+        "strategy.py": "f438bc1858ab25e6ed82e56bee606d3ca647124e8f671088e1877d1869580d26"
+      },
+      "python": "3.13.5",
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "dependencies": {
+        "numpy": "2.3.5",
+        "pandas": "2.2.3"
+      }
+    },
+    "family": "offensive_single_dominant_campaign",
+    "dependencies": {
+      "offensive_single_dominant_campaign_study.py": "57d21fb39dc0406add0357b57f7716c9fe2d9ae3b815a6d0c666dc6f8693441c",
+      "offensive_single_dominant_campaign.py": "0c2e1e11a34e2c21c4d7b4edaedb8e98da6f703301487e5f8a5335ae0791b67c",
+      "offensive_single_dominant_campaign_contract.json": "4de26ea332202e448d0f27f2dfc856b679df604a86af637f6138865267722e13",
+      "offensive_campaign_peak_authority.py": "da107d62146b29995abc7e21885580d2c8d4eabcdd0c5da1dfe1a8c91d9e725c",
+      "offensive_campaign_peak_authority_contract.json": "b27072fc4af27e9bcf037a81537527f7eef2f4d53289f9f97ea2a9696ced1e5f",
+      "offensive_fresh_challenger_authority.py": "98c34259cb0f5566f83fc8db7ab2d990e4a72fde9965c0fb1824495c2449e1ee",
+      "offensive_fresh_challenger_authority_contract.json": "1c399c54d9c0f4d7fae0a0615cc7410ae67707edbe931044d3f8ccc72cb0b984",
+      "offensive_alpha_decay_displacement.py": "13282356a085898418b15bb77fddfe05adf655bb129dc29ad67c2d7059a99641",
+      "offensive_alpha_decay_displacement_contract.json": "c5375f577d341a4881927b58ed11d0d430292afad272283f501d13c3eda042b8",
+      "finite_study/__init__.py": "489300fe4519f090a8d034662525457d6660c93fdbfa6fffdf1c4807a87c8886",
+      "trend_book.py": "56eec9dd7b1554405d99f1b2359c043e75ed91ae4f6a6c1d05d099947771ee25",
+      "trend_book_contract.json": "c58d065a64ca7c85adee6df78a5448165d31a14800a35d2ebc721b72e2649068",
+      "coherent.py": "0d86a3904813af1ecad8fdb7bec4dc529caf546c3e6efd8a8d78afe80b9f7485",
+      "coherent_contract.json": "6a655ab9aa2ec7c1839b3576813ce58c2791f3d74183a7ed63f93c74741aa4a8",
+      "observed_trend.py": "9801ca612e53e07836712c6823646138da37d289b8b0698406d94feff6e1fff8",
+      "observed_trend_contract.json": "7e485c1d249f77d322b553532b9c4622643c8bb2b74d4983eacefd79497fcb81",
+      "nonlinear.py": "f9e5929d26a752a0bfff22db1b8088c7123fe8c7ebe9b987fc2bcb2891f7b68d",
+      "nonlinear_contract.json": "818b322a77980a1b5bce353190a8a216e4f092d38b7641154f30f0dd6579d0f9",
+      "pathwise.py": "e23e1747878404f3214f9a73f8cb24a43c736a81ad9fc863dcdd060a785b61c2",
+      "pathwise_contract.json": "a4125d4e5bcae53d11bf949ce53a25c6c6b83036c62e02d3206d854506e3e232",
+      "expectation_study.py": "f71b20322bf9661f65478eb6ea158b0a9c5c715490c8e0e7f2715b5b4923783a",
+      "leadership.py": "fe1dfdaf2250e29cbda71e2891c934b54deaed536075da3fae8b37529972a3a1",
+      "expectation.py": "9f48a03e85913dab8ee97eddbff3669b10b1253f85e0b2cfa7823b42c4ac9a7f",
+      "quantity_obligation.py": "7345fd9f4e4631179d77222898e68a04754483bfbcc05944b9f3f8b2a4c31aa9",
+      "quantity_obligation_contract.json": "6b38a211c2e4c41df2392d5c17d4efb8bd399a74acd43a3354fea0d90690c472",
+      "support_budget.py": "7c01c401bccb71fa54827150a78bd5e5df04cfd617634e36b5ac8e9af90deef6",
+      "support_budget_contract.json": "f68dc02717b35c5f5bd7e1feb6dba2436dc63d596aa0e1affe8bd672dce9bc52",
+      "funded_risk.py": "f91211b5fd377a54bf50778602d066c6e6247e44acbaab8faf48f9972a5751e0",
+      "funded_risk_contract.json": "065e0c70d37677e785f32ca54d6183294c9150e1aa59c415d0c103d25eae35a6",
+      "observed_readiness.py": "e3e24d801156d8eb9b8c4eae2ceaf0365b9001ea93641e93d9340d1a2a252e60",
+      "observed_readiness_contract.json": "a64db872be98b11a1c3010051499af29ef0113fc1909290cee668e4e10ba4617",
+      "admission_budget_completion.py": "abdcc4922c3c6d9d02a216174d77d3f5d9fbc899916dd08e2f08dea237fb89df",
+      "admission_budget_completion_contract.json": "a2f739923d409f3b589d5f8744f300fc8336fef410daf920f4ffc6826a4ec126",
+      "observed_admission_completion.py": "13e11084e1a3c21595f662aa02498f5120da7d191f487ed27aebbad36c7f8f48",
+      "observed_admission_completion_contract.json": "7a4f8e4a080a918de51d68babde747e5cf9bad0bc586252b1cea9c2280136aed",
+      "decision_review.py": "c7c7de645b958420fab8153532a1113dabfcb01fa163df48992cb908d4603593",
+      "ledger_attribution.py": "c338767d01400b119e089363df5eaee71de4b53b5c5bdef80ad2f46bfec48d47"
+    }
+  },
+  "data_sha256": "894230b20361fb826d58b27987e87146a090b9e894e7abf091121486f5293157",
+  "full_data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "plan_sha256": "fea910191ee322d246dcf5e39a3f6da73ed8eabd4e6679e8eab29db6981bf55e",
+  "registration_commit": "83742a09392da357616bf700a0ed15ca86251cca",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "historical_exposure": "RETROSPECTIVE_NOT_UNSEEN_OUT_OF_SAMPLE"
+}
