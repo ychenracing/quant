@@ -1,0 +1,19 @@
+{
+  "family": "offensive_matured_displacement_memory",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "60e97741aae04b7cc7adf158355fee96e3fb2667",
+  "source_git_blob": {
+    "research/offensive_matured_displacement_memory.py": "d4abe591144b96c562ec0a57429ed86633d43b75",
+    "research/test_offensive_matured_displacement_memory.py": "6601d7eaddd1c0e4705bcab284c79e53c187013f",
+    "research/offensive_matured_displacement_memory_study.py": "add26570723acae3c7bc96132c8ce0a2d462fac1",
+    "research/offensive_matured_displacement_memory_contract.json": "acc5d660485fa53711b8aaa8de9b925e04ded3b6",
+    ".github/workflows/matured-displacement-memory-study.yml": "e8e04d84e4cecc5995ceeb9869f944023e11c2d5",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213",
+    "research/offensive_fresh_challenger_authority.py": "cadf4685b8106fda45986ee7c76aabddbc7d57b7"
+  },
+  "request": "Run the preregistered campaign-peak champion versus matured-displacement-memory treatment through 2025-12-31 on union, common-five and joint optical-leader removal. Select only if mean(log terminal wealth) strictly exceeds the current champion and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound treatment through all 896 frozen sessions. The action memory may consume only fully matured next-open to next-open Config.rebalance=10 labels; no immature event may affect a decision. Record MDD, orders, turnover, fees, slippage, exposure, registered/matured event counts and final memory mean as diagnostics. Do not search horizons, rolling windows, weighting, margins, position count or pool-specific behavior.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
