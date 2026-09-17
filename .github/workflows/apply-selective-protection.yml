@@ -1,0 +1,78 @@
+name: Apply selective protection mechanism
+
+on:
+  push:
+    branches: [feat/dynamic-relative-risk-ownership]
+    paths: [.github/workflows/apply-selective-protection.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply bounded structural replacement
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          source = Path('src/techquant/risk_ownership.py')
+          text = source.read_text(encoding='utf-8')
+
+          old = '''        breadth_change5 = breadth20 - breadth20.shift(5).fillna(breadth20)\n\n        self.price = price.to_numpy(dtype=float)\n'''
+          new = '''        breadth_change5 = breadth20 - breadth20.shift(5).fillna(breadth20)\n        ret20 = price.pct_change(20, fill_method=None)\n        symbol_volatility = returns.rolling(20, min_periods=10).std()\n        strength = (\n            price.div(ema60).sub(1.0)\n            + 0.5 * ema20.div(ema60).sub(1.0)\n            + 0.25 * ret20\n            - 0.5 * symbol_volatility\n        )\n\n        self.price = price.to_numpy(dtype=float)\n'''
+          if text.count(old) != 1:
+              raise SystemExit('signal insertion anchor mismatch')
+          text = text.replace(old, new)
+
+          old = '''        self.raw_close = raw.to_numpy(dtype=float)\n        self.trend_damage = (\n'''
+          new = '''        self.raw_close = raw.to_numpy(dtype=float)\n        self.strength = (\n            strength.replace([np.inf, -np.inf], np.nan)\n            .fillna(-np.inf)\n            .to_numpy(dtype=float)\n        )\n        self.trend_damage = (\n'''
+          if text.count(old) != 1:
+              raise SystemExit('strength storage anchor mismatch')
+          text = text.replace(old, new)
+
+          old = '''    def _protection_target(\n        self, close: CloseObservation, nominal_cap: float\n    ) -> np.ndarray:\n        marks = np.where(\n            np.isfinite(self.price[close.session]),\n            self.price[close.session],\n            0.0,\n        )\n        current_value = float(close.units @ marks)\n        target_value = min(current_value, nominal_cap * close.nav)\n        if current_value <= target_value + 1e-8 or current_value <= 0:\n            return close.units.copy()\n        desired = close.units * (target_value / current_value)\n        return self._quantize_toward(close.units, desired, close.session)\n'''
+          new = '''    def _protection_target(\n        self, close: CloseObservation, nominal_cap: float\n    ) -> np.ndarray:\n        \"\"\"Keep causally strong holdings first at the same total risk cap.\n\n        The event-level cap is identical to proportional protection.  Only the\n        cross-sectional allocation changes: intact leadership is retained while\n        the weakest observed holdings fund protection.  No future return, known\n        date or case identity participates in this ordering.\n        \"\"\"\n\n        marks = np.where(\n            np.isfinite(self.price[close.session]),\n            self.price[close.session],\n            0.0,\n        )\n        current_value = float(close.units @ marks)\n        target_value = min(current_value, nominal_cap * close.nav)\n        if current_value <= target_value + 1e-8 or current_value <= 0:\n            return close.units.copy()\n\n        desired = np.zeros_like(close.units)\n        remaining = target_value\n        held = np.flatnonzero(close.units > 1e-10)\n        order = sorted(\n            held,\n            key=lambda j: (\n                -self.strength[close.session, j],\n                self.market.symbols[j],\n            ),\n        )\n        for j in order:\n            if not np.isfinite(marks[j]) or marks[j] <= 0:\n                desired[j] = close.units[j]\n                continue\n            holding_value = float(close.units[j] * marks[j])\n            keep_value = min(remaining, holding_value)\n            desired[j] = keep_value / marks[j]\n            remaining -= keep_value\n            if remaining <= 1e-8:\n                break\n        return self._quantize_toward(close.units, desired, close.session)\n'''
+          if text.count(old) != 1:
+              raise SystemExit('protection target anchor mismatch')
+          text = text.replace(old, new)
+
+          if text.count('"SYSTEMIC_PROTECTION:"') != 1:
+              raise SystemExit('protection reason anchor mismatch')
+          text = text.replace(
+              '"SYSTEMIC_PROTECTION:"',
+              '"SELECTIVE_SYSTEMIC_PROTECTION:"',
+          )
+          if text.count('"mechanism": "event_scoped_systemic_partial_protection"') != 1:
+              raise SystemExit('identity anchor mismatch')
+          text = text.replace(
+              '"mechanism": "event_scoped_systemic_partial_protection"',
+              '"mechanism": "event_scoped_selective_systemic_protection"',
+          )
+          source.write_text(text, encoding='utf-8')
+
+          tests = Path('tests/test_risk_ownership.py')
+          test_text = tests.read_text(encoding='utf-8')
+          marker = '''    def test_recovery_requires_new_evidence_and_completes_in_two_stages(self):\n'''
+          inserted = '''    def test_same_cap_retains_stronger_holdings_before_weak_ones(self):\n        market = sample_market(3, 40)\n        policy = RiskAwareOwnershipPolicy(\n            market,\n            Config(),\n            RiskOwnershipParameters(core_fraction=0.70),\n        )\n        policy.trend_damage[:] = False\n        policy.breadth_damage[:] = False\n        policy.volatility_damage[:] = False\n        policy.market_shock[:] = False\n        policy.market_shock[10] = True\n        policy.trend_damage[10] = True\n        policy.strength[10] = np.array([3.0, 2.0, -3.0])\n        units = np.full(3, 10_000.0)\n\n        decision = policy.decide(\n            direct_observation(policy, 10, units, units)\n        )\n\n        np.testing.assert_allclose(decision.unit_targets[:2], units[:2])\n        self.assertLess(decision.unit_targets[2], units[2] * 0.20)\n        self.assertLessEqual(float(decision.weights.sum()), 0.70 + 1e-10)\n        self.assertIn("SELECTIVE_SYSTEMIC_PROTECTION", decision.reason)\n\n'''
+          if test_text.count(marker) != 1:
+              raise SystemExit('test insertion anchor mismatch')
+          if 'test_same_cap_retains_stronger_holdings_before_weak_ones' in test_text:
+              raise SystemExit('selective test already exists')
+          test_text = test_text.replace(marker, inserted + marker)
+          tests.write_text(test_text, encoding='utf-8')
+          PY
+
+          git diff --check
+          git diff --stat
+          git config user.name 'quant structural research'
+          git config user.email 'quant-research@users.noreply.github.com'
+          git add src/techquant/risk_ownership.py tests/test_risk_ownership.py
+          git commit -m 'Protect weak holdings before intact leadership'
+          git push origin HEAD:feat/dynamic-relative-risk-ownership
