@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "purpose": "Pre-registered bounded selection-window screen for the risk-aware ownership structure; not the dynamic four-reference acceptance gate.",
   "selection_window": {
     "start": "2023-01-03",
@@ -48,12 +48,12 @@
   ],
   "parameters": {
     "core_fraction": [
-      0.5,
-      0.6,
-      0.7
+      0.7,
+      0.8,
+      0.9
     ],
     "risk_confirmation": 2,
-    "recovery_confirmation": 2
+    "recovery": "FULL_OWNERSHIP_ON_CONFIRMED_RISK_CLEAR"
   },
   "protection_allocation": {
     "portfolio_cap": "unchanged from the coarse core_fraction structure",
@@ -68,9 +68,10 @@
     "case_identity_used": false
   },
   "recovery_invariants": {
-    "protection_fill_required_only_before_recovery_starts": true,
-    "recovered_units_may_exceed_the_protection_goal": true,
-    "fresh_risk_pauses_staged_recovery": true,
+    "protection_fill_required_before_recovery_starts": true,
+    "confirmed_risk_clear_starts_full_restoration": true,
+    "fresh_risk_pauses_restoration_at_actual_inventory": true,
+    "fresh_risk_does_not_resell_restored_units": true,
     "ownership_intent_remains_the_recovery_upper_bound": true,
     "ordinary_recovery_buy_materiality": "shared with the execution engine's one-percent-of-NAV order floor",
     "below_material_residual_buy_keeps_episode_open": false,
@@ -98,5 +99,18 @@
     "Drawdown remains mandatory to measure and optimize even though its ideal target is not the economic hard gate.",
     "Backtest results do not guarantee future returns."
   ],
-  "production_default_changed": false
+  "production_default_changed": false,
+  "selected_structure": {
+    "core_fraction": 0.9,
+    "basis": "highest minimum return retention among the frozen 0.7/0.8/0.9 structures while improving drawdown in all seven selection cases",
+    "selection_metrics": {
+      "minimum_wealth_ratio_to_passive": 0.9776634304135595,
+      "median_wealth_ratio_to_passive": 0.9817125446781708,
+      "minimum_drawdown_margin_to_passive": 9.350904461769005e-05,
+      "median_drawdown_margin_to_passive": 0.0027255890547475126,
+      "drawdown_improved_cases": 7,
+      "case_count": 7
+    },
+    "final_evaluation_used_for_selection": false
+  }
 }
