@@ -382,7 +382,10 @@ class RiskAwareOwnershipPolicy:
             close.units, self._protection_goal, close.session
         )
         risk_active = defensive or crisis
-        if not protection_reached or risk_active:
+        waiting_for_protection_fill = (
+            self._recovery_stage == 0 and not protection_reached
+        )
+        if waiting_for_protection_fill or risk_active:
             self._early_recovery_streak = 0
             self._full_recovery_streak = 0
             self._recovery_paused = bool(risk_active and self._recovery_stage > 0)

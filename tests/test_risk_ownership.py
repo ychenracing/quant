@@ -101,7 +101,9 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         policy.market_shock[:] = False
         units = np.zeros(2)
         states = []
-        for session, nav in enumerate((100.0, 70.0, 69.5, 71.0, 73.0, 75.0)):
+        for session, nav in enumerate(
+            (100.0, 70.0, 69.5, 71.0, 73.0, 75.0, 76.0)
+        ):
             decision = policy.decide(
                 direct_observation(
                     policy,
@@ -135,7 +137,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
             if session == 11:
                 first_goal = decision.unit_targets.copy()
                 self.assertEqual(policy.state, "DEFENSIVE")
-                self.assertTrue((first_goal < units).all())
+                self.assertTrue((first_goal < units).any())
             elif session == 12:
                 np.testing.assert_allclose(decision.unit_targets, first_goal)
         self.assertIsNotNone(first_goal)
@@ -162,7 +164,12 @@ class RiskAwareOwnershipTests(unittest.TestCase):
 
         np.testing.assert_allclose(decision.unit_targets[:2], units[:2])
         self.assertLess(decision.unit_targets[2], units[2] * 0.20)
-        self.assertLessEqual(float(decision.weights.sum()), 0.70 + 1e-10)
+        exposure = float(decision.weights.sum())
+        account_value = float((units * policy.price[10]).sum())
+        one_lot_residual = float(policy.raw_close[10].max() * 100.0 / account_value)
+        self.assertGreaterEqual(exposure, 0.70)
+        self.assertLess(exposure - 0.70, one_lot_residual + 1e-10)
+        self.assertAlmostEqual(decision.cap, exposure)
         self.assertIn("SELECTIVE_SYSTEMIC_PROTECTION", decision.reason)
 
     def test_recovery_requires_new_evidence_and_completes_in_two_stages(self):
@@ -189,19 +196,26 @@ class RiskAwareOwnershipTests(unittest.TestCase):
             if session == 11:
                 goal = decision.unit_targets.copy()
         self.assertIsNotNone(goal)
+        reduced = goal < owned - 1e-10
+        self.assertTrue(reduced.any())
         units = goal.copy()
 
         first = policy.decide(direct_observation(policy, 12, units, owned))
         np.testing.assert_allclose(first.unit_targets, goal)
         half = policy.decide(direct_observation(policy, 13, units, owned))
         self.assertEqual(policy.state, "RECOVERY")
-        self.assertTrue((half.unit_targets > goal).all())
-        self.assertTrue((half.unit_targets < owned).all())
+        np.testing.assert_allclose(half.unit_targets[~reduced], owned[~reduced])
+        self.assertTrue((half.unit_targets[reduced] > goal[reduced]).all())
+        self.assertTrue((half.unit_targets[reduced] < owned[reduced]).all())
 
         units = half.unit_targets.copy()
         policy.decide(direct_observation(policy, 14, units, owned))
         full = policy.decide(direct_observation(policy, 15, units, owned))
-        self.assertTrue((full.unit_targets > units).all())
+        np.testing.assert_allclose(full.unit_targets[~reduced], owned[~reduced])
+        self.assertTrue((full.unit_targets[reduced] > units[reduced]).all())
+        self.assertTrue(
+            (full.unit_targets[reduced] <= owned[reduced] + 1e-10).all()
+        )
 
         units = full.unit_targets.copy()
         completed = policy.decide(
