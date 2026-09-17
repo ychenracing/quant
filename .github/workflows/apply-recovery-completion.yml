@@ -26,7 +26,7 @@ jobs:
       - name: Install exact candidate source
         run: python -m pip install -e .
 
-      - name: Repair recovery-stage progression
+      - name: Repair and verify recovery-stage progression
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -39,20 +39,25 @@ jobs:
           if text.count(old) != 1:
               raise SystemExit("recovery progression anchor mismatch")
           source.write_text(text.replace(old, new), encoding="utf-8")
+
+          tests = Path("tests/test_risk_ownership.py")
+          test_text = tests.read_text(encoding="utf-8")
+          old_test = """        self.assertIsNotNone(goal)\n        units = goal.copy()\n\n        first = policy.decide(direct_observation(policy, 12, units, owned))\n        np.testing.assert_allclose(first.unit_targets, goal)\n        half = policy.decide(direct_observation(policy, 13, units, owned))\n        self.assertEqual(policy.state, \"RECOVERY\")\n        self.assertTrue((half.unit_targets > goal).all())\n        self.assertTrue((half.unit_targets < owned).all())\n\n        units = half.unit_targets.copy()\n        policy.decide(direct_observation(policy, 14, units, owned))\n        full = policy.decide(direct_observation(policy, 15, units, owned))\n        self.assertTrue((full.unit_targets > units).all())\n"""
+          new_test = """        self.assertIsNotNone(goal)\n        reduced = goal < owned - 1e-10\n        self.assertTrue(reduced.any())\n        units = goal.copy()\n\n        first = policy.decide(direct_observation(policy, 12, units, owned))\n        np.testing.assert_allclose(first.unit_targets, goal)\n        half = policy.decide(direct_observation(policy, 13, units, owned))\n        self.assertEqual(policy.state, \"RECOVERY\")\n        np.testing.assert_allclose(half.unit_targets[~reduced], owned[~reduced])\n        self.assertTrue((half.unit_targets[reduced] > goal[reduced]).all())\n        self.assertTrue((half.unit_targets[reduced] < owned[reduced]).all())\n\n        units = half.unit_targets.copy()\n        policy.decide(direct_observation(policy, 14, units, owned))\n        full = policy.decide(direct_observation(policy, 15, units, owned))\n        np.testing.assert_allclose(full.unit_targets[~reduced], owned[~reduced])\n        self.assertTrue((full.unit_targets[reduced] > units[reduced]).all())\n        self.assertTrue(\n            (full.unit_targets[reduced] <= owned[reduced] + 1e-10).all()\n        )\n"""
+          if test_text.count(old_test) != 1:
+              raise SystemExit("selective recovery test anchor mismatch")
+          tests.write_text(test_text.replace(old_test, new_test), encoding="utf-8")
           PY
 
           git diff --check
-          python -m py_compile src/techquant/risk_ownership.py
-          python -m unittest \
-            tests.test_risk_ownership.RiskAwareOwnershipTests.test_recovery_requires_new_evidence_and_completes_in_two_stages \
-            tests.test_risk_ownership.RiskAwareOwnershipTests.test_shock_protects_then_recovers_without_a_low_exposure_trap \
-            -v
+          python -m py_compile src/techquant/risk_ownership.py tests/test_risk_ownership.py
+          python -m unittest tests.test_risk_ownership -v
 
-      - name: Commit verified source repair
+      - name: Commit verified recovery repair
         run: |
           set -euo pipefail
           git config user.name "quant structural research"
           git config user.email "quant-research@users.noreply.github.com"
-          git add -- src/techquant/risk_ownership.py
+          git add -- src/techquant/risk_ownership.py tests/test_risk_ownership.py
           git commit -m "Complete staged ownership recovery"
           git push origin HEAD:feat/dynamic-relative-risk-ownership
