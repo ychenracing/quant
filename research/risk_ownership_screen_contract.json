@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "purpose": "Pre-registered bounded selection-window screen for the risk-aware ownership structure; not the dynamic four-reference acceptance gate.",
   "selection_window": {
     "start": "2023-01-03",
@@ -78,16 +78,24 @@
   },
   "selection_objective": [
     "maximize the minimum candidate wealth divided by same-engine passive wealth",
-    "then maximize the minimum passive drawdown minus candidate drawdown",
+    "treat return preservation as the primary objective",
+    "only after return qualification, maximize the minimum passive drawdown minus candidate drawdown",
     "then maximize the median passive drawdown minus candidate drawdown",
-    "then maximize median wealth retention",
+    "then compare turnover, costs and stability",
     "prefer the larger core fraction only as an exact deterministic tie-break"
   ],
+  "acceptance_relationship": {
+    "formal_return_hard_gate": "quant terminal wealth must reach the highest of the four references in every mandatory exact case",
+    "formal_drawdown_role": "secondary optimization objective after the return hard gate",
+    "ideal_drawdown_target": "strictly below the worst maximum drawdown among the four references in the same exact case",
+    "drawdown_target_is_merge_blocking": false
+  },
   "limitations": [
     "This screen cannot pass the dynamic relative contract because exact four-reference results are incomplete.",
     "The passive baseline is a same-engine diagnostic, not a substitute for the four read-only reference strategies.",
     "The 2026 final-evaluation window is not read or used to choose the structure.",
-    "A selected structure remains research-only until every mandatory exact case is complete and passes.",
+    "A selected structure remains research-only until every mandatory exact case has complete references and meets the return hard gate.",
+    "Drawdown remains mandatory to measure and optimize even though its ideal target is not the economic hard gate.",
     "Backtest results do not guarantee future returns."
   ],
   "production_default_changed": false

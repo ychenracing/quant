@@ -1,7 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "contract_id": "dynamic_relative_reference_acceptance",
   "frozen_at": "2026-09-17",
+  "revised_at": "2026-09-18",
+  "revision_authority": "User explicitly replaced the prior joint return-and-drawdown hard gate.",
   "source_main_sha": "b0902e8abd360e2702ae350f4ccba3a696bcb71f",
   "candidate_identity": {
     "requirement": "ONE_GLOBAL_PRODUCTION_CANDIDATE",
@@ -27,22 +29,39 @@
     "Normalized": "MANDATORY_ONLY_FOR_CASES_FROZEN_WITH_FOUR_COMPLETE_NORMALIZED_REFERENCES_BEFORE_CANDIDATE_MEASUREMENT",
     "Equivalent-execution": "MANDATORY_ONLY_FOR_CASES_FROZEN_WITH_FOUR_COMPLETE_EQUIVALENT_EXECUTION_REFERENCES_BEFORE_CANDIDATE_MEASUREMENT"
   },
+  "acceptance_priority": {
+    "first": "RETURN_HARD_GATE",
+    "second": "DRAWDOWN_MINIMIZATION_AFTER_RETURN_GATE",
+    "return_requirement": "For every mandatory exact case, Quant terminal wealth must be at least the highest terminal wealth among the four references.",
+    "drawdown_objective": "After the return requirement is met, minimize Quant maximum drawdown.",
+    "ideal_drawdown_target": "In the same exact case, Quant maximum drawdown should be strictly below the largest maximum drawdown among the four references.",
+    "drawdown_target_is_hard_gate": false,
+    "drawdown_target_is_merge_blocking": false
+  },
   "thresholds": {
     "return_floor": "max(reference_terminal_wealth for the four references in the exact case)",
-    "drawdown_ceiling": "max(reference_max_drawdown for the four references in the exact case)",
+    "drawdown_target": "max(reference_max_drawdown for the four references in the exact case)",
     "return_pass": "quant_terminal_wealth >= return_floor",
-    "drawdown_pass": "quant_max_drawdown < drawdown_ceiling",
-    "case_pass": "return_pass and drawdown_pass",
+    "drawdown_target_met": "quant_max_drawdown < drawdown_target",
+    "case_pass": "return_pass",
     "rounding_forbidden": true,
-    "cross_case_compensation_forbidden": true
+    "cross_case_compensation_forbidden_for_return": true,
+    "drawdown_is_reported_for_every_case": true
   },
   "joint_gate": {
     "min_return_ratio": "min(quant_terminal_wealth / return_floor over every mandatory complete case)",
-    "min_drawdown_margin": "min(drawdown_ceiling - quant_max_drawdown over every mandatory complete case)",
-    "hard_requirement": "min_return_ratio >= 1.0 and min_drawdown_margin > 0 and zero mandatory incomplete cases",
-    "internal_safety_target": {
+    "hard_requirement": "min_return_ratio >= 1.0 and zero mandatory incomplete cases",
+    "drawdown_diagnostic": "min(drawdown_target - quant_max_drawdown over every mandatory complete case)",
+    "ideal_drawdown_outcome": "all mandatory complete cases have drawdown_target - quant_max_drawdown > 0",
+    "selection_order": [
+      "maximize min_return_ratio",
+      "among candidates with min_return_ratio >= 1.0, maximize min_drawdown_margin",
+      "then compare median return advantage, median drawdown advantage, cost, turnover and stability",
+      "prefer the simplest fully integrated candidate when economics are otherwise equivalent"
+    ],
+    "internal_safety_targets": {
       "min_return_ratio": 1.02,
-      "min_drawdown_margin": 0.01
+      "min_drawdown_margin_nonbinding": 0.01
     }
   },
   "case_identity_fields": [
@@ -91,7 +110,9 @@
   "production_gate": {
     "default_behavior_unchanged_until_met": true,
     "economic_acceptance_required": "MET",
+    "economic_acceptance_definition": "Every mandatory complete case meets the return hard gate and there are zero mandatory incomplete cases.",
+    "drawdown_target_not_met_requires_reporting_and_continued_optimization_but_does_not_by_itself_block_merge": true,
     "repository_checks_required": true,
-    "failed_candidate_merge_forbidden": true
+    "failed_return_candidate_merge_forbidden": true
   }
 }

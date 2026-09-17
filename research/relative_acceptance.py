@@ -1,8 +1,13 @@
-"""Fail-closed dynamic acceptance against four case-matched references.
+"""Fail-closed return-first acceptance against four case-matched references.
 
 Every threshold is derived inside one exact case identity and evidence layer.
 Missing references, mixed identities, rounded comparisons, or duplicate rows can
 never become a pass.
+
+Terminal wealth is the only economic hard gate.  Drawdown is measured against
+the worst-drawdown reference in the same exact case and is optimized only after
+the return gate is met.  Meeting that drawdown target is desirable but does not
+turn an otherwise return-qualified case into a failure.
 """
 from __future__ import annotations
 
@@ -53,12 +58,12 @@ TABLE_FIELDS = (
     "workbuddy_max_drawdown",
     "return_floor",
     "return_floor_reference",
-    "drawdown_ceiling",
-    "drawdown_ceiling_reference",
+    "drawdown_target",
+    "drawdown_target_reference",
     "return_ratio",
     "drawdown_margin",
     "return_pass",
-    "drawdown_pass",
+    "drawdown_target_met",
     "case_pass",
     "status",
     "mandatory",
@@ -99,7 +104,9 @@ def case_identity_payload(identity: Mapping[str, Any]) -> dict[str, Any]:
         or not all(isinstance(symbol, str) and symbol for symbol in universe)
         or len(set(universe)) != len(universe)
     ):
-        raise AcceptanceError("universe_and_order must be a non-empty unique string list")
+        raise AcceptanceError(
+            "universe_and_order must be a non-empty unique string list"
+        )
     if not isinstance(payload["initial_positions"], Mapping):
         raise AcceptanceError("initial_positions must be a mapping")
     initial_cash = _finite_number(payload["initial_cash"], "initial_cash")
@@ -134,15 +141,25 @@ def _validate_metrics(
     if not isinstance(metrics, Mapping):
         raise AcceptanceError(f"{owner} metrics must be a mapping")
     if metrics.get("case_identity_hash") != expected_hash:
-        raise AcceptanceError(f"{owner} case identity does not match the threshold case")
+        raise AcceptanceError(
+            f"{owner} case identity does not match the threshold case"
+        )
     if metrics.get("evidence_layer") != expected_layer:
-        raise AcceptanceError(f"{owner} evidence layer does not match the threshold case")
-    wealth = _finite_number(metrics.get("terminal_wealth"), f"{owner}.terminal_wealth")
-    drawdown = _finite_number(metrics.get("max_drawdown"), f"{owner}.max_drawdown")
+        raise AcceptanceError(
+            f"{owner} evidence layer does not match the threshold case"
+        )
+    wealth = _finite_number(
+        metrics.get("terminal_wealth"), f"{owner}.terminal_wealth"
+    )
+    drawdown = _finite_number(
+        metrics.get("max_drawdown"), f"{owner}.max_drawdown"
+    )
     if wealth <= 0:
         raise AcceptanceError(f"{owner}.terminal_wealth must be positive")
     if not 0 <= drawdown <= 1:
-        raise AcceptanceError(f"{owner}.max_drawdown must be a loss magnitude in [0, 1]")
+        raise AcceptanceError(
+            f"{owner}.max_drawdown must be a loss magnitude in [0, 1]"
+        )
     return wealth, drawdown
 
 
@@ -164,7 +181,7 @@ def _empty_row(
         status=status,
         case_pass=False,
         return_pass=False,
-        drawdown_pass=False,
+        drawdown_target_met=False,
         missing_references=list(missing),
     )
     return row
@@ -175,7 +192,11 @@ def evaluate_case(
     *,
     reference_names: Sequence[str] = REFERENCE_NAMES,
 ) -> dict[str, Any]:
-    """Evaluate one candidate only against four references from its exact case."""
+    """Evaluate one candidate against four references from its exact case.
+
+    Return qualification is the hard gate.  The drawdown target is reported as
+    a secondary optimization outcome and does not alter ``case_pass``.
+    """
     if not isinstance(record, Mapping):
         raise AcceptanceError("case record must be a mapping")
     case_id = record.get("case_id")
@@ -191,7 +212,9 @@ def evaluate_case(
     identity_hash = case_identity_hash(payload)
     declared_hash = record.get("case_identity_hash")
     if declared_hash is not None and declared_hash != identity_hash:
-        raise AcceptanceError("declared case_identity_hash does not match identity")
+        raise AcceptanceError(
+            "declared case_identity_hash does not match identity"
+        )
     layer = payload["evidence_layer"]
 
     references = record.get("references")
@@ -233,38 +256,39 @@ def evaluate_case(
         )
 
     return_floor = max(wealth for wealth, _ in values.values())
-    drawdown_ceiling = max(drawdown for _, drawdown in values.values())
+    drawdown_target = max(drawdown for _, drawdown in values.values())
     floor_sources = sorted(
         name for name, (wealth, _) in values.items() if wealth == return_floor
     )
-    ceiling_sources = sorted(
-        name for name, (_, drawdown) in values.items() if drawdown == drawdown_ceiling
+    target_sources = sorted(
+        name for name, (_, drawdown) in values.items()
+        if drawdown == drawdown_target
     )
     quant_wealth, quant_drawdown = quant
     return_ratio = quant_wealth / return_floor
-    drawdown_margin = drawdown_ceiling - quant_drawdown
+    drawdown_margin = drawdown_target - quant_drawdown
     return_pass = quant_wealth >= return_floor
-    drawdown_pass = quant_drawdown < drawdown_ceiling
-    case_pass = return_pass and drawdown_pass
+    drawdown_target_met = quant_drawdown < drawdown_target
+    case_pass = return_pass
 
     row = _empty_row(
         case_id=case_id,
         layer=layer,
         identity_hash=identity_hash,
         mandatory=mandatory,
-        status="PASS" if case_pass else "FAIL",
+        status="PASS" if case_pass else "FAIL_RETURN",
     )
     row.update(
         quant_terminal_wealth=quant_wealth,
         quant_max_drawdown=quant_drawdown,
         return_floor=return_floor,
         return_floor_reference=floor_sources,
-        drawdown_ceiling=drawdown_ceiling,
-        drawdown_ceiling_reference=ceiling_sources,
+        drawdown_target=drawdown_target,
+        drawdown_target_reference=target_sources,
         return_ratio=return_ratio,
         drawdown_margin=drawdown_margin,
         return_pass=return_pass,
-        drawdown_pass=drawdown_pass,
+        drawdown_target_met=drawdown_target_met,
         case_pass=case_pass,
     )
     for name, (wealth, drawdown) in values.items():
@@ -280,13 +304,21 @@ def evaluate_matrix(
     reference_names: Sequence[str] = REFERENCE_NAMES,
 ) -> dict[str, Any]:
     required = tuple(required_layers)
-    if not required or any(layer not in EVIDENCE_LAYERS for layer in required):
-        raise AcceptanceError("required_layers must contain supported evidence layers")
+    if not required or any(
+        layer not in EVIDENCE_LAYERS for layer in required
+    ):
+        raise AcceptanceError(
+            "required_layers must contain supported evidence layers"
+        )
     rows: list[dict[str, Any]] = []
     seen: set[tuple[str, str, str]] = set()
     for record in records:
         row = evaluate_case(record, reference_names=reference_names)
-        key = (row["case_id"], row["evidence_layer"], row["case_identity_hash"])
+        key = (
+            row["case_id"],
+            row["evidence_layer"],
+            row["case_identity_hash"],
+        )
         if key in seen:
             raise AcceptanceError(f"duplicate case evidence: {key}")
         seen.add(key)
@@ -296,70 +328,140 @@ def evaluate_matrix(
     required_missing = [
         layer
         for layer in required
-        if not any(row["mandatory"] and row["evidence_layer"] == layer for row in rows)
+        if not any(
+            row["mandatory"] and row["evidence_layer"] == layer
+            for row in rows
+        )
     ]
     gating = [
         row
         for row in rows
         if row["mandatory"] and row["evidence_layer"] in required
     ]
-    failed = [row["case_id"] for row in gating if row["status"] == "FAIL"]
+    failed = [
+        row["case_id"]
+        for row in gating
+        if row["status"] == "FAIL_RETURN"
+    ]
     incomplete = [
         row["case_id"]
         for row in gating
         if row["status"] == "REFERENCE_INCOMPLETE"
     ]
+    drawdown_target_not_met = [
+        row["case_id"]
+        for row in gating
+        if row["return_ratio"] is not None and not row["drawdown_target_met"]
+    ]
     complete = [row for row in gating if row["return_ratio"] is not None]
     weakest_return = (
-        min(complete, key=lambda row: (row["return_ratio"], row["case_id"]))
+        min(
+            complete,
+            key=lambda row: (row["return_ratio"], row["case_id"]),
+        )
         if complete
         else None
     )
     weakest_drawdown = (
-        min(complete, key=lambda row: (row["drawdown_margin"], row["case_id"]))
+        min(
+            complete,
+            key=lambda row: (row["drawdown_margin"], row["case_id"]),
+        )
         if complete
         else None
     )
-    met = bool(gating) and not required_missing and all(
-        row["status"] == "PASS" for row in gating
+    met = (
+        bool(gating)
+        and not required_missing
+        and not incomplete
+        and all(row["return_pass"] for row in gating)
     )
 
     layer_summary: dict[str, dict[str, Any]] = {}
     for layer in EVIDENCE_LAYERS:
-        layer_rows = [row for row in rows if row["evidence_layer"] == layer]
+        layer_rows = [
+            row for row in rows if row["evidence_layer"] == layer
+        ]
         if not layer_rows:
             continue
         mandatory_rows = [row for row in layer_rows if row["mandatory"]]
+        complete_rows = [
+            row
+            for row in mandatory_rows
+            if row["return_ratio"] is not None
+        ]
         layer_summary[layer] = {
             "cases": len(layer_rows),
             "mandatory_cases": len(mandatory_rows),
-            "passed": sum(row["status"] == "PASS" for row in mandatory_rows),
-            "failed": sum(row["status"] == "FAIL" for row in mandatory_rows),
+            "return_gate_passed": sum(
+                bool(row["return_pass"]) for row in complete_rows
+            ),
+            "return_gate_failed": sum(
+                not bool(row["return_pass"]) for row in complete_rows
+            ),
+            "drawdown_target_met": sum(
+                bool(row["drawdown_target_met"]) for row in complete_rows
+            ),
+            "drawdown_target_not_met": sum(
+                not bool(row["drawdown_target_met"])
+                for row in complete_rows
+            ),
             "reference_incomplete": sum(
-                row["status"] == "REFERENCE_INCOMPLETE" for row in mandatory_rows
+                row["status"] == "REFERENCE_INCOMPLETE"
+                for row in mandatory_rows
             ),
         }
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
+        "acceptance_priority": {
+            "hard_gate": "terminal_wealth_at_least_best_reference",
+            "secondary_objective": (
+                "minimize_drawdown_after_return_gate"
+            ),
+            "ideal_drawdown_target": (
+                "strictly_below_worst_reference_drawdown_in_same_case"
+            ),
+            "drawdown_target_is_merge_blocking": False,
+        },
         "reference_names": list(reference_names),
         "required_evidence_layers": list(required),
         "economic_acceptance": "MET" if met else "NOT_MET",
         "mandatory_cases": len(gating),
         "required_layers_without_mandatory_cases": required_missing,
+        "failed_return_cases": failed,
         "failed_cases": failed,
         "reference_incomplete_cases": incomplete,
+        "drawdown_target_not_met_cases": drawdown_target_not_met,
+        "drawdown_target_met_cases": [
+            row["case_id"]
+            for row in complete
+            if row["drawdown_target_met"]
+        ],
         "min_return_ratio": (
-            weakest_return["return_ratio"] if weakest_return is not None else None
+            weakest_return["return_ratio"]
+            if weakest_return is not None
+            else None
         ),
         "weakest_return_case": (
-            weakest_return["case_id"] if weakest_return is not None else None
+            weakest_return["case_id"]
+            if weakest_return is not None
+            else None
         ),
         "min_drawdown_margin": (
-            weakest_drawdown["drawdown_margin"] if weakest_drawdown is not None else None
+            weakest_drawdown["drawdown_margin"]
+            if weakest_drawdown is not None
+            else None
         ),
         "weakest_drawdown_case": (
-            weakest_drawdown["case_id"] if weakest_drawdown is not None else None
+            weakest_drawdown["case_id"]
+            if weakest_drawdown is not None
+            else None
+        ),
+        "all_mandatory_drawdown_targets_met": (
+            bool(complete)
+            and len(complete) == len(gating)
+            and all(row["drawdown_target_met"] for row in complete)
         ),
         "layers": layer_summary,
         "rows": rows,
@@ -378,15 +480,26 @@ def _csv_value(value: Any) -> Any:
 
 def write_csv(path: Path, rows: Sequence[Mapping[str, Any]]) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=TABLE_FIELDS, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=TABLE_FIELDS,
+            extrasaction="ignore",
+        )
         writer.writeheader()
         for row in rows:
-            writer.writerow({field: _csv_value(row.get(field)) for field in TABLE_FIELDS})
+            writer.writerow(
+                {
+                    field: _csv_value(row.get(field))
+                    for field in TABLE_FIELDS
+                }
+            )
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Evaluate exact-case dynamic four-reference acceptance"
+        description=(
+            "Evaluate return-first exact-case four-reference acceptance"
+        )
     )
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
@@ -399,17 +512,26 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
     payload = json.loads(args.input.read_text(encoding="utf-8"))
-    if not isinstance(payload, Mapping) or not isinstance(payload.get("cases"), list):
-        raise AcceptanceError("input must be an object containing a cases list")
+    if not isinstance(payload, Mapping) or not isinstance(
+        payload.get("cases"), list
+    ):
+        raise AcceptanceError(
+            "input must be an object containing a cases list"
+        )
     result = evaluate_matrix(
         payload["cases"],
-        required_layers=args.required_layers or payload.get(
-            "required_evidence_layers", ["Native"]
-        ),
+        required_layers=args.required_layers
+        or payload.get("required_evidence_layers", ["Native"]),
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
-        json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
+        json.dumps(
+            result,
+            indent=2,
+            ensure_ascii=False,
+            allow_nan=False,
+        )
+        + "\n",
         encoding="utf-8",
     )
     if args.csv is not None:
