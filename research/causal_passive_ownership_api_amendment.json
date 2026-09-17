@@ -1,0 +1,25 @@
+{
+  "family": "causal_passive_ownership",
+  "status": "API_ONLY_AMENDMENT_BEFORE_PRODUCTION_IMPLEMENTATION_OR_ECONOMIC_POLICY_MEASUREMENT",
+  "supersedes_only": "causal_passive_ownership_contract.json implementation.mode API shape",
+  "does_not_change": [
+    "economic hypothesis",
+    "capital sleeves",
+    "admission semantics",
+    "holding semantics",
+    "execution semantics",
+    "causality",
+    "frozen data",
+    "economic screen",
+    "formal/reference requirements"
+  ],
+  "observed_engineering_reason": "The tests-first commit 61e43061ac29bdcd149e9e6a76e6c0b35a3f44fb correctly failed because engine.run has no strategy keyword. Inspection then established that the desired production behavior is already exactly implemented by engine.run benchmark='buy_hold', including its private per-symbol remaining-budget ledger. Adding a second strategy branch inside engine would duplicate decision-source plumbing without adding economic behavior.",
+  "revised_api": {
+    "production_entry_point": "techquant.passive.run_passive_ownership",
+    "implementation": "A thin production adapter calls the existing engine.run with benchmark='buy_hold' and otherwise forwards the same start/end/delay/cost/config inputs. It does not reproduce, override or approximate allocation/execution logic.",
+    "identity": "After the engine returns, the adapter changes result metadata identity only: benchmark becomes null, strategy becomes 'passive_ownership', and economic_semantics records 'same_engine_buy_hold'. Equity, targets, orders, fees, slippage, capacity and all execution decisions remain byte-for-behavior identical.",
+    "conflicts": "The adapter does not accept benchmark, targets or policy_factory arguments, so conflicting decision sources cannot be expressed through its public signature."
+  },
+  "tdd_update": "Replace the failed strategy-keyword tests with adapter tests that first fail because techquant.passive does not exist, then require exact account equality to engine.run benchmark='buy_hold', prefix causality and late-listing sleeve preservation.",
+  "economic_acceptance": "UNVERIFIED"
+}
