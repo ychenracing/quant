@@ -1,4 +1,4 @@
-"""Focused contracts for causal risk-aware ownership."""
+"""Focused contracts for event-scoped risk-aware ownership."""
 from __future__ import annotations
 
 import unittest
@@ -9,6 +9,7 @@ import pandas as pd
 from test_core import sample_market
 from techquant.config import Config
 from techquant.data import Market
+from techquant.evidence import metrics
 from techquant.passive import run_passive_ownership
 from techquant.policy import CloseObservation, OwnershipIntent
 from techquant.risk_ownership import (
@@ -42,6 +43,40 @@ def shock_market(days: int = 190) -> Market:
     return Market.from_frames(frames, dates, quality="synthetic")
 
 
+def direct_observation(
+    policy: RiskAwareOwnershipPolicy,
+    session: int,
+    units: np.ndarray,
+    owned_units: np.ndarray,
+    *,
+    nav: float | None = None,
+) -> CloseObservation:
+    marks = policy.price[session]
+    holdings = units * marks
+    actual_nav = float(holdings.sum()) if nav is None else float(nav)
+    if actual_nav <= 0:
+        cash = actual_nav
+        weights = np.zeros_like(units)
+    else:
+        cash = actual_nav - float(holdings.sum())
+        weights = holdings / actual_nav
+    ownership = OwnershipIntent.from_state(
+        actual_nav,
+        owned_units,
+        marks,
+        np.zeros_like(units),
+    )
+    return CloseObservation.from_inventory(
+        session,
+        str(policy.market.calendar[session].date()),
+        actual_nav,
+        cash,
+        units,
+        weights,
+        ownership,
+    )
+
+
 class RiskAwareOwnershipTests(unittest.TestCase):
     def test_open_state_exactly_matches_passive_ownership(self):
         market = sample_market(4, 140)
@@ -55,35 +90,116 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         self.assertEqual(passive.orders, candidate.orders)
         self.assertTrue((candidate.equity.target_cap == 1.0).all())
 
-    def test_blocked_protection_reuses_one_absolute_goal(self):
-        market = shock_market()
+    def test_old_account_peak_cannot_create_or_hold_crisis_by_itself(self):
+        market = sample_market(2, 40)
         policy = RiskAwareOwnershipPolicy(market, Config())
-        units = np.full(3, 100.0)
-        budget = np.zeros(3)
-        first_goal = None
-        for i in range(82):
-            marks = policy.price[i]
-            nav = float(units @ marks)
-            ownership = OwnershipIntent.from_state(nav, units, marks, budget)
-            observation = CloseObservation.from_inventory(
-                i,
-                str(market.calendar[i].date()),
-                nav,
-                0.0,
-                units,
-                units * marks / nav,
-                ownership,
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        units = np.zeros(2)
+        states = []
+        for session, nav in enumerate((100.0, 70.0, 69.5, 71.0, 73.0, 75.0)):
+            decision = policy.decide(
+                direct_observation(
+                    policy,
+                    session,
+                    units,
+                    units,
+                    nav=nav,
+                )
             )
-            decision = policy.decide(observation)
-            if i == 80:
+            states.append(policy.state)
+            self.assertNotIn("SYSTEMIC_PROTECTION", decision.reason)
+        self.assertNotIn("CRISIS", states)
+        self.assertNotIn("DEFENSIVE", states)
+        self.assertEqual(states[-1], "OPEN")
+
+    def test_persistent_risk_reuses_one_absolute_protection_goal(self):
+        market = sample_market(2, 40)
+        policy = RiskAwareOwnershipPolicy(market, Config())
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        policy.trend_damage[10:14] = True
+        policy.breadth_damage[10:14] = True
+        units = np.full(2, 2_000.0)
+        first_goal = None
+        for session in range(13):
+            decision = policy.decide(
+                direct_observation(policy, session, units, units)
+            )
+            if session == 11:
                 first_goal = decision.unit_targets.copy()
-                self.assertEqual(policy.state, "CRISIS")
-                self.assertTrue((first_goal < units).any())
-            elif i == 81:
+                self.assertEqual(policy.state, "DEFENSIVE")
+                self.assertTrue((first_goal < units).all())
+            elif session == 12:
                 np.testing.assert_allclose(decision.unit_targets, first_goal)
         self.assertIsNotNone(first_goal)
 
-    def test_recovery_is_delayed_uses_new_buys_and_returns_toward_full_exposure(self):
+    def test_recovery_requires_new_evidence_and_completes_in_two_stages(self):
+        market = sample_market(2, 40)
+        policy = RiskAwareOwnershipPolicy(market, Config())
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        policy.recovery_early[:] = False
+        policy.recovery_full[:] = False
+        policy.trend_damage[10:12] = True
+        policy.breadth_damage[10:12] = True
+        policy.recovery_early[12:14] = True
+        policy.recovery_full[14:16] = True
+
+        owned = np.full(2, 2_000.0)
+        units = owned.copy()
+        goal = None
+        for session in range(12):
+            decision = policy.decide(
+                direct_observation(policy, session, units, owned)
+            )
+            if session == 11:
+                goal = decision.unit_targets.copy()
+        self.assertIsNotNone(goal)
+        units = goal.copy()
+
+        first = policy.decide(direct_observation(policy, 12, units, owned))
+        np.testing.assert_allclose(first.unit_targets, goal)
+        half = policy.decide(direct_observation(policy, 13, units, owned))
+        self.assertEqual(policy.state, "RECOVERY")
+        self.assertTrue((half.unit_targets > goal).all())
+        self.assertTrue((half.unit_targets < owned).all())
+
+        units = half.unit_targets.copy()
+        policy.decide(direct_observation(policy, 14, units, owned))
+        full = policy.decide(direct_observation(policy, 15, units, owned))
+        self.assertTrue((full.unit_targets > units).all())
+
+        units = full.unit_targets.copy()
+        completed = policy.decide(
+            direct_observation(policy, 16, units, owned)
+        )
+        self.assertEqual(policy.state, "OPEN")
+        self.assertIn("FUNDED_RECOVERY_COMPLETE", completed.reason)
+
+    def test_sub_lot_partial_reduction_is_not_retried_forever(self):
+        market = sample_market(1, 20)
+        policy = RiskAwareOwnershipPolicy(market, Config())
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        policy.market_shock[0] = True
+        policy.trend_damage[0] = True
+        units = np.array([150.0])
+        decision = policy.decide(
+            direct_observation(policy, 0, units, units)
+        )
+        np.testing.assert_allclose(decision.unit_targets, units)
+        self.assertIn("NO_EXECUTABLE_LOT", decision.reason)
+
+    def test_shock_protects_then_recovers_without_a_low_exposure_trap(self):
         market = shock_market()
         result = run_risk_aware_ownership(market, cost_multiplier=0.0)
         filled = [order for order in result.orders if order["status"] == "FILLED"]
@@ -94,15 +210,8 @@ class RiskAwareOwnershipTests(unittest.TestCase):
             if order["side"] == "BUY" and order["date"] > first_sell["date"]
         ]
         self.assertTrue(recovery_buys)
-        signal_index = {
-            str(date.date()): i for i, date in enumerate(market.calendar)
-        }
-        self.assertGreaterEqual(
-            signal_index[recovery_buys[0]["signal_date"]]
-            - signal_index[first_sell["signal_date"]],
-            RiskOwnershipParameters().recovery_confirmation,
-        )
         self.assertGreater(float(result.equity.exposure.iloc[-1]), 0.85)
+        self.assertLess(metrics(result)["blocked_attempts"], 100)
         self.assertTrue((result.targets.sum(axis=1) <= 1 + 1e-10).all())
 
     def test_prefix_replay_is_causal(self):

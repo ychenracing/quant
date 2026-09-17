@@ -1,9 +1,11 @@
-"""Causal risk-aware ownership over the shared fill-aware execution engine.
+"""Event-scoped systemic protection over engine-owned passive ownership.
 
-The engine owns the original per-security cash sleeves, actual inventory, fees,
-capacity and next-session execution.  This policy can only retain, protect or
-restore already acquired economic units, and may reopen untouched sleeves only
-after every unresolved risk event has obtained fresh recovery evidence.
+The policy preserves the passive return source until a *new* systemic risk event
+is confirmed.  One event requests one fixed, executable unit reduction.  A
+historical account drawdown can strengthen a fresh loss signal, but can never
+keep the account defensive by itself.  Recovery uses new market evidence in two
+stages and never sells a restored unit again merely because the same episode
+remains below its old account peak.
 """
 from __future__ import annotations
 
@@ -17,12 +19,13 @@ import pandas as pd
 from .config import Config
 from .data import Market, file_hash
 from .engine import Result, run
+from .execution import round_quantity
 from .policy import CloseDecision, CloseObservation
 
 
 @dataclass(frozen=True)
 class RiskOwnershipParameters:
-    """Small preregistered structural surface; no per-case parameters."""
+    """Pre-registered coarse structure; no per-case or date-specific controls."""
 
     core_fraction: float = 0.60
     risk_confirmation: int = 2
@@ -38,7 +41,7 @@ class RiskOwnershipParameters:
 
 
 class RiskAwareOwnershipPolicy:
-    """Long-horizon ownership with event-latched selective protection."""
+    """Sparse systemic protection with fill-aware event memory."""
 
     def __init__(
         self,
@@ -55,26 +58,24 @@ class RiskAwareOwnershipPolicy:
         self.state = "OPEN"
         self._last_session = -1
         self._risk_streak = 0
-        self._healthy_streak = 0
+        self._early_recovery_streak = 0
+        self._full_recovery_streak = 0
+        self._crisis_active_last = False
+        self._episode_level = 0
         self._recovery_stage = 0
-        self._last_protection_cap = 1.0
+        self._recovery_paused = False
+        self._episode_base_units = np.zeros(size)
+        self._protection_goal = np.zeros(size)
         self._peak_nav = 0.0
         self._nav_history: list[float] = []
 
-        # Absolute-unit memories.  A blocked or partial fill therefore retries
-        # one frozen goal instead of repeatedly cutting the surviving units.
-        self.event_base_units = np.zeros(size)
-        self.protection_goal = np.zeros(size)
-        self.event_price = np.zeros(size)
-        self.recovery_closes = np.zeros(size, dtype=int)
-        self.requested_stage = np.zeros(size, dtype=int)
-        self.last_target = np.zeros(size)
-
     def _build_signals(self, market: Market) -> None:
         quoted = market.panel("close")
+        raw_close = market.panel("raw_close")
         volume = market.panel("volume")
         active = quoted.notna() & volume.gt(0)
         price = quoted.ffill()
+        raw = raw_close.ffill()
         returns = price.pct_change(fill_method=None).where(
             active & active.shift(fill_value=False)
         )
@@ -88,12 +89,14 @@ class RiskAwareOwnershipPolicy:
         ready20 = active & active.cumsum().ge(20)
         ready60 = active & active.cumsum().ge(60)
         breadth20 = (
-            (ready20 & price.gt(ema20)).sum(axis=1)
+            (ready20 & price.gt(ema20))
+            .sum(axis=1)
             .div(ready20.sum(axis=1).replace(0, np.nan))
             .fillna(0.0)
         )
         breadth60 = (
-            (ready60 & price.gt(ema60)).sum(axis=1)
+            (ready60 & price.gt(ema60))
+            .sum(axis=1)
             .div(ready60.sum(axis=1).replace(0, np.nan))
             .fillna(0.0)
         )
@@ -109,10 +112,7 @@ class RiskAwareOwnershipPolicy:
         breadth_change5 = breadth20 - breadth20.shift(5).fillna(breadth20)
 
         self.price = price.to_numpy(dtype=float)
-        self.ema20 = ema20.to_numpy(dtype=float)
-        self.ema60 = ema60.to_numpy(dtype=float)
-        self.ret5 = price.pct_change(5, fill_method=None).to_numpy(dtype=float)
-        self.fresh = active.to_numpy(dtype=bool)
+        self.raw_close = raw.to_numpy(dtype=float)
         self.trend_damage = (
             index.lt(index_ema60)
             & index_ema20.lt(index_ema60)
@@ -130,262 +130,269 @@ class RiskAwareOwnershipPolicy:
             | index_ret10.le(-0.15)
             | (loss_fraction.ge(0.55) & market_return.le(-0.025))
         ).to_numpy(dtype=bool)
-        self.market_healthy = (
+        self.recovery_early = (
             index.gt(index_ema20)
-            & index_ema20.ge(index_ema60)
+            & breadth20.ge(0.45)
+            & breadth_change5.gt(0.0)
+            & index_ret5.gt(0.0)
+            & loss_fraction.lt(0.30)
+        ).to_numpy(dtype=bool)
+        self.recovery_full = (
+            index.gt(index_ema20)
             & breadth20.ge(0.55)
-            & index_ret5.ge(0.0)
+            & index_ret10.gt(0.0)
             & loss_fraction.lt(0.20)
         ).to_numpy(dtype=bool)
-        self.acute_damage = (
-            price.pct_change(3, fill_method=None).le(-0.15)
-            & price.lt(ema20)
-            & price.lt(ema60)
-            & price.pct_change(20, fill_method=None).le(-0.12)
-            & ready20
-        ).fillna(False).to_numpy(dtype=bool)
-        strength = (
-            price.div(ema60).sub(1.0)
-            + 0.5 * ema20.div(ema60).sub(1.0)
-            + 0.25 * price.pct_change(20, fill_method=None)
-            - 0.5 * returns.rolling(20, min_periods=10).std()
-        )
-        self.strength = (
-            strength.replace([np.inf, -np.inf], np.nan)
-            .fillna(-np.inf)
-            .to_numpy(dtype=float)
-        )
 
-    def _state_cap(self) -> float:
-        core = self.parameters.core_fraction
-        if self.state == "CRISIS":
-            return core
-        if self.state == "DEFENSIVE":
-            return (1.0 + core) / 2.0
-        if self.state == "RECOVERY":
-            return core + (1.0 - core) / 2.0
+    def _nominal_cap(self) -> float:
+        if self._episode_level >= 2:
+            return self.parameters.core_fraction
+        if self._episode_level == 1:
+            return (1.0 + self.parameters.core_fraction) / 2.0
         return 1.0
 
-    def _advance_state(self, close: CloseObservation, reasons: list[str]) -> str:
-        i = close.session
-        previous = self.state
+    def _account_acceleration(self, close: CloseObservation) -> tuple[bool, float]:
         self._peak_nav = max(self._peak_nav, close.nav)
         drawdown = 1.0 - close.nav / self._peak_nav if self._peak_nav else 0.0
-        day_loss = close.nav / self._nav_history[-1] - 1.0 if self._nav_history else 0.0
+        day_loss = (
+            close.nav / self._nav_history[-1] - 1.0
+            if self._nav_history
+            else 0.0
+        )
         loss5 = (
             close.nav / self._nav_history[-5] - 1.0
             if len(self._nav_history) >= 5
             else 0.0
         )
         self._nav_history.append(close.nav)
+        # Absolute drawdown is context only. A fresh loss acceleration is
+        # required, so an old peak cannot create a permanent defensive state.
+        accelerated = drawdown >= 0.10 and (day_loss <= -0.04 or loss5 <= -0.08)
+        return bool(accelerated), float(drawdown)
 
-        account_damage = drawdown >= 0.10 and (day_loss <= -0.03 or loss5 <= -0.05)
+    def _risk_snapshot(
+        self, close: CloseObservation
+    ) -> tuple[list[str], bool, bool, float]:
+        i = close.session
+        account, drawdown = self._account_acceleration(close)
         channels = {
             "TREND": bool(self.trend_damage[i]),
             "BREADTH": bool(self.breadth_damage[i]),
             "VOLATILITY": bool(self.volatility_damage[i]),
-            "ACCOUNT_PATH": bool(account_damage),
+            "ACCOUNT_ACCELERATION": account,
         }
         active = [name for name, enabled in channels.items() if enabled]
-        crisis = bool(
-            drawdown >= 0.18
-            or (
-                self.market_shock[i]
-                and (channels["TREND"] or channels["BREADTH"] or account_damage)
-            )
-        )
         defensive = len(active) >= 2
-        caution = bool(active or self.market_shock[i])
+        crisis = bool(self.market_shock[i] and len(active) >= 1)
+        return active, defensive, crisis, drawdown
 
-        if crisis:
-            self.state = "CRISIS"
-            self._risk_streak = 0
-            self._healthy_streak = 0
-            self._recovery_stage = 0
-        elif defensive:
-            self._risk_streak += 1
-            self._healthy_streak = 0
-            if previous in ("DEFENSIVE", "CRISIS"):
-                self.state = previous
-            elif previous == "RECOVERY":
-                self.state = "DEFENSIVE"
-                self._recovery_stage = 0
-            elif self._risk_streak >= self.parameters.risk_confirmation:
-                self.state = "DEFENSIVE"
-            else:
-                self.state = "CAUTION"
-        elif caution:
-            self._risk_streak = 0
-            self._healthy_streak = 0
-            if previous in ("DEFENSIVE", "CRISIS", "RECOVERY"):
-                self.state = "DEFENSIVE"
-                self._recovery_stage = 0
-            else:
-                self.state = "CAUTION"
-        else:
-            self._risk_streak = 0
-            healthy = bool(self.market_healthy[i])
-            self._healthy_streak = self._healthy_streak + 1 if healthy else 0
-            if previous in ("DEFENSIVE", "CRISIS"):
-                if self._healthy_streak >= self.parameters.recovery_confirmation:
-                    self.state = "RECOVERY"
-                    self._recovery_stage = 1
-                    self._healthy_streak = 0
-            elif previous == "RECOVERY":
-                if self._healthy_streak >= self.parameters.recovery_confirmation:
-                    self.state = "OPEN"
-                    self._recovery_stage = 2
-                    self._healthy_streak = 0
-            elif previous == "CAUTION":
-                if self._healthy_streak >= self.parameters.recovery_confirmation:
-                    self.state = "OPEN"
-                    self._healthy_streak = 0
-            else:
-                self.state = "OPEN"
+    def _quantize_toward(
+        self, current: np.ndarray, desired: np.ndarray, session: int
+    ) -> np.ndarray:
+        """Request only an executable lot delta; a sub-lot residual is held."""
 
-        trigger = ",".join(
-            (["SHOCK"] if self.market_shock[i] else []) + active
-        ) or "NONE"
-        if self.state != previous:
-            reasons.append(f"STATE:{previous}->{self.state}")
-        reasons.append(f"RISK_CHANNELS:{trigger}")
-        return previous
-
-    def _selective_goal(self, close: CloseObservation, cap: float) -> np.ndarray:
-        current = close.units.copy()
-        marks = np.where(
-            np.isfinite(self.price[close.session]),
-            self.price[close.session],
-            0.0,
-        )
-        values = current * marks
-        target_value = min(float(values.sum()), cap * close.nav)
-        if values.sum() <= target_value + 1e-8:
-            return current
-
-        goal = current * self.parameters.core_fraction
-        goal_value = goal * marks
-        if goal_value.sum() > target_value and goal_value.sum() > 0:
-            goal *= target_value / goal_value.sum()
-            return goal
-
-        remaining = target_value - float(goal_value.sum())
-        order = sorted(
-            np.flatnonzero(current > 1e-10),
-            key=lambda j: (-self.strength[close.session, j], self.market.symbols[j]),
-        )
-        for j in order:
-            room_value = (current[j] - goal[j]) * marks[j]
-            if room_value <= 0:
+        result = np.asarray(current, dtype=float).copy()
+        desired = np.asarray(desired, dtype=float)
+        adjusted = self.price[session]
+        raw = self.raw_close[session]
+        for j, symbol in enumerate(self.market.symbols):
+            delta = float(desired[j] - current[j])
+            if abs(delta) <= 1e-10:
                 continue
-            add_value = min(remaining, room_value)
-            goal[j] += add_value / marks[j]
-            remaining -= add_value
-            if remaining <= 1e-8:
-                break
-        return goal
+            if (
+                not np.isfinite(adjusted[j])
+                or not np.isfinite(raw[j])
+                or adjusted[j] <= 0
+                or raw[j] <= 0
+            ):
+                continue
+            if desired[j] <= 1e-10 and delta < 0:
+                # The shared engine explicitly supports full odd-lot disposal.
+                result[j] = 0.0
+                continue
+            raw_delta = abs(delta) * adjusted[j] / raw[j]
+            executable_raw = round_quantity(symbol, raw_delta)
+            if executable_raw <= 0:
+                continue
+            executable_units = executable_raw * raw[j] / adjusted[j]
+            change = min(abs(delta), executable_units)
+            result[j] = current[j] + (change if delta > 0 else -change)
+        return result
 
-    def _record_event(
-        self,
-        mask: np.ndarray,
-        proposed_goal: np.ndarray,
-        close: CloseObservation,
-        reasons: list[str],
-        label: str,
-        *,
-        reset_existing: bool,
-    ) -> None:
-        if not mask.any():
-            return
-        existing = self.event_price > 0
-        new = mask & ~existing
-        old = mask & existing
-        self.event_base_units[new] = close.units[new]
-        self.protection_goal[new] = proposed_goal[new]
-        if reset_existing:
-            self.protection_goal[old] = np.minimum(
-                self.protection_goal[old], proposed_goal[old]
-            )
-        affected = new | (old & reset_existing)
-        self.event_price[affected] = np.maximum(
-            self.event_price[affected],
-            np.nan_to_num(self.price[close.session, affected], nan=0.0),
-        )
-        self.recovery_closes[affected] = 0
-        self.requested_stage[affected] = 0
-        self.last_target[affected] = self.protection_goal[affected]
-        reasons.append(
-            label + ":" + ",".join(self.market.symbols[j] for j in np.flatnonzero(mask))
-        )
+    def _executable_goal_reached(
+        self, current: np.ndarray, desired: np.ndarray, session: int
+    ) -> bool:
+        quantized = self._quantize_toward(current, desired, session)
+        return bool(np.allclose(quantized, current, rtol=0.0, atol=1e-8))
 
-    def _complete_funded_recovery(
-        self,
-        close: CloseObservation,
-        reasons: list[str],
-    ) -> None:
-        active = self.event_price > 0
-        tolerance = np.maximum(1e-8, self.last_target * 1e-10)
-        complete = (
-            active
-            & (self.requested_stage >= 2)
-            & (self.last_target > self.protection_goal + tolerance)
-            & (close.units >= self.last_target - tolerance)
-        )
-        if not complete.any():
-            return
-        self.event_base_units[complete] = 0.0
-        self.protection_goal[complete] = 0.0
-        self.event_price[complete] = 0.0
-        self.recovery_closes[complete] = 0
-        self.requested_stage[complete] = 0
-        self.last_target[complete] = close.units[complete]
-        reasons.append(
-            "FUNDED_RECOVERY_COMPLETE:"
-            + ",".join(self.market.symbols[j] for j in np.flatnonzero(complete))
-        )
+    def _cash_funded_desired(
+        self, close: CloseObservation, desired: np.ndarray
+    ) -> np.ndarray:
+        """Bound restoration by close-time account value before execution costs."""
 
-    def _recovery_target(self, close: CloseObservation) -> np.ndarray:
-        active = self.event_price > 0
-        target = close.units.copy()
-        target[active] = self.protection_goal[active]
-        if not active.any():
-            return target
-
-        if self.state == "RECOVERY":
-            global_stage = 1
-        elif self.state == "OPEN":
-            global_stage = 2
-        else:
-            global_stage = 0
-        symbol_stage = np.minimum(
-            2, self.recovery_closes // self.parameters.recovery_confirmation
-        )
-        stage = np.minimum(global_stage, symbol_stage)
-        fraction = np.where(stage >= 2, 1.0, np.where(stage == 1, 0.5, 0.0))
-        desired = (
-            self.protection_goal
-            + fraction * (self.event_base_units - self.protection_goal)
-        )
-        target[active] = desired[active]
-
-        # Never invent funding.  Keep already-held units, execute any remaining
-        # protection, then allocate only the close-time cash budget to recovery.
         marks = np.where(
             np.isfinite(self.price[close.session]),
             self.price[close.session],
             0.0,
         )
-        minimum = np.minimum(target, close.units)
-        additions = np.maximum(0.0, target - minimum)
+        desired = np.asarray(desired, dtype=float)
+        minimum = np.minimum(desired, close.units)
+        additions = np.maximum(0.0, desired - minimum)
         minimum_value = float(minimum @ marks)
         available_value = max(0.0, close.nav - minimum_value)
         addition_value = additions * marks
-        if addition_value.sum() > available_value and addition_value.sum() > 0:
-            additions *= available_value / addition_value.sum()
-        target = minimum + additions
-        self.requested_stage[active] = stage[active]
-        self.last_target[active] = target[active]
-        return target
+        total_addition = float(addition_value.sum())
+        if total_addition > available_value and total_addition > 0:
+            additions *= available_value / total_addition
+        return minimum + additions
+
+    def _protection_target(
+        self, close: CloseObservation, nominal_cap: float
+    ) -> np.ndarray:
+        marks = np.where(
+            np.isfinite(self.price[close.session]),
+            self.price[close.session],
+            0.0,
+        )
+        current_value = float(close.units @ marks)
+        target_value = min(current_value, nominal_cap * close.nav)
+        if current_value <= target_value + 1e-8 or current_value <= 0:
+            return close.units.copy()
+        desired = close.units * (target_value / current_value)
+        return self._quantize_toward(close.units, desired, close.session)
+
+    def _start_episode(
+        self,
+        close: CloseObservation,
+        level: int,
+        reasons: list[str],
+    ) -> None:
+        self._episode_level = level
+        self._recovery_stage = 0
+        self._recovery_paused = False
+        self._early_recovery_streak = 0
+        self._full_recovery_streak = 0
+        self._episode_base_units = close.units.copy()
+        self._protection_goal = self._protection_target(
+            close, self._nominal_cap()
+        )
+        self.state = "CRISIS" if level >= 2 else "DEFENSIVE"
+        reduced = self._protection_goal < close.units - 1e-10
+        reasons.append(
+            "SYSTEMIC_PROTECTION:"
+            + (
+                ",".join(
+                    self.market.symbols[j] for j in np.flatnonzero(reduced)
+                )
+                if reduced.any()
+                else "NO_EXECUTABLE_LOT"
+            )
+        )
+
+    def _escalate_episode(
+        self, close: CloseObservation, reasons: list[str]
+    ) -> None:
+        if self._episode_level >= 2:
+            return
+        self._episode_level = 2
+        proposed = self._protection_target(close, self._nominal_cap())
+        self._protection_goal = np.minimum(self._protection_goal, proposed)
+        self._recovery_stage = 0
+        self._recovery_paused = False
+        self._early_recovery_streak = 0
+        self._full_recovery_streak = 0
+        self.state = "CRISIS"
+        reasons.append("SYSTEMIC_PROTECTION_ESCALATION")
+
+    def _episode_complete(self, close: CloseObservation) -> bool:
+        if self._episode_level == 0 or self._recovery_stage < 2:
+            return False
+        affordable = self._cash_funded_desired(
+            close, self._episode_base_units
+        )
+        return self._executable_goal_reached(
+            close.units, affordable, close.session
+        )
+
+    def _clear_episode(self, reasons: list[str]) -> None:
+        self._episode_level = 0
+        self._recovery_stage = 0
+        self._recovery_paused = False
+        self._risk_streak = 0
+        self._early_recovery_streak = 0
+        self._full_recovery_streak = 0
+        self._episode_base_units.fill(0.0)
+        self._protection_goal.fill(0.0)
+        self.state = "OPEN"
+        reasons.append("FUNDED_RECOVERY_COMPLETE")
+
+    def _advance_episode(
+        self,
+        close: CloseObservation,
+        defensive: bool,
+        crisis: bool,
+        reasons: list[str],
+    ) -> None:
+        crisis_edge = crisis and not self._crisis_active_last
+        if crisis_edge and self._episode_level == 1:
+            self._escalate_episode(close, reasons)
+
+        protection_reached = self._executable_goal_reached(
+            close.units, self._protection_goal, close.session
+        )
+        risk_active = defensive or crisis
+        if not protection_reached or risk_active:
+            self._early_recovery_streak = 0
+            self._full_recovery_streak = 0
+            self._recovery_paused = bool(risk_active and self._recovery_stage > 0)
+            if self._recovery_stage == 0:
+                self.state = "CRISIS" if self._episode_level >= 2 else "DEFENSIVE"
+            else:
+                # Do not resell recovered units or keep buying while a fresh
+                # risk edge is active. Resume the same stage after it clears.
+                self.state = "RECOVERY"
+            return
+
+        self._recovery_paused = False
+        i = close.session
+        if self._recovery_stage == 0:
+            self._early_recovery_streak = (
+                self._early_recovery_streak + 1 if self.recovery_early[i] else 0
+            )
+            if self._early_recovery_streak >= self.parameters.recovery_confirmation:
+                self._recovery_stage = 1
+                self._full_recovery_streak = 0
+                self.state = "RECOVERY"
+                reasons.append("RECOVERY_STAGE:HALF")
+        elif self._recovery_stage == 1:
+            self._full_recovery_streak = (
+                self._full_recovery_streak + 1 if self.recovery_full[i] else 0
+            )
+            if self._full_recovery_streak >= self.parameters.recovery_confirmation:
+                self._recovery_stage = 2
+                self.state = "RECOVERY"
+                reasons.append("RECOVERY_STAGE:FULL")
+        else:
+            self.state = "RECOVERY"
+
+    def _desired_units(self, close: CloseObservation) -> np.ndarray:
+        ownership = close.ownership
+        if ownership is None:
+            raise ValueError("risk-aware ownership requires engine-owned intent")
+        if self._episode_level == 0:
+            desired = ownership.units
+        elif self._recovery_stage > 0 and self._recovery_paused:
+            desired = close.units
+        elif self._recovery_stage == 0:
+            desired = self._protection_goal
+        elif self._recovery_stage == 1:
+            desired = self._protection_goal + 0.5 * (
+                self._episode_base_units - self._protection_goal
+            )
+        else:
+            desired = self._episode_base_units
+        affordable = self._cash_funded_desired(close, desired)
+        return self._quantize_toward(close.units, affordable, close.session)
 
     def decide(self, close: CloseObservation) -> CloseDecision:
         if close.session <= self._last_session:
@@ -402,58 +409,34 @@ class RiskAwareOwnershipPolicy:
         ):
             raise ValueError("invalid observed ownership account")
 
+        previous = self.state
+        active, defensive, crisis, drawdown = self._risk_snapshot(close)
         reasons: list[str] = []
-        self._complete_funded_recovery(close, reasons)
-        active = self.event_price > 0
-        symbol_healthy = (
-            active
-            & self.fresh[close.session]
-            & (self.price[close.session] >= self.event_price)
-            & (self.price[close.session] > self.ema20[close.session])
-            & (np.nan_to_num(self.ret5[close.session], nan=-np.inf) > 0)
-        )
-        self.recovery_closes = np.where(
-            active & symbol_healthy, self.recovery_closes + 1, 0
-        )
 
-        previous = self._advance_state(close, reasons)
-        cap = self._state_cap()
-        if self.state in ("DEFENSIVE", "CRISIS"):
-            became_more_severe = (
-                previous not in ("DEFENSIVE", "CRISIS")
-                or cap < self._last_protection_cap - 1e-10
-            )
-            proposed = self._selective_goal(close, cap)
-            tolerance = np.maximum(1e-8, close.units * 1e-10)
-            reduced = proposed < close.units - tolerance
-            if not became_more_severe:
-                reduced &= self.event_price <= 0
-            self._record_event(
-                reduced,
-                proposed,
-                close,
-                reasons,
-                "SYSTEMIC_PROTECTION",
-                reset_existing=became_more_severe,
-            )
-            if became_more_severe:
-                self._last_protection_cap = cap
+        if self._episode_complete(close):
+            self._clear_episode(reasons)
 
-        acute = self.acute_damage[close.session] & (close.units > 1e-8)
-        if acute.any():
-            proposed = close.units.copy()
-            proposed[acute] = 0.0
-            self._record_event(
-                acute,
-                proposed,
-                close,
-                reasons,
-                "ACUTE_HOLDING_DAMAGE",
-                reset_existing=True,
-            )
+        if self._episode_level == 0:
+            if crisis:
+                self._risk_streak = 0
+                self._start_episode(close, 2, reasons)
+            elif defensive:
+                self._risk_streak += 1
+                if self._risk_streak >= self.parameters.risk_confirmation:
+                    self._risk_streak = 0
+                    self._start_episode(close, 1, reasons)
+                else:
+                    self.state = "CAUTION"
+            elif active or self.market_shock[close.session]:
+                self._risk_streak = 0
+                self.state = "CAUTION"
+            else:
+                self._risk_streak = 0
+                self.state = "OPEN"
+        else:
+            self._advance_episode(close, defensive, crisis, reasons)
 
-        active = self.event_price > 0
-        target = self._recovery_target(close)
+        target = self._desired_units(close)
         marks = np.where(
             np.isfinite(self.price[close.session]),
             self.price[close.session],
@@ -463,15 +446,24 @@ class RiskAwareOwnershipPolicy:
         if weights.sum() > 1 + 1e-10:
             raise ValueError("risk-aware target exceeds the observed account")
 
-        allow_new = bool(self.state == "OPEN" and not active.any())
-        decision_cap = 1.0 if allow_new else max(cap, float(weights.sum()))
-        if active.any():
+        allow_new = bool(self._episode_level == 0 and self.state == "OPEN")
+        nominal_cap = self._nominal_cap()
+        decision_cap = 1.0 if allow_new else max(nominal_cap, float(weights.sum()))
+        channel_text = ",".join(
+            (["SHOCK"] if self.market_shock[close.session] else []) + active
+        ) or "NONE"
+        if self.state != previous:
+            reasons.insert(0, f"STATE:{previous}->{self.state}")
+        reasons.append(f"RISK_CHANNELS:{channel_text}")
+        reasons.append(f"ACCOUNT_DRAWDOWN_CONTEXT:{drawdown:.6f}")
+        if self.state == "CAUTION":
+            reasons.append("CAUTION_FREEZE_NEW_OWNERSHIP")
+        if self._episode_level:
             reasons.append(
-                "UNRESOLVED_RISK_MEMORY:"
-                + ",".join(self.market.symbols[j] for j in np.flatnonzero(active))
+                f"RISK_EPISODE:LEVEL_{self._episode_level}:RECOVERY_{self._recovery_stage}"
             )
-        if not reasons:
-            reasons.append("OPEN_PASSIVE_OWNERSHIP")
+
+        self._crisis_active_last = crisis
         return CloseDecision(
             weights=weights,
             reason="|".join(reasons),
@@ -483,6 +475,7 @@ class RiskAwareOwnershipPolicy:
     def identity(self) -> dict[str, Any]:
         return {
             "name": "risk_aware_ownership",
+            "mechanism": "event_scoped_systemic_partial_protection",
             "parameters": asdict(self.parameters),
             "implementation_sha256": file_hash(Path(__file__)),
             "data_sha256": self.market.fingerprint(),
@@ -501,6 +494,7 @@ def run_risk_aware_ownership(
     cost_multiplier: float = 1.0,
 ) -> Result:
     """Run the isolated candidate; the production default remains passive."""
+
     chosen = parameters or RiskOwnershipParameters()
 
     def factory(bound_market: Market, bound_config: Config) -> RiskAwareOwnershipPolicy:
