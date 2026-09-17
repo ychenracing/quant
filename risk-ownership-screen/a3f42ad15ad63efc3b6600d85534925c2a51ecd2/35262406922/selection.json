@@ -1,0 +1,44 @@
+{
+  "status": "STRUCTURE_SELECTED_FOR_FINAL_EVALUATION_NOT_ACCEPTED",
+  "selected_parameters": {
+    "core_fraction": 0.9,
+    "protection_trigger": "INDEPENDENTLY_CONFIRMED_CRISIS_ONLY",
+    "open_execution": "DEFER_POSITIVE_GAP_PROTECTIVE_SELL",
+    "partial_trim_floor": "ONE_PERCENT_OF_NAV",
+    "recovery": "FULL_OWNERSHIP_ON_CONFIRMED_RISK_CLEAR"
+  },
+  "lexicographic_result": {
+    "core_fraction": 0.9,
+    "case_count": 7,
+    "minimum_wealth_ratio_to_passive": 0.9879443265053315,
+    "median_wealth_ratio_to_passive": 0.9922613369072685,
+    "minimum_drawdown_margin_to_passive": 0.0009181016125621166,
+    "median_drawdown_margin_to_passive": 0.004412228467043144,
+    "drawdown_improved_cases": 7,
+    "wealth_not_below_passive_cases": 0
+  },
+  "all_structures": [
+    {
+      "core_fraction": 0.9,
+      "case_count": 7,
+      "minimum_wealth_ratio_to_passive": 0.9879443265053315,
+      "median_wealth_ratio_to_passive": 0.9922613369072685,
+      "minimum_drawdown_margin_to_passive": 0.0009181016125621166,
+      "median_drawdown_margin_to_passive": 0.004412228467043144,
+      "drawdown_improved_cases": 7,
+      "wealth_not_below_passive_cases": 0
+    }
+  ],
+  "objective": [
+    "until the four-reference return gate can be computed, maximize the minimum candidate wealth divided by same-engine passive wealth",
+    "require drawdown improvement in all seven internal screen cases",
+    "after formal return qualification, optimize dynamic four-reference drawdown margin",
+    "then compare turnover, costs and stability",
+    "do not use the final-evaluation window for mechanism selection"
+  ],
+  "case_count": 7,
+  "candidate_run_count": 7,
+  "final_evaluation_used": false,
+  "dynamic_reference_acceptance": "NOT_EVALUATED",
+  "production_default_changed": false
+}
