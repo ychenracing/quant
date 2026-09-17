@@ -1,0 +1,24 @@
+{
+  "family": "offensive_funded_leader_compounder",
+  "source_commit": "085581dd14222f673700dc48d0372a9900040574",
+  "hosted_run": 35165020662,
+  "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "current_champion": {
+    "mean_log": 1.6493183795493607,
+    "minimum": 1.5949459430753048,
+    "wealth": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048}
+  },
+  "treatment": {
+    "mean_log": 1.5159554016633567,
+    "minimum": 1.7693433556154161,
+    "wealth": {"union": 4.397183962494339, "chatgpt_5": 12.137421733279666, "joint_optical_leader_removal": 1.7693433556154161},
+    "proof_counts": {"union": 24, "chatgpt_5": 17, "joint_optical_leader_removal": 22},
+    "ignored_slow_exits": {"union": 69, "chatgpt_5": 87, "joint_optical_leader_removal": 77}
+  },
+  "decision": "Cross-sectional top-1 leadership raises the removal minimum but still protects too many campaigns in union/common-five and lowers the primary mean-log wealth objective. Do not tune top-k, score margins or confirmation days.",
+  "research_boundary": "Positive-alpha, price-above-basis, own-price-plus-alpha, standalone unified ownership, and top-1 funded-leader persistence have now all failed to beat the campaign-peak champion. Ownership hold/exit protection is no longer the highest-leverage research direction.",
+  "next_direction": "Shift to a structurally different alpha-discovery and portfolio-construction engine: causal walk-forward expected trend continuation / relative return prediction plus dynamic capital concentration from predicted opportunity separation. Preserve the current campaign-peak champion as control, not as an architectural constraint.",
+  "evidence_readback": "Dedicated hosted workflow completed TDD, source-bound measurement, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
