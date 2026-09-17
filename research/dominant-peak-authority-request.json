@@ -1,0 +1,18 @@
+{
+  "family": "offensive_dominant_peak_authority",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "c03b8885812914536541e1869e5377411f50c928",
+  "source_git_blob": {
+    "research/offensive_dominant_peak_authority.py": "5b26fb7669608549a665943f02368aa5f3b7f94e",
+    "research/test_offensive_dominant_peak_authority.py": "24708a359ae1644f60c0d37a96e54b2ca92112bb",
+    "research/offensive_dominant_peak_authority_study.py": "30f1dd55f53189315230df87711b5122a137a7f1",
+    "research/offensive_dominant_peak_authority_contract.json": "9da0cc6930f242aa74bb92291080a36977b9920a",
+    ".github/workflows/dominant-peak-authority-study.yml": "f7209d31a1217f88b526494f0845b44c6e69ce70",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213"
+  },
+  "request": "Run the preregistered campaign-peak champion versus dominant-peak-authority treatment through 2025-12-31 on union, common-five and joint optical-leader removal. The treatment must preserve the exact fresh-challenger/alpha-decay lifecycle and modify only the campaign-peak ordinary displacement block: a fresh challenger is blocked only when the proposed peak incumbent is also no weaker by current causal score than every other actually held campaign. If the peak incumbent is the weaker funded leg, allow the unchanged parent displacement. Select only if mean(log terminal wealth) strictly exceeds the campaign-peak champion and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound treatment through all 896 frozen sessions. Record MDD, orders, turnover, fees, slippage, exposure, dominant-peak blocks and weaker-peak releases. Do not search score margins, ratios, confirmation days, capacity, funding or pool-specific behavior.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
