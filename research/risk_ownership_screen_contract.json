@@ -55,6 +55,18 @@
     "risk_confirmation": 2,
     "recovery_confirmation": 2
   },
+  "protection_allocation": {
+    "portfolio_cap": "unchanged from the coarse core_fraction structure",
+    "cross_section": "retain holdings by descending close-time causal trend strength and reduce the weakest holdings first",
+    "strength_inputs": [
+      "price relative to 60-session exponential trend",
+      "20-session relative trend structure",
+      "20-session return",
+      "20-session observed volatility"
+    ],
+    "future_data_used": false,
+    "case_identity_used": false
+  },
   "selection_objective": [
     "maximize the minimum candidate wealth divided by same-engine passive wealth",
     "then maximize the minimum passive drawdown minus candidate drawdown",
