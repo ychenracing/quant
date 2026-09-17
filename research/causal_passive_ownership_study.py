@@ -20,7 +20,7 @@ from techquant.engine import run
 from techquant.evidence import metrics, save_result, source_identity
 from techquant.passive import run_passive_ownership
 from research.expectation_study import scopes, write_json
-from research.offensive_dominant_peak_authority import (
+from research.offensive_campaign_peak_authority import (
     Owner as ActiveOwner,
     Parameters as ActiveParameters,
 )
@@ -133,6 +133,12 @@ def select(market, catalog, out: Path) -> dict:
     return selection
 
 
+def evaluation_windows() -> dict[str, list[str]]:
+    """Use the frozen formal plan rather than a second, drifting window list."""
+    contract = Path(__file__).with_name("campaign_peak_formal_validation_contract.json")
+    return json.loads(contract.read_text())["time_windows"]
+
+
 def evaluate(market, catalog, selection: dict, out: Path) -> None:
     out.mkdir(parents=True, exist_ok=True)
     if selection["full_data_sha256"] != market.fingerprint():
@@ -143,13 +149,7 @@ def evaluate(market, catalog, selection: dict, out: Path) -> None:
             {"status": "NOT_RUN_REJECTED_VS_ACTIVE", "runs": 0, "rows": 0},
         )
         return
-    windows = {
-        "full": (None, None),
-        "bull": ("2023-01-03", "2026-06-30"),
-        "late_june_through_august": ("2026-06-22", "2026-08-31"),
-        "july_august": ("2026-07-01", "2026-08-31"),
-        "retrospective_2026": ("2026-01-01", None),
-    }
+    windows = evaluation_windows()
     rows = []
     for scope, symbols in scopes(market, catalog).items():
         subset = market.subset(symbols)
