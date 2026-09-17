@@ -1,0 +1,53 @@
+{
+  "family": "offensive_score_proportional_admission",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Maximize alpha-stage terminal wealth by preserving the two-campaign diversification benefit while allocating simultaneous vacancy capital in proportion to the already-causal opportunity scores instead of mechanically splitting cash 50/50.",
+  "control": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "root_evidence": {
+    "single_dominant_run": 35167366035,
+    "single_dominant_wealth": {"union": 3.4448718088047126, "chatgpt_5": 7.063128059994218, "joint_optical_leader_removal": 0.8503679169799856},
+    "lesson": "Removing the second campaign slot destroys wealth in all three fixed scopes, so diversification across two independent campaigns is economically valuable. The remaining concentration hypothesis is funding share, not capacity.",
+    "current_funding_semantics": "The alpha-decay owner selects up to max_positions vacancies by causal score but then divides all observed cash equally among the simultaneously chosen vacancies, regardless of score separation."
+  },
+  "treatment": {
+    "capacity": "Keep exactly the current two campaign slots.",
+    "selection": "Keep the exact campaign-peak champion candidate ranking, eligibility, tie-break and lifecycle decisions.",
+    "trigger": "Only when the unchanged champion decision contains one alpha-decay VACANCY_FILL event on the current close with two or more newly chosen symbols and observed cash > 0.",
+    "allocation": "For those simultaneously chosen vacancies only, allocate the same observed cash in direct proportion to their strictly positive current causal scores: cash_j = observed_cash * score_j / sum(chosen_scores). Existing funded units are untouched.",
+    "single_vacancy": "If exactly one symbol is chosen, return the exact champion decision byte-for-economic-behavior unchanged.",
+    "state": "Do not change pending_alpha_reference, owned_alpha_reference, retirement, invalidation, campaign-peak state, or any eligibility state. The parent has already causally registered those values before the target units are reweighted.",
+    "execution": "Convert each chosen cash_j to target economic units using the same current close marks used by the parent decision. Never spend expected sale proceeds; only observation.cash is allocated. Preserve unchanged next-session execution, fees, slippage, ADV/liquidity, limits, T+1 and lot rules.",
+    "no_continuous_rebalance": "After inventory is actually funded, do not rebalance held campaign weights because scores change. This family affects admission funding only."
+  },
+  "structural_difference": {
+    "single_dominant_campaign": "Retains two slots rather than deleting diversification; concentration varies endogenously with causal score separation only at simultaneous admission.",
+    "allocation_auction": "Does not solve a two-leg notional/risk polygon or alter an older support owner. It leaves the current offensive lifecycle intact and changes only the equal-cash split of already-selected simultaneous admissions.",
+    "opportunity_allocation": "Does not change residual funding for later second campaigns or add rank-implied fixed fractions. It only divides the exact same current observed cash among candidates selected on the same close.",
+    "breadth_concentration": "No breadth regime, no capacity change and no repeated portfolio rebalancing."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Treatment must strictly exceed campaign-peak mean-log and must not reduce campaign-peak minimum terminal wealth.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "average exposure", "multi-fill event count", "admission allocation shares"],
+    "if_promoted": "Immediately evaluate the identical source-bound treatment over all 896 frozen sessions before formal-matrix expansion."
+  },
+  "prohibitions": [
+    "no exponent/temperature/margin on scores",
+    "no fixed 60/40, 70/30 or other weight grid",
+    "no capacity retry or position-count search",
+    "no post-admission score rebalancing",
+    "no ticker/pool-specific behavior",
+    "no future labels or reference-strategy source consumption",
+    "no post-result edit of this family"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
