@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-17",
+  "repository": "ychenracing/quant",
+  "pr": 1,
+  "status": "NOT_MET",
+  "merge_eligible": false,
+  "production_integration": "NOT_PERFORMED_NO_FINAL_ELIGIBLE_CANDIDATE",
+  "identities": {
+    "main": "9f74d4fbf2207063e2bdafc4216a7bc92a1c7255",
+    "research": "7551af8af7506857c684b4cda79c885971ac8dd3",
+    "prior_evidence": "dd7d692d5783459b5fae677b65a2da83b207c3fd",
+    "pr_head": "efffb9a428258e921feaff125011cba46223bb18",
+    "market_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+    "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826"
+  },
+  "frozen_input_recovery": {
+    "outer_artifact_sha256": "a87e191252da3906550c8db6c74993124666de431a9583721717b2c5249bbb14",
+    "concatenated_evidence_archive_sha256": "6f7864e8f60001790806dcedb2fb7abc5960fb992c936ee9ea2be02069f3f353",
+    "symbols": 34,
+    "sessions": 896,
+    "start": "2023-01-03",
+    "end": "2026-09-11"
+  },
+  "passive_199_case_binding": "VERIFIED_PRIOR_AUDIT",
+  "reference_layers": {
+    "native": "VERIFIED_WHERE_SUPPORTED",
+    "corrected": "VERIFIED_FOR_IDENTIFIED_FIXED_DEFECTS",
+    "normalized_final": "NOT_ESTABLISHED",
+    "equivalent_execution_final": "NOT_ESTABLISHED"
+  },
+  "candidate_conclusion": "NO_CURRENT_FINAL_ELIGIBLE_CANDIDATE",
+  "portfolio_leader_peak_authority": {
+    "source_commit": "9cf393b2708212543f1be81a5888a48efc0e6734",
+    "run_id": 35170077244,
+    "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+    "advance": false,
+    "evaluation_present": false,
+    "evidence_path": "portfolio-leader-peak-authority/9cf393b2708212543f1be81a5888a48efc0e6734/35170077244"
+  },
+  "decisive_blocker": "Current active candidates do not establish the retained active risk-avoidance/recovery requirement; passive ownership does not implement that capability.",
+  "next_authorization_required": [
+    "explicit bounded new active-strategy research budget while retaining final acceptance",
+    "or explicit final-contract revision accepting passive ownership and its evidence boundaries"
+  ]
+}

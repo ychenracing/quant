@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-17",
+  "path": "final-acceptance-closure/2026-09-17",
+  "source_commit": "7551af8af7506857c684b4cda79c885971ac8dd3",
+  "main_at_audit": "9f74d4fbf2207063e2bdafc4216a7bc92a1c7255",
+  "pr_head": "efffb9a428258e921feaff125011cba46223bb18",
+  "status": "NOT_MET",
+  "merge_eligible": false,
+  "report_sha256": "c9066b11afbddb1c3e99046cc9960fd2584a20144a6f9e9bf250e02cdd0f55c1",
+  "result_sha256": "3e368a90de64327ba5a6066754da287baf023d883122df47d11832e9235bb01a"
+}
