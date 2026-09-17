@@ -1,0 +1,86 @@
+{
+  "family": "offensive_long_horizon_nonlinear_alpha",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Replace the failed short-horizon/linear alpha learners with one causal nonlinear walk-forward model explicitly trained to identify 60-session relative compounders, while retaining the current best ownership/execution engine.",
+  "control": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "failed_learning_boundary": {
+    "adaptive_expectation": "The prior 12-candidate Ridge family targeted 5/10/20-session return minus downside penalty and produced negative prequential skill plus low wealth. No horizon/penalty/shrinkage neighbor is reused.",
+    "relative_rank": "The prior mature-cohort linear 3-feature relative-rank model improved joint-removal pair accuracy but worsened wealth by 16.65%. This family therefore does not optimize pair accuracy or fit the old ranking coefficients.",
+    "matured_displacement_memory": "The non-contextual action-memory family also failed, proving that average historical replacement payoff is not a sufficient alpha state."
+  },
+  "label": {
+    "horizon_sessions": 60,
+    "economic_basis": "60 is the existing long trend lifecycle used by the offensive ownership stack; it is not selected from a horizon grid.",
+    "origin": "After-close session D feature state.",
+    "execution_start": "D+1 open.",
+    "end": "open exactly 60 sessions after D+1.",
+    "raw": "log(stock_open_end / stock_open_start)",
+    "target": "raw stock log return minus the cross-sectional median valid raw return for the same origin and horizon.",
+    "maturity": "An origin can enter training only when its end open is at or before the current signal session."
+  },
+  "training": {
+    "cohorts": "Only origins with session_index % Config.rebalance == 0 are training cohorts; Config.rebalance is 10 in the frozen runtime. This prevents dense overlapping daily labels and introduces no new cadence parameter.",
+    "schedule": "Refit at signal sessions with session_index % Config.rebalance == 0 using every valid matured historical cohort available then. Between refits the last fitted model is reused.",
+    "model": "sklearn.ensemble.HistGradientBoostingRegressor(random_state=34) with all other sklearn 1.8.0 defaults exactly; no hyperparameter search.",
+    "fallback": "Before any valid matured training rows exist, use the unchanged current causal score."
+  },
+  "features": [
+    "current existing causal score",
+    "5-session log return",
+    "20-session log return",
+    "60-session log return",
+    "120-session log return",
+    "20-vs-60 trend acceleration: r20 - r60/3",
+    "distance to trailing 20-session closing high",
+    "distance to trailing 60-session closing high",
+    "20-session realized volatility",
+    "60-session realized volatility",
+    "log volume / trailing-20 median volume",
+    "20-session return minus same-date cross-sectional median",
+    "60-session return minus same-date cross-sectional median",
+    "120-session return minus same-date cross-sectional median",
+    "60-session return minus same-date sector median",
+    "current market breadth",
+    "current market drawdown"
+  ],
+  "treatment": {
+    "score": "When a fitted model exists, its predicted 60-session relative log return replaces only the alpha score matrix used by the current campaign-peak ownership engine. Non-ready symbols remain score=-inf.",
+    "entry_and_lifecycle": "Observed-trend entry/exit predicates, acute failure, funded campaign references, fresh-challenger provenance, campaign-peak displacement authority, capacity, actual-cash funding and execution semantics remain unchanged.",
+    "time_comparability": "The prediction is always in the same economic unit: expected 60-session relative log return, so funded admission alpha and later decay comparisons remain economically coherent."
+  },
+  "causality": {
+    "strict": "Features at D use D close and earlier only. Training at D may use labels only whose end open is <= D. Prediction for D executes no earlier than D+1.",
+    "prefix_test": "For every session in a tested prefix, the full-snapshot and prefix-only learned score matrices, resulting targets and orders must be identical.",
+    "determinism": "Frozen sklearn==1.8.0, random_state=34, deterministic cohort schedule and symbol ordering."
+  },
+  "structural_difference": {
+    "old_expectation": "Nonlinear pooled 60-session cross-sectional excess target rather than Ridge short-horizon absolute return/downside utility.",
+    "old_relative_rank": "Predicts an economically calibrated long-horizon excess-return value used as a time-comparable ownership score, not a 3-feature linear pair/rank score.",
+    "old_trend_quality_absolute_leadership": "Those were fixed hand formulas. This model learns nonlinear interactions only from fully matured causal history."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Treatment must strictly exceed campaign-peak mean-log and must not reduce campaign-peak minimum terminal wealth.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "average exposure", "fit count", "training sample count", "matured-label rank correlation"],
+    "if_promoted": "Evaluate identical source-bound treatment over all 896 frozen sessions before formal-matrix expansion."
+  },
+  "prohibitions": [
+    "no model/horizon/feature subset grid",
+    "no changing HistGradientBoosting defaults after seeing results",
+    "no ticker/pool-specific features",
+    "no symbol identity one-hot encoding",
+    "no future/immature label access",
+    "no reference-strategy source consumption",
+    "no post-result edit of this preregistered family"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
