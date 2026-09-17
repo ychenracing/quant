@@ -1,0 +1,56 @@
+{
+  "family": "offensive_portfolio_leader_peak_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Retain the new dominant-peak alpha leader while permitting weaker peak-campaign replacement only when the fresh challenger is itself the strongest current causal opportunity in the actually funded book.",
+  "control": {
+    "family": "offensive_dominant_peak_authority",
+    "source_commit": "6a8b45e8ce0f4e47ac8457937e92853b1be66430",
+    "canonical_run": 35168514636,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 14.462335025996677, "joint_optical_leader_removal": 1.6022420613728365, "mean_log": 1.6635360523236968},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 31.664294877012213, "joint_optical_leader_removal": 2.454083745276431, "mean_log": 2.2461304490122744}
+  },
+  "root_evidence": {
+    "read_only_attribution_run": 35168991506,
+    "event_sparsity": "Dominant-peak differs from campaign-peak only through a very small number of weaker-peak releases; union selection had zero releases, common-five one, joint removal two.",
+    "economic_boundary": "Dominant-peak materially raises common-five and selection mean-log/minimum, but full-history joint removal is about 0.18% below campaign-peak. The next hypothesis should refine only release authority, not reopen capacity, funding or hold-duration search.",
+    "causal_hypothesis": "Replacing a weaker secondary peak campaign is most defensible when the fresh challenger is not merely better than that incumbent's admission reference, but is also stronger than every currently funded campaign by the same current causal score."
+  },
+  "treatment": {
+    "parent": "Use offensive_dominant_peak_authority unchanged for every decision except the weaker-peak release case.",
+    "candidate_case": "The parent has identified a full-book ordinary pair, fresh challenger edge, incumbent at actual funded peak, and incumbent is weaker than another actually held campaign, so dominant-peak would normally release it.",
+    "portfolio_leader_test": "The challenger may inherit release authority only if its current finite causal score is strictly greater than every actually held campaign's current finite causal score. Symbol tie rules are irrelevant because strict greater-than is required for authority.",
+    "block": "If the challenger is not the new portfolio causal leader, mask only that challenger for the current close and preserve the peak incumbent exactly as the campaign-peak mechanism would. No cooldown or future state is created.",
+    "allow": "If the challenger is strictly stronger than all held campaigns, execute the unchanged dominant-peak weaker-release path.",
+    "unchanged": [
+      "all non-weaker-peak dominant-peak behavior",
+      "causal score and observed-trend signals",
+      "two-position capacity and cash funding",
+      "acute/missing exits, retirement, rearm and failed-fill authority",
+      "campaign-peak state and actual inventory provenance",
+      "next-session execution, fees, slippage, ADV/liquidity, limits, T+1 and lots"
+    ]
+  },
+  "structural_difference": {
+    "dominant_peak": "Adds a single endogenous authority requirement only to weaker-peak releases: the challenger must become the current portfolio causal leader.",
+    "leadership_handover": "No multi-day confirmation, score multiple, cooldown or ranking history.",
+    "funded_leader_compounder": "No persistent leader latch or slow-exit immunity; this acts on one ordinary displacement close only."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Treatment must strictly exceed dominant-peak mean-log and must not reduce dominant-peak minimum terminal wealth.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "exposure", "portfolio-leader releases", "nonleader blocks"],
+    "if_promoted": "Immediately evaluate the exact same source-bound treatment over all 896 frozen sessions."
+  },
+  "prohibitions": [
+    "no score margin or ratio threshold",
+    "no confirmation-day/cooldown search",
+    "no capacity/funding changes",
+    "no ticker/pool-specific behavior",
+    "no future labels or reference-strategy source consumption",
+    "no post-result edits to this family"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
