@@ -36,3 +36,20 @@ class CommandTests(unittest.TestCase):
         with contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(self.cli.main(['audit','--data','/nonexistent/snapshot',
                                            '--catalog','/nonexistent/catalog.json']), 2)
+    def test_production_config_rejects_inactive_strategy_parameters(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'config.json'
+            path.write_text('{"initial_cash": 2000000, "risk_drawdown": 0.18}')
+            with self.assertRaisesRegex(ValueError, 'does not use: risk_drawdown'):
+                self.cli._load_production_config(path)
+
+    def test_production_config_accepts_only_execution_parameters(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'config.json'
+            path.write_text('{"initial_cash": 1234567, "commission_bps": 2.0, "slippage_bps": 8.0, "max_adv": 0.004}')
+            cfg = self.cli._load_production_config(path)
+            self.assertEqual(cfg.initial_cash, 1234567)
+            self.assertEqual(cfg.commission_bps, 2.0)
+            self.assertEqual(cfg.slippage_bps, 8.0)
+            self.assertEqual(cfg.max_adv, 0.004)
+

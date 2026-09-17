@@ -1,14 +1,15 @@
 {
-  "request_id": "independent-technology-reproduction-20260914",
+  "request_id": "independent-technology-source-reproduction-20260914",
   "scope": "Explicit research delivery, not a routine CI economic gate",
   "reference_commit": "5575d1b1b79fab405b92cfb7d164c7054a8bd826",
   "parent_commit": "30cc7d3bdea38d2d613ce43b2fdf988e0f544daa",
   "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
   "archives": {
-    "market": {"artifact_id": 10318889257, "run_id": 34763351910, "sha256": "5703ef1236a965c2e60a0c7c282103a6103653d25e3d7e4b2434eae4f8855d7c"},
-    "supplement": {"artifact_id": 10319594260, "run_id": 34764317406, "sha256": "9b9b68599db36f18cf2605f39f7edf73e9c69e37c78b97cdca538ba56ac19e37"},
-    "indices": {"artifact_id": 10319728602, "run_id": 34764078332, "sha256": "063094b85294a4f74d7094c2d22099932af550265e34d104f9fc589ce565d2be"}
+    "market": {"artifact_id": 10318889257,"run_id": 34763351910,"sha256": "5703ef1236a965c2e60a0c7c282103a6103653d25e3d7e4b2434eae4f8855d7c"},
+    "supplement": {"artifact_id": 10319594260,"run_id": 34764317406,"sha256": "9b9b68599db36f18cf2605f39f7edf73e9c69e37c78b97cdca538ba56ac19e37"},
+    "indices": {"artifact_id": 10319728602,"run_id": 34764078332,"sha256": "063094b85294a4f74d7094c2d22099932af550265e34d104f9fc589ce565d2be"}
   },
   "economic_acceptance": "Must remain separate from completed execution or successful publication",
-  "publication": "Append immutable bundles to research/evidence; never rewrite source main with its own run receipt"
+  "publication": "Append immutable bundles to research/evidence; never rewrite source main with its own run receipt",
+  "hosted_reference_mode": "No private cross-repository credential. Explicit --without-native records every planned native case as unavailable; authenticated local --reference still supports full native replay."
 }

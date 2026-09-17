@@ -37,10 +37,10 @@ class RetentionTests(unittest.TestCase):
         f = replace(self.f, weak=np.ones(170, dtype=bool), breadth=np.full(170, .3),
                     market_return=np.full(170, -.001))
         state = RiskState()
-        for i in range(90, 96):
+        for i in range(100, 106):
             state.update(i, f, [100.], self.cfg)
         self.assertEqual(state.cap, 0.)
-        entry = np.zeros_like(f.entry); entry[:, 0] = True
+        entry = np.zeros_like(self.f.entry); entry[:, 0] = True
         f = replace(f, market_return=np.full(170, .001), entry=entry)
         for i in range(100, 106):
             state.update(i, f, [100.], self.cfg)
@@ -55,7 +55,9 @@ class RetentionTests(unittest.TestCase):
 
     def test_retention_cannot_disable_sector_or_volatility_limits(self):
         f = replace(self.f, sectors=('group_a', 'group_a', 'group_b'))
-        current = np.array([.42, .40, 0.])
+        # Put sector exposure above the configured cap plus drift band.
+        sector_excess = self.cfg.sector_cap + self.cfg.trade_band + .01
+        current = np.array([sector_excess / 2, sector_excess / 2, 0.])
         want, _ = target_weights(100, f, current, self.cfg, cap=1., rebalance=False)
         self.assertLessEqual(want[:2].sum(), self.cfg.sector_cap + 1e-12)
         f = replace(self.f, vol=np.full_like(self.f.vol, .08))

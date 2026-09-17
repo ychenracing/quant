@@ -126,6 +126,9 @@ def load_market(root: str | Path, *, supplement: str | Path | None = None,
     """
     root = Path(root)
     manifest = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))
+    symbols = [record['symbol'] for record in manifest['records']]
+    if len(symbols) != len(set(symbols)):
+        raise ValueError('duplicate manifest symbol declarations')
     frames, identities, coverage = {}, {}, {}
     for record in manifest['records']:
         if record.get('role') != 'technology_equity':
@@ -157,6 +160,9 @@ def load_market(root: str | Path, *, supplement: str | Path | None = None,
         s = m['symbol']
         if s not in frames or m['status'] != 'ok':
             raise ValueError('invalid supplement identity')
+        modes = [row['adjustment'] for row in m['records']]
+        if len(modes) != 2 or set(modes) != {'qfq', 'raw'}:
+            raise ValueError('supplement requires exactly one qfq and one raw record')
         identities['original_' + s + '/raw'] = identities[s + '/raw']
         identities['original_' + s + '/qfq'] = identities[s + '/qfq']
         parts = {}
@@ -165,7 +171,12 @@ def load_market(root: str | Path, *, supplement: str | Path | None = None,
             path = folder / f'{s}_{mode}.csv'
             if file_hash(path) != row['csv_sha256']:
                 raise ValueError(f'{s}/{mode}: supplement SHA256 mismatch')
-            parts[mode] = pd.read_csv(path, parse_dates=['date']).set_index('date')
+            f = pd.read_csv(path, parse_dates=['date']).set_index('date')
+            if len(f) != row['rows'] or (len(f) and
+                    (str(f.index[0].date()) != row['first'] or
+                     str(f.index[-1].date()) != row['last'])):
+                raise ValueError(f'{s}/{mode}: supplement manifest coverage mismatch')
+            parts[mode] = f
             identities[f'{s}/{mode}'] = row['csv_sha256']
         if not parts['qfq'].index.equals(parts['raw'].index):
             raise ValueError('supplement raw/adjusted calendar mismatch')

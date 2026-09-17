@@ -32,7 +32,7 @@ class ResearchEvidenceTests(unittest.TestCase):
                 'protocol_sha256': file_hash(Path(study.__file__).with_name('protocol.json')),
                 'runner_sha256': file_hash(Path(study.__file__))}
         for key, value in [('source', {}), ('selection_data_sha256', 'other data'),
-                           ('config', asdict(Config())), ('runner_sha256', 'other runner')]:
+                           ('config', base['config'] | {'fast': base['config']['fast'] + 1}), ('runner_sha256', 'other runner')]:
             with self.subTest(key=key), tempfile.TemporaryDirectory() as tmp:
                 selection = copy.deepcopy(base)
                 selection[key] = value
@@ -59,11 +59,14 @@ class ResearchEvidenceTests(unittest.TestCase):
     def test_human_report_labels_model_book_and_explains_each_security(self):
         from techquant import cli
         self.assertTrue(hasattr(cli, 'inspection_report'), 'per-security research report is missing')
+        from techquant.passive import run_passive_ownership
         market = sample_market(2, 90)
-        result = run(market)
-        report = cli.inspection_report(market, Config(), result, {})
-        self.assertEqual(report['status'], 'RESEARCH_ONLY_NOT_ACCEPTED')
+        result = run_passive_ownership(market)
+        report = cli.inspection_report(market, result, {})
+        self.assertEqual(report['status'], 'RETURN_FIRST_PRODUCTION_MODE')
+        self.assertEqual(report['strategy'], 'passive_ownership')
         self.assertEqual({row['symbol'] for row in report['securities']}, set(market.symbols))
         self.assertTrue(all(row['explanation'] for row in report['securities']))
-        self.assertIn('模型', report['warning'])
-        self.assertFalse(any('quantity' in row for row in report['securities']))
+        self.assertEqual(report['sell_candidates'], [])
+        self.assertFalse(report['risk']['active_risk_control'])
+        self.assertIn('真实账户', report['warning'])

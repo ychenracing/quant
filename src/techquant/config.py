@@ -7,18 +7,19 @@ import math
 
 @dataclass(frozen=True)
 class Config:
-    # Signal/portfolio controls; these defaults are not claims of optimality.
-    fast: int = 20
-    slow: int = 60
-    max_positions: int = 3
+    # Match the explicitly selected research preset in config/research.json.
+    # This is an API/CLI consistency guarantee, not economic acceptance.
+    fast: int = 10
+    slow: int = 40
+    max_positions: int = 2
     rebalance: int = 10
     single_cap: float = .55
     sector_cap: float = .75
-    trade_band: float = .06
-    stop_atr: float = 4.5
-    target_vol: float = .50
+    trade_band: float = .08
+    stop_atr: float = 6.
+    target_vol: float = .80
     shock_z: float = 2.5
-    risk_drawdown: float = .12
+    risk_drawdown: float = .18
     recovery: int = 3
     # Execution assumptions are separate from alpha and recorded in every run.
     initial_cash: float = 2_000_000.

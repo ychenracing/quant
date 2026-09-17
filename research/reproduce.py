@@ -85,6 +85,26 @@ def study(root: Path, data: Path, output: Path, commit: str) -> None:
             raise RuntimeError(f'{mode} execution failed ({result}); log and partial runs retained')
 
 
+def native_plan(catalog: dict) -> list[tuple[str, str]]:
+    plan = []
+    for ref in DIRECTORIES:
+        scopes = ['chatgpt_5', 'union', 'remove_optical_leaders']
+        scopes += [p for p in catalog['pools'] if p.startswith(ref + '_')]
+        plan += [(ref, pool) for pool in dict.fromkeys(scopes)]
+    return plan
+
+
+def unavailable_native_cases(catalog: dict) -> list[dict]:
+    """Preserve the full reference plan when this runtime has no private checkout.
+
+    Absence of access is not a zero return, completed replay or comparison victory.
+    Prior-source native measurements stay separate from this run's source proof.
+    """
+    return [{'reference': ref, 'pool': pool, 'status': 'REFERENCE_CHECKOUT_UNAVAILABLE',
+             'reason': 'Private reference checkout not provided; no native measurements reused'}
+            for ref, pool in native_plan(catalog)]
+
+
 def native_cases(root: Path, data: Path, reference: Path, output: Path,
                  commit: str, catalog: dict) -> None:
     custom = json.loads(json.dumps(catalog))
@@ -92,11 +112,7 @@ def native_cases(root: Path, data: Path, reference: Path, output: Path,
                                                if s not in {'sz300308', 'sz300502', 'sz300394'}]
     catalog_path = output / 'catalog.json'
     write_json(catalog_path, custom)
-    plan = []
-    for ref in DIRECTORIES:
-        scopes = ['chatgpt_5', 'union', 'remove_optical_leaders']
-        scopes += [p for p in catalog['pools'] if p.startswith(ref + '_')]
-        plan += [(ref, pool) for pool in dict.fromkeys(scopes)]
+    plan = native_plan(catalog)
     write_json(output / 'case_plan.json', plan)
     records = {ref: reference_files(reference / directory) for ref, directory in DIRECTORIES.items()}
     write_json(output / 'reference_source_files.json', records)
@@ -191,7 +207,7 @@ def report(root: Path, output: Path) -> dict:
         lines.append(f"|{row['reference']}|{row['status']}|{measured.get('wealth', '未验证')}|{measured.get('max_drawdown', '未验证')}|")
     lines += ['', '## 风险与执行', '', '详见 report.json 的逐次降险信号日与实际关联卖出日。模型不能在收盘前使用当日收盘信号，也不能保证跳空或跌停日卖出。', '',
               '## 复现与限制', '', 'current/ 保存全部候选、股票池/逐一移除/联合移除/行业移除/随机组合/全部数量/成本/延迟/参数邻域结果；parent/ 保存失败父版本对照。',
-              'native/ 同时保存成功、覆盖失效、错误或执行预算耗尽；不删除失败条目。原生交易记录行数不冒充统一成交口径。',
+              'native/ 同时保存成功、覆盖失效、错误、执行预算耗尽或私有参考未提供状态；不删除失败条目。未提供参考时没有重跑原生对照，不借用旧 SHA 的测量冒充本次结果。',
               '数据与原始压缩包保存在 inputs/、frozen_archives/；SOURCE_IDENTITY.json、MANIFEST.json 绑定源码、数据、runner 与产出。',
               '34 只标的的全部非空组合为 17,179,869,183 个，本研究没有穷举。2026 年为已知历史压力检验，不能描述成未触碰样本。',
               '回测以复权经济单位记账，不是实股公司行动账本；股票池存在事后选择风险。风险识别全面最早、所有组合收益最大回撤最小均未验证。',
@@ -203,7 +219,10 @@ def report(root: Path, output: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--archives', type=Path, required=True)
-    parser.add_argument('--reference', type=Path, required=True)
+    native = parser.add_mutually_exclusive_group(required=True)
+    native.add_argument('--reference', type=Path)
+    native.add_argument('--without-native', action='store_true',
+                        help='explicitly record all native cases as unavailable; never a comparison pass')
     parser.add_argument('--parent', type=Path)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
@@ -216,11 +235,14 @@ def main() -> None:
     actual = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
     if commit != actual or subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=no'], cwd=root, text=True).strip():
         raise ValueError('reproduction requires a clean checkout of the declared source commit')
-    actual_reference = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=args.reference, text=True).strip()
-    if actual_reference != request['reference_commit']:
-        raise ValueError('reference checkout differs from the frozen commit')
+    actual_reference = None
+    if args.reference is not None:
+        actual_reference = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=args.reference, text=True).strip()
+        if actual_reference != request['reference_commit']:
+            raise ValueError('reference checkout differs from the frozen commit')
     write_json(output / 'SOURCE_IDENTITY.json', {'source': source_identity(), 'request': request,
-               'reference_commit': actual_reference, 'reproducer_sha256': file_hash(Path(__file__)),
+               'reference_commit': actual_reference,
+               'native_mode': 'NOT_AVAILABLE' if args.without_native else 'REPLAY', 'reproducer_sha256': file_hash(Path(__file__)),
                'native_harness_sha256': file_hash(root / 'research/native.py'),
                'study_runner_sha256': file_hash(root / 'research/study.py'),
                'github_run_id': os.environ.get('GITHUB_RUN_ID'), 'github_run_attempt': os.environ.get('GITHUB_RUN_ATTEMPT')})
@@ -242,12 +264,17 @@ def main() -> None:
             raise ValueError('wrong preserved parent source')
         (output / 'parent').mkdir()
         study(parent, data, output / 'parent', parent_sha)
-    native_cases(root, data, args.reference.resolve(), output / 'native', commit, catalog)
+    if args.reference is not None:
+        native_cases(root, data, args.reference.resolve(), output / 'native', commit, catalog)
+    else:
+        write_json(output / 'native/case_plan.json', native_plan(catalog))
+        write_json(output / 'native/outcomes.json', unavailable_native_cases(catalog))
     for path in output.glob('*/**/runs/*/manifest.json'):
         verify_evidence(path.parent)
     report(root, output)
     write_json(output / 'execution.json', {'elapsed_seconds': time.monotonic() - started,
-               'execution': 'COMPLETED', 'economic_acceptance': 'NOT_PASSED'})
+               'execution': 'SOURCE_COMPLETED_NATIVE_UNAVAILABLE' if args.without_native else 'COMPLETED',
+               'economic_acceptance': 'NOT_PASSED'})
     hashes = {str(p.relative_to(output)): file_hash(p) for p in sorted(output.rglob('*')) if p.is_file()}
     write_json(output / 'MANIFEST.json', hashes)
     archive = output.with_suffix('.tar.gz')
