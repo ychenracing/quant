@@ -1,0 +1,56 @@
+{
+  "family": "offensive_dominant_peak_authority",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION_OR_MEASUREMENT",
+  "objective": "Preserve the campaign-peak champion's profitable fresh-challenger protection while releasing capital when the peak incumbent is only the weaker secondary funded campaign.",
+  "control": {
+    "family": "offensive_campaign_peak_authority",
+    "source_commit": "e1b0d8c0473c5f3c365d29de9a95fe8280d96765",
+    "canonical_run": 35121169501,
+    "selection_2023_2025": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048},
+    "full_896": {"union": 10.76844874803993, "chatgpt_5": 27.48320735083209, "joint_optical_leader_removal": 2.4584839}
+  },
+  "root_evidence": {
+    "campaign_peak": "The current champion improves the prior fresh-challenger policy by blocking ordinary fresh-edge displacement when the incumbent closes at its actual funded campaign peak.",
+    "formal_tail": "The same champion still has a severe 199-case lower tail and remains materially below the earlier alpha-decay family in full-history joint optical-leader removal, so the block is not universally beneficial.",
+    "failed_portfolio_construction": "One-slot concentration and score-proportional simultaneous admission both failed, so the next hypothesis targets replacement authority rather than capacity or funding weights.",
+    "economic_hypothesis": "A peak is strong evidence for protecting the portfolio's currently stronger funded campaign, but a weaker secondary campaign being at a local peak should not automatically veto a materially stronger fresh challenger."
+  },
+  "treatment": {
+    "parent": "Use the exact current offensive_fresh_challenger_authority lifecycle and score stack.",
+    "ordinary_pair": "Identify the same full-book decayed incumbent and highest eligible challenger as the existing campaign-peak owner, with identical fresh-edge and actual funded peak definitions.",
+    "dominant_incumbent": "Among the actually held campaigns on the current close, the proposed incumbent is dominant only when its current finite causal score is no lower than every other held campaign's current finite causal score. With the frozen two-slot portfolio this is an ordinal within-book comparison and adds no threshold.",
+    "block": "Mask the fresh challenger and preserve the book only when all three are true on the same close: challenger is a fresh trend-entry edge, incumbent is at its actual funded closing peak, and incumbent is the dominant currently held campaign.",
+    "allow": "If the proposed incumbent is at peak but is weaker than another held campaign, do not apply a campaign-peak block; let the unchanged fresh-challenger/alpha-decay parent decide the displacement.",
+    "unchanged": [
+      "causal score, entry and exit predicates",
+      "two-position capacity and funding",
+      "acute exits and missing/unready exits",
+      "reference rearm and recovered-challenger provenance",
+      "alpha-decay admission references and retirement",
+      "actual-cash-only next-session execution, fees, slippage, ADV/liquidity, limits, T+1 and lots"
+    ]
+  },
+  "structural_difference": {
+    "campaign_peak": "Refines only which funded-peak incumbent is entitled to veto a fresh challenger; the current champion protects every peak incumbent regardless of its within-book alpha rank.",
+    "funded_leader_compounder": "Does not grant persistent slow-trend-exit immunity or latch a long-lived leader state. This family acts only on the single ordinary displacement close already handled by campaign-peak.",
+    "leader_slots_or_handover": "No reserved leader slot, no confirmation days, no score multiple and no cooldown."
+  },
+  "measurement": {
+    "selection_window": ["2023-01-03", "2025-12-31"],
+    "scopes": ["union", "chatgpt_5", "joint_optical_leader_removal"],
+    "primary": "mean(log(terminal wealth)) across the three fixed scopes",
+    "secondary": "minimum terminal wealth",
+    "promotion": "Treatment must strictly exceed campaign-peak mean-log and must not reduce campaign-peak minimum terminal wealth.",
+    "record_only": ["MDD", "orders", "turnover", "fees", "slippage", "exposure", "dominant peak blocks", "weaker peak releases"],
+    "if_promoted": "Immediately evaluate the exact same source-bound treatment over all 896 frozen sessions before formal-matrix expansion."
+  },
+  "prohibitions": [
+    "no score-ratio or rank-margin threshold",
+    "no confirmation-day or cooldown search",
+    "no capacity/funding change",
+    "no ticker/pool-specific behavior",
+    "no future labels or reference-strategy source consumption",
+    "no post-result edit of this family"
+  ],
+  "economic_acceptance": "UNVERIFIED"
+}
