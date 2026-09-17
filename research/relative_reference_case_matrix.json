@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "registry_id": "dynamic_relative_reference_case_matrix",
+  "frozen_at": "2026-09-17",
+  "source_main_sha": "b0902e8abd360e2702ae350f4ccba3a696bcb71f",
+  "required_evidence_layers": [
+    "Native"
+  ],
+  "materialization_status": "PENDING_DETERMINISTIC_EXPANSION",
+  "economic_acceptance": "NOT_MET",
+  "historical_seed": {
+    "repository": "ychenracing/quant",
+    "branch": "research/evidence",
+    "path": "passive-final-audit/7551af8af7506857c684b4cda79c885971ac8dd3/35179372337/proof/case-map.json",
+    "git_blob_sha": "4239f36852550047d3af3b1ef99f77f70f80dc67",
+    "size_bytes": 806440,
+    "historical_case_count": 199,
+    "semantics": "Each universe starts from CNY 2m empty cash; registered subwindows inherit the full-account state unless explicitly marked independent."
+  },
+  "expansion_rules": {
+    "preserve_every_historical_case": true,
+    "preserve_universe_order": true,
+    "preserve_data_and_source_identity": true,
+    "add_reference_original_universe_cases": true,
+    "add_key_industry_removals": true,
+    "add_cost_delay_capacity_cases": true,
+    "add_independent_and_inherited_windows_as_distinct_cases": true,
+    "post_result_case_changes_forbidden": true
+  },
+  "mandatory_groups": [
+    "common_five",
+    "union_34",
+    "reference_original_universes",
+    "joint_optical_leader_removal",
+    "key_industry_removals",
+    "leave_one_out_34",
+    "frozen_joint_removals",
+    "deterministic_subsets",
+    "cost_stress",
+    "delay_stress",
+    "capacity_and_tradability_stress",
+    "full_period",
+    "major_uptrend",
+    "major_stress",
+    "recovery"
+  ],
+  "cases": [],
+  "blocker": "The historical 199-case registry must be transformed without moving 806440 source bytes through model context; the deterministic generator and source-branch hash verification are the next implementation step."
+}
