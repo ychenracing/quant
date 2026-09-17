@@ -1,0 +1,18 @@
+{
+  "family": "offensive_long_horizon_nonlinear_alpha",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "f2d7baf822f753b6b7d36ffeb1b73ef118293d31",
+  "source_git_blob": {
+    "research/offensive_long_horizon_nonlinear_alpha.py": "fa57f29b1a7ba0fcdbb504d36e3bec2f11ea2ffd",
+    "research/test_offensive_long_horizon_nonlinear_alpha.py": "171be5043c7e3b46c72731f9d77c61400690f9c1",
+    "research/offensive_long_horizon_nonlinear_alpha_study.py": "b1dec1296b349050b15f538c507e1bc600989f2c",
+    "research/offensive_long_horizon_nonlinear_alpha_contract.json": "ab6d02921d4a74c71bec0329a3844e7da82d8d39",
+    ".github/workflows/long-horizon-nonlinear-alpha-study.yml": "4615495d73aba9ee3e2ef0db152d37b1874fc79d",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213"
+  },
+  "request": "Run the single preregistered campaign-peak champion versus long-horizon nonlinear alpha pair through 2025-12-31 on union, common-five and joint optical-leader removal. The treatment must use only fully matured causal 60-session next-open-to-next-open relative-return cohorts, refit only at Config.rebalance sessions, and retain the exact frozen HistGradientBoostingRegressor(random_state=34) defaults and feature set. Select only if mean(log terminal wealth) strictly exceeds the campaign-peak champion and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound candidate through all 896 frozen sessions. Record MDD, orders, turnover, fees, slippage, exposure, fit count, training sample count and training rank-correlation diagnostics. Do not search models, horizons, feature subsets, hyperparameters, score transforms, position counts or pool-specific behavior.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
