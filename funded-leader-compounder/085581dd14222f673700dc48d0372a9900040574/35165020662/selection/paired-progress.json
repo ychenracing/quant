@@ -1,0 +1,137 @@
+[
+  {
+    "scope": "union",
+    "current_champion": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 6.343988713554001,
+      "total_return": 5.343988713554001,
+      "cagr": 0.8540739473352084,
+      "max_drawdown": 0.3430563651537788,
+      "inherited_drawdown": 0.3430563651537788,
+      "sharpe_zero_rf": 1.435736188165369,
+      "orders": 115,
+      "orders_per_year": 38.42978042086002,
+      "gross_turnover": 55.770228577145005,
+      "fees": 140637.80781032005,
+      "slippage": 256546.93069418467,
+      "average_exposure": 0.7316139167979497,
+      "blocked_attempts": 1
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 4.397183962494339,
+      "total_return": 3.3971839624943394,
+      "cagr": 0.6403289757212156,
+      "max_drawdown": 0.5251037289192666,
+      "inherited_drawdown": 0.5251037289192666,
+      "sharpe_zero_rf": 1.198414186081717,
+      "orders": 108,
+      "orders_per_year": 36.09057639524245,
+      "gross_turnover": 51.99348960828333,
+      "fees": 97539.5466184655,
+      "slippage": 175795.52314112193,
+      "average_exposure": 0.7959625554087566,
+      "blocked_attempts": 10
+    },
+    "treatment_events": {
+      "funded_leader_proofs": 24,
+      "ignored_slow_exits": 69
+    }
+  },
+  {
+    "scope": "chatgpt_5",
+    "current_champion": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 13.923911154976224,
+      "total_return": 12.923911154976224,
+      "cagr": 1.4110875829572787,
+      "max_drawdown": 0.411981075823155,
+      "inherited_drawdown": 0.411981075823155,
+      "sharpe_zero_rf": 1.7850446422658879,
+      "orders": 77,
+      "orders_per_year": 25.73124428179323,
+      "gross_turnover": 41.04975207639402,
+      "fees": 169007.4932909581,
+      "slippage": 304731.7021347766,
+      "average_exposure": 0.6917650618699137,
+      "blocked_attempts": 2
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 12.137421733279666,
+      "total_return": 11.137421733279666,
+      "cagr": 1.3029510420456107,
+      "max_drawdown": 0.4624795452502576,
+      "inherited_drawdown": 0.4624795452502576,
+      "sharpe_zero_rf": 1.6829059432894011,
+      "orders": 56,
+      "orders_per_year": 18.71363220494053,
+      "gross_turnover": 28.66615313774721,
+      "fees": 109036.68265023087,
+      "slippage": 198516.49758037072,
+      "average_exposure": 0.8140632698229385,
+      "blocked_attempts": 4
+    },
+    "treatment_events": {
+      "funded_leader_proofs": 17,
+      "ignored_slow_exits": 87
+    }
+  },
+  {
+    "scope": "joint_optical_leader_removal",
+    "current_champion": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 1.5949459430753048,
+      "total_return": 0.5949459430753048,
+      "cagr": 0.1688318206172934,
+      "max_drawdown": 0.6509911316885435,
+      "inherited_drawdown": 0.6509911316885435,
+      "sharpe_zero_rf": 0.5747299896346779,
+      "orders": 132,
+      "orders_per_year": 44.11070448307411,
+      "gross_turnover": 64.54014004527811,
+      "fees": 79987.02201810305,
+      "slippage": 137096.01737679116,
+      "average_exposure": 0.6746783151458137,
+      "blocked_attempts": 3
+    },
+    "treatment": {
+      "status": "MEASURED",
+      "start": "2023-01-03",
+      "end": "2025-12-31",
+      "sessions": 727,
+      "wealth": 1.7693433556154161,
+      "total_return": 0.7693433556154161,
+      "cagr": 0.210073840740723,
+      "max_drawdown": 0.6417439237358639,
+      "inherited_drawdown": 0.6417439237358639,
+      "sharpe_zero_rf": 0.6578020397584791,
+      "orders": 114,
+      "orders_per_year": 38.09560841720037,
+      "gross_turnover": 51.48583956733116,
+      "fees": 73238.77605627103,
+      "slippage": 123867.16946349939,
+      "average_exposure": 0.7533465862504642,
+      "blocked_attempts": 3
+    },
+    "treatment_events": {
+      "funded_leader_proofs": 22,
+      "ignored_slow_exits": 77
+    }
+  }
+]
