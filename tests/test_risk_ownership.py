@@ -53,7 +53,9 @@ def direct_observation(
 ) -> CloseObservation:
     marks = policy.price[session]
     holdings = units * marks
-    actual_nav = float(holdings.sum()) if nav is None else float(nav)
+    actual_nav = (
+        float((owned_units * marks).sum()) if nav is None else float(nav)
+    )
     if actual_nav <= 0:
         cash = actual_nav
         weights = np.zeros_like(units)
