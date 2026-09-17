@@ -12,28 +12,32 @@ from techquant.engine import run
 
 
 class PassiveOwnershipTests(unittest.TestCase):
-    def test_production_mode_exactly_matches_buy_hold_research_account(self):
+    def passive(self):
+        try:
+            from techquant.passive import run_passive_ownership
+        except ImportError as exc:
+            self.fail(f"passive ownership production adapter is absent: {exc}")
+        return run_passive_ownership
+
+    def test_production_adapter_exactly_matches_buy_hold_research_account(self):
         market = sample_market(4, 140)
+        passive = self.passive()
         for delay, cost in ((1, 1.0), (2, 3.0)):
             benchmark = run(market, Config(), benchmark="buy_hold", delay=delay, cost_multiplier=cost)
-            production = run(
-                market,
-                Config(),
-                strategy="passive_ownership",
-                delay=delay,
-                cost_multiplier=cost,
-            )
+            production = passive(market, Config(), delay=delay, cost_multiplier=cost)
             pd.testing.assert_frame_equal(benchmark.equity, production.equity)
             pd.testing.assert_frame_equal(benchmark.targets, production.targets)
             self.assertEqual(benchmark.orders, production.orders)
             self.assertEqual(production.metadata["strategy"], "passive_ownership")
+            self.assertEqual(production.metadata["economic_semantics"], "same_engine_buy_hold")
             self.assertIsNone(production.metadata["benchmark"])
 
     def test_prefix_replay_is_exactly_causal(self):
         market = sample_market(3, 150)
-        full = run(market, strategy="passive_ownership")
+        passive = self.passive()
+        full = passive(market)
         cut = market.calendar[95]
-        prefix = run(market.prefix(cut), strategy="passive_ownership")
+        prefix = passive(market.prefix(cut))
         pd.testing.assert_frame_equal(full.equity.loc[:cut], prefix.equity)
         pd.testing.assert_frame_equal(full.targets.loc[:cut], prefix.targets)
         self.assertEqual(
@@ -47,9 +51,10 @@ class PassiveOwnershipTests(unittest.TestCase):
         late_symbol = "sh688999"
         frames[late_symbol] = next(iter(base.frames.values())).iloc[70:].copy()
         market = Market.from_frames(frames, base.calendar, quality="synthetic")
+        passive = self.passive()
 
         benchmark = run(market, benchmark="buy_hold")
-        production = run(market, strategy="passive_ownership")
+        production = passive(market)
         pd.testing.assert_frame_equal(benchmark.equity, production.equity)
         pd.testing.assert_frame_equal(benchmark.targets, production.targets)
         self.assertEqual(benchmark.orders, production.orders)
@@ -66,19 +71,13 @@ class PassiveOwnershipTests(unittest.TestCase):
         ]
         self.assertFalse(earlier_late_orders)
 
-    def test_passive_mode_rejects_conflicting_decision_sources(self):
-        market = sample_market(2, 90)
-        targets = pd.DataFrame(0.0, index=market.calendar, columns=market.symbols)
-        with self.assertRaises(ValueError):
-            run(market, strategy="passive_ownership", benchmark="buy_hold")
-        with self.assertRaises(ValueError):
-            run(market, strategy="passive_ownership", targets=targets)
-        with self.assertRaises(ValueError):
-            run(
-                market,
-                strategy="passive_ownership",
-                policy_factory=lambda _market, _config: object(),
-            )
+    def test_adapter_signature_has_no_conflicting_decision_source_inputs(self):
+        import inspect
+
+        parameters = inspect.signature(self.passive()).parameters
+        self.assertNotIn("benchmark", parameters)
+        self.assertNotIn("targets", parameters)
+        self.assertNotIn("policy_factory", parameters)
 
 
 if __name__ == "__main__":
