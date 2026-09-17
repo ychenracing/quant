@@ -1,0 +1,58 @@
+name: Apply recovery completion invariant
+
+on:
+  push:
+    branches: [feat/dynamic-relative-risk-ownership]
+    paths: [.github/workflows/apply-recovery-completion.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    env:
+      PYTHONPATH: src:tests:.
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install exact candidate source
+        run: python -m pip install -e .
+
+      - name: Repair recovery-stage progression
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          source = Path("src/techquant/risk_ownership.py")
+          text = source.read_text(encoding="utf-8")
+          old = """        if not protection_reached or risk_active:\n"""
+          new = """        waiting_for_protection_fill = (\n            self._recovery_stage == 0 and not protection_reached\n        )\n        if waiting_for_protection_fill or risk_active:\n"""
+          if text.count(old) != 1:
+              raise SystemExit("recovery progression anchor mismatch")
+          source.write_text(text.replace(old, new), encoding="utf-8")
+          PY
+
+          git diff --check
+          python -m py_compile src/techquant/risk_ownership.py
+          python -m unittest \
+            tests.test_risk_ownership.RiskAwareOwnershipTests.test_recovery_requires_new_evidence_and_completes_in_two_stages \
+            tests.test_risk_ownership.RiskAwareOwnershipTests.test_shock_protects_then_recovers_without_a_low_exposure_trap \
+            -v
+
+      - name: Commit verified source repair
+        run: |
+          set -euo pipefail
+          git config user.name "quant structural research"
+          git config user.email "quant-research@users.noreply.github.com"
+          git add -- src/techquant/risk_ownership.py
+          git commit -m "Complete staged ownership recovery"
+          git push origin HEAD:feat/dynamic-relative-risk-ownership
