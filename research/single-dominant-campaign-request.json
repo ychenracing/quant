@@ -1,0 +1,18 @@
+{
+  "family": "offensive_single_dominant_campaign",
+  "operation": "measure_and_evaluate",
+  "candidate_count": 2,
+  "data_sha256": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "registration_commit": "83742a09392da357616bf700a0ed15ca86251cca",
+  "source_git_blob": {
+    "research/offensive_single_dominant_campaign.py": "0784ee11bf5b787581da957ec9827e91f66aa1e0",
+    "research/test_offensive_single_dominant_campaign.py": "329e94144572ebb3a628ffab6c3b43d663411ec2",
+    "research/offensive_single_dominant_campaign_study.py": "db3e8555d6865e56c76cb8127a0499e2c56138c5",
+    "research/offensive_single_dominant_campaign_contract.json": "efe2557dcff8a6102e72a4b10f851f936502d84f",
+    ".github/workflows/single-dominant-campaign-study.yml": "65fc7fa90122609d24f69414bf2a112187cd6185",
+    "research/offensive_campaign_peak_authority.py": "13cb2c47b278a90d034b237e30cce8f740c64213"
+  },
+  "request": "Run the preregistered campaign-peak champion versus single-dominant-campaign treatment through 2025-12-31 on union, common-five and joint optical-leader removal. The enabled treatment changes only the deep offensive capacity from two funded campaign slots to exactly one; discovery score, entry/exit predicates, campaign-peak authority, fresh-challenger provenance, alpha-decay displacement, actual-cash funding and execution remain unchanged. Select only if mean(log terminal wealth) strictly exceeds the campaign-peak champion and minimum terminal wealth does not decrease. If selected, immediately evaluate the exact same source-bound treatment through all 896 frozen sessions. Record MDD, orders, turnover, fees, slippage and exposure but do not use them as alpha-discovery rejection gates. Do not retry capacities 2/3/4 or any neighboring position-count architecture after observing this result.",
+  "parameter_search": false,
+  "status": "REQUESTED_SOURCE_BOUND_HOSTED_CANONICAL"
+}
