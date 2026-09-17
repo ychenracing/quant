@@ -188,15 +188,20 @@ class RiskAwareOwnershipPolicy:
     ) -> tuple[list[str], bool, bool, float]:
         i = close.session
         account, drawdown = self._account_acceleration(close)
-        channels = {
+        market_channels = {
             "TREND": bool(self.trend_damage[i]),
             "BREADTH": bool(self.breadth_damage[i]),
             "VOLATILITY": bool(self.volatility_damage[i]),
-            "ACCOUNT_ACCELERATION": account,
         }
-        active = [name for name, enabled in channels.items() if enabled]
-        defensive = len(active) >= 2
-        crisis = bool(self.market_shock[i] and len(active) >= 1)
+        active_market = [
+            name for name, enabled in market_channels.items() if enabled
+        ]
+        active = active_market + (["ACCOUNT_ACCELERATION"] if account else [])
+        # Market structure must confirm the event independently. Account loss is
+        # path-dependent severity evidence, not a second vote for the same price
+        # shock and never establishes protection by itself.
+        defensive = len(active_market) >= 2
+        crisis = bool(defensive and (self.market_shock[i] or account))
         return active, defensive, crisis, drawdown
 
     def _quantize_toward(

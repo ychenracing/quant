@@ -242,7 +242,7 @@ def main() -> int:
                         reasons.str.contains("ACUTE_HOLDING_DAMAGE:", regex=False).sum()
                     ),
                     "funded_recovery_completions": int(
-                        reasons.str.contains("FUNDED_RECOVERY_COMPLETE:", regex=False).sum()
+                        reasons.str.contains("FUNDED_RECOVERY_COMPLETE", regex=False).sum()
                     ),
                     "minimum_exposure": float(candidate.equity.exposure.min()),
                     "final_exposure": float(candidate.equity.exposure.iloc[-1]),

@@ -119,6 +119,25 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         self.assertNotIn("DEFENSIVE", states)
         self.assertEqual(states[-1], "OPEN")
 
+    def test_account_loss_cannot_confirm_a_market_shock(self):
+        market = sample_market(2, 20)
+        policy = RiskAwareOwnershipPolicy(market, Config())
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        units = np.zeros(2)
+        policy.decide(direct_observation(policy, 0, units, units, nav=100.0))
+        policy.market_shock[1] = True
+
+        decision = policy.decide(
+            direct_observation(policy, 1, units, units, nav=80.0)
+        )
+
+        self.assertEqual(policy.state, "CAUTION")
+        self.assertIn("SHOCK,ACCOUNT_ACCELERATION", decision.reason)
+        self.assertNotIn("SYSTEMIC_PROTECTION", decision.reason)
+
     def test_persistent_risk_reuses_one_absolute_protection_goal(self):
         market = sample_market(2, 40)
         policy = RiskAwareOwnershipPolicy(market, Config())
@@ -155,6 +174,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         policy.market_shock[:] = False
         policy.market_shock[10] = True
         policy.trend_damage[10] = True
+        policy.breadth_damage[10] = True
         policy.strength[10] = np.array([3.0, 2.0, -3.0])
         units = np.full(3, 10_000.0)
 
@@ -261,6 +281,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         policy.market_shock[:] = False
         policy.market_shock[0] = True
         policy.trend_damage[0] = True
+        policy.breadth_damage[0] = True
         units = np.array([150.0])
         decision = policy.decide(
             direct_observation(policy, 0, units, units)
