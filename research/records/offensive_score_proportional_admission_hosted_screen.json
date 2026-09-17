@@ -1,0 +1,14 @@
+{
+  "family": "offensive_score_proportional_admission",
+  "source_commit": "b6f9d6a42114e6ad2e52cca0a6881b8d3f50ba15",
+  "hosted_run": 35167885594,
+  "status": "REJECTED_VS_CURRENT_ALPHA_CHAMPION",
+  "economic_acceptance": "NOT_ESTABLISHED",
+  "selection_window": ["2023-01-03", "2025-12-31"],
+  "current_champion": {"mean_log": 1.6493183795493607, "minimum": 1.5949459430753048, "wealth": {"union": 6.343988713554001, "chatgpt_5": 13.923911154976224, "joint_optical_leader_removal": 1.5949459430753048}},
+  "treatment": {"mean_log": 1.508524773941873, "minimum": 1.1843703955437908, "wealth": {"union": 6.599965826153858, "chatgpt_5": 11.814156656610132, "joint_optical_leader_removal": 1.1843703955437908}},
+  "multi_fill_events": {"union": 7, "chatgpt_5": 5, "joint_optical_leader_removal": 10},
+  "decision": "Direct causal-score magnitude is not a reliable capital-weight signal. Proportional admission slightly improves union but materially reduces common-five and leader-removal wealth. Do not search score exponents, temperatures or fixed weight ratios.",
+  "next_direction": "Refine the current campaign-peak displacement authority itself: protect an incumbent at its funded peak only when it is also the stronger currently funded campaign, instead of protecting any weaker secondary campaign merely because it is at a local peak.",
+  "evidence_readback": "Dedicated hosted workflow completed TDD, source-bound measurement, artifact upload, research/evidence append and remote SHA read-back successfully."
+}
