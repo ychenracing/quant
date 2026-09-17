@@ -16,7 +16,7 @@ import pandas as pd
 
 from .config import Config
 from .data import Market
-from .execution import daily_limit, fee, round_quantity
+from .execution import daily_limit, fee, is_material_order, round_quantity
 from .features import build_features
 from .policy import CloseObservation, ClosePolicy, OwnershipIntent
 from .strategy import RiskState, target_weights
@@ -129,7 +129,9 @@ def run(market: Market, config: Config | None = None, *,
                         continue
                     # The signal generator handles bands; executable materiality is
                     # only 1% NAV. A zero-target protective exit is never filtered.
-                    if not protective and abs(delta) < opening_nav * .01:
+                    if not protective and not is_material_order(
+                        abs(delta), opening_nav
+                    ):
                         continue
                     order = {'date': date, 'signal_date': str(market.calendar[signal_i].date()),
                              'symbol': symbol, 'side': side, 'status': 'BLOCKED',
@@ -173,7 +175,9 @@ def run(market: Market, config: Config | None = None, *,
                     # request below the ordinary floor. Check the executable
                     # opening notional, on the same pre-cost NAV basis as above.
                     # Deliberate protective reductions keep their existing exemption.
-                    if not protective and quantity * op[i, j] < opening_nav * .01:
+                    if not protective and not is_material_order(
+                        float(quantity * op[i, j]), opening_nav
+                    ):
                         order['reason'] = 'BELOW_MINIMUM_NOTIONAL'
                         orders.append(order)
                         continue

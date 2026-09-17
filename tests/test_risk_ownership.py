@@ -224,6 +224,34 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         self.assertEqual(policy.state, "OPEN")
         self.assertIn("FUNDED_RECOVERY_COMPLETE", completed.reason)
 
+    def test_below_material_recovery_residual_completes_episode(self):
+        market = sample_market(1, 20)
+        policy = RiskAwareOwnershipPolicy(market, Config())
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        owned = np.array([2_000.0])
+        units = np.array([1_900.0])
+        policy._episode_level = 2
+        policy._recovery_stage = 2
+        policy._episode_base_units = owned.copy()
+        policy._protection_goal = np.array([1_200.0])
+
+        completed = policy.decide(
+            direct_observation(
+                policy,
+                10,
+                units,
+                owned,
+                nav=1_000_000.0,
+            )
+        )
+
+        self.assertEqual(policy.state, "OPEN")
+        self.assertIn("FUNDED_RECOVERY_COMPLETE", completed.reason)
+        np.testing.assert_allclose(completed.unit_targets, owned)
+
     def test_sub_lot_partial_reduction_is_not_retried_forever(self):
         market = sample_market(1, 20)
         policy = RiskAwareOwnershipPolicy(market, Config())

@@ -19,7 +19,7 @@ import pandas as pd
 from .config import Config
 from .data import Market, file_hash
 from .engine import Result, run
-from .execution import round_quantity
+from .execution import is_material_order, round_quantity
 from .policy import CloseDecision, CloseObservation
 
 
@@ -351,8 +351,25 @@ class RiskAwareOwnershipPolicy:
         affordable = self._cash_funded_desired(
             close, self._episode_base_units
         )
-        return self._executable_goal_reached(
+        executable = self._quantize_toward(
             close.units, affordable, close.session
+        )
+        delta = executable - close.units
+        # Recovery sells remain urgent and must finish even below the ordinary
+        # floor. Residual buys that the shared engine would reject as immaterial
+        # cannot keep an episode open forever.
+        if (delta < -1e-8).any():
+            return False
+        marks = np.where(
+            np.isfinite(self.price[close.session]),
+            self.price[close.session],
+            0.0,
+        )
+        buy_notionals = np.maximum(delta, 0.0) * marks
+        return not any(
+            is_material_order(float(notional), close.nav)
+            for notional in buy_notionals
+            if notional > 1e-8
         )
 
     def _clear_episode(self, reasons: list[str]) -> None:
