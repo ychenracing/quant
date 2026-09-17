@@ -48,8 +48,8 @@ jobs:
           echo "8074d6b2df248c3cf5bf5c96fdeef5ef1274a1cde0bb2fb3756ce1ab56583d19  research/transport/return-preservation.patch.gz" | sha256sum -c -
           gzip -dc research/transport/return-preservation.patch.gz > "$RUNNER_TEMP/return-preservation.patch"
           echo "76557e97f347c3eaaf5de75ef9ae06e3b39f6b83184fa8855b5b3c649739812c  $RUNNER_TEMP/return-preservation.patch" | sha256sum -c -
-          git apply --check "$RUNNER_TEMP/return-preservation.patch"
-          git apply "$RUNNER_TEMP/return-preservation.patch"
+          git apply -p0 --check "$RUNNER_TEMP/return-preservation.patch"
+          git apply -p0 "$RUNNER_TEMP/return-preservation.patch"
           git rm -- .github/workflows/apply-return-preservation.yml research/transport/return-preservation.patch.gz
           git diff --check
 
