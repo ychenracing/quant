@@ -1,0 +1,22 @@
+{
+  "target": "src/techquant/risk_ownership.py",
+  "parts": [
+    "part-00.txt",
+    "part-01.txt",
+    "part-02.txt",
+    "part-03.txt",
+    "part-04.txt",
+    "part-05.txt",
+    "part-06.txt",
+    "part-07.txt",
+    "part-08.txt",
+    "part-09.txt",
+    "part-10.txt",
+    "part-11.txt",
+    "part-12.txt",
+    "part-13.txt"
+  ],
+  "source_sha256": "04b23751e72a8e5a44eb6267e2b25f5f01133527af673f9a32ee6225ce6305d0",
+  "chars": 21210,
+  "newline": true
+}
