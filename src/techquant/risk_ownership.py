@@ -401,7 +401,9 @@ class RiskAwareOwnershipPolicy:
             close.units, self._protection_goal, close.session, close.nav
         )
         self._protect_sessions += 1
-        risk_active = defensive or crisis
+        # Classic cash follows confirmed crisis only. Lingering defensive
+        # tape after shock/account clears must not pin a rebound in cash.
+        risk_active = crisis
         if self._extended_hold:
             # Stay in cash while the shock cluster is still live. A fixed
             # session count expired into July and bought the crash.
