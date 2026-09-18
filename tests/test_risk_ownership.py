@@ -182,7 +182,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
                 np.testing.assert_allclose(decision.unit_targets, first_goal)
         self.assertIsNotNone(first_goal)
 
-    def test_same_cap_retains_stronger_holdings_before_weak_ones(self):
+    def test_confirmed_crisis_can_raise_full_cash(self):
         market = sample_market(3, 40)
         policy = RiskAwareOwnershipPolicy(market, Config())
         policy.trend_damage[:] = False
@@ -199,14 +199,8 @@ class RiskAwareOwnershipTests(unittest.TestCase):
             direct_observation(policy, 10, units, units)
         )
 
-        np.testing.assert_allclose(decision.unit_targets[:2], units[:2])
-        self.assertLess(decision.unit_targets[2], units[2] * 0.75)
-        exposure = float(decision.weights.sum())
-        account_value = float((units * policy.price[10]).sum())
-        one_lot_residual = float(policy.raw_close[10].max() * 100.0 / account_value)
-        self.assertGreaterEqual(exposure, 0.90)
-        self.assertLess(exposure - 0.90, one_lot_residual + 1e-10)
-        self.assertAlmostEqual(decision.cap, exposure)
+        self.assertLess(float(decision.weights.sum()), 0.05)
+        self.assertTrue((decision.unit_targets <= 1e-10).all())
         self.assertIn("SELECTIVE_SYSTEMIC_PROTECTION", decision.reason)
 
     def test_confirmed_risk_clear_restores_full_ownership(self):
@@ -348,8 +342,8 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         decision = policy.decide(
             direct_observation(policy, 0, units, units)
         )
-        np.testing.assert_allclose(decision.unit_targets, units)
-        self.assertIn("NO_EXECUTABLE_LOT", decision.reason)
+        np.testing.assert_allclose(decision.unit_targets, np.zeros(1))
+        self.assertIn("SELECTIVE_SYSTEMIC_PROTECTION", decision.reason)
 
     def test_shock_protects_then_recovers_without_a_low_exposure_trap(self):
         market = shock_market()
@@ -378,13 +372,50 @@ class RiskAwareOwnershipTests(unittest.TestCase):
             prefix.orders,
         )
 
-    def test_parameters_are_frozen_to_selected_core_structure(self):
-        self.assertEqual(RiskOwnershipParameters().core_fraction, 0.90)
+    def test_finished_late_cluster_does_not_restart_on_same_lookback(self):
+        market = sample_market(2, 850)
+        policy = RiskAwareOwnershipPolicy(market, Config())
+        policy.trend_damage[:] = False
+        policy.breadth_damage[:] = False
+        policy.volatility_damage[:] = False
+        policy.market_shock[:] = False
+        policy._first_nav = 1.0
+        policy._peak_nav = 20.0
+        policy.market_shock[828] = True
+        policy.market_shock[829] = True
+        owned = np.full(2, 2_000.0)
+        units = owned.copy()
+        started = policy.decide(
+            direct_observation(policy, 829, units, owned, nav=20.0)
+        )
+        self.assertTrue(policy._episode_active)
+        self.assertTrue(policy._extended_hold)
+        self.assertIn("SELECTIVE_SYSTEMIC_PROTECTION", started.reason)
+        units = started.unit_targets.copy()
+        for session in range(830, 845):
+            decision = policy.decide(
+                direct_observation(policy, session, units, owned, nav=20.0)
+            )
+            units = decision.unit_targets.copy()
+        self.assertFalse(policy._episode_active)
+        self.assertEqual(policy.state, "OPEN")
+        still_clustered = policy.decide(
+            direct_observation(policy, 845, units, owned, nav=20.0)
+        )
+        self.assertFalse(policy._episode_active)
+        self.assertNotIn("SELECTIVE_SYSTEMIC_PROTECTION", still_clustered.reason)
+
+    def test_parameters_accept_a_global_cash_core(self):
+        self.assertEqual(RiskOwnershipParameters().core_fraction, 0.0)
+        self.assertEqual(
+            RiskOwnershipParameters(core_fraction=0.0).core_fraction,
+            0.0,
+        )
         self.assertEqual(
             RiskOwnershipParameters(core_fraction=0.90).core_fraction,
             0.90,
         )
-        for value in (0.50, 0.70, 0.80, 0.95, 1.0, float("nan")):
+        for value in (-0.01, 1.01, float("nan")):
             with self.subTest(invalid=value), self.assertRaises(ValueError):
                 RiskOwnershipParameters(core_fraction=value)
 
