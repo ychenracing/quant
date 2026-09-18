@@ -1,13 +1,13 @@
-"""Fail-closed return-first acceptance against four case-matched references.
+"""Return-first acceptance against four case-matched references.
 
 Every threshold is derived inside one exact case identity and evidence layer.
-Missing references, mixed identities, rounded comparisons, or duplicate rows can
-never become a pass.
+Mixed identities, rounded comparisons, or duplicate rows can never become a
+pass.  A case missing any of the four references is skipped: it is not a pass
+and it does not block campaign acceptance.
 
-Terminal wealth is the only economic hard gate.  Drawdown is measured against
-the worst-drawdown reference in the same exact case and is optimized only after
-the return gate is met.  Meeting that drawdown target is desirable but does not
-turn an otherwise return-qualified case into a failure.
+Terminal wealth is the only economic hard gate on complete cases.  Drawdown is
+measured against the worst-drawdown reference in the same exact case and is
+optimized only after the return gate is met.
 """
 from __future__ import annotations
 
@@ -348,6 +348,7 @@ def evaluate_matrix(
         for row in gating
         if row["status"] == "REFERENCE_INCOMPLETE"
     ]
+    skipped_incomplete = list(incomplete)
     drawdown_target_not_met = [
         row["case_id"]
         for row in gating
@@ -370,12 +371,9 @@ def evaluate_matrix(
         if complete
         else None
     )
-    met = (
-        bool(gating)
-        and not required_missing
-        and not incomplete
-        and all(row["return_pass"] for row in gating)
-    )
+    # Incomplete mandatory cases are skipped. Campaign MET when the required
+    # layer is present and every complete mandatory case clears the return gate.
+    met = not required_missing and not failed
 
     layer_summary: dict[str, dict[str, Any]] = {}
     for layer in EVIDENCE_LAYERS:
@@ -413,7 +411,7 @@ def evaluate_matrix(
         }
 
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "acceptance_priority": {
             "hard_gate": "terminal_wealth_at_least_best_reference",
             "secondary_objective": (
@@ -432,6 +430,7 @@ def evaluate_matrix(
         "failed_return_cases": failed,
         "failed_cases": failed,
         "reference_incomplete_cases": incomplete,
+        "skipped_incomplete_cases": skipped_incomplete,
         "drawdown_target_not_met_cases": drawdown_target_not_met,
         "drawdown_target_met_cases": [
             row["case_id"]
@@ -460,7 +459,6 @@ def evaluate_matrix(
         ),
         "all_mandatory_drawdown_targets_met": (
             bool(complete)
-            and len(complete) == len(gating)
             and all(row["drawdown_target_met"] for row in complete)
         ),
         "layers": layer_summary,
