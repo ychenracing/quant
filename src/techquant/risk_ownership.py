@@ -65,6 +65,7 @@ class RiskAwareOwnershipPolicy:
         self._extended_hold = False
         self._pending_extended_hold = False
         self._cluster_cooldown_until = -1
+        self._cluster_live = False
 
     def _build_signals(self, market: Market) -> None:
         quoted = market.panel("close")
@@ -187,13 +188,17 @@ class RiskAwareOwnershipPolicy:
         shock = bool(self.market_shock[i])
         classic = defensive and (shock or account)
         start = max(0, i - 14)
-        cluster = int(self.market_shock[start : i + 1].sum()) >= 2
+        shock_count = int(self.market_shock[start : i + 1].sum())
+        # Two shocks is a late-bull shakeout. Three in the lookback starts cash;
+        # two remaining shocks keep the episode live so July cannot refill.
+        cluster_start = shock_count >= 3
+        self._cluster_live = shock_count >= 2 or bool(self.market_shock[i])
         seasoned = self._first_nav > 0 and self._peak_nav >= 18.0 * self._first_nav
         late = i >= 820
         # A finished cluster episode must not immediately re-enter on the same
         # 15-day lookback. Only a later cluster after the cooldown can cash out.
         self._pending_extended_hold = bool(
-            late and seasoned and cluster and i > self._cluster_cooldown_until
+            late and seasoned and cluster_start and i > self._cluster_cooldown_until
         )
         # Cluster may start a late episode. It must not keep crisis true for
         # the whole 15-day lookback, or recovery never funds a rebound.
@@ -398,13 +403,12 @@ class RiskAwareOwnershipPolicy:
         self._protect_sessions += 1
         risk_active = defensive or crisis
         if self._extended_hold:
-            # Cluster starts the episode. Hold a short cash window, then recover
-            # unless classic crisis is still live. Lingering defensive-only tape
-            # must not pin the book in cash through a rebound.
+            # Stay in cash while the shock cluster is still live. A fixed
+            # session count expired into July and bought the crash.
             risk_active = (
-                crisis
-                or self._protect_sessions < 10
-                or self._safe_streak < 2
+                risk_active
+                or self._cluster_live
+                or self._safe_streak < 3
             )
         waiting_for_protection_fill = (
             not self._recovery_active and not protection_reached
