@@ -1,1 +1,35 @@
-placeholder-will-fail-if-this-ships
+"""Return-first systemic protection over engine-owned passive ownership.
+
+Confirmed crisis risk can reduce ownership all the way to cash. After the book
+has already compounded, a tight shock cluster can raise cash without a frozen
+calendar date. Non-crisis damage still only freezes new ownership. Once risk
+clears, remembered ownership is restored immediately. Shared execution remains
+the sole owner of cash, fills, costs and constraints.
+"""
+from __future__ import annotations
+
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+import pandas as pd
+
+from .config import Config
+from .data import Market, file_hash
+from .engine import Result, run
+from .execution import is_material_order, round_quantity
+from .policy import CloseDecision, CloseObservation
+
+
+@dataclass(frozen=True)
+class RiskOwnershipParameters:
+    """Pre-registered coarse structure; no per-case or date-specific controls."""
+
+    core_fraction: float = 0.0
+
+    def __post_init__(self) -> None:
+        value = float(self.core_fraction)
+        if value != value or value < 0.0 or value > 1.0:
+            raise ValueError("core_fraction must be a finite value in [0, 1]")
+        object.__setattr__(self, "core_fraction", value)
