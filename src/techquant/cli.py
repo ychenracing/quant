@@ -9,7 +9,7 @@ import sys
 from .config import Config
 from .data import Market, load_market
 from .engine import Result, run
-from .passive import run_passive_ownership
+from .risk_ownership import run_risk_aware_ownership
 from .evidence import metrics, save_result, verify_evidence
 
 
@@ -32,13 +32,13 @@ def _load_production_config(path: Path) -> Config:
     unknown = set(raw) - _PRODUCTION_CONFIG_FIELDS
     if unknown:
         raise ValueError(
-            "passive production config does not use: " + ", ".join(sorted(unknown))
+            "production config does not use: " + ", ".join(sorted(unknown))
         )
     return Config(**raw)
 
 
 def inspection_report(market: Market, result: Result, names: dict) -> dict:
-    """Explain the passive replay book without pretending it is a broker account."""
+    """Explain the production replay book without pretending it is a broker account."""
     units = {symbol: 0.0 for symbol in market.symbols}
     last_fill = {symbol: None for symbol in market.symbols}
     last_block = {symbol: None for symbol in market.symbols}
@@ -73,7 +73,7 @@ def inspection_report(market: Market, result: Result, names: dict) -> dict:
                          "blocked_reason": _BLOCK_REASON_TEXT.get(block["reason"], block["reason"]) if block_is_current else None})
         elif current_weight > 1e-10:
             action = "HOLD"
-            explanation = "继续持有；默认策略不主动卖出、不主动调仓"
+            explanation = "继续持有；风险保护仅在确认危机或晚段冲击簇时减仓"
             holds.append({"symbol": symbol, "name": names.get(symbol, symbol),
                           "model_value": current_value})
         else:
@@ -91,7 +91,7 @@ def inspection_report(market: Market, result: Result, names: dict) -> dict:
     max_drawdown = float((1 - result.equity.nav / peak).max())
     return {
         "status": "RETURN_FIRST_PRODUCTION_MODE",
-        "strategy": "passive_ownership",
+        "strategy": "risk_aware_ownership",
         "asof": str(result.equity.index[-1].date()),
         "earliest_action": "下一经过核验的交易日；仅供人工复核，不生成券商订单",
         "cash_balance": float(last.cash), "model_nav": float(last.nav),
@@ -100,8 +100,8 @@ def inspection_report(market: Market, result: Result, names: dict) -> dict:
         "securities": rows,
         "risk": {
             "max_drawdown_in_replay": max_drawdown,
-            "active_risk_control": False,
-            "disclosure": "当前收益优先生产模式不主动止损、择时卖出或调仓；风险指标继续披露但不作为当前晋级阻塞。",
+            "active_risk_control": True,
+            "disclosure": "生产默认是风险感知持仓：确认危机或晚段冲击簇可降到现金，风险清除后恢复记住的持仓。",
         },
         "warning": "回放使用复权经济单位，不等于真实股数或真实账户；执行前必须人工核对资金、持仓、公司行动、停牌、涨跌停和可卖数量。",
     }
@@ -149,7 +149,7 @@ def main(argv: list[str] | None = None) -> int:
                 market = market.subset(symbols)
                 benchmark = getattr(a, 'benchmark', None)
                 if benchmark is None:
-                    result = run_passive_ownership(market, cfg, start=a.start, end=a.end)
+                    result = run_risk_aware_ownership(market, cfg, start=a.start, end=a.end)
                 else:
                     result = run(market, cfg, start=a.start, end=a.end, benchmark=benchmark)
                 if a.command == 'backtest':
@@ -160,7 +160,7 @@ def main(argv: list[str] | None = None) -> int:
                                 'execution_config': {k: getattr(cfg, k) for k in sorted(_PRODUCTION_CONFIG_FIELDS)}}
                 else:
                     if benchmark is not None:
-                        raise ValueError('inspect is for the default passive production path; benchmark is not accepted')
+                        raise ValueError('inspect is for the default production path; benchmark is not accepted')
                     response = inspection_report(market, result, catalog.get('names', {}))
         print(json.dumps(response, ensure_ascii=False, indent=2, allow_nan=False))
         return 0
