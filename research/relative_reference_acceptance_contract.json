@@ -3,7 +3,7 @@
   "contract_id": "dynamic_relative_reference_acceptance",
   "frozen_at": "2026-09-17",
   "revised_at": "2026-09-18",
-  "revision_authority": "User explicitly replaced the prior joint return-and-drawdown hard gate, then authorized skipping mandatory cases whose four references are incomplete instead of treating REFERENCE_INCOMPLETE as a campaign blocker.",
+  "revision_authority": "User explicitly replaced the prior joint return-and-drawdown hard gate, then authorized skipping mandatory cases whose four references are incomplete instead of treating REFERENCE_INCOMPLETE as a campaign blocker. User authorized merge and production default switch to risk_aware_ownership on 2026-09-18.",
   "source_main_sha": "b0902e8abd360e2702ae350f4ccba3a696bcb71f",
   "candidate_identity": {
     "requirement": "ONE_GLOBAL_PRODUCTION_CANDIDATE",
@@ -110,11 +110,13 @@
     "core_case_exclusion_forbidden": true
   },
   "production_gate": {
-    "default_behavior_unchanged_until_met": true,
+    "default_behavior_unchanged_until_met": false,
     "economic_acceptance_required": "MET",
     "economic_acceptance_definition": "Every mandatory complete case meets the return hard gate. Mandatory cases with incomplete references are skipped and do not keep acceptance NOT_MET.",
     "drawdown_target_not_met_requires_reporting_and_continued_optimization_but_does_not_by_itself_block_merge": true,
     "repository_checks_required": true,
-    "failed_return_candidate_merge_forbidden": true
+    "failed_return_candidate_merge_forbidden": true,
+    "production_default": "risk_aware_ownership",
+    "switch_authority": "User: 要合，切生产 [2026-09-18]"
   }
 }
