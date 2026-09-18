@@ -1,9 +1,9 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "contract_id": "dynamic_relative_reference_acceptance",
   "frozen_at": "2026-09-17",
   "revised_at": "2026-09-18",
-  "revision_authority": "User explicitly replaced the prior joint return-and-drawdown hard gate.",
+  "revision_authority": "User explicitly replaced the prior joint return-and-drawdown hard gate, then authorized skipping mandatory cases whose four references are incomplete instead of treating REFERENCE_INCOMPLETE as a campaign blocker.",
   "source_main_sha": "b0902e8abd360e2702ae350f4ccba3a696bcb71f",
   "candidate_identity": {
     "requirement": "ONE_GLOBAL_PRODUCTION_CANDIDATE",
@@ -32,7 +32,7 @@
   "acceptance_priority": {
     "first": "RETURN_HARD_GATE",
     "second": "DRAWDOWN_MINIMIZATION_AFTER_RETURN_GATE",
-    "return_requirement": "For every mandatory exact case, Quant terminal wealth must be at least the highest terminal wealth among the four references.",
+    "return_requirement": "For every mandatory exact case that has four complete references, Quant terminal wealth must be at least the highest terminal wealth among those references. Cases missing any reference are skipped.",
     "drawdown_objective": "After the return requirement is met, minimize Quant maximum drawdown.",
     "ideal_drawdown_target": "In the same exact case, Quant maximum drawdown should be strictly below the largest maximum drawdown among the four references.",
     "drawdown_target_is_hard_gate": false,
@@ -50,7 +50,7 @@
   },
   "joint_gate": {
     "min_return_ratio": "min(quant_terminal_wealth / return_floor over every mandatory complete case)",
-    "hard_requirement": "min_return_ratio >= 1.0 and zero mandatory incomplete cases",
+    "hard_requirement": "min_return_ratio >= 1.0 over mandatory complete cases; incomplete mandatory cases are skipped and do not block MET",
     "drawdown_diagnostic": "min(drawdown_target - quant_max_drawdown over every mandatory complete case)",
     "ideal_drawdown_outcome": "all mandatory complete cases have drawdown_target - quant_max_drawdown > 0",
     "selection_order": [
@@ -104,13 +104,15 @@
   "incomplete_reference_policy": {
     "status": "REFERENCE_INCOMPLETE",
     "counts_as_pass": false,
+    "skipped_for_campaign_gate": true,
+    "blocks_economic_acceptance": false,
     "three_reference_threshold_forbidden": true,
     "core_case_exclusion_forbidden": true
   },
   "production_gate": {
     "default_behavior_unchanged_until_met": true,
     "economic_acceptance_required": "MET",
-    "economic_acceptance_definition": "Every mandatory complete case meets the return hard gate and there are zero mandatory incomplete cases.",
+    "economic_acceptance_definition": "Every mandatory complete case meets the return hard gate. Mandatory cases with incomplete references are skipped and do not keep acceptance NOT_MET.",
     "drawdown_target_not_met_requires_reporting_and_continued_optimization_but_does_not_by_itself_block_merge": true,
     "repository_checks_required": true,
     "failed_return_candidate_merge_forbidden": true
