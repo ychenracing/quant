@@ -373,7 +373,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         )
 
     def test_finished_late_cluster_does_not_restart_on_same_lookback(self):
-        market = sample_market(2, 850)
+        market = sample_market(2, 870)
         policy = RiskAwareOwnershipPolicy(market, Config())
         policy.trend_damage[:] = False
         policy.breadth_damage[:] = False
@@ -381,6 +381,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         policy.market_shock[:] = False
         policy._first_nav = 1.0
         policy._peak_nav = 20.0
+        policy.market_shock[827] = True
         policy.market_shock[828] = True
         policy.market_shock[829] = True
         owned = np.full(2, 2_000.0)
@@ -392,7 +393,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         self.assertTrue(policy._extended_hold)
         self.assertIn("SELECTIVE_SYSTEMIC_PROTECTION", started.reason)
         units = started.unit_targets.copy()
-        for session in range(830, 845):
+        for session in range(830, 860):
             decision = policy.decide(
                 direct_observation(policy, session, units, owned, nav=20.0)
             )
@@ -400,7 +401,7 @@ class RiskAwareOwnershipTests(unittest.TestCase):
         self.assertFalse(policy._episode_active)
         self.assertEqual(policy.state, "OPEN")
         still_clustered = policy.decide(
-            direct_observation(policy, 845, units, owned, nav=20.0)
+            direct_observation(policy, 860, units, owned, nav=20.0)
         )
         self.assertFalse(policy._episode_active)
         self.assertNotIn("SELECTIVE_SYSTEMIC_PROTECTION", still_clustered.reason)
