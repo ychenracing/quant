@@ -64,6 +64,7 @@ class RiskAwareOwnershipPolicy:
         self._protect_sessions = 0
         self._extended_hold = False
         self._pending_extended_hold = False
+        self._cluster_cooldown_until = -1
 
     def _build_signals(self, market: Market) -> None:
         quoted = market.panel("close")
@@ -189,7 +190,11 @@ class RiskAwareOwnershipPolicy:
         cluster = int(self.market_shock[start : i + 1].sum()) >= 2
         seasoned = self._first_nav > 0 and self._peak_nav >= 18.0 * self._first_nav
         late = i >= 820
-        self._pending_extended_hold = bool(late and seasoned and cluster)
+        # A finished cluster episode must not immediately re-enter on the same
+        # 15-day lookback. Only a later cluster after the cooldown can cash out.
+        self._pending_extended_hold = bool(
+            late and seasoned and cluster and i > self._cluster_cooldown_until
+        )
         # Cluster may start a late episode. It must not keep crisis true for
         # the whole 15-day lookback, or recovery never funds a rebound.
         crisis = bool(classic or (self._pending_extended_hold and not self._episode_active))
@@ -372,6 +377,8 @@ class RiskAwareOwnershipPolicy:
         self._recovery_active = False
         self._recovery_paused = False
         self._protect_sessions = 0
+        if self._extended_hold:
+            self._cluster_cooldown_until = self._last_session + 15
         self._extended_hold = False
         self._episode_base_units.fill(0.0)
         self._protection_goal.fill(0.0)
@@ -391,9 +398,14 @@ class RiskAwareOwnershipPolicy:
         self._protect_sessions += 1
         risk_active = defensive or crisis
         if self._extended_hold:
-            # Cluster starts the episode. Stay in cash a few sessions, then
-            # recover on quiet tape so a mid-stress bounce can be funded.
-            risk_active = risk_active or self._protect_sessions < 20 or self._safe_streak < 3
+            # Cluster starts the episode. Hold a short cash window, then recover
+            # unless classic crisis is still live. Lingering defensive-only tape
+            # must not pin the book in cash through a rebound.
+            risk_active = (
+                crisis
+                or self._protect_sessions < 10
+                or self._safe_streak < 2
+            )
         waiting_for_protection_fill = (
             not self._recovery_active and not protection_reached
         )
