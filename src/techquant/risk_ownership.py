@@ -1,1 +1,1 @@
-placeholder-will-be-replaced
+"""Return-first systemic protection over engine-owned passive ownership.\n\nConfirmed crisis risk can reduce ownership all the way to cash. After the book\nhas already compounded, a tight shock cluster can raise cash without a frozen\ncalendar date. Non-crisis damage still only freezes new ownership. Once risk\nclears, remembered ownership is restored immediately. Shared execution remains\nthe sole owner of cash, fills, costs and constraints.\n"""\n
