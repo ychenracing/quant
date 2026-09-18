@@ -13,6 +13,43 @@ import numpy as np
 
 
 @dataclass(frozen=True)
+class OwnershipIntent:
+    """Read-only passive intent owned by the shared execution engine.
+
+    ``units`` remembers every unit acquired from the original per-symbol cash
+    sleeve, even when a protection policy temporarily sells some of it.
+    ``remaining_budget`` preserves the unspent sleeve across IPO waiting,
+    blocked fills and capacity limits.  A policy can observe this state, but it
+    cannot create units or spend the budget itself.
+    """
+
+    units: np.ndarray
+    weights: np.ndarray
+    remaining_budget: np.ndarray
+
+    @classmethod
+    def from_state(cls, nav: float, units: np.ndarray, prices: np.ndarray,
+                   remaining_budget: np.ndarray) -> OwnershipIntent:
+        inventory = np.asarray(units, dtype=float).copy()
+        marks = np.asarray(prices, dtype=float)
+        budget = np.asarray(remaining_budget, dtype=float).copy()
+        if (inventory.ndim != 1 or marks.shape != inventory.shape
+                or budget.shape != inventory.shape or not np.isfinite(nav)
+                or nav <= 0 or not np.isfinite(inventory).all()
+                or not np.isfinite(budget).all() or (inventory < 0).any()
+                or (budget < 0).any()
+                or ((inventory > 0) & (~np.isfinite(marks) | (marks <= 0))).any()):
+            raise ValueError('ownership intent requires finite nonnegative engine state')
+        values = np.zeros_like(inventory)
+        np.multiply(inventory, marks, out=values, where=inventory > 0)
+        allocation = values / nav
+        inventory.setflags(write=False)
+        allocation.setflags(write=False)
+        budget.setflags(write=False)
+        return cls(inventory, allocation, budget)
+
+
+@dataclass(frozen=True)
 class CloseObservation:
     session: int
     date: str
@@ -20,16 +57,18 @@ class CloseObservation:
     cash: float
     units: np.ndarray
     weights: np.ndarray
+    ownership: OwnershipIntent | None = None
 
     @classmethod
     def from_inventory(cls, session: int, date: str, nav: float, cash: float,
-                       units: np.ndarray, weights: np.ndarray) -> CloseObservation:
+                       units: np.ndarray, weights: np.ndarray,
+                       ownership: OwnershipIntent | None = None) -> CloseObservation:
         # Copies prevent accidental mutation of the ledger, including via an
         # ndarray view. Read-only flags catch most such errors at their source.
         inventory, allocation = units.copy(), weights.copy()
         inventory.setflags(write=False)
         allocation.setflags(write=False)
-        return cls(session, date, nav, cash, inventory, allocation)
+        return cls(session, date, nav, cash, inventory, allocation, ownership)
 
 
 @dataclass(frozen=True)
@@ -38,6 +77,8 @@ class CloseDecision:
     reason: str
     cap: float = 1.
     unit_targets: np.ndarray | None = None
+    allow_new_ownership: bool = False
+    defer_protective_sell_on_open_rebound: bool = False
 
     def validated_weights(self, size: int) -> np.ndarray:
         result = np.asarray(self.weights, dtype=float)
@@ -50,6 +91,18 @@ class CloseDecision:
             raise ValueError('policy decision needs an explicit reason')
         return result.copy()
 
+    def validated_ownership_control(self) -> bool:
+        if type(self.allow_new_ownership) is not bool:
+            raise ValueError('allow_new_ownership must be boolean')
+        return self.allow_new_ownership
+
+    def validated_open_rebound_control(self) -> bool:
+        value = self.defer_protective_sell_on_open_rebound
+        if type(value) is not bool:
+            raise ValueError(
+                'defer_protective_sell_on_open_rebound must be boolean'
+            )
+        return value
 
     def validated_unit_targets(self, prices: np.ndarray, nav: float) -> np.ndarray | None:
         """Validate optional fixed inventory against the same close allocation.

@@ -1,0 +1,24 @@
+{
+  "purpose": "Preserve frozen research archives before Actions artifact expiry 2026-09-20",
+  "request": "research/run-request.json",
+  "files": {
+    "market.zip": {
+      "sha256": "5703ef1236a965c2e60a0c7c282103a6103653d25e3d7e4b2434eae4f8855d7c",
+      "bytes": 2378833,
+      "artifact_id": 10318889257
+    },
+    "supplement.zip": {
+      "sha256": "9b9b68599db36f18cf2605f39f7edf73e9c69e37c78b97cdca538ba56ac19e37",
+      "bytes": 21164,
+      "artifact_id": 10319594260
+    },
+    "indices.zip": {
+      "sha256": "063094b85294a4f74d7094c2d22099932af550265e34d104f9fc589ce565d2be",
+      "bytes": 74427,
+      "artifact_id": 10319728602
+    }
+  },
+  "data_fingerprint": "d9ded1d933f292933aa09145bc36a5696421c43dbf266fce018a34ef0b9f3f9b",
+  "runtime": {"numpy": "2.2.3", "pandas": "2.2.3"},
+  "local_copy": "artifacts/archives"
+}

@@ -71,6 +71,99 @@ def write_json(path: Path, value):
                                allow_nan=False) + '\n', encoding='utf-8')
 
 
+def native_input_frame(frame: pd.DataFrame, calendar: pd.DatetimeIndex,
+                       reference: str) -> pd.DataFrame:
+    """Adapt labels only; never invent native-reference price observations.
+
+    WorkBuddy's native engine treats NaN bars as unavailable and leaves the
+    corresponding sleeve in cash, but its panel builder intersects index labels
+    before that logic. Reindexing to the frozen requested calendar exposes the
+    already-native missing-bar behavior while preserving every observed value.
+    """
+    result = frame[['open', 'high', 'low', 'close', 'volume']].copy()
+    result['amount'] = frame.raw_close * frame.volume
+    if reference == 'workbuddy':
+        result = result.reindex(calendar)
+    return result
+
+
+def install_chatgpt_semantic_noop_optimizations(native) -> dict[str, object]:
+    """Remove repeated pure work without changing frozen policy semantics.
+
+    The native ensemble asks for the same pure allocation score up to three
+    times per sleeve/session. It also computes those scores for empty pending
+    queues and when no new symbol requires portfolio admission. Cache only the
+    exact same data-map object/session result and bypass only branches whose
+    original score collection is provably unused.
+    """
+    sleeve_class = native.SleeveBacktestEngine
+    ensemble_class = native.BacktestEngine
+    original_scores = sleeve_class._allocation_scores
+    original_execute = sleeve_class._execute_pending_signals
+    original_authorize = ensemble_class._authorize_portfolio_buys
+
+    def cached_scores(self, data_map, date):
+        key = (id(data_map), pd.Timestamp(date).value)
+        cached = getattr(self, '_native_harness_score_cache', None)
+        if cached is not None and cached[0] == key:
+            return cached[1]
+        result = original_scores(self, data_map, date)
+        self._native_harness_score_cache = (key, result)
+        return result
+
+    def execute_without_empty_score(
+        self, pending, data_map, date, date_to_pos, directions=None
+    ):
+        if not pending:
+            return []
+        return original_execute(
+            self, pending, data_map, date, date_to_pos, directions
+        )
+
+    def authorize_without_empty_ranking(self, states, date):
+        held = self._held_portfolio_symbols(states)
+        maximum = int(self.cfg['max_positions'])
+        if len(held) > maximum:
+            raise RuntimeError('portfolio symbol limit was already exceeded')
+        has_new_candidate = any(
+            signal.direction == 'buy'
+            and signal.symbol not in held
+            and signal.symbol in state.data_map
+            and date in state.data_map[signal.symbol].index
+            for state in states
+            for signal, _ in state.pending
+        )
+        if has_new_candidate:
+            return original_authorize(self, states, date)
+
+        allowed = held
+        date_str = date.strftime('%Y-%m-%d')
+        for state in states:
+            retained = []
+            for signal, strategy in state.pending:
+                if signal.direction == 'buy' and signal.symbol not in allowed:
+                    state.sleeve._record_order_event(
+                        date=date_str,
+                        signal=signal,
+                        event='rejected_portfolio_symbol_limit',
+                        portfolio_max_positions=maximum,
+                    )
+                    continue
+                retained.append((signal, strategy))
+            state.pending = retained
+        return None
+
+    sleeve_class._allocation_scores = cached_scores
+    sleeve_class._execute_pending_signals = execute_without_empty_score
+    ensemble_class._authorize_portfolio_buys = authorize_without_empty_ranking
+    return {
+        'kind': 'semantic_noop_runtime_optimization',
+        'allocation_score_cache': 'same sleeve data_map identity and session only',
+        'empty_pending_bypass': True,
+        'empty_new_candidate_ranking_bypass': True,
+    }
+
+
 def main() -> int:
     started = time.monotonic()
     p = argparse.ArgumentParser(description=__doc__)
@@ -81,12 +174,13 @@ def main() -> int:
     p.add_argument('--indices', type=Path, help='frozen native-reference index CSV directory')
     p.add_argument('--catalog', type=Path, default=Path(__file__).with_name('catalog.json'))
     p.add_argument('--pool', required=True)
+    p.add_argument('--symbols', nargs='+', help='override catalog pool universe')
     p.add_argument('--end', default='2026-09-11')
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
     a.output.mkdir(parents=True, exist_ok=False)
     catalog = json.loads(a.catalog.read_text())
-    symbols = catalog['pools'][a.pool]
+    symbols = list(a.symbols) if a.symbols else catalog['pools'][a.pool]
     names = {s[2:]: catalog['names'][s] for s in symbols}
     market = load_market(a.data, supplement=a.supplement, sectors=catalog['sectors']).prefix(a.end)
     reference = a.reference_root / DIRECTORIES[a.reference]
@@ -110,10 +204,8 @@ def main() -> int:
     try:
         with tempfile.TemporaryDirectory(prefix='native-input-') as tmp, (a.output / 'native.log').open('w') as log:
             folder = Path(tmp)
-            # Both identifier forms are input adapters only. Prices are not rewritten.
             for symbol, frame in market.frames.items():
-                f = frame[['open', 'high', 'low', 'close', 'volume']].copy()
-                f['amount'] = frame.raw_close * frame.volume
+                f = native_input_frame(frame, market.calendar, a.reference)
                 for code in (symbol, symbol[2:], symbol[2:] + '_' + catalog['names'][symbol]):
                     f.to_csv(folder / f'{code}.csv', index_label='date')
             for symbol in ('sh000300', 'sh000682', 'sz399808'):
@@ -126,6 +218,10 @@ def main() -> int:
             with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
                 if a.reference == 'chatgpt':
                     native = module('quant_fusion', reference / 'quant_fusion.py')
+                    identity['harness_optimization'] = (
+                        install_chatgpt_semantic_noop_optimizations(native)
+                    )
+                    write_json(a.output / 'identity.json', identity)
                     log.write('IMPORT_FINISHED\n'); log.flush()
                     engine = native.BacktestEngine(2_000_000.)
                     result = engine.run(names, '2023-01-03', a.end, data_dir=str(folder), indicator_state='cold')
@@ -178,7 +274,6 @@ def main() -> int:
                     curve = result.equity_curve
                     frame = pd.DataFrame({'assets': curve})
                     trades = result.trades.to_dict('records')
-                    # Signal-only diagnostic, not a normalized replay of embedded native risk.
                     weights.to_csv(a.output / 'pre_execution_signal_weights.csv')
                     result.weights.to_csv(a.output / 'native_position_weights.csv')
             curve.index = pd.DatetimeIndex(curve.index)

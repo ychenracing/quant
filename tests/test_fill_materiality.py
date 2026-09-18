@@ -89,6 +89,52 @@ class FillMaterialityTests(unittest.TestCase):
         pd.testing.assert_frame_equal(result.equity.loc[:cut], short.equity)
         self.assertEqual([o for o in result.orders if o['date'] <= str(cut.date())], short.orders)
 
+    def test_ownership_partial_protection_uses_ordinary_materiality_floor(self):
+        market = constant_market(days=28)
+        prices = market.panel("close").to_numpy()
+        from techquant.policy import CloseDecision
+
+        class SmallOwnershipTrim:
+            def __init__(self, market, config):
+                pass
+
+            def decide(self, observation):
+                ownership = observation.ownership
+                if observation.session == 0:
+                    units = ownership.units
+                    allow_new = True
+                elif observation.session >= 2:
+                    # Half of one percent of NAV: deliberate but uneconomic.
+                    reduction = 0.005 * observation.nav / prices[observation.session]
+                    units = np.maximum(0.0, ownership.units - reduction)
+                    allow_new = False
+                else:
+                    units = observation.units
+                    allow_new = False
+                weights = units * prices[observation.session] / observation.nav
+                return CloseDecision(
+                    weights,
+                    "SMALL_OWNERSHIP_TRIM",
+                    unit_targets=units,
+                    allow_new_ownership=allow_new,
+                )
+
+            def identity(self):
+                return {"name": "small_ownership_trim"}
+
+        result = run(
+            market,
+            policy_factory=SmallOwnershipTrim,
+            ownership_mode=True,
+            cost_multiplier=0.0,
+        )
+        self.assertFalse(
+            any(
+                order["side"] == "SELL" and order["status"] == "FILLED"
+                for order in result.orders
+            )
+        )
+
     def test_protective_partial_exit_remains_exempt(self):
         market = constant_market(volume=100_000., days=28)
         symbol = market.symbols[0]

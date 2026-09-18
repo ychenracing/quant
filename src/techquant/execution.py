@@ -4,6 +4,22 @@ from __future__ import annotations
 import math
 
 
+MIN_ORDER_NAV_FRACTION = 0.01
+
+
+def is_material_order(notional: float, nav: float) -> bool:
+    """Return whether an ordinary order reaches the shared NAV floor."""
+
+    if (
+        not math.isfinite(notional)
+        or notional < 0
+        or not math.isfinite(nav)
+        or nav <= 0
+    ):
+        raise ValueError("order notional and NAV must be finite and valid")
+    return notional + 1e-8 >= nav * MIN_ORDER_NAV_FRACTION
+
+
 def stamp_rate(date: str) -> float:
     """Seller-only rate; the 2023-08-28 legal change is not an alpha date switch."""
     return .001 if date < '2023-08-28' else .0005

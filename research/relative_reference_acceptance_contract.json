@@ -1,0 +1,122 @@
+{
+  "schema_version": 3,
+  "contract_id": "dynamic_relative_reference_acceptance",
+  "frozen_at": "2026-09-17",
+  "revised_at": "2026-09-18",
+  "revision_authority": "User explicitly replaced the prior joint return-and-drawdown hard gate, then authorized skipping mandatory cases whose four references are incomplete instead of treating REFERENCE_INCOMPLETE as a campaign blocker. User authorized merge and production default switch to risk_aware_ownership on 2026-09-18.",
+  "source_main_sha": "b0902e8abd360e2702ae350f4ccba3a696bcb71f",
+  "candidate_identity": {
+    "requirement": "ONE_GLOBAL_PRODUCTION_CANDIDATE",
+    "same_code": true,
+    "same_strategy_structure": true,
+    "same_global_parameters": true,
+    "same_risk_logic": true,
+    "same_recovery_logic": true,
+    "same_default_entrypoint": true,
+    "per_case_switching_forbidden": true
+  },
+  "reference_names": [
+    "chatgpt",
+    "trae",
+    "dumate",
+    "workbuddy"
+  ],
+  "required_evidence_layers": [
+    "Native"
+  ],
+  "conditional_layers": {
+    "Corrected": "MANDATORY_ONLY_FOR_CASES_FROZEN_WITH_FOUR_COMPLETE_CORRECTED_REFERENCES_BEFORE_CANDIDATE_MEASUREMENT",
+    "Normalized": "MANDATORY_ONLY_FOR_CASES_FROZEN_WITH_FOUR_COMPLETE_NORMALIZED_REFERENCES_BEFORE_CANDIDATE_MEASUREMENT",
+    "Equivalent-execution": "MANDATORY_ONLY_FOR_CASES_FROZEN_WITH_FOUR_COMPLETE_EQUIVALENT_EXECUTION_REFERENCES_BEFORE_CANDIDATE_MEASUREMENT"
+  },
+  "acceptance_priority": {
+    "first": "RETURN_HARD_GATE",
+    "second": "DRAWDOWN_MINIMIZATION_AFTER_RETURN_GATE",
+    "return_requirement": "For every mandatory exact case that has four complete references, Quant terminal wealth must be at least the highest terminal wealth among those references. Cases missing any reference are skipped.",
+    "drawdown_objective": "After the return requirement is met, minimize Quant maximum drawdown.",
+    "ideal_drawdown_target": "In the same exact case, Quant maximum drawdown should be strictly below the largest maximum drawdown among the four references.",
+    "drawdown_target_is_hard_gate": false,
+    "drawdown_target_is_merge_blocking": false
+  },
+  "thresholds": {
+    "return_floor": "max(reference_terminal_wealth for the four references in the exact case)",
+    "drawdown_target": "max(reference_max_drawdown for the four references in the exact case)",
+    "return_pass": "quant_terminal_wealth >= return_floor",
+    "drawdown_target_met": "quant_max_drawdown < drawdown_target",
+    "case_pass": "return_pass",
+    "rounding_forbidden": true,
+    "cross_case_compensation_forbidden_for_return": true,
+    "drawdown_is_reported_for_every_case": true
+  },
+  "joint_gate": {
+    "min_return_ratio": "min(quant_terminal_wealth / return_floor over every mandatory complete case)",
+    "hard_requirement": "min_return_ratio >= 1.0 over mandatory complete cases; incomplete mandatory cases are skipped and do not block MET",
+    "drawdown_diagnostic": "min(drawdown_target - quant_max_drawdown over every mandatory complete case)",
+    "ideal_drawdown_outcome": "all mandatory complete cases have drawdown_target - quant_max_drawdown > 0",
+    "selection_order": [
+      "maximize min_return_ratio",
+      "among candidates with min_return_ratio >= 1.0, maximize min_drawdown_margin",
+      "then compare median return advantage, median drawdown advantage, cost, turnover and stability",
+      "prefer the simplest fully integrated candidate when economics are otherwise equivalent"
+    ],
+    "internal_safety_targets": {
+      "min_return_ratio": 1.02,
+      "min_drawdown_margin_nonbinding": 0.01
+    }
+  },
+  "case_identity_fields": [
+    "evidence_layer",
+    "data_sha256",
+    "universe_and_order",
+    "start_date",
+    "end_date",
+    "account_start_semantics",
+    "initial_cash",
+    "initial_positions",
+    "seed",
+    "costs",
+    "slippage",
+    "delay",
+    "capacity",
+    "board_lot",
+    "tradability_rules",
+    "corporate_action_semantics",
+    "runner",
+    "reference_source_sha",
+    "runtime_identity"
+  ],
+  "selection_period": [
+    "2023-01-03",
+    "2025-12-31"
+  ],
+  "final_evaluation_period": [
+    "2026-01-01",
+    "2026-09-11"
+  ],
+  "case_registry": "research/relative_reference_case_matrix.json",
+  "non_excludable_core_groups": [
+    "common_five",
+    "union_34",
+    "reference_original_universes",
+    "joint_optical_leader_removal",
+    "key_pressure_windows"
+  ],
+  "incomplete_reference_policy": {
+    "status": "REFERENCE_INCOMPLETE",
+    "counts_as_pass": false,
+    "skipped_for_campaign_gate": true,
+    "blocks_economic_acceptance": false,
+    "three_reference_threshold_forbidden": true,
+    "core_case_exclusion_forbidden": true
+  },
+  "production_gate": {
+    "default_behavior_unchanged_until_met": false,
+    "economic_acceptance_required": "MET",
+    "economic_acceptance_definition": "Every mandatory complete case meets the return hard gate. Mandatory cases with incomplete references are skipped and do not keep acceptance NOT_MET.",
+    "drawdown_target_not_met_requires_reporting_and_continued_optimization_but_does_not_by_itself_block_merge": true,
+    "repository_checks_required": true,
+    "failed_return_candidate_merge_forbidden": true,
+    "production_default": "risk_aware_ownership",
+    "switch_authority": "User: 要合，切生产 [2026-09-18]"
+  }
+}

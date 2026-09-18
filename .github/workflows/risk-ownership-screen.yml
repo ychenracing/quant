@@ -1,0 +1,157 @@
+name: Bounded risk ownership screen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [feat/dynamic-relative-risk-ownership]
+    paths:
+      - .github/workflows/risk-ownership-screen.yml
+      - research/risk_ownership_screen.py
+      - research/risk_ownership_screen_contract.json
+      - research/run-request.json
+      - research/catalog.json
+      - src/techquant/engine.py
+      - src/techquant/policy.py
+      - src/techquant/risk_ownership.py
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: bounded-risk-ownership-screen
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONPATH: src:tests:.
+      QUANT_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install the exact candidate source
+        run: python -m pip install -e .
+
+      - name: Restore hash-bound frozen inputs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/archives" "$RUNNER_TEMP/inputs"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+
+          request = json.loads(Path("research/run-request.json").read_text())
+          destination = Path(os.environ["RUNNER_TEMP"]) / "archives"
+          for name, record in request["archives"].items():
+              with (destination / f"{name}.zip").open("wb") as stream:
+                  subprocess.run(
+                      [
+                          "gh",
+                          "api",
+                          "repos/ychenracing/quant/actions/artifacts/"
+                          + str(record["artifact_id"])
+                          + "/zip",
+                      ],
+                      stdout=stream,
+                      check=True,
+                  )
+          PY
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          from research.reproduce import restore_archives
+
+          root = Path(os.environ["RUNNER_TEMP"])
+          request = json.loads(Path("research/run-request.json").read_text())
+          restore_archives(root / "archives", request, root / "inputs")
+          PY
+
+      - name: Measure only the preregistered selection window
+        run: |
+          set -euo pipefail
+          python -m research.risk_ownership_screen \
+            --data "$RUNNER_TEMP/inputs/market" \
+            --supplement "$RUNNER_TEMP/inputs/supplement" \
+            --output "$RUNNER_TEMP/screen" \
+            > "$RUNNER_TEMP/screen.log" 2>&1
+
+      - name: Package complete reconstructable evidence
+        if: success()
+        run: |
+          set -euo pipefail
+          tar -C "$RUNNER_TEMP" -czf "$RUNNER_TEMP/risk-ownership-screen.tar.gz" screen
+          mkdir -p "$RUNNER_TEMP/publication"
+          sha256sum "$RUNNER_TEMP/risk-ownership-screen.tar.gz" \
+            > "$RUNNER_TEMP/publication/archive.sha256"
+          split -b 48M -d -a 3 \
+            "$RUNNER_TEMP/risk-ownership-screen.tar.gz" \
+            "$RUNNER_TEMP/publication/risk-ownership-screen.tar.gz.part-"
+          (
+            cd "$RUNNER_TEMP/publication"
+            sha256sum risk-ownership-screen.tar.gz.part-* > SHA256SUMS
+          )
+          cp "$RUNNER_TEMP/screen/identity.json" \
+             "$RUNNER_TEMP/screen/selection.json" \
+             "$RUNNER_TEMP/screen/summary.json" \
+             "$RUNNER_TEMP/screen/matrix.csv" \
+             "$RUNNER_TEMP/screen/MANIFEST.json" \
+             "$RUNNER_TEMP/screen.log" \
+             "$RUNNER_TEMP/publication/"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: risk-ownership-screen-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/publication/
+            ${{ runner.temp }}/screen/
+            ${{ runner.temp }}/screen.log
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Append complete evidence to the durable evidence branch
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          git clone --depth=1 --filter=blob:none --branch research/evidence \
+            "https://github.com/$GITHUB_REPOSITORY.git" "$RUNNER_TEMP/evidence-store"
+          cd "$RUNNER_TEMP/evidence-store"
+          destination="risk-ownership-screen/$GITHUB_SHA/$GITHUB_RUN_ID"
+          test ! -e "$destination"
+          mkdir -p "$destination"
+          cp -a "$RUNNER_TEMP/publication/." "$destination/"
+          printf '%s\n' \
+            "{\"source_commit\":\"$GITHUB_SHA\",\"run_id\":\"$GITHUB_RUN_ID\",\"path\":\"$destination\",\"status\":\"MEASURED_NOT_ACCEPTED\",\"production_default_changed\":false}" \
+            > "$destination/receipt.json"
+          git config user.name "quant research publisher"
+          git config user.email "quant-research@users.noreply.github.com"
+          git add -- "$destination"
+          git commit -m "research: preserve bounded risk ownership screen $GITHUB_SHA"
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:research/evidence; then
+              remote="$(git ls-remote origin refs/heads/research/evidence | cut -f1)"
+              test "$remote" = "$(git rev-parse HEAD)"
+              exit 0
+            fi
+            git fetch origin research/evidence
+            git rebase FETCH_HEAD
+          done
+          exit 1

@@ -1,0 +1,76 @@
+{
+  "schema_version": 4,
+  "purpose": "Pre-registered return-first verification of the selected risk-aware ownership mechanism; not the dynamic four-reference acceptance gate.",
+  "selection_window": {
+    "start": "2023-01-03",
+    "end": "2025-12-31"
+  },
+  "final_evaluation_window": {
+    "start": "2026-01-01",
+    "end": "2026-09-11",
+    "used_for_selection": false
+  },
+  "evidence_layer": "SAME_ENGINE_INTERNAL_PASSIVE_SCREEN",
+  "cases": [
+    {"case_id": "common_five", "catalog_pool": "chatgpt_5"},
+    {"case_id": "union_34", "catalog_pool": "union"},
+    {
+      "case_id": "remove_optical_leaders",
+      "derived_from": "union",
+      "remove": ["sz300308", "sz300502", "sz300394"]
+    },
+    {"case_id": "chatgpt_original", "catalog_pool": "chatgpt_22"},
+    {"case_id": "trae_original", "catalog_pool": "trae_24"},
+    {"case_id": "dumate_original", "catalog_pool": "dumate_18"},
+    {"case_id": "workbuddy_original", "catalog_pool": "workbuddy_e"}
+  ],
+  "parameters": {
+    "core_fraction": [0.0]
+  },
+  "risk_mechanism": {
+    "non_crisis_damage": "freeze new ownership without selling",
+    "protection_trigger": "at least two independent market-damage channels plus shock or account-loss acceleration",
+    "allocation": "retain holdings by descending causal trend strength and reduce the weakest holdings first",
+    "open_revalidation": "defer an individual protective sell when its next-session opening gap is positive; reassess at the next close",
+    "partial_trim_materiality": "ownership-mode partial reductions use the shared one-percent-of-NAV order floor; full exits remain urgent",
+    "recovery": "restore remembered ownership immediately after confirmed risk clears and executable protection is complete",
+    "future_data_used": false,
+    "case_identity_used": false
+  },
+  "selection_objective": [
+    "until the four-reference return gate can be computed, maximize the minimum candidate wealth divided by same-engine passive wealth",
+    "require drawdown improvement in all seven internal screen cases",
+    "after formal return qualification, optimize dynamic four-reference drawdown margin",
+    "then compare turnover, costs and stability",
+    "do not use the final-evaluation window for mechanism selection"
+  ],
+  "acceptance_relationship": {
+    "formal_return_hard_gate": "quant terminal wealth must reach the highest of the four references in every mandatory exact case",
+    "formal_drawdown_role": "secondary optimization objective after the return hard gate",
+    "ideal_drawdown_target": "strictly below the worst maximum drawdown among the four references in the same exact case",
+    "drawdown_target_is_merge_blocking": false
+  },
+  "implementation_identity": {
+    "source_commit": "4a7e0a3156ac45459b0c0e339ae8e499839deb5a",
+    "source_tree": "8d45ee7bc7188cd65067eef288ea6f03a715cf3b",
+    "integration_workflow_run": 35262186614,
+    "verification": {
+      "unittest_cases": 106,
+      "unittest_result": "PASS",
+      "compileall": "PASS",
+      "installed_cli": "PASS",
+      "transport_sha256_verified": true,
+      "transient_transport_files_removed": true
+    }
+  },
+  "limitations": [
+    "This internal screen cannot pass the dynamic relative contract because exact four-reference results remain incomplete.",
+    "The passive baseline is a same-engine diagnostic, not a substitute for the four read-only reference strategies.",
+    "The 2026 final-evaluation window is not read or used to choose this mechanism.",
+    "The selected mechanism remains research-only until every mandatory exact case has complete references and meets the return hard gate.",
+    "Drawdown remains mandatory to measure and optimize even though its ideal target is not the economic hard gate.",
+    "Backtest results do not guarantee future returns."
+  ],
+  "production_default_changed": false,
+  "measurement_status": "PENDING_EXACT_SOURCE_REMEASUREMENT"
+}

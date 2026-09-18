@@ -1,0 +1,123 @@
+name: Materialize frozen relative cases
+
+on:
+  push:
+    branches: [feat/dynamic-relative-risk-ownership]
+    paths:
+      - research/materialize_relative_cases.py
+      - tests/test_relative_case_materialization.py
+      - .github/workflows/materialize-relative-cases.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: materialize-relative-cases-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      PYTHONPATH: src:.
+      QUANT_CASE_MAP: ${{ github.workspace }}/frozen-input/case-map.json
+      QUANT_WINDOW_METRICS: ${{ github.workspace }}/frozen-input/passive-window-metrics.csv
+      QUANT_NATIVE_VERIFICATION: ${{ github.workspace }}/frozen-input/native-verification.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+
+      - name: Restore hash-pinned immutable evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p frozen-input
+          git fetch --no-tags --depth=1 origin \
+            refs/heads/research/evidence:refs/remotes/origin/research/evidence
+          evidence=refs/remotes/origin/research/evidence
+          root=passive-final-audit/7551af8af7506857c684b4cda79c885971ac8dd3/35179372337
+          git show "$evidence:$root/proof/case-map.json" > "$QUANT_CASE_MAP"
+          git show "$evidence:$root/proof/passive-window-metrics.csv" > "$QUANT_WINDOW_METRICS"
+          git show "$evidence:published/bbc002449093e458868a8748687df023958ba283/local-native/verification.json" \
+            > "$QUANT_NATIVE_VERIFICATION"
+          printf '%s  %s\n' \
+            ad464cf2212139c9b6c134dac71ebfb0147d9f7b4bc7fbcd5ffb373b653e5684 "$QUANT_CASE_MAP" \
+            fe6898043232d8c6befa15f1bbd04ca9ef996142dd3715990fb8feeacb276ed6 "$QUANT_WINDOW_METRICS" \
+            4228226d5d53b8d191634f51eb88db6dc923336755693bce79f139be9e088565 "$QUANT_NATIVE_VERIFICATION" \
+            | sha256sum --check --strict
+
+      - name: Verify materializer and dynamic acceptance
+        run: |
+          python -m unittest \
+            tests.test_relative_acceptance \
+            tests.test_relative_case_materialization -v
+
+      - name: Generate frozen matrix
+        run: |
+          python research/materialize_relative_cases.py \
+            --case-map "$QUANT_CASE_MAP" \
+            --window-metrics "$QUANT_WINDOW_METRICS" \
+            --native-verification "$QUANT_NATIVE_VERIFICATION" \
+            --output research/relative_reference_case_matrix.json
+
+      - name: Verify generated identity and summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          path = Path('research/relative_reference_case_matrix.json')
+          value = json.loads(path.read_text())
+          expected = {
+              'historical_registrations': 199,
+              'unique_base_identities': 179,
+              'collapsed_alias_registrations': 20,
+              'frozen_windows': 7,
+              'mandatory_exact_cases': 1253,
+              'historical_passive_seed_measured': 895,
+              'historical_passive_seed_pending': 358,
+              'reference_complete': 1,
+              'reference_incomplete': 1252,
+              'candidate_unmeasured': 1253,
+          }
+          for key, expected_value in expected.items():
+              actual = value['case_count'][key]
+              if actual != expected_value:
+                  raise SystemExit(f'{key}: {actual} != {expected_value}')
+          hashes = [case['case_identity_hash'] for case in value['cases']]
+          if len(hashes) != len(set(hashes)):
+              raise SystemExit('duplicate exact case identity')
+          print(json.dumps(value['case_count'], sort_keys=True))
+          print('matrix_sha256=' + hashlib.sha256(path.read_bytes()).hexdigest())
+          print('matrix_bytes=' + str(path.stat().st_size))
+          PY
+
+      - name: Commit deterministic matrix
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- research/relative_reference_case_matrix.json; then
+            echo 'matrix already current'
+            exit 0
+          fi
+          git config user.name 'quant evidence materializer'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- research/relative_reference_case_matrix.json
+          git commit -m 'Freeze exact dynamic relative case matrix'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: relative-case-matrix-${{ github.sha }}
+          path: research/relative_reference_case_matrix.json
+          retention-days: 90
+          if-no-files-found: error

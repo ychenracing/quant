@@ -1,0 +1,40 @@
+        index_ema60 = index.ewm(span=60, adjust=False).mean()
+
+        ema20 = price.ewm(span=20, adjust=False).mean()
+        ema60 = price.ewm(span=60, adjust=False).mean()
+        ready20 = active & active.cumsum().ge(20)
+        ready60 = active & active.cumsum().ge(60)
+        breadth20 = (
+            (ready20 & price.gt(ema20))
+            .sum(axis=1)
+            .div(ready20.sum(axis=1).replace(0, np.nan))
+            .fillna(0.0)
+        )
+        breadth60 = (
+            (ready60 & price.gt(ema60))
+            .sum(axis=1)
+            .div(ready60.sum(axis=1).replace(0, np.nan))
+            .fillna(0.0)
+        )
+        observed = returns.notna().sum(axis=1).replace(0, np.nan)
+        loss_fraction = returns.le(-0.04).sum(axis=1).div(observed).fillna(0.0)
+        negative = market_return.clip(upper=0.0)
+        downside_short = negative.pow(2).rolling(5, min_periods=3).mean().pow(0.5)
+        downside_long = negative.pow(2).rolling(40, min_periods=20).mean().pow(0.5)
+
+        index_ret3 = index.pct_change(3, fill_method=None).fillna(0.0)
+        index_ret5 = index.pct_change(5, fill_method=None).fillna(0.0)
+        index_ret10 = index.pct_change(10, fill_method=None).fillna(0.0)
+        breadth_change5 = breadth20 - breadth20.shift(5).fillna(breadth20)
+        ret20 = price.pct_change(20, fill_method=None)
+        symbol_volatility = returns.rolling(20, min_periods=10).std()
+        strength = (
+            price.div(ema60).sub(1.0)
+            + 0.5 * ema20.div(ema60).sub(1.0)
+            + 0.25 * ret20
+            - 0.5 * symbol_volatility
+        )
+
+        self.price = price.to_numpy(dtype=float, copy=True)
+        self.raw_close = raw.to_numpy(dtype=float, copy=True)
+        self.strength = (

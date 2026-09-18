@@ -16,9 +16,9 @@ import pandas as pd
 
 from .config import Config
 from .data import Market
-from .execution import daily_limit, fee, round_quantity
+from .execution import daily_limit, fee, is_material_order, round_quantity
 from .features import build_features
-from .policy import CloseObservation, ClosePolicy
+from .policy import CloseObservation, ClosePolicy, OwnershipIntent
 from .strategy import RiskState, target_weights
 
 
@@ -34,8 +34,13 @@ def run(market: Market, config: Config | None = None, *,
         start: str | None = None, end: str | None = None,
         targets: pd.DataFrame | None = None, delay: int = 1,
         cost_multiplier: float = 1., benchmark: str | None = None,
-        policy_factory: Callable[[Market, Config], ClosePolicy] | None = None) -> Result:
+        policy_factory: Callable[[Market, Config], ClosePolicy] | None = None,
+        ownership_mode: bool = False) -> Result:
     cfg = config or Config()
+    if type(ownership_mode) is not bool:
+        raise ValueError('ownership_mode must be boolean')
+    if ownership_mode and policy_factory is None:
+        raise ValueError('ownership mode requires a policy')
     if policy_factory is not None and (benchmark is not None or targets is not None):
         raise ValueError('choose one policy, benchmark or external targets')
     if isinstance(delay, bool) or not isinstance(delay, int) or delay < 1:
@@ -83,6 +88,9 @@ def run(market: Market, config: Config | None = None, *,
     actions = np.zeros_like(decisions, dtype=bool)
     urgent = np.zeros_like(decisions, dtype=bool)
     buy_hold_budget = np.full(len(names), cfg.initial_cash / len(names))
+    ownership_units = np.zeros(len(names))
+    ownership_acquisition = np.zeros(n, dtype=bool)
+    ownership_rebound_defer = np.zeros(n, dtype=bool)
     rows, orders, history = [], [], []
     risk = RiskState()
     last_cap = 0.
@@ -105,6 +113,13 @@ def run(market: Market, config: Config | None = None, *,
             if benchmark == 'buy_hold':
                 # Spend each original cash slice once; never sell to restore weights.
                 difference = buy_hold_budget.copy()
+            elif ownership_mode and ownership_acquisition[signal_i]:
+                # A policy can restore previously acquired units with a fixed
+                # unit target.  Only the engine may additionally spend the
+                # untouched original sleeve, and never while reducing that name.
+                acquisition = buy_hold_budget.copy()
+                acquisition[difference < -1e-7] = 0.
+                difference += acquisition
             difference[~actions[signal_i]] = 0.
             # Sells first. Stable symbol order ensures replay/subset order invariance.
             for side in ('SELL', 'BUY'):
@@ -113,9 +128,16 @@ def run(market: Market, config: Config | None = None, *,
                     protective = side == 'SELL' and (pending[j] == 0 or urgent[signal_i, j]) and units[j] > 1e-10
                     if (side == 'SELL' and delta >= -1e-7) or (side == 'BUY' and delta <= 1e-7):
                         continue
-                    # The signal generator handles bands; executable materiality is
-                    # only 1% NAV. A zero-target protective exit is never filtered.
-                    if not protective and abs(delta) < opening_nav * .01:
+                    # Full protective exits remain urgent. Ownership-mode
+                    # partial trims use the ordinary 1% NAV floor so small
+                    # event noise cannot create disproportionate turnover.
+                    full_protective_exit = protective and pending[j] == 0
+                    materiality_exempt = protective and (
+                        not ownership_mode or full_protective_exit
+                    )
+                    if not materiality_exempt and not is_material_order(
+                        abs(delta), opening_nav
+                    ):
                         continue
                     order = {'date': date, 'signal_date': str(market.calendar[signal_i].date()),
                              'symbol': symbol, 'side': side, 'status': 'BLOCKED',
@@ -126,6 +148,17 @@ def run(market: Market, config: Config | None = None, *,
                         orders.append(order)
                         continue
                     gap = op[i, j] / prev_close[i, j] - 1 if np.isfinite(prev_close[i, j]) else 0.
+                    if (
+                        protective
+                        and ownership_rebound_defer[signal_i]
+                        and gap > 0
+                    ):
+                        # A positive next-session opening gap is new causal
+                        # information contradicting the stale protective sale.
+                        # Defer this leg; persistent close-time damage is retried.
+                        order['reason'] = 'OPEN_REBOUND_DEFER'
+                        orders.append(order)
+                        continue
                     limit = daily_limit(symbol) - .002
                     if (side == 'BUY' and gap >= limit) or (side == 'SELL' and gap <= -limit):
                         order['reason'] = 'OPEN_LIMIT'
@@ -156,14 +189,25 @@ def run(market: Market, config: Config | None = None, *,
                         orders.append(order)
                         continue
                     # Capacity, board lots and remaining cash can shrink a large
-                    # request below the ordinary floor. Check the executable
-                    # opening notional, on the same pre-cost NAV basis as above.
-                    # Deliberate protective reductions keep their existing exemption.
-                    if not protective and quantity * op[i, j] < opening_nav * .01:
+                    # request below the ordinary floor. Recheck the executable
+                    # opening notional using the same exemption decision.
+                    if not materiality_exempt and not is_material_order(
+                        float(quantity * op[i, j]), opening_nav
+                    ):
                         order['reason'] = 'BELOW_MINIMUM_NOTIONAL'
                         orders.append(order)
                         continue
                     direction = 1 if side == 'BUY' else -1
+                    units_before = float(units[j])
+                    restore_quantity = 0.
+                    if ownership_mode and side == 'BUY':
+                        restore_quantity = max(
+                            0.,
+                            min(
+                                float(unit_decisions[signal_i, j] - units_before),
+                                float(ownership_units[j] - units_before),
+                            ),
+                        )
                     slipped = op[i, j] * (1 + direction * cfg.slippage_bps / 10_000 * cost_multiplier)
                     if slipped <= 0:
                         raise ValueError('stress assumptions imply nonpositive execution price')
@@ -177,6 +221,19 @@ def run(market: Market, config: Config | None = None, *,
                         units[j] = 0.
                     if benchmark == 'buy_hold' and side == 'BUY':
                         buy_hold_budget[j] = max(0., buy_hold_budget[j] - notional - charge)
+                    elif ownership_mode and side == 'BUY':
+                        restored = min(float(quantity), restore_quantity)
+                        acquired = float(quantity) - restored
+                        if acquired > 1e-10:
+                            if not ownership_acquisition[signal_i]:
+                                raise AssertionError('ownership units can only come from engine budget')
+                            ownership_units[j] += acquired
+                            acquisition_share = acquired / float(quantity)
+                            buy_hold_budget[j] = max(
+                                0.,
+                                buy_hold_budget[j]
+                                - (notional + charge) * acquisition_share,
+                            )
                     order.update(status='FILLED', reason='NEXT_OPEN', units=float(quantity),
                                  raw_quantity_equivalent=float(raw_quantity), notional=float(notional),
                                  fee=float(charge), slippage=float(abs(slipped - op[i, j]) * quantity))
@@ -188,10 +245,49 @@ def run(market: Market, config: Config | None = None, *,
         history.append(nav)
         weights = holdings / nav
         if active_policy is not None:
-            observation = CloseObservation.from_inventory(i, date, nav, float(cash), units, weights)
+            ownership = None
+            if ownership_mode:
+                if (units > ownership_units + 1e-8).any():
+                    raise AssertionError('actual inventory exceeded engine-owned ownership')
+                ownership = OwnershipIntent.from_state(
+                    nav, ownership_units, close[i], buy_hold_budget,
+                )
+            observation = CloseObservation.from_inventory(
+                i, date, nav, float(cash), units, weights, ownership,
+            )
             decision = active_policy.decide(observation)
-            decisions[i] = decision.validated_weights(len(names))
+            policy_weights = decision.validated_weights(len(names))
+            decisions[i] = policy_weights
             requested_units = decision.validated_unit_targets(close[i], nav)
+            ownership_action = None
+            ownership_urgent = None
+            if ownership_mode:
+                if requested_units is None:
+                    raise ValueError('ownership mode requires fixed unit targets')
+                if (requested_units > ownership_units + 1e-8).any():
+                    raise ValueError('policy target exceeds engine-owned ownership units')
+                allow_acquisition = decision.validated_ownership_control()
+                ownership_rebound_defer[i] = (
+                    decision.validated_open_rebound_control()
+                )
+                if allow_acquisition and abs(float(decision.cap) - 1.) > 1e-10:
+                    raise ValueError('new ownership funding requires the full OPEN cap')
+                if allow_acquisition and (requested_units < units - 1e-10).any():
+                    raise ValueError('new ownership cannot be acquired while reducing inventory')
+                ownership_acquisition[i] = allow_acquisition
+                desired = np.zeros(len(names))
+                if allow_acquisition:
+                    available = np.isfinite(op[i]) & np.isfinite(qclose.iloc[i].to_numpy())
+                    desired = np.where(available, buy_hold_budget / nav, 0.)
+                    budget = max(0., float(decision.cap) - policy_weights.sum())
+                    if desired.sum() > budget:
+                        desired *= budget / desired.sum()
+                    decisions[i] += desired
+                ownership_action = (
+                    (np.abs(requested_units - units) > 1e-10)
+                    | (desired > 1e-10)
+                )
+                ownership_urgent = requested_units < units - 1e-10
             if requested_units is not None:
                 inventory_intent[i] = True
                 unit_decisions[i] = requested_units
@@ -223,10 +319,15 @@ def run(market: Market, config: Config | None = None, *,
                                                      risk_reduction=cap < last_cap - 1e-10,
                                                      risk_restoration=cap > last_cap + 1e-10)
             reason = '|'.join([reason, *why])
-        actions[i] = np.abs(decisions[i] - weights) > 1e-10
+        if active_policy is not None and ownership_mode:
+            actions[i] = ownership_action
+            urgent[i] = ownership_urgent
+        else:
+            actions[i] = np.abs(decisions[i] - weights) > 1e-10
         # A target reduction is deliberate, not noise: the policy already applies
         # its hysteresis. Keep risk reductions executable below ordinary materiality.
-        urgent[i] = decisions[i] < weights - 1e-10
+        if not (active_policy is not None and ownership_mode):
+            urgent[i] = decisions[i] < weights - 1e-10
         last_cap = cap
         rows.append({'date': market.calendar[i], 'nav': nav, 'cash': float(cash),
                      'holdings': float(holdings.sum()), 'exposure': float(weights.sum()),
@@ -238,6 +339,7 @@ def run(market: Market, config: Config | None = None, *,
                            'data_sha256': market.fingerprint(), 'source': source_identity(),
                            'provenance': market.provenance, 'delay': delay,
                            'cost_multiplier': cost_multiplier, 'benchmark': benchmark,
+                           'ownership_mode': ownership_mode,
                            'start': str(market.calendar[begin].date()), 'end': str(market.calendar[-1].date()),
                            'economic_acceptance': 'UNVERIFIED',
                            'accounting': 'adjusted economic units, not actual shares'})
