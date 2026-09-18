@@ -117,18 +117,35 @@ class RelativeAcceptanceTests(unittest.TestCase):
         self.assertFalse(failed_return["case_pass"])
         self.assertEqual(failed_return["status"], "FAIL_RETURN")
 
-    def test_reference_incomplete_is_never_a_pass(self):
+    def test_reference_incomplete_is_skipped_not_a_pass(self):
         value = record()
         del value["references"]["dumate"]
         row = evaluate_case(value)
         self.assertEqual(row["status"], "REFERENCE_INCOMPLETE")
+        self.assertFalse(row["case_pass"])
         self.assertEqual(row["missing_references"], ["dumate"])
         result = evaluate_matrix([value])
-        self.assertEqual(result["economic_acceptance"], "NOT_MET")
+        self.assertEqual(result["economic_acceptance"], "MET")
         self.assertEqual(
             result["reference_incomplete_cases"],
             ["case-a"],
         )
+        self.assertEqual(
+            result["skipped_incomplete_cases"],
+            ["case-a"],
+        )
+        self.assertEqual(result["failed_return_cases"], [])
+
+    def test_incomplete_does_not_hide_a_complete_return_failure(self):
+        incomplete = record()
+        incomplete["case_id"] = "missing-ref"
+        del incomplete["references"]["dumate"]
+        failing = record(quant=(3.99, 0.10))
+        failing["case_id"] = "complete-miss"
+        result = evaluate_matrix([incomplete, failing])
+        self.assertEqual(result["economic_acceptance"], "NOT_MET")
+        self.assertEqual(result["failed_return_cases"], ["complete-miss"])
+        self.assertEqual(result["skipped_incomplete_cases"], ["missing-ref"])
 
     def test_layers_and_case_identities_cannot_be_mixed(self):
         value = record()
@@ -176,7 +193,7 @@ class RelativeAcceptanceTests(unittest.TestCase):
         self.assertEqual(result["economic_acceptance"], "NOT_MET")
         self.assertEqual(result["failed_return_cases"], ["weak"])
         self.assertEqual(result["failed_cases"], ["weak"])
-        self.assertEqual(result["weakest_return_case"], "weak")
+        self.assertEqual(result["weakest_return_case"], ["weak"])
         self.assertAlmostEqual(
             result["min_return_ratio"],
             3.99 / 4.0,
