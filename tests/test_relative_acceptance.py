@@ -193,7 +193,7 @@ class RelativeAcceptanceTests(unittest.TestCase):
         self.assertEqual(result["economic_acceptance"], "NOT_MET")
         self.assertEqual(result["failed_return_cases"], ["weak"])
         self.assertEqual(result["failed_cases"], ["weak"])
-        self.assertEqual(result["weakest_return_case"], ["weak"])
+        self.assertEqual(result["weakest_return_case"], "weak")
         self.assertAlmostEqual(
             result["min_return_ratio"],
             3.99 / 4.0,
