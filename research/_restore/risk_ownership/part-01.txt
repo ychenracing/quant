@@ -1,0 +1,40 @@
+    def __init__(
+        self,
+        market: Market,
+        config: Config,
+        parameters: RiskOwnershipParameters | None = None,
+    ):
+        self.market = market
+        self.config = config
+        self.parameters = parameters or RiskOwnershipParameters()
+        self._build_signals(market)
+
+        size = len(market.symbols)
+        self.state = "OPEN"
+        self._last_session = -1
+        self._episode_active = False
+        self._recovery_active = False
+        self._recovery_paused = False
+        self._episode_base_units = np.zeros(size)
+        self._protection_goal = np.zeros(size)
+        self._peak_nav = 0.0
+        self._first_nav = 0.0
+        self._nav_history: list[float] = []
+        self._safe_streak = 0
+        self._protect_sessions = 0
+        self._extended_hold = False
+        self._pending_extended_hold = False
+
+    def _build_signals(self, market: Market) -> None:
+        quoted = market.panel("close")
+        raw_close = market.panel("raw_close")
+        volume = market.panel("volume")
+        active = quoted.notna() & volume.gt(0)
+        price = quoted.ffill()
+        raw = raw_close.ffill()
+        returns = price.pct_change(fill_method=None).where(
+            active & active.shift(fill_value=False)
+        )
+        market_return = returns.mean(axis=1).fillna(0.0)
+        index = (1.0 + market_return).cumprod()
+        index_ema20 = index.ewm(span=20, adjust=False).mean()

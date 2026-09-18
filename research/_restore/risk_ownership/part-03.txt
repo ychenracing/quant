@@ -1,0 +1,40 @@
+            strength.replace([np.inf, -np.inf], np.nan)
+            .fillna(-np.inf)
+            .to_numpy(dtype=float, copy=True)
+        )
+        self.trend_damage = (
+            index.lt(index_ema60)
+            & index_ema20.lt(index_ema60)
+            & breadth60.lt(0.45)
+        ).to_numpy(dtype=bool, copy=True)
+        self.breadth_damage = (
+            breadth20.lt(0.35) & breadth_change5.le(-0.15)
+        ).to_numpy(dtype=bool, copy=True)
+        self.volatility_damage = (
+            downside_short.gt(np.maximum(0.012, 1.8 * downside_long))
+            & index_ret5.lt(0.0)
+        ).fillna(False).to_numpy(dtype=bool, copy=True)
+        self.market_shock = (
+            index_ret3.le(-0.08)
+            | index_ret10.le(-0.15)
+            | (loss_fraction.ge(0.55) & market_return.le(-0.025))
+        ).to_numpy(dtype=bool, copy=True)
+
+    def _nominal_cap(self) -> float:
+        return self.parameters.core_fraction if self._episode_active else 1.0
+
+    def _account_acceleration(self, close: CloseObservation) -> tuple[bool, float]:
+        if self._first_nav <= 0 and close.nav > 0:
+            self._first_nav = float(close.nav)
+        self._peak_nav = max(self._peak_nav, close.nav)
+        drawdown = 1.0 - close.nav / self._peak_nav if self._peak_nav else 0.0
+        day_loss = (
+            close.nav / self._nav_history[-1] - 1.0
+            if self._nav_history
+            else 0.0
+        )
+        loss5 = (
+            close.nav / self._nav_history[-5] - 1.0
+            if len(self._nav_history) >= 5
+            else 0.0
+        )
